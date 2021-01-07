@@ -16,10 +16,10 @@ import java.io.IOException;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    static final int f2140a = 480;
+    static final int f2141a = 480;
 
     /* renamed from: b  reason: collision with root package name */
-    static final int f2141b = 480;
+    static final int f2142b = 480;
     static final int c = 192;
     static final int d = 728;
     static final int e = 750;
@@ -65,32 +65,32 @@ public class e {
     private static Rect a(b bVar) {
         Rect rect = new Rect();
         if (b(bVar)) {
-            if (bVar.f2136a.left - bVar.f2137b.left < 0) {
+            if (bVar.f2137a.left - bVar.f2138b.left < 0) {
                 rect.left = 0;
             } else {
-                rect.left = (int) (((bVar.f2136a.left - bVar.f2137b.left) / bVar.f2137b.width()) * bVar.d);
+                rect.left = (int) (((bVar.f2137a.left - bVar.f2138b.left) / bVar.f2138b.width()) * bVar.d);
             }
-            if (bVar.f2136a.top > bVar.f2137b.top) {
+            if (bVar.f2137a.top > bVar.f2138b.top) {
                 rect.top = 0;
             } else {
-                rect.top = (int) (((bVar.f2137b.top - bVar.f2136a.top) / bVar.f2137b.height()) * bVar.c);
+                rect.top = (int) (((bVar.f2138b.top - bVar.f2137a.top) / bVar.f2138b.height()) * bVar.c);
             }
-            if (bVar.f2136a.right > bVar.f2137b.right) {
+            if (bVar.f2137a.right > bVar.f2138b.right) {
                 rect.right = bVar.d;
             } else {
-                rect.right = bVar.d - ((int) (((bVar.f2137b.right - bVar.f2136a.right) / bVar.f2137b.width()) * bVar.d));
+                rect.right = bVar.d - ((int) (((bVar.f2138b.right - bVar.f2137a.right) / bVar.f2138b.width()) * bVar.d));
             }
-            if (bVar.f2136a.bottom > bVar.f2137b.bottom) {
+            if (bVar.f2137a.bottom > bVar.f2138b.bottom) {
                 rect.bottom = bVar.c;
             } else {
-                rect.bottom = bVar.c - ((int) (((bVar.f2137b.bottom - bVar.f2136a.bottom) / bVar.f2137b.height()) * bVar.c));
+                rect.bottom = bVar.c - ((int) (((bVar.f2138b.bottom - bVar.f2137a.bottom) / bVar.f2138b.height()) * bVar.c));
             }
         }
         return rect;
     }
 
     private static boolean b(b bVar) {
-        return (bVar == null || bVar.f2136a == null || bVar.f2137b == null) ? false : true;
+        return (bVar == null || bVar.f2137a == null || bVar.f2138b == null) ? false : true;
     }
 
     public static boolean b(int[] iArr, b bVar) {

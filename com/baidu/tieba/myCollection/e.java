@@ -129,16 +129,16 @@ public class e {
             this.gkF.showToast(str);
         }
         if (aVar != null) {
-            if (aVar.djy() != 0 || z || aVar.getCount() <= 0) {
+            if (aVar.djz() != 0 || z || aVar.getCount() <= 0) {
             }
-            if (aVar.djy() < 20) {
+            if (aVar.djz() < 20) {
                 this.ltE.setHasMore(false);
                 this.ltE.tX(true);
             } else {
                 this.ltE.setHasMore(true);
                 this.ltE.tX(true);
             }
-            this.ltE.setData(aVar.djx());
+            this.ltE.setData(aVar.djy());
             a(aVar, z);
         }
         this.ltE.setRefreshing(false);
@@ -167,7 +167,7 @@ public class e {
         this.mNoDataView.setVisibility(0);
     }
 
-    public void djt() {
+    public void dju() {
         if (this.mNoDataView.isShown()) {
             this.mNoDataView.e(this.gkF.getPageContext());
         }
@@ -179,12 +179,12 @@ public class e {
             this.gkF.showToast(str);
         }
         if (z2) {
-            dju();
+            djv();
         }
         this.ltE.notifyDataSetChanged();
     }
 
-    public void cBd() {
+    public void cBe() {
         this.mProgressBar.setVisibility(0);
     }
 
@@ -207,12 +207,12 @@ public class e {
     public void a(boolean z, String str, com.baidu.tieba.myCollection.baseEditMark.a aVar) {
         if (z) {
             this.gkF.showToast(this.gkF.getPageContext().getString(R.string.delete_success));
-            if (aVar == null || aVar.djx() == null) {
+            if (aVar == null || aVar.djy() == null) {
                 this.mProgressBar.setVisibility(8);
                 return;
             }
-            this.ltE.setData(aVar.djx());
-            if (aVar.djx().size() == 0) {
+            this.ltE.setData(aVar.djy());
+            if (aVar.djy().size() == 0) {
                 if (this.ltI == null) {
                     this.ltI = new a(aVar);
                 } else {
@@ -237,11 +237,11 @@ public class e {
         this.ltE.setData(arrayList);
     }
 
-    private void dju() {
+    private void djv() {
         if (this.ltG == null) {
             this.ltG = new com.baidu.tbadk.core.dialog.a(this.gkF.getPageContext().getPageActivity());
-            this.ltG.Bo(this.gkF.getPageContext().getString(R.string.sync_mark_fail));
-            this.ltG.Bp(this.gkF.getPageContext().getString(R.string.neterror));
+            this.ltG.Bn(this.gkF.getPageContext().getString(R.string.sync_mark_fail));
+            this.ltG.Bo(this.gkF.getPageContext().getString(R.string.neterror));
             if (this.ltH != null) {
                 this.ltG.a(this.gkF.getPageContext().getString(R.string.retry_rightnow), this.ltH);
             }
@@ -254,7 +254,7 @@ public class e {
             this.ltG.b(this.gkF.getPageContext());
             this.ltG.jI(true);
         }
-        this.ltG.btX();
+        this.ltG.btY();
     }
 
     public void onChangeSkinType(int i) {
@@ -262,14 +262,14 @@ public class e {
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
         }
-        djv();
+        djw();
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(this.gkF.getPageContext(), i);
             ao.setBackgroundColor(this.mNoDataView, R.color.CAM_X0201);
         }
     }
 
-    public void djv() {
+    public void djw() {
         this.ltE.notifyDataSetChanged();
     }
 

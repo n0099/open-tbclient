@@ -21,10 +21,7 @@ public abstract class b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bnD();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bnI();
+    public abstract void bnE();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void bnJ();
@@ -34,6 +31,9 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void bnL();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void bnM();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void c(a aVar);
@@ -64,7 +64,7 @@ public abstract class b {
         mWeakContext = new WeakReference<>(tbPageContext);
     }
 
-    public boolean bnH() {
+    public boolean bnI() {
         return eJI;
     }
 
@@ -73,7 +73,7 @@ public abstract class b {
         this.eJH = z;
     }
 
-    public void bnE() {
+    public void bnF() {
         if (mWeakContext != null) {
             mWeakContext.get();
             mWeakContext.clear();

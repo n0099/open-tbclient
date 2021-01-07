@@ -193,7 +193,7 @@ public class IntentConfig extends OrmObject {
                 bVar = ((com.baidu.tbadk.pageInfo.a) J).getTbPageInfo();
             }
             if (bVar != null) {
-                this.mIntent.putExtra("tb_page_tag_source_trace", bVar.bHp());
+                this.mIntent.putExtra("tb_page_tag_source_trace", bVar.bHq());
             }
         }
     }
@@ -201,13 +201,13 @@ public class IntentConfig extends OrmObject {
     public void addPreSourceTrace() {
         if (this.mIntent != null && this.mContext != null) {
             com.baidu.tbadk.pageExtra.c ft = com.baidu.tbadk.pageExtra.d.ft(this.mContext);
-            ArrayList<String> bHl = ft == null ? null : ft.bHl();
-            if (!x.isEmpty(bHl)) {
+            ArrayList<String> bHm = ft == null ? null : ft.bHm();
+            if (!x.isEmpty(bHm)) {
                 if (ft != null) {
-                    com.baidu.tbadk.pageExtra.d.Ek(ft.getCurrentPageKey());
-                    com.baidu.tbadk.mutiprocess.g.publishEvent(new PrePageKeyEvent(com.baidu.tbadk.pageExtra.d.bHm()));
+                    com.baidu.tbadk.pageExtra.d.Ej(ft.getCurrentPageKey());
+                    com.baidu.tbadk.mutiprocess.g.publishEvent(new PrePageKeyEvent(com.baidu.tbadk.pageExtra.d.bHn()));
                 }
-                this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", bHl);
+                this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", bHm);
             }
         }
     }
@@ -215,7 +215,7 @@ public class IntentConfig extends OrmObject {
     public void addPreSourceTrace(String str) {
         if (this.mIntent != null && this.mContext != null) {
             com.baidu.tbadk.pageExtra.c ft = com.baidu.tbadk.pageExtra.d.ft(this.mContext);
-            ArrayList<String> d = com.baidu.tbadk.pageExtra.d.d(ft == null ? null : ft.bHk(), str);
+            ArrayList<String> d = com.baidu.tbadk.pageExtra.d.d(ft == null ? null : ft.bHl(), str);
             if (!x.isEmpty(d)) {
                 this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", d);
             }

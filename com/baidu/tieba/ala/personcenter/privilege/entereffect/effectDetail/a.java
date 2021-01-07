@@ -127,13 +127,13 @@ public class a {
         }
     }
 
-    public void IY(String str) {
+    public void IX(String str) {
         if (this.icW != null && 2 == this.icW.categoryType && this.idi != null) {
             this.idi.setText(str);
         }
     }
 
-    public RelativeLayout cqg() {
+    public RelativeLayout cqh() {
         return this.mRootView;
     }
 

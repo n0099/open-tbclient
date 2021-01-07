@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.h.f;
 import com.baidu.tieba.newdetail.view.HotTopicDetailSpecialItem;
 /* loaded from: classes8.dex */
-public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newdetail.a.b, C0799a> {
+public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newdetail.a.b, C0818a> {
     private f<com.baidu.tieba.newdetail.a.b> kdd;
 
     public a(TbPageContext tbPageContext) {
@@ -33,32 +33,32 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newdetail
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: cn */
-    public C0799a e(ViewGroup viewGroup) {
-        C0799a c0799a = new C0799a(new HotTopicDetailSpecialItem(viewGroup.getContext()));
-        c0799a.setOnItemCoverListener(this.kdd);
-        c0799a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        return c0799a;
+    public C0818a e(ViewGroup viewGroup) {
+        C0818a c0818a = new C0818a(new HotTopicDetailSpecialItem(viewGroup.getContext()));
+        c0818a.setOnItemCoverListener(this.kdd);
+        c0818a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        return c0818a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.newdetail.a.b bVar, C0799a c0799a) {
-        if (bVar == null || c0799a == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.newdetail.a.b bVar, C0818a c0818a) {
+        if (bVar == null || c0818a == null) {
             return null;
         }
-        c0799a.a(bVar);
-        c0799a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        return c0799a.getView();
+        c0818a.a(bVar);
+        c0818a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        return c0818a.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.newdetail.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0799a extends TypeAdapter.ViewHolder {
+    public static class C0818a extends TypeAdapter.ViewHolder {
         private HotTopicDetailSpecialItem luQ;
 
-        C0799a(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
+        C0818a(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
             super(hotTopicDetailSpecialItem);
             this.luQ = hotTopicDetailSpecialItem;
         }

@@ -11,7 +11,7 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 public class b extends BdBaseModel {
     private final HttpMessageListener bCn;
     private BdUniqueId bwz = BdUniqueId.gen();
-    private a oum;
+    private a oul;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -21,7 +21,7 @@ public class b extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.oum = aVar;
+        this.oul = aVar;
     }
 
     public b(Context context) {
@@ -35,12 +35,12 @@ public class b extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof TimeSettingResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId() && b.this.oum != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof TimeSettingResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId() && b.this.oul != null) {
                     TimeSettingResponseMessage timeSettingResponseMessage = (TimeSettingResponseMessage) httpResponsedMessage;
                     if (timeSettingResponseMessage.getError() != 0 || !timeSettingResponseMessage.isSuccess()) {
-                        b.this.oum.onFail(timeSettingResponseMessage.getError(), timeSettingResponseMessage.getErrorString());
+                        b.this.oul.onFail(timeSettingResponseMessage.getError(), timeSettingResponseMessage.getErrorString());
                     } else {
-                        b.this.oum.a(timeSettingResponseMessage);
+                        b.this.oul.a(timeSettingResponseMessage);
                     }
                 }
             }

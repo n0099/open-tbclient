@@ -11,12 +11,12 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f7932a;
+    private Context f7933a;
     private Map<String, Object> c;
     private com.bytedance.tea.crash.d ppZ;
 
     public a(@NonNull Context context, @NonNull com.bytedance.tea.crash.d dVar) {
-        this.f7932a = context;
+        this.f7933a = context;
         this.ppZ = dVar;
     }
 
@@ -28,7 +28,7 @@ public class a {
         }
         if (a(a2)) {
             try {
-                PackageInfo packageInfo = this.f7932a.getPackageManager().getPackageInfo(this.f7932a.getPackageName(), 128);
+                PackageInfo packageInfo = this.f7933a.getPackageManager().getPackageInfo(this.f7933a.getPackageName(), 128);
                 a2.put(SharedPrefConfig.VERSION_NAME, packageInfo.versionName);
                 a2.put("version_code", Integer.valueOf(packageInfo.versionCode));
                 if (a2.get("update_version_code") == null) {
@@ -42,8 +42,8 @@ public class a {
                     a2.put("update_version_code", obj);
                 }
             } catch (Throwable th) {
-                a2.put(SharedPrefConfig.VERSION_NAME, com.bytedance.tea.crash.g.a.e(this.f7932a));
-                a2.put("version_code", Integer.valueOf(com.bytedance.tea.crash.g.a.f(this.f7932a)));
+                a2.put(SharedPrefConfig.VERSION_NAME, com.bytedance.tea.crash.g.a.e(this.f7933a));
+                a2.put("version_code", Integer.valueOf(com.bytedance.tea.crash.g.a.f(this.f7933a)));
                 if (a2.get("update_version_code") == null) {
                     a2.put("update_version_code", a2.get("version_code"));
                 }
@@ -65,12 +65,12 @@ public class a {
     }
 
     @NonNull
-    public com.bytedance.tea.crash.d esy() {
+    public com.bytedance.tea.crash.d esz() {
         return this.ppZ;
     }
 
     public String d() {
-        return com.bytedance.tea.crash.g.a.d(this.f7932a);
+        return com.bytedance.tea.crash.g.a.d(this.f7933a);
     }
 
     public String e() {

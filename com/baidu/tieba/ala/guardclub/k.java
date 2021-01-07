@@ -38,7 +38,7 @@ public class k {
             this.hbp.onDestory();
         }
         if (this.hbo != null) {
-            this.hbo.bYO();
+            this.hbo.bYP();
         }
     }
 }

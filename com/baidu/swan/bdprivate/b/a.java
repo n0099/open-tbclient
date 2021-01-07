@@ -16,7 +16,7 @@ public class a extends ActivityDelegation {
     /* renamed from: com.baidu.swan.bdprivate.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
     public interface InterfaceC0505a {
-        void aSZ();
+        void aTa();
 
         void lb(String str);
     }
@@ -28,7 +28,7 @@ public class a extends ActivityDelegation {
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i) {
                     if (i == 0) {
-                        a.this.aSX();
+                        a.this.aSY();
                         return;
                     }
                     a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "login failed");
@@ -37,12 +37,12 @@ public class a extends ActivityDelegation {
             });
             return false;
         }
-        aSX();
+        aSY();
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aSX() {
+    public void aSY() {
         com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0505a() { // from class: com.baidu.swan.bdprivate.b.a.2
             @Override // com.baidu.swan.bdprivate.b.a.InterfaceC0505a
             public void lb(String str) {
@@ -54,7 +54,7 @@ public class a extends ActivityDelegation {
             }
 
             @Override // com.baidu.swan.bdprivate.b.a.InterfaceC0505a
-            public void aSZ() {
+            public void aTa() {
                 a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "choose addressId failed");
                 a.this.finish();
             }
@@ -63,7 +63,7 @@ public class a extends ActivityDelegation {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void vk(String str) {
-        com.baidu.swan.a.c.a.bfE().getRequest().url(com.baidu.swan.apps.i.c.processCommonParams(aSY())).addUrlParam("addr_id", str).cookieManager(com.baidu.swan.apps.t.a.aAQ().alT()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.b.a.3
+        com.baidu.swan.a.c.a.bfF().getRequest().url(com.baidu.swan.apps.i.c.processCommonParams(aSZ())).addUrlParam("addr_id", str).cookieManager(com.baidu.swan.apps.t.a.aAR().alU()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.b.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: a */
@@ -96,7 +96,7 @@ public class a extends ActivityDelegation {
         });
     }
 
-    public static String aSY() {
+    public static String aSZ() {
         return String.format("%s/ma/address/detail", BaseUrlManager.ONLINE_URL);
     }
 }

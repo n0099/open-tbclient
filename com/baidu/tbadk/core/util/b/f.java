@@ -104,21 +104,21 @@ public class f implements b.a {
     }
 
     public f(com.baidu.adp.lib.network.http.e eVar) {
-        bwE();
+        bwF();
         this.fer = eVar;
         this.mContext = TbadkCoreApplication.getInst().getApp();
     }
 
-    public static void bwE() {
+    public static void bwF() {
         synchronized (f.class) {
             if (!fen) {
                 fen = true;
-                bwF();
+                bwG();
             }
         }
     }
 
-    public static synchronized void bwF() {
+    public static synchronized void bwG() {
         synchronized (f.class) {
             try {
                 Cursor query = TbadkCoreApplication.getInst().getApp().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
@@ -170,7 +170,7 @@ public class f implements b.a {
                         }
                         if (proxyHost != null && proxyHost.length() > 0) {
                             this.fey = true;
-                            if (Cg(proxyHost) && j.isSupportWap()) {
+                            if (Cf(proxyHost) && j.isSupportWap()) {
                                 StringBuilder sb = new StringBuilder(80);
                                 sb.append("http://");
                                 sb.append(proxyHost);
@@ -221,7 +221,7 @@ public class f implements b.a {
                         }
                     }
                 }
-                if (m.EG(str)) {
+                if (m.EF(str)) {
                     String host = com.baidu.adp.lib.network.http.a.d.getHost(str);
                     this.fes = com.baidu.adp.lib.network.http.a.b.mg().bI(host);
                     if (!at.isEmpty(this.fes.mk())) {
@@ -274,7 +274,7 @@ public class f implements b.a {
         return new HttpGet(str);
     }
 
-    private boolean Cg(String str) {
+    private boolean Cf(String str) {
         if (mPattern.matcher(str).find()) {
             return true;
         }
@@ -392,11 +392,11 @@ public class f implements b.a {
                 throw new SocketException("network not available.");
             }
             if (this.feq) {
-                this.fet = 0 == 0 && m.EG(c) && j.isNetworkAvailableForImmediately();
+                this.fet = 0 == 0 && m.EF(c) && j.isNetworkAvailableForImmediately();
                 if (this.fet && this.fes != null) {
                     this.fes.av(this.fer.lW().mNetErrorCode);
                 }
-                if (0 == 0 && i3 == i - 1 && m.EG(c)) {
+                if (0 == 0 && i3 == i - 1 && m.EF(c)) {
                     com.baidu.adp.lib.stats.a pi = t.pi();
                     pi.append("netException", dVar.exception);
                     pi.append("Url", c);
@@ -471,11 +471,11 @@ public class f implements b.a {
                             this.fep++;
                             this.fer.lW().responseCode = 0;
                             i3--;
-                            this.fet = 0 == 0 && m.EG(c) && j.isNetworkAvailableForImmediately();
+                            this.fet = 0 == 0 && m.EF(c) && j.isNetworkAvailableForImmediately();
                             if (this.fet && this.fes != null) {
                                 this.fes.av(this.fer.lW().mNetErrorCode);
                             }
-                            if (0 == 0 && i3 == i - 1 && m.EG(c)) {
+                            if (0 == 0 && i3 == i - 1 && m.EF(c)) {
                                 com.baidu.adp.lib.stats.a pi2 = t.pi();
                                 pi2.append("netException", dVar.exception);
                                 pi2.append("Url", c);
@@ -521,11 +521,11 @@ public class f implements b.a {
                             i3++;
                             bArr9 = bArr9;
                         } else {
-                            this.fet = 0 == 0 && m.EG(c) && j.isNetworkAvailableForImmediately();
+                            this.fet = 0 == 0 && m.EF(c) && j.isNetworkAvailableForImmediately();
                             if (this.fet && this.fes != null) {
                                 this.fes.av(this.fer.lW().mNetErrorCode);
                             }
-                            if (0 == 0 && i3 == i - 1 && m.EG(c)) {
+                            if (0 == 0 && i3 == i - 1 && m.EF(c)) {
                                 com.baidu.adp.lib.stats.a pi3 = t.pi();
                                 pi3.append("netException", dVar.exception);
                                 pi3.append("Url", c);
@@ -574,11 +574,11 @@ public class f implements b.a {
                 if (((int) entity.getContentLength()) > fcv) {
                     this.fer.lW().mNetErrorCode = -11;
                     dVar.exception = this.mContext.getResources().getString(R.string.data_too_big);
-                    this.fet = 0 == 0 && m.EG(c) && j.isNetworkAvailableForImmediately();
+                    this.fet = 0 == 0 && m.EF(c) && j.isNetworkAvailableForImmediately();
                     if (this.fet && this.fes != null) {
                         this.fes.av(this.fer.lW().mNetErrorCode);
                     }
-                    if (0 == 0 && i3 == i - 1 && m.EG(c)) {
+                    if (0 == 0 && i3 == i - 1 && m.EF(c)) {
                         com.baidu.adp.lib.stats.a pi4 = t.pi();
                         pi4.append("netException", dVar.exception);
                         pi4.append("Url", c);
@@ -676,11 +676,11 @@ public class f implements b.a {
                                 bArr9 = bArr8;
                                 this.fer.lW().mNetErrorCode = -19;
                                 dVar.exception = "errorCode:" + String.valueOf(this.fer.lW().mNetErrorCode) + "|" + e6.getClass() + "|" + e6.getMessage() + "|getcontent_illegal_error";
-                                this.fet = 0 == 0 && m.EG(c) && j.isNetworkAvailableForImmediately();
+                                this.fet = 0 == 0 && m.EF(c) && j.isNetworkAvailableForImmediately();
                                 if (this.fet && this.fes != null) {
                                     this.fes.av(this.fer.lW().mNetErrorCode);
                                 }
-                                if (0 == 0 && i3 == i - 1 && m.EG(c)) {
+                                if (0 == 0 && i3 == i - 1 && m.EF(c)) {
                                     com.baidu.adp.lib.stats.a pi5 = t.pi();
                                     pi5.append("netException", dVar.exception);
                                     pi5.append("Url", c);
@@ -730,11 +730,11 @@ public class f implements b.a {
                                 bArr9 = bArr7;
                                 this.fer.lW().mNetErrorCode = -12;
                                 dVar.exception = "errorCode:" + String.valueOf(this.fer.lW().mNetErrorCode) + "|" + e5.getClass() + "|" + e5.getMessage();
-                                this.fet = 0 == 0 && m.EG(c) && j.isNetworkAvailableForImmediately();
+                                this.fet = 0 == 0 && m.EF(c) && j.isNetworkAvailableForImmediately();
                                 if (this.fet && this.fes != null) {
                                     this.fes.av(this.fer.lW().mNetErrorCode);
                                 }
-                                if (0 == 0 && i3 == i - 1 && m.EG(c)) {
+                                if (0 == 0 && i3 == i - 1 && m.EF(c)) {
                                     com.baidu.adp.lib.stats.a pi6 = t.pi();
                                     pi6.append("netException", dVar.exception);
                                     pi6.append("Url", c);
@@ -784,11 +784,11 @@ public class f implements b.a {
                                 bArr9 = bArr6;
                                 this.fer.lW().mNetErrorCode = -13;
                                 dVar.exception = "errorCode:" + String.valueOf(this.fer.lW().mNetErrorCode) + "|" + e4.getClass() + "|" + e4.getMessage();
-                                this.fet = 0 == 0 && m.EG(c) && j.isNetworkAvailableForImmediately();
+                                this.fet = 0 == 0 && m.EF(c) && j.isNetworkAvailableForImmediately();
                                 if (this.fet && this.fes != null) {
                                     this.fes.av(this.fer.lW().mNetErrorCode);
                                 }
-                                if (0 == 0 && i3 == i - 1 && m.EG(c)) {
+                                if (0 == 0 && i3 == i - 1 && m.EF(c)) {
                                     com.baidu.adp.lib.stats.a pi7 = t.pi();
                                     pi7.append("netException", dVar.exception);
                                     pi7.append("Url", c);
@@ -839,11 +839,11 @@ public class f implements b.a {
                                 this.fer.lW().mNetErrorCode = -20;
                                 dVar.exception = "errorCode:" + String.valueOf(this.fer.lW().mNetErrorCode) + "|" + e3.getClass() + "|" + e3.getMessage();
                                 this.feu = true;
-                                this.fet = 0 == 0 && m.EG(c) && j.isNetworkAvailableForImmediately();
+                                this.fet = 0 == 0 && m.EF(c) && j.isNetworkAvailableForImmediately();
                                 if (this.fet && this.fes != null) {
                                     this.fes.av(this.fer.lW().mNetErrorCode);
                                 }
-                                if (0 == 0 && i3 == i - 1 && m.EG(c)) {
+                                if (0 == 0 && i3 == i - 1 && m.EF(c)) {
                                     com.baidu.adp.lib.stats.a pi8 = t.pi();
                                     pi8.append("netException", dVar.exception);
                                     pi8.append("Url", c);
@@ -893,11 +893,11 @@ public class f implements b.a {
                                 bArr9 = bArr4;
                                 this.fer.lW().mNetErrorCode = -19;
                                 dVar.exception = "errorCode:" + String.valueOf(this.fer.lW().mNetErrorCode) + "|" + e2.getClass() + "|" + e2.getMessage();
-                                this.fet = 0 == 0 && m.EG(c) && j.isNetworkAvailableForImmediately();
+                                this.fet = 0 == 0 && m.EF(c) && j.isNetworkAvailableForImmediately();
                                 if (this.fet && this.fes != null) {
                                     this.fes.av(this.fer.lW().mNetErrorCode);
                                 }
-                                if (0 == 0 && i3 == i - 1 && m.EG(c)) {
+                                if (0 == 0 && i3 == i - 1 && m.EF(c)) {
                                     com.baidu.adp.lib.stats.a pi9 = t.pi();
                                     pi9.append("netException", dVar.exception);
                                     pi9.append("Url", c);
@@ -947,11 +947,11 @@ public class f implements b.a {
                                 bArr9 = bArr3;
                                 this.fer.lW().mNetErrorCode = -18;
                                 dVar.exception = "errorCode:" + String.valueOf(this.fer.lW().mNetErrorCode) + "|" + e.getClass() + "|" + e.getMessage();
-                                this.fet = 0 == 0 && m.EG(c) && j.isNetworkAvailableForImmediately();
+                                this.fet = 0 == 0 && m.EF(c) && j.isNetworkAvailableForImmediately();
                                 if (this.fet && this.fes != null) {
                                     this.fes.av(this.fer.lW().mNetErrorCode);
                                 }
-                                if (0 == 0 && i3 == i - 1 && m.EG(c)) {
+                                if (0 == 0 && i3 == i - 1 && m.EF(c)) {
                                     com.baidu.adp.lib.stats.a pi10 = t.pi();
                                     pi10.append("netException", dVar.exception);
                                     pi10.append("Url", c);
@@ -1001,11 +1001,11 @@ public class f implements b.a {
                                 bArr9 = bArr;
                                 this.fer.lW().mNetErrorCode = -10;
                                 dVar.exception = "errorCode:" + String.valueOf(this.fer.lW().mNetErrorCode) + "|" + th.getClass() + "|" + th.getMessage();
-                                this.fet = 0 == 0 && m.EG(c) && j.isNetworkAvailableForImmediately();
+                                this.fet = 0 == 0 && m.EF(c) && j.isNetworkAvailableForImmediately();
                                 if (this.fet && this.fes != null) {
                                     this.fes.av(this.fer.lW().mNetErrorCode);
                                 }
-                                if (0 == 0 && i3 == i - 1 && m.EG(c)) {
+                                if (0 == 0 && i3 == i - 1 && m.EF(c)) {
                                     com.baidu.adp.lib.stats.a pi11 = t.pi();
                                     pi11.append("netException", dVar.exception);
                                     pi11.append("Url", c);
@@ -1052,11 +1052,11 @@ public class f implements b.a {
                                 this.fer.lW().retBytes = bArr9;
                             }
                         } else {
-                            this.fet = 0 == 0 && m.EG(c) && j.isNetworkAvailableForImmediately();
+                            this.fet = 0 == 0 && m.EF(c) && j.isNetworkAvailableForImmediately();
                             if (this.fet && this.fes != null) {
                                 this.fes.av(this.fer.lW().mNetErrorCode);
                             }
-                            if (0 == 0 && i3 == i - 1 && m.EG(c)) {
+                            if (0 == 0 && i3 == i - 1 && m.EF(c)) {
                                 com.baidu.adp.lib.stats.a pi12 = t.pi();
                                 pi12.append("netException", dVar.exception);
                                 pi12.append("Url", c);
@@ -1130,13 +1130,13 @@ public class f implements b.a {
             z17 = true;
         }
         if (execute.getFirstHeader("ginfo") != null && (value = execute.getFirstHeader("ginfo").getValue()) != null && value.length() > 0) {
-            Ch(value);
+            Cg(value);
         }
-        this.fet = !z17 && m.EG(c) && j.isNetworkAvailableForImmediately();
+        this.fet = !z17 && m.EF(c) && j.isNetworkAvailableForImmediately();
         if (this.fet && this.fes != null) {
             this.fes.av(this.fer.lW().mNetErrorCode);
         }
-        if (!z17 && i3 == i - 1 && m.EG(c)) {
+        if (!z17 && i3 == i - 1 && m.EF(c)) {
             com.baidu.adp.lib.stats.a pi13 = t.pi();
             pi13.append("netException", dVar.exception);
             pi13.append("Url", c);
@@ -1183,7 +1183,7 @@ public class f implements b.a {
         this.fer.lW().retBytes = bArr9;
     }
 
-    private void Ch(String str) {
+    private void Cg(String str) {
         if (!TextUtils.isEmpty(str) && !str.equals(feA) && (System.currentTimeMillis() - feC) - (1800000 * (feB / 3)) >= 0) {
             feB++;
             try {
@@ -1222,7 +1222,7 @@ public class f implements b.a {
         return this.mIsGif;
     }
 
-    public boolean bwG() {
+    public boolean bwH() {
         return this.fex;
     }
 

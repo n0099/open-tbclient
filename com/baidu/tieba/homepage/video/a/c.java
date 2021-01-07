@@ -31,7 +31,7 @@ public class c extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, k kVar) {
-                if (view != null && kVar != null && kVar.boO() != null) {
+                if (view != null && kVar != null && kVar.boP() != null) {
                     c.this.c(view, kVar);
                 }
             }

@@ -8,10 +8,10 @@ import java.util.Map;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f7957a;
+    private static boolean f7958a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f7958b = false;
+    private static boolean f7959b = false;
     private static boolean c = false;
     private static boolean d = false;
 
@@ -29,7 +29,7 @@ public final class g {
 
     public static synchronized void a(@NonNull final Context context, @NonNull d dVar, boolean z, boolean z2, boolean z3, final boolean z4) {
         synchronized (g.class) {
-            if (!f7957a) {
+            if (!f7958a) {
                 if (context == null) {
                     throw new IllegalArgumentException("context must be not null.");
                 }
@@ -43,19 +43,19 @@ public final class g {
                     h.a(context, dVar);
                     com.bytedance.tea.crash.e.a.e.a(context);
                     if (z || z2) {
-                        com.bytedance.tea.crash.d.a esx = com.bytedance.tea.crash.d.a.esx();
+                        com.bytedance.tea.crash.d.a esy = com.bytedance.tea.crash.d.a.esy();
                         if (z) {
-                            esx.a(new com.bytedance.tea.crash.d.c(context));
+                            esy.a(new com.bytedance.tea.crash.d.c(context));
                         }
-                        f7958b = true;
+                        f7959b = true;
                     }
                     d = z3;
-                    f7957a = true;
+                    f7958a = true;
                     c = z4;
                     com.bytedance.tea.crash.e.h.b().post(new Runnable() { // from class: com.bytedance.tea.crash.g.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            com.bytedance.tea.crash.b.a.esw().a(context);
+                            com.bytedance.tea.crash.b.a.esx().a(context);
                             com.bytedance.tea.crash.upload.d.a(context);
                             if (z4) {
                                 com.bytedance.tea.crash.a.f.hY(context).a();
@@ -68,12 +68,12 @@ public final class g {
     }
 
     public static void a(f fVar) {
-        h.esF().a(fVar);
+        h.esG().a(fVar);
     }
 
     public static void a(Map<? extends String, ? extends String> map) {
         if (map != null && !map.isEmpty()) {
-            h.esF().a(map);
+            h.esG().a(map);
         }
     }
 }

@@ -8,14 +8,14 @@ import rx.j;
 import rx.k;
 /* loaded from: classes15.dex */
 public final class ScalarSynchronousObservable<T> extends rx.d<T> {
-    static final boolean qvR = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
+    static final boolean qxz = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
     final T t;
 
     static <T> rx.f a(j<? super T> jVar, T t) {
-        return qvR ? new SingleProducer(jVar, t) : new c(jVar, t);
+        return qxz ? new SingleProducer(jVar, t) : new c(jVar, t);
     }
 
-    public static <T> ScalarSynchronousObservable<T> ce(T t) {
+    public static <T> ScalarSynchronousObservable<T> cf(T t) {
         return new ScalarSynchronousObservable<>(t);
     }
 

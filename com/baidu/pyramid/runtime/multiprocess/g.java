@@ -27,7 +27,7 @@ public class g {
         try {
             jSONObject.put("process_name", a.getProcessName());
             jSONObject.put("stack_trace", Log.getStackTraceString(exc));
-            jSONObject.put("process_info", a.ahE());
+            jSONObject.put("process_info", a.ahF());
             jSONObject.put("report_time", System.currentTimeMillis());
         } catch (JSONException e) {
         }

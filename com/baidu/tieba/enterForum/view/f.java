@@ -78,7 +78,7 @@ public class f {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                f.this.cxx();
+                f.this.cxy();
             }
         }
     };
@@ -94,7 +94,7 @@ public class f {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void cxz();
+        void cxA();
     }
 
     public f(TbPageContext<?> tbPageContext, RecentlyVisitedForumModel recentlyVisitedForumModel, ViewEventCenter viewEventCenter) {
@@ -110,7 +110,7 @@ public class f {
     }
 
     private void initData() {
-        this.iON = com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("key_recently_visited_forum_extend_state", true);
+        this.iON = com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("key_recently_visited_forum_extend_state", true);
     }
 
     private void initView() {
@@ -121,7 +121,7 @@ public class f {
         this.iPX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.f.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                f.this.cAs();
+                f.this.cAt();
             }
         });
         this.iPY = (TextView) this.mRootView.findViewById(R.id.done);
@@ -149,7 +149,7 @@ public class f {
                 if (!f.this.iFZ && forumViewHolder != null && forumViewHolder.itemView != null && (forumViewHolder.itemView.getTag() instanceof VisitedForumData)) {
                     VisitedForumData visitedForumData = (VisitedForumData) forumViewHolder.itemView.getTag();
                     FrsActivityConfig callFrom = new FrsActivityConfig(f.this.mPageContext.getPageActivity()).createNormalCfg(visitedForumData.getForumName(), FrsActivityConfig.FRS_FROM_RECENTLY_VISITED).setCallFrom(4);
-                    f.this.a(forumViewHolder, callFrom.getIntent(), visitedForumData.bEp());
+                    f.this.a(forumViewHolder, callFrom.getIntent(), visitedForumData.bEq());
                     f.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, callFrom));
                     TiebaStatic.log(new aq("c13002").dX("fid", visitedForumData.getForumId()));
                 }
@@ -221,7 +221,7 @@ public class f {
         }
     }
 
-    public boolean cxx() {
+    public boolean cxy() {
         if (this.iFZ) {
             mc(false);
             return true;
@@ -254,26 +254,26 @@ public class f {
         }
     }
 
-    public boolean cAr() {
+    public boolean cAs() {
         return this.iFZ;
     }
 
-    public void cAs() {
+    public void cAt() {
         this.iON = !this.iON;
-        com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("key_recently_visited_forum_extend_state", this.iON);
+        com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean("key_recently_visited_forum_extend_state", this.iON);
         if (this.iON) {
             TiebaStatic.log(new aq("c13003"));
         } else {
             TiebaStatic.log(new aq("c13004"));
         }
-        cAu();
+        cAv();
     }
 
-    public boolean cAt() {
+    public boolean cAu() {
         return this.iON;
     }
 
-    private void cAu() {
+    private void cAv() {
         int i;
         int i2;
         if (this.iON) {
@@ -284,7 +284,7 @@ public class f {
             } else {
                 i2 = R.color.CAM_X0107;
             }
-            SvgManager.bwq().a(this.iPX, R.drawable.icon_pure_ba_show24_svg, i2, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bwr().a(this.iPX, R.drawable.icon_pure_ba_show24_svg, i2, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         } else {
             this.iPZ.setVisibility(8);
             this.iQa.setVisibility(0);
@@ -293,25 +293,25 @@ public class f {
             } else {
                 i = R.color.CAM_X0107;
             }
-            SvgManager.bwq().a(this.iPX, R.drawable.icon_pure_ba_hide24_svg, i, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bwr().a(this.iPX, R.drawable.icon_pure_ba_hide24_svg, i, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
         if (this.iQf != null) {
-            this.iQf.cxz();
+            this.iQf.cxA();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void kQ(boolean z) {
-        if (z && !com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("recnbar" + TbadkCoreApplication.getCurrentAccount(), false)) {
+        if (z && !com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("recnbar" + TbadkCoreApplication.getCurrentAccount(), false)) {
             this.isz.setVisibility(0);
-            cAu();
+            cAv();
         } else {
             this.isz.setVisibility(8);
             this.iPZ.setVisibility(8);
             this.iQa.setVisibility(8);
         }
         if (this.iQf != null) {
-            this.iQf.cxz();
+            this.iQf.cxA();
         }
     }
 
@@ -321,14 +321,14 @@ public class f {
 
     public void j(LinkedList<VisitedForumData> linkedList) {
         if (this.iQb != null && linkedList != null) {
-            cAu();
+            cAv();
             this.iQb.h(linkedList);
             notifyDataSetChanged();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void cAv() {
+    public void cAw() {
         if (this.iPW != null) {
             this.iPW.refresh();
         }
@@ -361,17 +361,17 @@ public class f {
 
     public void setAdState(com.baidu.tieba.enterForum.data.c cVar) {
         this.iFO = cVar;
-        cAw();
+        cAx();
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            cAw();
+            cAx();
         }
     }
 
-    private void cAw() {
+    private void cAx() {
         if (this.iFO != null && this.iFO.iGq) {
             ao.setViewTextColor(this.mTitle, R.color.CAM_X0101);
             this.mRootView.setBackgroundColor(0);
@@ -383,7 +383,7 @@ public class f {
             ao.setViewTextColor(this.iPY, R.color.CAM_X0302);
             this.iPY.setBackgroundResource(R.drawable.enter_forum_recent_edit_done_trans_bg);
         }
-        cAu();
+        cAv();
         notifyDataSetChanged();
     }
 
@@ -442,7 +442,7 @@ public class f {
         }
     }
 
-    public com.baidu.tieba.enterForum.data.c cAx() {
+    public com.baidu.tieba.enterForum.data.c cAy() {
         return this.iFO;
     }
 }

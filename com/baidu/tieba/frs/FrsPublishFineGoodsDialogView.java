@@ -56,7 +56,7 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
         com.baidu.tbadk.core.util.ao.setViewTextColor(this.bNi, R.color.CAM_X0105);
         com.baidu.tbadk.core.util.ao.setViewTextColor(this.iFV, R.color.CAM_X0109);
         com.baidu.tbadk.core.util.ao.setViewTextColor(this.jiT, R.color.CAM_X0302);
-        com.baidu.tbadk.core.util.f.a.bwU().qq(0).qr(R.color.CAM_X0211).ai(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds30)).ah(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds30)).ag(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds32)).af(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds32)).bz(this.mRootView);
+        com.baidu.tbadk.core.util.f.a.bwV().qq(0).qr(R.color.CAM_X0211).ai(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds30)).ah(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds30)).ag(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds32)).af(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds32)).bz(this.mRootView);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

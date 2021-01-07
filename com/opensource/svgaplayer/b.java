@@ -8,41 +8,41 @@ import kotlin.jvm.internal.p;
 @kotlin.e
 /* loaded from: classes6.dex */
 public final class b extends Drawable {
-    private boolean pQW;
-    private int pQX;
-    private final com.opensource.svgaplayer.a.b pQY;
-    private final f pQZ;
-    private final c pRa;
+    private boolean pSE;
+    private int pSF;
+    private final com.opensource.svgaplayer.a.b pSG;
+    private final f pSH;
+    private final c pSI;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
         p.o(fVar, "videoItem");
         p.o(cVar, "dynamicItem");
-        this.pQZ = fVar;
-        this.pRa = cVar;
-        this.pQW = true;
+        this.pSH = fVar;
+        this.pSI = cVar;
+        this.pSE = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.pQY = new com.opensource.svgaplayer.a.b(this.pQZ, this.pRa);
+        this.pSG = new com.opensource.svgaplayer.a.b(this.pSH, this.pSI);
     }
 
-    public final f eDt() {
-        return this.pQZ;
+    public final f eDX() {
+        return this.pSH;
     }
 
     public final void Br(boolean z) {
-        if (this.pQW != z) {
-            this.pQW = z;
+        if (this.pSE != z) {
+            this.pSE = z;
             invalidateSelf();
         }
     }
 
-    public final int eDs() {
-        return this.pQX;
+    public final int eDW() {
+        return this.pSF;
     }
 
-    public final void Ry(int i) {
-        if (this.pQX != i) {
-            this.pQX = i;
+    public final void RO(int i) {
+        if (this.pSF != i) {
+            this.pSF = i;
             invalidateSelf();
         }
     }
@@ -54,8 +54,8 @@ public final class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.pQW && canvas != null) {
-            this.pQY.a(canvas, this.pQX, this.scaleType);
+        if (!this.pSE && canvas != null) {
+            this.pSG.a(canvas, this.pSF, this.scaleType);
         }
     }
 

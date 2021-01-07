@@ -1,37 +1,37 @@
 package io.reactivex.internal.util;
 
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class f {
     final int capacityHint;
-    Object[] qkq;
-    Object[] qkr;
-    int qks;
+    Object[] qlY;
+    Object[] qlZ;
+    int qma;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.qkq = new Object[this.capacityHint + 1];
-            this.qkr = this.qkq;
-            this.qkq[0] = obj;
-            this.qks = 1;
+            this.qlY = new Object[this.capacityHint + 1];
+            this.qlZ = this.qlY;
+            this.qlY[0] = obj;
+            this.qma = 1;
             this.size = 1;
-        } else if (this.qks == this.capacityHint) {
+        } else if (this.qma == this.capacityHint) {
             Object[] objArr = new Object[this.capacityHint + 1];
             objArr[0] = obj;
-            this.qkr[this.capacityHint] = objArr;
-            this.qkr = objArr;
-            this.qks = 1;
+            this.qlZ[this.capacityHint] = objArr;
+            this.qlZ = objArr;
+            this.qma = 1;
             this.size++;
         } else {
-            this.qkr[this.qks] = obj;
-            this.qks++;
+            this.qlZ[this.qma] = obj;
+            this.qma++;
             this.size++;
         }
     }
 
-    public Object[] eLA() {
-        return this.qkq;
+    public Object[] eMe() {
+        return this.qlY;
     }
 
     public int size() {
@@ -44,14 +44,14 @@ public class f {
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
         int i4 = 0;
-        Object[] eLA = eLA();
+        Object[] eMe = eMe();
         while (i4 < i2) {
-            arrayList.add(eLA[i3]);
+            arrayList.add(eMe[i3]);
             i4++;
             int i5 = i3 + 1;
             if (i5 == i) {
                 i3 = 0;
-                eLA = eLA[i];
+                eMe = eMe[i];
             } else {
                 i3 = i5;
             }

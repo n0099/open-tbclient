@@ -57,7 +57,7 @@ public class a {
             this.hXy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.cpy();
+                    a.this.cpz();
                 }
             });
             this.hXA = this.mContentView.findViewById(a.f.user_mark_divider);
@@ -67,7 +67,7 @@ public class a {
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tieba.ala.person.PersonCardActivity */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    public void cpy() {
+    public void cpz() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.lastClickTime >= 500) {
             this.lastClickTime = currentTimeMillis;
@@ -156,12 +156,12 @@ public class a {
                 this.hXA.setVisibility(8);
             }
             if (!ListUtils.isEmpty(this.hXD)) {
-                a(cpz() + " ", "", this.hXz, this.hXD);
+                a(cpA() + " ", "", this.hXz, this.hXD);
             }
         }
     }
 
-    private String cpz() {
+    private String cpA() {
         String nameShow = this.hHQ.getNameShow();
         if (nameShow != null) {
             if (TextHelper.getTextLengthWithEmoji(nameShow) > 20) {
@@ -239,7 +239,7 @@ public class a {
             if (alaLiveMarkData != null && !TextUtils.isEmpty(alaLiveMarkData.mark_pic) && 3 != alaLiveMarkData.type && 4 != alaLiveMarkData.type) {
                 if (StringUtils.isNull(alaLiveMarkData.anchor_user_id) || "0".equals(alaLiveMarkData.anchor_user_id)) {
                     linkedList.add(alaLiveMarkData);
-                } else if (alaLiveMarkData.anchor_user_id.equals(this.hXw.cpf())) {
+                } else if (alaLiveMarkData.anchor_user_id.equals(this.hXw.cpg())) {
                     linkedList.add(alaLiveMarkData);
                 }
             }

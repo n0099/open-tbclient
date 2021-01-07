@@ -1,7 +1,7 @@
 package com.bun.miitmdid.supplier.h.a;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static String a(Context context, String str) {
         return b.hM(context).a(str);

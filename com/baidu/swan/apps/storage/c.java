@@ -22,8 +22,8 @@ public class c extends f {
     private final c.a<Long> dOA;
     public final String name;
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final boolean dOx = com.baidu.swan.apps.t.a.aAu().akD();
-    public static final boolean dOy = com.baidu.swan.apps.t.a.aAu().akE();
+    public static final boolean dOx = com.baidu.swan.apps.t.a.aAv().akE();
+    public static final boolean dOy = com.baidu.swan.apps.t.a.aAv().akF();
     public static int dOz = 1024;
     public static int INVALID_INDEX = -1;
     public static int ONE_INCREAMENT = 1;
@@ -33,9 +33,9 @@ public class c extends f {
         this.dOA = new c.a<Long>() { // from class: com.baidu.swan.apps.storage.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.al.c.a
-            /* renamed from: aPv */
-            public Long aPw() throws IllegalStateException {
-                return Long.valueOf(c.this.aPt());
+            /* renamed from: aPw */
+            public Long aPx() throws IllegalStateException {
+                return Long.valueOf(c.this.aPu());
             }
         };
         this.name = b.f(eVar);
@@ -43,7 +43,7 @@ public class c extends f {
         com.baidu.swan.apps.al.e.dQM.a(this.dOA);
     }
 
-    public g aPr() {
+    public g aPs() {
         if (this.dKV == null) {
             this.dKV = new g(this.dKW, false);
         }
@@ -52,12 +52,12 @@ public class c extends f {
 
     public void au(boolean z) {
         if (z) {
-            aPr().edit().clear().commit();
+            aPs().edit().clear().commit();
         } else {
-            aPr().edit().clear().apply();
+            aPs().edit().clear().apply();
         }
-        com.baidu.swan.c.d.deleteFile(b.tU(e.aMm()));
-        com.baidu.swan.c.d.deleteFile(b.tO(e.aMm()));
+        com.baidu.swan.c.d.deleteFile(b.tU(e.aMn()));
+        com.baidu.swan.c.d.deleteFile(b.tO(e.aMn()));
         com.baidu.swan.apps.al.e.dQM.update();
     }
 
@@ -94,7 +94,7 @@ public class c extends f {
     public String tZ(String str) {
         FileInputStream fileInputStream;
         FileOutputStream fileOutputStream;
-        String tO = b.tO(e.aMm());
+        String tO = b.tO(e.aMn());
         ?? isEmpty = TextUtils.isEmpty(tO);
         try {
             if (isEmpty != 0) {
@@ -185,8 +185,8 @@ public class c extends f {
         return aVar;
     }
 
-    public List<a> aPs() {
-        String tO = b.tO(e.aMm());
+    public List<a> aPt() {
+        String tO = b.tO(e.aMn());
         if (TextUtils.isEmpty(tO)) {
             return null;
         }
@@ -233,20 +233,20 @@ public class c extends f {
         return arrayList;
     }
 
-    public long aPt() {
+    public long aPu() {
         if (DEBUG) {
-            File file = aPr().getFile();
+            File file = aPs().getFile();
             Log.i("SwanAppStorage", this.name + " exists = " + file.exists() + " isFile = " + file.isFile() + " path = " + file.getPath() + " size = " + file.length());
         }
-        return aPr().getContentSize();
+        return aPs().getContentSize();
     }
 
-    public long aPu() {
+    public long aPv() {
         return 10485760L;
     }
 
     public boolean cJ(@NonNull String str, @NonNull String str2) {
-        return ((long) str2.length()) + (aPt() - ((long) aPr().getString(str, "").length())) > aPu();
+        return ((long) str2.length()) + (aPu() - ((long) aPs().getString(str, "").length())) > aPv();
     }
 
     public static boolean uc(@NonNull String str) {

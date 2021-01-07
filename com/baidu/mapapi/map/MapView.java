@@ -30,11 +30,11 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.platform.comapi.map.MapSurfaceView;
 import com.baidu.webkit.net.BdNetTask;
 import java.io.File;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class MapView extends ViewGroup {
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f2845b;
+    private static String f2846b;
     private int A;
     private boolean B;
     private MapSurfaceView e;
@@ -60,7 +60,7 @@ public final class MapView extends ViewGroup {
     private int z;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2844a = MapView.class.getSimpleName();
+    private static final String f2845a = MapView.class.getSimpleName();
     private static int c = 0;
     private static int d = 0;
     private static final SparseIntArray q = new SparseIntArray();
@@ -157,7 +157,7 @@ public final class MapView extends ViewGroup {
         System.currentTimeMillis();
         com.baidu.mapsdkplatform.comapi.map.j.a();
         BMapManager.init();
-        a(context, baiduMapOptions, f2845b, c);
+        a(context, baiduMapOptions, f2846b, c);
         a(context);
         b(context);
         if (baiduMapOptions != null && !baiduMapOptions.h) {
@@ -207,13 +207,13 @@ public final class MapView extends ViewGroup {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            Log.e(f2844a, "customStyleFilePath is empty or null, please check!");
+            Log.e(f2845a, "customStyleFilePath is empty or null, please check!");
         } else if (!str.endsWith(".sty")) {
-            Log.e(f2844a, "customStyleFile format is incorrect , please check!");
+            Log.e(f2845a, "customStyleFile format is incorrect , please check!");
         } else if (new File(str).exists()) {
             this.e.getBaseMap().a(str, i);
         } else {
-            Log.e(f2844a, "customStyleFile does not exist , please check!");
+            Log.e(f2845a, "customStyleFile does not exist , please check!");
         }
     }
 
@@ -235,9 +235,9 @@ public final class MapView extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.i.a()) {
-            float f = this.e.getBaseMap().B().f3202a;
-            this.i.b(f > this.e.getBaseMap().f3172b);
-            this.i.a(f < this.e.getBaseMap().f3171a);
+            float f = this.e.getBaseMap().B().f3203a;
+            this.i.b(f > this.e.getBaseMap().f3173b);
+            this.i.a(f < this.e.getBaseMap().f3172a);
         }
     }
 
@@ -297,7 +297,7 @@ public final class MapView extends ViewGroup {
         if (!new File(str).exists()) {
             throw new RuntimeException("BDMapSDKException: please check whether the customMapStylePath file exits");
         }
-        f2845b = str;
+        f2846b = str;
     }
 
     @Deprecated
@@ -343,7 +343,7 @@ public final class MapView extends ViewGroup {
     }
 
     public final BaiduMap getMap() {
-        this.f.f2793a = this;
+        this.f.f2794a = this;
         return this.f;
     }
 
@@ -419,8 +419,8 @@ public final class MapView extends ViewGroup {
             this.h.recycle();
             this.h = null;
         }
-        if (f2845b != null) {
-            f2845b = null;
+        if (f2846b != null) {
+            f2846b = null;
         }
         this.i.b();
         BMapManager.destroy();
@@ -522,7 +522,7 @@ public final class MapView extends ViewGroup {
                     ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                     if (layoutParams instanceof MapViewLayoutParams) {
                         MapViewLayoutParams mapViewLayoutParams = (MapViewLayoutParams) layoutParams;
-                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.f2847b : this.e.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.f2846a));
+                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.f2848b : this.e.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.f2847a));
                         a(childAt);
                         int measuredWidth2 = childAt.getMeasuredWidth();
                         int measuredHeight3 = childAt.getMeasuredHeight();

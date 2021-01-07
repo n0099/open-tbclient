@@ -17,7 +17,7 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> extends com.baidu.a
         this.luR = z;
     }
 
-    public boolean djT() {
+    public boolean djU() {
         return this.luR;
     }
 }

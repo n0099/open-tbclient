@@ -17,30 +17,30 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f12948a = new Object();
+    private static final Object f12949a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f12949b = false;
+    private static boolean f12950b = false;
     private static Map<String, Future<JSONObject>> c = new LinkedHashMap();
 
     /* renamed from: com.qq.e.comm.plugin.w.a.f$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static final class AnonymousClass1 implements Callable<JSONObject> {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ d.a f12950a;
+        final /* synthetic */ d.a f12951a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ d.b f12951b;
+        final /* synthetic */ d.b f12952b;
         final /* synthetic */ d.e c;
 
         AnonymousClass1(d.a aVar, d.b bVar, d.e eVar) {
-            this.f12950a = aVar;
-            this.f12951b = bVar;
+            this.f12951a = aVar;
+            this.f12952b = bVar;
             this.c = eVar;
         }
 
@@ -48,24 +48,24 @@ public class f {
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public JSONObject call() throws Exception {
-            return f.a(this.f12950a, this.f12951b, this.c);
+            return f.a(this.f12951a, this.f12952b, this.c);
         }
     }
 
     /* renamed from: com.qq.e.comm.plugin.w.a.f$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static final class AnonymousClass2 implements Callable<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ Object f12952a;
+        final /* synthetic */ Object f12953a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ Context f12953b;
+        final /* synthetic */ Context f12954b;
         final /* synthetic */ int c;
 
         AnonymousClass2(Object obj, Context context, int i) {
-            this.f12952a = obj;
-            this.f12953b = context;
+            this.f12953a = obj;
+            this.f12954b = context;
             this.c = i;
         }
 
@@ -73,120 +73,120 @@ public class f {
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public Boolean call() throws Exception {
-            return f.a(this.f12952a, this.f12953b, this.c);
+            return f.a(this.f12953a, this.f12954b, this.c);
         }
     }
 
     /* renamed from: com.qq.e.comm.plugin.w.a.f$3  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static final class AnonymousClass3 implements Callable<JSONObject> {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ d.a f12954a;
+        final /* synthetic */ d.a f12955a;
 
         AnonymousClass3(d.a aVar) {
-            this.f12954a = aVar;
+            this.f12955a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public JSONObject call() throws Exception {
-            return com.qq.e.comm.plugin.w.c.a(this.f12954a.f12938a, 4000L);
+            return com.qq.e.comm.plugin.w.c.a(this.f12955a.f12939a, 4000L);
         }
     }
 
     /* renamed from: com.qq.e.comm.plugin.w.a.f$4  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static final class AnonymousClass4 implements DialogInterface.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ Exchanger f12955a;
+        final /* synthetic */ Exchanger f12956a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ Object f12956b;
+        final /* synthetic */ Object f12957b;
 
         AnonymousClass4(Exchanger exchanger, Object obj) {
-            this.f12955a = exchanger;
-            this.f12956b = obj;
+            this.f12956a = exchanger;
+            this.f12957b = obj;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
-            f.a(this.f12955a);
-            d.b(this.f12956b);
+            f.a(this.f12956a);
+            d.b(this.f12957b);
         }
     }
 
     /* renamed from: com.qq.e.comm.plugin.w.a.f$5  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static final class AnonymousClass5 implements DialogInterface.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ Exchanger f12957a;
+        final /* synthetic */ Exchanger f12958a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ Object f12958b;
+        final /* synthetic */ Object f12959b;
 
         AnonymousClass5(Exchanger exchanger, Object obj) {
-            this.f12957a = exchanger;
-            this.f12958b = obj;
+            this.f12958a = exchanger;
+            this.f12959b = obj;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i) {
-            f.b(this.f12957a);
-            d.b(this.f12958b);
+            f.b(this.f12958a);
+            d.b(this.f12959b);
         }
     }
 
     /* renamed from: com.qq.e.comm.plugin.w.a.f$6  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static final class AnonymousClass6 implements DialogInterface.OnCancelListener {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ Exchanger f12959a;
+        final /* synthetic */ Exchanger f12960a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ Object f12960b;
+        final /* synthetic */ Object f12961b;
 
         AnonymousClass6(Exchanger exchanger, Object obj) {
-            this.f12959a = exchanger;
-            this.f12960b = obj;
+            this.f12960a = exchanger;
+            this.f12961b = obj;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            f.b(this.f12959a);
-            d.b(this.f12960b);
+            f.b(this.f12960a);
+            d.b(this.f12961b);
         }
     }
 
     /* renamed from: com.qq.e.comm.plugin.w.a.f$7  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static final class AnonymousClass7 implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ AlertDialog.Builder f12961a;
+        final /* synthetic */ AlertDialog.Builder f12962a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ Object f12962b;
+        final /* synthetic */ Object f12963b;
         final /* synthetic */ Exchanger c;
 
         AnonymousClass7(AlertDialog.Builder builder, Object obj, Exchanger exchanger) {
-            this.f12961a = builder;
-            this.f12962b = obj;
+            this.f12962a = builder;
+            this.f12963b = obj;
             this.c = exchanger;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                this.f12961a.show();
-                if (this.f12962b instanceof com.qq.e.comm.plugin.ab.h) {
-                    ((com.qq.e.comm.plugin.ab.h) this.f12962b).a(new com.qq.e.comm.plugin.ab.a.a(com.qq.e.comm.plugin.ab.a.c.ADOpenOverlay, null));
+                this.f12962a.show();
+                if (this.f12963b instanceof com.qq.e.comm.plugin.ab.h) {
+                    ((com.qq.e.comm.plugin.ab.h) this.f12963b).a(new com.qq.e.comm.plugin.ab.a.a(com.qq.e.comm.plugin.ab.a.c.ADOpenOverlay, null));
                 }
-                d.a(this.f12962b);
+                d.a(this.f12963b);
             } catch (Throwable th) {
                 GDTLogger.report("ExceptionIn DownClickRunnable.confirmDownload", th);
                 try {
@@ -199,31 +199,31 @@ public class f {
     }
 
     /* renamed from: com.qq.e.comm.plugin.w.a.f$8  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static final class AnonymousClass8 implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ AlertDialog.Builder f12963a;
+        final /* synthetic */ AlertDialog.Builder f12964a;
 
         AnonymousClass8(AlertDialog.Builder builder) {
-            this.f12963a = builder;
+            this.f12964a = builder;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                this.f12963a.show();
+                this.f12964a.show();
             } catch (Throwable th) {
                 GDTLogger.report("ExceptionIn DownClickRunnable.confirmDownload", th);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final ExecutorService f12964a = Executors.newCachedThreadPool();
+        private static final ExecutorService f12965a = Executors.newCachedThreadPool();
     }
 
     private static int a(Context context, String str, String str2, String str3, String str4, boolean z) {

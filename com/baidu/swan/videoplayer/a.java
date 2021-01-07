@@ -20,7 +20,7 @@ public interface a {
     public interface b {
         void b(MediaPlayer mediaPlayer);
 
-        a bjr();
+        a bjs();
     }
 
     void a(InterfaceC0565a interfaceC0565a);

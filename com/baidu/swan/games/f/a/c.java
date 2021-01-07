@@ -29,23 +29,23 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
             String str = TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg) ? "" : v8ExceptionInfo.exceptionMsg;
             String str2 = TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace) ? "" : v8ExceptionInfo.exceptionTrace;
             Log.e("V8Exception", this.cQM.getLogTag() + "msg: " + str + " ,stack: " + str2);
-            this.cQM.aZI().error(str);
+            this.cQM.aZJ().error(str);
             if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !this.ehY.equals(str)) {
                 this.ehY = str;
                 db(str, str2);
                 com.baidu.swan.games.v.c.ya(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2);
                 i.a(v8ExceptionInfo);
-                DuMixGameSurfaceView baj = com.baidu.swan.games.j.a.bah().baj();
-                if (baj != null) {
-                    baj.d(v8ExceptionInfo);
+                DuMixGameSurfaceView bak = com.baidu.swan.games.j.a.bai().bak();
+                if (bak != null) {
+                    bak.d(v8ExceptionInfo);
                 }
             }
         }
     }
 
     private void db(String str, String str2) {
-        if (this.cQM.aZG() != null) {
-            this.cQM.aZG().dispatchEvent(new a().xk(str + "\n" + str2).xl("").aZP());
+        if (this.cQM.aZH() != null) {
+            this.cQM.aZH().dispatchEvent(new a().xk(str + "\n" + str2).xl("").aZQ());
         }
     }
 
@@ -66,7 +66,7 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
             return this;
         }
 
-        public JSEvent aZP() {
+        public JSEvent aZQ() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("message", this.ehY);

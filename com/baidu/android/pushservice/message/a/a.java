@@ -48,15 +48,15 @@ public class a extends b {
             String b2 = kVar.b();
             String e = kVar.e();
             byte[] g = kVar.g();
-            CrossPushMessage b3 = h.b(this.f1448a, e, b2, bArr);
-            if (this.f1448a.getPackageName().equals(b3.mPkgName) && !TextUtils.isEmpty(b3.f1441a)) {
-                if (!m.b(this.f1448a, b3.f1441a)) {
+            CrossPushMessage b3 = h.b(this.f1449a, e, b2, bArr);
+            if (this.f1449a.getPackageName().equals(b3.mPkgName) && !TextUtils.isEmpty(b3.f1442a)) {
+                if (!m.b(this.f1449a, b3.f1442a)) {
                     i = 8;
-                } else if (a(this.f1448a, b3.f1441a)) {
-                    com.baidu.android.pushservice.a.d.a(this.f1448a, b2);
+                } else if (a(this.f1449a, b3.f1442a)) {
+                    com.baidu.android.pushservice.a.d.a(this.f1449a, b2);
                     switch (r1.a()) {
                         case PUSH_CLIENT:
-                            d.a(this.f1448a, b3, b2, g, bArr);
+                            d.a(this.f1449a, b3, b2, g, bArr);
                             break;
                         default:
                             i = 7;

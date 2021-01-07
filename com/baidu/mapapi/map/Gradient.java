@@ -2,27 +2,27 @@ package com.baidu.mapapi.map;
 
 import android.graphics.Color;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class Gradient {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f2812a;
+    private final int f2813a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int[] f2813b;
+    private final int[] f2814b;
     private final float[] c;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class a {
 
         /* renamed from: b  reason: collision with root package name */
-        private final int f2815b;
+        private final int f2816b;
         private final int c;
         private final float d;
 
         private a(int i, int i2, float f) {
-            this.f2815b = i;
+            this.f2816b = i;
             this.c = i2;
             this.d = f;
         }
@@ -47,10 +47,10 @@ public class Gradient {
                 throw new IllegalArgumentException("BDMapSDKException: startPoints should be in increasing order");
             }
         }
-        this.f2812a = i;
-        this.f2813b = new int[iArr.length];
+        this.f2813a = i;
+        this.f2814b = new int[iArr.length];
         this.c = new float[fArr.length];
-        System.arraycopy(iArr, 0, this.f2813b, 0, iArr.length);
+        System.arraycopy(iArr, 0, this.f2814b, 0, iArr.length);
         System.arraycopy(fArr, 0, this.c, 0, fArr.length);
     }
 
@@ -75,20 +75,20 @@ public class Gradient {
     private HashMap<Integer, a> a() {
         HashMap<Integer, a> hashMap = new HashMap<>();
         if (this.c[0] != 0.0f) {
-            hashMap.put(0, new a(Color.argb(0, Color.red(this.f2813b[0]), Color.green(this.f2813b[0]), Color.blue(this.f2813b[0])), this.f2813b[0], this.c[0] * this.f2812a));
+            hashMap.put(0, new a(Color.argb(0, Color.red(this.f2814b[0]), Color.green(this.f2814b[0]), Color.blue(this.f2814b[0])), this.f2814b[0], this.c[0] * this.f2813a));
         }
         int i = 1;
         while (true) {
             int i2 = i;
-            if (i2 >= this.f2813b.length) {
+            if (i2 >= this.f2814b.length) {
                 break;
             }
-            hashMap.put(Integer.valueOf((int) (this.f2812a * this.c[i2 - 1])), new a(this.f2813b[i2 - 1], this.f2813b[i2], (this.c[i2] - this.c[i2 - 1]) * this.f2812a));
+            hashMap.put(Integer.valueOf((int) (this.f2813a * this.c[i2 - 1])), new a(this.f2814b[i2 - 1], this.f2814b[i2], (this.c[i2] - this.c[i2 - 1]) * this.f2813a));
             i = i2 + 1;
         }
         if (this.c[this.c.length - 1] != 1.0f) {
             int length = this.c.length - 1;
-            hashMap.put(Integer.valueOf((int) (this.f2812a * this.c[length])), new a(this.f2813b[length], this.f2813b[length], this.f2812a * (1.0f - this.c[length])));
+            hashMap.put(Integer.valueOf((int) (this.f2813a * this.c[length])), new a(this.f2814b[length], this.f2814b[length], this.f2813a * (1.0f - this.c[length])));
         }
         return hashMap;
     }
@@ -96,18 +96,18 @@ public class Gradient {
     /* JADX INFO: Access modifiers changed from: package-private */
     public int[] a(double d) {
         HashMap<Integer, a> a2 = a();
-        int[] iArr = new int[this.f2812a];
+        int[] iArr = new int[this.f2813a];
         int i = 0;
         a aVar = a2.get(0);
-        for (int i2 = 0; i2 < this.f2812a; i2++) {
+        for (int i2 = 0; i2 < this.f2813a; i2++) {
             if (a2.containsKey(Integer.valueOf(i2))) {
                 i = i2;
                 aVar = a2.get(Integer.valueOf(i2));
             }
-            iArr[i2] = a(aVar.f2815b, aVar.c, (i2 - i) / aVar.d);
+            iArr[i2] = a(aVar.f2816b, aVar.c, (i2 - i) / aVar.d);
         }
         if (d != 1.0d) {
-            for (int i3 = 0; i3 < this.f2812a; i3++) {
+            for (int i3 = 0; i3 < this.f2813a; i3++) {
                 int i4 = iArr[i3];
                 iArr[i3] = Color.argb((int) (Color.alpha(i4) * d), Color.red(i4), Color.green(i4), Color.blue(i4));
             }

@@ -18,7 +18,7 @@ public class c implements com.baidu.adp.widget.ListView.n {
     String rule_jump_url;
     String tips;
 
-    public String cUV() {
+    public String cUW() {
         return this.module_title;
     }
 
@@ -26,11 +26,11 @@ public class c implements com.baidu.adp.widget.ListView.n {
         return this.tips;
     }
 
-    public String cUW() {
+    public String cUX() {
         return this.rule_jump_url;
     }
 
-    public long cUX() {
+    public long cUY() {
         return this.kqw;
     }
 
@@ -46,7 +46,7 @@ public class c implements com.baidu.adp.widget.ListView.n {
         return this.mName;
     }
 
-    public int cUY() {
+    public int cUZ() {
         return this.kqB;
     }
 

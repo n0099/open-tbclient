@@ -15,8 +15,8 @@ public class a {
     private volatile String iDf;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String cwB() {
-        cwC();
+    public String cwC() {
+        cwD();
         if (j.isWifiNet()) {
             return iDj[new Random().nextInt(iDj.length)];
         }
@@ -35,7 +35,7 @@ public class a {
         return "119.75.222.62";
     }
 
-    protected void cwC() {
+    protected void cwD() {
         try {
             this.iDf = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService("phone")).getSubscriberId();
         } catch (Exception e) {

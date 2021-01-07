@@ -198,8 +198,8 @@ public class e {
         if (optJSONObject2 != null) {
             pMSAppInfo.brandsInfo = optJSONObject2.toString();
         }
-        com.baidu.swan.pms.d.bfV().b(jSONObject.optJSONArray("ban_path"), jSONObject.optString("ban_tips"), pMSAppInfo.appKey);
-        com.baidu.swan.pms.d.bfV().a(pMSAppInfo, jSONObject.optJSONObject("scope_list"), jSONObject.optInt("service_degrade", 0) != 0);
+        com.baidu.swan.pms.d.bfW().b(jSONObject.optJSONArray("ban_path"), jSONObject.optString("ban_tips"), pMSAppInfo.appKey);
+        com.baidu.swan.pms.d.bfW().a(pMSAppInfo, jSONObject.optJSONObject("scope_list"), jSONObject.optInt("service_degrade", 0) != 0);
         pMSAppInfo.webUrl = jSONObject.optString("web_url");
         pMSAppInfo.csProtocolVersion = PMSConstants.b.getVersion();
         return pMSAppInfo;

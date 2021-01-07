@@ -26,18 +26,18 @@ public class a implements k {
         if (cVar == null) {
             return null;
         }
-        AlertDialog show = new AlertDialog.Builder(cVar.f13196a).setTitle(cVar.f13197b).setMessage(cVar.c).setPositiveButton(cVar.d, new DialogInterface.OnClickListener() { // from class: com.ss.android.downloadlib.c.a.2
+        AlertDialog show = new AlertDialog.Builder(cVar.f13197a).setTitle(cVar.f13198b).setMessage(cVar.c).setPositiveButton(cVar.d, new DialogInterface.OnClickListener() { // from class: com.ss.android.downloadlib.c.a.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (com.ss.android.a.a.d.c.this.pTl != null) {
-                    com.ss.android.a.a.d.c.this.pTl.a(dialogInterface);
+                if (com.ss.android.a.a.d.c.this.pUT != null) {
+                    com.ss.android.a.a.d.c.this.pUT.a(dialogInterface);
                 }
             }
         }).setNegativeButton(cVar.e, new DialogInterface.OnClickListener() { // from class: com.ss.android.downloadlib.c.a.1
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (com.ss.android.a.a.d.c.this.pTl != null) {
-                    com.ss.android.a.a.d.c.this.pTl.b(dialogInterface);
+                if (com.ss.android.a.a.d.c.this.pUT != null) {
+                    com.ss.android.a.a.d.c.this.pUT.b(dialogInterface);
                 }
             }
         }).show();
@@ -45,8 +45,8 @@ public class a implements k {
         show.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.ss.android.downloadlib.c.a.3
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                if (com.ss.android.a.a.d.c.this.pTl != null) {
-                    com.ss.android.a.a.d.c.this.pTl.c(dialogInterface);
+                if (com.ss.android.a.a.d.c.this.pUT != null) {
+                    com.ss.android.a.a.d.c.this.pUT.c(dialogInterface);
                 }
             }
         });

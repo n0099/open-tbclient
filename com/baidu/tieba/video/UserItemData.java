@@ -35,7 +35,7 @@ public class UserItemData implements Parcelable {
     public String user_name;
     public String video_num;
 
-    public String dTy() {
+    public String dTz() {
         return !TextUtils.isEmpty(this.name_show) ? this.name_show : this.user_name;
     }
 

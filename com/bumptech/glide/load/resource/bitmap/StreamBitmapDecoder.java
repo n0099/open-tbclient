@@ -12,7 +12,7 @@ import com.bumptech.glide.util.ExceptionCatchingInputStream;
 import com.bumptech.glide.util.MarkEnforcingInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class StreamBitmapDecoder implements ResourceDecoder<InputStream, Bitmap> {
     private final ArrayPool byteArrayPool;
     private final Downsampler downsampler;
@@ -52,7 +52,7 @@ public class StreamBitmapDecoder implements ResourceDecoder<InputStream, Bitmap>
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class UntrustedCallbacks implements Downsampler.DecodeCallbacks {
         private final RecyclableBufferedInputStream bufferedStream;
         private final ExceptionCatchingInputStream exceptionStream;

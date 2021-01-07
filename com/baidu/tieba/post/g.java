@@ -31,34 +31,34 @@ import java.util.regex.Pattern;
 public class g extends BaseAdapter {
     private BdUniqueId ahE;
     private TbPageContext<BaseFragmentActivity> iUb;
-    private PersonPostModel.a mHe;
-    private final PersonPostModel.a mHf = new PersonPostModel.a() { // from class: com.baidu.tieba.post.g.1
+    private PersonPostModel.a mHd;
+    private final PersonPostModel.a mHe = new PersonPostModel.a() { // from class: com.baidu.tieba.post.g.1
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.a
         public void b(PersonPostModel personPostModel, boolean z) {
             if (z) {
-                g.this.mww = personPostModel;
-                Iterator<n> it = g.this.mww.postList.iterator();
+                g.this.mwv = personPostModel;
+                Iterator<n> it = g.this.mwv.postList.iterator();
                 while (it.hasNext()) {
                     n next = it.next();
                     if (next != null && !(next instanceof PersonPostModel.PostInfoList)) {
                         it.remove();
                     }
                 }
-            } else if (g.this.mww != null) {
+            } else if (g.this.mwv != null) {
                 for (int i = 0; i < personPostModel.postList.size(); i++) {
                     if (personPostModel.postList.get(i) instanceof PersonPostModel.PostInfoList) {
-                        g.this.mww.postList.add(personPostModel.postList.get(i));
+                        g.this.mwv.postList.add(personPostModel.postList.get(i));
                     }
                 }
             }
-            if (g.this.mHe != null) {
-                g.this.mHe.b(personPostModel, z);
+            if (g.this.mHd != null) {
+                g.this.mHd.b(personPostModel, z);
             }
             g.this.notifyDataSetChanged();
         }
     };
-    private final a.InterfaceC0830a mHg = new a.InterfaceC0830a() { // from class: com.baidu.tieba.post.g.2
-        @Override // com.baidu.tieba.post.a.InterfaceC0830a
+    private final a.InterfaceC0863a mHf = new a.InterfaceC0863a() { // from class: com.baidu.tieba.post.g.2
+        @Override // com.baidu.tieba.post.a.InterfaceC0863a
         public void ea(View view) {
             String[] strArr;
             int id = view.getId();
@@ -80,8 +80,8 @@ public class g extends BaseAdapter {
         }
     };
     private final String mUid;
-    private String mvl;
-    private PersonPostModel mww;
+    private String mvk;
+    private PersonPostModel mwv;
 
     public g(TbPageContext<BaseFragmentActivity> tbPageContext, String str, String str2, BdUniqueId bdUniqueId) {
         this.iUb = tbPageContext;
@@ -90,29 +90,29 @@ public class g extends BaseAdapter {
     }
 
     public void a(PersonPostModel.a aVar) {
-        this.mHe = aVar;
+        this.mHd = aVar;
     }
 
     public void xf(boolean z) {
-        if (this.mww == null) {
-            this.mww = new PersonPostModel(this.iUb, this.ahE, null, true, PersonPostModel.FROM_PERSON_POST);
-            this.mww.setUniqueId(this.ahE);
+        if (this.mwv == null) {
+            this.mwv = new PersonPostModel(this.iUb, this.ahE, null, true, PersonPostModel.FROM_PERSON_POST);
+            this.mwv.setUniqueId(this.ahE);
         }
-        this.mww.fetchPost(this.iUb, this.mHf, z, this.mUid, false, true, false, null);
+        this.mwv.fetchPost(this.iUb, this.mHe, z, this.mUid, false, true, false, null);
     }
 
-    public void cIb() {
-        if (this.mww != null) {
-            this.mww.cancelLoadData();
+    public void cIc() {
+        if (this.mwv != null) {
+            this.mwv.cancelLoadData();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.mww == null || this.mww.postList == null) {
+        if (this.mwv == null || this.mwv.postList == null) {
             return 0;
         }
-        return this.mww.postList.size();
+        return this.mwv.postList.size();
     }
 
     @Override // android.widget.Adapter
@@ -136,24 +136,24 @@ public class g extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         if (i == 0) {
-            aVar.myD.setVisibility(0);
+            aVar.myC.setVisibility(0);
         } else {
-            aVar.myD.setVisibility(8);
+            aVar.myC.setVisibility(8);
         }
         a(i, aVar, viewGroup);
         return view;
     }
 
     public PersonPostModel.PostInfoList II(int i) {
-        return (PersonPostModel.PostInfoList) this.mww.postList.get(i);
+        return (PersonPostModel.PostInfoList) this.mwv.postList.get(i);
     }
 
     private void a(int i, a aVar, ViewGroup viewGroup) {
         PersonPostModel.PostInfoList II = II(i);
-        if (this.mvl == null) {
-            this.mvl = II.user_portrait;
+        if (this.mvk == null) {
+            this.mvk = II.user_portrait;
         }
-        aVar.a(II, false, this.mvl);
+        aVar.a(II, false, this.mvk);
         ArrayList<String[]> arrayList = new ArrayList<>();
         int length = II.content.length;
         for (int i2 = 0; i2 < length; i2++) {
@@ -169,26 +169,26 @@ public class g extends BaseAdapter {
                 arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(II.thread_id), String.valueOf(II.content[i2].post_id), String.valueOf(II.content[i2].post_type), at.getFormatTime(II.content[i2].create_time * 1000), String.valueOf(II.thread_type)});
             }
         }
-        aVar.mHi.setContent(arrayList);
+        aVar.mHh.setContent(arrayList);
         if (Pattern.compile("^回复：").matcher(II.title).find()) {
-            aVar.myw.setText(II.title.replaceFirst("回复：", "原贴："));
+            aVar.myv.setText(II.title.replaceFirst("回复：", "原贴："));
         } else {
-            aVar.myw.setText(II.title);
+            aVar.myv.setText(II.title);
         }
         if (II.originalThreadInfo != null && !StringUtils.isNull(II.originalThreadInfo.showText)) {
-            aVar.myw.setText("分享：" + II.originalThreadInfo.showText);
+            aVar.myv.setText("分享：" + II.originalThreadInfo.showText);
         }
-        aVar.myw.setTag(new String[]{String.valueOf(II.thread_id), null, null, String.valueOf(II.thread_type)});
+        aVar.myv.setTag(new String[]{String.valueOf(II.thread_id), null, null, String.valueOf(II.thread_type)});
         if (II.thread_type == 33) {
-            aVar.myw.setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
+            aVar.myv.setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
         } else {
-            aVar.myw.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+            aVar.myv.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
         }
-        ao.setBackgroundResource(aVar.myw, R.drawable.person_post_line);
-        ao.setViewTextColor(aVar.myw, R.color.common_color_10039, 1);
+        ao.setBackgroundResource(aVar.myv, R.drawable.person_post_line);
+        ao.setViewTextColor(aVar.myv, R.color.common_color_10039, 1);
         int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(R.dimen.ds20);
-        aVar.myw.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
-        aVar.a(this.mHg);
+        aVar.myv.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+        aVar.a(this.mHf);
         aVar.changeSkin(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -198,23 +198,23 @@ public class g extends BaseAdapter {
     public static class a extends com.baidu.tieba.post.a {
         private View iwu;
         private View iwv;
-        public ReplyLinearLayout mHi;
-        public TextView myw;
+        public ReplyLinearLayout mHh;
+        public TextView myv;
 
         public a(View view, TbPageContext<BaseFragmentActivity> tbPageContext) {
             super(view, tbPageContext);
-            this.mHi = (ReplyLinearLayout) view.findViewById(R.id.content_container);
-            this.myw = (TextView) view.findViewById(R.id.original_post_title);
+            this.mHh = (ReplyLinearLayout) view.findViewById(R.id.content_container);
+            this.myv = (TextView) view.findViewById(R.id.original_post_title);
             this.iwu = view.findViewById(R.id.reply_top_line);
             this.iwv = view.findViewById(R.id.reply_bottom_line);
-            this.myw.setOnClickListener(this);
+            this.myv.setOnClickListener(this);
         }
 
         @Override // com.baidu.tieba.post.a
         public void changeSkin(int i) {
             super.changeSkin(i);
-            ao.setBackgroundResource(this.myw, R.color.CAM_X0205);
-            ao.setViewTextColor(this.myw, R.color.CAM_X0105, 1);
+            ao.setBackgroundResource(this.myv, R.color.CAM_X0205);
+            ao.setViewTextColor(this.myv, R.color.CAM_X0105, 1);
             ao.setBackgroundResource(this.iwu, R.color.CAM_X0204);
             ao.setBackgroundResource(this.iwv, R.color.CAM_X0204);
         }

@@ -70,9 +70,9 @@ public class b {
                 }
             }
         };
-        this.ckP = new i(e.aek().aem());
+        this.ckP = new i(e.ael().aen());
         this.ckP.jL(ckO);
-        aec();
+        aed();
     }
 
     public boolean isLoaded() {
@@ -92,11 +92,11 @@ public class b {
         if (!bC) {
             return this.ckX.booleanValue();
         }
-        boolean adC = com.baidu.minivideo.arface.a.adC();
+        boolean adD = com.baidu.minivideo.arface.a.adD();
         if (isDebug()) {
-            d("ARControllerProxy.loadSoFile " + adC);
+            d("ARControllerProxy.loadSoFile " + adD);
         }
-        if (!adC) {
+        if (!adD) {
             return this.ckX.booleanValue();
         }
         File file = this.ckU.cld;
@@ -113,11 +113,11 @@ public class b {
         return this.ckX.booleanValue();
     }
 
-    public File aea() {
+    public File aeb() {
         return this.ckU.cld;
     }
 
-    public File aeb() {
+    public File aec() {
         return this.ckT.cld;
     }
 
@@ -140,18 +140,18 @@ public class b {
                 return;
             }
             this.mIsLoading = true;
-            aec();
+            aed();
             onStart();
         }
     }
 
-    private void aec() {
+    private void aed() {
         this.ckR.clear();
         if (this.ckS != null) {
             this.ckS.clear();
         }
-        this.ckT = d.aee();
-        this.ckU = d.aef();
+        this.ckT = d.aef();
+        this.ckU = d.aeg();
         this.ckV = new c(this.ckU);
         a(this.ckV);
         a(new c(this.ckT));
@@ -190,7 +190,7 @@ public class b {
     protected void onCompleted() {
         boolean bB = bB(this.mContext);
         this.ckP.jK(this.ckQ);
-        this.ckP.aeu();
+        this.ckP.aev();
         if (isDebug()) {
             d("all onCompleted " + bB);
         }

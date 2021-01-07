@@ -23,20 +23,20 @@ public class h implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private b f11624a;
+    private b f11625a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f11625b;
+    private String f11626b;
     private int c;
 
     protected h(Parcel parcel) {
-        this.f11624a = (b) parcel.readParcelable(b.class.getClassLoader());
-        this.f11625b = parcel.readString();
+        this.f11625a = (b) parcel.readParcelable(b.class.getClassLoader());
+        this.f11626b = parcel.readString();
         this.c = parcel.readInt();
     }
 
     public h(String str, String str2, String str3, String str4, String str5) {
-        this.f11625b = str2;
+        this.f11626b = str2;
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (!jSONObject.isNull("notifyId")) {
@@ -45,11 +45,11 @@ public class h implements Parcelable {
         } catch (JSONException e) {
             com.meizu.cloud.a.a.e("WithDrawMessage", "parse WithDrawMessage error " + e.getMessage());
         }
-        this.f11624a = new b(str3, str4, str5);
+        this.f11625a = new b(str3, str4, str5);
     }
 
     public b a() {
-        return this.f11624a;
+        return this.f11625a;
     }
 
     public int b() {
@@ -57,7 +57,7 @@ public class h implements Parcelable {
     }
 
     public String c() {
-        return this.f11625b;
+        return this.f11626b;
     }
 
     @Override // android.os.Parcelable
@@ -66,13 +66,13 @@ public class h implements Parcelable {
     }
 
     public String toString() {
-        return "WithDrawMessage{controlMessage=" + this.f11624a + ", revokePackageName='" + this.f11625b + "', notifyId=" + this.c + '}';
+        return "WithDrawMessage{controlMessage=" + this.f11625a + ", revokePackageName='" + this.f11626b + "', notifyId=" + this.c + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f11624a, i);
-        parcel.writeString(this.f11625b);
+        parcel.writeParcelable(this.f11625a, i);
+        parcel.writeString(this.f11626b);
         parcel.writeInt(this.c);
     }
 }

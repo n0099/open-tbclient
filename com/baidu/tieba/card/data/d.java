@@ -67,7 +67,7 @@ public class d extends BaseCardInfo implements al, p {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean cvw() {
+    public boolean cvx() {
         return false;
     }
 
@@ -79,12 +79,12 @@ public class d extends BaseCardInfo implements al, p {
     public void pz(boolean z) {
     }
 
-    public AdvertAppInfo cvx() {
+    public AdvertAppInfo cvy() {
         return this.izk;
     }
 
     @Override // com.baidu.tbadk.core.data.al
-    public AdvertAppInfo bpi() {
+    public AdvertAppInfo bpj() {
         return this.izk;
     }
 
@@ -96,12 +96,12 @@ public class d extends BaseCardInfo implements al, p {
     }
 
     @Override // com.baidu.tbadk.core.data.al
-    public int bpj() {
+    public int bpk() {
         return this.position;
     }
 
     @Override // com.baidu.tbadk.core.data.al
-    public boolean bpk() {
+    public boolean bpl() {
         return this.eOk;
     }
 }

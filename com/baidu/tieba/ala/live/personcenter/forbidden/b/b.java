@@ -31,7 +31,7 @@ public class b implements IAdapterData {
         return this.userId;
     }
 
-    public String bCB() {
+    public String bCC() {
         return !TextUtils.isEmpty(this.userNickName) ? this.userNickName : this.userName;
     }
 

@@ -8,15 +8,15 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class sysParamters {
     private static volatile sysParamters pgu;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6066a;
+    private String f6067a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6067b;
+    private String f6068b;
     private String c;
     private String d = "Android";
     @Keep
@@ -46,7 +46,7 @@ public class sysParamters {
         return a2.versionName;
     }
 
-    public static sysParamters eoM() {
+    public static sysParamters eoN() {
         if (pgu == null) {
             synchronized (sysParamters.class) {
                 if (pgu == null) {
@@ -71,11 +71,11 @@ public class sysParamters {
     }
 
     public String b() {
-        if (TextUtils.isEmpty(this.f6066a)) {
-            this.f6066a = a(b.a());
-            return this.f6066a;
+        if (TextUtils.isEmpty(this.f6067a)) {
+            this.f6067a = a(b.a());
+            return this.f6067a;
         }
-        return this.f6066a;
+        return this.f6067a;
     }
 
     public String c() {
@@ -83,12 +83,12 @@ public class sysParamters {
     }
 
     public String d() {
-        if (TextUtils.isEmpty(this.f6067b)) {
-            this.f6067b = Build.MODEL;
-            this.f6067b = this.f6067b.replace(" ", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-            return this.f6067b;
+        if (TextUtils.isEmpty(this.f6068b)) {
+            this.f6068b = Build.MODEL;
+            this.f6068b = this.f6068b.replace(" ", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+            return this.f6068b;
         }
-        return this.f6067b;
+        return this.f6068b;
     }
 
     public String e() {

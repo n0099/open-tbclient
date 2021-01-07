@@ -25,8 +25,8 @@ public class e {
         eAX.put("671", -1);
     }
 
-    public static final l bin() {
-        return com.baidu.swan.apps.z.b.aGY();
+    public static final l bio() {
+        return com.baidu.swan.apps.z.b.aGZ();
     }
 
     public static final void onEvent(String str) {
@@ -46,26 +46,26 @@ public class e {
     }
 
     public static final void onEvent(String str, Map<String, String> map, int i) {
-        if (com.baidu.swan.b.d.bjg()) {
-            p.biK().onEvent(str, map, i);
+        if (com.baidu.swan.b.d.bjh()) {
+            p.biL().onEvent(str, map, i);
         }
     }
 
     public static void onEvent(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.ahD()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.ahE()) {
             str2 = dC(str, str2);
         }
-        if (com.baidu.swan.b.d.bjg()) {
-            p.biK().onEvent(str, str2, i);
+        if (com.baidu.swan.b.d.bjh()) {
+            p.biL().onEvent(str, str2, i);
         }
     }
 
     public static void onEvent(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.ahD()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.ahE()) {
             n(str, jSONObject);
         }
-        if (com.baidu.swan.b.d.bjg()) {
-            p.biK().onEvent(str, jSONObject, i);
+        if (com.baidu.swan.b.d.bjh()) {
+            p.biL().onEvent(str, jSONObject, i);
         }
     }
 
@@ -74,7 +74,7 @@ public class e {
     }
 
     public static Flow n(String str, String str2, int i) {
-        return p.biK().n(str, str2, i);
+        return p.biL().n(str, str2, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -83,7 +83,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static IRemoteUBCService bio() throws RemoteException {
+    public static IRemoteUBCService bip() throws RemoteException {
         if (eAW == null) {
             synchronized (e.class) {
                 if (eAW == null) {
@@ -101,9 +101,9 @@ public class e {
     }
 
     private static String dC(String str, String str2) {
-        l bin;
+        l bio;
         Integer valueOf;
-        if (eAY.contains(str) && (bin = bin()) != null && bin.aGX()) {
+        if (eAY.contains(str) && (bio = bio()) != null && bio.aGY()) {
             synchronized (e.class) {
                 Integer num = eAX.get(str);
                 if (num == null) {
@@ -111,7 +111,7 @@ public class e {
                 }
                 String str3 = "ubc_counter" + str;
                 if (num.intValue() == -1) {
-                    num = Integer.valueOf(u.biV().getInt(str3, 0));
+                    num = Integer.valueOf(u.biW().getInt(str3, 0));
                 }
                 try {
                     if (num.intValue() + 1 >= Integer.MAX_VALUE) {
@@ -122,7 +122,7 @@ public class e {
                     JSONObject jSONObject = new JSONObject(str2);
                     jSONObject.put("counter", valueOf);
                     str2 = jSONObject.toString();
-                    u.biV().putInt("ubc_counter" + str, valueOf.intValue());
+                    u.biW().putInt("ubc_counter" + str, valueOf.intValue());
                     eAX.put(str, valueOf);
                 } catch (JSONException e) {
                 }
@@ -132,9 +132,9 @@ public class e {
     }
 
     private static JSONObject n(String str, JSONObject jSONObject) {
-        l bin;
+        l bio;
         Integer valueOf;
-        if (eAY.contains(str) && (bin = bin()) != null && bin.aGX()) {
+        if (eAY.contains(str) && (bio = bio()) != null && bio.aGY()) {
             synchronized (e.class) {
                 Integer num = eAX.get(str);
                 if (num == null) {
@@ -142,7 +142,7 @@ public class e {
                 }
                 String str2 = "ubc_counter" + str;
                 if (num.intValue() == -1) {
-                    num = Integer.valueOf(u.biV().getInt(str2, 0));
+                    num = Integer.valueOf(u.biW().getInt(str2, 0));
                 }
                 try {
                     if (num.intValue() + 1 >= Integer.MAX_VALUE) {
@@ -151,7 +151,7 @@ public class e {
                         valueOf = Integer.valueOf(num.intValue() + 1);
                     }
                     jSONObject.put("counter", valueOf);
-                    u.biV().putInt("ubc_counter" + str, valueOf.intValue());
+                    u.biW().putInt("ubc_counter" + str, valueOf.intValue());
                     eAX.put(str, valueOf);
                 } catch (JSONException e) {
                 }

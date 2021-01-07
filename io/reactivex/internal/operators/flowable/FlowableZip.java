@@ -13,11 +13,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class FlowableZip<T, R> extends g<R> {
     final int bufferSize;
     final boolean delayError;
-    final Iterable<? extends org.a.b<? extends T>> qgL;
+    final Iterable<? extends org.a.b<? extends T>> qiu;
     final org.a.b<? extends T>[] sources;
     final h<? super Object[], ? extends R> zipper;
 
@@ -29,7 +29,7 @@ public final class FlowableZip<T, R> extends g<R> {
         if (bVarArr2 == null) {
             int i = 0;
             org.a.b<? extends T>[] bVarArr3 = new org.a.b[8];
-            for (org.a.b<? extends T> bVar : this.qgL) {
+            for (org.a.b<? extends T> bVar : this.qiu) {
                 if (i == bVarArr3.length) {
                     org.a.b<? extends T>[] bVarArr4 = new org.a.b[(i >> 2) + i];
                     System.arraycopy(bVarArr3, 0, bVarArr4, 0, i);
@@ -53,7 +53,7 @@ public final class FlowableZip<T, R> extends g<R> {
         zipCoordinator.subscribe(bVarArr, length);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class ZipCoordinator<T, R> extends AtomicInteger implements d {
         private static final long serialVersionUID = -2434867452883857743L;
         final org.a.c<? super R> actual;
@@ -339,7 +339,7 @@ public final class FlowableZip<T, R> extends g<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class ZipSubscriber<T, R> extends AtomicReference<d> implements j<T>, d {
         private static final long serialVersionUID = -4627193790118206028L;
         volatile boolean done;

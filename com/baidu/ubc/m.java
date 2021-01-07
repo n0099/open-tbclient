@@ -17,7 +17,7 @@ class m {
         this.eBg = i2;
     }
 
-    public boolean biw() {
+    public boolean bix() {
         if (this.eBf == 0 || this.eBg == 0) {
             return false;
         }
@@ -44,7 +44,7 @@ class m {
         return false;
     }
 
-    public boolean bix() {
+    public boolean biy() {
         return this.mCount != 0 && this.mCount == this.eBg;
     }
 

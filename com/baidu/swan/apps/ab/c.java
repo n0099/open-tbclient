@@ -23,7 +23,7 @@ public final class c {
         void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
     }
 
-    public static c aIj() {
+    public static c aIk() {
         if (duI == null) {
             synchronized (com.baidu.swan.games.audio.b.b.class) {
                 if (duI == null) {

@@ -64,7 +64,7 @@ import org.json.JSONObject;
 public class FeedbackInputActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Bitmap f5696a = null;
+    public static Bitmap f5697a = null;
     public View C;
     public EditText E;
     protected int I;
@@ -80,7 +80,7 @@ public class FeedbackInputActivity extends Activity {
     private String az;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f5697b;
+    public LinearLayout f5698b;
     public LinearLayout c;
     public LinearLayout d;
     public com.baidu.ufosdk.a.a g;
@@ -477,7 +477,7 @@ public class FeedbackInputActivity extends Activity {
         hashMap.put("appvn", com.baidu.ufosdk.b.e.b());
         hashMap.put("freespace", String.valueOf(com.baidu.ufosdk.b.a.a()));
         hashMap.put("uid", com.baidu.ufosdk.b.d);
-        hashMap.put("username", com.baidu.ufosdk.b.f5638b);
+        hashMap.put("username", com.baidu.ufosdk.b.f5639b);
         hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
         hashMap.put("osvn", Build.VERSION.RELEASE);
         hashMap.put("extra", com.baidu.ufosdk.b.f);
@@ -495,7 +495,7 @@ public class FeedbackInputActivity extends Activity {
             hashMap.put("nettype", "N/A");
         }
         hashMap.put("screenSize", com.baidu.ufosdk.b.f.a(context));
-        if (com.baidu.ufosdk.b.f5637a) {
+        if (com.baidu.ufosdk.b.f5638a) {
             hashMap.put("logcat", com.baidu.ufosdk.b.b.a());
         }
         if (!TextUtils.isEmpty(com.baidu.ufosdk.b.h)) {
@@ -592,7 +592,7 @@ public class FeedbackInputActivity extends Activity {
         hashMap.put("os", HttpConstants.OS_TYPE_VALUE);
         hashMap.put("appvn", com.baidu.ufosdk.b.e.b());
         hashMap.put("uid", com.baidu.ufosdk.b.d);
-        hashMap.put("username", com.baidu.ufosdk.b.f5638b);
+        hashMap.put("username", com.baidu.ufosdk.b.f5639b);
         hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
         hashMap.put("osvn", Build.VERSION.RELEASE);
         hashMap.put("extra", com.baidu.ufosdk.b.f);
@@ -1159,8 +1159,8 @@ public class FeedbackInputActivity extends Activity {
         layoutParams19.setMargins(0, 0, 0, 0);
         this.d.addView(this.i, layoutParams18);
         this.ao.addView(this.d, layoutParams19);
-        this.f5697b = new LinearLayout(this);
-        this.f5697b.setOrientation(1);
+        this.f5698b = new LinearLayout(this);
+        this.f5698b.setOrientation(1);
         ImageView imageView2 = new ImageView(this);
         LinearLayout.LayoutParams layoutParams20 = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 115.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 85.0f));
         try {
@@ -1168,14 +1168,14 @@ public class FeedbackInputActivity extends Activity {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        this.f5697b.addView(imageView2, layoutParams20);
+        this.f5698b.addView(imageView2, layoutParams20);
         this.m = new TextView(this);
         this.m.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 18.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 11.0f));
         this.m.setTextSize(com.baidu.ufosdk.b.O);
         this.m.setTextColor(com.baidu.ufosdk.b.x);
         LinearLayout.LayoutParams layoutParams21 = new LinearLayout.LayoutParams(-2, -2);
         com.baidu.ufosdk.f.i.a(getApplicationContext(), this.m);
-        this.f5697b.addView(this.m, layoutParams21);
+        this.f5698b.addView(this.m, layoutParams21);
         this.aq = new Button(this);
         this.aq.setText(com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_DATALINE));
         this.aq.setTextSize(com.baidu.ufosdk.b.P);
@@ -1187,12 +1187,12 @@ public class FeedbackInputActivity extends Activity {
         }
         LinearLayout.LayoutParams layoutParams22 = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 122.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 40.0f));
         layoutParams22.setMargins(0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), 0, 0);
-        this.f5697b.addView(this.aq, layoutParams22);
+        this.f5698b.addView(this.aq, layoutParams22);
         RelativeLayout.LayoutParams layoutParams23 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams23.addRule(13);
-        this.ao.addView(this.f5697b, layoutParams23);
-        this.f5697b.setGravity(17);
-        this.f5697b.setVisibility(8);
+        this.ao.addView(this.f5698b, layoutParams23);
+        this.f5698b.setGravity(17);
+        this.f5698b.setVisibility(8);
         setContentView(this.ao, new ViewGroup.LayoutParams(-1, -1));
         this.k = com.baidu.ufosdk.f.i.b(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_JOININ_GROUP));
         RelativeLayout.LayoutParams layoutParams24 = new RelativeLayout.LayoutParams(-2, -2);
@@ -1241,7 +1241,7 @@ public class FeedbackInputActivity extends Activity {
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        com.baidu.ufosdk.f.a.f5657a = null;
+        com.baidu.ufosdk.f.a.f5658a = null;
     }
 
     @Override // android.app.Activity

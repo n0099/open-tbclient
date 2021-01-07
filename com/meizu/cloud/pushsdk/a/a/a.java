@@ -33,7 +33,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static a f11410b;
+    private static a f11411b;
     private static final Object c = new Object();
     private byte[] d;
     private byte[] e;
@@ -47,7 +47,7 @@ public class a {
     private long l = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    String f11411a = "88&*5a9*4&a122ek";
+    String f11412a = "88&*5a9*4&a122ek";
 
     private a(Context context) {
         this.m = context;
@@ -85,10 +85,10 @@ public class a {
     }
 
     public static a a() {
-        if (f11410b == null) {
+        if (f11411b == null) {
             throw new IllegalStateException("KeyMgr is not initialised - invoke at least once with parameterised init/get");
         }
-        return f11410b;
+        return f11411b;
     }
 
     private String a(InputStream inputStream) {
@@ -123,10 +123,10 @@ public class a {
     }
 
     public static void a(Context context) {
-        if (f11410b == null) {
+        if (f11411b == null) {
             synchronized (c) {
-                if (f11410b == null) {
-                    f11410b = new a(context);
+                if (f11411b == null) {
+                    f11411b = new a(context);
                 }
             }
         }

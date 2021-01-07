@@ -39,7 +39,7 @@ public class EmojiconsController implements ViewPager.OnPageChangeListener {
         this.cdX = (ViewPager) view.findViewById(a.f.emojis_pager);
         this.cdU = (LinearLayout) view.findViewById(a.f.emojis_viewgroup);
         this.cdX.setOnPageChangeListener(this);
-        a aVar = new a(Arrays.asList(com.baidu.live.view.emojiview.a.b(this.mContext, b.bVQ).ZX(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVR).ZX(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVS).ZX(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVT).ZX(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVU).ZX(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVV).ZX(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVW).ZX(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVX).ZX(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVY).ZX(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVZ).ZX()));
+        a aVar = new a(Arrays.asList(com.baidu.live.view.emojiview.a.b(this.mContext, b.bVQ).ZY(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVR).ZY(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVS).ZY(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVT).ZY(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVU).ZY(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVV).ZY(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVW).ZY(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVX).ZY(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVY).ZY(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVZ).ZY()));
         this.cdX.setAdapter(aVar);
         this.cdV = new ImageView[aVar.getCount()];
         for (int i = 0; i < aVar.getCount(); i++) {
@@ -67,8 +67,8 @@ public class EmojiconsController implements ViewPager.OnPageChangeListener {
         }
     }
 
-    public void abI() {
-        this.cdX.setAdapter(new a(Arrays.asList(com.baidu.live.view.emojiview.a.b(this.mContext, b.bVQ).ZX(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVR).ZX(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVS).ZX(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVT).ZX(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVU).ZX(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVV).ZX(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVW).ZX(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVX).ZX(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVY).ZX(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVZ).ZX())));
+    public void abJ() {
+        this.cdX.setAdapter(new a(Arrays.asList(com.baidu.live.view.emojiview.a.b(this.mContext, b.bVQ).ZY(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVR).ZY(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVS).ZY(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVT).ZY(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVU).ZY(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVV).ZY(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVW).ZY(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVX).ZY(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVY).ZY(), com.baidu.live.view.emojiview.a.b(this.mContext, b.bVZ).ZY())));
         if (this.cea == -1) {
             this.cea = SharedPrefHelper.getInstance().getInt("audio_live_emoji_page", 0);
         }

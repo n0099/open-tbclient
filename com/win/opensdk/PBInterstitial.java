@@ -7,53 +7,53 @@ import com.win.opensdk.core.Info;
 /* loaded from: classes4.dex */
 public class PBInterstitial {
     private String java;
-    private cf qbF;
-    private PBInterstitialListener qbG;
+    private cf qdn;
+    private PBInterstitialListener qdo;
 
     public PBInterstitial(@NonNull Context context, String str) {
         Context applicationContext = context.getApplicationContext();
         this.java = str;
-        this.qbF = new cf(applicationContext, str);
-        this.qbF.qbG = new PBInterstitialListener() { // from class: com.win.opensdk.PBInterstitial.1
+        this.qdn = new cf(applicationContext, str);
+        this.qdn.qdo = new PBInterstitialListener() { // from class: com.win.opensdk.PBInterstitial.1
             @Override // com.win.opensdk.PBInterstitialListener
             public final void onInterstitialDismissed() {
-                if (PBInterstitial.this.qbG != null) {
-                    PBInterstitial.this.qbG.onInterstitialDismissed();
+                if (PBInterstitial.this.qdo != null) {
+                    PBInterstitial.this.qdo.onInterstitialDismissed();
                 }
             }
 
             @Override // com.win.opensdk.PBInterstitialListener
             public final void onInterstitialDisplayed() {
-                if (PBInterstitial.this.qbG != null) {
-                    PBInterstitial.this.qbG.onInterstitialDisplayed();
+                if (PBInterstitial.this.qdo != null) {
+                    PBInterstitial.this.qdo.onInterstitialDisplayed();
                 }
             }
 
             @Override // com.win.opensdk.PBInterstitialListener
             public final void onInterstitialShowFail(String str2) {
-                if (PBInterstitial.this.qbG != null) {
-                    PBInterstitial.this.qbG.onInterstitialShowFail(str2);
+                if (PBInterstitial.this.qdo != null) {
+                    PBInterstitial.this.qdo.onInterstitialShowFail(str2);
                 }
             }
 
             @Override // com.win.opensdk.PBListener
             public final void onFail(PBError pBError) {
-                if (PBInterstitial.this.qbG != null) {
-                    PBInterstitial.this.qbG.onFail(pBError);
+                if (PBInterstitial.this.qdo != null) {
+                    PBInterstitial.this.qdo.onFail(pBError);
                 }
             }
 
             @Override // com.win.opensdk.PBListener
             public final void onLoaded() {
-                if (PBInterstitial.this.qbG != null) {
-                    PBInterstitial.this.qbG.onLoaded();
+                if (PBInterstitial.this.qdo != null) {
+                    PBInterstitial.this.qdo.onLoaded();
                 }
             }
 
             @Override // com.win.opensdk.PBListener
             public final void onClicked() {
-                if (PBInterstitial.this.qbG != null) {
-                    PBInterstitial.this.qbG.onClicked();
+                if (PBInterstitial.this.qdo != null) {
+                    PBInterstitial.this.qdo.onClicked();
                 }
             }
         };
@@ -64,73 +64,73 @@ public class PBInterstitial {
     }
 
     public void load() {
-        final cf cfVar = this.qbF;
-        if (cfVar.java() && cfVar.qbW.isEffective() && !cfVar.qbW.isShown()) {
-            cfVar.a(cfVar.qbW);
+        final cf cfVar = this.qdn;
+        if (cfVar.java() && cfVar.qdE.isEffective() && !cfVar.qdE.isShown()) {
+            cfVar.a(cfVar.qdE);
             return;
         }
-        if (cfVar.qcK == null) {
-            cfVar.qcK = new ad(cfVar.qbB, cfVar.java, e.f54case);
+        if (cfVar.qes == null) {
+            cfVar.qes = new ad(cfVar.qdj, cfVar.java, e.f55case);
         }
-        cfVar.qcK.qcH = new ae<Info>() { // from class: com.win.opensdk.cf.2
+        cfVar.qes.qep = new ae<Info>() { // from class: com.win.opensdk.cf.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
             @Override // com.win.opensdk.ae
-            public final /* synthetic */ void bG(Info info) {
+            public final /* synthetic */ void bH(Info info) {
                 cf.this.a(info);
             }
 
             @Override // com.win.opensdk.ae
             public final void b(PBError pBError) {
-                cf.this.qbG.onFail(pBError);
+                cf.this.qdo.onFail(pBError);
             }
         };
-        cfVar.qcK.eJL();
+        cfVar.qes.eKp();
     }
 
     public void setInterstitialListener(PBInterstitialListener pBInterstitialListener) {
-        this.qbG = pBInterstitialListener;
+        this.qdo = pBInterstitialListener;
     }
 
     public boolean isReady() {
-        cf cfVar = this.qbF;
-        return cfVar.m67a() || cfVar.c();
+        cf cfVar = this.qdn;
+        return cfVar.m78a() || cfVar.c();
     }
 
     public void show() {
-        cf cfVar = this.qbF;
-        if (!av.iL(cfVar.qbB)) {
-            if (cfVar.qbG != null) {
-                cfVar.qbG.onInterstitialShowFail(PBError.NO_NETWORK.getMsg());
+        cf cfVar = this.qdn;
+        if (!av.iL(cfVar.qdj)) {
+            if (cfVar.qdo != null) {
+                cfVar.qdo.onInterstitialShowFail(PBError.NO_NETWORK.getMsg());
             }
-        } else if (az.iT(cfVar.qbB) == 1 && cfVar.qbW != null && !TextUtils.isEmpty(cfVar.qbW.getLoad()) && !TextUtils.isEmpty(az.m58c(cfVar.qbB)) && cfVar.qbW.getPid().equals(az.m58c(cfVar.qbB))) {
-            aw.bJ(cfVar.qbB, cfVar.qbW.getLoad());
-            w.iM(cfVar.qbB).a(new x(cfVar.qbW)).eJL();
-            if (cfVar.qbW != null) {
-                az.l(cfVar.qbB, cfVar.qbW.getId() + ":" + System.currentTimeMillis(), false);
+        } else if (az.iT(cfVar.qdj) == 1 && cfVar.qdE != null && !TextUtils.isEmpty(cfVar.qdE.getLoad()) && !TextUtils.isEmpty(az.m69c(cfVar.qdj)) && cfVar.qdE.getPid().equals(az.m69c(cfVar.qdj))) {
+            aw.bJ(cfVar.qdj, cfVar.qdE.getLoad());
+            w.iM(cfVar.qdj).a(new x(cfVar.qdE)).eKp();
+            if (cfVar.qdE != null) {
+                az.l(cfVar.qdj, cfVar.qdE.getId() + ":" + System.currentTimeMillis(), false);
             }
-            z.b(cfVar.qbW);
-        } else if (cfVar.eKj()) {
-            if (!cfVar.m67a() || !cfVar.java()) {
+            z.b(cfVar.qdE);
+        } else if (cfVar.eKN()) {
+            if (!cfVar.m78a() || !cfVar.java()) {
                 return;
             }
-            cfVar.qbE = false;
-            bp.eKk().a(bp.aX(cfVar.qbW.getTraceid(), cfVar.qbW.getId(), cfVar.qbW.getPid()), cfVar.qbI);
-            cfVar.eJL();
-        } else if (!cfVar.m68b() || !cfVar.c() || !cfVar.java()) {
+            cfVar.qdm = false;
+            bp.eKO().a(bp.aX(cfVar.qdE.getTraceid(), cfVar.qdE.getId(), cfVar.qdE.getPid()), cfVar.qdq);
+            cfVar.eKp();
+        } else if (!cfVar.m79b() || !cfVar.c() || !cfVar.java()) {
         } else {
-            cfVar.qce = false;
-            cfVar.eJL();
+            cfVar.qdM = false;
+            cfVar.eKp();
         }
     }
 
     public void destroy() {
-        cf cfVar = this.qbF;
-        cfVar.f14042a = false;
-        cfVar.qbE = false;
-        cfVar.qce = false;
-        if (cfVar.qcK == null) {
+        cf cfVar = this.qdn;
+        cfVar.f14043a = false;
+        cfVar.qdm = false;
+        cfVar.qdM = false;
+        if (cfVar.qes == null) {
             return;
         }
-        cfVar.qcK.eJM();
+        cfVar.qes.eKq();
     }
 }

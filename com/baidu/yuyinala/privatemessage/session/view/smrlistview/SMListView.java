@@ -96,7 +96,7 @@ public class SMListView extends ListView {
                     z = SMListView.this.pfF.a(sMView.getPosition(), cVar, i);
                 }
                 if (SMListView.this.pfC != null && !z) {
-                    SMListView.this.pfC.eoC();
+                    SMListView.this.pfC.eoD();
                 }
             }
         });
@@ -131,7 +131,7 @@ public class SMListView extends ListView {
         switch (motionEvent.getAction()) {
             case 0:
                 int i = this.pfA;
-                this.pfB = eoF();
+                this.pfB = eoG();
                 this.mDownX = motionEvent.getX();
                 this.cGB = motionEvent.getY();
                 this.pfz = 0;
@@ -143,7 +143,7 @@ public class SMListView extends ListView {
                 }
                 View childAt = getChildAt(this.pfA - getFirstVisiblePosition());
                 if (this.pfC != null && this.pfC.isOpen()) {
-                    this.pfC.eoC();
+                    this.pfC.eoD();
                     this.pfC = null;
                     MotionEvent obtain = MotionEvent.obtain(motionEvent);
                     obtain.setAction(3);
@@ -218,7 +218,7 @@ public class SMListView extends ListView {
         return super.onTouchEvent(motionEvent);
     }
 
-    public boolean eoF() {
+    public boolean eoG() {
         return this.pfB;
     }
 

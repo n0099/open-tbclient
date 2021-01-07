@@ -7,10 +7,10 @@ import java.util.Set;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Set<String> f9924a = new HashSet();
+    private Set<String> f9925a = new HashSet();
 
     /* renamed from: b  reason: collision with root package name */
-    private Set<String> f9925b = new HashSet();
+    private Set<String> f9926b = new HashSet();
 
     public synchronized void a(String[] strArr, String[] strArr2) {
         synchronized (this) {
@@ -18,7 +18,7 @@ public class b {
                 if (strArr.length > 0) {
                     for (String str : strArr) {
                         if (!TextUtils.isEmpty(str)) {
-                            this.f9924a.add(str);
+                            this.f9925a.add(str);
                         }
                     }
                 }
@@ -26,7 +26,7 @@ public class b {
             if (strArr2 != null && strArr2.length > 0) {
                 for (String str2 : strArr2) {
                     if (!TextUtils.isEmpty(str2)) {
-                        this.f9925b.add(str2);
+                        this.f9926b.add(str2);
                     }
                 }
             }
@@ -34,10 +34,10 @@ public class b {
     }
 
     public synchronized String[] a() {
-        return (String[]) this.f9924a.toArray(new String[this.f9924a.size()]);
+        return (String[]) this.f9925a.toArray(new String[this.f9925a.size()]);
     }
 
     public synchronized String[] b() {
-        return (String[]) this.f9925b.toArray(new String[this.f9925b.size()]);
+        return (String[]) this.f9926b.toArray(new String[this.f9926b.size()]);
     }
 }

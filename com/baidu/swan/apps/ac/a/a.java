@@ -27,7 +27,7 @@ public class a extends j {
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: a */
         public String U(h hVar) {
-            return d.C0466d.aAl().getAbsolutePath();
+            return d.C0466d.aAm().getAbsolutePath();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -77,9 +77,9 @@ public class a extends j {
                     return;
                 }
                 boolean unzipFile = com.baidu.swan.c.d.unzipFile(hVar.filePath, bP.getAbsolutePath());
-                hVar.createTime = hVar.bgn();
-                hVar.updateTime = hVar.bgn();
-                com.baidu.swan.pms.database.a.bgb().c(hVar);
+                hVar.createTime = hVar.bgo();
+                hVar.updateTime = hVar.bgo();
+                com.baidu.swan.pms.database.a.bgc().c(hVar);
                 com.baidu.swan.c.d.deleteFile(hVar.filePath);
                 com.baidu.swan.apps.ac.d.a.print("download finish, unZipSuccess = " + unzipFile);
                 a.this.duJ.N(Boolean.valueOf(unzipFile));
@@ -94,8 +94,8 @@ public class a extends j {
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void aud() {
-        super.aud();
+    public void aue() {
+        super.aue();
         com.baidu.swan.apps.ac.d.a.print("fetch plugin success");
     }
 
@@ -104,9 +104,9 @@ public class a extends j {
         h dw;
         super.b(aVar);
         if (aVar != null) {
-            if (aVar.errorNo == 1010 && (dw = com.baidu.swan.pms.database.a.bgb().dw(this.duK, this.duL)) != null) {
-                dw.updateTime = dw.bgn();
-                com.baidu.swan.pms.database.a.bgb().g(dw);
+            if (aVar.errorNo == 1010 && (dw = com.baidu.swan.pms.database.a.bgc().dw(this.duK, this.duL)) != null) {
+                dw.updateTime = dw.bgo();
+                com.baidu.swan.pms.database.a.bgc().g(dw);
             }
             com.baidu.swan.apps.ac.d.a.print("fetch plugin error: " + aVar.toString());
         } else {
@@ -116,8 +116,8 @@ public class a extends j {
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void arc() {
-        super.arc();
+    public void ard() {
+        super.ard();
         com.baidu.swan.apps.ac.d.a.print("no package");
         this.duJ.N(false);
     }
@@ -128,7 +128,7 @@ public class a extends j {
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public c<h> aIk() {
+    public c<h> aIl() {
         return this.duM;
     }
 }

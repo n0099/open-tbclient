@@ -2,11 +2,11 @@ package com.tencent.turingfd.sdk.ams.au;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class z extends bf implements Cloneable {
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<Integer, Integer> f13856b;
+    public static Map<Integer, Integer> f13857b;
     public long d = 0;
     public boolean e = true;
     public long f = 0;
@@ -16,12 +16,12 @@ public final class z extends bf implements Cloneable {
     public static final /* synthetic */ boolean c = !z.class.desiredAssertionStatus();
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, String> f13855a = new HashMap();
+    public static Map<String, String> f13856a = new HashMap();
 
     static {
-        f13855a.put("", "");
-        f13856b = new HashMap();
-        f13856b.put(0, 0);
+        f13856a.put("", "");
+        f13857b = new HashMap();
+        f13857b.put(0, 0);
     }
 
     @Override // com.tencent.turingfd.sdk.ams.au.bf
@@ -29,8 +29,8 @@ public final class z extends bf implements Cloneable {
         this.d = aoVar.a(this.d, 0, true);
         this.e = aoVar.a(this.e, 1, true);
         this.f = aoVar.a(this.f, 2, true);
-        this.g = (Map) aoVar.a((ao) f13855a, 3, true);
-        this.h = (Map) aoVar.a((ao) f13856b, 4, true);
+        this.g = (Map) aoVar.a((ao) f13856a, 3, true);
+        this.h = (Map) aoVar.a((ao) f13857b, 4, true);
         this.i = aoVar.a(this.i, 5, true);
     }
 

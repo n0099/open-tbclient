@@ -162,7 +162,7 @@ public class CommonWebLayout extends FrameLayout {
             @Override // android.webkit.WebViewClient
             public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
-                CommonWebLayout.this.aad();
+                CommonWebLayout.this.aae();
                 if (CommonWebLayout.this.bWF != null) {
                     CommonWebLayout.this.bWF.mo20if(str);
                 }
@@ -253,13 +253,13 @@ public class CommonWebLayout extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(String str, int i, String str2) {
-        aac();
+        aad();
         if (this.bWF != null) {
             this.bWF.e(str, i, str2);
         }
     }
 
-    private void aac() {
+    private void aad() {
         boolean z = false;
         int i = 0;
         while (true) {
@@ -288,7 +288,7 @@ public class CommonWebLayout extends FrameLayout {
                             CommonWebLayout.this.bWG.loadUrl(CommonWebLayout.this.bWG.getOriginalUrl());
                         }
                         if (CommonWebLayout.this.bWF != null) {
-                            CommonWebLayout.this.bWF.aab();
+                            CommonWebLayout.this.bWF.aac();
                         }
                     }
                 }
@@ -299,7 +299,7 @@ public class CommonWebLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aad() {
+    public void aae() {
         for (int i = 0; i < getChildCount(); i++) {
             if (getChildAt(i) instanceof CommonEmptyView) {
                 getChildAt(i).setVisibility(8);

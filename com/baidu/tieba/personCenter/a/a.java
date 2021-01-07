@@ -26,11 +26,11 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCen
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personCenter.c.d dVar, CardViewHolder<com.baidu.tieba.personCenter.view.a> cardViewHolder) {
-        cardViewHolder.cvG().a(dVar);
+        cardViewHolder.cvH().a(dVar);
         return cardViewHolder.getView();
     }
 
-    public void dyg() {
+    public void dyh() {
     }
 
     public void destroy() {

@@ -19,7 +19,7 @@ public class c {
                 }
                 if (activity != null && !activity.isFinishing()) {
                     g.a b2 = c.this.b(activity, str, str2, z, onClickListener);
-                    c.this.eez = b2.aLx();
+                    c.this.eez = b2.aLy();
                 }
             }
         });
@@ -28,7 +28,7 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public g.a b(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
         g.a aVar = new g.a(activity);
-        aVar.sp(str).aLs().a(new com.baidu.swan.apps.view.c.a()).gV(z).ky(a.c.swan_games_antiaddiction_positive).gT(true);
+        aVar.sp(str).aLt().a(new com.baidu.swan.apps.view.c.a()).gV(z).ky(a.c.swan_games_antiaddiction_positive).gT(true);
         aVar.a(str2, onClickListener);
         return aVar;
     }

@@ -37,7 +37,7 @@ public class d extends com.baidu.swan.apps.process.a.b.c.c {
     }
 
     @Override // com.baidu.swan.apps.process.a.b.c.a
-    public boolean aIR() {
+    public boolean aIS() {
         return false;
     }
 

@@ -5,18 +5,18 @@ import java.io.IOException;
 final class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Process f5639a;
+    final /* synthetic */ Process f5640a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(Process process) {
-        this.f5639a = process;
+        this.f5640a = process;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
             do {
-            } while (this.f5639a.getErrorStream().read(new byte[8192]) >= 0);
+            } while (this.f5640a.getErrorStream().read(new byte[8192]) >= 0);
         } catch (IOException e) {
         }
     }

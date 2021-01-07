@@ -11,7 +11,7 @@ public class b {
     private static volatile b exW;
     private a exX = new a();
 
-    public static b bhg() {
+    public static b bhh() {
         if (exW == null) {
             synchronized (b.class) {
                 if (exW == null) {
@@ -23,12 +23,12 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String bhh() {
+    public String bhi() {
         return this.exX.getString("ceres_info", "0");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String bhi() {
+    public String bhj() {
         return this.exX.getString("global_info", "0");
     }
 

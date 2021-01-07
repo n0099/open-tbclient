@@ -10,10 +10,10 @@ import com.kwad.sdk.utils.q;
 public class d extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f9322a;
+    private TextView f9323a;
 
     /* renamed from: b  reason: collision with root package name */
-    private LottieAnimationView f9323b;
+    private LottieAnimationView f9324b;
     private boolean c;
 
     public d(Context context) {
@@ -29,36 +29,36 @@ public class d extends FrameLayout {
 
     private void b() {
         inflate(getContext(), R.layout.ksad_content_page_load_more, this);
-        this.f9322a = (TextView) findViewById(R.id.ksad_loading_tip);
-        this.f9322a.setTextColor(getContext().getResources().getColor(this.c ? R.color.ksad_hale_page_loading_error_title_light_color : R.color.ksad_hale_page_loading_error_title_dark_color));
-        this.f9323b = (LottieAnimationView) findViewById(R.id.ksad_loading_lottie);
-        this.f9323b.setAnimation(this.c ? R.raw.ksad_page_loading_light_anim : R.raw.ksad_detail_loading_amin_new);
-        this.f9323b.setRepeatMode(1);
-        this.f9323b.setRepeatCount(-1);
+        this.f9323a = (TextView) findViewById(R.id.ksad_loading_tip);
+        this.f9323a.setTextColor(getContext().getResources().getColor(this.c ? R.color.ksad_hale_page_loading_error_title_light_color : R.color.ksad_hale_page_loading_error_title_dark_color));
+        this.f9324b = (LottieAnimationView) findViewById(R.id.ksad_loading_lottie);
+        this.f9324b.setAnimation(this.c ? R.raw.ksad_page_loading_light_anim : R.raw.ksad_detail_loading_amin_new);
+        this.f9324b.setRepeatMode(1);
+        this.f9324b.setRepeatCount(-1);
     }
 
     private void c() {
-        if (!this.f9323b.c()) {
-            this.f9323b.d();
+        if (!this.f9324b.c()) {
+            this.f9324b.d();
         }
-        this.f9323b.setVisibility(8);
+        this.f9324b.setVisibility(8);
     }
 
     public void a() {
-        if (!this.f9323b.c()) {
-            this.f9323b.b();
+        if (!this.f9324b.c()) {
+            this.f9324b.b();
         }
-        this.f9323b.setVisibility(0);
-        this.f9322a.setVisibility(8);
+        this.f9324b.setVisibility(0);
+        this.f9323a.setVisibility(8);
     }
 
     public void a(boolean z) {
         c();
         if (!z && !com.kwad.sdk.core.config.c.X()) {
-            this.f9322a.setVisibility(8);
+            this.f9323a.setVisibility(8);
             return;
         }
-        this.f9322a.setText(z ? getContext().getString(R.string.ksad_page_load_more_tip) : q.a(getContext()));
-        this.f9322a.setVisibility(0);
+        this.f9323a.setText(z ? getContext().getString(R.string.ksad_page_load_more_tip) : q.a(getContext()));
+        this.f9323a.setVisibility(0);
     }
 }

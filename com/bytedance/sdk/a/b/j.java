@@ -10,14 +10,14 @@ import java.util.Set;
 import javax.net.ssl.SSLPeerUnverifiedException;
 /* loaded from: classes4.dex */
 public final class j {
-    public static final j plq = new a().ert();
+    public static final j plq = new a().eru();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Set<b> f6258b;
+    private final Set<b> f6259b;
     private final com.bytedance.sdk.a.b.a.i.c plr;
 
     j(Set<b> set, com.bytedance.sdk.a.b.a.i.c cVar) {
-        this.f6258b = set;
+        this.f6259b = set;
         this.plr = cVar;
     }
 
@@ -25,11 +25,11 @@ public final class j {
         if (obj == this) {
             return true;
         }
-        return (obj instanceof j) && com.bytedance.sdk.a.b.a.c.a(this.plr, ((j) obj).plr) && this.f6258b.equals(((j) obj).f6258b);
+        return (obj instanceof j) && com.bytedance.sdk.a.b.a.c.a(this.plr, ((j) obj).plr) && this.f6259b.equals(((j) obj).f6259b);
     }
 
     public int hashCode() {
-        return ((this.plr != null ? this.plr.hashCode() : 0) * 31) + this.f6258b.hashCode();
+        return ((this.plr != null ? this.plr.hashCode() : 0) * 31) + this.f6259b.hashCode();
     }
 
     public void a(String str, List<Certificate> list) throws SSLPeerUnverifiedException {
@@ -85,7 +85,7 @@ public final class j {
 
     List<b> a(String str) {
         List<b> emptyList = Collections.emptyList();
-        for (b bVar : this.f6258b) {
+        for (b bVar : this.f6259b) {
             if (bVar.a(str)) {
                 if (emptyList.isEmpty()) {
                     emptyList = new ArrayList<>();
@@ -98,7 +98,7 @@ public final class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j a(com.bytedance.sdk.a.b.a.i.c cVar) {
-        return com.bytedance.sdk.a.b.a.c.a(this.plr, cVar) ? this : new j(this.f6258b, cVar);
+        return com.bytedance.sdk.a.b.a.c.a(this.plr, cVar) ? this : new j(this.f6259b, cVar);
     }
 
     public static String a(Certificate certificate) {
@@ -121,27 +121,27 @@ public final class j {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        final String f6260a;
+        final String f6261a;
 
         /* renamed from: b  reason: collision with root package name */
-        final String f6261b;
+        final String f6262b;
         final String c;
         final com.bytedance.sdk.a.a.f pjM;
 
         boolean a(String str) {
-            if (this.f6260a.startsWith("*.")) {
+            if (this.f6261a.startsWith("*.")) {
                 int indexOf = str.indexOf(46);
-                return (str.length() - indexOf) + (-1) == this.f6261b.length() && str.regionMatches(false, indexOf + 1, this.f6261b, 0, this.f6261b.length());
+                return (str.length() - indexOf) + (-1) == this.f6262b.length() && str.regionMatches(false, indexOf + 1, this.f6262b, 0, this.f6262b.length());
             }
-            return str.equals(this.f6261b);
+            return str.equals(this.f6262b);
         }
 
         public boolean equals(Object obj) {
-            return (obj instanceof b) && this.f6260a.equals(((b) obj).f6260a) && this.c.equals(((b) obj).c) && this.pjM.equals(((b) obj).pjM);
+            return (obj instanceof b) && this.f6261a.equals(((b) obj).f6261a) && this.c.equals(((b) obj).c) && this.pjM.equals(((b) obj).pjM);
         }
 
         public int hashCode() {
-            return ((((this.f6260a.hashCode() + 527) * 31) + this.c.hashCode()) * 31) + this.pjM.hashCode();
+            return ((((this.f6261a.hashCode() + 527) * 31) + this.c.hashCode()) * 31) + this.pjM.hashCode();
         }
 
         public String toString() {
@@ -153,10 +153,10 @@ public final class j {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final List<b> f6259a = new ArrayList();
+        private final List<b> f6260a = new ArrayList();
 
-        public j ert() {
-            return new j(new LinkedHashSet(this.f6259a), null);
+        public j eru() {
+            return new j(new LinkedHashSet(this.f6260a), null);
         }
     }
 }

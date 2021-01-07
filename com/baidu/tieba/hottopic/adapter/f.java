@@ -36,7 +36,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         this.jlE = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.hottopic.adapter.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cHK */
+            /* renamed from: cHL */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(f.this.mPageContext.getPageActivity());
             }
@@ -65,7 +65,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         this.jlF = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.hottopic.adapter.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: byk */
+            /* renamed from: byl */
             public TbImageView makeObject() {
                 TbImageView tbImageView = new TbImageView(f.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
@@ -102,17 +102,17 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
-                if (kVar != null && kVar.boO() != null && !StringUtils.isNull(kVar.boO().getTid()) && !StringUtils.isNull(kVar.cvo())) {
+                if (kVar != null && kVar.boP() != null && !StringUtils.isNull(kVar.boP().getTid()) && !StringUtils.isNull(kVar.cvp())) {
                     String topicName = ((HotTopicActivity) f.this.mPageContext.getOrignalPage()).getTopicName();
-                    String cUK = ((HotTopicActivity) f.this.mPageContext.getOrignalPage()).cUK();
-                    bz boO = kVar.boO();
-                    boO.oM(5);
-                    if ("c10814".equals(kVar.cvo())) {
+                    String cUL = ((HotTopicActivity) f.this.mPageContext.getOrignalPage()).cUL();
+                    bz boP = kVar.boP();
+                    boP.oM(5);
+                    if ("c10814".equals(kVar.cvp())) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                        TiebaStatic.log(new aq("c10814").dX("tid", boO.getId()).dX("obj_name", topicName).dX("topic_id", cUK));
-                    } else if ("c10816".equals(kVar.cvo())) {
+                        TiebaStatic.log(new aq("c10814").dX("tid", boP.getId()).dX("obj_name", topicName).dX("topic_id", cUL));
+                    } else if ("c10816".equals(kVar.cvp())) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                        TiebaStatic.log(new aq("c10816").dX("post_id", boO.getTid()).dX("obj_name", topicName).dX("topic_id", cUK));
+                        TiebaStatic.log(new aq("c10816").dX("post_id", boP.getTid()).dX("obj_name", topicName).dX("topic_id", cUL));
                     }
                     if (f.this.mPageContext != null && (f.this.mPageContext.getOrignalPage() instanceof com.baidu.tieba.hottopic.controller.a)) {
                         ((HotTopicActivity) f.this.mPageContext.getOrignalPage()).t(kVar);

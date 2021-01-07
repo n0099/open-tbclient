@@ -60,23 +60,23 @@ public class a implements View.OnClickListener {
         this.gZm.gKY.setDrawerType(0);
         this.gZm.gKY.setBorderSurroundContent(true);
         this.gZm.gKY.setDrawBorder(true);
-        this.gZm.gKY.startLoad(this.gAx.brJ().cover, 10, false);
-        this.gZm.gLa.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.ala_list_audience_label, at.numberUniformFormatExtra(this.gAx.brJ().audience_count)));
+        this.gZm.gKY.startLoad(this.gAx.brK().cover, 10, false);
+        this.gZm.gLa.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.ala_list_audience_label, at.numberUniformFormatExtra(this.gAx.brK().audience_count)));
         this.gZm.gLc.setData(this.gAx);
         this.gZm.gLc.setIsRound(true);
         this.gZm.gLc.setBorderSurroundContent(true);
         this.gZm.gLd.setText(this.gAx.getTitle());
-        if (this.gAx.brq() != null) {
-            String name_show = this.gAx.brq().getName_show();
+        if (this.gAx.brr() != null) {
+            String name_show = this.gAx.brr().getName_show();
             if (ad.getTextLengthWithEmoji(name_show) > 10) {
                 name_show = ad.subStringWithEmoji(name_show, 10) + StringHelper.STRING_MORE;
             }
             this.gZm.bac.setText(name_show);
         }
         if ("16:9".equals(bitmapWHRatio)) {
-            String str = this.gAx.brJ().label_name;
+            String str = this.gAx.brK().label_name;
             if (at.isEmpty(str)) {
-                String fixedBarText = UtilHelper.getFixedBarText(this.gAx.bru(), 6, true);
+                String fixedBarText = UtilHelper.getFixedBarText(this.gAx.brv(), 6, true);
                 if (!TextUtils.isEmpty(fixedBarText)) {
                     String string = this.mTbPageContext.getPageActivity().getResources().getString(R.string.chosen_pb_original_bar, fixedBarText);
                     this.gZm.gKZ.setBackgroundResource(R.drawable.transparent_bg);
@@ -91,11 +91,11 @@ public class a implements View.OnClickListener {
                 this.gZm.gKZ.setVisibility(0);
             }
         }
-        if (this.gAx.brq() == null || this.gAx.brq().getAlaUserData() == null || at.isEmpty(this.gAx.brq().getAlaUserData().great_anchor_icon)) {
+        if (this.gAx.brr() == null || this.gAx.brr().getAlaUserData() == null || at.isEmpty(this.gAx.brr().getAlaUserData().great_anchor_icon)) {
             this.gZm.gYp.setVisibility(8);
         } else {
             this.gZm.gYp.setVisibility(0);
-            this.gZm.gYp.startLoad(this.gAx.brq().getAlaUserData().great_anchor_icon, 10, false);
+            this.gZm.gYp.startLoad(this.gAx.brr().getAlaUserData().great_anchor_icon, 10, false);
         }
         this.gZm.bac.setOnClickListener(this.gKW);
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -105,12 +105,12 @@ public class a implements View.OnClickListener {
     public void onClick(View view) {
         if (!j.isNetWorkAvailable()) {
             l.showLongToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getPageActivity().getString(R.string.no_network_guide));
-        } else if (this.gAx != null && this.gAx.brJ() != null) {
+        } else if (this.gAx != null && this.gAx.brK() != null) {
             if (this.gWT != null) {
                 this.gWT.R(this.gAx);
             }
-            d.bRR().bRS();
-            TiebaStatic.log(new aq("c12116").w("obj_id", this.gAx.brJ().live_id));
+            d.bRS().bRT();
+            TiebaStatic.log(new aq("c12116").w("obj_id", this.gAx.brK().live_id));
         }
     }
 

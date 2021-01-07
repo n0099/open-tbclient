@@ -29,7 +29,7 @@ public class WriteTipBubbleController {
         this.eYw = aVar;
     }
 
-    public void Zs() {
+    public void Zt() {
         if (this.eYv != null) {
             this.eYv.VL();
         }
@@ -88,7 +88,7 @@ public class WriteTipBubbleController {
                     }
                 }
             });
-            this.eYv.Jy(str);
+            this.eYv.Jx(str);
             TiebaStatic.log("c13801");
         }
     }

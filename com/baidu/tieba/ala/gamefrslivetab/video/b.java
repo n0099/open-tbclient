@@ -127,7 +127,7 @@ public class b {
                 }
             }
         });
-        bYB();
+        bYC();
     }
 
     public BaseWebView getWebView() {
@@ -139,7 +139,7 @@ public class b {
         this.gYU.loadUrl(str);
     }
 
-    public void bYA() {
+    public void bYB() {
         if (this.mLoadSuccess) {
             this.gYU.loadUrl("javascript:window.reload_page()");
         } else {
@@ -164,19 +164,19 @@ public class b {
         }
     }
 
-    public void bXf() {
-        Zi();
+    public void bXg() {
+        Zj();
         this.gYU.setVisibility(0);
     }
 
-    public void bUH() {
+    public void bUI() {
         if (this.gYT != null && this.gYT.isAdded()) {
             String string = TbadkCoreApplication.getInst().getString(R.string.neterror);
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(this.gYT.getActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.5
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        b.this.bYA();
+                        b.this.bYB();
                     }
                 });
                 this.mRefreshView.onChangeSkinType();
@@ -188,26 +188,26 @@ public class b {
         }
     }
 
-    public void Zi() {
+    public void Zj() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this.mRootView);
             this.mRefreshView = null;
         }
     }
 
-    private void bYB() {
+    private void bYC() {
         if (this.gYU != null) {
             this.gYU.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.6
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
                 public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-                    b.this.Hs(str);
+                    b.this.Hr(str);
                     if (StringUtils.isNull(str) || str.contains(UrlSchemaHelper.REDIRECT_JUMP_KEY)) {
                         return false;
                     }
-                    if (b.this.Ht(str)) {
+                    if (b.this.Hs(str)) {
                         return true;
                     }
-                    be.bwu().b(b.this.gYT.getPageContext(), new String[]{str});
+                    be.bwv().b(b.this.gYT.getPageContext(), new String[]{str});
                     return true;
                 }
             });
@@ -222,7 +222,7 @@ public class b {
                 public void onPageFinished(WebView webView, String str) {
                     b.this.hideLoadingView();
                     if (j.isNetWorkAvailable()) {
-                        b.this.bXf();
+                        b.this.bXg();
                         b.this.mLoadSuccess = true;
                     }
                 }
@@ -230,48 +230,48 @@ public class b {
             this.gYU.setOnReceivedErrorListener(new BaseWebView.f() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.9
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
                 public void onReceivedError(WebView webView, int i, String str, String str2) {
-                    b.this.bUH();
+                    b.this.bUI();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Hs(String str) {
+    public void Hr(String str) {
         if (StringUtils.isNull(str)) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Ht(String str) {
-        return Hu(str) || Hv(str) || Hw(str) || Hx(str) || Hy(str) || Hz(str) || HA(str) || HB(str);
+    public boolean Hs(String str) {
+        return Ht(str) || Hu(str) || Hv(str) || Hw(str) || Hx(str) || Hy(str) || Hz(str) || HA(str);
     }
 
-    private boolean Hu(String str) {
+    private boolean Ht(String str) {
         if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_LEGO)) {
             if (!(MessageManager.getInstance().findTask(CmdConfigCustom.CMD_LEGO_LIST) != null)) {
                 l.showToast(this.gYT.getActivity(), R.string.plugin_install_fail);
                 return true;
             }
-            be.bwu().b(this.gYT.getPageContext(), new String[]{str});
+            be.bwv().b(this.gYT.getPageContext(), new String[]{str});
+            return true;
+        }
+        return false;
+    }
+
+    private boolean Hu(String str) {
+        if (str.contains("nohead:url") || str.contains("booktown")) {
+            if (!TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
+                l.showToast(this.gYT.getActivity(), R.string.plugin_install_fail);
+            } else {
+                be.bwv().b(this.gYT.getPageContext(), new String[]{str});
+            }
             return true;
         }
         return false;
     }
 
     private boolean Hv(String str) {
-        if (str.contains("nohead:url") || str.contains("booktown")) {
-            if (!TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                l.showToast(this.gYT.getActivity(), R.string.plugin_install_fail);
-            } else {
-                be.bwu().b(this.gYT.getPageContext(), new String[]{str});
-            }
-            return true;
-        }
-        return false;
-    }
-
-    private boolean Hw(String str) {
         if (str.startsWith("http://tieba.baidu.com/mo/q/hotMessage?topic_id=") || str.startsWith(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW) || str.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC2) || str.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC_NEW)) {
             String matchStringFromURL = ai.getMatchStringFromURL(str, "topic_id=");
             String matchStringFromURL2 = ai.getMatchStringFromURL(str, "topic_name=");
@@ -293,7 +293,7 @@ public class b {
         }
     }
 
-    private boolean Hx(String str) {
+    private boolean Hw(String str) {
         if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SQUARE_FORUM_LIST)) {
             return false;
         }
@@ -304,7 +304,7 @@ public class b {
         return true;
     }
 
-    private boolean Hy(String str) {
+    private boolean Hx(String str) {
         if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_CENTER)) {
             return false;
         }
@@ -312,11 +312,11 @@ public class b {
             l.showToast(this.gYT.getActivity(), R.string.plugin_install_fail);
             return true;
         }
-        be.bwu().b(this.gYT.getPageContext(), new String[]{str});
+        be.bwv().b(this.gYT.getPageContext(), new String[]{str});
         return true;
     }
 
-    private boolean Hz(String str) {
+    private boolean Hy(String str) {
         if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GOTO_DRESSUP_CENTER)) {
             return false;
         }
@@ -324,11 +324,11 @@ public class b {
             l.showToast(this.gYT.getActivity(), R.string.plugin_install_fail);
             return true;
         }
-        be.bwu().b(this.gYT.getPageContext(), new String[]{str});
+        be.bwv().b(this.gYT.getPageContext(), new String[]{str});
         return true;
     }
 
-    private boolean HA(String str) {
+    private boolean Hz(String str) {
         if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_BEAUTY_PIC) && str.contains("data=")) {
             String substring = str.substring("data=".length() + str.indexOf("data="));
             ArrayList<String> arrayList = new ArrayList<>();
@@ -339,7 +339,7 @@ public class b {
                 }
                 if (arrayList.size() > 0) {
                     ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-                    aVar.x(arrayList).ji(true).AH(arrayList.get(0)).jj(true);
+                    aVar.x(arrayList).ji(true).AG(arrayList.get(0)).jj(true);
                     ImageViewerConfig eS = aVar.eS(this.gYT.getActivity());
                     eS.getIntent().putExtra("from", ImageViewerConfig.FROM_DISCOVER_BEAUTY);
                     this.gYT.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, eS));
@@ -353,7 +353,7 @@ public class b {
         return false;
     }
 
-    private boolean HB(String str) {
+    private boolean HA(String str) {
         if (this.gYT.isAdded() && str.contains(UrlSchemaHelper.SCHEMA_TYPE_SHARE)) {
             String urlDecode = k.getUrlDecode(str);
             if (urlDecode.contains("data=")) {
@@ -430,13 +430,13 @@ public class b {
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
     }
 
-    public void bVE() {
+    public void bVF() {
         if (!this.isLoading && j.isNetWorkAvailable()) {
             this.gYU.loadUrl(this.mUrl);
         }
     }
 
-    public NavigationBar bYq() {
+    public NavigationBar bYr() {
         return this.mNavigationBar;
     }
 

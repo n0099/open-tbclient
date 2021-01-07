@@ -8,51 +8,51 @@ public abstract class h {
     protected View fbS;
     protected View mAnchorView;
     protected Context mContext;
-    protected com.baidu.tieba.write.a nXD;
-    protected a nXI;
+    protected com.baidu.tieba.write.a nXC;
+    protected a nXH;
     protected int mState = 4;
+    protected Rect nXM = new Rect();
     protected Rect nXN = new Rect();
-    protected Rect nXO = new Rect();
 
     /* loaded from: classes.dex */
     public interface a {
         void Mt(int i);
     }
 
-    public abstract void aEu();
-
-    public abstract void dXW();
+    public abstract void aEv();
 
     public abstract void dXX();
+
+    public abstract void dXY();
 
     public abstract void onDestroy();
 
     public h(Context context, com.baidu.tieba.write.a aVar) {
         this.mContext = context;
-        this.nXD = aVar;
+        this.nXC = aVar;
     }
 
     public void a(a aVar) {
-        this.nXI = aVar;
+        this.nXH = aVar;
     }
 
     public void d(View view, View view2) {
         this.mAnchorView = view;
         this.fbS = view2;
         if (this.fbS != null) {
-            this.fbS.getGlobalVisibleRect(this.nXN);
+            this.fbS.getGlobalVisibleRect(this.nXM);
         }
     }
 
     public void show() {
-        dXW();
+        dXX();
     }
 
     public void gI(boolean z) {
         if (z) {
-            aEu();
+            aEv();
         } else {
-            dXX();
+            dXY();
         }
     }
 }

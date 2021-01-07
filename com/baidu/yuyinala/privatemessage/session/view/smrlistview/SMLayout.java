@@ -112,10 +112,10 @@ public class SMLayout extends FrameLayout {
                 break;
             case 1:
                 if ((this.pfo || Math.abs(this.pfm - motionEvent.getX()) > this.pfl.getWidth() / 2) && Math.signum(this.pfm - motionEvent.getX()) == this.pfk) {
-                    eoD();
+                    eoE();
                     break;
                 } else {
-                    eoC();
+                    eoD();
                     return false;
                 }
             case 2:
@@ -165,7 +165,7 @@ public class SMLayout extends FrameLayout {
         }
     }
 
-    public void eoC() {
+    public void eoD() {
         this.state = 0;
         if (this.pfk == 1) {
             this.pft = -this.mContentView.getLeft();
@@ -177,7 +177,7 @@ public class SMLayout extends FrameLayout {
         postInvalidate();
     }
 
-    public void eoD() {
+    public void eoE() {
         this.state = 1;
         if (this.pfk == 1) {
             this.pfr.startScroll(-this.mContentView.getLeft(), 0, this.pfl.getWidth(), 0, 350);
@@ -187,7 +187,7 @@ public class SMLayout extends FrameLayout {
         postInvalidate();
     }
 
-    public void eoE() {
+    public void eoF() {
         if (this.pfs.computeScrollOffset()) {
             this.pfs.abortAnimation();
         }

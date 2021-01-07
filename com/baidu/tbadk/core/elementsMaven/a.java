@@ -33,7 +33,7 @@ public class a {
         return TbadkCoreApplication.getInst().getResources().getStringArray(i);
     }
 
-    public static Typeface Bu(String str) {
+    public static Typeface Bt(String str) {
         return "bold".equals(str) ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT;
     }
 
@@ -44,11 +44,11 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static b bt(View view) {
         Drawable background = view.getBackground();
-        return background instanceof b ? (b) background : b.but();
+        return background instanceof b ? (b) background : b.buu();
     }
 
     private static b j(Drawable drawable) {
-        return drawable instanceof b ? (b) drawable : b.but();
+        return drawable instanceof b ? (b) drawable : b.buu();
     }
 
     public static Drawable a(Drawable drawable, int i) {
@@ -69,13 +69,13 @@ public class a {
 
     public static Drawable a(View view, Drawable drawable, String[] strArr) {
         String[] split = strArr[2].split(",");
-        return ((b) j(drawable).clone()).pw(Bw(strArr[0])).px(Bv(strArr[1])).py(Bv(split[0])).pz(Bv(split[1])).bu(view);
+        return ((b) j(drawable).clone()).pw(Bv(strArr[0])).px(Bu(strArr[1])).py(Bu(split[0])).pz(Bu(split[1])).bu(view);
     }
 
     public static float[] ps(int i) {
         String[] stringArray = getStringArray(i);
         String[] split = stringArray[2].split(",");
-        float[] fArr = {Bw(stringArray[0]), Bv(stringArray[1]), Bv(split[0]), Bv(split[1])};
+        float[] fArr = {Bv(stringArray[0]), Bu(stringArray[1]), Bu(split[0]), Bu(split[1])};
         if (fArr[1] == 0.0f) {
             fArr[1] = 0.01f;
         }
@@ -85,20 +85,20 @@ public class a {
     public static Drawable a(Drawable drawable, String[] strArr) {
         String[] split = strArr[0].split(",");
         String[] split2 = strArr[1].split(",");
-        return ((b) j(drawable).clone()).k(N(split)).y(M(split2)).Bx(strArr[2]);
+        return ((b) j(drawable).clone()).k(N(split)).y(M(split2)).Bw(strArr[2]);
     }
 
     public static Drawable b(Drawable drawable, int i, int i2) {
         b j = j(drawable);
         j.release();
-        GradientDrawable buy = j.buy();
-        buy.setColor(getColor(i));
-        GradientDrawable buy2 = j.buy();
-        buy2.setColor(getColor(i2));
+        GradientDrawable buz = j.buz();
+        buz.setColor(getColor(i));
+        GradientDrawable buz2 = j.buz();
+        buz2.setColor(getColor(i2));
         StateListDrawable stateListDrawable = new StateListDrawable();
-        stateListDrawable.addState(new int[]{16842910, 16842919}, buy2);
-        stateListDrawable.addState(new int[]{16842910, 16842908}, buy2);
-        stateListDrawable.addState(new int[0], buy);
+        stateListDrawable.addState(new int[]{16842910, 16842919}, buz2);
+        stateListDrawable.addState(new int[]{16842910, 16842908}, buz2);
+        stateListDrawable.addState(new int[0], buz);
         return stateListDrawable;
     }
 
@@ -168,20 +168,20 @@ public class a {
         int length = strArr.length;
         int[] iArr = new int[length];
         for (int i = 0; i < length; i++) {
-            iArr[i] = Bw(strArr[i]);
+            iArr[i] = Bv(strArr[i]);
         }
         return iArr;
     }
 
     private static float ci(String str) {
-        return str.endsWith("H") ? Float.parseFloat(str.substring(0, str.length() - 1)) : Bv(str);
+        return str.endsWith("H") ? Float.parseFloat(str.substring(0, str.length() - 1)) : Bu(str);
     }
 
-    private static int Bv(String str) {
+    private static int Bu(String str) {
         return pp(dN("tbds" + str, "dimen"));
     }
 
-    private static int Bw(String str) {
+    private static int Bv(String str) {
         return getColor(dN(str, "color"));
     }
 

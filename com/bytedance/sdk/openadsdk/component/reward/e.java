@@ -27,10 +27,10 @@ public class e {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile e f6615a;
+    private static volatile e f6616a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Context f6616b;
+    private final Context f6617b;
     private final h c;
     private Map<l, Long> d = Collections.synchronizedMap(new HashMap());
 
@@ -50,9 +50,9 @@ public class e {
         File[] listFiles2;
         try {
             if (Build.VERSION.SDK_INT >= 24) {
-                file = new File(this.f6616b.getDataDir(), "shared_prefs");
+                file = new File(this.f6617b.getDataDir(), "shared_prefs");
             } else {
-                file = new File(this.f6616b.getDatabasePath("1").getParentFile().getParentFile(), "shared_prefs");
+                file = new File(this.f6617b.getDatabasePath("1").getParentFile().getParentFile(), "shared_prefs");
             }
             if (file.exists() && file.isDirectory() && (listFiles2 = file.listFiles(new FileFilter() { // from class: com.bytedance.sdk.openadsdk.component.reward.e.1
                 @Override // java.io.FileFilter
@@ -67,9 +67,9 @@ public class e {
                     try {
                         String replace = file2.getName().replace(".xml", "");
                         if (Build.VERSION.SDK_INT >= 24) {
-                            this.f6616b.deleteSharedPreferences(replace);
+                            this.f6617b.deleteSharedPreferences(replace);
                         } else {
-                            this.f6616b.getSharedPreferences(replace, 0).edit().clear().apply();
+                            this.f6617b.getSharedPreferences(replace, 0).edit().clear().apply();
                             com.bytedance.sdk.openadsdk.utils.l.c(file2);
                         }
                     } catch (Throwable th) {
@@ -79,10 +79,10 @@ public class e {
         } catch (Throwable th2) {
         }
         try {
-            if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && this.f6616b.getExternalCacheDir() != null) {
-                externalCacheDir = this.f6616b.getExternalCacheDir();
+            if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && this.f6617b.getExternalCacheDir() != null) {
+                externalCacheDir = this.f6617b.getExternalCacheDir();
             } else {
-                externalCacheDir = this.f6616b.getCacheDir();
+                externalCacheDir = this.f6617b.getCacheDir();
             }
             if (externalCacheDir != null && externalCacheDir.exists() && externalCacheDir.isDirectory() && (listFiles = externalCacheDir.listFiles(new FileFilter() { // from class: com.bytedance.sdk.openadsdk.component.reward.e.2
                 @Override // java.io.FileFilter
@@ -133,19 +133,19 @@ public class e {
     }
 
     public static e a(Context context) {
-        if (f6615a == null) {
+        if (f6616a == null) {
             synchronized (e.class) {
-                if (f6615a == null) {
-                    f6615a = new e(context);
+                if (f6616a == null) {
+                    f6616a = new e(context);
                 }
             }
         }
-        return f6615a;
+        return f6616a;
     }
 
     private e(Context context) {
-        this.f6616b = context == null ? p.a() : context.getApplicationContext();
-        this.c = new h(this.f6616b, "sp_reward_video");
+        this.f6617b = context == null ? p.a() : context.getApplicationContext();
+        this.c = new h(this.f6617b, "sp_reward_video");
     }
 
     public String a(l lVar) {
@@ -162,7 +162,7 @@ public class e {
         if (TextUtils.isEmpty(str2)) {
             str2 = com.bytedance.sdk.openadsdk.utils.j.a(str);
         }
-        File a2 = a(this.f6616b, a(String.valueOf(str3), com.bytedance.sdk.openadsdk.multipro.b.b()), str2);
+        File a2 = a(this.f6617b, a(String.valueOf(str3), com.bytedance.sdk.openadsdk.multipro.b.b()), str2);
         if (a2 != null && a2.exists() && a2.isFile()) {
             return a2.getAbsolutePath();
         }
@@ -210,7 +210,7 @@ public class e {
         if (!z && pVar != null && pVar.ppF != null) {
             str2 = pVar.ppF.getMessage();
         }
-        com.bytedance.sdk.openadsdk.c.d.f(this.f6616b, lVar, "rewarded_video", str, aj.a(z, lVar, elapsedRealtime, j, str2));
+        com.bytedance.sdk.openadsdk.c.d.f(this.f6617b, lVar, "rewarded_video", str, aj.a(z, lVar, elapsedRealtime, j, str2));
     }
 
     public void a(final l lVar, final a<Object> aVar) {
@@ -230,9 +230,9 @@ public class e {
         int d = aj.d(lVar.W());
         String a2 = a(String.valueOf(d), com.bytedance.sdk.openadsdk.multipro.b.b());
         u.f("wzj", "ritId:" + d + ",cacheDirPath=" + a2);
-        final File a3 = a(this.f6616b, a2, k);
+        final File a3 = a(this.f6617b, a2, k);
         u.b("splashLoadAd", "RewardVideoCache downloadVideo target.getPath() " + a3.getPath());
-        com.bytedance.sdk.openadsdk.i.e.a(this.f6616b).a(h, new b.a() { // from class: com.bytedance.sdk.openadsdk.component.reward.e.3
+        com.bytedance.sdk.openadsdk.i.e.a(this.f6617b).a(h, new b.a() { // from class: com.bytedance.sdk.openadsdk.component.reward.e.3
             @Override // com.bytedance.sdk.adnet.b.b.a
             public File a(String str) {
                 try {
@@ -264,7 +264,7 @@ public class e {
 
             @Override // com.bytedance.sdk.adnet.core.p.a
             public void a(com.bytedance.sdk.adnet.core.p<File> pVar) {
-                if (pVar != null && pVar.f6344a != null) {
+                if (pVar != null && pVar.f6345a != null) {
                     if (aVar != null) {
                         aVar.a(true, null);
                     }

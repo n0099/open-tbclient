@@ -31,7 +31,7 @@ public class a extends com.baidu.swan.apps.component.b.b {
         return TextUtils.equals(this.cLx, "front");
     }
 
-    public String aod() {
+    public String aoe() {
         return C0408a.my(this.cLy);
     }
 

@@ -20,11 +20,11 @@ public class OfficialNotificationActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.base_fragment_activity);
-        dbw();
-        WF();
+        dbx();
+        WG();
     }
 
-    private void dbw() {
+    private void dbx() {
         this.mRootView = (ViewGroup) findViewById(R.id.root_layout);
         this.kPZ = (RelativeLayout) findViewById(R.id.container_layout);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
@@ -32,7 +32,7 @@ public class OfficialNotificationActivity extends BaseFragmentActivity {
         this.mNavigationBar.setCenterTextTitle(getString(R.string.system_message));
     }
 
-    private void WF() {
+    private void WG() {
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         BaseFragment baseFragment = (BaseFragment) supportFragmentManager.findFragmentByTag(a(OfficialNotificationFragment.class, 0L));
         if (baseFragment == null) {

@@ -11,16 +11,16 @@ import java.util.concurrent.ConcurrentHashMap;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f14633b;
+    private Context f14634b;
     private String d;
     private String e;
     private String f;
     private boolean g;
-    private b qel;
+    private b qfT;
     private static int c = -1;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f14632a = "KWE_NS";
+    public static String f14633a = "KWE_NS";
 
     private a() {
         this.d = "";
@@ -36,7 +36,7 @@ public class a {
 
     private void a(Context context) {
         try {
-            com.yxcorp.kuaishou.addfp.a.a.b.eKr().a(context, new d(this, context));
+            com.yxcorp.kuaishou.addfp.a.a.b.eKV().a(context, new d(this, context));
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
         }
@@ -45,10 +45,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b bVar) {
         try {
-            boolean a2 = new com.yxcorp.kuaishou.addfp.android.a.e(this.f14633b).a();
-            a(this.f14633b);
+            boolean a2 = new com.yxcorp.kuaishou.addfp.android.a.e(this.f14634b).a();
+            a(this.f14634b);
             a(a2);
-            this.f = com.yxcorp.kuaishou.addfp.android.a.a.eKx().c(this.f14633b, this.g, TextUtils.isEmpty(this.e));
+            this.f = com.yxcorp.kuaishou.addfp.android.a.a.eLb().c(this.f14634b, this.g, TextUtils.isEmpty(this.e));
             if (bVar != null) {
                 if (TextUtils.isEmpty(this.e) && TextUtils.isEmpty(this.f)) {
                     bVar.a(-2, "need check");
@@ -72,9 +72,9 @@ public class a {
 
     private void a(boolean z) {
         String str;
-        LinkedHashMap abU;
+        LinkedHashMap abV;
         try {
-            Pair a2 = com.yxcorp.kuaishou.addfp.android.a.c.je(this.f14633b).a();
+            Pair a2 = com.yxcorp.kuaishou.addfp.android.a.c.je(this.f14634b).a();
             if (a2 != null && a2.second != null) {
                 String str2 = (String) ((ConcurrentHashMap) a2.second).get("cache_e");
                 if (!TextUtils.isEmpty(str2)) {
@@ -82,19 +82,19 @@ public class a {
                 }
             }
             if (TextUtils.isEmpty(this.e)) {
-                String a3 = Build.VERSION.SDK_INT < 29 ? com.yxcorp.kuaishou.addfp.android.a.d.a(this.f14633b, "k_w_o_d_out_dtt") : null;
+                String a3 = Build.VERSION.SDK_INT < 29 ? com.yxcorp.kuaishou.addfp.android.a.d.a(this.f14634b, "k_w_o_d_out_dtt") : null;
                 if (TextUtils.isEmpty(a3)) {
                     com.yxcorp.kuaishou.addfp.android.b.a.a();
-                    if (com.yxcorp.kuaishou.addfp.android.b.e.e(this.f14633b, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
-                        str = com.yxcorp.kuaishou.addfp.android.a.c.je(this.f14633b).b("Lm91a2R0ZnQ=");
+                    if (com.yxcorp.kuaishou.addfp.android.b.e.e(this.f14634b, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
+                        str = com.yxcorp.kuaishou.addfp.android.a.c.je(this.f14634b).b("Lm91a2R0ZnQ=");
                         if (TextUtils.isEmpty(a3) || !TextUtils.isEmpty(str)) {
-                            abU = com.yxcorp.kuaishou.addfp.android.a.c.je(this.f14633b).abU(a3);
-                            if (abU != null || abU.size() == 0) {
-                                abU = com.yxcorp.kuaishou.addfp.android.a.c.je(this.f14633b).abU(str);
+                            abV = com.yxcorp.kuaishou.addfp.android.a.c.je(this.f14634b).abV(a3);
+                            if (abV != null || abV.size() == 0) {
+                                abV = com.yxcorp.kuaishou.addfp.android.a.c.je(this.f14634b).abV(str);
                             }
-                            if (abU != null || abU.size() <= 0) {
+                            if (abV != null || abV.size() <= 0) {
                             }
-                            String str3 = (String) abU.get(com.yxcorp.kuaishou.addfp.android.a.a.eKx().b());
+                            String str3 = (String) abV.get(com.yxcorp.kuaishou.addfp.android.a.a.eLb().b());
                             if (TextUtils.isEmpty(str3)) {
                                 return;
                             }
@@ -107,11 +107,11 @@ public class a {
                 str = "";
                 if (TextUtils.isEmpty(a3)) {
                 }
-                abU = com.yxcorp.kuaishou.addfp.android.a.c.je(this.f14633b).abU(a3);
-                if (abU != null) {
+                abV = com.yxcorp.kuaishou.addfp.android.a.c.je(this.f14634b).abV(a3);
+                if (abV != null) {
                 }
-                abU = com.yxcorp.kuaishou.addfp.android.a.c.je(this.f14633b).abU(str);
-                if (abU != null) {
+                abV = com.yxcorp.kuaishou.addfp.android.a.c.je(this.f14634b).abV(str);
+                if (abV != null) {
                 }
             }
         } catch (Throwable th) {
@@ -120,11 +120,11 @@ public class a {
     }
 
     public static String b(Context context, String str) {
-        return Orange.eKw().a(context, str.getBytes(), 20);
+        return Orange.eLa().a(context, str.getBytes(), 20);
     }
 
-    public static final a eKq() {
-        return e.eKq();
+    public static final a eKU() {
+        return e.eKU();
     }
 
     public String a(Context context, String str, boolean z) {
@@ -136,8 +136,8 @@ public class a {
 
     public void a(Context context, boolean z, b bVar) {
         try {
-            this.qel = bVar;
-            this.f14633b = context;
+            this.qfT = bVar;
+            this.f14634b = context;
             this.g = z;
             Thread thread = new Thread(new c(this));
             thread.setName("adsence-dfp");

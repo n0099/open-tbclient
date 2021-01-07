@@ -26,10 +26,10 @@ import com.kwad.sdk.widget.KsLogoView;
 public class ActionBarPortraitHorizontal extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private ViewGroup f10972a;
+    private ViewGroup f10973a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ViewGroup f10973b;
+    private ViewGroup f10974b;
     private ImageView c;
     private AppScoreView d;
     private TextView e;
@@ -69,8 +69,8 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements View.OnC
 
     private void a(Context context) {
         inflate(context, R.layout.ksad_video_actionbar_portrait_horizontal, this);
-        this.f10972a = (ViewGroup) findViewById(R.id.ksad_top_container);
-        this.f10973b = (ViewGroup) findViewById(R.id.ksad_top_container_product);
+        this.f10973a = (ViewGroup) findViewById(R.id.ksad_top_container);
+        this.f10974b = (ViewGroup) findViewById(R.id.ksad_top_container_product);
         this.c = (ImageView) findViewById(R.id.ksad_app_icon);
         this.d = (AppScoreView) findViewById(R.id.ksad_app_score);
         this.e = (TextView) findViewById(R.id.ksad_app_download_count);
@@ -135,15 +135,15 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements View.OnC
         this.r.a(adTemplate);
         this.n = com.kwad.sdk.core.response.b.c.j(this.m);
         if (com.kwad.sdk.core.response.b.a.y(this.n)) {
-            this.f10973b.setVisibility(8);
-            this.f10972a.setVisibility(0);
-            this.f10972a.setOnClickListener(this);
+            this.f10974b.setVisibility(8);
+            this.f10973a.setVisibility(0);
+            this.f10973a.setOnClickListener(this);
             this.h.setText(com.kwad.sdk.core.response.b.a.q(this.n));
         } else {
-            this.f10973b.setVisibility(0);
-            this.f10972a.setVisibility(8);
+            this.f10974b.setVisibility(0);
+            this.f10973a.setVisibility(8);
             this.i.setText(this.n.adBaseInfo.productName);
-            this.f10973b.setOnClickListener(this);
+            this.f10974b.setOnClickListener(this);
         }
         this.k.setOnClickListener(this);
         this.o = aVar;
@@ -178,8 +178,8 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements View.OnC
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         b.a(this.p, view == this.k);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.m, new a.InterfaceC1064a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarPortraitHorizontal.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1064a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.m, new a.InterfaceC1105a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarPortraitHorizontal.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
             public void a() {
                 if (ActionBarPortraitHorizontal.this.o != null) {
                     ActionBarPortraitHorizontal.this.o.a();

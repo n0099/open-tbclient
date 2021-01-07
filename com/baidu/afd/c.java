@@ -50,7 +50,7 @@ public class c implements h {
     public void u(HashMap hashMap) {
         this.aav = hashMap;
         if (!this.aav.containsKey(AdExtParam.KEY_IADEX)) {
-            hashMap.put(AdExtParam.KEY_IADEX, com.baidu.tbadk.util.c.bIz());
+            hashMap.put(AdExtParam.KEY_IADEX, com.baidu.tbadk.util.c.bIA());
         }
     }
 }

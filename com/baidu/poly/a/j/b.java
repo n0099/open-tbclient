@@ -10,13 +10,13 @@ import com.baidu.poly.widget.m;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     private Activity activity;
     private com.baidu.poly.d.a.c coX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends com.baidu.poly.a.a.a<Map<String, String>> {
         final /* synthetic */ m coK;
         final /* synthetic */ String coU;
@@ -49,7 +49,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.poly.a.j.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class C0316b implements com.baidu.poly.d.a.a {
         final /* synthetic */ m coK;
         final /* synthetic */ String coW;
@@ -105,6 +105,6 @@ public class b {
 
     public void a(Bundle bundle, String str, m mVar) {
         bundle.putString("reqData", "{\"payChannel\": \"" + str + "\"}");
-        com.baidu.poly.a.b.b.afn().b(bundle, new a(mVar, str));
+        com.baidu.poly.a.b.b.afo().b(bundle, new a(mVar, str));
     }
 }

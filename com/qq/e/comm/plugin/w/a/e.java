@@ -5,7 +5,7 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static void a(com.qq.e.comm.plugin.ab.h hVar, String str) {
         gdtadv.getVresult(14, 1, hVar, str);

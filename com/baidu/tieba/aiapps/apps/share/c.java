@@ -9,7 +9,7 @@ public class c {
     private static volatile c gow;
     private IWXAPI gox;
 
-    public static c bQU() {
+    public static c bQV() {
         if (gow == null) {
             synchronized (c.class) {
                 if (gow == null) {

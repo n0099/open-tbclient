@@ -5,11 +5,11 @@ import android.view.View;
 final class bz implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f5762a;
+    final /* synthetic */ FeedbackInputActivity f5763a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bz(FeedbackInputActivity feedbackInputActivity) {
-        this.f5762a = feedbackInputActivity;
+        this.f5763a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,6 +17,6 @@ final class bz implements View.OnClickListener {
         if (com.baidu.ufosdk.f.h.a()) {
             return;
         }
-        FeedbackInputActivity.a(this.f5762a);
+        FeedbackInputActivity.a(this.f5763a);
     }
 }

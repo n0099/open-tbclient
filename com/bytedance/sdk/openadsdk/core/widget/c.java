@@ -14,10 +14,10 @@ import com.bytedance.sdk.openadsdk.utils.ac;
 public class c extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f7093a;
+    public a f7094a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f7094b;
+    private ImageView f7095b;
     private TextView c;
     private TextView d;
     private Button e;
@@ -63,16 +63,16 @@ public class c extends Dialog {
         this.f.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.f7093a != null) {
-                    c.this.f7093a.a();
+                if (c.this.f7094a != null) {
+                    c.this.f7094a.a();
                 }
             }
         });
         this.e.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.f7093a != null) {
-                    c.this.f7093a.b();
+                if (c.this.f7094a != null) {
+                    c.this.f7094a.b();
                 }
             }
         });
@@ -99,10 +99,10 @@ public class c extends Dialog {
             this.e.setText(PayHelper.STATUS_CANCEL_DESC);
         }
         if (this.m != -1) {
-            this.f7094b.setImageResource(this.m);
-            this.f7094b.setVisibility(0);
+            this.f7095b.setImageResource(this.m);
+            this.f7095b.setVisibility(0);
         } else {
-            this.f7094b.setVisibility(8);
+            this.f7095b.setVisibility(8);
         }
         if (this.n) {
             this.g.setVisibility(8);
@@ -124,12 +124,12 @@ public class c extends Dialog {
         this.f = (Button) findViewById(ac.e(this.h, "tt_positive"));
         this.c = (TextView) findViewById(ac.e(this.h, "tt_title"));
         this.d = (TextView) findViewById(ac.e(this.h, "tt_message"));
-        this.f7094b = (ImageView) findViewById(ac.e(this.h, "tt_image"));
+        this.f7095b = (ImageView) findViewById(ac.e(this.h, "tt_image"));
         this.g = findViewById(ac.e(this.h, "tt_column_line"));
     }
 
     public c a(a aVar) {
-        this.f7093a = aVar;
+        this.f7094a = aVar;
         return this;
     }
 

@@ -6,7 +6,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.http.HttpHost;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public class WebAddress implements INoProGuard {
     private static final String GOOD_IRI_CHAR = "a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef";
     static final int MATCH_GROUP_AUTHORITY = 2;

@@ -8,25 +8,25 @@ public final class b {
 
     /* loaded from: classes6.dex */
     public interface a {
-        com.baidu.swan.pms.e.b amf();
+        com.baidu.swan.pms.e.b amg();
 
         void b(boolean z, com.baidu.swan.apps.core.k.c cVar);
 
         boolean isNeedDownload();
     }
 
-    public static a aUx() {
-        return com.baidu.tieba.aiapps.apps.j.b.bQY();
+    public static a aUy() {
+        return com.baidu.tieba.aiapps.apps.j.b.bQZ();
     }
 
-    public static void aUy() {
-        if (ProcessUtils.isMainProcess() && !com.baidu.swan.apps.t.a.aBe().amd()) {
+    public static void aUz() {
+        if (ProcessUtils.isMainProcess() && !com.baidu.swan.apps.t.a.aBf().ame()) {
             synchronized (SwanAppInitHelper.class) {
                 if (SwanAppInitHelper.isDelayInit()) {
                     SwanAppInitHelper.initModules(AppRuntime.getApplication(), false);
                 }
             }
-            com.baidu.swan.apps.t.a.aBe().a(true, new com.baidu.swan.apps.core.k.c() { // from class: com.baidu.swan.facade.requred.webview.b.1
+            com.baidu.swan.apps.t.a.aBf().a(true, new com.baidu.swan.apps.core.k.c() { // from class: com.baidu.swan.facade.requred.webview.b.1
                 @Override // com.baidu.swan.apps.core.k.c
                 public void onSuccess() {
                 }

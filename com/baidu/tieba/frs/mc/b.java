@@ -51,37 +51,37 @@ public class b extends j {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(w wVar) {
         if (wVar != null) {
-            FrsViewData cFE = this.jDI.cFE();
-            if (this.jfA != null && this.jfB != null && this.jfi != null && cFE != null && cFE.getForum() != null && wVar.getFid() != null) {
+            FrsViewData cFF = this.jDI.cFF();
+            if (this.jfA != null && this.jfB != null && this.jfi != null && cFF != null && cFF.getForum() != null && wVar.getFid() != null) {
                 boolean z = wVar.isLike() == 1;
-                if (wVar.getFid().equals(cFE.getForum().getId())) {
-                    cFE.getForum().setLike(wVar.isLike());
+                if (wVar.getFid().equals(cFF.getForum().getId())) {
+                    cFF.getForum().setLike(wVar.isLike());
                     if (!StringUtils.isNULL(wVar.getLevelName())) {
-                        cFE.getForum().setLevelName(wVar.getLevelName());
+                        cFF.getForum().setLevelName(wVar.getLevelName());
                     }
-                    if (wVar.bNU() >= 0) {
-                        cFE.getForum().setUser_level(wVar.bNU());
+                    if (wVar.bNV() >= 0) {
+                        cFF.getForum().setUser_level(wVar.bNV());
                     }
                     if (z) {
-                        this.jfB.a(cFE, false);
+                        this.jfB.a(cFF, false);
                         TbadkCoreApplication.getInst().addLikeForum(this.jDI.getForumName());
                         return;
                     }
-                    com.baidu.tieba.tbadkCore.e.dNY().bd(this.jDI.getForumName(), false);
-                    cFE.getForum().setLike(0);
-                    this.jfB.cNS();
+                    com.baidu.tieba.tbadkCore.e.dNZ().bd(this.jDI.getForumName(), false);
+                    cFF.getForum().setLike(0);
+                    this.jfB.cNT();
                     TbadkCoreApplication.getInst().delLikeForum(this.jDI.getForumName());
                     return;
                 }
                 if (wVar.isLike() == 1) {
-                    cFE.deleteLikeFeedForum(wVar.getFid());
-                    this.jfB.j(cFE);
-                    this.jER.a(cFE, this.jfA.cMj());
+                    cFF.deleteLikeFeedForum(wVar.getFid());
+                    this.jfB.j(cFF);
+                    this.jER.a(cFF, this.jfA.cMk());
                 }
-                if (cFE.getForum().getBannerListData() != null) {
-                    cFE.getForum().getBannerListData().setFeedForumLiked(wVar.getFid(), wVar.isLike());
+                if (cFF.getForum().getBannerListData() != null) {
+                    cFF.getForum().getBannerListData().setFeedForumLiked(wVar.getFid(), wVar.isLike());
                 }
-                this.jfi.cGm();
+                this.jfi.cGn();
             }
         }
     }

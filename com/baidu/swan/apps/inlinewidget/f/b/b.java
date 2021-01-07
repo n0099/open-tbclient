@@ -10,7 +10,7 @@ public class b {
     private static volatile com.baidu.swan.apps.inlinewidget.f.b.a.a dhc = dhb;
 
     @NonNull
-    public static com.baidu.swan.apps.inlinewidget.f.b.a.a azS() {
+    public static com.baidu.swan.apps.inlinewidget.f.b.a.a azT() {
         return dhc;
     }
 
@@ -22,16 +22,16 @@ public class b {
         a(new c(str));
     }
 
-    public static void azT() {
+    public static void azU() {
         a(dhb);
     }
 
-    public static void azU() {
-        azS().azW();
+    public static void azV() {
+        azT().azX();
     }
 
-    public static void azV() {
-        azS().azW();
+    public static void azW() {
+        azT().azX();
     }
 
     /* loaded from: classes9.dex */
@@ -40,7 +40,7 @@ public class b {
         @Override // com.baidu.swan.apps.ao.e.b
         /* renamed from: a */
         public void L(HybridUbcFlow hybridUbcFlow) {
-            b.azS().fO(TextUtils.equals(hybridUbcFlow.aHe().optString("type"), "3") || hybridUbcFlow.pj("na_first_meaningful_paint"));
+            b.azT().fO(TextUtils.equals(hybridUbcFlow.aHf().optString("type"), "3") || hybridUbcFlow.pj("na_first_meaningful_paint"));
         }
     }
 }

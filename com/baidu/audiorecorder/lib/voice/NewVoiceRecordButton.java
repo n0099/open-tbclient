@@ -84,7 +84,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
     public void rU() {
         if (this.adc == null) {
             this.adc = new com.baidu.tbadk.core.dialog.a(j.K(getContext()).getPageActivity());
-            this.adc.Bp(getContext().getString(R.string.voice_restart_tip)).a(getContext().getString(R.string.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.3
+            this.adc.Bo(getContext().getString(R.string.voice_restart_tip)).a(getContext().getString(R.string.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
@@ -97,7 +97,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
                 }
             }).b(j.K(getContext()));
         }
-        this.adc.btX();
+        this.adc.btY();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -114,7 +114,7 @@ public class NewVoiceRecordButton extends LinearLayout implements com.baidu.adp.
             }
         }
         if (this.mModel != null) {
-            com.baidu.tbadk.core.voice.a.delFile(com.baidu.tbadk.core.voice.a.CG(this.mModel.voiceId));
+            com.baidu.tbadk.core.voice.a.delFile(com.baidu.tbadk.core.voice.a.CF(this.mModel.voiceId));
         }
         com.baidu.tieba.tbadkCore.voice.a recorderManager = getRecorderManager();
         if (recorderManager != null && recorderManager.rY()) {

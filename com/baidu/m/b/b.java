@@ -3,7 +3,7 @@ package com.baidu.m.b;
 public class b {
     private static volatile a cnl;
 
-    public static synchronized a afk() {
+    public static synchronized a afl() {
         a aVar;
         synchronized (b.class) {
             if (cnl == null) {

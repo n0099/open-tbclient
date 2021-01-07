@@ -40,7 +40,7 @@ class CronetLibraryLoader {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long ehz() {
+    public static long ehA() {
         if (sInitThreadInitDone) {
             return nativeGetTurboNetHandler();
         }
@@ -53,8 +53,8 @@ class CronetLibraryLoader {
             if (!oJH) {
                 oJH = true;
                 ContextUtils.initApplicationContext(context.getApplicationContext());
-                builder.eig();
-                ContextUtils.ehq();
+                builder.eih();
+                ContextUtils.ehr();
                 com.baidu.turbonet.base.a.i("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
                 ContextUtils.initApplicationContext(context.getApplicationContext());
                 if (!sInitThread.isAlive()) {
@@ -70,7 +70,7 @@ class CronetLibraryLoader {
         }
     }
 
-    private static boolean ehA() {
+    private static boolean ehB() {
         return sInitThread.getLooper() == Looper.myLooper();
     }
 
@@ -79,12 +79,12 @@ class CronetLibraryLoader {
         if (!$assertionsDisabled && !oJH) {
             throw new AssertionError();
         }
-        if (!$assertionsDisabled && !ehA()) {
+        if (!$assertionsDisabled && !ehB()) {
             throw new AssertionError();
         }
         if (!sInitThreadInitDone) {
             NetworkChangeNotifier.init(context);
-            NetworkChangeNotifier.ehM();
+            NetworkChangeNotifier.ehN();
             nativeCronetInitOnInitThread();
             for (Runnable runnable : oJI) {
                 runnable.run();
@@ -96,7 +96,7 @@ class CronetLibraryLoader {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void postToInitThread(Runnable runnable) {
-        if (ehA()) {
+        if (ehB()) {
             runnable.run();
         } else {
             new Handler(sInitThread.getLooper()).post(runnable);

@@ -5,7 +5,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.i;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class InnerQueuedObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<T> {
     private static final long serialVersionUID = -5417183359794346637L;
     volatile boolean done;
@@ -37,7 +37,7 @@ public final class InnerQueuedObserver<T> extends AtomicReference<io.reactivex.d
                     return;
                 }
             }
-            this.queue = i.Tl(-this.prefetch);
+            this.queue = i.TB(-this.prefetch);
         }
     }
 

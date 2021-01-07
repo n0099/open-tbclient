@@ -13,7 +13,7 @@ public class o implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
             return null;
         }
-        com.baidu.tbadk.core.c.a.btS().clearStringCacheWithSapce("tb.im_group_search_history");
+        com.baidu.tbadk.core.c.a.btT().clearStringCacheWithSapce("tb.im_group_search_history");
         return new ResponseSearchGroupLocalMessage(CmdConfigCustom.CMD_CACHE_CLEAR_REQUEST_SEARCH_GROUP);
     }
 }

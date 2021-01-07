@@ -23,7 +23,7 @@ public class a {
     private k jck;
     private m jcl;
 
-    public List<com.baidu.adp.widget.ListView.a> bUQ() {
+    public List<com.baidu.adp.widget.ListView.a> bUR() {
         return this.boM;
     }
 

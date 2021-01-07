@@ -15,23 +15,23 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class d implements IOAdDownloaderManager {
 
     /* renamed from: b  reason: collision with root package name */
-    private static d f3439b = null;
+    private static d f3440b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f3440a;
+    protected Context f3441a;
     private com.baidu.mobads.openad.a.c d;
     private HashMap<String, IOAdDownloader> c = new HashMap<>();
     private AtomicBoolean e = new AtomicBoolean(false);
 
     protected d(Context context) {
-        this.f3440a = context;
+        this.f3441a = context;
     }
 
     public static d a(Context context) {
-        if (f3439b == null) {
-            f3439b = new d(context);
+        if (f3440b == null) {
+            f3440b = new d(context);
         }
-        return f3439b;
+        return f3440b;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloaderManager
@@ -83,11 +83,11 @@ public class d implements IOAdDownloaderManager {
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloaderManager
     public synchronized IOAdDownloader createAdsApkDownloader(URL url, String str, String str2, int i, String str3, String str4) {
         a aVar;
-        aVar = new a(this.f3440a, url, str, str2, i, str3, str4);
+        aVar = new a(this.f3441a, url, str, str2, i, str3, str4);
         a(str4, aVar);
         try {
             if (this.d == null) {
-                this.d = new com.baidu.mobads.openad.a.c(this.f3440a);
+                this.d = new com.baidu.mobads.openad.a.c(this.f3441a);
                 this.d.a(new com.baidu.mobads.openad.a.b(this.d));
                 this.d.addEventListener("network_changed", new e(this));
                 this.d.a();
@@ -100,30 +100,30 @@ public class d implements IOAdDownloaderManager {
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloaderManager
     public IOAdDownloader createSimpleFileDownloader(URL url, String str, String str2, boolean z) {
-        return new f(this.f3440a, url, str, str2, z);
+        return new f(this.f3441a, url, str, str2, z);
     }
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloaderManager
     public IXAdStaticImgDownloader createImgHttpDownloader(URL url, String str, String str2) {
-        return new com.baidu.mobads.d.a(this.f3440a, url, str, str2);
+        return new com.baidu.mobads.d.a(this.f3441a, url, str, str2);
     }
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloaderManager
     public void resumeUndownloadedAfterRestartApp(long j) {
         List<String> a2;
-        if (!this.e.getAndSet(true) && (a2 = com.baidu.mobads.command.a.a(this.f3440a, j)) != null && a2.size() > 0) {
+        if (!this.e.getAndSet(true) && (a2 = com.baidu.mobads.command.a.a(this.f3441a, j)) != null && a2.size() > 0) {
             for (int i = 0; i < a2.size(); i++) {
                 try {
                     String str = a2.get(i);
                     if (b.a(str) != null || getAdsApkDownloader(str) != null) {
                         XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdDownloadManager", "pack[" + str + "] has been stated before, continue");
                     } else {
-                        com.baidu.mobads.command.a a3 = com.baidu.mobads.command.a.a(this.f3440a, str);
+                        com.baidu.mobads.command.a a3 = com.baidu.mobads.command.a.a(this.f3441a, str);
                         if (a3 == null) {
                             XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdDownloadManager", "pack[" + str + "] has no local data, continue");
                         } else {
-                            IOAdDownloader createAdsApkDownloader = createAdsApkDownloader(new URL(a3.j), a3.c, a3.f3350b, 1, a3.f3349a, a3.i);
-                            createAdsApkDownloader.addObserver(new b(this.f3440a, a3));
+                            IOAdDownloader createAdsApkDownloader = createAdsApkDownloader(new URL(a3.j), a3.c, a3.f3351b, 1, a3.f3350a, a3.i);
+                            createAdsApkDownloader.addObserver(new b(this.f3441a, a3));
                             createAdsApkDownloader.start();
                         }
                     }

@@ -94,13 +94,13 @@ public class a implements View.OnClickListener {
     private k.b jvv = new k.b() { // from class: com.baidu.tieba.frs.forumRule.view.a.11
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            a.this.cJV();
+            a.this.cJW();
         }
     };
     private k.b jvw = new k.b() { // from class: com.baidu.tieba.frs.forumRule.view.a.12
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            a.this.cKa();
+            a.this.cKb();
             if (a.this.juL != null) {
                 a.this.juL.finish();
             }
@@ -168,7 +168,7 @@ public class a implements View.OnClickListener {
         this.jvl.setLayoutParams(layoutParams2);
         this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.jvl, this);
         initListener();
-        cJR();
+        cJS();
         a(false, null, false);
     }
 
@@ -185,7 +185,7 @@ public class a implements View.OnClickListener {
         this.jvo.setListener(new ViewTreeObserver.OnScrollChangedListener() { // from class: com.baidu.tieba.frs.forumRule.view.a.1
             @Override // android.view.ViewTreeObserver.OnScrollChangedListener
             public void onScrollChanged() {
-                a.this.cJS();
+                a.this.cJT();
                 l.hideSoftKeyPad(a.this.mPageContext.getPageActivity(), a.this.jve);
                 l.hideSoftKeyPad(a.this.mPageContext.getPageActivity(), a.this.jvf);
             }
@@ -204,7 +204,7 @@ public class a implements View.OnClickListener {
                 int length = editable.toString().length();
                 a.this.AV(length);
                 a.b(a.this.juZ, length, 30);
-                a.this.cJW();
+                a.this.cJX();
             }
         });
         this.jvf.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.frs.forumRule.view.a.6
@@ -221,7 +221,7 @@ public class a implements View.OnClickListener {
                 int length = editable.toString().length();
                 a.this.AW(length);
                 a.b(a.this.jvb, length, 200);
-                a.this.cJW();
+                a.this.cJX();
                 if (a.this.jvf.getLineCount() > 6) {
                     a.this.jvf.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.frs.forumRule.view.a.6.1
                         @Override // android.view.View.OnTouchListener
@@ -243,7 +243,7 @@ public class a implements View.OnClickListener {
         });
     }
 
-    private void cJR() {
+    private void cJS() {
         if (this.jvn == null && this.juP != null) {
             this.jvn = new e(this.mPageContext, this.juP);
             this.jvn.fP(R.drawable.bg_tip_blue_up_left);
@@ -257,7 +257,7 @@ public class a implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cJS() {
+    public void cJT() {
         if (this.jvn != null) {
             this.jvn.VL();
         }
@@ -269,7 +269,7 @@ public class a implements View.OnClickListener {
             bVar.setClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.forumRule.view.a.7
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (bVar.cKg().getText().toString().length() != 0 || bVar.cKh().getText().toString().length() != 0) {
+                    if (bVar.cKh().getText().toString().length() != 0 || bVar.cKi().getText().toString().length() != 0) {
                         a.this.D(new View.OnClickListener() { // from class: com.baidu.tieba.frs.forumRule.view.a.7.1
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
@@ -278,9 +278,9 @@ public class a implements View.OnClickListener {
                                 }
                                 a.this.jvh.removeView(bVar.getRootView());
                                 a.this.jvp.remove(bVar);
+                                a.this.cJZ();
                                 a.this.cJY();
                                 a.this.cJX();
-                                a.this.cJW();
                             }
                         });
                         return;
@@ -290,15 +290,15 @@ public class a implements View.OnClickListener {
                     }
                     a.this.jvh.removeView(bVar.getRootView());
                     a.this.jvp.remove(bVar);
+                    a.this.cJZ();
                     a.this.cJY();
                     a.this.cJX();
-                    a.this.cJW();
                 }
             });
             bVar.a(new b.a() { // from class: com.baidu.tieba.frs.forumRule.view.a.8
                 @Override // com.baidu.tieba.frs.forumRule.view.b.a
-                public void cKf() {
-                    a.this.cJW();
+                public void cKg() {
+                    a.this.cJX();
                 }
             });
             this.jvh.addView(bVar.getRootView());
@@ -306,35 +306,35 @@ public class a implements View.OnClickListener {
             if (this.jvp.indexOf(bVar) != -1) {
                 bVar.AX(this.jvp.indexOf(bVar));
             }
-            cJW();
-            cJY();
+            cJX();
+            cJZ();
             if (forumRuleItemPbData != null) {
-                bVar.cKh().setText(forumRuleItemPbData.title);
-                bVar.cKh().setSelection(forumRuleItemPbData.title != null ? forumRuleItemPbData.title.length() : 0);
+                bVar.cKi().setText(forumRuleItemPbData.title);
+                bVar.cKi().setSelection(forumRuleItemPbData.title != null ? forumRuleItemPbData.title.length() : 0);
                 if (forumRuleItemPbData.mContent != null) {
                     for (int i = 0; i < forumRuleItemPbData.mContent.size(); i++) {
                         ForumRuleBaseData.ForumRuleItemPbContentData forumRuleItemPbContentData = forumRuleItemPbData.mContent.get(i);
                         if (forumRuleItemPbContentData != null) {
                             if ("a".equals(forumRuleItemPbContentData.tag)) {
                                 TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
-                                SpanGroupEditText cKg = bVar.cKg();
-                                tbLinkSpanGroup.a(cKg.getText(), cKg.getSelectionEnd(), cKg.getSelectionEnd(), (int) cKg.getTextSize());
+                                SpanGroupEditText cKh = bVar.cKh();
+                                tbLinkSpanGroup.a(cKh.getText(), cKh.getSelectionEnd(), cKh.getSelectionEnd(), (int) cKh.getTextSize());
                                 tbLinkSpanGroup.setUrl(forumRuleItemPbContentData.href);
-                                tbLinkSpanGroup.CE(forumRuleItemPbContentData.value);
+                                tbLinkSpanGroup.CD(forumRuleItemPbContentData.value);
                                 tbLinkSpanGroup.build();
-                                cKg.getSpanGroupManager().a(tbLinkSpanGroup);
+                                cKh.getSpanGroupManager().a(tbLinkSpanGroup);
                             } else if ("plainText".equals(forumRuleItemPbContentData.tag)) {
-                                bVar.cKg().p(forumRuleItemPbContentData.value);
+                                bVar.cKh().p(forumRuleItemPbContentData.value);
                             } else if ("br".equals(forumRuleItemPbContentData.tag)) {
-                                bVar.cKg().p("\r\n");
+                                bVar.cKh().p("\r\n");
                             }
                         }
                     }
                 }
-                bVar.cKg().setSelection(bVar.cKg().getText().toString().length());
+                bVar.cKh().setSelection(bVar.cKh().getText().toString().length());
                 if (z2 && "1".equals(forumRuleItemPbData.status)) {
+                    bVar.cKi().setTextColor(ao.getColor(R.color.CAM_X0301));
                     bVar.cKh().setTextColor(ao.getColor(R.color.CAM_X0301));
-                    bVar.cKg().setTextColor(ao.getColor(R.color.CAM_X0301));
                     bVar.rd(true);
                 }
             }
@@ -364,53 +364,53 @@ public class a implements View.OnClickListener {
         this.jve.setLayoutParams(layoutParams2);
     }
 
-    private void cJT() {
+    private void cJU() {
         if (this.jve == null || this.jve.getText().toString().length() <= 30) {
             if (this.jvp != null && this.jvp.size() > 0) {
                 for (int i = 0; i < this.jvp.size(); i++) {
                     new ForumRuleBaseData.ForumRuleItemData();
                     b bVar = this.jvp.get(i);
-                    EditText cKh = bVar.cKh();
-                    SpanGroupEditText cKg = bVar.cKg();
-                    if (cKh == null || cKh.getText().toString().trim().length() <= 30) {
-                        if (cKg != null && cKg.getText().toString().length() > 300) {
-                            Le(String.format(this.mPageContext.getString(R.string.forum_rule_commit_error_toast), String.format(this.mPageContext.getString(R.string.forum_rule_defalt_has_forum_rule), com.baidu.tieba.frs.forumRule.d.a.AU(i + 5), this.mPageContext.getString(R.string.forum_rule_content))));
+                    EditText cKi = bVar.cKi();
+                    SpanGroupEditText cKh = bVar.cKh();
+                    if (cKi == null || cKi.getText().toString().trim().length() <= 30) {
+                        if (cKh != null && cKh.getText().toString().length() > 300) {
+                            Ld(String.format(this.mPageContext.getString(R.string.forum_rule_commit_error_toast), String.format(this.mPageContext.getString(R.string.forum_rule_defalt_has_forum_rule), com.baidu.tieba.frs.forumRule.d.a.AU(i + 5), this.mPageContext.getString(R.string.forum_rule_content))));
                             return;
                         }
                     } else {
-                        Le(String.format(this.mPageContext.getString(R.string.forum_rule_commit_error_toast), String.format(this.mPageContext.getString(R.string.forum_rule_defalt_has_forum_rule), com.baidu.tieba.frs.forumRule.d.a.AU(i + 5), this.mPageContext.getString(R.string.forum_rule_title))));
+                        Ld(String.format(this.mPageContext.getString(R.string.forum_rule_commit_error_toast), String.format(this.mPageContext.getString(R.string.forum_rule_defalt_has_forum_rule), com.baidu.tieba.frs.forumRule.d.a.AU(i + 5), this.mPageContext.getString(R.string.forum_rule_title))));
                         return;
                     }
                 }
             }
             if (this.jvf == null || this.jvf.getText().toString().length() <= 200) {
-                cKc();
+                cKd();
                 this.jux.a(this.jvq, false);
                 return;
             }
-            Le(String.format(this.mPageContext.getString(R.string.forum_rule_commit_error_toast), this.mPageContext.getString(R.string.forum_rule_defalt_preface_title)));
+            Ld(String.format(this.mPageContext.getString(R.string.forum_rule_commit_error_toast), this.mPageContext.getString(R.string.forum_rule_defalt_preface_title)));
             return;
         }
-        Le(String.format(this.mPageContext.getString(R.string.forum_rule_commit_error_toast), this.mPageContext.getString(R.string.forum_rule_defalt_main_title)));
+        Ld(String.format(this.mPageContext.getString(R.string.forum_rule_commit_error_toast), this.mPageContext.getString(R.string.forum_rule_defalt_main_title)));
     }
 
-    private void Le(String str) {
+    private void Ld(String str) {
         if (this.jvr == null || !this.jvr.isShown()) {
-            this.jvr = new BdTopToast(this.mPageContext.getPageActivity(), 2000).yW(false).UY(str);
+            this.jvr = new BdTopToast(this.mPageContext.getPageActivity(), 2000).yW(false).UX(str);
             this.jvr.aR((ViewGroup) this.mRootView.findViewById(R.id.ll_forum_rule_all));
         }
     }
 
-    private boolean cJU() {
+    private boolean cJV() {
         if (this.jvl == null || this.jve == null || this.jve.getText().toString().trim().length() <= 0) {
             return false;
         }
         if (this.jvp != null && this.jvp.size() > 0) {
             for (int i = 0; i < this.jvp.size(); i++) {
                 b bVar = this.jvp.get(i);
-                EditText cKh = bVar.cKh();
-                SpanGroupEditText cKg = bVar.cKg();
-                if (cKh == null || cKh.getText().toString().trim().length() <= 0 || cKg == null || cKg.getText().toString().trim().length() <= 0) {
+                EditText cKi = bVar.cKi();
+                SpanGroupEditText cKh = bVar.cKh();
+                if (cKi == null || cKi.getText().toString().trim().length() <= 0 || cKh == null || cKh.getText().toString().trim().length() <= 0) {
                     return false;
                 }
             }
@@ -433,12 +433,12 @@ public class a implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cJV() {
-        cKc();
+    public void cJW() {
+        cKd();
         if (this.jvq != null) {
             if (this.jvq.getTitle().length() > 50) {
-                cKa();
-                Le(String.format(this.mPageContext.getString(R.string.forum_rule_draft_error_toast), this.mPageContext.getString(R.string.forum_rule_defalt_main_title), 50));
+                cKb();
+                Ld(String.format(this.mPageContext.getString(R.string.forum_rule_draft_error_toast), this.mPageContext.getString(R.string.forum_rule_defalt_main_title), 50));
                 return;
             }
             if (this.jvq.getList() != null) {
@@ -446,20 +446,20 @@ public class a implements View.OnClickListener {
                     ForumRuleBaseData.ForumRuleItemData forumRuleItemData = this.jvq.getList().get(i);
                     if (forumRuleItemData != null) {
                         if (forumRuleItemData.getTitle().length() > 50) {
-                            cKa();
-                            Le(String.format(this.mPageContext.getString(R.string.forum_rule_draft_error_toast), this.mPageContext.getString(R.string.forum_rule_defalt_item_title), 50));
+                            cKb();
+                            Ld(String.format(this.mPageContext.getString(R.string.forum_rule_draft_error_toast), this.mPageContext.getString(R.string.forum_rule_defalt_item_title), 50));
                             return;
                         } else if (forumRuleItemData.getContent().length() > 600) {
-                            cKa();
-                            Le(String.format(this.mPageContext.getString(R.string.forum_rule_draft_error_toast), this.mPageContext.getString(R.string.forum_rule_defalt_item_content), 600));
+                            cKb();
+                            Ld(String.format(this.mPageContext.getString(R.string.forum_rule_draft_error_toast), this.mPageContext.getString(R.string.forum_rule_defalt_item_content), 600));
                             return;
                         }
                     }
                 }
             }
             if (this.jvq.getPreface().length() > 600) {
-                cKa();
-                Le(String.format(this.mPageContext.getString(R.string.forum_rule_draft_error_toast), this.mPageContext.getString(R.string.forum_rule_defalt_preface_title), 600));
+                cKb();
+                Ld(String.format(this.mPageContext.getString(R.string.forum_rule_draft_error_toast), this.mPageContext.getString(R.string.forum_rule_defalt_preface_title), 600));
                 return;
             }
         }
@@ -467,9 +467,9 @@ public class a implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cJW() {
+    public void cJX() {
         if (this.jvl != null) {
-            if (cJU()) {
+            if (cJV()) {
                 this.jvl.setEnabled(true);
             } else {
                 this.jvl.setEnabled(false);
@@ -478,7 +478,7 @@ public class a implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cJX() {
+    public void cJY() {
         if (this.jvp != null && this.jvp.size() > 0) {
             int i = 0;
             while (true) {
@@ -494,7 +494,7 @@ public class a implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cJY() {
+    public void cJZ() {
         if (this.jvp != null) {
             if (this.jvp.size() >= 16) {
                 this.jvc.setText(this.mPageContext.getString(R.string.forum_rule_item_number_max));
@@ -523,7 +523,7 @@ public class a implements View.OnClickListener {
         }
     }
 
-    public void cJZ() {
+    public void cKa() {
         if (this.iwA == null) {
             this.iyk = new k(this.mPageContext.getPageActivity());
             this.iyk.setTitleText(this.mPageContext.getString(R.string.forum_rule_draft_title));
@@ -539,27 +539,27 @@ public class a implements View.OnClickListener {
             this.iyk.a(new k.a() { // from class: com.baidu.tieba.frs.forumRule.view.a.10
                 @Override // com.baidu.tbadk.core.dialog.k.a
                 public void onClick() {
-                    a.this.cKa();
+                    a.this.cKb();
                 }
             });
             this.iyk.bB(arrayList);
         }
-        cKb();
+        cKc();
     }
 
-    public void cKa() {
+    public void cKb() {
         if (this.iwA != null && this.iwA.isShowing()) {
             this.iwA.dismiss();
         }
     }
 
-    public void cKb() {
+    public void cKc() {
         if (this.iwA != null && this.juL != null && !this.juL.isFinishing()) {
             this.iwA.SY();
         }
     }
 
-    private void cKc() {
+    private void cKd() {
         if (this.jvq == null) {
             this.jvq = new ForumRuleBaseData();
         }
@@ -573,13 +573,13 @@ public class a implements View.OnClickListener {
                 }
                 ForumRuleBaseData.ForumRuleItemData forumRuleItemData = new ForumRuleBaseData.ForumRuleItemData();
                 b bVar = this.jvp.get(i2);
-                EditText cKh = bVar.cKh();
-                SpanGroupEditText cKg = bVar.cKg();
-                if (cKh != null) {
-                    forumRuleItemData.setTitle(cKh.getText().toString());
+                EditText cKi = bVar.cKi();
+                SpanGroupEditText cKh = bVar.cKh();
+                if (cKi != null) {
+                    forumRuleItemData.setTitle(cKi.getText().toString());
                 }
-                if (cKg != null) {
-                    forumRuleItemData.setContent(cKg.getSpanGroupManager().byB());
+                if (cKh != null) {
+                    forumRuleItemData.setContent(cKh.getSpanGroupManager().byC());
                 }
                 forumRuleItemData.setStatus(i2 + "");
                 arrayList.add(forumRuleItemData);
@@ -594,29 +594,29 @@ public class a implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.jvm) {
-            cJZ();
+            cKa();
         } else if (view == this.jvl) {
-            cJT();
+            cJU();
         } else if (view == this.jvk) {
-            cKc();
+            cKd();
             this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumRulesShowActivityConfig(this.mPageContext.getPageActivity(), this.juI, this.juJ, this.jvq, ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW, this.juK, this.jvt)));
         } else if (view == this.juP) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FrsActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(this.juJ, FrsActivityConfig.FRS_FROM_FORUM_RULE_EDIT)));
         } else if (view == this.juY) {
-            cKe();
+            cKf();
         } else if (view == this.jvi) {
             re(true);
         } else if (view == this.juR) {
             a(true, null, false);
         } else if (view == this.juU) {
-            cKd();
+            cKe();
         } else if (view == this.jvg || view == this.mNavigationBar) {
             l.hideSoftKeyPad(this.mPageContext.getPageActivity(), this.jve);
             l.hideSoftKeyPad(this.mPageContext.getPageActivity(), this.jvf);
         }
     }
 
-    private void cKd() {
+    private void cKe() {
         if (TextUtils.isEmpty(this.jvf.getText().toString())) {
             re(false);
         } else {
@@ -653,10 +653,10 @@ public class a implements View.OnClickListener {
             }
         });
         aVar.br(forumRuleDelItemDialogView);
-        aVar.b(this.mPageContext).btX();
+        aVar.b(this.mPageContext).btY();
     }
 
-    private void cKe() {
+    private void cKf() {
         String format = String.format(this.mPageContext.getString(R.string.forum_rule_defalt_title_demo), this.juJ, at.getDateStringMouth(new Date()));
         this.jve.setText(format);
         this.jve.setSelection(format.length());
@@ -731,8 +731,8 @@ public class a implements View.OnClickListener {
                 b bVar2 = this.jvp.get(0);
                 this.jvh.removeView(bVar2.getRootView());
                 this.jvp.remove(bVar2);
+                cJZ();
                 cJY();
-                cJX();
             }
         }
     }
@@ -758,7 +758,7 @@ public class a implements View.OnClickListener {
         this.jvq = null;
         this.jux = null;
         this.juL = null;
-        cKa();
+        cKb();
         this.iwA = null;
         this.iyk = null;
     }

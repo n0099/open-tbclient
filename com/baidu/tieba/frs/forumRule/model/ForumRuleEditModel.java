@@ -52,7 +52,7 @@ public class ForumRuleEditModel extends BdBaseModel {
             }
         };
         this.jux = bVar;
-        cJN();
+        cJO();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -65,7 +65,7 @@ public class ForumRuleEditModel extends BdBaseModel {
         return false;
     }
 
-    public void KS(String str) {
+    public void KR(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FORUM_RULES_DRAFT);
         httpMessage.addParam("forum_id", str);
         MessageManager.getInstance().sendMessage(httpMessage);
@@ -82,7 +82,7 @@ public class ForumRuleEditModel extends BdBaseModel {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private void cJN() {
+    private void cJO() {
         a.c(CmdConfigHttp.CMD_FORUM_RULES_DRAFT, TbConfig.URL_FORUM_RULES_DRAFT, ResponseHttpRorumRuleDraftMessage.class, true, true, true, true);
         a.c(CmdConfigHttp.CMD_FORUM_RULES_COMMIT, TbConfig.URL_FORUM_RULES_COMMIT, ResponseHttpRorumRuleCommitMessage.class, true, true, true, true);
         registerListener(this.gKJ);

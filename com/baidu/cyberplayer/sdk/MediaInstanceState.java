@@ -13,10 +13,10 @@ public class MediaInstanceState {
     private Map<String, String> A;
 
     /* renamed from: a  reason: collision with root package name */
-    private CyberPlayerManager.OnPreparedListener f1766a;
+    private CyberPlayerManager.OnPreparedListener f1767a;
 
     /* renamed from: b  reason: collision with root package name */
-    private CyberPlayerManager.OnCompletionListener f1767b;
+    private CyberPlayerManager.OnCompletionListener f1768b;
     private CyberPlayerManager.OnBufferingUpdateListener c;
     private CyberPlayerManager.OnSeekCompleteListener d;
     private CyberPlayerManager.OnVideoSizeChangedListener e;
@@ -109,7 +109,7 @@ public class MediaInstanceState {
     }
 
     public CyberPlayerManager.OnCompletionListener getOnCompletionListener() {
-        return this.f1767b;
+        return this.f1768b;
     }
 
     public CyberPlayerManager.OnInfoListener getOnInfoListener() {
@@ -121,7 +121,7 @@ public class MediaInstanceState {
     }
 
     public CyberPlayerManager.OnPreparedListener getOnPreparedListener() {
-        return this.f1766a;
+        return this.f1767a;
     }
 
     public CyberPlayerManager.OnSeekCompleteListener getOnSeekCompleteListener() {
@@ -163,12 +163,12 @@ public class MediaInstanceState {
     }
 
     public void release() {
-        this.f1766a = null;
+        this.f1767a = null;
         this.f = null;
         this.d = null;
         this.c = null;
         this.e = null;
-        this.f1766a = null;
+        this.f1767a = null;
         this.g = null;
         this.h = null;
         this.i = null;
@@ -189,7 +189,7 @@ public class MediaInstanceState {
     }
 
     public void setOnCompletionListener(CyberPlayerManager.OnCompletionListener onCompletionListener) {
-        this.f1767b = onCompletionListener;
+        this.f1768b = onCompletionListener;
     }
 
     public void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener) {
@@ -201,7 +201,7 @@ public class MediaInstanceState {
     }
 
     public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
-        this.f1766a = onPreparedListener;
+        this.f1767a = onPreparedListener;
     }
 
     public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {

@@ -62,7 +62,7 @@ public class at {
         this.eQP = i;
     }
 
-    public int bpL() {
+    public int bpM() {
         return this.eQP;
     }
 
@@ -70,11 +70,11 @@ public class at {
         this.eQQ = jSONArray;
     }
 
-    public JSONArray bpM() {
+    public JSONArray bpN() {
         return this.eQQ;
     }
 
-    public long bpN() {
+    public long bpO() {
         return this.eQM;
     }
 
@@ -82,7 +82,7 @@ public class at {
         this.eQM = j;
     }
 
-    public String bpO() {
+    public String bpP() {
         return this.nid;
     }
 

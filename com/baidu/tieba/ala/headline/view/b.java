@@ -74,7 +74,7 @@ public class b extends BaseAdapter {
         return view;
     }
 
-    public int cad() {
+    public int cae() {
         return this.hhf;
     }
 
@@ -82,7 +82,7 @@ public class b extends BaseAdapter {
         this.hhf = i;
     }
 
-    public void cae() {
+    public void caf() {
         this.hhg = -1.0d;
     }
 

@@ -17,7 +17,7 @@ import com.kwad.sdk.utils.am;
 public class a extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    private SlidePlayViewPager f8724b;
+    private SlidePlayViewPager f8725b;
     private ViewStub c;
     private View d;
     private LottieAnimationView e;
@@ -31,7 +31,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     private final com.kwad.sdk.contentalliance.a.a m = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.photo.b.a.1
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void j() {
-            if (a.this.f8724b.getCurrentItem() == a.this.f8724b.getPreItem() && c.ak()) {
+            if (a.this.f8725b.getCurrentItem() == a.this.f8725b.getPreItem() && c.ak()) {
                 a.this.e();
             }
         }
@@ -59,7 +59,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     public void a(long j) {
         if (!ae.a(o())) {
             e();
-        } else if (this.f8692a.n || !this.h || j < c.ai() || this.i) {
+        } else if (this.f8693a.n || !this.h || j < c.ai() || this.i) {
         } else {
             this.i = true;
             if (this.c.getParent() != null) {
@@ -72,7 +72,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
             this.e.b();
             this.k = am.a(this.d, true);
             this.k.start();
-            this.f8724b.a(false, 2);
+            this.f8725b.a(false, 2);
             this.d.setClickable(true);
             this.d.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.b.a.4
                 @Override // android.view.View.OnTouchListener
@@ -81,7 +81,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
                     return false;
                 }
             });
-            com.kwad.sdk.core.report.e.s(this.f8692a.j);
+            com.kwad.sdk.core.report.e.s(this.f8693a.j);
         }
     }
 
@@ -96,7 +96,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
             this.g.b(this.o);
             this.h = false;
         }
-        this.f8692a.f8702b.remove(this.m);
+        this.f8693a.f8703b.remove(this.m);
     }
 
     private void f() {
@@ -117,8 +117,8 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
         ae.b(o());
         this.l = am.a(this.d, false);
         this.l.start();
-        if (this.f8724b != null) {
-            this.f8724b.a(true, 2);
+        if (this.f8725b != null) {
+            this.f8725b.a(true, 2);
         }
         e();
     }
@@ -128,18 +128,18 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     public void a() {
         super.a();
         if (ae.a(o())) {
-            this.f8724b = this.f8692a.l;
-            h hVar = this.f8692a.f8701a;
+            this.f8725b = this.f8693a.l;
+            h hVar = this.f8693a.f8702a;
             if (hVar != null) {
-                this.g = hVar.f9041a;
+                this.g = hVar.f9042a;
             }
-            this.f = this.f8692a.m;
-            if (this.f == null || this.f8724b == null || this.g == null) {
+            this.f = this.f8693a.m;
+            if (this.f == null || this.f8725b == null || this.g == null) {
                 return;
             }
             this.f.a(this.n);
             this.g.a(this.o);
-            this.f8692a.f8702b.add(this.m);
+            this.f8693a.f8703b.add(this.m);
         }
     }
 

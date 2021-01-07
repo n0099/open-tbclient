@@ -54,7 +54,7 @@ public class b extends com.baidu.adp.base.c<UpdatesActivity> {
         this.kDY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.kDS.cDR()) {
+                if (b.this.kDS.cDS()) {
                     b.this.kDX.performClick();
                 } else {
                     b.this.kDS.a(b.this.kDT, 101, 0, 0L, b.this.kEa);
@@ -92,7 +92,7 @@ public class b extends com.baidu.adp.base.c<UpdatesActivity> {
 
     public void refresh() {
         if (this.kEa != null) {
-            if (this.kDS.cDR()) {
+            if (this.kDS.cDS()) {
                 this.kDX.setVisibility(0);
             } else {
                 this.kDX.setVisibility(8);
@@ -131,7 +131,7 @@ public class b extends com.baidu.adp.base.c<UpdatesActivity> {
             this.kDS.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
             this.kDS.getLayoutMode().onModeChanged(this.mConvertView);
             this.kDX.setSelected(this.kEa.isSelected());
-            if (this.kEa.isSelected() && this.kDS.cDR()) {
+            if (this.kEa.isSelected() && this.kDS.cDS()) {
                 ao.setBackgroundResource(this.kDY, R.drawable.bg_information_down_s);
             } else {
                 ao.setBackgroundResource(this.kDY, R.drawable.selector_group_updates_bottom_bg);

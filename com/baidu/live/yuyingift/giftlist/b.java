@@ -68,7 +68,7 @@ public class b extends BdBaseModel {
         TbSingleExecutor.execute(new SingleRunnable<AlaSdkGetGiftListHttpResponseMessage>() { // from class: com.baidu.live.yuyingift.giftlist.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.tbadk.util.SingleRunnable
-            /* renamed from: aaT */
+            /* renamed from: aaU */
             public AlaSdkGetGiftListHttpResponseMessage doInBackground() {
                 String HX = aj.HX();
                 if (HX == null || HX.length() == 0) {
@@ -110,7 +110,7 @@ public class b extends BdBaseModel {
     public void r(String str, String str2, String str3) {
         String str4;
         Address address;
-        String HU = StringUtils.isNull(str) ? com.baidu.live.yuyingift.b.b.aaZ().HU() : str;
+        String HU = StringUtils.isNull(str) ? com.baidu.live.yuyingift.b.b.aba().HU() : str;
         String str5 = "";
         String str6 = "";
         x HW = aj.HW();
@@ -185,7 +185,7 @@ public class b extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage, boolean z) {
-        com.baidu.live.yuyingift.b.b.aaZ().e(str, alaSdkGetGiftListHttpResponseMessage.Kh());
+        com.baidu.live.yuyingift.b.b.aba().e(str, alaSdkGetGiftListHttpResponseMessage.Kh());
         if (this.cai != null) {
             this.cai.a(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString(), z, alaSdkGetGiftListHttpResponseMessage.Kh(), alaSdkGetGiftListHttpResponseMessage.getCategoryList(), alaSdkGetGiftListHttpResponseMessage.Ki(), alaSdkGetGiftListHttpResponseMessage.QO());
         }

@@ -6,7 +6,7 @@ import com.qq.e.comm.plugin.y.d;
 import com.qq.e.comm.plugin.y.u;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends com.qq.e.comm.plugin.ab.f.a.b {
     @Override // com.qq.e.comm.plugin.ab.f.a.b
     public String a() {

@@ -52,8 +52,8 @@ public class d implements j {
                         bzVar.setUserMap(this.userMap);
                         bzVar.eWE = true;
                         bzVar.a(threadInfo);
-                        bzVar.bsq();
-                        bzVar.bqS();
+                        bzVar.bsr();
+                        bzVar.bqT();
                         this.threadList.add(bzVar);
                     }
                 }

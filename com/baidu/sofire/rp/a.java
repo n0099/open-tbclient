@@ -11,7 +11,7 @@ public final class a {
         String str = "";
         try {
             e eVar = new e(context);
-            if (!TextUtils.isEmpty(eVar.f5521b.getString("rpiiem", ""))) {
+            if (!TextUtils.isEmpty(eVar.f5522b.getString("rpiiem", ""))) {
                 eVar.d.putString("rpiiem", "");
                 eVar.d.commit();
             }
@@ -38,7 +38,7 @@ public final class a {
         String str = "";
         try {
             e eVar = new e(context);
-            str = eVar.f5521b.getString("rpandid", "");
+            str = eVar.f5522b.getString("rpandid", "");
             if (TextUtils.isEmpty(str)) {
                 str = h.f(context);
                 if (!TextUtils.isEmpty(str)) {

@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
-import com.facebook.common.b.f;
+import com.facebook.common.b.i;
 import com.facebook.common.references.a;
 import com.facebook.drawee.a.a.c;
 import com.facebook.imagepipeline.d.b;
@@ -26,7 +26,7 @@ public class AdImageVIew extends AppCompatImageView {
     }
 
     public void setImageUrl(String str) {
-        c.euK().e(ImageRequestBuilder.aj(Uri.parse(str)).eBe(), getContext()).a(new b() { // from class: com.baidu.swan.game.ad.component.AdImageVIew.1
+        c.euR().e(ImageRequestBuilder.aj(Uri.parse(str)).eBI(), getContext()).a(new b() { // from class: com.baidu.swan.game.ad.component.AdImageVIew.1
             @Override // com.facebook.imagepipeline.d.b
             protected void f(@Nullable Bitmap bitmap) {
                 if (bitmap != null) {
@@ -37,6 +37,6 @@ public class AdImageVIew extends AppCompatImageView {
             @Override // com.facebook.datasource.a
             protected void a(com.facebook.datasource.b<a<com.facebook.imagepipeline.f.c>> bVar) {
             }
-        }, f.etR());
+        }, i.etX());
     }
 }

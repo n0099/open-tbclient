@@ -8,7 +8,7 @@ import com.baidu.cesium.g;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.Comparator;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class a {
     public static Comparator<a> d = new Comparator<a>() { // from class: com.baidu.cesium.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -25,26 +25,26 @@ public abstract class a {
     private long f;
 
     /* renamed from: com.baidu.cesium.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class C0091a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f1669a;
+        public Context f1670a;
         public com.baidu.cesium.e.a anN;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class b {
         private a.C0094a anO;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f1670b;
+        private String f1671b;
         private String c;
         private boolean d = true;
 
         public b(a.C0094a c0094a, String str) {
             this.anO = c0094a;
-            this.f1670b = str;
+            this.f1671b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
 
@@ -84,15 +84,15 @@ public abstract class a {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class c {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class d {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class e {
         public Exception e;
         private int f;
@@ -117,26 +117,26 @@ public abstract class a {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f1671a;
+        public boolean f1672a;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public g.a f1672a;
+        public g.a f1673a;
         public Exception aeP;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f1673b;
+        public int f1674b;
 
         public g(int i, g.a aVar, Exception exc) {
-            this.f1673b = i;
-            this.f1672a = aVar;
+            this.f1674b = i;
+            this.f1673a = aVar;
             this.aeP = exc;
         }
 
@@ -153,7 +153,7 @@ public abstract class a {
         }
 
         public boolean a() {
-            return this.f1673b == 0;
+            return this.f1674b == 0;
         }
     }
 

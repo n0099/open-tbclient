@@ -57,13 +57,13 @@ public class a extends PopupWindow {
                 if (a.this.bNS != null) {
                     a.this.bNS.a(i, item);
                 }
-                a.this.Xf();
+                a.this.Xg();
             }
         };
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.live.tieba.write.a.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.Xf();
+                a.this.Xg();
             }
         };
         this.bNN = albumActivity;
@@ -140,31 +140,31 @@ public class a extends PopupWindow {
         this.mListView.setSelection(this.bNR);
         if (Build.VERSION.SDK_INT < 24) {
             if (ShowUtil.showPopupWindowAsDropDown(this, view)) {
-                Xh();
+                Xi();
                 return;
             }
             return;
         }
-        if (ShowUtil.showPopupWindowAtLocation(this, view, 0, 0, ((this.bNN.Wx() == null || this.bNN.Wx().getVisibility() != 0) ? 0 : this.bNN.Wx().getHeight()) + view.getHeight())) {
-            Xh();
+        if (ShowUtil.showPopupWindowAtLocation(this, view, 0, 0, ((this.bNN.Wy() == null || this.bNN.Wy().getVisibility() != 0) ? 0 : this.bNN.Wy().getHeight()) + view.getHeight())) {
+            Xi();
         }
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        Xf();
+        Xg();
     }
 
-    public void Xf() {
-        Xi();
+    public void Xg() {
+        Xj();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Xg() {
+    public void Xh() {
         super.dismiss();
     }
 
-    private void Xh() {
+    private void Xi() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setInterpolator(new DecelerateInterpolator());
@@ -175,7 +175,7 @@ public class a extends PopupWindow {
         this.bNP.startAnimation(alphaAnimation);
     }
 
-    private void Xi() {
+    private void Xj() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setFillAfter(true);
@@ -194,7 +194,7 @@ public class a extends PopupWindow {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                a.this.Xg();
+                a.this.Xh();
             }
         });
         this.mListView.startAnimation(translateAnimation);

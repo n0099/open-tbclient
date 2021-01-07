@@ -17,9 +17,9 @@ import com.baidu.prologue.b.c;
 import com.baidu.prologue.business.c.e;
 import com.baidu.prologue.business.data.SplashStyleRecorder;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static final boolean DEBUG = com.baidu.prologue.a.b.a.ctd.get().ago();
+    private static final boolean DEBUG = com.baidu.prologue.a.b.a.ctd.get().agp();
     private RelativeLayout ctS;
     private ImageView ctT;
     private com.baidu.prologue.b.a ctU;
@@ -35,7 +35,7 @@ public class a {
     private View mRootView;
 
     /* renamed from: com.baidu.prologue.business.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface InterfaceC0328a {
         void ka(String str);
     }
@@ -103,11 +103,11 @@ public class a {
         }
     }
 
-    public boolean agX() {
-        return this.ctU != null && this.ctU.agX();
+    public boolean agY() {
+        return this.ctU != null && this.ctU.agY();
     }
 
-    public View agY() {
+    public View agZ() {
         return this.cua;
     }
 

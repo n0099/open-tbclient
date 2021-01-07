@@ -24,7 +24,7 @@ public class UserIconBox extends LinearLayout {
 
     /* loaded from: classes.dex */
     public interface a<T extends View> {
-        com.baidu.adp.lib.d.b<TbImageView> byl();
+        com.baidu.adp.lib.d.b<TbImageView> bym();
     }
 
     public void setAutoChangedStyle(boolean z) {
@@ -50,7 +50,7 @@ public class UserIconBox extends LinearLayout {
         setOrientation(0);
         setGravity(16);
         if (this.mContext instanceof a) {
-            this.fof = ((a) this.mContext).byl();
+            this.fof = ((a) this.mContext).bym();
         }
         setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.core.view.UserIconBox.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -193,7 +193,7 @@ public class UserIconBox extends LinearLayout {
         return new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tbadk.core.view.UserIconBox.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: byk */
+            /* renamed from: byl */
             public TbImageView makeObject() {
                 return new TbImageView(context);
             }

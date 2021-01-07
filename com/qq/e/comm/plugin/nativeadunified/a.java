@@ -9,7 +9,7 @@ import com.qq.e.mediation.interfaces.BaseNativeUnifiedAd;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class a {
     public static NativeUnifiedADData a(final NativeUnifiedADData nativeUnifiedADData, final k.a aVar) {
         if (nativeUnifiedADData instanceof ADEventListener) {

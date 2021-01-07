@@ -118,7 +118,7 @@ public class a {
                 Log.d("SearchFlow", "two+ ends, cancel timer task, and send ubc instantly");
             }
             cancelTimer();
-            aPl();
+            aPm();
         } else if (this.mTimer == null) {
             if (DEBUG) {
                 Log.w("SearchFlow", "send delay timer is null");
@@ -130,7 +130,7 @@ public class a {
                     if (a.DEBUG) {
                         Log.d("SearchFlow", "timer: send ubc...");
                     }
-                    a.this.aPl();
+                    a.this.aPm();
                 }
             };
             if (DEBUG) {
@@ -141,17 +141,17 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aPl() {
-        p.aRp().execute(new Runnable() { // from class: com.baidu.swan.apps.statistic.search.a.2
+    public void aPm() {
+        p.aRq().execute(new Runnable() { // from class: com.baidu.swan.apps.statistic.search.a.2
             @Override // java.lang.Runnable
             public void run() {
-                a.this.aPm();
+                a.this.aPn();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void aPm() {
+    public synchronized void aPn() {
         if (TextUtils.equals(this.mSource, "1250000000000000")) {
             if (DEBUG) {
                 Log.w("SearchFlow", "source=" + this.mSource + ", ignore this case");

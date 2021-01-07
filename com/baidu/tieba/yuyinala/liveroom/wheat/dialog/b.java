@@ -26,12 +26,12 @@ public class b extends Dialog implements View.OnClickListener {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(a.g.yuyin_sdk_custom_loading_toast);
-        aaD();
+        aaE();
         initView();
         initListener();
     }
 
-    private void aaD() {
+    private void aaE() {
         Window window;
         if (this.mContext != null && (window = this.mContext.getWindow()) != null) {
             window.getDecorView().setPadding(0, 0, 0, 0);

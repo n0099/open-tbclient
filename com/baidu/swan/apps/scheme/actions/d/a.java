@@ -23,7 +23,7 @@ public class a {
     private String mApkName = "";
     private String mText;
 
-    public static a aNz() {
+    public static a aNA() {
         if (dJU == null) {
             synchronized (a.class) {
                 if (dJU == null) {
@@ -49,7 +49,7 @@ public class a {
         }
     }
 
-    public FloatButton aNA() {
+    public FloatButton aNB() {
         if (!(this.mActivity instanceof SwanAppActivity)) {
             return null;
         }
@@ -97,7 +97,7 @@ public class a {
         }
     }
 
-    public FloatButton aNB() {
+    public FloatButton aNC() {
         return this.dJV;
     }
 

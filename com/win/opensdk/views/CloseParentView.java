@@ -14,15 +14,15 @@ import com.win.opensdk.d;
 /* loaded from: classes4.dex */
 public class CloseParentView extends LinearLayout {
     private int java;
-    private Context qbB;
-    private Handler qcJ;
-    private View qdM;
-    private TextView qdV;
-    private LinearLayout qdW;
-    private RelativeLayout qdX;
-    private View qdY;
-    private a qdZ;
-    private b qea;
+    private Context qdj;
+    private Handler qer;
+    private TextView qfD;
+    private LinearLayout qfE;
+    private RelativeLayout qfF;
+    private View qfG;
+    private a qfH;
+    private b qfI;
+    private View qfu;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -30,7 +30,7 @@ public class CloseParentView extends LinearLayout {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void eJL();
+        void eKp();
     }
 
     static /* synthetic */ int d(CloseParentView closeParentView) {
@@ -39,7 +39,7 @@ public class CloseParentView extends LinearLayout {
         return i;
     }
 
-    static /* synthetic */ void eJL() {
+    static /* synthetic */ void eKp() {
     }
 
     public CloseParentView(Context context) {
@@ -48,38 +48,38 @@ public class CloseParentView extends LinearLayout {
 
     public CloseParentView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.qcJ = new Handler() { // from class: com.win.opensdk.views.CloseParentView.1
+        this.qer = new Handler() { // from class: com.win.opensdk.views.CloseParentView.1
             @Override // android.os.Handler
             public final void handleMessage(Message message) {
                 if (message.what == 10) {
-                    CloseParentView.this.qdV.setText(String.valueOf(CloseParentView.this.java));
+                    CloseParentView.this.qfD.setText(String.valueOf(CloseParentView.this.java));
                     if (CloseParentView.this.java <= 0) {
-                        CloseParentView.this.qdV.setVisibility(8);
-                        CloseParentView.this.qdV.setClickable(false);
-                        CloseParentView.this.qcJ.removeMessages(10);
+                        CloseParentView.this.qfD.setVisibility(8);
+                        CloseParentView.this.qfD.setClickable(false);
+                        CloseParentView.this.qer.removeMessages(10);
                     } else {
-                        CloseParentView.this.qdV.setVisibility(0);
-                        CloseParentView.this.qdV.setClickable(true);
+                        CloseParentView.this.qfD.setVisibility(0);
+                        CloseParentView.this.qfD.setClickable(true);
                     }
-                    CloseParentView.this.qcJ.sendEmptyMessageDelayed(10, 1000L);
+                    CloseParentView.this.qer.sendEmptyMessageDelayed(10, 1000L);
                     CloseParentView.d(CloseParentView.this);
                 }
             }
         };
-        this.qbB = context;
+        this.qdj = context;
         inflate(context, d.c.layout_close, this);
-        this.qdW = (LinearLayout) findViewById(d.b.parent);
-        this.qdM = findViewById(d.b.iv_clct);
-        this.qdX = (RelativeLayout) findViewById(d.b.parent_close);
-        this.qdY = findViewById(d.b.tv_area);
-        this.qdV = (TextView) findViewById(d.b.tv_cdt);
-        this.qdW.setOnClickListener(new View.OnClickListener() { // from class: com.win.opensdk.views.CloseParentView.2
+        this.qfE = (LinearLayout) findViewById(d.b.parent);
+        this.qfu = findViewById(d.b.iv_clct);
+        this.qfF = (RelativeLayout) findViewById(d.b.parent_close);
+        this.qfG = findViewById(d.b.tv_area);
+        this.qfD = (TextView) findViewById(d.b.tv_cdt);
+        this.qfE.setOnClickListener(new View.OnClickListener() { // from class: com.win.opensdk.views.CloseParentView.2
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                CloseParentView.eJL();
+                CloseParentView.eKp();
             }
         });
-        this.qdY.setOnClickListener(new View.OnClickListener() { // from class: com.win.opensdk.views.CloseParentView.3
+        this.qfG.setOnClickListener(new View.OnClickListener() { // from class: com.win.opensdk.views.CloseParentView.3
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
                 CloseParentView.e(CloseParentView.this);
@@ -101,58 +101,58 @@ public class CloseParentView extends LinearLayout {
                 i2 = 30;
                 break;
         }
-        ViewGroup.LayoutParams layoutParams = this.qdY.getLayoutParams();
-        int k = bg.k(this.qbB, i2);
+        ViewGroup.LayoutParams layoutParams = this.qfG.getLayoutParams();
+        int k = bg.k(this.qdj, i2);
         layoutParams.width = k;
         layoutParams.height = k;
     }
 
     public void setCollectVisible(boolean z) {
-        this.qdM.setVisibility(z ? 0 : 8);
-        this.qdW.setClickable(z);
+        this.qfu.setVisibility(z ? 0 : 8);
+        this.qfE.setClickable(z);
     }
 
     public void setLocation(int i) {
         switch (i) {
             case 110:
-                this.qdW.removeView(this.qdX);
-                this.qdW.addView(this.qdX, 0);
-                ((LinearLayout.LayoutParams) this.qdM.getLayoutParams()).rightMargin = 0;
-                ((LinearLayout.LayoutParams) this.qdX.getLayoutParams()).rightMargin = bg.k(this.qbB, 12.0f);
+                this.qfE.removeView(this.qfF);
+                this.qfE.addView(this.qfF, 0);
+                ((LinearLayout.LayoutParams) this.qfu.getLayoutParams()).rightMargin = 0;
+                ((LinearLayout.LayoutParams) this.qfF.getLayoutParams()).rightMargin = bg.k(this.qdj, 12.0f);
                 return;
             case 220:
-                eJM();
+                eKq();
                 return;
             default:
-                eJM();
+                eKq();
                 return;
         }
     }
 
     public void setCountDown(int i) {
         this.java = i;
-        this.qcJ.sendEmptyMessage(10);
+        this.qer.sendEmptyMessage(10);
     }
 
     public void setOnCollectListener(a aVar) {
-        this.qdZ = aVar;
+        this.qfH = aVar;
     }
 
     public void setOnCloseListener(b bVar) {
-        this.qea = bVar;
+        this.qfI = bVar;
     }
 
-    private void eJM() {
-        this.qdW.removeView(this.qdX);
-        this.qdW.addView(this.qdX, 1);
-        ((LinearLayout.LayoutParams) this.qdM.getLayoutParams()).rightMargin = bg.k(this.qbB, 12.0f);
-        ((LinearLayout.LayoutParams) this.qdX.getLayoutParams()).rightMargin = 0;
+    private void eKq() {
+        this.qfE.removeView(this.qfF);
+        this.qfE.addView(this.qfF, 1);
+        ((LinearLayout.LayoutParams) this.qfu.getLayoutParams()).rightMargin = bg.k(this.qdj, 12.0f);
+        ((LinearLayout.LayoutParams) this.qfF.getLayoutParams()).rightMargin = 0;
     }
 
     static /* synthetic */ void e(CloseParentView closeParentView) {
-        if (closeParentView.qea == null) {
+        if (closeParentView.qfI == null) {
             return;
         }
-        closeParentView.qea.eJL();
+        closeParentView.qfI.eKp();
     }
 }

@@ -13,9 +13,9 @@ public class e extends f<Integer> {
     /* renamed from: b */
     public Integer a(com.ksad.lottie.e.a<Integer> aVar, float f) {
         Integer num;
-        if (aVar.f8300a == null || aVar.f8301b == null) {
+        if (aVar.f8301a == null || aVar.f8302b == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        return (this.f8257b == null || (num = (Integer) this.f8257b.a(aVar.d, aVar.e.floatValue(), aVar.f8300a, aVar.f8301b, f, c(), f())) == null) ? Integer.valueOf(com.ksad.lottie.d.e.a(aVar.f8300a.intValue(), aVar.f8301b.intValue(), f)) : num;
+        return (this.f8258b == null || (num = (Integer) this.f8258b.a(aVar.d, aVar.e.floatValue(), aVar.f8301a, aVar.f8302b, f, c(), f())) == null) ? Integer.valueOf(com.ksad.lottie.d.e.a(aVar.f8301a.intValue(), aVar.f8302b.intValue(), f)) : num;
     }
 }

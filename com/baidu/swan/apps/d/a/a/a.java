@@ -29,9 +29,9 @@ public final class a extends aa {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         f.cGI.eS(true);
         if (optParamsAsJo == null) {
-            com.baidu.swan.apps.a.a amV = f.cGI.amV();
-            if (amV != null) {
-                amV.onResult(-1);
+            com.baidu.swan.apps.a.a amW = f.cGI.amW();
+            if (amW != null) {
+                amW.onResult(-1);
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
@@ -40,9 +40,9 @@ public final class a extends aa {
         JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
         ak.l(RunnableC0437a.cGM);
         if (optInt != 0) {
-            com.baidu.swan.apps.a.a amV2 = f.cGI.amV();
-            if (amV2 != null) {
-                amV2.onResult(-1);
+            com.baidu.swan.apps.a.a amW2 = f.cGI.amW();
+            if (amW2 != null) {
+                amW2.onResult(-1);
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error number is " + optInt);
             return false;
@@ -53,16 +53,16 @@ public final class a extends aa {
                 com.baidu.swan.apps.d.a.h.cGL.d(optInt, optJSONObject);
                 com.baidu.swan.apps.d.a.a.ad(context, str);
                 f.cGI.eI(true);
-                com.baidu.swan.apps.a.a amV3 = f.cGI.amV();
-                if (amV3 != null) {
-                    amV3.onResult(0);
+                com.baidu.swan.apps.a.a amW3 = f.cGI.amW();
+                if (amW3 != null) {
+                    amW3.onResult(0);
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 z = true;
             } else {
-                com.baidu.swan.apps.a.a amV4 = f.cGI.amV();
-                if (amV4 != null) {
-                    amV4.onResult(-1);
+                com.baidu.swan.apps.a.a amW4 = f.cGI.amW();
+                if (amW4 != null) {
+                    amW4.onResult(-1);
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "bduss is null");
                 z = false;
@@ -85,7 +85,7 @@ public final class a extends aa {
 
         @Override // java.lang.Runnable
         public final void run() {
-            com.baidu.swan.apps.d.a.e.ath();
+            com.baidu.swan.apps.d.a.e.ati();
         }
     }
 }

@@ -12,7 +12,7 @@ public class y {
     public static final List<String> fty = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
     private static List<String> ftz;
 
-    public static boolean CQ(String str) {
+    public static boolean CP(String str) {
         String string;
         if (TbadkCoreApplication.getInst().isDebugMode() || TbSingleton.getInstance().isDebugToolMode()) {
             return true;
@@ -20,8 +20,8 @@ public class y {
         if (at.isEmpty(str)) {
             return false;
         }
-        if (ftz == null && (string = com.baidu.tbadk.core.sharedPref.b.bvq().getString("js_host_white_list", null)) != null) {
-            ftz = CS(string);
+        if (ftz == null && (string = com.baidu.tbadk.core.sharedPref.b.bvr().getString("js_host_white_list", null)) != null) {
+            ftz = CR(string);
         }
         if (ftz == null) {
             ftz = fty;
@@ -38,16 +38,16 @@ public class y {
         return false;
     }
 
-    public static void CR(String str) {
+    public static void CQ(String str) {
         if (str == null) {
-            com.baidu.tbadk.core.sharedPref.b.bvq().putString("js_host_white_list", "");
+            com.baidu.tbadk.core.sharedPref.b.bvr().putString("js_host_white_list", "");
         } else {
-            com.baidu.tbadk.core.sharedPref.b.bvq().putString("js_host_white_list", str);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putString("js_host_white_list", str);
         }
-        ftz = CS(str);
+        ftz = CR(str);
     }
 
-    private static List<String> CS(String str) {
+    private static List<String> CR(String str) {
         if (at.isEmpty(str)) {
             return null;
         }

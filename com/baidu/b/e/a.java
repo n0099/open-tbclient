@@ -7,27 +7,27 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1610a;
+    private Context f1611a;
     private C0085a aeL;
 
     /* renamed from: com.baidu.b.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public final class C0085a {
         private C0085a aeR;
 
         /* renamed from: b  reason: collision with root package name */
-        private File f1611b;
+        private File f1612b;
         private String c;
         private boolean e;
 
         C0085a(File file) {
             this.e = false;
             this.e = true;
-            this.f1611b = file;
+            this.f1612b = file;
             this.c = file.getName();
         }
 
@@ -51,10 +51,10 @@ public class a {
         }
 
         public File b() {
-            File file = this.f1611b;
+            File file = this.f1612b;
             if (file == null) {
                 file = this.aeR == null ? new File(a.this.a(), this.c) : new File(this.aeR.b(), this.c);
-                this.f1611b = file;
+                this.f1612b = file;
             }
             return file;
         }
@@ -92,7 +92,7 @@ public class a {
     }
 
     public a(Context context) {
-        this.f1610a = context;
+        this.f1611a = context;
         c().mkdirs();
     }
 
@@ -190,7 +190,7 @@ public class a {
     }
 
     public File a() {
-        return new File(this.f1610a.getApplicationInfo().dataDir);
+        return new File(this.f1611a.getApplicationInfo().dataDir);
     }
 
     public synchronized C0085a sr() {

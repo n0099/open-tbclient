@@ -41,42 +41,42 @@ public class b extends e implements f {
 
     @Override // com.baidu.live.view.e, android.widget.PopupWindow
     public void dismiss() {
-        if (!aal()) {
-            aag();
+        if (!aam()) {
+            aah();
         }
     }
 
     public void aJ(String str, int i) {
         View findViewById;
-        int aaj;
         int aak;
+        int aal;
         if (!this.mActivity.isFinishing() && (findViewById = this.mActivity.getWindow().getDecorView().findViewById(16908290)) != null) {
             switch (i) {
                 case 0:
                     this.bXh = 80;
-                    aaj = aah();
-                    aak = (int) (ScreenHelper.getRealScreenHeight(this.mActivity) * 0.7f);
+                    aak = aai();
+                    aal = (int) (ScreenHelper.getRealScreenHeight(this.mActivity) * 0.7f);
                     this.byQ.setCornerRadius(this.byT, this.byT, 0.0f, 0.0f);
                     break;
                 case 1:
                     this.bXh = 80;
-                    aaj = aah();
-                    aak = ccz();
+                    aak = aai();
+                    aal = ccA();
                     this.byQ.setCornerRadius(this.byT, this.byT, 0.0f, 0.0f);
                     break;
                 case 2:
                     this.bXh = 5;
-                    aaj = aaj();
                     aak = aak();
+                    aal = aal();
                     this.byQ.setCornerRadius(this.byT, 0.0f, 0.0f, this.byT);
                     break;
                 default:
+                    aal = 0;
                     aak = 0;
-                    aaj = 0;
                     break;
             }
-            setWidth(aaj);
-            setHeight(aak);
+            setWidth(aak);
+            setHeight(aal);
             showAtLocation(findViewById, 85, 0, 0);
             if (i == 2) {
                 ah(this.byQ);
@@ -87,37 +87,37 @@ public class b extends e implements f {
     }
 
     public void dU(int i) {
-        int aak;
+        int aal;
         int i2;
         if (this.mActivity.getWindow().getDecorView().findViewById(16908290) != null) {
             switch (i) {
                 case 1:
                     this.bXh = 80;
-                    int aah = aah();
-                    aak = ccz();
+                    int aai = aai();
+                    aal = ccA();
                     this.byQ.setCornerRadius(this.byT, this.byT, 0.0f, 0.0f);
-                    i2 = aah;
+                    i2 = aai;
                     break;
                 case 2:
                     this.bXh = 5;
-                    int aaj = aaj();
-                    aak = aak();
+                    int aak = aak();
+                    aal = aal();
                     this.byQ.setCornerRadius(this.byT, 0.0f, 0.0f, this.byT);
-                    i2 = aaj;
+                    i2 = aak;
                     break;
                 default:
-                    aak = 0;
+                    aal = 0;
                     i2 = 0;
                     break;
             }
-            update(i2, aak);
+            update(i2, aal);
             if (i == 2) {
                 ah(this.byQ);
             }
         }
     }
 
-    public void aag() {
+    public void aah() {
         super.dismiss();
     }
 
@@ -193,15 +193,15 @@ public class b extends e implements f {
         this.byS.setVisibility(8);
     }
 
-    private int aah() {
+    private int aai() {
         return ScreenHelper.getRealScreenWidth(this.mActivity);
     }
 
-    private int aaj() {
+    private int aak() {
         return ScreenHelper.getRealScreenHeight(this.mActivity);
     }
 
-    private int ccz() {
+    private int ccA() {
         int dimensionPixelSize;
         int screenHeight = ScreenHelper.getScreenHeight(this.mActivity) - p.v(this.mActivity);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
@@ -212,7 +212,7 @@ public class b extends e implements f {
         return screenHeight - dimensionPixelSize;
     }
 
-    private int aak() {
+    private int aal() {
         return ScreenHelper.getRealScreenHeight(this.mActivity);
     }
 
@@ -235,7 +235,7 @@ public class b extends e implements f {
         }
     }
 
-    private boolean aal() {
+    private boolean aam() {
         if (getContentView() == null) {
             return false;
         }
@@ -261,7 +261,7 @@ public class b extends e implements f {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    b.this.aag();
+                    b.this.aah();
                     b.this.hpp = false;
                 }
 

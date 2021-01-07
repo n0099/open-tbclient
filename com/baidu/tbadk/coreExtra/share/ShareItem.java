@@ -98,7 +98,7 @@ public class ShareItem {
     public String extData = null;
     public String localFile = null;
 
-    public Bundle bCD() {
+    public Bundle bCE() {
         return this.stats;
     }
 
@@ -111,7 +111,7 @@ public class ShareItem {
         this.typeShareToSmallApp = 0;
     }
 
-    public Bitmap bCE() {
+    public Bitmap bCF() {
         Bitmap bitmap;
         if (this.fxy == null || (bitmap = this.fxy.get()) == null || bitmap.isRecycled()) {
             return null;
@@ -123,7 +123,7 @@ public class ShareItem {
         this.fxy = new WeakReference<>(bitmap);
     }
 
-    public byte[] bCF() {
+    public byte[] bCG() {
         Bitmap bitmap;
         byte[] bArr;
         if (this.fxy == null || (bitmap = this.fxy.get()) == null || bitmap.isRecycled()) {
@@ -144,7 +144,7 @@ public class ShareItem {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [314=4, 315=4, 317=4, 318=4] */
-    public void bCG() {
+    public void bCH() {
         FileOutputStream fileOutputStream = null;
         if (this.fxy == null) {
             return;
@@ -161,11 +161,11 @@ public class ShareItem {
                     if (parentFile != null && !parentFile.exists()) {
                         parentFile.mkdirs();
                     }
-                    byte[] bCF = bCF();
-                    if (bCF != null) {
+                    byte[] bCG = bCG();
+                    if (bCG != null) {
                         FileOutputStream fileOutputStream3 = new FileOutputStream(file);
                         try {
-                            fileOutputStream3.write(bCF);
+                            fileOutputStream3.write(bCG);
                             fileOutputStream3.close();
                             this.imageUri = Uri.fromFile(file);
                             this.fxy = null;
@@ -230,7 +230,7 @@ public class ShareItem {
         return this.mCommandChannelArray;
     }
 
-    public boolean bCH() {
+    public boolean bCI() {
         return this.fxt == 7 || this.fxt == 8 || this.fxt == 5 || this.fxt == 6;
     }
 
@@ -290,28 +290,28 @@ public class ShareItem {
                 if (bzVar.eVB.oriUgcInfo != null && !TextUtils.isEmpty(bzVar.eVB.oriUgcInfo.oriUgcNid)) {
                     forwardInfo.isDynamic = true;
                 }
-                forwardInfo.showText = bzVar.eVB.bpW();
+                forwardInfo.showText = bzVar.eVB.bpX();
                 forwardInfo.showPicUrl = bzVar.eVB.showPicUrl;
                 forwardInfo.showType = bzVar.eVB.showType;
                 forwardInfo.originalBaijiahaoData = bzVar.eVB.oriUgcInfo;
                 forwardInfo.originalTid = bzVar.eVB.threadId;
                 if (i == 1) {
-                    if (postData != null && postData.dPf() != null) {
-                        str = postData.dPf().toString();
+                    if (postData != null && postData.dPg() != null) {
+                        str = postData.dPg().toString();
                     } else if (bzVar.getAbstract() != null) {
-                        str = bzVar.bqR().toString();
+                        str = bzVar.bqS().toString();
                     }
-                } else if (bzVar.bso() != null) {
-                    str = bzVar.bso().toString();
+                } else if (bzVar.bsp() != null) {
+                    str = bzVar.bsp().toString();
                 }
                 if (!TextUtils.isEmpty(str)) {
                     forwardInfo.transmitOriginThreadComment = str;
                 }
-                if (bzVar.brq() != null && !TextUtils.isEmpty(bzVar.brq().getName_show())) {
-                    forwardInfo.transmitThreadAuthorNameShow = bzVar.brq().getName_show();
+                if (bzVar.brr() != null && !TextUtils.isEmpty(bzVar.brr().getName_show())) {
+                    forwardInfo.transmitThreadAuthorNameShow = bzVar.brr().getName_show();
                 }
-                if (i == 1 && postData != null && at.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.brq() != null) {
-                    forwardInfo.transmitThreadAuthorNameShow = postData.brq().getName_show();
+                if (i == 1 && postData != null && at.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.brr() != null) {
+                    forwardInfo.transmitThreadAuthorNameShow = postData.brr().getName_show();
                 }
                 if (i == 2 && at.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                     forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
@@ -322,7 +322,7 @@ public class ShareItem {
                 }
                 OriginalThreadInfo t = OriginalThreadInfo.t(bzVar);
                 if (t != null) {
-                    forwardInfo.showText = t.bpW();
+                    forwardInfo.showText = t.bpX();
                     forwardInfo.showPicUrl = t.showPicUrl;
                     forwardInfo.showType = t.showType;
                 }
@@ -354,14 +354,14 @@ public class ShareItem {
             }
             if (bzVar.getBaijiahaoData() != null) {
                 if (bzVar.getBaijiahaoData().oriUgcType == 2) {
-                    if (bzVar.brH() != null) {
-                        forwardInfo.video_duration = String.valueOf(bzVar.brH().video_duration);
+                    if (bzVar.brI() != null) {
+                        forwardInfo.video_duration = String.valueOf(bzVar.brI().video_duration);
                     }
-                } else if ((bzVar.getBaijiahaoData().oriUgcType == 3 || bzVar.getBaijiahaoData().oriUgcType == 4) && bzVar.brq() != null && !TextUtils.isEmpty(bzVar.brq().getPortrait())) {
-                    if (bzVar.brq().getPortrait().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                        forwardInfo.avatar = bzVar.brq().getPortrait();
+                } else if ((bzVar.getBaijiahaoData().oriUgcType == 3 || bzVar.getBaijiahaoData().oriUgcType == 4) && bzVar.brr() != null && !TextUtils.isEmpty(bzVar.brr().getPortrait())) {
+                    if (bzVar.brr().getPortrait().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                        forwardInfo.avatar = bzVar.brr().getPortrait();
                     } else {
-                        forwardInfo.avatar = TbConfig.getBigPhotoAdress() + bzVar.brq().getPortrait() + ".jpg";
+                        forwardInfo.avatar = TbConfig.getBigPhotoAdress() + bzVar.brr().getPortrait() + ".jpg";
                     }
                 }
             }

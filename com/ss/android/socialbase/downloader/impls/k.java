@@ -8,17 +8,17 @@ import java.util.List;
 public class k implements com.ss.android.socialbase.downloader.downloader.k {
 
     /* renamed from: a  reason: collision with root package name */
-    private final SparseArray<com.ss.android.socialbase.downloader.g.c> f13488a = new SparseArray<>();
+    private final SparseArray<com.ss.android.socialbase.downloader.g.c> f13489a = new SparseArray<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private final SparseArray<List<com.ss.android.socialbase.downloader.g.b>> f13489b = new SparseArray<>();
+    private final SparseArray<List<com.ss.android.socialbase.downloader.g.b>> f13490b = new SparseArray<>();
 
     public SparseArray<com.ss.android.socialbase.downloader.g.c> a() {
-        return this.f13488a;
+        return this.f13489a;
     }
 
-    public SparseArray<List<com.ss.android.socialbase.downloader.g.b>> eJn() {
-        return this.f13489b;
+    public SparseArray<List<com.ss.android.socialbase.downloader.g.b>> eJR() {
+        return this.f13490b;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
@@ -33,9 +33,9 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c b(int i) {
         com.ss.android.socialbase.downloader.g.c cVar;
-        synchronized (this.f13488a) {
+        synchronized (this.f13489a) {
             try {
-                cVar = this.f13488a.get(i);
+                cVar = this.f13489a.get(i);
             } catch (Exception e) {
                 e.printStackTrace();
                 cVar = null;
@@ -47,11 +47,11 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public List<com.ss.android.socialbase.downloader.g.c> a(String str) {
         ArrayList arrayList = new ArrayList();
-        synchronized (this.f13488a) {
+        synchronized (this.f13489a) {
             try {
-                int size = this.f13488a.size();
+                int size = this.f13489a.size();
                 for (int i = 0; i < size; i++) {
-                    com.ss.android.socialbase.downloader.g.c valueAt = this.f13488a.valueAt(i);
+                    com.ss.android.socialbase.downloader.g.c valueAt = this.f13489a.valueAt(i);
                     if (str != null && str.equals(valueAt.j())) {
                         arrayList.add(valueAt);
                     }
@@ -68,14 +68,14 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.f13488a) {
-            if (this.f13488a.size() == 0) {
+        synchronized (this.f13489a) {
+            if (this.f13489a.size() == 0) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.f13488a.size(); i++) {
-                com.ss.android.socialbase.downloader.g.c cVar = this.f13488a.get(this.f13488a.keyAt(i));
-                if (cVar != null && !TextUtils.isEmpty(cVar.eIa()) && cVar.eIa().equals(str) && com.ss.android.socialbase.downloader.b.f.g(cVar.q())) {
+            for (int i = 0; i < this.f13489a.size(); i++) {
+                com.ss.android.socialbase.downloader.g.c cVar = this.f13489a.get(this.f13489a.keyAt(i));
+                if (cVar != null && !TextUtils.isEmpty(cVar.eIE()) && cVar.eIE().equals(str) && com.ss.android.socialbase.downloader.b.f.g(cVar.q())) {
                     arrayList.add(cVar);
                 }
             }
@@ -88,14 +88,14 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.f13488a) {
-            if (this.f13488a.size() == 0) {
+        synchronized (this.f13489a) {
+            if (this.f13489a.size() == 0) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.f13488a.size(); i++) {
-                com.ss.android.socialbase.downloader.g.c cVar = this.f13488a.get(this.f13488a.keyAt(i));
-                if (cVar != null && !TextUtils.isEmpty(cVar.eIa()) && cVar.eIa().equals(str) && cVar.q() == -3) {
+            for (int i = 0; i < this.f13489a.size(); i++) {
+                com.ss.android.socialbase.downloader.g.c cVar = this.f13489a.get(this.f13489a.keyAt(i));
+                if (cVar != null && !TextUtils.isEmpty(cVar.eIE()) && cVar.eIE().equals(str) && cVar.q() == -3) {
                     arrayList.add(cVar);
                 }
             }
@@ -108,14 +108,14 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.f13488a) {
-            if (this.f13488a.size() == 0) {
+        synchronized (this.f13489a) {
+            if (this.f13489a.size() == 0) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.f13488a.size(); i++) {
-                com.ss.android.socialbase.downloader.g.c cVar = this.f13488a.get(this.f13488a.keyAt(i));
-                if (cVar != null && !TextUtils.isEmpty(cVar.eIa()) && cVar.eIa().equals(str) && com.ss.android.socialbase.downloader.b.f.f(cVar.q())) {
+            for (int i = 0; i < this.f13489a.size(); i++) {
+                com.ss.android.socialbase.downloader.g.c cVar = this.f13489a.get(this.f13489a.keyAt(i));
+                if (cVar != null && !TextUtils.isEmpty(cVar.eIE()) && cVar.eIE().equals(str) && com.ss.android.socialbase.downloader.b.f.f(cVar.q())) {
                     arrayList.add(cVar);
                 }
             }
@@ -125,21 +125,21 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public List<com.ss.android.socialbase.downloader.g.b> c(int i) {
-        return this.f13489b.get(i);
+        return this.f13490b.get(i);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public synchronized void d(int i) {
-        this.f13489b.remove(i);
+        this.f13490b.remove(i);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public synchronized void a(com.ss.android.socialbase.downloader.g.b bVar) {
         int k = bVar.k();
-        List<com.ss.android.socialbase.downloader.g.b> list = this.f13489b.get(k);
+        List<com.ss.android.socialbase.downloader.g.b> list = this.f13490b.get(k);
         if (list == null) {
             list = new ArrayList<>();
-            this.f13489b.put(k, list);
+            this.f13490b.put(k, list);
         }
         list.add(bVar);
     }
@@ -198,9 +198,9 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public boolean a(com.ss.android.socialbase.downloader.g.c cVar) {
         if (cVar != null) {
-            synchronized (this.f13488a) {
-                r0 = this.f13488a.get(cVar.g()) != null;
-                this.f13488a.put(cVar.g(), cVar);
+            synchronized (this.f13489a) {
+                r0 = this.f13489a.get(cVar.g()) != null;
+                this.f13489a.put(cVar.g(), cVar);
             }
         }
         return r0;
@@ -208,8 +208,8 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public boolean e(int i) {
-        synchronized (this.f13488a) {
-            this.f13488a.remove(i);
+        synchronized (this.f13489a) {
+            this.f13489a.remove(i);
         }
         return true;
     }
@@ -223,9 +223,9 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public void b() {
-        synchronized (this.f13488a) {
-            this.f13488a.clear();
-            this.f13489b.clear();
+        synchronized (this.f13489a) {
+            this.f13489a.clear();
+            this.f13490b.clear();
         }
     }
 

@@ -29,9 +29,9 @@ public class v {
             this.mTitleView = (TextView) inflate.findViewById(R.id.title);
             this.mTitleView.setText(R.string.frs_recommend_thread_sure_title);
             this.cWc = (TextView) inflate.findViewById(R.id.call_fans_intro);
-            BawuThrones cEc = c.cEb().cEc();
-            if (cEc != null) {
-                this.cWc.setText(String.format(tbPageContext.getString(R.string.frs_recommend_thread_sure_content), cEc.bazhu_level, cEc.total_recommend_num, Integer.valueOf(cEc.total_recommend_num.intValue() - cEc.used_recommend_num.intValue())));
+            BawuThrones cEd = c.cEc().cEd();
+            if (cEd != null) {
+                this.cWc.setText(String.format(tbPageContext.getString(R.string.frs_recommend_thread_sure_content), cEd.bazhu_level, cEd.total_recommend_num, Integer.valueOf(cEd.total_recommend_num.intValue() - cEd.used_recommend_num.intValue())));
             } else {
                 this.cWc.setText(String.format(tbPageContext.getString(R.string.frs_recommend_thread_sure_content), "D", 2, 2));
             }
@@ -41,7 +41,7 @@ public class v {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     v.this.mIsChecked = !v.this.mIsChecked;
-                    v.this.btU();
+                    v.this.btV();
                 }
             });
             onChangeSkinType();
@@ -49,8 +49,8 @@ public class v {
             this.jiY.a(tbPageContext.getString(R.string.frs_recommend_thread_confirm), new a.b() { // from class: com.baidu.tieba.frs.v.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("key_frs_recommend_tip", !v.this.mIsChecked);
-                    c.cEb().eY(str, str2);
+                    com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean("key_frs_recommend_tip", !v.this.mIsChecked);
+                    c.cEc().eY(str, str2);
                     v.this.jiY.dismiss();
                     v.this.jiY = null;
                 }
@@ -63,19 +63,19 @@ public class v {
                     v.this.jiY = null;
                 }
             });
-            this.jiY.b(tbPageContext).btX();
+            this.jiY.b(tbPageContext).btY();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btU() {
+    public void btV() {
         Drawable a2;
         if (this.ito != null) {
             ImageView imageView = this.ito;
             if (this.mIsChecked) {
-                a2 = SvgManager.bwq().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
+                a2 = SvgManager.bwr().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
             } else {
-                a2 = SvgManager.bwq().a(R.drawable.ic_icon_mask_use_check16_svg, null);
+                a2 = SvgManager.bwr().a(R.drawable.ic_icon_mask_use_check16_svg, null);
             }
             imageView.setImageDrawable(a2);
         }
@@ -88,7 +88,7 @@ public class v {
         if (this.cWc != null) {
             com.baidu.tbadk.core.util.ao.setViewTextColor(this.cWc, R.color.CAM_X0107);
         }
-        btU();
+        btV();
         if (this.jiZ != null) {
             com.baidu.tbadk.core.util.ao.setViewTextColor(this.jiZ, R.color.CAM_X0107);
         }

@@ -4,7 +4,7 @@ import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.kwai.sodler.lib.ext.PluginError;
 import com.qq.e.comm.constants.ErrorCode;
 import com.qq.e.comm.util.AdError;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ag {
     public static AdError a(int i) {
         switch (i) {

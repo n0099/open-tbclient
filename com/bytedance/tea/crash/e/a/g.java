@@ -17,12 +17,12 @@ public class g extends c {
         a2.a("app_count", 1);
         a2.a("magic_tag", "ss_app_log");
         c(a2);
-        com.bytedance.tea.crash.c.b hZ = com.bytedance.tea.crash.c.b.hZ(this.f7936b);
-        hZ.a(h.esE().a());
-        hZ.a(h.esG().a());
+        com.bytedance.tea.crash.c.b hZ = com.bytedance.tea.crash.c.b.hZ(this.f7937b);
+        hZ.a(h.esF().a());
+        hZ.a(h.esH().a());
         hZ.b(this.pqc.c());
         a2.a(hZ);
-        k.a(a2, hZ, this.f7935a);
+        k.a(a2, hZ, this.f7936a);
         return a2;
     }
 }

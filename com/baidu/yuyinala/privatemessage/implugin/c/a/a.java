@@ -199,7 +199,7 @@ public class a extends AsyncTask<String, Integer, Integer> {
     private void notifyFinished() {
         try {
             if (this.oUq != null) {
-                this.oUq.Yk(this.mFilePath);
+                this.oUq.Yj(this.mFilePath);
             }
             if (c.isDebugMode()) {
                 c.d("AsyncDownloadTask", "donwLoad finshed sucess:" + System.currentTimeMillis());

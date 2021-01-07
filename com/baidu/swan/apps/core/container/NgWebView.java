@@ -38,7 +38,7 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
     private e mWebViewManager;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String WEBVIEW_SIZE_SWITCH = "swan_app_set_webview_size_switch";
-    private static final boolean sIsSetWebViewSize = com.baidu.swan.apps.t.a.aAu().getSwitch(WEBVIEW_SIZE_SWITCH, false);
+    private static final boolean sIsSetWebViewSize = com.baidu.swan.apps.t.a.aAv().getSwitch(WEBVIEW_SIZE_SWITCH, false);
 
     @Override // com.baidu.browser.sailor.BdSailorWebView, com.baidu.swan.apps.adaptation.b.d
     public /* bridge */ /* synthetic */ AbsoluteLayout getCurrentWebView() {
@@ -126,7 +126,7 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
 
     @Override // com.baidu.browser.sailor.BdSailorWebView, com.baidu.swan.apps.adaptation.b.d
     public void goBack() {
-        if (this.mWebViewHookHandler == null || !this.mWebViewHookHandler.aqV()) {
+        if (this.mWebViewHookHandler == null || !this.mWebViewHookHandler.aqW()) {
             super.goBack();
         }
     }
@@ -437,6 +437,6 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
 
     @Override // com.baidu.swan.apps.core.container.a
     public String getContainerId() {
-        return this.mWebViewManager != null ? this.mWebViewManager.amt() : "";
+        return this.mWebViewManager != null ? this.mWebViewManager.amu() : "";
     }
 }

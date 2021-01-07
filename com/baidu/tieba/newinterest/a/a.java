@@ -23,13 +23,13 @@ import com.baidu.tieba.newinterest.fragment.InterestedForumFragment;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class a implements View.OnClickListener, InterestedForumAdapter.a, b.a, b.InterfaceC0801b {
+public class a implements View.OnClickListener, InterestedForumAdapter.a, b.a, b.InterfaceC0835b {
     private BdListView.e WN = new BdListView.e() { // from class: com.baidu.tieba.newinterest.a.a.1
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (a.this.lBo.hasMore()) {
-                a.this.lBo.dln();
-                a.this.Zg();
+                a.this.lBo.dlo();
+                a.this.Zh();
             }
         }
     };
@@ -50,7 +50,7 @@ public class a implements View.OnClickListener, InterestedForumAdapter.a, b.a, b
         this.lBr = tBSpecificationBtn;
         this.lBq = tBSpecificationBtn2;
         initUI();
-        cJp();
+        cJq();
     }
 
     private void initUI() {
@@ -65,25 +65,25 @@ public class a implements View.OnClickListener, InterestedForumAdapter.a, b.a, b
         this.gCf.setTextSize(R.dimen.tbfontsize33);
         this.gCf.setNoMoreTextColorId(R.color.CAM_X0110);
         this.ioP.setNextPage(this.gCf);
-        Zg();
+        Zh();
     }
 
-    private void cJp() {
+    private void cJq() {
         this.ioP.setOnSrollToBottomListener(this.WN);
-        this.lBo.a((b.InterfaceC0801b) this);
+        this.lBo.a((b.InterfaceC0835b) this);
         this.lBo.a((b.a) this);
         this.lBp.a(this);
         this.lBr.setOnClickListener(this);
     }
 
-    public void Zg() {
+    public void Zh() {
         this.gCf.setTopExtraViewGone();
         this.gCf.startLoadData();
         this.gCf.setText(this.ioP.getContext().getString(R.string.list_loading));
         this.gCf.showEmptyView(l.getDimens(this.ioP.getContext(), R.dimen.tbds217));
     }
 
-    public void dlg() {
+    public void dlh() {
         this.gCf.at(this.ioP.getContext().getString(R.string.interested_forum_list_no_more), l.getDimens(this.ioP.getContext(), R.dimen.tbds178));
         this.gCf.setTextSize(R.dimen.tbds36);
         this.gCf.setNoMoreTextColorId(R.color.CAM_X0109);
@@ -91,35 +91,35 @@ public class a implements View.OnClickListener, InterestedForumAdapter.a, b.a, b
         this.gCf.showEmptyView(l.getDimens(this.ioP.getContext(), R.dimen.tbds217));
     }
 
-    public void dle() {
-        this.lBp.dle();
+    public void dlf() {
+        this.lBp.dlf();
     }
 
     public void ff(List<com.baidu.tieba.newinterest.data.b> list) {
         this.lBo.fl(list);
-        this.lBo.dln();
+        this.lBo.dlo();
     }
 
     @Override // com.baidu.tieba.newinterest.b.b.a
-    public void bWs() {
+    public void bWt() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(0)));
     }
 
-    @Override // com.baidu.tieba.newinterest.b.b.InterfaceC0801b
+    @Override // com.baidu.tieba.newinterest.b.b.InterfaceC0835b
     public void a(c cVar) {
         if (cVar != null && cVar.lBu != null && !x.isEmpty(cVar.lBu)) {
             if (this.ioP.getVisibility() == 8) {
                 this.ioP.setVisibility(0);
             }
             this.lBp.cA(cVar.lBu);
-            this.lBn.dlh();
+            this.lBn.dli();
         }
         if (!this.lBo.hasMore()) {
-            dlg();
+            dlh();
         }
     }
 
-    @Override // com.baidu.tieba.newinterest.b.b.InterfaceC0801b
+    @Override // com.baidu.tieba.newinterest.b.b.InterfaceC0835b
     public void onError(int i, String str) {
         this.lBn.onError(str);
     }
@@ -148,7 +148,7 @@ public class a implements View.OnClickListener, InterestedForumAdapter.a, b.a, b
     public void onClick(View view) {
         if (view == this.lBr) {
             try {
-                this.lBo.fj(this.lBp.dld());
+                this.lBo.fj(this.lBp.dle());
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }

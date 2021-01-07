@@ -42,7 +42,7 @@ public class a extends aa {
             com.baidu.swan.games.v.c.f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty scope").toString());
             return false;
         }
-        eVar.aMw().b(context, optString2, false, new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.setting.a.a.1
+        eVar.aMx().b(context, optString2, false, new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.setting.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
@@ -66,8 +66,8 @@ public class a extends aa {
                 callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, errorCode).toString());
                 com.baidu.swan.games.v.c.f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, errorCode).toString());
             } else if (!hVar.isOk()) {
-                OAuthException aOt = hVar.aOt();
-                jSONObject.put("errMsg", aOt == null ? "" : aOt.getMessage());
+                OAuthException aOu = hVar.aOu();
+                jSONObject.put("errMsg", aOu == null ? "" : aOu.getMessage());
                 callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(hVar.getErrorCode()).toString());
                 com.baidu.swan.games.v.c.f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, hVar.getErrorCode()).toString());
             } else {

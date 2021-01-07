@@ -17,16 +17,16 @@ public final class b {
         return this;
     }
 
-    public String aCZ() {
+    public String aDa() {
         return this.djm;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized List<a> aDa() {
+    public synchronized List<a> aDb() {
         return new ArrayList(this.djo);
     }
 
-    public synchronized a aCW() {
+    public synchronized a aCX() {
         a aVar;
         aVar = new a();
         this.djo.add(aVar);
@@ -34,7 +34,7 @@ public final class b {
     }
 
     public synchronized a qa(String str) {
-        return aCW().qd(str);
+        return aCX().qd(str);
     }
 
     public synchronized a cb(String str, String str2) {
@@ -46,7 +46,7 @@ public final class b {
         return this;
     }
 
-    public synchronized b aDb() {
+    public synchronized b aDc() {
         return r(this.djn);
     }
 
@@ -98,7 +98,7 @@ public final class b {
             return this;
         }
 
-        public synchronized a aDc() {
+        public synchronized a aDd() {
             return jw(this.djr.size());
         }
 
@@ -113,7 +113,7 @@ public final class b {
             return this;
         }
 
-        public synchronized a aDd() {
+        public synchronized a aDe() {
             return jw(1);
         }
     }
@@ -132,8 +132,8 @@ public final class b {
             if (b.DEBUG) {
                 for (a aVar : bVar.djo) {
                     for (String str : aVar.msgs) {
-                        String aCZ = bVar.aCZ();
-                        D(TextUtils.isEmpty(aVar.tag) ? aCZ : aVar.tag, aCZ + " >>> " + str);
+                        String aDa = bVar.aDa();
+                        D(TextUtils.isEmpty(aVar.tag) ? aDa : aVar.tag, aDa + " >>> " + str);
                     }
                 }
             }

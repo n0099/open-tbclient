@@ -26,7 +26,7 @@ public class d extends TBSpecificationButtonConfig {
         this.fpv = R.color.CAM_X0904;
         this.fgb = false;
         if (this.fpG != null) {
-            this.fpG.byt();
+            this.fpG.byu();
         }
     }
 

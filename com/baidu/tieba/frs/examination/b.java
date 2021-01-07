@@ -108,7 +108,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.frs.examination.a
-    protected void cJp() {
+    protected void cJq() {
         this.jhI.setOnClickListener(this);
         this.jsu.setOnClickListener(this);
         this.jsC.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.frs.examination.b.3
@@ -129,13 +129,13 @@ public class b extends a {
                 } else {
                     b.this.jsD.setVisibility(8);
                 }
-                b.this.cJt();
+                b.this.cJu();
             }
         });
     }
 
     @Override // com.baidu.tieba.frs.examination.a
-    public void bFN() {
+    public void bFO() {
         if (this.jst != null) {
             WriteData writeData = new WriteData();
             writeData.setOtherGrade(this.fiS.getStarCount());
@@ -145,7 +145,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.frs.examination.a
-    public void cJr() {
+    public void cJs() {
         if (this.jst != null) {
             y.f(String.valueOf(this.jst.forumId), new y.a() { // from class: com.baidu.tieba.frs.examination.b.4
                 @Override // com.baidu.tieba.tbadkCore.y.a
@@ -162,14 +162,14 @@ public class b extends a {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.jhI) {
-            cJq();
+            cJr();
         } else if (view == this.jsu) {
             if (TextUtils.isEmpty(this.jsE) || this.jsE.length() < 20) {
                 l.showToast(this.iJr, R.string.other_comment_size_short_tip);
             } else if (this.jsE.length() > 500) {
                 l.showToast(this.iJr, R.string.other_comment_size_long_tip);
             } else {
-                this.jsw.a(this.jsE.toString(), cJu(), this.jst);
+                this.jsw.a(this.jsE.toString(), cJv(), this.jst);
             }
         }
     }
@@ -193,7 +193,7 @@ public class b extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cJt() {
+    public void cJu() {
         if (!TextUtils.isEmpty(this.jsE) && this.jsE.length() >= 20 && this.jsE.length() <= 500) {
             this.jsu.setAlpha(1.0f);
         } else {
@@ -201,7 +201,7 @@ public class b extends a {
         }
     }
 
-    private String cJu() {
+    private String cJv() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new v("", String.valueOf(this.fiS.getStarCount()), 2));
         return this.gson.toJson(arrayList);

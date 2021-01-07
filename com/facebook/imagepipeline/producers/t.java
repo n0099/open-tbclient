@@ -2,54 +2,54 @@ package com.facebook.imagepipeline.producers;
 
 import android.net.Uri;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class t {
-    private final ak pEE;
-    private long pEF = 0;
-    private int pEG;
+    private final k<com.facebook.imagepipeline.f.e> pGe;
+    private final ak pGl;
+    private long pGm = 0;
+    private int pGn;
     @Nullable
-    private com.facebook.imagepipeline.common.a pEH;
-    private final k<com.facebook.imagepipeline.f.e> pEx;
+    private com.facebook.imagepipeline.common.a pGo;
 
     public t(k<com.facebook.imagepipeline.f.e> kVar, ak akVar) {
-        this.pEx = kVar;
-        this.pEE = akVar;
+        this.pGe = kVar;
+        this.pGl = akVar;
     }
 
-    public k<com.facebook.imagepipeline.f.e> eAq() {
-        return this.pEx;
+    public k<com.facebook.imagepipeline.f.e> eAU() {
+        return this.pGe;
     }
 
-    public ak eAr() {
-        return this.pEE;
+    public ak eAV() {
+        return this.pGl;
     }
 
     public String getId() {
-        return this.pEE.getId();
+        return this.pGl.getId();
     }
 
-    public am eAe() {
-        return this.pEE.eAe();
+    public am eAI() {
+        return this.pGl.eAI();
     }
 
     public Uri getUri() {
-        return this.pEE.eAd().eAT();
+        return this.pGl.eAH().eBx();
     }
 
-    public long eAs() {
-        return this.pEF;
+    public long eAW() {
+        return this.pGm;
     }
 
-    public void iI(long j) {
-        this.pEF = j;
+    public void iL(long j) {
+        this.pGm = j;
     }
 
-    public int eAt() {
-        return this.pEG;
+    public int eAX() {
+        return this.pGn;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a eAu() {
-        return this.pEH;
+    public com.facebook.imagepipeline.common.a eAY() {
+        return this.pGo;
     }
 }

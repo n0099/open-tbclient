@@ -34,14 +34,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class VDeviceAPI {
 
     /* renamed from: a  reason: collision with root package name */
-    private static PowerManager.WakeLock f5914a = null;
+    private static PowerManager.WakeLock f5915a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private static BroadcastReceiver f5915b = null;
+    private static BroadcastReceiver f5916b = null;
 
     public static String getAppVersion() {
         try {
@@ -313,20 +313,20 @@ public class VDeviceAPI {
 
     public static void setNetworkChangedCallback() {
         unsetNetworkChangedCallback();
-        f5915b = new e();
-        VIContext.getContext().registerReceiver(f5915b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+        f5916b = new e();
+        VIContext.getContext().registerReceiver(f5916b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
     }
 
     public static void setScreenAlwaysOn(boolean z) {
         if (z) {
-            if (f5914a == null) {
-                f5914a = ((PowerManager) VIContext.getContext().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
+            if (f5915a == null) {
+                f5915a = ((PowerManager) VIContext.getContext().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
             }
-            f5914a.acquire();
-        } else if (f5914a == null || !f5914a.isHeld()) {
+            f5915a.acquire();
+        } else if (f5915a == null || !f5915a.isHeld()) {
         } else {
-            f5914a.release();
-            f5914a = null;
+            f5915a.release();
+            f5915a = null;
         }
     }
 
@@ -337,9 +337,9 @@ public class VDeviceAPI {
     }
 
     public static void unsetNetworkChangedCallback() {
-        if (f5915b != null) {
-            VIContext.getContext().unregisterReceiver(f5915b);
-            f5915b = null;
+        if (f5916b != null) {
+            VIContext.getContext().unregisterReceiver(f5916b);
+            f5916b = null;
         }
     }
 }

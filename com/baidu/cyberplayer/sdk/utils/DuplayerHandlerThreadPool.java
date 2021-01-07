@@ -20,10 +20,10 @@ public class DuplayerHandlerThreadPool {
     public static final String TAG = "DuplayerHandlerThreadPool";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Object f1899b = new Object();
+    private static final Object f1900b = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    a f1900a;
+    a f1901a;
     private ArrayList<DuplayerHandlerThread> c;
     private ArrayList<DuplayerHandlerThread> d;
     private c e;
@@ -33,20 +33,20 @@ public class DuplayerHandlerThreadPool {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final AtomicInteger f1901a = new AtomicInteger(1);
+        private final AtomicInteger f1902a = new AtomicInteger(1);
 
         /* renamed from: b  reason: collision with root package name */
-        private final String f1902b;
+        private final String f1903b;
         private int c;
 
         a(String str) {
             this.c = 5;
-            this.f1902b = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
+            this.f1903b = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
             this.c = 5;
         }
 
         public DuplayerHandlerThread a() {
-            DuplayerHandlerThread duplayerHandlerThread = new DuplayerHandlerThread(this.f1902b + this.f1901a.getAndIncrement());
+            DuplayerHandlerThread duplayerHandlerThread = new DuplayerHandlerThread(this.f1903b + this.f1902a.getAndIncrement());
             duplayerHandlerThread.setPriority(this.c);
             return duplayerHandlerThread;
         }
@@ -57,7 +57,7 @@ public class DuplayerHandlerThreadPool {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static DuplayerHandlerThreadPool f1903a = new DuplayerHandlerThreadPool();
+        private static DuplayerHandlerThreadPool f1904a = new DuplayerHandlerThreadPool();
     }
 
     /* loaded from: classes6.dex */
@@ -84,12 +84,12 @@ public class DuplayerHandlerThreadPool {
     private DuplayerHandlerThreadPool() {
         this.c = new ArrayList<>();
         this.d = new ArrayList<>();
-        this.f1900a = new a("duplayer-t");
+        this.f1901a = new a("duplayer-t");
         this.e = new c(Looper.getMainLooper());
     }
 
     private DuplayerHandlerThread a() {
-        DuplayerHandlerThread a2 = this.f1900a.a();
+        DuplayerHandlerThread a2 = this.f1901a.a();
         a2.start();
         return a2;
     }
@@ -112,7 +112,7 @@ public class DuplayerHandlerThreadPool {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         int i;
-        synchronized (f1899b) {
+        synchronized (f1900b) {
             int size = this.c.size();
             CyberLog.d(TAG, "checkIdlePoolShortTimeNoUse size:" + size);
             if (size > 3) {
@@ -140,11 +140,11 @@ public class DuplayerHandlerThreadPool {
     }
 
     public static DuplayerHandlerThreadPool getInstance() {
-        return b.f1903a;
+        return b.f1904a;
     }
 
     public void checkIdlePoolLongTimeNoUse() {
-        synchronized (f1899b) {
+        synchronized (f1900b) {
             if (this.c.size() <= 0) {
                 return;
             }
@@ -169,7 +169,7 @@ public class DuplayerHandlerThreadPool {
 
     public DuplayerHandlerThread obtain() {
         DuplayerHandlerThread duplayerHandlerThread;
-        synchronized (f1899b) {
+        synchronized (f1900b) {
             if (this.c.size() == 0) {
                 duplayerHandlerThread = a();
             } else {
@@ -196,7 +196,7 @@ public class DuplayerHandlerThreadPool {
     }
 
     public void print() {
-        synchronized (f1899b) {
+        synchronized (f1900b) {
             int size = this.c.size();
             CyberLog.d(TAG, "-- mIdlePool size:" + size + "--");
             for (int i = 0; i < size; i++) {
@@ -215,7 +215,7 @@ public class DuplayerHandlerThreadPool {
             return;
         }
         CyberLog.d(TAG, " recycle handlerThread:" + duplayerHandlerThread);
-        synchronized (f1899b) {
+        synchronized (f1900b) {
             duplayerHandlerThread.setIdleBeginTime(SystemClock.uptimeMillis());
             duplayerHandlerThread.setRunState(0);
             this.d.remove(duplayerHandlerThread);

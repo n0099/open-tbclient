@@ -71,7 +71,7 @@ public class d extends com.baidu.adp.base.d<InviteFriendListActivity> implements
     private void initialize() {
         this.kLL.setContentView(R.layout.invite_friend_list);
         this.mRoot = this.kLL.findViewById(R.id.root_view);
-        bIk();
+        bIl();
         this.WV = (BdListView) this.mRoot.findViewById(R.id.friend_list);
         this.WV.setOnItemClickListener(this.kLL);
         if (this.kLS) {
@@ -108,21 +108,21 @@ public class d extends com.baidu.adp.base.d<InviteFriendListActivity> implements
             this.kLP.setVisibility(8);
             this.kLN.setVisibility(8);
         }
-        daH();
+        daI();
         this.kLQ = (Button) this.mRoot.findViewById(R.id.button_send);
         this.kLQ.setOnClickListener(this.kLL);
-        bxO();
-        daz();
+        bxP();
+        daA();
         EF(0);
     }
 
-    private void bIk() {
+    private void bIl() {
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.d.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (d.this.kLU != null && d.this.kLU.getVisibility() == 0) {
-                    d.this.daA();
+                    d.this.daB();
                     return;
                 }
                 l.hideSoftKeyPad(d.this.kLL.getPageContext().getPageActivity(), d.this.cDt);
@@ -162,7 +162,7 @@ public class d extends com.baidu.adp.base.d<InviteFriendListActivity> implements
                     } else {
                         d.this.kLW.setVisibility(8);
                     }
-                    d.this.day();
+                    d.this.daz();
                 }
             }
 
@@ -185,24 +185,24 @@ public class d extends com.baidu.adp.base.d<InviteFriendListActivity> implements
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void day() {
+    public void daz() {
         if (this.kLL != null) {
-            this.kLL.daw();
+            this.kLL.dax();
         }
     }
 
-    public void bxO() {
+    public void bxP() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         this.kLL.getLayoutMode().setNightMode(skinType == 1);
         this.kLL.getLayoutMode().onModeChanged(this.mRoot);
-        SvgManager.bwq().a(this.kLX, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0105, (SvgManager.SvgResourceStateType) null);
+        SvgManager.bwr().a(this.kLX, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0105, (SvgManager.SvgResourceStateType) null);
         this.mNavigationBar.onChangeSkinType(this.kLL.getPageContext(), skinType);
         this.mNoDataView.onChangeSkinType(this.kLL.getPageContext(), skinType);
         ao.setBackgroundResource(this.mListFooter, R.drawable.invite_friend_list_item_bg_color);
         this.mListFooter.setEnabled(false);
     }
 
-    public void daz() {
+    public void daA() {
         this.WV.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.d.7
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -212,7 +212,7 @@ public class d extends com.baidu.adp.base.d<InviteFriendListActivity> implements
         });
     }
 
-    public void daA() {
+    public void daB() {
         l.hideSoftKeyPad(this.kLL.getPageContext().getPageActivity(), this.cDt);
         this.kLU.setVisibility(8);
         this.kLT.setVisibility(0);
@@ -220,20 +220,20 @@ public class d extends com.baidu.adp.base.d<InviteFriendListActivity> implements
         this.cDt.getText().clear();
     }
 
-    public boolean daB() {
+    public boolean daC() {
         return this.kLU != null && this.kLU.getVisibility() == 0;
     }
 
-    public int daC() {
+    public int daD() {
         return this.kLQ.getId();
     }
 
-    public String daD() {
+    public String daE() {
         Editable text = this.cDt.getText();
         return text != null ? text.toString() : "";
     }
 
-    public String daE() {
+    public String daF() {
         return this.kLO.getDataList();
     }
 
@@ -247,7 +247,7 @@ public class d extends com.baidu.adp.base.d<InviteFriendListActivity> implements
                     d.this.hideKeyboard();
                     if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.relationship.a)) {
                         if (z2) {
-                            if (d.this.daJ() <= d.this.kLO.getItemLength()) {
+                            if (d.this.daK() <= d.this.kLO.getItemLength()) {
                                 d.this.kLL.showToast(String.format(d.this.kLL.getPageContext().getString(R.string.invite_friend_exceed_max_count), Integer.valueOf(d.this.kLR)));
                                 tbCheckBox.setChecked(false);
                                 ((com.baidu.tbadk.coreExtra.relationship.a) obj).setChecked(false);
@@ -280,19 +280,19 @@ public class d extends com.baidu.adp.base.d<InviteFriendListActivity> implements
         }
     }
 
-    public void daF() {
+    public void daG() {
         if (this.mNoDataView != null) {
             this.mNoDataView.e(this.kLL.getPageContext());
         }
     }
 
-    public void daG() {
+    public void daH() {
         if (this.mNoDataView != null) {
-            this.mNoDataView.bxw();
+            this.mNoDataView.bxx();
         }
     }
 
-    private void daH() {
+    private void daI() {
         int dimensionPixelSize = this.kLL.getResources().getDimensionPixelSize(R.dimen.ds80) + this.kLL.getResources().getDimensionPixelSize(R.dimen.ds16) + this.kLL.getResources().getDimensionPixelSize(R.dimen.ds16);
         this.mListFooter = new View(this.kLL.getPageContext().getPageActivity());
         this.mListFooter.setLayoutParams(new AbsListView.LayoutParams(-1, dimensionPixelSize));
@@ -304,7 +304,7 @@ public class d extends com.baidu.adp.base.d<InviteFriendListActivity> implements
         if (aVar != null) {
             this.kLO.d(aVar);
             EF(this.kLO.getItemLength());
-            daI();
+            daJ();
         }
     }
 
@@ -312,11 +312,11 @@ public class d extends com.baidu.adp.base.d<InviteFriendListActivity> implements
         if (aVar != null) {
             this.kLO.f(aVar);
             EF(this.kLO.getItemLength());
-            daI();
+            daJ();
         }
     }
 
-    private void daI() {
+    private void daJ() {
         if (this.kLO.getItemLength() > 0) {
             this.kLQ.setEnabled(true);
         } else {
@@ -332,7 +332,7 @@ public class d extends com.baidu.adp.base.d<InviteFriendListActivity> implements
         this.kLQ.setText(String.format(this.kLL.getPageContext().getString(R.string.invite_friend_candidate_send), Integer.valueOf(i)));
     }
 
-    public int daJ() {
+    public int daK() {
         return this.kLR;
     }
 

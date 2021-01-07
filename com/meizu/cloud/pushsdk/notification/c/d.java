@@ -6,30 +6,30 @@ import android.content.res.AssetManager;
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    private static d f11635b;
+    private static d f11636b;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f11636a;
+    private Context f11637a;
     private AssetManager c;
 
     private d(Context context) {
-        this.f11636a = context;
+        this.f11637a = context;
         a();
     }
 
     public static d a(Context context) {
-        if (f11635b == null) {
-            f11635b = new d(context);
+        if (f11636b == null) {
+            f11636b = new d(context);
         }
-        return f11635b;
+        return f11636b;
     }
 
     private void a() {
-        this.c = this.f11636a.getAssets();
+        this.c = this.f11637a.getAssets();
     }
 
     public int a(String str, String str2) {
         com.meizu.cloud.a.a.i("ResourceReader", "Get resource type " + str2 + " " + str);
-        return this.f11636a.getResources().getIdentifier(str, str2, this.f11636a.getApplicationInfo().packageName);
+        return this.f11637a.getResources().getIdentifier(str, str2, this.f11637a.getApplicationInfo().packageName);
     }
 }

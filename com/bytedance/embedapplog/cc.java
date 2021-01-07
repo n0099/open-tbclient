@@ -31,7 +31,7 @@ class cc extends bv {
     }
 
     @Override // com.bytedance.embedapplog.bv
-    long[] epw() {
+    long[] epx() {
         switch (this.phC.o()) {
             case 0:
                 return d;
@@ -53,7 +53,7 @@ class cc extends bv {
             jSONObject.put("magic_tag", "ss_app_log");
             jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, a2);
             jSONObject.put("_gen_time", System.currentTimeMillis());
-            JSONObject w = aa.w(ab.a(this.f6113a, this.phC.a(), aa.eps().epB(), true, b.eoO()), jSONObject);
+            JSONObject w = aa.w(ab.a(this.f6114a, this.phC.a(), aa.ept().epC(), true, b.eoP()), jSONObject);
             if (w != null) {
                 return this.phC.a(w, w.optString("device_id", ""), w.optString("install_id", ""), w.optString("ssid", ""));
             }

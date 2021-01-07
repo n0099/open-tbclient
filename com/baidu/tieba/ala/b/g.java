@@ -22,7 +22,7 @@ public abstract class g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public h bWn() {
+    public h bWo() {
         return this.gOl;
     }
 }

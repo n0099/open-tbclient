@@ -29,7 +29,7 @@ public class RedTipImageView extends ImageView {
             this.Yn = (int) (RedTipImageView.this.mDensity * 3.0f);
             this.fye = (int) (RedTipImageView.this.mDensity * 3.0f);
             this.color = Color.parseColor("#F43531");
-            if (ThemeManager.enQ() == ThemeManager.ThemeMode.NIGHT) {
+            if (ThemeManager.enR() == ThemeManager.ThemeMode.NIGHT) {
                 this.color = Color.parseColor("#79251f");
             }
         }

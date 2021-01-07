@@ -81,7 +81,7 @@ public class ShimmerFrameLayout extends FrameLayout {
             return this.dzv > 0 ? this.dzv : (int) (i * this.dzy);
         }
 
-        public int[] aKv() {
+        public int[] aKw() {
             switch (this.dzz) {
                 case RADIAL:
                     return new int[]{ViewCompat.MEASURED_STATE_MASK, ViewCompat.MEASURED_STATE_MASK, 0};
@@ -92,7 +92,7 @@ public class ShimmerFrameLayout extends FrameLayout {
             }
         }
 
-        public float[] aKw() {
+        public float[] aKx() {
             switch (this.dzz) {
                 case RADIAL:
                     return new float[]{0.0f, Math.min(this.dzw, 1.0f), Math.min(this.dzw + this.dzt, 1.0f)};
@@ -139,7 +139,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         this.dzd.setDither(true);
         this.dzd.setFilterBitmap(true);
         this.dzd.setXfermode(dzb);
-        aKm();
+        aKn();
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.ShimmerFrameLayout, 0, 0);
             try {
@@ -214,7 +214,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
-    public void aKm() {
+    public void aKn() {
         setDuration(FeatureCodes.FACE);
         setRepeatCount(-1);
         setRepeatDelay(0);
@@ -230,12 +230,12 @@ public class ShimmerFrameLayout extends FrameLayout {
         this.dze.dzs = 340.0f;
         this.dzf = new b();
         setBaseAlpha(1.0f);
-        aKs();
+        aKt();
     }
 
     public void setAutoStart(boolean z) {
         this.dzi = z;
-        aKs();
+        aKt();
     }
 
     public float getBaseAlpha() {
@@ -244,7 +244,7 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     public void setBaseAlpha(float f) {
         this.dzc.setAlpha((int) (clamp(0.0f, 1.0f, f) * 255.0f));
-        aKs();
+        aKt();
     }
 
     public int getDuration() {
@@ -253,7 +253,7 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     public void setDuration(int i) {
         this.mDuration = i;
-        aKs();
+        aKt();
     }
 
     public int getRepeatCount() {
@@ -262,7 +262,7 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     public void setRepeatCount(int i) {
         this.bfl = i;
-        aKs();
+        aKt();
     }
 
     public int getRepeatDelay() {
@@ -271,7 +271,7 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     public void setRepeatDelay(int i) {
         this.dzj = i;
-        aKs();
+        aKt();
     }
 
     public int getRepeatMode() {
@@ -280,7 +280,7 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     public void setRepeatMode(int i) {
         this.mRepeatMode = i;
-        aKs();
+        aKt();
     }
 
     public MaskShape getMaskShape() {
@@ -289,7 +289,7 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     public void setMaskShape(MaskShape maskShape) {
         this.dze.dzz = maskShape;
-        aKs();
+        aKt();
     }
 
     public MaskAngle getAngle() {
@@ -298,7 +298,7 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     public void setAngle(MaskAngle maskAngle) {
         this.dze.dzr = maskAngle;
-        aKs();
+        aKt();
     }
 
     public float getDropoff() {
@@ -307,7 +307,7 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     public void setDropoff(float f) {
         this.dze.dzt = f;
-        aKs();
+        aKt();
     }
 
     public int getFixedWidth() {
@@ -316,7 +316,7 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     public void setFixedWidth(int i) {
         this.dze.dzu = i;
-        aKs();
+        aKt();
     }
 
     public int getFixedHeight() {
@@ -325,7 +325,7 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     public void setFixedHeight(int i) {
         this.dze.dzv = i;
-        aKs();
+        aKt();
     }
 
     public float getIntensity() {
@@ -334,7 +334,7 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     public void setIntensity(float f) {
         this.dze.dzw = f;
-        aKs();
+        aKt();
     }
 
     public float getRelativeWidth() {
@@ -343,7 +343,7 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     public void setRelativeWidth(int i) {
         this.dze.dzx = i;
-        aKs();
+        aKt();
     }
 
     public float getRelativeHeight() {
@@ -352,7 +352,7 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     public void setRelativeHeight(int i) {
         this.dze.dzy = i;
-        aKs();
+        aKt();
     }
 
     public float getTilt() {
@@ -361,10 +361,10 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     public void setTilt(float f) {
         this.dze.dzs = f;
-        aKs();
+        aKt();
     }
 
-    public void aKn() {
+    public void aKo() {
         if (!this.dzm) {
             Animator shimmerAnimation = getShimmerAnimation();
             shimmerAnimation.start();
@@ -373,7 +373,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
-    public void aKo() {
+    public void aKp() {
         if (this.dzn != null) {
             this.dzn.end();
             this.dzn.removeAllUpdateListeners();
@@ -414,9 +414,9 @@ public class ShimmerFrameLayout extends FrameLayout {
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 boolean z = ShimmerFrameLayout.this.dzm;
-                ShimmerFrameLayout.this.aKs();
+                ShimmerFrameLayout.this.aKt();
                 if (ShimmerFrameLayout.this.dzi || z) {
-                    ShimmerFrameLayout.this.aKn();
+                    ShimmerFrameLayout.this.aKo();
                 }
             }
         };
@@ -425,7 +425,7 @@ public class ShimmerFrameLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
-        aKo();
+        aKp();
         if (this.mGlobalLayoutListener != null) {
             getViewTreeObserver().removeGlobalOnLayoutListener(this.mGlobalLayoutListener);
             this.mGlobalLayoutListener = null;
@@ -447,34 +447,34 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     private boolean s(Canvas canvas) {
-        Bitmap aKp = aKp();
         Bitmap aKq = aKq();
-        if (aKp == null || aKq == null) {
+        Bitmap aKr = aKr();
+        if (aKq == null || aKr == null) {
             return false;
         }
-        t(new Canvas(aKp));
-        canvas.drawBitmap(aKp, 0.0f, 0.0f, this.dzc);
-        u(new Canvas(aKq));
-        canvas.drawBitmap(aKq, 0.0f, 0.0f, (Paint) null);
+        t(new Canvas(aKq));
+        canvas.drawBitmap(aKq, 0.0f, 0.0f, this.dzc);
+        u(new Canvas(aKr));
+        canvas.drawBitmap(aKr, 0.0f, 0.0f, (Paint) null);
         return true;
     }
 
-    private Bitmap aKp() {
+    private Bitmap aKq() {
         if (this.dzh == null) {
-            this.dzh = aKr();
+            this.dzh = aKs();
         }
         return this.dzh;
     }
 
-    private Bitmap aKq() {
+    private Bitmap aKr() {
         if (this.dzg == null) {
-            this.dzg = aKr();
+            this.dzg = aKs();
         }
         return this.dzg;
     }
 
     @SuppressLint({"SwanDebugLog"})
-    private Bitmap aKr() {
+    private Bitmap aKs() {
         int width = getWidth();
         int height = getHeight();
         try {
@@ -511,20 +511,20 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aKs() {
-        aKo();
-        aKt();
+    public void aKt() {
+        aKp();
         aKu();
+        aKv();
     }
 
-    private void aKt() {
+    private void aKu() {
         if (this.anf != null) {
             this.anf.recycle();
             this.anf = null;
         }
     }
 
-    private void aKu() {
+    private void aKv() {
         if (this.dzh != null) {
             this.dzh.recycle();
             this.dzh = null;
@@ -550,7 +550,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         Canvas canvas = new Canvas(this.anf);
         switch (this.dze.dzz) {
             case RADIAL:
-                radialGradient = new RadialGradient(kd / 2, ke / 2, (float) (Math.max(kd, ke) / Math.sqrt(2.0d)), this.dze.aKv(), this.dze.aKw(), Shader.TileMode.REPEAT);
+                radialGradient = new RadialGradient(kd / 2, ke / 2, (float) (Math.max(kd, ke) / Math.sqrt(2.0d)), this.dze.aKw(), this.dze.aKx(), Shader.TileMode.REPEAT);
                 break;
             default:
                 switch (this.dze.dzr) {
@@ -579,7 +579,7 @@ public class ShimmerFrameLayout extends FrameLayout {
                         i4 = 0;
                         break;
                 }
-                radialGradient = new LinearGradient(i4, i3, i2, i, this.dze.aKv(), this.dze.aKw(), Shader.TileMode.REPEAT);
+                radialGradient = new LinearGradient(i4, i3, i2, i, this.dze.aKw(), this.dze.aKx(), Shader.TileMode.REPEAT);
                 break;
         }
         canvas.rotate(this.dze.dzs, kd / 2, ke / 2);

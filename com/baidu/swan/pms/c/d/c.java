@@ -22,7 +22,7 @@ public class c extends g {
         return this;
     }
 
-    public int bgT() {
+    public int bgU() {
         return this.exO;
     }
 
@@ -55,19 +55,19 @@ public class c extends g {
         return this.exJ;
     }
 
-    public long bgR() {
+    public long bgS() {
         return this.exK;
     }
 
-    public long bgS() {
+    public long bgT() {
         return this.exL;
     }
 
-    public String bgU() {
+    public String bgV() {
         return this.exM;
     }
 
-    public String bgV() {
+    public String bgW() {
         return this.exN;
     }
 

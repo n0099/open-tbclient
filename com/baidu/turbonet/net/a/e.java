@@ -17,8 +17,8 @@ public class e extends InputStream {
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        eiM();
-        if (eiN()) {
+        eiN();
+        if (eiO()) {
             return this.mBuffer.get() & 255;
         }
         return -1;
@@ -32,8 +32,8 @@ public class e extends InputStream {
         if (i2 == 0) {
             return 0;
         }
-        eiM();
-        if (eiN()) {
+        eiN();
+        if (eiO()) {
             int min = Math.min(this.mBuffer.limit() - this.mBuffer.position(), i2);
             this.mBuffer.get(bArr, i, min);
             return min;
@@ -48,12 +48,12 @@ public class e extends InputStream {
         this.mBuffer = null;
     }
 
-    private void eiM() throws IOException {
+    private void eiN() throws IOException {
         if (this.oMt) {
             if (this.oMu != null) {
                 throw this.oMu;
             }
-        } else if (!eiN()) {
+        } else if (!eiO()) {
             if (this.mBuffer == null) {
                 this.mBuffer = ByteBuffer.allocateDirect(32768);
             }
@@ -68,7 +68,7 @@ public class e extends InputStream {
         }
     }
 
-    private boolean eiN() {
+    private boolean eiO() {
         return this.mBuffer != null && this.mBuffer.hasRemaining();
     }
 }

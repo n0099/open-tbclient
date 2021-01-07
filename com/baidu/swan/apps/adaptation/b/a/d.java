@@ -13,7 +13,7 @@ public class d {
     private long cFN;
     public String cFO = "1";
 
-    public long amE() {
+    public long amF() {
         if (this.cFN > 0) {
             return this.cFN;
         }
@@ -35,7 +35,7 @@ public class d {
         return this.cFN;
     }
 
-    public final void amF() {
+    public final void amG() {
         if (this.cFK > 0 && this.cFK != this.cFL && this.cFK != this.cFM && this.cFK != this.cFJ) {
             if (DEBUG) {
                 Log.d("WebViewPaintTiming", "tryCalibrateFmp: miss with real fmp=" + this.cFK);
@@ -64,7 +64,7 @@ public class d {
     }
 
     @NonNull
-    public String amG() {
+    public String amH() {
         String str = this.cFO;
         char c = 65535;
         switch (str.hashCode()) {
@@ -121,6 +121,6 @@ public class d {
     }
 
     public String toString() {
-        return "WebViewPaintTiming{fp=" + this.cFI + ", fcp=" + this.cFJ + ", fmp=" + this.cFK + ", ftp=" + this.cFL + ", fip=" + this.cFM + ", mMinCache=" + this.cFN + ", fmpType='" + this.cFO + "', fmpTypeName='" + amG() + "'}";
+        return "WebViewPaintTiming{fp=" + this.cFI + ", fcp=" + this.cFJ + ", fmp=" + this.cFK + ", ftp=" + this.cFL + ", fip=" + this.cFM + ", mMinCache=" + this.cFN + ", fmpType='" + this.cFO + "', fmpTypeName='" + amH() + "'}";
     }
 }

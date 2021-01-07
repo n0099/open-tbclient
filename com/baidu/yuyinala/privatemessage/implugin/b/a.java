@@ -33,7 +33,7 @@ public class a {
     }
 
     public void a(ChatMsg chatMsg, String str) {
-        com.baidu.yuyinala.privatemessage.implugin.d.b.ell().saveMessage(this.mContext, chatMsg);
+        com.baidu.yuyinala.privatemessage.implugin.d.b.elm().saveMessage(this.mContext, chatMsg);
         switch (chatMsg.getMsgType()) {
             case 0:
                 b(chatMsg, str);
@@ -49,7 +49,7 @@ public class a {
 
     private void b(ChatMsg chatMsg, String str) {
         if (chatMsg instanceof TextMsg) {
-            com.baidu.yuyinala.privatemessage.implugin.d.b.ell().a(this.mContext, chatMsg, new C0940a(str));
+            com.baidu.yuyinala.privatemessage.implugin.d.b.elm().a(this.mContext, chatMsg, new C0978a(str));
         } else {
             LogUtils.e(TAG, "sendTextChatMsg msg error");
         }
@@ -57,7 +57,7 @@ public class a {
 
     private void c(ChatMsg chatMsg, String str) {
         if (chatMsg instanceof SignleGraphicTextMsg) {
-            com.baidu.yuyinala.privatemessage.implugin.d.b.ell().a(this.mContext, chatMsg, new C0940a(str));
+            com.baidu.yuyinala.privatemessage.implugin.d.b.elm().a(this.mContext, chatMsg, new C0978a(str));
         } else {
             LogUtils.e(TAG, "sendTextChatMsg msg error");
         }
@@ -78,9 +78,9 @@ public class a {
     }
 
     public void a(int i, ChatMsg chatMsg, String str) {
-        c Yu = d.emC().Yu(str);
-        if (Yu != null) {
-            Yu.onSendMessageResult(i, chatMsg);
+        c Yt = d.emD().Yt(str);
+        if (Yt != null) {
+            Yt.onSendMessageResult(i, chatMsg);
         }
         if (chatMsg.getMsgType() == 1) {
             this.oUn.remove(chatMsg.getRowId());
@@ -90,10 +90,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0940a implements b.f {
+    public class C0978a implements b.f {
         private String mListenerKey;
 
-        private C0940a(String str) {
+        private C0978a(String str) {
             this.mListenerKey = str;
         }
 

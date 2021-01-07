@@ -12,7 +12,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.prologue.a.a.a.ctc;
 
@@ -30,7 +30,7 @@ public class a {
 
     public static List<e> l(JSONObject jSONObject, String str) throws ParseError {
         List<e> list;
-        List<e> agR;
+        List<e> agS;
         if (DEBUG) {
             Log.d("AfdResponseParser", "AFD response : " + jSONObject.toString());
         }
@@ -60,8 +60,8 @@ public class a {
                     list = a(optJSONArray, str, true);
                 } else {
                     String optString3 = optJSONObject2.optString("ukey");
-                    if (!TextUtils.isEmpty(optString3) && (agR = d.agR()) != null) {
-                        for (e eVar : agR) {
+                    if (!TextUtils.isEmpty(optString3) && (agS = d.agS()) != null) {
+                        for (e eVar : agS) {
                             if (TextUtils.equals(eVar.ctG, optString3)) {
                                 arrayList.add(eVar);
                                 list = arrayList;
@@ -90,11 +90,11 @@ public class a {
             }
         } else {
             new ArrayList();
-            HashMap<String, e> agS = d.agS();
-            if (agS == null || agS.size() == 0) {
+            HashMap<String, e> agT = d.agT();
+            if (agT == null || agT.size() == 0) {
                 d.aC(q);
             } else {
-                d.agQ();
+                d.agR();
                 d.aC(q);
             }
             d.aD(q);

@@ -28,11 +28,11 @@ public abstract class PathUtils {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static class a {
-        private static final String[] DIRECTORY_PATHS = PathUtils.ehv();
+        private static final String[] DIRECTORY_PATHS = PathUtils.ehw();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String[] ehv() {
+    public static String[] ehw() {
         try {
             if (oJa.cancel(false)) {
                 StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();

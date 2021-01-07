@@ -30,7 +30,7 @@ public class cb extends bv {
     }
 
     @Override // com.bytedance.embedapplog.bv
-    long[] epw() {
+    long[] epx() {
         return phA;
     }
 
@@ -38,8 +38,8 @@ public class cb extends bv {
     public boolean d() {
         Bundle L;
         long currentTimeMillis = System.currentTimeMillis();
-        ce epy = bx.epy();
-        if (epy != null && (L = epy.L(currentTimeMillis, 50000L)) != null) {
+        ce epz = bx.epz();
+        if (epz != null && (L = epz.L(currentTimeMillis, 50000L)) != null) {
             b.j("play_session", L);
             b.flush();
         }

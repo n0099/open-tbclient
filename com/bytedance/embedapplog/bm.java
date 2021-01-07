@@ -10,14 +10,14 @@ import com.bytedance.embedapplog.bi;
 public final class bm implements bi {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f6104a = a("cGVyc2lzdC5zeXMuaWRlbnRpZmllcmlkLnN1cHBvcnRlZA==");
+    private static final String f6105a = a("cGVyc2lzdC5zeXMuaWRlbnRpZmllcmlkLnN1cHBvcnRlZA==");
     private static final aw<Boolean> pgU = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bm.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bytedance.embedapplog.aw
         /* renamed from: N */
         public Boolean M(Object... objArr) {
-            return Boolean.valueOf("1".equals(bm.b(bm.f6104a, "0")));
+            return Boolean.valueOf("1".equals(bm.b(bm.f6105a, "0")));
         }
     };
     private com.bytedance.a.b phh;

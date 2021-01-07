@@ -17,7 +17,7 @@ import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     private final String EXTRA_DATA = CashierData.EXT_DATA;
     private final String cpd = "actionType";
@@ -25,14 +25,14 @@ public class c {
     private final String cpf = "H5";
     private b cpg;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class a extends com.baidu.poly.a.a.a<Map<String, String>> {
         final /* synthetic */ m coK;
         final /* synthetic */ String cpb;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.baidu.poly.a.j.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class RunnableC0317a implements Runnable {
             final /* synthetic */ com.baidu.poly.widget.c coY;
             final /* synthetic */ String coZ;
@@ -145,7 +145,7 @@ public class c {
     }
 
     public void b(Bundle bundle, String str, m mVar) {
-        com.baidu.poly.a.b.b.afn().a(bundle, new a(str, mVar), str);
+        com.baidu.poly.a.b.b.afo().a(bundle, new a(str, mVar), str);
     }
 
     private void a(Activity activity, String str, Map<String, String> map) {

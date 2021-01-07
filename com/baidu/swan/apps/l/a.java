@@ -32,7 +32,7 @@ public class a {
         aVar.ewn = false;
         aVar.ewo = false;
         aVar.ewp = false;
-        com.baidu.swan.a.c.a.bfE().a(aVar);
+        com.baidu.swan.a.c.a.bfF().a(aVar);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [117=4] */

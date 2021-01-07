@@ -51,7 +51,7 @@ public class GridIconLayout extends FrameLayout implements p<aj>, q {
             @Override // com.baidu.tbadk.h.e
             public void a(View view, k kVar, int i, long j) {
                 if (kVar != null) {
-                    GridIconLayout.this.dj(kVar.bpl());
+                    GridIconLayout.this.dj(kVar.bpm());
                 }
                 if (GridIconLayout.this.aks != null) {
                     GridIconLayout.this.aks.a(view, kVar, i, j);
@@ -141,7 +141,7 @@ public class GridIconLayout extends FrameLayout implements p<aj>, q {
     public void dj(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                be.bwu().b((TbPageContext) j.K(getContext()), new String[]{str});
+                be.bwv().b((TbPageContext) j.K(getContext()), new String[]{str});
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -18,18 +18,18 @@ public class a implements ak {
 
     @Override // com.baidu.swan.apps.adaptation.a.ak
     public boolean J(String str, String str2, String str3) {
-        e aMl;
-        b.a aMo;
-        if (!c.aNI() || (aMl = e.aMl()) == null || (aMo = aMl.aMo()) == null) {
+        e aMm;
+        b.a aMp;
+        if (!c.aNJ() || (aMm = e.aMm()) == null || (aMp = aMm.aMp()) == null) {
             return false;
         }
-        b(str, com.baidu.swan.ubc.e.bin().getUserId(AppRuntime.getAppContext()), com.baidu.swan.apps.t.a.aAw().cd(com.baidu.swan.apps.t.a.aAr()), com.baidu.swan.bdprivate.a.a.dX(aMl.getApplicationContext()), str2, str3, com.baidu.swan.apps.t.a.aBd().getHostName(), aMo.aCv());
+        b(str, com.baidu.swan.ubc.e.bio().getUserId(AppRuntime.getAppContext()), com.baidu.swan.apps.t.a.aAx().cd(com.baidu.swan.apps.t.a.aAs()), com.baidu.swan.bdprivate.a.a.dX(aMm.getApplicationContext()), str2, str3, com.baidu.swan.apps.t.a.aBe().getHostName(), aMp.aCw());
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ak
-    public void amb() {
-        String readFileData = d.readFileData(aTw());
+    public void amc() {
+        String readFileData = d.readFileData(aTx());
         final long currentTimeMillis = System.currentTimeMillis() / 1000;
         if (!TextUtils.isEmpty(readFileData)) {
             try {
@@ -54,8 +54,8 @@ public class a implements ak {
                 if (a.DEBUG) {
                     Log.d("RebateInfoManager", "requestBatchRebateInfo onResult: " + i + " " + str);
                 }
-                d.deleteFile(a.aTw());
-                d.saveFile(String.valueOf(currentTimeMillis), a.aTw());
+                d.deleteFile(a.aTx());
+                d.saveFile(String.valueOf(currentTimeMillis), a.aTx());
             }
         });
     }
@@ -89,7 +89,7 @@ public class a implements ak {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static File aTw() {
+    public static File aTx() {
         return new File(AppRuntime.getAppContext().getFilesDir().getPath(), "rebate_info_timestamp");
     }
 }

@@ -48,8 +48,8 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
-    public boolean dwY() {
-        return (hasAgreeToPlay() || f.dTD().dTE() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !j.isMobileNet()) ? false : true;
+    public boolean dwZ() {
+        return (hasAgreeToPlay() || f.dTE().dTF() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !j.isMobileNet()) ? false : true;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
@@ -62,8 +62,8 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
             if (view.getId() == R.id.free_flow) {
                 com.baidu.tbadk.browser.a.startWebActivity(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
             } else if (view.getId() == R.id.play) {
-                if (this.mFT != null) {
-                    this.mFT.onClick(view);
+                if (this.mFS != null) {
+                    this.mFS.onClick(view);
                 }
                 TiebaStatic.log("c12618");
             }

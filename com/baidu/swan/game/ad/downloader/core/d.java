@@ -24,9 +24,9 @@ public class d implements Runnable {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void aVc();
+        void aVd();
 
-        void aVi();
+        void aVj();
     }
 
     public d(com.baidu.swan.game.ad.downloader.c.d dVar, DownloadInfo downloadInfo, a aVar) {
@@ -100,14 +100,14 @@ public class d implements Runnable {
                                 if (read == -1) {
                                     break;
                                 }
-                                aVj();
+                                aVk();
                                 i += read;
                                 randomAccessFile2.write(bArr, 0, read);
                                 this.eaM.setProgress(this.eaQ + i);
-                                this.eaP.aVi();
+                                this.eaP.aVj();
                             }
                             execute.body().close();
-                            this.eaP.aVc();
+                            this.eaP.aVd();
                         } catch (DownloadPauseException e) {
                             if (inputStream != null) {
                                 try {
@@ -190,7 +190,7 @@ public class d implements Runnable {
         }
     }
 
-    private void aVj() {
+    private void aVk() {
         if (this.eaM.isPause()) {
             throw new DownloadPauseException(7);
         }

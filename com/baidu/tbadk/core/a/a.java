@@ -32,7 +32,7 @@ public abstract class a {
 
     public abstract void reLoginByCacheAccount();
 
-    public static a bov() {
+    public static a bow() {
         return eMl;
     }
 

@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.c.a;
 
 import com.qq.e.ads.cfg.BrowserType;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface a {
     void a();
 

@@ -226,8 +226,8 @@ public class l extends BdBaseView<GuardClubMemberListActivity> {
 
                 @Override // android.widget.AbsListView.OnScrollListener
                 public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                    if (!l.this.hbr.isLoading() && l.this.hbp.bYT() && i + i2 > i3 - 2 && l.this.hbp.bYT()) {
-                        l.this.hbp.bYV();
+                    if (!l.this.hbr.isLoading() && l.this.hbp.bYU() && i + i2 > i3 - 2 && l.this.hbp.bYU()) {
+                        l.this.hbp.bYW();
                     }
                 }
             });
@@ -269,7 +269,7 @@ public class l extends BdBaseView<GuardClubMemberListActivity> {
         }
     }
 
-    public void bYQ() {
+    public void bYR() {
         if (this.hbr != null) {
             this.hbr.endLoadData();
             this.hbq.setNextPage(null);
@@ -289,7 +289,7 @@ public class l extends BdBaseView<GuardClubMemberListActivity> {
         }
     }
 
-    public void bUE() {
+    public void bUF() {
         if (this.hbr != null) {
             if (this.hbr.getView().getParent() == null) {
                 this.hbq.setNextPage(this.hbr);
@@ -305,14 +305,14 @@ public class l extends BdBaseView<GuardClubMemberListActivity> {
         }
     }
 
-    private void bUL() {
+    private void bUM() {
         bJ(8, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(com.baidu.tieba.ala.guardclub.model.g gVar) {
         this.hbp = gVar;
-        this.hbp.bYU();
+        this.hbp.bYV();
     }
 
     public void cy(List<com.baidu.live.guardclub.f> list) {
@@ -321,21 +321,21 @@ public class l extends BdBaseView<GuardClubMemberListActivity> {
             this.hbB.cy(list);
             return;
         }
-        bUL();
+        bUM();
     }
 
     public void Us() {
-        bRy();
+        bRz();
     }
 
-    public void bRy() {
+    public void bRz() {
         this.bNm.reset();
         this.bNm.setTitle(a.h.sdk_net_fail_tip_rank);
         this.bNm.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.l.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (l.this.hbp != null) {
-                    l.this.hbp.bYU();
+                    l.this.hbp.bYV();
                 }
             }
         });
@@ -372,9 +372,9 @@ public class l extends BdBaseView<GuardClubMemberListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bYO() {
+    public void bYP() {
         if (this.hbB != null) {
-            this.hbB.bYO();
+            this.hbB.bYP();
         }
         MessageManager.getInstance().unRegisterListener(this.gPs);
     }

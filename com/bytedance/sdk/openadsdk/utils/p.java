@@ -233,29 +233,29 @@ public class p {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f7896a;
+        String f7897a;
 
         /* renamed from: b  reason: collision with root package name */
-        String f7897b;
+        String f7898b;
         String c;
 
         a(String str, String str2, String str3) {
-            this.f7896a = str;
-            this.f7897b = str2;
+            this.f7897a = str;
+            this.f7898b = str2;
             this.c = str3;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return this.f7896a != null && this.f7896a.equals(aVar.f7896a) && this.c != null && this.c.equals(aVar.c);
+                return this.f7897a != null && this.f7897a.equals(aVar.f7897a) && this.c != null && this.c.equals(aVar.c);
             }
             return super.equals(obj);
         }
 
         public String toString() {
             try {
-                return "<" + this.f7896a + " name=\"" + this.f7897b + "\" path=\"" + this.c + "\" />";
+                return "<" + this.f7897a + " name=\"" + this.f7898b + "\" path=\"" + this.c + "\" />";
             } catch (Throwable th) {
                 return super.toString();
             }

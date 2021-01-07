@@ -35,8 +35,8 @@ public class b implements n {
             this.desc = threadInfo.title;
             this.iAj = threadInfo.reply_num.intValue();
             this.likeNum = threadInfo.agree_num.intValue();
-            if (!x.isEmpty(this.eMv.brz())) {
-                Iterator<MediaData> it = this.eMv.brz().iterator();
+            if (!x.isEmpty(this.eMv.brA())) {
+                Iterator<MediaData> it = this.eMv.brA().iterator();
                 while (it.hasNext()) {
                     MediaData next = it.next();
                     if (next != null && next.getType() == 3) {

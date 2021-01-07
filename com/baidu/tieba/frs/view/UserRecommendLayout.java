@@ -161,7 +161,7 @@ public class UserRecommendLayout extends LinearLayout {
         } else {
             cVar = new com.baidu.tbadk.core.view.userLike.c(this.pageContext, userRecommendItemView.getLikeBtn());
         }
-        cVar.Bb("7");
+        cVar.Ba("7");
         userRecommendItemView.getLikeBtn().setTag(cVar);
         cVar.a(metaData);
         userRecommendItemView.getLikeBtn().setAfterOnClickListener(this.jqQ);

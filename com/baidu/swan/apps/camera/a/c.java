@@ -21,9 +21,9 @@ public class c extends a {
         }
         com.baidu.swan.apps.component.components.c.a aVar = (com.baidu.swan.apps.component.components.c.a) com.baidu.swan.apps.component.container.a.d(b(unitedSchemeEntity));
         if (aVar != null) {
-            com.baidu.swan.apps.component.b.c aoy = aVar.aoy();
-            if (!aoy.isSuccess()) {
-                com.baidu.swan.apps.console.c.e("CameraRemoveAction", "remove camera fail: " + aoy.msg);
+            com.baidu.swan.apps.component.b.c aoz = aVar.aoz();
+            if (!aoz.isSuccess()) {
+                com.baidu.swan.apps.console.c.e("CameraRemoveAction", "remove camera fail: " + aoz.msg);
             }
             a(unitedSchemeEntity, callbackHandler, true);
             return true;

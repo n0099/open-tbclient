@@ -72,7 +72,7 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
         return this.gMx ? x.getCount(this.cbD) * 3 : x.getCount(this.cbD);
     }
 
-    public int bVP() {
+    public int bVQ() {
         return x.getCount(this.cbD);
     }
 

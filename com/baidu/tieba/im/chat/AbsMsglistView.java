@@ -84,7 +84,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.d<MsglistActivit
 
     /* loaded from: classes.dex */
     public interface a {
-        void cWj();
+        void cWk();
 
         void e(VoiceData.VoiceModel voiceModel);
     }
@@ -118,21 +118,21 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.d<MsglistActivit
                     if (aVar.code == 24) {
                         if (aVar.data != null && (aVar.data instanceof u)) {
                             u uVar = (u) aVar.data;
-                            EmotionGroupType bzW = uVar.bzW();
+                            EmotionGroupType bzX = uVar.bzX();
                             String name = uVar.getName();
-                            if (bzW != EmotionGroupType.LOCAL && name != null) {
+                            if (bzX != EmotionGroupType.LOCAL && name != null) {
                                 AbsMsglistView.this.mContext.d(uVar);
                                 AbsMsglistView.this.onSendEmotion();
                             }
                         }
                     } else if (aVar.code == 8) {
-                        AbsMsglistView.this.mContext.cWD();
+                        AbsMsglistView.this.mContext.cWE();
                     } else if (aVar.code == 4) {
                         if (aVar.data != null && (aVar.data instanceof String)) {
                             AbsMsglistView.this.mTextContent = (String) aVar.data;
                         }
                     } else if (aVar.code == 14) {
-                        AbsMsglistView.this.mContext.cWE();
+                        AbsMsglistView.this.mContext.cWF();
                     }
                 }
             }
@@ -242,7 +242,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.d<MsglistActivit
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 l.hideSoftKeyPad(msglistActivity.getActivity(), msglistActivity.getActivity().getCurrentFocus());
                 if (AbsMsglistView.this.mTool != null) {
-                    AbsMsglistView.this.mTool.bDe();
+                    AbsMsglistView.this.mTool.bDf();
                 }
             }
         });
@@ -257,7 +257,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.d<MsglistActivit
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 l.hideSoftKeyPad(msglistActivity.getActivity(), msglistActivity.getActivity().getCurrentFocus());
                 if (AbsMsglistView.this.mTool != null) {
-                    AbsMsglistView.this.mTool.bDe();
+                    AbsMsglistView.this.mTool.bDf();
                 }
                 AbsMsglistView.this.MainOnTouch();
                 return false;
@@ -360,9 +360,9 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.d<MsglistActivit
     public void refreshPersonalHeadFooter(String str, com.baidu.tbadk.coreExtra.relationship.b bVar) {
         this.personal_lbs_title_name.setText(str);
         if (bVar != null) {
-            if (bVar.bCC() < 0 || bVar.bCC() > 1) {
+            if (bVar.bCD() < 0 || bVar.bCD() > 1) {
                 this.personal_lbs_title_lbsinfo.setVisibility(8);
-            } else if (bVar.bCC() == 1) {
+            } else if (bVar.bCD() == 1) {
                 this.personal_lbs_title_lbsinfo.setVisibility(0);
                 this.personal_lbs_title_lbsinfo.setText(getPageContext().getResources().getString(R.string.contact_yinshen));
                 this.personal_lbs_shadow.setVisibility(8);
@@ -464,7 +464,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.d<MsglistActivit
 
     public void sendmsgCloseSoftkey() {
         if (this.mTool != null) {
-            this.mTool.bDe();
+            this.mTool.bDf();
         }
         l.hideSoftKeyPad(this.mContext.getActivity(), this.mContext.getCurrentFocus());
     }
@@ -590,12 +590,12 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.d<MsglistActivit
         if (this.mTool == null) {
             return false;
         }
-        return this.mTool.bEM();
+        return this.mTool.bEN();
     }
 
     public void hideMore() {
         if (this.mTool != null) {
-            this.mTool.bDe();
+            this.mTool.bDf();
         }
     }
 
@@ -657,7 +657,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.d<MsglistActivit
     public void onDeletedVoice(String str) {
         this.mModel = null;
         if (this.mCallback != null) {
-            this.mCallback.cWj();
+            this.mCallback.cWk();
         }
     }
 

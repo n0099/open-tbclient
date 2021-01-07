@@ -12,19 +12,19 @@ import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2729a;
+    final /* synthetic */ String f2730a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ f f2730b;
+    final /* synthetic */ f f2731b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(f fVar, String str) {
-        this.f2730b = fVar;
-        this.f2729a = str;
+        this.f2731b = fVar;
+        this.f2730a = str;
     }
 
     @Override // java.lang.Runnable
@@ -37,19 +37,19 @@ public class j implements Runnable {
         HttpsURLConnection httpsURLConnection;
         Exception e;
         Error e2;
-        this.f2730b.a();
-        this.f2730b.h = this.f2729a;
+        this.f2731b.a();
+        this.f2731b.h = this.f2730a;
         try {
             try {
                 StringBuffer stringBuffer = new StringBuffer();
-                url = new URL(this.f2730b.h);
+                url = new URL(this.f2731b.h);
                 try {
                     HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) url.openConnection();
                     try {
                         httpsURLConnection2.setInstanceFollowRedirects(false);
                         httpsURLConnection2.setDoOutput(true);
                         httpsURLConnection2.setDoInput(true);
-                        httpsURLConnection2.setConnectTimeout(a.f2710b);
+                        httpsURLConnection2.setConnectTimeout(a.f2711b);
                         httpsURLConnection2.setReadTimeout(a.c);
                         httpsURLConnection2.setRequestMethod("POST");
                         httpsURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
@@ -57,7 +57,7 @@ public class j implements Runnable {
                         if (l.ax != null) {
                             httpsURLConnection2.setRequestProperty("bd-loc-android", l.ax);
                         }
-                        for (Map.Entry<String, Object> entry : this.f2730b.k.entrySet()) {
+                        for (Map.Entry<String, Object> entry : this.f2731b.k.entrySet()) {
                             stringBuffer.append(entry.getKey());
                             stringBuffer.append("=");
                             stringBuffer.append(entry.getValue());
@@ -87,15 +87,15 @@ public class j implements Runnable {
                                             }
                                             byteArrayOutputStream.write(bArr, 0, read);
                                         }
-                                        this.f2730b.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                                        this.f2730b.a(true);
+                                        this.f2731b.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                                        this.f2731b.a(true);
                                     } catch (Error e3) {
                                         e2 = e3;
                                         httpsURLConnection = httpsURLConnection2;
                                         e2.printStackTrace();
-                                        Log.i(a.f2709a, "https NetworkCommunicationError!");
-                                        this.f2730b.j = null;
-                                        this.f2730b.a(false);
+                                        Log.i(a.f2710a, "https NetworkCommunicationError!");
+                                        this.f2731b.j = null;
+                                        this.f2731b.a(false);
                                         if (httpsURLConnection != null) {
                                             httpsURLConnection.disconnect();
                                         }
@@ -105,21 +105,21 @@ public class j implements Runnable {
                                             try {
                                                 outputStream.close();
                                             } catch (Exception e4) {
-                                                Log.d(a.f2709a, "close os IOException!");
+                                                Log.d(a.f2710a, "close os IOException!");
                                             }
                                         }
                                         if (inputStream != null) {
                                             try {
                                                 inputStream.close();
                                             } catch (Exception e5) {
-                                                Log.d(a.f2709a, "close is IOException!");
+                                                Log.d(a.f2710a, "close is IOException!");
                                             }
                                         }
                                         if (byteArrayOutputStream != null) {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception e6) {
-                                                Log.d(a.f2709a, "close baos IOException!");
+                                                Log.d(a.f2710a, "close baos IOException!");
                                             }
                                         }
                                         return;
@@ -127,9 +127,9 @@ public class j implements Runnable {
                                         e = e7;
                                         httpsURLConnection = httpsURLConnection2;
                                         e.printStackTrace();
-                                        Log.i(a.f2709a, "https NetworkCommunicationException!");
-                                        this.f2730b.j = null;
-                                        this.f2730b.a(false);
+                                        Log.i(a.f2710a, "https NetworkCommunicationException!");
+                                        this.f2731b.j = null;
+                                        this.f2731b.a(false);
                                         if (httpsURLConnection != null) {
                                             httpsURLConnection.disconnect();
                                         }
@@ -139,21 +139,21 @@ public class j implements Runnable {
                                             try {
                                                 outputStream.close();
                                             } catch (Exception e8) {
-                                                Log.d(a.f2709a, "close os IOException!");
+                                                Log.d(a.f2710a, "close os IOException!");
                                             }
                                         }
                                         if (inputStream != null) {
                                             try {
                                                 inputStream.close();
                                             } catch (Exception e9) {
-                                                Log.d(a.f2709a, "close is IOException!");
+                                                Log.d(a.f2710a, "close is IOException!");
                                             }
                                         }
                                         if (byteArrayOutputStream != null) {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception e10) {
-                                                Log.d(a.f2709a, "close baos IOException!");
+                                                Log.d(a.f2710a, "close baos IOException!");
                                             }
                                         }
                                         return;
@@ -169,21 +169,21 @@ public class j implements Runnable {
                                             try {
                                                 outputStream.close();
                                             } catch (Exception e11) {
-                                                Log.d(a.f2709a, "close os IOException!");
+                                                Log.d(a.f2710a, "close os IOException!");
                                             }
                                         }
                                         if (inputStream != null) {
                                             try {
                                                 inputStream.close();
                                             } catch (Exception e12) {
-                                                Log.d(a.f2709a, "close is IOException!");
+                                                Log.d(a.f2710a, "close is IOException!");
                                             }
                                         }
                                         if (byteArrayOutputStream != null) {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception e13) {
-                                                Log.d(a.f2709a, "close baos IOException!");
+                                                Log.d(a.f2710a, "close baos IOException!");
                                             }
                                         }
                                         throw th;
@@ -202,8 +202,8 @@ public class j implements Runnable {
                                     httpsURLConnection = httpsURLConnection2;
                                 }
                             } else {
-                                this.f2730b.j = null;
-                                this.f2730b.a(false);
+                                this.f2731b.j = null;
+                                this.f2731b.a(false);
                                 byteArrayOutputStream = null;
                                 inputStream = null;
                             }
@@ -216,21 +216,21 @@ public class j implements Runnable {
                                 try {
                                     outputStream.close();
                                 } catch (Exception e16) {
-                                    Log.d(a.f2709a, "close os IOException!");
+                                    Log.d(a.f2710a, "close os IOException!");
                                 }
                             }
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
                                 } catch (Exception e17) {
-                                    Log.d(a.f2709a, "close is IOException!");
+                                    Log.d(a.f2710a, "close is IOException!");
                                 }
                             }
                             if (byteArrayOutputStream != null) {
                                 try {
                                     byteArrayOutputStream.close();
                                 } catch (Exception e18) {
-                                    Log.d(a.f2709a, "close baos IOException!");
+                                    Log.d(a.f2710a, "close baos IOException!");
                                 }
                             }
                         } catch (Error e19) {

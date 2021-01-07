@@ -13,10 +13,10 @@ import java.util.List;
 public class w implements d.a<Object>, e, e.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final f<?> f10552a;
+    private final f<?> f10553a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final e.a f10553b;
+    private final e.a f10554b;
     private int c;
     private b d;
     private Object e;
@@ -25,22 +25,22 @@ public class w implements d.a<Object>, e, e.a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(f<?> fVar, e.a aVar) {
-        this.f10552a = fVar;
-        this.f10553b = aVar;
+        this.f10553a = fVar;
+        this.f10554b = aVar;
     }
 
     private void b(Object obj) {
         long a2 = com.kwad.sdk.glide.g.f.a();
         try {
-            com.kwad.sdk.glide.load.a<X> a3 = this.f10552a.a((f<?>) obj);
-            d dVar = new d(a3, obj, this.f10552a.e());
-            this.g = new c(this.f.f10399a, this.f10552a.f());
-            this.f10552a.b().a(this.g, dVar);
+            com.kwad.sdk.glide.load.a<X> a3 = this.f10553a.a((f<?>) obj);
+            d dVar = new d(a3, obj, this.f10553a.e());
+            this.g = new c(this.f.f10400a, this.f10553a.f());
+            this.f10553a.b().a(this.g, dVar);
             if (Log.isLoggable("SourceGenerator", 2)) {
                 Log.v("SourceGenerator", "Finished encoding source to cache, key: " + this.g + ", data: " + obj + ", encoder: " + a3 + ", duration: " + com.kwad.sdk.glide.g.f.a(a2));
             }
             this.f.c.b();
-            this.d = new b(Collections.singletonList(this.f.f10399a), this.f10552a, this);
+            this.d = new b(Collections.singletonList(this.f.f10400a), this.f10553a, this);
         } catch (Throwable th) {
             this.f.c.b();
             throw th;
@@ -48,33 +48,33 @@ public class w implements d.a<Object>, e, e.a {
     }
 
     private boolean d() {
-        return this.c < this.f10552a.n().size();
+        return this.c < this.f10553a.n().size();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.e.a
     public void a(com.kwad.sdk.glide.load.c cVar, Exception exc, com.kwad.sdk.glide.load.a.d<?> dVar, DataSource dataSource) {
-        this.f10553b.a(cVar, exc, dVar, this.f.c.d());
+        this.f10554b.a(cVar, exc, dVar, this.f.c.d());
     }
 
     @Override // com.kwad.sdk.glide.load.engine.e.a
     public void a(com.kwad.sdk.glide.load.c cVar, Object obj, com.kwad.sdk.glide.load.a.d<?> dVar, DataSource dataSource, com.kwad.sdk.glide.load.c cVar2) {
-        this.f10553b.a(cVar, obj, dVar, this.f.c.d(), cVar);
+        this.f10554b.a(cVar, obj, dVar, this.f.c.d(), cVar);
     }
 
     @Override // com.kwad.sdk.glide.load.a.d.a
     public void a(@NonNull Exception exc) {
-        this.f10553b.a(this.g, exc, this.f.c, this.f.c.d());
+        this.f10554b.a(this.g, exc, this.f.c, this.f.c.d());
     }
 
     @Override // com.kwad.sdk.glide.load.a.d.a
     public void a(Object obj) {
-        h c = this.f10552a.c();
+        h c = this.f10553a.c();
         if (obj == null || !c.a(this.f.c.d())) {
-            this.f10553b.a(this.f.f10399a, obj, this.f.c, this.f.c.d(), this.g);
+            this.f10554b.a(this.f.f10400a, obj, this.f.c, this.f.c.d(), this.g);
             return;
         }
         this.e = obj;
-        this.f10553b.c();
+        this.f10554b.c();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.e
@@ -89,12 +89,12 @@ public class w implements d.a<Object>, e, e.a {
             this.f = null;
             boolean z = false;
             while (!z && d()) {
-                List<n.a<?>> n = this.f10552a.n();
+                List<n.a<?>> n = this.f10553a.n();
                 int i = this.c;
                 this.c = i + 1;
                 this.f = n.get(i);
-                if (this.f != null && (this.f10552a.c().a(this.f.c.d()) || this.f10552a.a(this.f.c.a()))) {
-                    this.f.c.a(this.f10552a.d(), this);
+                if (this.f != null && (this.f10553a.c().a(this.f.c.d()) || this.f10553a.a(this.f.c.a()))) {
+                    this.f.c.a(this.f10553a.d(), this);
                     z = true;
                 }
             }

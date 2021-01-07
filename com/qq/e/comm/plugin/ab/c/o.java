@@ -2,18 +2,18 @@ package com.qq.e.comm.plugin.ab.c;
 
 import com.qq.e.comm.plugin.y.u;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class o implements e {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final o f12045a = new o();
+        static final o f12046a = new o();
     }
 
     public static final o a() {
-        return a.f12045a;
+        return a.f12046a;
     }
 
     @Override // com.qq.e.comm.plugin.ab.c.e

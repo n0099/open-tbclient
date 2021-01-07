@@ -34,22 +34,22 @@ public class i extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        final com.baidu.swan.apps.v.f aDG = com.baidu.swan.apps.v.f.aDG();
-        final com.baidu.swan.apps.core.d.f ajs = aDG.ajs();
-        if (ajs == null) {
+        final com.baidu.swan.apps.v.f aDH = com.baidu.swan.apps.v.f.aDH();
+        final com.baidu.swan.apps.core.d.f ajt = aDH.ajt();
+        if (ajt == null) {
             com.baidu.swan.apps.console.c.e("redirect", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        final com.baidu.swan.apps.model.b cg = com.baidu.swan.apps.model.b.cg(a2, aDG.aDn());
-        if (!ak.a(aDG.aDl(), cg, false)) {
+        final com.baidu.swan.apps.model.b cg = com.baidu.swan.apps.model.b.cg(a2, aDH.aDo());
+        if (!ak.a(aDH.aDm(), cg, false)) {
             com.baidu.swan.apps.console.c.e("redirect", "page params error : path=" + cg.mPage + " ; routePath=" + cg.dqt);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
         String str = unitedSchemeEntity.getParams().get("initData");
-        if (!TextUtils.isEmpty(str) && cg != null && !TextUtils.isEmpty(cg.dqt) && com.baidu.swan.apps.runtime.e.aMk() != null) {
-            com.baidu.swan.apps.runtime.e.aMk().cv(str, cg.dqt);
+        if (!TextUtils.isEmpty(str) && cg != null && !TextUtils.isEmpty(cg.dqt) && com.baidu.swan.apps.runtime.e.aMl() != null) {
+            com.baidu.swan.apps.runtime.e.aMl().cv(str, cg.dqt);
         }
         String a3 = a.a(unitedSchemeEntity, "params", "startTime");
         if (!TextUtils.isEmpty(a3)) {
@@ -58,40 +58,40 @@ public class i extends aa {
         if (DEBUG) {
             Log.d("redirectTo", "PreloadSlaveManager start.");
         }
-        final b.a F = com.baidu.swan.apps.core.slave.b.F(aDG.aDq());
-        final String amt = F.cZA.amt();
+        final b.a F = com.baidu.swan.apps.core.slave.b.F(aDH.aDr());
+        final String amu = F.cZA.amu();
         if (DEBUG) {
-            Log.d("redirectTo", "webview id: " + amt);
+            Log.d("redirectTo", "webview id: " + amu);
         }
         final String optString = v.parseString(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.e("redirect", "cb is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (com.baidu.swan.apps.scheme.actions.forbidden.a.aNu().f(cg)) {
-            com.baidu.swan.apps.scheme.actions.forbidden.a.aNu().c("redirectTo", cg);
+        } else if (com.baidu.swan.apps.scheme.actions.forbidden.a.aNv().f(cg)) {
+            com.baidu.swan.apps.scheme.actions.forbidden.a.aNv().c("redirectTo", cg);
             com.baidu.swan.apps.console.c.e("redirectTo", "access to this page is prohibited");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1003, "access to this page is prohibited"));
             return false;
         } else {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            aDG.showLoadingView();
-            g.a(eVar, cg, amt, new g.a() { // from class: com.baidu.swan.apps.scheme.actions.k.i.1
+            aDH.showLoadingView();
+            g.a(eVar, cg, amu, new g.a() { // from class: com.baidu.swan.apps.scheme.actions.k.i.1
                 @Override // com.baidu.swan.apps.scheme.actions.k.g.a
                 public void lb(String str2) {
                     com.baidu.swan.apps.performance.j.rq(uuid);
                     com.baidu.swan.apps.console.c.i("redirect", "check pages success");
-                    aDG.ajv();
-                    a.a(unitedSchemeEntity, callbackHandler, eVar, amt, cg.mPage, null, optString);
-                    i.this.b(F, cg, ajs, uuid);
+                    aDH.ajw();
+                    a.a(unitedSchemeEntity, callbackHandler, eVar, amu, cg.mPage, null, optString);
+                    i.this.b(F, cg, ajt, uuid);
                 }
 
                 @Override // com.baidu.swan.apps.scheme.actions.k.g.a
                 public void hK(int i) {
                     com.baidu.swan.apps.console.c.e("redirect", "check pages failed");
-                    aDG.ajv();
+                    aDH.ajw();
                     if (i.DEBUG) {
-                        com.baidu.swan.apps.res.widget.b.d.a(context, context.getString(a.h.aiapps_open_pages_failed) + i).aLS();
+                        com.baidu.swan.apps.res.widget.b.d.a(context, context.getString(a.h.aiapps_open_pages_failed) + i).aLT();
                     }
                     a.c(unitedSchemeEntity, callbackHandler, optString);
                 }

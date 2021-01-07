@@ -14,7 +14,7 @@ public class f {
     private f() {
     }
 
-    public static f bIJ() {
+    public static f bIK() {
         return a.fOY;
     }
 
@@ -62,11 +62,11 @@ public class f {
         }
     }
 
-    public String bIK() {
+    public String bIL() {
         return Build.MODEL;
     }
 
-    public String bIL() {
+    public String bIM() {
         return Build.DEVICE;
     }
 

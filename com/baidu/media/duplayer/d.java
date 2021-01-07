@@ -3,10 +3,10 @@ package com.baidu.media.duplayer;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3240a;
+    private int f3241a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f3241b;
+    private String f3242b;
     private String c;
     private a cja;
     private String d;
@@ -18,8 +18,8 @@ public class d {
     }
 
     public d(int i, String str, String str2) {
-        this.f3240a = i;
-        this.f3241b = str;
+        this.f3241a = i;
+        this.f3242b = str;
         this.c = str2;
         this.cja = a.LIB_TYPE_SO;
     }
@@ -30,14 +30,14 @@ public class d {
     }
 
     public String a() {
-        return this.f3241b;
+        return this.f3242b;
     }
 
     public void a(String str) {
         this.d = str;
     }
 
-    public a adz() {
+    public a adA() {
         return this.cja;
     }
 

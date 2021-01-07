@@ -20,10 +20,10 @@ public class LocalConfigOptions {
     public static final int DEFAULT_ZIP_GRAY_THRESHOLD = 100;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3983a = ".BD_SAPI_CACHE";
+    private static final String f3984a = ".BD_SAPI_CACHE";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f3984b = "pass_face_sdk";
+    private static final String f3985b = "pass_face_sdk";
     private static final String c = "illum_gray";
     private static LocalConfigOptions d;
     private String e;
@@ -40,7 +40,7 @@ public class LocalConfigOptions {
     }
 
     public static String getExternalZipPath(String str) {
-        return Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + f3983a + "/" + f3984b + "/" + SdkConfigOptions.HOST_VERSION + Constants.ACCEPT_TIME_SEPARATOR_SERVER + str + ".zip";
+        return Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + f3984a + "/" + f3985b + "/" + SdkConfigOptions.HOST_VERSION + Constants.ACCEPT_TIME_SEPARATOR_SERVER + str + ".zip";
     }
 
     public static LocalConfigOptions getInstance(Context context) {
@@ -51,11 +51,11 @@ public class LocalConfigOptions {
     }
 
     public static String getInternalRootPath(Context context) {
-        return context.getDir(f3984b, 0).getAbsolutePath();
+        return context.getDir(f3985b, 0).getAbsolutePath();
     }
 
     public static String getInternalZipPath(Context context, String str) {
-        return new File(getInternalRootPath(context) + File.separator + f3984b + File.separator + SdkConfigOptions.HOST_VERSION + Constants.ACCEPT_TIME_SEPARATOR_SERVER + str + ".zip").getAbsolutePath();
+        return new File(getInternalRootPath(context) + File.separator + f3985b + File.separator + SdkConfigOptions.HOST_VERSION + Constants.ACCEPT_TIME_SEPARATOR_SERVER + str + ".zip").getAbsolutePath();
     }
 
     public static String getLoadSoPath(Context context) {
@@ -63,7 +63,7 @@ public class LocalConfigOptions {
     }
 
     public SdkConfigOptions getBioOptions() {
-        String a2 = a(f3984b);
+        String a2 = a(f3985b);
         if (!TextUtils.isEmpty(a2)) {
             String decryptAccountInfo = PassBioDataEncryptor.decryptAccountInfo(a2, a(this.g));
             if (!TextUtils.isEmpty(decryptAccountInfo)) {
@@ -95,7 +95,7 @@ public class LocalConfigOptions {
 
     public void setBioOptions(SdkConfigOptions sdkConfigOptions) {
         if (sdkConfigOptions != null) {
-            a(f3984b, PassBioDataEncryptor.encryptAccountInfo(sdkConfigOptions.toJSON().toString(), a(this.g)));
+            a(f3985b, PassBioDataEncryptor.encryptAccountInfo(sdkConfigOptions.toJSON().toString(), a(this.g)));
         }
     }
 

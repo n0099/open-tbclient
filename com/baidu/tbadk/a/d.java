@@ -31,64 +31,60 @@ public class d {
     }
 
     public static boolean Al(String str) {
-        e Aj = c.bmq().Aj(str);
+        e Aj = c.bmr().Aj(str);
         return (Aj == null || TextUtils.isEmpty(Aj.eIO) || !Aj.eIO.equalsIgnoreCase(str)) ? false : true;
     }
 
-    public static Map<BdUniqueId, e> bmr() {
-        return c.bmq().bmr();
+    public static Map<BdUniqueId, e> bms() {
+        return c.bmr().bms();
     }
 
     public static e j(BdUniqueId bdUniqueId) {
-        return c.bmq().j(bdUniqueId);
-    }
-
-    public static boolean bmw() {
-        return true;
+        return c.bmr().j(bdUniqueId);
     }
 
     public static boolean bmx() {
-        return a(h.eIP, "11_8_hot_b");
+        return true;
     }
 
     public static boolean bmy() {
-        return a(com.baidu.tbadk.a.a.b.eIP, "11_9_backuser_a");
+        return a(h.eIP, "11_8_hot_b");
     }
 
     public static boolean bmz() {
-        return a(n.eIP, "12_0_staticopt_a");
+        return a(com.baidu.tbadk.a.a.b.eIP, "11_9_backuser_a");
     }
 
     public static boolean bmA() {
-        return Al("12_2_picpage_bear_a");
+        return a(n.eIP, "12_0_staticopt_a");
     }
 
     public static boolean bmB() {
-        return Al("11_9_pb_bear_a");
+        return Al("12_2_picpage_bear_a");
     }
 
     public static boolean bmC() {
-        return Al("12_2_frs_bear_a");
+        return Al("11_9_pb_bear_a");
     }
 
     public static boolean bmD() {
-        return Al("11_9_post_thread_title_out_a");
+        return Al("12_2_frs_bear_a");
     }
 
     public static boolean bmE() {
-        return bmw();
+        return Al("11_9_post_thread_title_out_a");
     }
 
     public static boolean bmF() {
-        return false;
+        return bmx();
     }
 
     public static boolean bmG() {
-        return bmP() != 0;
+        return false;
     }
 
     public static boolean bmH() {
-        return true;
+        return bmQ() != 0;
     }
 
     public static boolean bmI() {
@@ -96,30 +92,34 @@ public class d {
     }
 
     public static boolean bmJ() {
-        return a(com.baidu.tbadk.a.a.d.eIP, "11_9_frs_page_guide_a");
+        return true;
     }
 
     public static boolean bmK() {
-        return bmL() || bmM();
+        return a(com.baidu.tbadk.a.a.d.eIP, "11_9_frs_page_guide_a");
     }
 
     public static boolean bmL() {
-        return a(m.eIP, "11_9_discover_hot_card_slogan");
+        return bmM() || bmN();
     }
 
     public static boolean bmM() {
-        return a(m.eIP, "11_9_discover_hot_card_hot_text");
+        return a(m.eIP, "11_9_discover_hot_card_slogan");
     }
 
     public static boolean bmN() {
-        return a(com.baidu.tbadk.a.a.c.eIP, "11_10_user_like_tab_a") || a(com.baidu.tbadk.a.a.c.eIP, "11_10_user_like_tab_b");
+        return a(m.eIP, "11_9_discover_hot_card_hot_text");
     }
 
     public static boolean bmO() {
+        return a(com.baidu.tbadk.a.a.c.eIP, "11_10_user_like_tab_a") || a(com.baidu.tbadk.a.a.c.eIP, "11_10_user_like_tab_b");
+    }
+
+    public static boolean bmP() {
         return false;
     }
 
-    public static int bmP() {
+    public static int bmQ() {
         if (a(l.eIP, "12_1_pb_sub_post_a")) {
             return 2;
         }
@@ -132,47 +132,47 @@ public class d {
         return a(l.eIP, "12_1_pb_sub_post_d") ? 5 : 0;
     }
 
-    public static boolean bmQ() {
+    public static boolean bmR() {
         return a(k.eIP, "12_1_pb_a");
     }
 
-    public static boolean bmR() {
+    public static boolean bmS() {
         return a(k.eIP, "12_1_pb_b");
     }
 
-    public static boolean bmS() {
+    public static boolean bmT() {
         return a(k.eIP, "12_1_pb_c");
     }
 
-    public static boolean bmT() {
-        return bmQ() || bmR() || bmS();
-    }
-
     public static boolean bmU() {
-        return a(f.eIP, "12_2_frs_default_tab_a");
+        return bmR() || bmS() || bmT();
     }
 
     public static boolean bmV() {
-        return a(f.eIP, "12_2_frs_default_tab_b");
+        return a(f.eIP, "12_2_frs_default_tab_a");
     }
 
     public static boolean bmW() {
-        return a(f.eIP, "12_2_frs_default_tab_c");
+        return a(f.eIP, "12_2_frs_default_tab_b");
     }
 
     public static boolean bmX() {
-        return bmU() || bmV() || bmW();
+        return a(f.eIP, "12_2_frs_default_tab_c");
     }
 
     public static boolean bmY() {
-        return a(com.baidu.tbadk.a.a.e.eIP, "12_2_frs_default_sort_a");
+        return bmV() || bmW() || bmX();
     }
 
     public static boolean bmZ() {
-        return a(j.eIP, "12_2_pb_picpage_a");
+        return a(com.baidu.tbadk.a.a.e.eIP, "12_2_frs_default_sort_a");
     }
 
     public static boolean bna() {
+        return a(j.eIP, "12_2_pb_picpage_a");
+    }
+
+    public static boolean bnb() {
         return a(j.eIP, "12_2_pb_picpage_b");
     }
 }

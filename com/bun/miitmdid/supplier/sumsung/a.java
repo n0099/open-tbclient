@@ -3,22 +3,22 @@ package com.bun.miitmdid.supplier.sumsung;
 import android.content.Context;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements InnerIdSupplier, com.bun.miitmdid.supplier.c.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public SupplierListener f6062a;
+    public SupplierListener f6063a;
     private SumsungCore pgs;
 
     public a(Context context, SupplierListener supplierListener) {
-        this.f6062a = supplierListener;
+        this.f6063a = supplierListener;
         this.pgs = new SumsungCore(context, this);
     }
 
     @Override // com.bun.miitmdid.supplier.c.a
     public void a() {
-        if (this.f6062a != null) {
-            this.f6062a.OnSupport(isSupported(), this);
+        if (this.f6063a != null) {
+            this.f6063a.OnSupport(isSupported(), this);
         }
     }
 
@@ -28,8 +28,8 @@ public class a implements InnerIdSupplier, com.bun.miitmdid.supplier.c.a {
 
     @Override // com.bun.miitmdid.supplier.c.a
     public void a(boolean z) {
-        if (this.f6062a != null) {
-            this.f6062a.OnSupport(isSupported(), this);
+        if (this.f6063a != null) {
+            this.f6063a.OnSupport(isSupported(), this);
         }
     }
 

@@ -139,7 +139,7 @@ public class i {
             jSONObject.put("screen_width", ak.c(context));
             jSONObject.put("screen_height", ak.d(context));
             jSONObject.put("oaid", y.a());
-            jSONObject.put("free_space", m.f7892a);
+            jSONObject.put("free_space", m.f7893a);
             jSONObject.put("applog_did", com.bytedance.embedapplog.b.getDid());
         } catch (Throwable th) {
         }

@@ -165,7 +165,7 @@ public class b extends ReplacementSpan {
         }
     }
 
-    public void Ct(String str) {
+    public void Cs(String str) {
         this.identify = str;
     }
 }

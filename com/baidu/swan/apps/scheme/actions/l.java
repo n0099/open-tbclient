@@ -31,7 +31,7 @@ public class l extends aa {
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("slaveId", this.dJg.amt());
+            jSONObject.put("slaveId", this.dJg.amu());
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
             return true;
         } catch (JSONException e) {

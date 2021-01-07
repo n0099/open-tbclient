@@ -20,10 +20,10 @@ public class c {
 
     public c(Context context) {
         this.mContext = context;
-        ap(cbf());
+        ap(cbg());
     }
 
-    public View cbf() {
+    public View cbg() {
         if (this.mRootView == null) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.sdk_prc_person_center_exp_top_header, (ViewGroup) null);
         }

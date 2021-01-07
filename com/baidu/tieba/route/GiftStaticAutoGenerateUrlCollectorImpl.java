@@ -1,0 +1,27 @@
+package com.baidu.tieba.route;
+
+import com.baidu.adp.framework.a.d;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes9.dex */
+public final class GiftStaticAutoGenerateUrlCollectorImpl implements d {
+    @Override // com.baidu.adp.framework.a.d
+    public Map<String, ArrayList<String>> getConfigRouterMap() {
+        HashMap hashMap = new HashMap();
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("MyGiftListActivityConfig");
+        arrayList.add("BuyGiftActivityConfig");
+        arrayList.add("GiftTabActivityConfig");
+        hashMap.put("com.baidu.tieba.gift.buyGift.GiftStatic", arrayList);
+        return hashMap;
+    }
+
+    @Override // com.baidu.adp.framework.a.d
+    public Map<String, String> getCmdRouterMap() {
+        HashMap hashMap = new HashMap();
+        new ArrayList();
+        hashMap.put("2002001", "com.baidu.tieba.gift.buyGift.GiftStatic");
+        return hashMap;
+    }
+}

@@ -104,7 +104,7 @@ class CronetBidirectionalStream extends BidirectionalStream {
                         }
                         this.oJE.oJz.a(this.oJE, this.oJE.oJC, byteBuffer, this.mEndOfStream);
                         if (z) {
-                            this.oJE.ehy();
+                            this.oJE.ehz();
                         }
                     }
                 }
@@ -140,7 +140,7 @@ class CronetBidirectionalStream extends BidirectionalStream {
                         }
                         CronetBidirectionalStream.this.oJz.b(CronetBidirectionalStream.this, CronetBidirectionalStream.this.oJC, byteBuffer, this.mEndOfStream);
                         if (z) {
-                            CronetBidirectionalStream.this.ehy();
+                            CronetBidirectionalStream.this.ehz();
                         }
                     }
                 }
@@ -185,7 +185,7 @@ class CronetBidirectionalStream extends BidirectionalStream {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ehy() {
+    public void ehz() {
         synchronized (this.mNativeStreamLock) {
             if (!isDoneLocked()) {
                 if (this.oJB == State.WRITING_DONE && this.oJA == State.READING_DONE) {
@@ -212,7 +212,7 @@ class CronetBidirectionalStream extends BidirectionalStream {
                     if (!CronetBidirectionalStream.this.isDoneLocked()) {
                         CronetBidirectionalStream.this.mRequestHeadersSent = z;
                         CronetBidirectionalStream.this.oJA = State.WAITING_FOR_READ;
-                        if (!CronetBidirectionalStream.WU(CronetBidirectionalStream.this.mInitialMethod) && CronetBidirectionalStream.this.mRequestHeadersSent) {
+                        if (!CronetBidirectionalStream.WT(CronetBidirectionalStream.this.mInitialMethod) && CronetBidirectionalStream.this.mRequestHeadersSent) {
                             CronetBidirectionalStream.this.oJB = State.WRITING_DONE;
                         } else {
                             CronetBidirectionalStream.this.oJB = State.WAITING_FOR_FLUSH;
@@ -343,7 +343,7 @@ class CronetBidirectionalStream extends BidirectionalStream {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean WU(String str) {
+    public static boolean WT(String str) {
         return (str.equals("GET") || str.equals(HttpHead.METHOD_NAME)) ? false : true;
     }
 

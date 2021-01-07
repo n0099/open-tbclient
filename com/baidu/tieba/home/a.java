@@ -83,11 +83,11 @@ public class a {
         });
     }
 
-    public void cQt() {
+    public void cQu() {
         this.jVC.setVisibility(8);
     }
 
-    public void cQu() {
+    public void cQv() {
         this.jVC.setVisibility(0);
     }
 
@@ -98,7 +98,7 @@ public class a {
             int dimens = l.getDimens(this.jVB.getActivity(), R.dimen.ds100);
             this.jVD = NoDataViewFactory.a(this.jVB.getPageContext().getPageActivity(), (LinearLayout) this.mRoot.findViewById(R.id.emotion_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.CREATE, dimens), null, null);
             this.jVD.setVisibility(0);
-            bCO();
+            bCP();
         }
         this.jnJ.setText(this.forumName + "吧");
         if (this.bfbInfo != null && this.bfbInfo.res_no.intValue() == 9528) {
@@ -115,7 +115,7 @@ public class a {
         this.jVG.setVisibility(8);
     }
 
-    public void bCO() {
+    public void bCP() {
         com.baidu.tbadk.r.a.a(this.jVB.getPageContext(), this.mRoot);
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(this.jVB.getPageContext(), TbadkCoreApplication.getInst().getSkinType());

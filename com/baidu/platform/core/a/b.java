@@ -14,11 +14,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class b extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f4763b = false;
+    boolean f4764b = false;
     String c = null;
 
     private boolean a(String str, DistrictResult districtResult) {
@@ -163,7 +163,7 @@ public class b extends com.baidu.platform.base.d {
                     }
                 }
                 if (!a(str, districtResult, false)) {
-                    if (this.f4763b) {
+                    if (this.f4764b) {
                         b(str, districtResult);
                     } else if (!a(str, districtResult)) {
                         districtResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
@@ -185,6 +185,6 @@ public class b extends com.baidu.platform.base.d {
     }
 
     public void a(boolean z) {
-        this.f4763b = z;
+        this.f4764b = z;
     }
 }

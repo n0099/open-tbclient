@@ -50,10 +50,10 @@ public abstract class a implements c, d, am.a {
     private int M;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f6988a;
+    public final WeakReference<Context> f6989a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f6989b;
+    public final l f6990b;
     public long c;
     public long h;
     private h i;
@@ -143,7 +143,7 @@ public abstract class a implements c, d, am.a {
         EnumSet noneOf = EnumSet.noneOf(b.a.class);
         noneOf.add(b.a.hideCloseBtn);
         noneOf.add(b.a.hideBackBtn);
-        this.i = new h(context.getApplicationContext(), LayoutInflater.from(context.getApplicationContext()).inflate(ac.f(context, "tt_video_play_layout_for_live"), (ViewGroup) null, false), true, noneOf, this.f6989b, this);
+        this.i = new h(context.getApplicationContext(), LayoutInflater.from(context.getApplicationContext()).inflate(ac.f(context, "tt_video_play_layout_for_live"), (ViewGroup) null, false), true, noneOf, this.f6990b, this);
         this.i.a(this);
     }
 
@@ -152,10 +152,10 @@ public abstract class a implements c, d, am.a {
         this.M = 1;
         this.M = x.c(context);
         this.j = viewGroup;
-        this.f6988a = new WeakReference<>(context);
-        this.f6989b = lVar;
+        this.f6989a = new WeakReference<>(context);
+        this.f6990b = lVar;
         a(context);
-        this.D = aj.d(this.f6989b.W());
+        this.D = aj.d(this.f6990b.W());
         this.t = Build.VERSION.SDK_INT >= 17;
     }
 
@@ -306,12 +306,12 @@ public abstract class a implements c, d, am.a {
     private void a(String str) throws Exception {
         if (this.n != null) {
             com.bytedance.sdk.openadsdk.core.video.a.a aVar = new com.bytedance.sdk.openadsdk.core.video.a.a();
-            aVar.f6986a = str;
-            if (this.f6989b != null) {
-                if (this.f6989b.F() != null) {
-                    aVar.d = this.f6989b.F().k();
+            aVar.f6987a = str;
+            if (this.f6990b != null) {
+                if (this.f6990b.F() != null) {
+                    aVar.d = this.f6990b.F().k();
                 }
-                aVar.f6987b = String.valueOf(aj.d(this.f6989b.W()));
+                aVar.f6988b = String.valueOf(aj.d(this.f6990b.W()));
             }
             aVar.c = 1;
             this.n.a(aVar);
@@ -376,8 +376,8 @@ public abstract class a implements c, d, am.a {
             if (this.o != null) {
                 this.o.a(this.m, com.bytedance.sdk.openadsdk.core.video.d.a.a(this.p, this.c));
             }
-            if (aj.c(this.f6989b)) {
-                this.i.a(this.f6989b, this.f6988a, true);
+            if (aj.c(this.f6990b)) {
+                this.i.a(this.f6990b, this.f6989a, true);
             }
             if (!this.v) {
                 b();
@@ -392,7 +392,7 @@ public abstract class a implements c, d, am.a {
     }
 
     private boolean F() {
-        return (this.f6988a == null || this.f6988a.get() == null) ? false : true;
+        return (this.f6989a == null || this.f6989a.get() == null) ? false : true;
     }
 
     private void a(Runnable runnable) {
@@ -428,7 +428,7 @@ public abstract class a implements c, d, am.a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void a(c.InterfaceC0986c interfaceC0986c) {
+    public void a(c.InterfaceC1024c interfaceC1024c) {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
@@ -506,7 +506,7 @@ public abstract class a implements c, d, am.a {
 
     @Override // com.bytedance.sdk.openadsdk.utils.am.a
     public void a(Message message) {
-        if (this.i != null && message != null && this.f6988a != null && this.f6988a.get() != null) {
+        if (this.i != null && message != null && this.f6989a != null && this.f6989a.get() != null) {
             switch (message.what) {
                 case 108:
                     if ((message.obj instanceof Long) && ((Long) message.obj).longValue() > 0) {
@@ -581,7 +581,7 @@ public abstract class a implements c, d, am.a {
                     a(StatusLine.HTTP_PERM_REDIRECT, 0);
                     return;
                 case 311:
-                    if (this.f6989b != null && this.f6989b.f() == 0) {
+                    if (this.f6990b != null && this.f6990b.f() == 0) {
                         J();
                         return;
                     } else {
@@ -602,19 +602,19 @@ public abstract class a implements c, d, am.a {
     }
 
     private boolean H() throws Throwable {
-        return this.f6988a == null || this.f6988a.get() == null || K() == null || this.n == null || this.n.a() == null || this.f6989b == null || this.f6989b.B() != null || this.f6989b.h() == 1;
+        return this.f6989a == null || this.f6989a.get() == null || K() == null || this.n == null || this.n.a() == null || this.f6990b == null || this.f6990b.B() != null || this.f6990b.h() == 1;
     }
 
     private void I() {
         float f;
         boolean z = true;
         try {
-            u.c("changeVideoSize", "changeVideoSize start.......mMaterialMeta.getAdSlot()=" + this.f6989b.j());
+            u.c("changeVideoSize", "changeVideoSize start.......mMaterialMeta.getAdSlot()=" + this.f6990b.j());
             if (!H()) {
                 u.c("changeVideoSize", "changeVideoSize start check condition complete ... go ..");
                 int[] b2 = ak.b(p.a());
                 MediaPlayer a2 = this.n.a();
-                boolean z2 = this.f6989b.X() == 15;
+                boolean z2 = this.f6990b.X() == 15;
                 float f2 = b2[0];
                 float f3 = b2[1];
                 float videoWidth = a2.getVideoWidth();
@@ -682,8 +682,8 @@ public abstract class a implements c, d, am.a {
     private void J() {
         int[] b2;
         try {
-            if (this.f6988a != null && this.f6988a.get() != null && K() != null && this.n != null && this.n.a() != null && this.f6989b != null) {
-                boolean z = this.f6989b.X() == 15;
+            if (this.f6989a != null && this.f6989a.get() != null && K() != null && this.n != null && this.n.a() != null && this.f6990b != null) {
+                boolean z = this.f6990b.X() == 15;
                 float f = ak.b(p.a())[1];
                 MediaPlayer a2 = this.n.a();
                 a(b2[0], f, a2.getVideoWidth(), a2.getVideoHeight(), z);
@@ -700,8 +700,8 @@ public abstract class a implements c, d, am.a {
             u.b("changeVideoSize", "screenWidth=" + f + ",screenHeight=" + f2);
             u.b("changeVideoSize", "videoHeight=" + f4 + ",videoWidth=" + f3);
             if (f3 <= 0.0f || f4 <= 0.0f) {
-                f3 = this.f6989b.F().c();
-                f4 = this.f6989b.F().b();
+                f3 = this.f6990b.F().c();
+                f4 = this.f6990b.F().b();
             }
             if (f4 > 0.0f && f3 > 0.0f) {
                 if (z) {
@@ -779,7 +779,7 @@ public abstract class a implements c, d, am.a {
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
     public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, int i, boolean z) {
         if (F()) {
-            long l = (((float) (i * this.c)) * 1.0f) / ac.l(this.f6988a.get(), "tt_video_progress_max");
+            long l = (((float) (i * this.c)) * 1.0f) / ac.l(this.f6989a.get(), "tt_video_progress_max");
             if (this.c > 0) {
                 this.K = (int) l;
             } else {
@@ -813,7 +813,7 @@ public abstract class a implements c, d, am.a {
     public void b(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view, boolean z, boolean z2) {
         if (F()) {
             g(!this.J);
-            if (!(this.f6988a.get() instanceof Activity)) {
+            if (!(this.f6989a.get() instanceof Activity)) {
                 u.b("BaseVideoController", "context is not activity, not support this function.");
                 return;
             }
@@ -840,7 +840,7 @@ public abstract class a implements c, d, am.a {
     public void a(int i) {
         if (F()) {
             boolean z = i == 0 || i == 8;
-            Context context = this.f6988a.get();
+            Context context = this.f6989a.get();
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
                 try {
@@ -920,7 +920,7 @@ public abstract class a implements c, d, am.a {
     }
 
     private com.bytedance.sdk.openadsdk.core.video.renderview.b K() {
-        if (this.f6988a == null || this.f6988a.get() == null || this.i == null) {
+        if (this.f6989a == null || this.f6989a.get() == null || this.i == null) {
             return null;
         }
         return this.i.o();
@@ -1020,10 +1020,10 @@ public abstract class a implements c, d, am.a {
             h();
             this.z = true;
             this.A = false;
-            if (this.i == null || this.f6989b == null) {
+            if (this.i == null || this.f6990b == null) {
                 return true;
             }
-            return this.i.a(i, this.f6989b.F());
+            return this.i.a(i, this.f6990b.F());
         } else if (c == 4) {
             this.z = false;
             if (this.i != null) {
@@ -1062,7 +1062,7 @@ public abstract class a implements c, d, am.a {
                 hashMap.put(entry.getKey(), entry.getValue());
             }
         }
-        Map<String, Object> a2 = aj.a(this.f, this.f6989b, t());
+        Map<String, Object> a2 = aj.a(this.f, this.f6990b, t());
         if (a2 != null) {
             for (Map.Entry<String, Object> entry2 : a2.entrySet()) {
                 hashMap.put(entry2.getKey(), entry2.getValue());
@@ -1074,7 +1074,7 @@ public abstract class a implements c, d, am.a {
     /* JADX INFO: Access modifiers changed from: protected */
     public Map<String, Object> B() {
         HashMap hashMap = new HashMap();
-        Map<String, Object> a2 = aj.a(this.f6989b, n(), t());
+        Map<String, Object> a2 = aj.a(this.f6990b, n(), t());
         if (a2 != null) {
             for (Map.Entry<String, Object> entry : a2.entrySet()) {
                 hashMap.put(entry.getKey(), entry.getValue());

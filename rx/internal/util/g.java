@@ -10,7 +10,7 @@ import rx.k;
 public class g implements k {
     public static final int SIZE;
     private Queue<Object> queue;
-    public volatile Object qvQ;
+    public volatile Object qxy;
     private final int size;
 
     static {
@@ -29,12 +29,12 @@ public class g implements k {
         SIZE = i;
     }
 
-    public static g eOn() {
-        return ae.eOw() ? new g(false, SIZE) : new g();
+    public static g eOR() {
+        return ae.ePa() ? new g(false, SIZE) : new g();
     }
 
-    public static g eOo() {
-        return ae.eOw() ? new g(true, SIZE) : new g();
+    public static g eOS() {
+        return ae.ePa() ? new g(true, SIZE) : new g();
     }
 
     private g(Queue<Object> queue, int i) {
@@ -81,8 +81,8 @@ public class g implements k {
     }
 
     public void onCompleted() {
-        if (this.qvQ == null) {
-            this.qvQ = NotificationLite.eNO();
+        if (this.qxy == null) {
+            this.qxy = NotificationLite.eOs();
         }
     }
 
@@ -97,9 +97,9 @@ public class g implements k {
             Queue<Object> queue = this.queue;
             if (queue != null) {
                 Object poll = queue.poll();
-                obj = this.qvQ;
+                obj = this.qxy;
                 if (poll == null && obj != null && queue.peek() == null) {
-                    this.qvQ = null;
+                    this.qxy = null;
                 } else {
                     obj = poll;
                 }
@@ -116,7 +116,7 @@ public class g implements k {
                 obj = null;
             } else {
                 Object peek = queue.peek();
-                obj = this.qvQ;
+                obj = this.qxy;
                 if (peek != null || obj == null || queue.peek() != null) {
                     obj = peek;
                 }
@@ -125,8 +125,8 @@ public class g implements k {
         return obj;
     }
 
-    public boolean bZ(Object obj) {
-        return NotificationLite.bZ(obj);
+    public boolean ca(Object obj) {
+        return NotificationLite.ca(obj);
     }
 
     public Object getValue(Object obj) {

@@ -12,43 +12,43 @@ import com.win.opensdk.poseidon.PoseidonH5Activity;
 public class cf implements ar.a {
 
     /* renamed from: case  reason: not valid java name */
-    private static final String f50case = cf.class.getSimpleName();
+    private static final String f51case = cf.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f14042a;
+    public boolean f14043a;
     public String java;
-    public Context qbB;
-    public boolean qbE;
-    public PBInterstitialListener qbG;
-    public bw qbI;
-    public Info qbW;
-    private long qbX;
-    private Handler qcJ = new Handler() { // from class: com.win.opensdk.cf.1
+    public Info qdE;
+    private long qdF;
+    public boolean qdM;
+    public Context qdj;
+    public boolean qdm;
+    public PBInterstitialListener qdo;
+    public bw qdq;
+    private Handler qer = new Handler() { // from class: com.win.opensdk.cf.1
         @Override // android.os.Handler
         public final void handleMessage(Message message) {
             if (message.what == 11) {
-                cf.this.f14042a = true;
-                cf.this.qcJ.removeMessages(11);
+                cf.this.f14043a = true;
+                cf.this.qer.removeMessages(11);
                 int i = 0;
                 if (cf.this.java()) {
-                    i = cf.this.qbW.getWt();
+                    i = cf.this.qdE.getWt();
                 }
-                w.iM(cf.this.qbB).a(new x(cf.this.qbW), 2002, i * 1000).eJL();
-                cf.this.qbG.onFail(PBError.TIMEOUT);
+                w.iM(cf.this.qdj).a(new x(cf.this.qdE), 2002, i * 1000).eKp();
+                cf.this.qdo.onFail(PBError.TIMEOUT);
             }
         }
     };
-    public ad qcK;
-    public boolean qce;
+    public ad qes;
 
     public cf(Context context, String str) {
-        this.qbB = context;
+        this.qdj = context;
         this.java = str;
     }
 
     @Override // com.win.opensdk.ar.a
     public final void f(String str, String str2, Object obj) {
-        if (TextUtils.equals(str, this.qbW.getId() + this.java)) {
+        if (TextUtils.equals(str, this.qdE.getId() + this.java)) {
             char c = 65535;
             switch (str2.hashCode()) {
                 case -1122984843:
@@ -72,13 +72,13 @@ public class cf implements ar.a {
             }
             switch (c) {
                 case 0:
-                    this.qbG.onClicked();
+                    this.qdo.onClicked();
                     return;
                 case 1:
-                    this.qbG.onInterstitialDismissed();
+                    this.qdo.onInterstitialDismissed();
                     return;
                 case 2:
-                    this.qbG.onInterstitialDisplayed();
+                    this.qdo.onInterstitialDisplayed();
                     return;
                 default:
                     return;
@@ -87,100 +87,100 @@ public class cf implements ar.a {
     }
 
     public final void a(Info info) {
-        this.f14042a = false;
-        this.qbW = info;
-        this.qbX = System.currentTimeMillis();
-        if (eKj()) {
-            if (m67a()) {
-                this.qbG.onLoaded();
+        this.f14043a = false;
+        this.qdE = info;
+        this.qdF = System.currentTimeMillis();
+        if (eKN()) {
+            if (m78a()) {
+                this.qdo.onLoaded();
             } else {
                 a();
             }
-        } else if (m68b()) {
+        } else if (m79b()) {
             if (c()) {
-                this.qbG.onLoaded();
+                this.qdo.onLoaded();
             } else {
                 b();
             }
         } else {
-            eJM();
+            eKq();
         }
     }
 
     public final boolean java() {
-        return this.qbW != null;
+        return this.qdE != null;
     }
 
-    public final boolean eKj() {
-        return java() && this.qbW.getType() == 21;
+    public final boolean eKN() {
+        return java() && this.qdE.getType() == 21;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public final boolean m67a() {
-        return this.qbE && !this.f14042a && java() && !this.qbW.isShown() && this.qbW.isEffective();
+    public final boolean m78a() {
+        return this.qdm && !this.f14043a && java() && !this.qdE.isShown() && this.qdE.isEffective();
     }
 
-    private void eJM() {
-        this.qbG.onFail(PBError.PID_TYPE_ERROR);
+    private void eKq() {
+        this.qdo.onFail(PBError.PID_TYPE_ERROR);
     }
 
     private void a() {
-        this.qbI = new bw(this.qbB);
-        this.qbI.qco = new bq() { // from class: com.win.opensdk.cf.3
+        this.qdq = new bw(this.qdj);
+        this.qdq.qdW = new bq() { // from class: com.win.opensdk.cf.3
             @Override // com.win.opensdk.bq
-            public final void eJL() {
+            public final void eKp() {
             }
 
             @Override // com.win.opensdk.bq
-            public final void eJM() {
-                cf.this.qcJ.removeMessages(11);
-                cf.this.qbE = true;
-                w.iM(cf.this.qbB).a(new x(cf.this.qbW), 200, System.currentTimeMillis() - cf.this.qbX).eJL();
-                if (!cf.this.f14042a) {
-                    cf.this.qbG.onLoaded();
+            public final void eKq() {
+                cf.this.qer.removeMessages(11);
+                cf.this.qdm = true;
+                w.iM(cf.this.qdj).a(new x(cf.this.qdE), 200, System.currentTimeMillis() - cf.this.qdF).eKp();
+                if (!cf.this.f14043a) {
+                    cf.this.qdo.onLoaded();
                 }
             }
         };
-        this.qbI.a(this.qbW.getLoad(), this.qbW);
-        this.qcJ.sendEmptyMessageDelayed(11, this.qbW.getWt() * 1000);
+        this.qdq.a(this.qdE.getLoad(), this.qdE);
+        this.qer.sendEmptyMessageDelayed(11, this.qdE.getWt() * 1000);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public final boolean m68b() {
-        return java() && this.qbW.getType() == 22;
+    public final boolean m79b() {
+        return java() && this.qdE.getType() == 22;
     }
 
     public final boolean c() {
-        return this.qce && !this.f14042a && java() && !this.qbW.isShown() && this.qbW.isEffective();
+        return this.qdM && !this.f14043a && java() && !this.qdE.isShown() && this.qdE.isEffective();
     }
 
     private void b() {
-        f.eJK().a(this.qbB, bp.aX(this.qbW.getTraceid(), this.qbW.getId(), this.qbW.getPid()), af.INTERSTITIAL, this.qbW.getLoad(), new bq() { // from class: com.win.opensdk.cf.4
+        f.eKo().a(this.qdj, bp.aX(this.qdE.getTraceid(), this.qdE.getId(), this.qdE.getPid()), af.INTERSTITIAL, this.qdE.getLoad(), new bq() { // from class: com.win.opensdk.cf.4
             @Override // com.win.opensdk.bq
-            public final void eJL() {
+            public final void eKp() {
             }
 
             @Override // com.win.opensdk.bq
-            public final void eJM() {
-                cf.this.qcJ.removeMessages(11);
-                cf.this.qce = true;
-                w.iM(cf.this.qbB).a(new x(cf.this.qbW), 200, System.currentTimeMillis() - cf.this.qbX).eJL();
-                if (!cf.this.f14042a) {
-                    cf.this.qbG.onLoaded();
+            public final void eKq() {
+                cf.this.qer.removeMessages(11);
+                cf.this.qdM = true;
+                w.iM(cf.this.qdj).a(new x(cf.this.qdE), 200, System.currentTimeMillis() - cf.this.qdF).eKp();
+                if (!cf.this.f14043a) {
+                    cf.this.qdo.onLoaded();
                 }
             }
         });
-        this.qcJ.sendEmptyMessageDelayed(11, this.qbW.getWt() * 1000);
+        this.qer.sendEmptyMessageDelayed(11, this.qdE.getWt() * 1000);
     }
 
-    public final void eJL() {
-        this.qbW.setShown(true);
-        br.eKl().a(bp.aX(this.qbW.getTraceid(), this.qbW.getId(), this.java), this.qbW);
-        if (this.qbW.getPid().equals(az.m58c(this.qbB))) {
-            PoseidonH5Activity.b(this.qbB, this.qbW, this.java);
+    public final void eKp() {
+        this.qdE.setShown(true);
+        br.eKP().a(bp.aX(this.qdE.getTraceid(), this.qdE.getId(), this.java), this.qdE);
+        if (this.qdE.getPid().equals(az.m69c(this.qdj))) {
+            PoseidonH5Activity.b(this.qdj, this.qdE, this.java);
         } else {
-            H5Activity.a(this.qbB, this.qbW, this.java);
+            H5Activity.a(this.qdj, this.qdE, this.java);
         }
-        ar.a(this.qbW.getId() + this.java, this);
+        ar.a(this.qdE.getId() + this.java, this);
     }
 }

@@ -12,10 +12,10 @@ import org.json.JSONObject;
 public class c implements IXAdResponseInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3559a;
+    private int f3560a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Boolean f3560b;
+    private Boolean f3561b;
     private String c;
     private int d;
     private int e;
@@ -33,8 +33,8 @@ public class c implements IXAdResponseInfo {
     private long q = System.currentTimeMillis();
 
     public c(String str) {
-        this.f3559a = 0;
-        this.f3560b = false;
+        this.f3560a = 0;
+        this.f3561b = false;
         this.i = -1;
         this.j = -1;
         this.p = new ArrayList<>();
@@ -54,10 +54,10 @@ public class c implements IXAdResponseInfo {
         } catch (Exception e2) {
             this.p = new ArrayList<>();
         }
-        this.f3559a = jSONObject.optInt("n", 0);
+        this.f3560a = jSONObject.optInt("n", 0);
         this.d = jSONObject.optInt("x", 0);
         this.e = jSONObject.optInt("y", 0);
-        this.f3560b = Boolean.valueOf(jSONObject.optInt("m", 0) == 1);
+        this.f3561b = Boolean.valueOf(jSONObject.optInt("m", 0) == 1);
         this.c = jSONObject.optString("u", "");
         this.f = jSONObject.optString("exp2", "{}");
         this.g = jSONObject.optString("ext_act", "{}");
@@ -83,22 +83,22 @@ public class c implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public int getAdsNum() {
-        return this.f3559a;
+        return this.f3560a;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public void setAdsNum(int i) {
-        this.f3559a = i;
+        this.f3560a = i;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public Boolean getOpenPointModeForWall() {
-        return this.f3560b;
+        return this.f3561b;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public void setOpenPointModeForWall(Boolean bool) {
-        this.f3560b = bool;
+        this.f3561b = bool;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo

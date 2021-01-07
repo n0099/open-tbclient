@@ -6,10 +6,10 @@ import android.os.Parcel;
 public final class e implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    private IBinder f14645a;
+    private IBinder f14646a;
 
     public e(IBinder iBinder) {
-        this.f14645a = iBinder;
+        this.f14646a = iBinder;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b.d
@@ -19,7 +19,7 @@ public final class e implements d {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-            this.f14645a.transact(1, obtain, obtain2, 0);
+            this.f14646a.transact(1, obtain, obtain2, 0);
             obtain2.readException();
             str = obtain2.readString();
         } catch (Throwable th) {
@@ -36,6 +36,6 @@ public final class e implements d {
 
     @Override // android.os.IInterface
     public final IBinder asBinder() {
-        return this.f14645a;
+        return this.f14646a;
     }
 }

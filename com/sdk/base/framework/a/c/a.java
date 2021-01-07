@@ -3,10 +3,10 @@ package com.sdk.base.framework.a.c;
 final class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    a<T> f13073a;
+    a<T> f13074a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f13074b = false;
+    private boolean f13075b = false;
     private k<?> c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,17 +15,17 @@ final class a<T> {
     }
 
     public final int a() {
-        return this.c.f13087a;
+        return this.c.f13088a;
     }
 
     public final void a(T t) {
         if (t == null) {
             this.c = null;
         } else if (!(t instanceof k)) {
-            this.c = new k<>(b.f13075a, t);
+            this.c = new k<>(b.f13076a, t);
         } else {
             this.c = (k) t;
-            this.f13074b = true;
+            this.f13075b = true;
         }
     }
 
@@ -33,6 +33,6 @@ final class a<T> {
         if (this.c == null) {
             return null;
         }
-        return this.f13074b ? (T) this.c : (T) this.c.f13088b;
+        return this.f13075b ? (T) this.c : (T) this.c.f13089b;
     }
 }

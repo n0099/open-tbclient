@@ -96,7 +96,7 @@ public class d extends b<com.baidu.tieba.e.a> {
             ao.setBackgroundResource(getView(), R.color.CAM_X0201);
             ao.setBackgroundResource(this.itU, R.color.CAM_X0204);
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.TL(this.itV.boO().getId())) {
+            if (readThreadHistory != null && readThreadHistory.TK(this.itV.boP().getId())) {
                 ao.setViewTextColor(this.itK, R.color.CAM_X0108, 1);
             } else {
                 ao.setViewTextColor(this.itK, R.color.CAM_X0105, 1);
@@ -117,35 +117,35 @@ public class d extends b<com.baidu.tieba.e.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.e.a aVar) {
-        if (aVar != null && aVar.boO() != null) {
+        if (aVar != null && aVar.boP() != null) {
             this.itV = aVar;
             String str = null;
-            if (aVar.boO().bpV()) {
+            if (aVar.boP().bpW()) {
                 this.itN.setVisibility(0);
                 this.itO.setVisibility(0);
-                if (aVar.boO().brH() != null) {
-                    this.itO.setText(at.stringForVideoTime(aVar.boO().brH().video_duration.intValue() * 1000));
-                    str = aVar.boO().brH().thumbnail_url;
+                if (aVar.boP().brI() != null) {
+                    this.itO.setText(at.stringForVideoTime(aVar.boP().brI().video_duration.intValue() * 1000));
+                    str = aVar.boP().brI().thumbnail_url;
                 }
             } else {
                 this.itN.setVisibility(8);
                 this.itO.setVisibility(4);
-                if (aVar.boO().brz() != null && aVar.boO().brz().size() >= 1) {
-                    str = aVar.boO().brz().get(0).origin_pic;
+                if (aVar.boP().brA() != null && aVar.boP().brA().size() >= 1) {
+                    str = aVar.boP().brA().get(0).origin_pic;
                 }
             }
             this.itM.startLoad(str, 10, false);
-            this.itK.setText(aVar.boO().getTitle());
+            this.itK.setText(aVar.boP().getTitle());
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.TL(aVar.boO().getId())) {
+            if (readThreadHistory != null && readThreadHistory.TK(aVar.boP().getId())) {
                 ao.setViewTextColor(this.itK, R.color.CAM_X0108);
             } else {
                 ao.setViewTextColor(this.itK, R.color.CAM_X0105);
             }
-            this.itQ.setData(aVar.boO(), false);
-            i(aVar.boO());
-            this.itS.setText(at.getFormatTimeShort(aVar.boO().bqZ()));
-            if ("guide".equals(aVar.boO().brf())) {
+            this.itQ.setData(aVar.boP(), false);
+            i(aVar.boP());
+            this.itS.setText(at.getFormatTimeShort(aVar.boP().bra()));
+            if ("guide".equals(aVar.boP().brg())) {
                 this.itT.setVisibility(0);
             } else {
                 this.itT.setVisibility(8);
@@ -158,18 +158,18 @@ public class d extends b<com.baidu.tieba.e.a> {
         if (view == this.itT) {
             TiebaStatic.log(new aq("c13047").an("obj_locate", 4).dX("fid", this.mForumId));
             FrsGameStrategyActivity.w(this.mTbPageContext.getPageActivity(), this.mForumId, this.mForumName);
-        } else if (cuC() != null) {
-            cuC().a(getView(), this.itV);
+        } else if (cuD() != null) {
+            cuD().a(getView(), this.itV);
         }
     }
 
     private void i(bz bzVar) {
-        if (this.itR != null && bzVar != null && !StringUtils.isNull(bzVar.brq().getName_show())) {
-            this.itR.setText(CA(bzVar.brq().getName_show()));
+        if (this.itR != null && bzVar != null && !StringUtils.isNull(bzVar.brr().getName_show())) {
+            this.itR.setText(Cz(bzVar.brr().getName_show()));
         }
     }
 
-    protected String CA(String str) {
+    protected String Cz(String str) {
         return at.cutChineseAndEnglishWithSuffix(str, 14, StringHelper.STRING_MORE);
     }
 }

@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.swan.menu.f;
 import com.baidu.swan.menu.viewpager.SlideableGridView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public SwanAppMenuSlidableGridView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -27,7 +27,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
         return new a(context);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private class a extends WrapContentHeightViewPager {
         private a(Context context) {
             super(context);
@@ -55,16 +55,16 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
         this.ewg = new com.baidu.swan.menu.viewpager.a(context).aC(f.c.menu_indicator_normal, f.c.menu_indicator_selected).np((int) getResources().getDimension(f.b.common_grid_indicator_margin));
         this.ewh[0] = (int) getResources().getDimension(f.b.aiapp_menu_gridview_indicator_height);
         this.ewh[1] = (int) getResources().getDimension(f.b.aiapp_menu_gridview_indicator_height);
-        addView(this.ewg, bfy());
+        addView(this.ewg, bfz());
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
-    protected int bfx() {
+    protected int bfy() {
         return (int) getResources().getDimension(f.b.aiapp_menu_gridview_indicator_height);
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
-    protected void bfz() {
+    protected void bfA() {
         SlideableGridView.a gridItemAdapter = getGridItemAdapter();
         int pageCount = gridItemAdapter == null ? 0 : gridItemAdapter.getPageCount();
         boolean z = pageCount > 1;

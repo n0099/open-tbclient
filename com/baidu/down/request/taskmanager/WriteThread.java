@@ -16,7 +16,7 @@ import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class WriteThread implements Runnable {
     private static final boolean DEBUG = false;
     public static final int MAX_DOWNLOAD_QUENE_COUNT = 1000;

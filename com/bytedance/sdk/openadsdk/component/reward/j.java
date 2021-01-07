@@ -25,10 +25,10 @@ import org.json.JSONObject;
 class j implements TTRewardVideoAd {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f6642a;
+    private final Context f6643a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final l f6643b;
+    private final l f6644b;
     private final AdSlot c;
     private TTRewardVideoAd.RewardAdInteractionListener d;
     private com.bytedance.sdk.openadsdk.downloadnew.core.a e;
@@ -41,14 +41,14 @@ class j implements TTRewardVideoAd {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(Context context, l lVar, AdSlot adSlot) {
-        this.f6642a = context;
-        this.f6643b = lVar;
+        this.f6643a = context;
+        this.f6644b = lVar;
         this.c = adSlot;
         if (getInteractionType() == 4) {
-            this.e = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f6642a, this.f6643b, "rewarded_video");
+            this.e = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f6643a, this.f6644b, "rewarded_video");
         }
         this.g = false;
-        this.k = com.bytedance.sdk.openadsdk.utils.j.a(this.f6643b.hashCode() + this.f6643b.am().toString());
+        this.k = com.bytedance.sdk.openadsdk.utils.j.a(this.f6644b.hashCode() + this.f6644b.am().toString());
     }
 
     public void a(String str) {
@@ -73,10 +73,10 @@ class j implements TTRewardVideoAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd
     public int getInteractionType() {
-        if (this.f6643b == null) {
+        if (this.f6644b == null) {
             return -1;
         }
-        return this.f6643b.H();
+        return this.f6644b.H();
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd
@@ -86,13 +86,13 @@ class j implements TTRewardVideoAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd
     public int getRewardVideoAdType() {
-        if (this.f6643b == null) {
+        if (this.f6644b == null) {
             return -1;
         }
-        if (this.f6643b.s() && this.f6643b.c() == 1) {
+        if (this.f6644b.s() && this.f6644b.c() == 1) {
             return 2;
         }
-        return (this.f6643b.s() && this.f6643b.c() == 0) ? 1 : 0;
+        return (this.f6644b.s() && this.f6644b.c() == 0) ? 1 : 0;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd
@@ -105,12 +105,12 @@ class j implements TTRewardVideoAd {
             throw new IllegalStateException("不能在子线程调用 TTRewardVideoAd.showRewardVideoAd");
         } else if (!this.j.get()) {
             this.j.set(true);
-            if (this.f6643b != null && this.f6643b.F() != null) {
-                Context context = activity == null ? this.f6642a : activity;
+            if (this.f6644b != null && this.f6644b.F() != null) {
+                Context context = activity == null ? this.f6643a : activity;
                 if (context == null) {
                     context = p.a();
                 }
-                if (this.f6643b.B() != null) {
+                if (this.f6644b.B() != null) {
                     intent = new Intent(context, TTRewardExpressVideoActivity.class);
                 } else {
                     intent = new Intent(context, TTRewardVideoActivity.class);
@@ -130,13 +130,13 @@ class j implements TTRewardVideoAd {
                 if (this.g) {
                     intent.putExtra("video_cache_url", this.h);
                 }
-                k.d(this.f6643b.am().toString());
+                k.d(this.f6644b.am().toString());
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                    intent.putExtra(TTAdConstant.MULTI_PROCESS_MATERIALMETA, this.f6643b.am().toString());
+                    intent.putExtra(TTAdConstant.MULTI_PROCESS_MATERIALMETA, this.f6644b.am().toString());
                     intent.putExtra("multi_process_meta_md5", this.k);
                 } else {
                     com.bytedance.sdk.openadsdk.core.u.a().g();
-                    com.bytedance.sdk.openadsdk.core.u.a().a(this.f6643b);
+                    com.bytedance.sdk.openadsdk.core.u.a().a(this.f6644b);
                     com.bytedance.sdk.openadsdk.core.u.a().a(this.d);
                     com.bytedance.sdk.openadsdk.core.u.a().a(this.e);
                     this.d = null;
@@ -151,16 +151,16 @@ class j implements TTRewardVideoAd {
                         u.c("TTRewardVideoAdImpl", "show reward video error: ", th);
                     }
                 });
-                if (!TextUtils.isEmpty(this.f6643b.W())) {
+                if (!TextUtils.isEmpty(this.f6644b.W())) {
                     try {
-                        String optString = new JSONObject(this.f6643b.W()).optString("rit", null);
-                        AdSlot b2 = g.a(this.f6642a).b(optString);
-                        g.a(this.f6642a).a(optString);
+                        String optString = new JSONObject(this.f6644b.W()).optString("rit", null);
+                        AdSlot b2 = g.a(this.f6643a).b(optString);
+                        g.a(this.f6643a).a(optString);
                         if (b2 != null) {
                             if (this.g && !TextUtils.isEmpty(this.h)) {
-                                g.a(this.f6642a).b(b2);
+                                g.a(this.f6643a).b(b2);
                             } else {
-                                g.a(this.f6642a).a(b2);
+                                g.a(this.f6643a).a(b2);
                             }
                         }
                     } catch (Throwable th) {
@@ -172,8 +172,8 @@ class j implements TTRewardVideoAd {
 
     @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd
     public Map<String, Object> getMediaExtraInfo() {
-        if (this.f6643b != null) {
-            return this.f6643b.ae();
+        if (this.f6644b != null) {
+            return this.f6644b.ae();
         }
         return null;
     }
@@ -197,7 +197,7 @@ class j implements TTRewardVideoAd {
             com.bytedance.sdk.openadsdk.k.a.a().a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.component.reward.j.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.bytedance.sdk.openadsdk.multipro.aidl.a a2 = com.bytedance.sdk.openadsdk.multipro.aidl.a.a(j.this.f6642a);
+                    com.bytedance.sdk.openadsdk.multipro.aidl.a a2 = com.bytedance.sdk.openadsdk.multipro.aidl.a.a(j.this.f6643a);
                     switch (i) {
                         case 0:
                             if (j.this.d != null) {

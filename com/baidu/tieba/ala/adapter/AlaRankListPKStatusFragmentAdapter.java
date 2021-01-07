@@ -41,7 +41,7 @@ public class AlaRankListPKStatusFragmentAdapter extends FragmentPagerAdapter {
         this.gto.add(gVar2);
     }
 
-    public int Gf(String str) {
+    public int Ge(String str) {
         if (this.gtq == null || StringUtils.isNull(str)) {
             return -1;
         }

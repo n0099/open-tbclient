@@ -7,11 +7,11 @@ public final class m {
     public static String a(g.b bVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("video_profile", bVar.f11390a);
+            jSONObject.put("video_profile", bVar.f11391a);
         } catch (Exception e) {
         }
         try {
-            jSONObject.put("enter_action", bVar.f11391b);
+            jSONObject.put("enter_action", bVar.f11392b);
         } catch (Exception e2) {
         }
         try {

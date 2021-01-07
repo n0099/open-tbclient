@@ -6,19 +6,19 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes4.dex */
 public final class ac {
-    private List<Info> qcF = Collections.synchronizedList(new ArrayList());
+    private List<Info> qen = Collections.synchronizedList(new ArrayList());
 
-    public final void hf(List<Info> list) {
-        synchronized (this.qcF) {
-            this.qcF.clear();
-            this.qcF.addAll(list);
+    public final void hg(List<Info> list) {
+        synchronized (this.qen) {
+            this.qen.clear();
+            this.qen.addAll(list);
         }
     }
 
-    public final Info eJW() {
+    public final Info eKA() {
         Info info = null;
-        synchronized (this.qcF) {
-            while (this.qcF.size() > 0 && ((info = this.qcF.remove(0)) == null || !info.isEffective())) {
+        synchronized (this.qen) {
+            while (this.qen.size() > 0 && ((info = this.qen.remove(0)) == null || !info.isEffective())) {
             }
         }
         return info;
@@ -26,15 +26,15 @@ public final class ac {
 
     public final boolean java() {
         boolean isEmpty;
-        synchronized (this.qcF) {
-            isEmpty = this.qcF.isEmpty();
+        synchronized (this.qen) {
+            isEmpty = this.qen.isEmpty();
         }
         return isEmpty;
     }
 
-    public final void eJL() {
+    public final void eKp() {
         try {
-            this.qcF.clear();
+            this.qen.clear();
         } catch (Exception e) {
         }
     }

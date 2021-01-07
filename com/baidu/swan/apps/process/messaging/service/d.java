@@ -19,7 +19,7 @@ public class d implements a.b {
     private final Map<String, Deque<Message>> dwF = new HashMap();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void aJa() {
+    public void aJb() {
         for (String str : this.dwF.keySet()) {
             rU(str);
         }
@@ -30,7 +30,7 @@ public class d implements a.b {
         Deque<Message> deque = this.dwF.get(str);
         com.baidu.swan.apps.process.messaging.a.log("flushMsg:: appid=" + str + " msgQueue=" + deque);
         if (deque != null && !deque.isEmpty()) {
-            List<c> sa = e.aJL().sa(str);
+            List<c> sa = e.aJM().sa(str);
             com.baidu.swan.apps.process.messaging.a.log("flushMsg:: msgQueue.size=" + deque.size() + " clients.size=" + sa.size());
             if (!sa.isEmpty()) {
                 for (c cVar : sa) {
@@ -48,46 +48,46 @@ public class d implements a.b {
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void a(@NonNull com.baidu.swan.apps.process.messaging.c cVar) {
-        Message aJb = cVar.aJb();
-        if (cVar.aJf()) {
-            M(aJb);
+        Message aJc = cVar.aJc();
+        if (cVar.aJg()) {
+            M(aJc);
         }
-        Set<SwanAppProcessInfo> aJd = cVar.aJd();
-        Set<String> aJe = cVar.aJe();
+        Set<SwanAppProcessInfo> aJe = cVar.aJe();
+        Set<String> aJf = cVar.aJf();
         if (cVar.isSticky()) {
-            Iterator<c> it = e.aJL().aJN().iterator();
+            Iterator<c> it = e.aJM().aJO().iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                boolean a2 = a(next, aJe);
-                if (aJd.contains(next.dwt) || a2) {
-                    next.L(aJb);
+                boolean a2 = a(next, aJf);
+                if (aJe.contains(next.dwt) || a2) {
+                    next.L(aJc);
                     if (a2) {
-                        aJe.remove(next.getAppId());
+                        aJf.remove(next.getAppId());
                     }
                 }
             }
-            a(aJe, aJb);
+            a(aJf, aJc);
             return;
         }
-        Iterator<c> it2 = e.aJL().aJN().iterator();
+        Iterator<c> it2 = e.aJM().aJO().iterator();
         while (it2.hasNext()) {
             c next2 = it2.next();
-            if (next2 != null && next2.aJy() && (aJd.contains(next2.dwt) || a(next2, aJe))) {
-                next2.L(aJb);
+            if (next2 != null && next2.aJz() && (aJe.contains(next2.dwt) || a(next2, aJf))) {
+                next2.L(aJc);
             }
         }
     }
 
     private void M(Message message) {
         try {
-            e.aJL().mMessenger.send(message);
+            e.aJM().mMessenger.send(message);
         } catch (RemoteException e) {
             com.baidu.swan.apps.process.messaging.a.log(Log.getStackTraceString(e));
         }
     }
 
     boolean a(@NonNull c cVar, @NonNull Set<String> set) {
-        return cVar.aJw() && set.contains(cVar.getAppId());
+        return cVar.aJx() && set.contains(cVar.getAppId());
     }
 
     private void a(Set<String> set, @NonNull Message message) {

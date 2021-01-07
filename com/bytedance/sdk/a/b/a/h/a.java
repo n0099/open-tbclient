@@ -15,10 +15,10 @@ import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final byte[] f6241a = {42};
+    private static final byte[] f6242a = {42};
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String[] f6242b = new String[0];
+    private static final String[] f6243b = new String[0];
     private static final String[] c = {"*"};
     private static final a pkZ = new a();
     private final AtomicBoolean e = new AtomicBoolean(false);
@@ -26,7 +26,7 @@ public final class a {
     private byte[] g;
     private byte[] h;
 
-    public static a erb() {
+    public static a erc() {
         return pkZ;
     }
 
@@ -92,7 +92,7 @@ public final class a {
         if (bArr.length > 1) {
             byte[][] bArr2 = (byte[][]) bArr.clone();
             for (int i4 = 0; i4 < bArr2.length - 1; i4++) {
-                bArr2[i4] = f6241a;
+                bArr2[i4] = f6242a;
                 String a2 = a(this.g, bArr2, i4);
                 if (a2 != null) {
                     str2 = a2;
@@ -120,8 +120,8 @@ public final class a {
         if (str == null && str2 == null) {
             return c;
         }
-        String[] split = str != null ? str.split("\\.") : f6242b;
-        String[] split2 = str2 != null ? str2.split("\\.") : f6242b;
+        String[] split = str != null ? str.split("\\.") : f6243b;
+        String[] split2 = str2 != null ? str2.split("\\.") : f6243b;
         return split.length > split2.length ? split : split2;
     }
 
@@ -219,7 +219,7 @@ public final class a {
                 } catch (InterruptedIOException e) {
                     z2 = true;
                 } catch (IOException e2) {
-                    e.era().a(5, "Failed to read public suffix list", e2);
+                    e.erb().a(5, "Failed to read public suffix list", e2);
                     if (!z) {
                         return;
                     }

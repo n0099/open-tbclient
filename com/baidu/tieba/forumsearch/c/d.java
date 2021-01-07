@@ -60,9 +60,9 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.b> {
         if (bVar != null) {
             this.jdL = bVar;
             this.jdH.startLoad(bVar.getAvatar(), 10, false);
-            this.jdI.setText(eX(bVar.getForumName(), bVar.cDM()));
-            this.jdJ.setText(String.format(this.mTbPageContext.getString(R.string.concern), bVar.cDK()));
-            this.jdK.setText(String.format(this.mTbPageContext.getString(R.string.search_bar_thread), bVar.cDL()));
+            this.jdI.setText(eX(bVar.getForumName(), bVar.cDN()));
+            this.jdJ.setText(String.format(this.mTbPageContext.getString(R.string.concern), bVar.cDL()));
+            this.jdK.setText(String.format(this.mTbPageContext.getString(R.string.search_bar_thread), bVar.cDM()));
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -86,7 +86,7 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.b> {
     public void onClick(View view) {
         if (this.jdL != null) {
             TiebaStatic.log("c12261");
-            e.KD(this.jdL.cDM());
+            e.KC(this.jdL.cDN());
             view.setTag(this.jdL);
             if (this.jcR != null) {
                 this.jcR.onClick(view);

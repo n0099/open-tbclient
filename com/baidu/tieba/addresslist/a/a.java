@@ -88,7 +88,7 @@ public class a extends BaseAdapter {
         if (item == null) {
             return 4;
         }
-        return (!TextUtils.isEmpty(item.bCA()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.getUserPortrait())) ? 2 : 3;
+        return (!TextUtils.isEmpty(item.bCB()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.getUserPortrait())) ? 2 : 3;
     }
 
     @Override // android.widget.Adapter
@@ -166,8 +166,8 @@ public class a extends BaseAdapter {
                 } else {
                     bVar = (b) view.getTag();
                 }
-                if (item.bCA() != null) {
-                    bVar.glc.setText(item.bCA());
+                if (item.bCB() != null) {
+                    bVar.glc.setText(item.bCB());
                 }
                 ao.setViewTextColor(bVar.glc, this.gkU, 1);
                 ao.setBackgroundResource(bVar.bUk, R.color.CAM_X0204);
@@ -192,14 +192,14 @@ public class a extends BaseAdapter {
                 }
                 item.setLbsInfo(null);
                 if (item.getLbsInfo() != null) {
-                    if (item.getLbsInfo().bCC() == 1) {
+                    if (item.getLbsInfo().bCD() == 1) {
                         c0612a.gkZ.setVisibility(0);
                         ao.setViewTextColor(c0612a.gkZ, this.gkV, 1);
                         c0612a.gkZ.setText(this.mContext.getResources().getString(R.string.contact_yinshen));
                         c0612a.gkZ.setCompoundDrawables(null, null, null, null);
                         c0612a.gla.setVisibility(8);
-                    } else if (item.getLbsInfo().bCC() == 0) {
-                        if (!FH(item.getLbsInfo().getDistance()) || !eL(item.getLbsInfo().getTime())) {
+                    } else if (item.getLbsInfo().bCD() == 0) {
+                        if (!FG(item.getLbsInfo().getDistance()) || !eL(item.getLbsInfo().getTime())) {
                             c0612a.gkZ.setVisibility(8);
                             c0612a.gla.setVisibility(8);
                         } else {
@@ -225,9 +225,9 @@ public class a extends BaseAdapter {
                     c0612a.gla.setVisibility(8);
                 }
                 ao.setViewTextColor(c0612a.gkS, this.gkT, 1);
-                String bCA = item.bCA();
+                String bCB = item.bCB();
                 com.baidu.tbadk.coreExtra.relationship.a item2 = getItem(i + 1);
-                if ((TextUtils.isEmpty(bCA) || item2 == null || bCA.equals(item2.bCA())) ? false : true) {
+                if ((TextUtils.isEmpty(bCB) || item2 == null || bCB.equals(item2.bCB())) ? false : true) {
                     c0612a.bUk.setVisibility(4);
                 } else {
                     c0612a.bUk.setVisibility(0);
@@ -244,7 +244,7 @@ public class a extends BaseAdapter {
         }
     }
 
-    public boolean FH(String str) {
+    public boolean FG(String str) {
         return (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
     }
 

@@ -76,9 +76,9 @@ public class c extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
             bVar = (b) view.getTag();
         }
         final com.baidu.tieba.ala.alasquare.recent_history.b.b vn = getItem(i);
-        if (vn != null && vn.eMv != null && vn.eMv.brq() != null) {
-            final MetaData brq = vn.eMv.brq();
-            bVar.gHt.startLoad(brq.getPortrait(), 12, false);
+        if (vn != null && vn.eMv != null && vn.eMv.brr() != null) {
+            final MetaData brr = vn.eMv.brr();
+            bVar.gHt.startLoad(brr.getPortrait(), 12, false);
             this.gHq = 0;
             bVar.gHv.setVisibility(8);
             bVar.gHw.setVisibility(8);
@@ -102,7 +102,7 @@ public class c extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
                 }
             }
             boolean z = vn.isFollow;
-            String name_show = brq.getName_show();
+            String name_show = brr.getName_show();
             if (this.gHq <= 1) {
                 i2 = 14;
             } else {
@@ -124,19 +124,19 @@ public class c extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
                 public void onClick(View view2) {
                     boolean cn2 = c.this.cn(vn.tagList);
                     aq aqVar = new aq("c12661");
-                    aqVar.dX("obj_id", vn.eMv.brq().getUserId());
+                    aqVar.dX("obj_id", vn.eMv.brr().getUserId());
                     aqVar.an("obj_type", cn2 ? 1 : 0);
                     TiebaStatic.log(aqVar);
                     if (!c.this.cn(vn.tagList)) {
-                        c.this.d(brq);
+                        c.this.d(brr);
                     } else {
                         c.this.a(c.this.mPageContext, vn.eMv, "recent_history_whole_tab");
                     }
                 }
             });
             aq aqVar = new aq("c12660");
-            aqVar.dX("obj_id", vn.eMv.brq().getUserId());
-            com.baidu.tieba.ala.alasquare.b.a.bVl().e(aqVar);
+            aqVar.dX("obj_id", vn.eMv.brr().getUserId());
+            com.baidu.tieba.ala.alasquare.b.a.bVm().e(aqVar);
         }
         return view;
     }

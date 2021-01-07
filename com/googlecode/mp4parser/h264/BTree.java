@@ -1,5 +1,5 @@
 package com.googlecode.mp4parser.h264;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BTree {
     private BTree one;
     private Object value;

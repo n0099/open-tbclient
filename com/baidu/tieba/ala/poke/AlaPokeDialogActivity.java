@@ -133,11 +133,11 @@ public class AlaPokeDialogActivity extends BaseFragmentActivity {
         MessageManager.getInstance().registerListener(this.aBj);
         MessageManager.getInstance().registerListener(this.ifJ);
         MessageManager.getInstance().registerListener(this.bwH);
-        cri();
+        crj();
     }
 
     private void initView() {
-        if (!crh()) {
+        if (!cri()) {
             finish();
             return;
         }
@@ -174,7 +174,7 @@ public class AlaPokeDialogActivity extends BaseFragmentActivity {
         this.ifC = (TextView) findViewById(a.f.poke_right_cost);
         this.ifD = (TbImageView) findViewById(a.f.poke_right_img);
         this.ifE = (ImageView) findViewById(a.f.poke_right_button);
-        crf();
+        crg();
         this.ifw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.poke.AlaPokeDialogActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -195,7 +195,7 @@ public class AlaPokeDialogActivity extends BaseFragmentActivity {
         });
     }
 
-    private void crf() {
+    private void crg() {
         this.ifr.setText(this.bzc.aKu.nickName);
         this.cbK.setDefaultBgResource(a.e.sdk_default_avatar);
         this.cbK.setIsRound(true);
@@ -206,14 +206,14 @@ public class AlaPokeDialogActivity extends BaseFragmentActivity {
         this.ifx.setText(this.ifG.get(1).Gy());
         this.ifB.setText(this.ifG.get(2).Gy());
         this.ifu.setText("免费");
-        this.ify.setText(crg().append((CharSequence) this.ifG.get(1).getPrice()));
-        this.ifC.setText(crg().append((CharSequence) this.ifG.get(2).getPrice()));
+        this.ify.setText(crh().append((CharSequence) this.ifG.get(1).getPrice()));
+        this.ifC.setText(crh().append((CharSequence) this.ifG.get(2).getPrice()));
         this.ifv.startLoad(this.ifG.get(0).getThumbnail_url(), 10, false);
         this.ifz.startLoad(this.ifG.get(1).getThumbnail_url(), 10, false);
         this.ifD.startLoad(this.ifG.get(2).getThumbnail_url(), 10, false);
     }
 
-    private SpannableStringBuilder crg() {
+    private SpannableStringBuilder crh() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         CenteredImageSpan centeredImageSpan = new CenteredImageSpan(getActivity(), BitmapFactory.decodeResource(getResources(), a.e.sdk_icon_huobi_tdou));
         SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(" [img]");
@@ -222,7 +222,7 @@ public class AlaPokeDialogActivity extends BaseFragmentActivity {
         return spannableStringBuilder;
     }
 
-    private boolean crh() {
+    private boolean cri() {
         this.bzc = new x();
         this.bzc.aKu.userId = getIntent().getLongExtra("ala_get_poke_user_id", 0L);
         this.bzc.aKu.portrait = getIntent().getStringExtra("ala_get_poke_portrait");
@@ -288,7 +288,7 @@ public class AlaPokeDialogActivity extends BaseFragmentActivity {
         });
     }
 
-    private void cri() {
+    private void crj() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021228, TbConfig.SERVER_ADDRESS + "/ala/live/pokeBack");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

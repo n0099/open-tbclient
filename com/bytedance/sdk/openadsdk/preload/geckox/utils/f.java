@@ -9,10 +9,10 @@ import java.util.concurrent.TimeUnit;
 public class f implements Executor {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile f f7821a;
+    private static volatile f f7822a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ThreadPoolExecutor f7822b = new ThreadPoolExecutor(1, 1, 30, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactory() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.utils.f.1
+    private ThreadPoolExecutor f7823b = new ThreadPoolExecutor(1, 1, 30, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactory() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.utils.f.1
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
             Thread thread = new Thread(runnable);
@@ -23,22 +23,22 @@ public class f implements Executor {
     });
 
     private f() {
-        this.f7822b.allowCoreThreadTimeOut(true);
+        this.f7823b.allowCoreThreadTimeOut(true);
     }
 
     public static f a() {
-        if (f7821a == null) {
+        if (f7822a == null) {
             synchronized (f.class) {
-                if (f7821a == null) {
-                    f7821a = new f();
+                if (f7822a == null) {
+                    f7822a = new f();
                 }
             }
         }
-        return f7821a;
+        return f7822a;
     }
 
     @Override // java.util.concurrent.Executor
     public void execute(Runnable runnable) {
-        this.f7822b.execute(runnable);
+        this.f7823b.execute(runnable);
     }
 }

@@ -3,16 +3,16 @@ package com.baidu.mapapi.cloud;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class DetailSearchInfo extends BaseSearchInfo {
     public String poiId;
     public int uid;
 
     public DetailSearchInfo() {
         if (HttpClient.isHttpsEnable) {
-            this.f2770a = "https://api.map.baidu.com/geosearch/v2/detail/";
+            this.f2771a = "https://api.map.baidu.com/geosearch/v2/detail/";
         } else {
-            this.f2770a = "http://api.map.baidu.com/geosearch/v2/detail/";
+            this.f2771a = "http://api.map.baidu.com/geosearch/v2/detail/";
         }
     }
 
@@ -23,7 +23,7 @@ public class DetailSearchInfo extends BaseSearchInfo {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f2770a);
+        sb.append(this.f2771a);
         if (this.poiId == null || this.poiId.equals("")) {
             sb.append(this.uid).append('?');
         } else {

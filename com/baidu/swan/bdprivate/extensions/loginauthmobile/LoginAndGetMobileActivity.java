@@ -38,19 +38,19 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
             this.dWQ = extras.getString("launch_from");
             this.mAppId = extras.getString("appid");
         }
-        this.dAP = com.baidu.swan.apps.t.a.aAN().alD();
+        this.dAP = com.baidu.swan.apps.t.a.aAO().alE();
         init();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        boolean alD = com.baidu.swan.apps.t.a.aAN().alD();
-        if (this.dAP != alD) {
+        boolean alE = com.baidu.swan.apps.t.a.aAO().alE();
+        if (this.dAP != alE) {
             if (this.dWO != null) {
-                this.dWO.hN(alD);
+                this.dWO.hN(alE);
             }
-            this.dAP = alD;
+            this.dAP = alE;
         }
         super.onResume();
     }
@@ -70,17 +70,17 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
     }
 
     private void init() {
-        aTf();
         aTg();
+        aTh();
     }
 
-    private void aTf() {
+    private void aTg() {
         this.mRootView = (LinearLayout) findViewById(b.e.root);
         this.mRootView.setBackgroundColor(getResources().getColor(b.C0506b.white));
         this.mRootView.getBackground().mutate().setAlpha(0);
     }
 
-    private void aTg() {
+    private void aTh() {
         String str;
         String str2;
         this.dWO = e.a(this.dWN, this.dAP, this.dWP, this.dWQ, this.mAppId);
@@ -99,7 +99,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
 
     @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog.a
     public void me(int i) {
-        c.aTi().onResult(i);
+        c.aTj().onResult(i);
         switch (i) {
             case 0:
                 finish();

@@ -9,7 +9,7 @@ public class b {
         this.fKY = baseFragment;
     }
 
-    public BaseFragment bHj() {
+    public BaseFragment bHk() {
         return this.fKY;
     }
 }

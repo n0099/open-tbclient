@@ -36,7 +36,7 @@ public class b extends com.baidu.swan.apps.network.a {
         if (eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
             return false;
-        } else if (eVar.ank()) {
+        } else if (eVar.anl()) {
             if (DEBUG) {
                 Log.d("FaceVerifyAction", "FaceVerifyAction does not supported when app is invisible.");
             }
@@ -55,7 +55,7 @@ public class b extends com.baidu.swan.apps.network.a {
             }
             final String lI = com.baidu.swan.apps.api.module.network.c.lI(eVar.id);
             JSONObject lK = lK(lI);
-            eVar.aMw().a(context, "mapp_i_face_verify", com.baidu.swan.apps.setting.oauth.c.bZ(optParamsAsJo), new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.b.1
+            eVar.aMx().a(context, "mapp_i_face_verify", com.baidu.swan.apps.setting.oauth.c.bZ(optParamsAsJo), new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
@@ -127,7 +127,7 @@ public class b extends com.baidu.swan.apps.network.a {
         aVar.ewn = true;
         aVar.ewo = true;
         aVar.ewp = true;
-        com.baidu.swan.a.c.a.bfE().b(aVar);
+        com.baidu.swan.a.c.a.bfF().b(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -185,7 +185,7 @@ public class b extends com.baidu.swan.apps.network.a {
     }
 
     public static void a(String str, com.baidu.swan.apps.runtime.e eVar, final com.baidu.swan.apps.ao.e.b<String> bVar) {
-        com.baidu.swan.bdprivate.a.a.a(eVar.aMe(), str, eVar.id, new com.baidu.swan.apps.ao.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.extensions.a.b.4
+        com.baidu.swan.bdprivate.a.a.a(eVar.aMf(), str, eVar.id, new com.baidu.swan.apps.ao.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.extensions.a.b.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: B */
@@ -223,7 +223,7 @@ public class b extends com.baidu.swan.apps.network.a {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments("ma/authentication/realnamecheck");
-        for (Map.Entry<String, String> entry : com.baidu.swan.apps.i.b.aoU().cPg.entrySet()) {
+        for (Map.Entry<String, String> entry : com.baidu.swan.apps.i.b.aoV().cPg.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();

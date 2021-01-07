@@ -14,7 +14,7 @@ import com.bumptech.glide.util.Preconditions;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
     private final Pools.Pool<List<Throwable>> exceptionListPool;
     private final List<ModelLoader<Model, Data>> modelLoaders;
@@ -64,7 +64,7 @@ class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
         return "MultiModelLoader{modelLoaders=" + Arrays.toString(this.modelLoaders.toArray()) + '}';
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static class MultiFetcher<Data> implements DataFetcher<Data>, DataFetcher.DataCallback<Data> {
         private DataFetcher.DataCallback<? super Data> callback;
         private int currentIndex;

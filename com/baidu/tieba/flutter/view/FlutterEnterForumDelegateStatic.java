@@ -71,7 +71,7 @@ public class FlutterEnterForumDelegateStatic extends b {
         aVar.offsetX = l.dip2px(context, 10.0f);
         aVar.view = this.tipView;
         this.mIndicator.b("emotion", aVar);
-        boolean z = com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
+        boolean z = com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
         if (this.isNew.booleanValue() || z) {
             this.tipView.refresh(0);
             this.tipView.setVisibility(0);

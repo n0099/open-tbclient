@@ -18,16 +18,16 @@ import java.util.LinkedList;
 public class PbFirstFloorCommentAndPraiseAdapter extends l<o, PbFirstFloorCommentAndPraiseViewHolder> {
     private static int aMg;
     private View.OnClickListener fkS;
-    private c lXe;
-    private final LinkedList<PbFirstFloorCommentAndPraiseViewHolder> lXf;
+    private c lXd;
+    private final LinkedList<PbFirstFloorCommentAndPraiseViewHolder> lXe;
 
     public PbFirstFloorCommentAndPraiseAdapter(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
         super(bVar, bdUniqueId);
-        this.lXf = new LinkedList<>();
-        if (bVar != null && bVar.dnV() != null) {
-            aMg = bVar.dnV().dqH();
+        this.lXe = new LinkedList<>();
+        if (bVar != null && bVar.dnW() != null) {
+            aMg = bVar.dnW().dqI();
         }
-        this.lXe = new c(bVar);
+        this.lXd = new c(bVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +35,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends l<o, PbFirstFloorCommen
     /* renamed from: cD */
     public PbFirstFloorCommentAndPraiseViewHolder e(ViewGroup viewGroup) {
         PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder = new PbFirstFloorCommentAndPraiseViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.layout_pb_thread_praise_item, viewGroup, false));
-        this.lXf.add(pbFirstFloorCommentAndPraiseViewHolder);
+        this.lXe.add(pbFirstFloorCommentAndPraiseViewHolder);
         return pbFirstFloorCommentAndPraiseViewHolder;
     }
 
@@ -44,59 +44,59 @@ public class PbFirstFloorCommentAndPraiseAdapter extends l<o, PbFirstFloorCommen
     public View a(int i, View view, ViewGroup viewGroup, o oVar, PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder) {
         super.a(i, view, viewGroup, (ViewGroup) oVar, (o) pbFirstFloorCommentAndPraiseViewHolder);
         if (oVar != null && pbFirstFloorCommentAndPraiseViewHolder != null) {
-            pbFirstFloorCommentAndPraiseViewHolder.lXg.setOnClickOutListener(this.fkS);
-            pbFirstFloorCommentAndPraiseViewHolder.lXg.setPostId(getPostId());
-            pbFirstFloorCommentAndPraiseViewHolder.lXg.setForumId(getForumId());
+            pbFirstFloorCommentAndPraiseViewHolder.lXf.setOnClickOutListener(this.fkS);
+            pbFirstFloorCommentAndPraiseViewHolder.lXf.setPostId(getPostId());
+            pbFirstFloorCommentAndPraiseViewHolder.lXf.setForumId(getForumId());
             pbFirstFloorCommentAndPraiseViewHolder.b(oVar);
         }
         return view;
     }
 
     public void onDestroy() {
-        dto();
-        if (this.lXe != null) {
-            this.lXe.onDestroy();
+        dtp();
+        if (this.lXd != null) {
+            this.lXd.onDestroy();
         }
     }
 
-    private void dto() {
-        Iterator<PbFirstFloorCommentAndPraiseViewHolder> it = this.lXf.iterator();
+    private void dtp() {
+        Iterator<PbFirstFloorCommentAndPraiseViewHolder> it = this.lXe.iterator();
         while (it.hasNext()) {
             PbFirstFloorCommentAndPraiseViewHolder next = it.next();
-            if (next != null && next.lXg != null) {
-                next.lXg.onDestroy();
+            if (next != null && next.lXf != null) {
+                next.lXf.onDestroy();
             }
         }
     }
 
-    public void Cz(String str) {
-        if (this.lXf.size() > 0) {
-            Iterator<PbFirstFloorCommentAndPraiseViewHolder> it = this.lXf.iterator();
+    public void Cy(String str) {
+        if (this.lXe.size() > 0) {
+            Iterator<PbFirstFloorCommentAndPraiseViewHolder> it = this.lXe.iterator();
             while (it.hasNext()) {
                 PbFirstFloorCommentAndPraiseViewHolder next = it.next();
-                if (next != null && next.lXg != null) {
-                    next.lXg.Cz(str);
+                if (next != null && next.lXf != null) {
+                    next.lXf.Cy(str);
                 }
             }
-        } else if (dtp() != null) {
-            this.lXe.e(dtp().btk());
+        } else if (dtq() != null) {
+            this.lXd.e(dtq().btl());
         }
     }
 
     private String getPostId() {
-        bz dtp = dtp();
-        return dtp != null ? dtp.brG() : "";
+        bz dtq = dtq();
+        return dtq != null ? dtq.brH() : "";
     }
 
     private String getForumId() {
-        return this.lLF.dnV() != null ? this.lLF.dnV().getForumId() : "";
+        return this.lLE.dnW() != null ? this.lLE.dnW().getForumId() : "";
     }
 
-    private bz dtp() {
-        if (this.lLF.dnV() == null || this.lLF.dnV().getPbData() == null) {
+    private bz dtq() {
+        if (this.lLE.dnW() == null || this.lLE.dnW().getPbData() == null) {
             return null;
         }
-        return this.lLF.dnV().getPbData().dmE();
+        return this.lLE.dnW().getPbData().dmF();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -105,39 +105,39 @@ public class PbFirstFloorCommentAndPraiseAdapter extends l<o, PbFirstFloorCommen
 
     /* loaded from: classes2.dex */
     public static class PbFirstFloorCommentAndPraiseViewHolder extends TypeAdapter.ViewHolder {
-        public PbThreadCommentAndPraiseInfoLayout lXg;
-        public View lXh;
-        private int lXi;
+        public PbThreadCommentAndPraiseInfoLayout lXf;
+        public View lXg;
+        private int lXh;
 
         public PbFirstFloorCommentAndPraiseViewHolder(View view) {
             super(view);
             if (view != null) {
-                this.lXg = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_func_layout);
+                this.lXf = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_func_layout);
                 d dVar = new d();
                 dVar.eOz = 4;
                 dVar.eOF = 7;
-                dVar.eOA = this.lXi;
+                dVar.eOA = this.lXh;
                 dVar.eOD = PbFirstFloorCommentAndPraiseAdapter.aMg;
-                this.lXg.setAgreeStatisticData(dVar);
-                this.lXh = view.findViewById(R.id.bottom_divider_line);
-                this.lXh.setVisibility(0);
+                this.lXf.setAgreeStatisticData(dVar);
+                this.lXg = view.findViewById(R.id.bottom_divider_line);
+                this.lXg.setVisibility(0);
             }
         }
 
         public void b(o oVar) {
-            if (oVar != null && oVar.boO() != null) {
-                bz boO = oVar.boO();
-                if (boO.btk() != null) {
-                    boO.btk().postId = boO.brG();
+            if (oVar != null && oVar.boP() != null) {
+                bz boP = oVar.boP();
+                if (boP.btl() != null) {
+                    boP.btl().postId = boP.brH();
                 }
-                this.lXg.a(boO, oVar.getAnti());
-                this.lXh.setVisibility(oVar.dnA() ? 0 : 8);
-                if (boO.bpV() && boO.brH() != null) {
-                    this.lXi = 2;
+                this.lXf.a(boP, oVar.getAnti());
+                this.lXg.setVisibility(oVar.dnB() ? 0 : 8);
+                if (boP.bpW() && boP.brI() != null) {
+                    this.lXh = 2;
                 } else {
-                    this.lXi = 1;
+                    this.lXh = 1;
                 }
-                if (oVar.lHr) {
+                if (oVar.lHq) {
                     getView().setPadding(0, 0, 0, com.baidu.adp.lib.util.l.getDimens(getView().getContext(), R.dimen.tbds32));
                 }
             }
@@ -145,8 +145,8 @@ public class PbFirstFloorCommentAndPraiseAdapter extends l<o, PbFirstFloorCommen
         }
 
         public void onChangeSkinType() {
-            ao.setBackgroundColor(this.lXh, R.color.CAM_X0203);
-            this.lXg.onChangeSkinType();
+            ao.setBackgroundColor(this.lXg, R.color.CAM_X0203);
+            this.lXf.onChangeSkinType();
         }
     }
 }

@@ -61,18 +61,18 @@ public abstract class as extends a<com.baidu.tbadk.core.data.a> implements com.b
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0090a c0090a) {
                 if (c0090a.getActionType() == 1) {
-                    com.baidu.tieba.card.m.a(as.this.mTitle, as.this.ahi.boO().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    com.baidu.tieba.card.m.a(as.this.mTitle, as.this.ahi.boP().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 } else if (c0090a.getActionType() == 2) {
                     if (as.this.akg != null) {
-                        as.this.akg.bZj();
+                        as.this.akg.bZk();
                     }
                 } else if (c0090a.getActionType() == 3) {
                     if (as.this.akg != null) {
-                        as.this.akg.dwT();
+                        as.this.akg.dwU();
                     }
                 } else if (c0090a.getActionType() == 6) {
                     if (as.this.akg != null) {
-                        return as.this.akg.dCj();
+                        return as.this.akg.dCk();
                     }
                 } else if (c0090a.getActionType() == 7) {
                     if (as.this.ahC != null) {
@@ -105,7 +105,7 @@ public abstract class as extends a<com.baidu.tbadk.core.data.a> implements com.b
             this.mTitle = (TextView) this.mRootView.findViewById(R.id.video_seg_title);
             this.ahC = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
             this.akg = ti();
-            this.akg.dBx().setBackgroundResource(R.color.transparent);
+            this.akg.dBy().setBackgroundResource(R.color.transparent);
             this.akg.setUniqueId(this.ahE);
             this.akg.setFrom(this.mFrom);
             this.akg.setStageType(this.akh);
@@ -129,16 +129,16 @@ public abstract class as extends a<com.baidu.tbadk.core.data.a> implements com.b
             this.mLastScreenWidth = equipmentWidth;
         }
         this.ahi = aVar;
-        if (this.ahi != null && this.ahi.boO() != null && this.ahi.boO().brH() != null) {
-            this.akg.setData(aVar.boO());
+        if (this.ahi != null && this.ahi.boP() != null && this.ahi.boP().brI() != null) {
+            this.akg.setData(aVar.boP());
             final ViewGroup.LayoutParams layoutParams = this.ahC.getLayoutParams();
             int i = layoutParams.width;
             int i2 = layoutParams.height;
-            if (this.ahi.boO().brH().is_vertical.intValue() == 1) {
+            if (this.ahi.boP().brI().is_vertical.intValue() == 1) {
                 int i3 = (ahA / 9) * 16;
                 int i4 = ahB;
-                int intValue = this.ahi.boO().brH().video_width.intValue();
-                int intValue2 = this.ahi.boO().brH().video_height.intValue();
+                int intValue = this.ahi.boP().brI().video_width.intValue();
+                int intValue2 = this.ahi.boP().brI().video_height.intValue();
                 layoutParams.width = ahA;
                 boolean z4 = i != layoutParams.width;
                 if (intValue == 0 || intValue2 == 0) {
@@ -168,7 +168,7 @@ public abstract class as extends a<com.baidu.tbadk.core.data.a> implements com.b
                 z = (i2 == layoutParams.height && i == layoutParams.width) ? false : true;
             }
             if (z) {
-                if (this.ahi.boO().brH().is_vertical.intValue() == 1) {
+                if (this.ahi.boP().brI().is_vertical.intValue() == 1) {
                     this.ahC.setLayoutParams(layoutParams);
                 } else {
                     this.ahC.post(new Runnable() { // from class: com.baidu.card.as.1
@@ -181,12 +181,12 @@ public abstract class as extends a<com.baidu.tbadk.core.data.a> implements com.b
                     });
                 }
             }
-            if (this.ahi.boO().btp()) {
+            if (this.ahi.boP().btq()) {
                 this.mTitle.setMaxLines(5);
-                ay.a(this.mTitle, this.ahi.boO(), ahz, this.ahF);
+                ay.a(this.mTitle, this.ahi.boP(), ahz, this.ahF);
             } else {
                 this.mTitle.setMaxLines(2);
-                ay.a(this.mTitle, this.ahi.boO(), 0, this.ahF);
+                ay.a(this.mTitle, this.ahi.boP(), 0, this.ahF);
             }
             if (this.mTitle != null && this.mTitle.getVisibility() == 0) {
                 z3 = false;
@@ -207,8 +207,8 @@ public abstract class as extends a<com.baidu.tbadk.core.data.a> implements com.b
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.ahi != null && this.ahi.boO() != null) {
-            com.baidu.tieba.card.m.a(this.mTitle, this.ahi.boO().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+        if (this.ahi != null && this.ahi.boP() != null) {
+            com.baidu.tieba.card.m.a(this.mTitle, this.ahi.boP().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             this.ahC.onChangeSkinType(i);
             this.ahC.setBackgroundColor(com.baidu.tbadk.core.util.ao.getColor(R.color.CAM_X0209));
         }
@@ -261,10 +261,10 @@ public abstract class as extends a<com.baidu.tbadk.core.data.a> implements com.b
 
     @Override // com.baidu.tieba.play.e
     public String getPlayUrl() {
-        if (this.ahi == null || this.ahi.boO() == null) {
+        if (this.ahi == null || this.ahi.boP() == null) {
             return null;
         }
-        return this.ahi.boO().getVideoUrl();
+        return this.ahi.boP().getVideoUrl();
     }
 
     public void setFrom(String str) {

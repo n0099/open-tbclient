@@ -23,17 +23,17 @@ public class c {
     private static boolean sDebug = com.baidu.swan.apps.b.DEBUG;
 
     public static boolean dl(Context context) {
-        return (dm(context) || aLN()) || dn(context);
+        return (dm(context) || aLO()) || dn(context);
     }
 
     private static boolean dm(Context context) {
-        if (aLO()) {
-            return (aLM() && isFloatWindowOpAllowed(context)) ? false : true;
+        if (aLP()) {
+            return (aLN() && isFloatWindowOpAllowed(context)) ? false : true;
         }
         return false;
     }
 
-    private static boolean aLM() {
+    private static boolean aLN() {
         String[] split;
         if (dFW == null) {
             dFW = getProp(RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
@@ -55,11 +55,11 @@ public class c {
         return false;
     }
 
-    private static boolean aLN() {
+    private static boolean aLO() {
         return Build.VERSION.SDK_INT >= 25;
     }
 
-    private static boolean aLO() {
+    private static boolean aLP() {
         if (dFV == null) {
             dFV = getProp("ro.miui.ui.version.name");
         }
@@ -69,7 +69,7 @@ public class c {
         return !TextUtils.isEmpty(dFV);
     }
 
-    public static boolean aLP() {
+    public static boolean aLQ() {
         if (dFX == null) {
             dFX = getProp("ro.build.version.opporom");
         }
@@ -80,10 +80,10 @@ public class c {
     }
 
     private static boolean dn(Context context) {
-        return aLQ() && !isFloatWindowOpAllowed(context) && Build.VERSION.SDK_INT >= 23;
+        return aLR() && !isFloatWindowOpAllowed(context) && Build.VERSION.SDK_INT >= 23;
     }
 
-    private static boolean aLQ() {
+    private static boolean aLR() {
         return Build.FINGERPRINT.contains("Flyme") || Pattern.compile("Flyme", 2).matcher(Build.DISPLAY).find();
     }
 

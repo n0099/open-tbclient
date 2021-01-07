@@ -16,22 +16,22 @@ import java.io.InputStream;
 public class f<Data> implements n<File, Data> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final d<Data> f10381a;
+    private final d<Data> f10382a;
 
     /* loaded from: classes5.dex */
     public static class a<Data> implements o<File, Data> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final d<Data> f10382a;
+        private final d<Data> f10383a;
 
         public a(d<Data> dVar) {
-            this.f10382a = dVar;
+            this.f10383a = dVar;
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public final n<File, Data> a(@NonNull r rVar) {
-            return new f(this.f10382a);
+            return new f(this.f10383a);
         }
     }
 
@@ -65,28 +65,28 @@ public class f<Data> implements n<File, Data> {
     public static final class c<Data> implements com.kwad.sdk.glide.load.a.d<Data> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final File f10383a;
+        private final File f10384a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final d<Data> f10384b;
+        private final d<Data> f10385b;
         private Data c;
 
         c(File file, d<Data> dVar) {
-            this.f10383a = file;
-            this.f10384b = dVar;
+            this.f10384a = file;
+            this.f10385b = dVar;
         }
 
         @Override // com.kwad.sdk.glide.load.a.d
         @NonNull
         public Class<Data> a() {
-            return this.f10384b.a();
+            return this.f10385b.a();
         }
 
         /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: Data, ? super Data */
         @Override // com.kwad.sdk.glide.load.a.d
         public void a(@NonNull Priority priority, @NonNull d.a<? super Data> aVar) {
             try {
-                this.c = this.f10384b.b(this.f10383a);
+                this.c = this.f10385b.b(this.f10384a);
                 aVar.a((d.a<? super Data>) ((Data) this.c));
             } catch (FileNotFoundException e) {
                 if (Log.isLoggable("FileLoader", 3)) {
@@ -100,7 +100,7 @@ public class f<Data> implements n<File, Data> {
         public void b() {
             if (this.c != null) {
                 try {
-                    this.f10384b.a(this.c);
+                    this.f10385b.a(this.c);
                 } catch (IOException e) {
                 }
             }
@@ -152,13 +152,13 @@ public class f<Data> implements n<File, Data> {
     }
 
     public f(d<Data> dVar) {
-        this.f10381a = dVar;
+        this.f10382a = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<Data> a(@NonNull File file, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return new n.a<>(new com.kwad.sdk.glide.f.b(file), new c(file, this.f10381a));
+        return new n.a<>(new com.kwad.sdk.glide.f.b(file), new c(file, this.f10382a));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

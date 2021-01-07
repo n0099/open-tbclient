@@ -22,10 +22,10 @@ import java.util.Random;
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4139a = "PassHttpClientRequest";
+    private static final String f4140a = "PassHttpClientRequest";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f4140b = "Set-Cookie";
+    private static final String f4141b = "Set-Cookie";
     private static final char[] c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     private static final String d = "User-Agent";
     private static final int e = 15000;
@@ -107,7 +107,7 @@ public class d implements Runnable {
 
     private void d() throws IOException, InterruptedException, IllegalArgumentException {
         byte[] bArr;
-        int i = c.f4138a[this.k.ordinal()];
+        int i = c.f4139a[this.k.ordinal()];
         if (i == 1) {
             String a2 = a(this.j.paramsMap);
             if (!TextUtils.isEmpty(a2)) {
@@ -139,7 +139,7 @@ public class d implements Runnable {
         int responseCode = this.l.getResponseCode();
         byte[] a3 = a(inputStream);
         if (a3 != null) {
-            f.a(f4139a, "responseBody:" + new String(a3));
+            f.a(f4140a, "responseBody:" + new String(a3));
         }
         HashMap<String, String> a4 = a(this.l);
         e.a(this.h, this.l, this.j);
@@ -320,7 +320,7 @@ public class d implements Runnable {
                 }
             }
             MultipartHashMap.a aVar = ((MultipartHashMap) passHttpParamDTO.paramsMap).fileWrapper;
-            a(byteArrayOutputStream, aVar.f4132a, aVar.f4133b, aVar.d, aVar.c);
+            a(byteArrayOutputStream, aVar.f4133a, aVar.f4134b, aVar.d, aVar.c);
             a(byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();
         } else if (httpHashMap instanceof HttpHashMap) {

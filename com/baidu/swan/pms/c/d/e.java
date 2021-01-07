@@ -22,8 +22,8 @@ public class e extends com.baidu.swan.pms.c.d.b {
         super.a(map, map2, aVar, aVar2);
         if (aVar instanceof b) {
             b bVar = (b) aVar;
-            if (bVar.aZX() != null && bVar.bgZ() == null && (yP = com.baidu.swan.pms.database.a.bgb().yP(bVar.getBundleId())) >= 0) {
-                bVar.bg(a.bf(com.baidu.swan.pms.database.a.bgb().ai(bVar.getBundleId(), yP)));
+            if (bVar.aZY() != null && bVar.bha() == null && (yP = com.baidu.swan.pms.database.a.bgc().yP(bVar.getBundleId())) >= 0) {
+                bVar.bg(a.bf(com.baidu.swan.pms.database.a.bgc().ai(bVar.getBundleId(), yP)));
             }
         }
     }
@@ -40,7 +40,7 @@ public class e extends com.baidu.swan.pms.c.d.b {
         }
 
         @Nullable
-        public String[] aZX() {
+        public String[] aZY() {
             return this.mPaths;
         }
 
@@ -49,7 +49,7 @@ public class e extends com.baidu.swan.pms.c.d.b {
         }
 
         @Nullable
-        public List<a> bgZ() {
+        public List<a> bha() {
             return this.exS;
         }
 
@@ -68,7 +68,7 @@ public class e extends com.baidu.swan.pms.c.d.b {
             this.exQ = str;
         }
 
-        public String bgY() {
+        public String bgZ() {
             return this.exQ;
         }
 

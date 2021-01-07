@@ -20,12 +20,12 @@ public class HotTopicTabModel extends BdBaseModel {
     private final HashMap<String, List<n>> kdg;
     private boolean mIsLoading;
 
-    public List<n> Mw(String str) {
+    public List<n> Mv(String str) {
         return this.kdg.get(str);
     }
 
-    public List<n> cSz() {
-        return Mw(this.fsZ);
+    public List<n> cSA() {
+        return Mv(this.fsZ);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -33,10 +33,10 @@ public class HotTopicTabModel extends BdBaseModel {
         super(tbPageContext);
         this.fsZ = "all";
         this.kdg = new HashMap<>();
-        cSA();
+        cSB();
     }
 
-    private void cSA() {
+    private void cSB() {
         this.eFZ = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HOT_TOPIC_TAB, 309661) { // from class: com.baidu.tieba.homepage.hotTopic.tab.HotTopicTabModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -66,7 +66,7 @@ public class HotTopicTabModel extends BdBaseModel {
         this.fsZ = str;
     }
 
-    public String bzO() {
+    public String bzP() {
         return this.fsZ;
     }
 

@@ -32,7 +32,7 @@ public class c implements BaiduRtcRoom.a, g.d {
     private boolean isMute;
     private BaiduRtcRoom mBaiduRtcRoom;
     private Context mContext;
-    private RtcParameterSettings aDn = RtcParameterSettings.aiq();
+    private RtcParameterSettings aDn = RtcParameterSettings.air();
     private boolean aDo = false;
     private List<RTCVideoView> aDs = new ArrayList();
     private BLMRtcState aDt = BLMRtcState.DEFAULT;
@@ -300,9 +300,9 @@ public class c implements BaiduRtcRoom.a, g.d {
 
     @Override // com.baidu.rtc.g.d
     public void a(g gVar) {
-        BaiduRtcRoom.c[] ahY;
-        if (this.mBaiduRtcRoom != null && (ahY = this.mBaiduRtcRoom.ahY()) != null) {
-            for (BaiduRtcRoom.c cVar : ahY) {
+        BaiduRtcRoom.c[] ahZ;
+        if (this.mBaiduRtcRoom != null && (ahZ = this.mBaiduRtcRoom.ahZ()) != null) {
+            for (BaiduRtcRoom.c cVar : ahZ) {
                 if (cVar != null) {
                 }
             }

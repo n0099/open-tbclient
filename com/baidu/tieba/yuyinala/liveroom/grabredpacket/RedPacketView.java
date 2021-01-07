@@ -16,16 +16,16 @@ import java.util.Iterator;
 import java.util.Random;
 /* loaded from: classes11.dex */
 public class RedPacketView extends View {
-    private static final Random opU = new Random();
+    private static final Random opT = new Random();
     private ValueAnimator animator;
     private int count;
     private int mWidth;
-    private int[] opV;
+    private int[] opU;
+    private float opV;
     private float opW;
-    private float opX;
-    private long opY;
-    private ArrayList<c> opZ;
-    private a oqa;
+    private long opX;
+    private ArrayList<c> opY;
+    private a opZ;
     private Paint paint;
     private int speed;
 
@@ -36,19 +36,19 @@ public class RedPacketView extends View {
 
     public RedPacketView(Context context) {
         super(context);
-        this.opV = new int[]{a.e.ic_red_packet_middle};
-        this.opZ = new ArrayList<>();
+        this.opU = new int[]{a.e.ic_red_packet_middle};
+        this.opY = new ArrayList<>();
         init();
     }
 
     public RedPacketView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.opV = new int[]{a.e.ic_red_packet_middle};
-        this.opZ = new ArrayList<>();
+        this.opU = new int[]{a.e.ic_red_packet_middle};
+        this.opY = new ArrayList<>();
         this.count = 9;
         this.speed = 300;
-        this.opX = 0.7f;
         this.opW = 0.7f;
+        this.opV = 0.7f;
         init();
     }
 
@@ -59,27 +59,27 @@ public class RedPacketView extends View {
         this.paint.setAntiAlias(true);
         this.animator = ValueAnimator.ofFloat(0.0f, 1.0f);
         setLayerType(2, null);
-        ZJ();
+        ZK();
     }
 
-    private void ZJ() {
+    private void ZK() {
         this.animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.grabredpacket.RedPacketView.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 long currentTimeMillis = System.currentTimeMillis();
-                float f = ((float) (currentTimeMillis - RedPacketView.this.opY)) / 1000.0f;
-                RedPacketView.this.opY = currentTimeMillis;
+                float f = ((float) (currentTimeMillis - RedPacketView.this.opX)) / 1000.0f;
+                RedPacketView.this.opX = currentTimeMillis;
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 < RedPacketView.this.opZ.size()) {
-                        c cVar = (c) RedPacketView.this.opZ.get(i2);
+                    if (i2 < RedPacketView.this.opY.size()) {
+                        c cVar = (c) RedPacketView.this.opY.get(i2);
                         cVar.y += cVar.speed * f;
                         if (cVar.y > RedPacketView.this.getHeight()) {
                             cVar.y = 0 - cVar.height;
-                            cVar.opD = cVar.ecH();
+                            cVar.opC = cVar.ecI();
                         }
-                        cVar.rotation += cVar.opC * f;
+                        cVar.rotation += cVar.opB * f;
                         i = i2 + 1;
                     } else {
                         RedPacketView.this.invalidate();
@@ -92,33 +92,33 @@ public class RedPacketView extends View {
         this.animator.setDuration(100L);
     }
 
-    public void ecM() {
+    public void ecN() {
         clear();
         invalidate();
         this.animator.cancel();
     }
 
-    public void ecN() {
+    public void ecO() {
         clear();
         setRedpacketCount(this.count);
-        this.opY = System.currentTimeMillis();
+        this.opX = System.currentTimeMillis();
         this.animator.start();
     }
 
     public void setRedpacketCount(int i) {
-        if (this.opV != null && this.opV.length != 0) {
+        if (this.opU != null && this.opU.length != 0) {
             for (int i2 = 0; i2 < i; i2++) {
-                this.opZ.add(new c(getContext(), BitmapFactory.decodeResource(getResources(), this.opV[opU.nextInt(this.opV.length)]), this.speed, this.opW, this.opX, this.mWidth));
+                this.opY.add(new c(getContext(), BitmapFactory.decodeResource(getResources(), this.opU[opT.nextInt(this.opU.length)]), this.speed, this.opV, this.opW, this.mWidth));
             }
         }
     }
 
     private void clear() {
-        Iterator<c> it = this.opZ.iterator();
+        Iterator<c> it = this.opY.iterator();
         while (it.hasNext()) {
             it.next().recycle();
         }
-        this.opZ.clear();
+        this.opY.clear();
     }
 
     @Override // android.view.View
@@ -132,8 +132,8 @@ public class RedPacketView extends View {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.opZ.size()) {
-                c cVar = this.opZ.get(i2);
+            if (i2 < this.opY.size()) {
+                c cVar = this.opY.get(i2);
                 Matrix matrix = new Matrix();
                 matrix.setTranslate((-cVar.width) / 2, (-cVar.height) / 2);
                 matrix.postRotate(cVar.rotation);
@@ -153,9 +153,9 @@ public class RedPacketView extends View {
                 c H = H(motionEvent.getX(), motionEvent.getY());
                 if (H != null) {
                     H.y = 0 - H.height;
-                    H.opD = H.ecH();
-                    if (this.oqa != null) {
-                        this.oqa.a(H);
+                    H.opC = H.ecI();
+                    if (this.opZ != null) {
+                        this.opZ.a(H);
                         return true;
                     }
                     return true;
@@ -169,15 +169,15 @@ public class RedPacketView extends View {
     }
 
     private c H(float f, float f2) {
-        for (int size = this.opZ.size() - 1; size >= 0; size--) {
-            if (this.opZ.get(size).G(f, f2)) {
-                return this.opZ.get(size);
+        for (int size = this.opY.size() - 1; size >= 0; size--) {
+            if (this.opY.get(size).G(f, f2)) {
+                return this.opY.get(size);
             }
         }
         return null;
     }
 
     public void setOnRedPacketClickListener(a aVar) {
-        this.oqa = aVar;
+        this.opZ = aVar;
     }
 }

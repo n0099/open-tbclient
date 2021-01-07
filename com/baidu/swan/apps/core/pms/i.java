@@ -19,18 +19,18 @@ public class i extends l {
     }
 
     @Override // com.baidu.swan.apps.core.pms.l
-    protected PMSDownloadType auh() {
+    protected PMSDownloadType aui() {
         return PMSDownloadType.SWAN_APP_UPDATE_CORE;
     }
 
     @Override // com.baidu.swan.apps.core.pms.l
-    protected String aus() {
-        return com.baidu.swan.apps.core.pms.f.a.auB();
+    protected String aut() {
+        return com.baidu.swan.apps.core.pms.f.a.auC();
     }
 
     @Override // com.baidu.swan.apps.core.pms.l
-    protected String aut() {
-        return com.baidu.swan.apps.core.pms.f.a.aut();
+    protected String auu() {
+        return com.baidu.swan.apps.core.pms.f.a.auu();
     }
 
     @Override // com.baidu.swan.apps.core.pms.l
@@ -65,20 +65,20 @@ public class i extends l {
             if (DEBUG) {
                 Log.i("SwanAppUpdateCore", "小程序Extension包解压成功");
             }
-            boolean akq = com.baidu.swan.apps.t.a.aAu().akq();
+            boolean akr = com.baidu.swan.apps.t.a.aAv().akr();
             if (DEBUG) {
-                Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: extension js 热应用实验开关 " + akq);
+                Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: extension js 热应用实验开关 " + akr);
             }
-            if (akq) {
+            if (akr) {
                 if (DEBUG) {
                     Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: 命中 extension js 热应用实验");
                 }
-                long ayf = com.baidu.swan.apps.extcore.b.iM(0).axS().ayf();
-                if (ayf > 0) {
+                long ayg = com.baidu.swan.apps.extcore.b.iM(0).axT().ayg();
+                if (ayg > 0) {
                     if (DEBUG) {
                         Log.d("SwanAppUpdateCore", "发送extension core更新事件");
                     }
-                    SwanAppMessengerService.sendMessageWithDataToAllClient((int) Constants.METHOD_IM_FRIEND_GROUP_DROP, ayf);
+                    SwanAppMessengerService.sendMessageWithDataToAllClient((int) Constants.METHOD_IM_FRIEND_GROUP_DROP, ayg);
                 }
             }
             return null;

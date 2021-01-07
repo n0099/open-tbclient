@@ -77,7 +77,7 @@ public class h {
             bundle = new Bundle();
         }
         bundle.putString("eventType", str);
-        com.baidu.swan.apps.process.messaging.a.aIX().a(new com.baidu.swan.apps.process.messaging.c(107, bundle).D(str2));
+        com.baidu.swan.apps.process.messaging.a.aIY().a(new com.baidu.swan.apps.process.messaging.c(107, bundle).D(str2));
     }
 
     public static void m(Message message) {
@@ -98,11 +98,11 @@ public class h {
             }
             hashMap.put("data", jSONObject.toString());
             com.baidu.swan.apps.event.a.b bVar = new com.baidu.swan.apps.event.a.b("updateStatusChange", hashMap);
-            SwanAppActivity aDq = com.baidu.swan.apps.v.f.aDG().aDq();
-            if (aDq != null && aDq.ajk() == 1) {
-                com.baidu.swan.games.aa.a.bch().at(string, bundle.getBoolean("hasUpdate"));
+            SwanAppActivity aDr = com.baidu.swan.apps.v.f.aDH().aDr();
+            if (aDr != null && aDr.ajl() == 1) {
+                com.baidu.swan.games.aa.a.bci().at(string, bundle.getBoolean("hasUpdate"));
             } else {
-                com.baidu.swan.apps.v.f.aDG().b(bVar);
+                com.baidu.swan.apps.v.f.aDH().b(bVar);
             }
         }
     }

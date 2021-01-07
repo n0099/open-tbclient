@@ -15,15 +15,15 @@ public class ap {
         this.dSf = 0;
     }
 
-    public boolean aRY() {
+    public boolean aRZ() {
         return this.dSf != 0;
     }
 
-    public int aRZ() {
-        return aRY() ? 1 : 0;
+    public int aSa() {
+        return aRZ() ? 1 : 0;
     }
 
-    public static ap aSa() {
+    public static ap aSb() {
         return a.dSg;
     }
 

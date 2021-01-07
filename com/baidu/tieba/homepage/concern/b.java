@@ -45,17 +45,17 @@ public class b {
     public View.OnClickListener jWL = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.Xi();
+            b.this.Xj();
         }
     };
     public View.OnClickListener jWM = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.Xi();
+            b.this.Xj();
             if (!b.this.jWI) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921502, 0));
                 b.this.jWI = true;
-                b.this.cQz();
+                b.this.cQA();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
             b.this.CL(1);
@@ -64,11 +64,11 @@ public class b {
     public View.OnClickListener jWN = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.Xi();
+            b.this.Xj();
             if (b.this.jWI) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921502, 1));
                 b.this.jWI = false;
-                b.this.cQz();
+                b.this.cQA();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
             b.this.CL(2);
@@ -100,8 +100,8 @@ public class b {
         this.jWG.rs(R.color.CAM_X0304);
         this.jWH = new com.baidu.tbadk.core.view.commonBtn.c();
         this.jWH.ru(R.color.CAM_X0108);
-        this.jWI = com.baidu.tbadk.core.sharedPref.b.bvq().getInt("key_home_concern_all_status", 0) != 1;
-        cQz();
+        this.jWI = com.baidu.tbadk.core.sharedPref.b.bvr().getInt("key_home_concern_all_status", 0) != 1;
+        cQA();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -121,7 +121,7 @@ public class b {
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     if (motionEvent != null && motionEvent.getAction() == 0) {
-                        b.this.Xi();
+                        b.this.Xj();
                         return false;
                     }
                     return false;
@@ -147,7 +147,7 @@ public class b {
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.Xi();
+                b.this.Xj();
             }
         });
         this.jWB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.8
@@ -161,11 +161,11 @@ public class b {
         }
         this.jWC.setLayoutParams(layoutParams);
         if (g.showPopupWindowAtLocation(this.jWJ, stickyAppBarLayout, 0, dimensionPixelOffset, i)) {
-            aFQ();
+            aFR();
         }
     }
 
-    private void aFQ() {
+    private void aFR() {
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         ofFloat.setDuration(200L);
         ofFloat.setInterpolator(new DecelerateInterpolator());
@@ -184,7 +184,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Xi() {
+    public void Xj() {
         if (!k.isFastDoubleClick()) {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
             ofFloat.setDuration(200L);
@@ -229,7 +229,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cQz() {
+    public void cQA() {
         if (this.jWE != null && this.jWF != null) {
             if (this.jWI) {
                 this.jWE.setConfig(this.jWG);

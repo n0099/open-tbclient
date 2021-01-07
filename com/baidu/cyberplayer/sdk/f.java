@@ -6,10 +6,10 @@ public class f {
     private int j;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1817a = 0;
+    private int f1818a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f1818b = 0;
+    private int f1819b = 0;
     private int c = 1;
     private int d = 1;
     private int e = 0;
@@ -27,8 +27,8 @@ public class f {
     }
 
     public void a() {
-        this.f1817a = 0;
-        this.f1818b = 0;
+        this.f1818a = 0;
+        this.f1819b = 0;
         this.c = 1;
         this.d = 1;
         this.e = 0;
@@ -51,11 +51,11 @@ public class f {
     }
 
     public boolean a(int i, int i2) {
-        if (this.f1817a == i && this.f1818b == i2) {
+        if (this.f1818a == i && this.f1819b == i2) {
             return false;
         }
-        this.f1817a = i;
-        this.f1818b = i2;
+        this.f1818a = i;
+        this.f1819b = i2;
         return true;
     }
 
@@ -79,11 +79,11 @@ public class f {
         float f;
         float f2;
         float f3;
-        if (this.f1817a == 0 || this.f1818b == 0 || this.h == 0 || this.i == 0) {
+        if (this.f1818a == 0 || this.f1819b == 0 || this.h == 0 || this.i == 0) {
             return;
         }
         boolean z = this.j == 0 || this.j == 2;
-        float f4 = (this.f1818b * 1.0f) / this.f1817a;
+        float f4 = (this.f1819b * 1.0f) / this.f1818a;
         float f5 = (this.i * 1.0f) / this.h;
         if ((this.g == 90 || this.g == 270) && this.i != 0) {
             f5 = (this.h * 1.0f) / this.i;
@@ -97,7 +97,7 @@ public class f {
             }
             f = f5;
         }
-        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.c + " mVideoSarDen:" + this.d + " mSurfaceWidth:" + this.f1817a + " mSurfaceHeight:" + this.f1818b + " mDisplayMode:" + this.j);
+        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.c + " mVideoSarDen:" + this.d + " mSurfaceWidth:" + this.f1818a + " mSurfaceHeight:" + this.f1819b + " mDisplayMode:" + this.j);
         switch (this.j) {
             case 0:
                 if (f <= f4) {
@@ -154,8 +154,8 @@ public class f {
                     break;
                 }
             case 6:
-                f2 = (this.h * 1.0f) / this.f1817a;
-                f3 = (this.i * 1.0f) / this.f1818b;
+                f2 = (this.h * 1.0f) / this.f1818a;
+                f3 = (this.i * 1.0f) / this.f1819b;
                 break;
             default:
                 if (f <= f4) {
@@ -207,10 +207,10 @@ public class f {
     }
 
     public int g() {
-        return this.f1817a;
+        return this.f1818a;
     }
 
     public int h() {
-        return this.f1818b;
+        return this.f1819b;
     }
 }

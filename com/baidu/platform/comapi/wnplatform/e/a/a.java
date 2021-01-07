@@ -1,67 +1,67 @@
 package com.baidu.platform.comapi.wnplatform.e.a;
 
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private StringBuilder f4619a = new StringBuilder();
+    private StringBuilder f4620a = new StringBuilder();
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f4620b = false;
+    private boolean f4621b = false;
 
     public a a() {
         d();
-        this.f4619a.append("{");
+        this.f4620a.append("{");
         e();
         return this;
     }
 
     public a b() {
-        this.f4619a.append("}");
+        this.f4620a.append("}");
         f();
         return this;
     }
 
     public a a(String str) {
         d();
-        this.f4619a.append(JSONObject.quote(str));
-        this.f4619a.append(":");
+        this.f4620a.append(JSONObject.quote(str));
+        this.f4620a.append(":");
         e();
         return this;
     }
 
     public a a(boolean z) {
         d();
-        this.f4619a.append(z);
+        this.f4620a.append(z);
         f();
         return this;
     }
 
     public a a(int i) {
         d();
-        this.f4619a.append(i);
+        this.f4620a.append(i);
         f();
         return this;
     }
 
     public a a(long j) {
         d();
-        this.f4619a.append(j);
+        this.f4620a.append(j);
         f();
         return this;
     }
 
     public a a(double d) {
         d();
-        this.f4619a.append(String.format("%f", Double.valueOf(d)));
+        this.f4620a.append(String.format("%f", Double.valueOf(d)));
         f();
         return this;
     }
 
     public a b(String str) {
         d();
-        this.f4619a.append(JSONObject.quote(str));
+        this.f4620a.append(JSONObject.quote(str));
         f();
         return this;
     }
@@ -92,21 +92,21 @@ public class a {
     }
 
     private void d() {
-        if (this.f4620b) {
-            this.f4619a.append(",");
+        if (this.f4621b) {
+            this.f4620a.append(",");
         }
     }
 
     private void e() {
-        this.f4620b = false;
+        this.f4621b = false;
     }
 
     private void f() {
-        this.f4620b = true;
+        this.f4621b = true;
     }
 
     public String c() {
-        return this.f4619a.toString();
+        return this.f4620a.toString();
     }
 
     public String toString() {

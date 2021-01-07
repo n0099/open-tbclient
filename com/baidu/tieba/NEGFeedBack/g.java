@@ -18,11 +18,11 @@ public class g {
         return this.type;
     }
 
-    public bz bNO() {
+    public bz bNP() {
         return this.alW;
     }
 
-    public ForumManageModel bNP() {
+    public ForumManageModel bNQ() {
         return this.ggJ;
     }
 }

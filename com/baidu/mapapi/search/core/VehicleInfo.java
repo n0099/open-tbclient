@@ -2,15 +2,15 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class VehicleInfo implements Parcelable {
     public static final Parcelable.Creator<VehicleInfo> CREATOR = new q();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2983a;
+    private String f2984a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f2984b;
+    private int f2985b;
     private String c;
     private int d;
     private int e;
@@ -20,8 +20,8 @@ public class VehicleInfo implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public VehicleInfo(Parcel parcel) {
-        this.f2983a = parcel.readString();
-        this.f2984b = parcel.readInt();
+        this.f2984a = parcel.readString();
+        this.f2985b = parcel.readInt();
         this.c = parcel.readString();
         this.d = parcel.readInt();
         this.e = parcel.readInt();
@@ -33,7 +33,7 @@ public class VehicleInfo implements Parcelable {
     }
 
     public int getPassStationNum() {
-        return this.f2984b;
+        return this.f2985b;
     }
 
     public String getTitle() {
@@ -45,7 +45,7 @@ public class VehicleInfo implements Parcelable {
     }
 
     public String getUid() {
-        return this.f2983a;
+        return this.f2984a;
     }
 
     public int getZonePrice() {
@@ -53,7 +53,7 @@ public class VehicleInfo implements Parcelable {
     }
 
     public void setPassStationNum(int i) {
-        this.f2984b = i;
+        this.f2985b = i;
     }
 
     public void setTitle(String str) {
@@ -65,7 +65,7 @@ public class VehicleInfo implements Parcelable {
     }
 
     public void setUid(String str) {
-        this.f2983a = str;
+        this.f2984a = str;
     }
 
     public void setZonePrice(int i) {
@@ -74,8 +74,8 @@ public class VehicleInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f2983a);
-        parcel.writeInt(this.f2984b);
+        parcel.writeString(this.f2984a);
+        parcel.writeInt(this.f2985b);
         parcel.writeString(this.c);
         parcel.writeInt(this.d);
         parcel.writeInt(this.e);

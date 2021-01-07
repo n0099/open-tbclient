@@ -11,27 +11,27 @@ public class b {
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0985b {
+    public interface InterfaceC1023b {
         void a(Bitmap bitmap);
     }
 
-    public static void a(long j, String str, InterfaceC0985b interfaceC0985b) {
-        new a(interfaceC0985b, j).execute(str);
+    public static void a(long j, String str, InterfaceC1023b interfaceC1023b) {
+        new a(interfaceC1023b, j).execute(str);
     }
 
     /* loaded from: classes4.dex */
     public static class a extends AsyncTask<String, Integer, Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        private InterfaceC0985b f7017a;
+        private InterfaceC1023b f7018a;
 
         /* renamed from: b  reason: collision with root package name */
-        private long f7018b;
+        private long f7019b;
 
-        public a(InterfaceC0985b interfaceC0985b, long j) {
-            this.f7018b = 0L;
-            this.f7017a = interfaceC0985b;
-            this.f7018b = j;
+        public a(InterfaceC1023b interfaceC1023b, long j) {
+            this.f7019b = 0L;
+            this.f7018a = interfaceC1023b;
+            this.f7019b = j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -48,7 +48,7 @@ public class b {
                 } else {
                     mediaMetadataRetriever.setDataSource(str);
                 }
-                bitmap = mediaMetadataRetriever.getFrameAtTime(this.f7018b * 1000, 3);
+                bitmap = mediaMetadataRetriever.getFrameAtTime(this.f7019b * 1000, 3);
                 mediaMetadataRetriever.release();
                 return bitmap;
             } catch (Throwable th) {
@@ -63,8 +63,8 @@ public class b {
         /* renamed from: a */
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute(bitmap);
-            if (this.f7017a != null) {
-                this.f7017a.a(bitmap);
+            if (this.f7018a != null) {
+                this.f7018a.a(bitmap);
             }
         }
     }

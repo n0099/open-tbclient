@@ -10,7 +10,7 @@ public interface a {
         void bm(int i, String str);
     }
 
-    void IJ(String str);
+    void II(String str);
 
     void a(InterfaceC0690a interfaceC0690a);
 

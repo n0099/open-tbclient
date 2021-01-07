@@ -18,7 +18,7 @@ public class b {
         this.exception = str;
     }
 
-    public void Et(String str) {
+    public void Es(String str) {
         this.fNB = str;
     }
 
@@ -30,7 +30,7 @@ public class b {
         this.url = str;
     }
 
-    public String bHW() {
+    public String bHX() {
         return "-netErrorCode-" + this.errorCode + "-serverCode-" + this.fNA + "-dnsStatus-" + this.fNB + "-exception-" + this.exception + "-url-" + this.url + "-dataLenth-" + this.Mr + "-fileLength-" + this.Ms + "-contentLen-" + this.Mt;
     }
 

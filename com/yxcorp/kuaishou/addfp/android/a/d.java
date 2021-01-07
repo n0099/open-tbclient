@@ -25,33 +25,33 @@ import org.json.JSONObject;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f14682a = "";
+    private static String f14683a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f14683b = "";
+    private static String f14684b = "";
 
     public static synchronized String a() {
         String str;
         synchronized (d.class) {
             try {
-                if (TextUtils.isEmpty(f14683b)) {
-                    String d = Orange.eKw().d();
+                if (TextUtils.isEmpty(f14684b)) {
+                    String d = Orange.eLa().d();
                     com.yxcorp.kuaishou.addfp.android.b.b.b("user dis :" + d);
                     if (!TextUtils.isEmpty(d)) {
                         byte[] bytes = d.getBytes();
                         for (int i = 0; i < bytes.length; i++) {
                             bytes[i] = (byte) (bytes[i] ^ 165);
                         }
-                        f14683b = "fuels:" + Base64.encodeToString(bytes, 0);
+                        f14684b = "fuels:" + Base64.encodeToString(bytes, 0);
                     }
-                    if (TextUtils.isEmpty(f14683b)) {
+                    if (TextUtils.isEmpty(f14684b)) {
                         str = "KWE_N";
-                        f14683b = "KWE_N";
+                        f14684b = "KWE_N";
                     } else {
-                        str = f14683b;
+                        str = f14684b;
                     }
                 } else {
-                    str = f14683b;
+                    str = f14684b;
                 }
             }
         }
@@ -64,7 +64,7 @@ public final class d {
                 String str = "";
                 if (Build.VERSION.SDK_INT < 29) {
                     try {
-                        str = f.jg(context).qeP.b();
+                        str = f.jg(context).qgx.b();
                     } catch (Throwable th) {
                     }
                     if (TextUtils.isEmpty(str) || str.startsWith("KWE")) {
@@ -110,15 +110,15 @@ public final class d {
         /*
             java.lang.Class<com.yxcorp.kuaishou.addfp.android.a.d> r1 = com.yxcorp.kuaishou.addfp.android.a.d.class
             monitor-enter(r1)
-            java.lang.String r0 = com.yxcorp.kuaishou.addfp.android.a.d.f14682a     // Catch: java.lang.Throwable -> L3f
+            java.lang.String r0 = com.yxcorp.kuaishou.addfp.android.a.d.f14683a     // Catch: java.lang.Throwable -> L3f
             boolean r0 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Throwable -> L3f
             if (r0 != 0) goto Lf
-            java.lang.String r0 = com.yxcorp.kuaishou.addfp.android.a.d.f14682a     // Catch: java.lang.Throwable -> L3f
+            java.lang.String r0 = com.yxcorp.kuaishou.addfp.android.a.d.f14683a     // Catch: java.lang.Throwable -> L3f
         Ld:
             monitor-exit(r1)
             return r0
         Lf:
-            com.yxcorp.kuaishou.addfp.android.Orange r0 = com.yxcorp.kuaishou.addfp.android.Orange.eKw()     // Catch: java.lang.Throwable -> L3f
+            com.yxcorp.kuaishou.addfp.android.Orange r0 = com.yxcorp.kuaishou.addfp.android.Orange.eLa()     // Catch: java.lang.Throwable -> L3f
             java.lang.String r0 = r0.d()     // Catch: java.lang.Throwable -> L3f
             java.lang.StringBuilder r2 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L3f
             java.lang.String r3 = "nammm :"
@@ -128,9 +128,9 @@ public final class d {
             com.yxcorp.kuaishou.addfp.android.b.b.b(r2)     // Catch: java.lang.Throwable -> L3f
             boolean r2 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Throwable -> L3f
             if (r2 != 0) goto L32
-            com.yxcorp.kuaishou.addfp.android.a.d.f14682a = r0     // Catch: java.lang.Throwable -> L3f
+            com.yxcorp.kuaishou.addfp.android.a.d.f14683a = r0     // Catch: java.lang.Throwable -> L3f
         L32:
-            java.lang.String r0 = com.yxcorp.kuaishou.addfp.android.a.d.f14682a     // Catch: java.lang.Throwable -> L3f
+            java.lang.String r0 = com.yxcorp.kuaishou.addfp.android.a.d.f14683a     // Catch: java.lang.Throwable -> L3f
             boolean r0 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Throwable -> L3f
             if (r0 == 0) goto L44
             java.lang.String r0 = f(r4)     // Catch: java.lang.Throwable -> L3f
@@ -198,7 +198,7 @@ public final class d {
                 return "";
             }
             try {
-                a2 = f.jg(context).qeP.a();
+                a2 = f.jg(context).qgx.a();
             } catch (Throwable th) {
             }
             if ((TextUtils.isEmpty(a2) || a2.startsWith("KWE")) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
@@ -215,8 +215,8 @@ public final class d {
     private static String c() {
         byte[] hardwareAddress;
         try {
-            InetAddress eKy = eKy();
-            if (eKy == null || (hardwareAddress = NetworkInterface.getByInetAddress(eKy).getHardwareAddress()) == null) {
+            InetAddress eLc = eLc();
+            if (eLc == null || (hardwareAddress = NetworkInterface.getByInetAddress(eLc).getHardwareAddress()) == null) {
                 return null;
             }
             StringBuffer stringBuffer = new StringBuffer();
@@ -248,7 +248,7 @@ public final class d {
 
     public static String d(Context context) {
         try {
-            String a2 = com.yxcorp.kuaishou.addfp.a.eKq().a(context, b.qeM.b(), false);
+            String a2 = com.yxcorp.kuaishou.addfp.a.eKU().a(context, b.qgu.b(), false);
             return !TextUtils.isEmpty(a2) ? a2 : "KWE_N";
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -392,12 +392,12 @@ public final class d {
             if (TextUtils.isEmpty(a2) && TextUtils.isEmpty(str)) {
                 return "KWE_N";
             }
-            LinkedHashMap abU = c.je(context).abU(a2);
-            if (abU == null || abU.size() == 0) {
-                abU = c.je(context).abU(str);
+            LinkedHashMap abV = c.je(context).abV(a2);
+            if (abV == null || abV.size() == 0) {
+                abV = c.je(context).abV(str);
             }
-            if (abU != null && abU.size() > 0) {
-                ListIterator listIterator = new ArrayList(abU.entrySet()).listIterator(abU.size());
+            if (abV != null && abV.size() > 0) {
+                ListIterator listIterator = new ArrayList(abV.entrySet()).listIterator(abV.size());
                 JSONObject jSONObject = new JSONObject();
                 while (listIterator.hasPrevious() && i < 10) {
                     try {
@@ -420,7 +420,7 @@ public final class d {
         }
     }
 
-    private static InetAddress eKy() {
+    private static InetAddress eLc() {
         Throwable th;
         InetAddress inetAddress;
         try {
@@ -533,23 +533,23 @@ public final class d {
     private static String f(Context context) {
         try {
             String b2 = b();
-            f14682a = b2;
-            if (TextUtils.isEmpty(b2) || f14682a.equals(Config.DEF_MAC_ID)) {
+            f14683a = b2;
+            if (TextUtils.isEmpty(b2) || f14683a.equals(Config.DEF_MAC_ID)) {
                 if (com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{"android.permission.ACCESS_WIFI_STATE"}) && context != null) {
                     try {
-                        f14682a = f.jg(context).qeQ.a();
+                        f14683a = f.jg(context).qgy.a();
                     } catch (Throwable th) {
                     }
-                    if (TextUtils.isEmpty(f14682a)) {
-                        f14682a = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
+                    if (TextUtils.isEmpty(f14683a)) {
+                        f14683a = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
                     }
-                    if (!TextUtils.isEmpty(f14682a) && !f14682a.equals(Config.DEF_MAC_ID)) {
-                        return f14682a;
+                    if (!TextUtils.isEmpty(f14683a) && !f14683a.equals(Config.DEF_MAC_ID)) {
+                        return f14683a;
                     }
                 }
                 return "KWE_OTHER";
             }
-            return f14682a;
+            return f14683a;
         } catch (Throwable th2) {
             return "KWE_PE";
         }

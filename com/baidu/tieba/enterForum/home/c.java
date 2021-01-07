@@ -91,12 +91,12 @@ public class c extends com.baidu.adp.base.d implements NoNetworkView.a {
                 if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
                     forumRecommendSocketResponseMessage forumrecommendsocketresponsemessage = (forumRecommendSocketResponseMessage) responsedMessage;
                     if (forumrecommendsocketresponsemessage.getHotSearchInfoData() != null) {
-                        str = forumrecommendsocketresponsemessage.getHotSearchInfoData().cxL();
+                        str = forumrecommendsocketresponsemessage.getHotSearchInfoData().cxM();
                     }
                 } else if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
                     forumRecommendHttpResponseMessage forumrecommendhttpresponsemessage = (forumRecommendHttpResponseMessage) responsedMessage;
                     if (forumrecommendhttpresponsemessage.getHotSearchInfoData() != null) {
-                        str = forumrecommendhttpresponsemessage.getHotSearchInfoData().cxL();
+                        str = forumrecommendhttpresponsemessage.getHotSearchInfoData().cxM();
                     }
                 }
                 if (TextUtils.isEmpty(str)) {
@@ -112,9 +112,9 @@ public class c extends com.baidu.adp.base.d implements NoNetworkView.a {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                     if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        c.this.bUX();
-                    } else {
                         c.this.bUY();
+                    } else {
+                        c.this.bUZ();
                     }
                 }
             }
@@ -131,24 +131,24 @@ public class c extends com.baidu.adp.base.d implements NoNetworkView.a {
                 c.this.yZ(i);
                 if (c.this.iIr != null && c.this.iIr.size() > i) {
                     if (c.this.iIy != null) {
-                        c.this.iIy.cAl();
+                        c.this.iIy.cAm();
                     }
                     EnterForumTabPagerAdapter.a aVar = (EnterForumTabPagerAdapter.a) c.this.iIr.get(i);
                     if (aVar != null && aVar.fragment != null) {
                         if (aVar.fragment instanceof EnterForumFragment) {
-                            z = ((EnterForumFragment) aVar.fragment).cyI();
+                            z = ((EnterForumFragment) aVar.fragment).cyJ();
                         } else if (aVar.fragment instanceof EnterForumTabFeedFragment) {
-                            s.cva().pv(false);
-                            boolean cyI = ((EnterForumTabFeedFragment) aVar.fragment).cyI();
+                            s.cvb().pv(false);
+                            boolean cyJ = ((EnterForumTabFeedFragment) aVar.fragment).cyJ();
                             TiebaStatic.log(new aq("c13366").an("obj_locate", 3).dX("resource_id", ((EnterForumTabFeedFragment) aVar.fragment).getTabName()));
-                            z = cyI;
+                            z = cyJ;
                         } else {
                             z = true;
                         }
                         if (!z) {
-                            c.this.bUX();
-                        } else {
                             c.this.bUY();
+                        } else {
+                            c.this.bUZ();
                         }
                         if (i == 0) {
                             TiebaStatic.log(new aq("c13366").an("obj_locate", 1));
@@ -195,7 +195,7 @@ public class c extends com.baidu.adp.base.d implements NoNetworkView.a {
         this.iIp.setOffscreenPageLimit(this.iIr.size());
     }
 
-    public void ayp() {
+    public void ayq() {
     }
 
     private void al(Bundle bundle) {
@@ -268,11 +268,11 @@ public class c extends com.baidu.adp.base.d implements NoNetworkView.a {
         return true;
     }
 
-    public void JK(String str) {
+    public void JJ(String str) {
         this.iIA = str;
     }
 
-    public int JL(String str) {
+    public int JK(String str) {
         if (StringUtils.isNull(str) || this.iIr == null || this.iIr.size() <= 0) {
             return -1;
         }
@@ -288,7 +288,7 @@ public class c extends com.baidu.adp.base.d implements NoNetworkView.a {
         return i;
     }
 
-    public boolean cyR() {
+    public boolean cyS() {
         return this.iIB;
     }
 
@@ -319,7 +319,7 @@ public class c extends com.baidu.adp.base.d implements NoNetworkView.a {
         ao.a(this.iIu, R.color.CAM_X0207, GradientDrawable.Orientation.RIGHT_LEFT);
     }
 
-    public void cyS() {
+    public void cyT() {
         yZ(this.iIp.getCurrentItem());
     }
 
@@ -357,17 +357,17 @@ public class c extends com.baidu.adp.base.d implements NoNetworkView.a {
             if (i == 0) {
                 if (this.iFO != null && this.iFO.iGq && this.iFO.iGs > 0) {
                     if (this.iIy != null && this.iIy.getRefreshView() != null && this.iIy.getRefreshView().isViewAttached()) {
-                        SvgManager.bwq().a(this.iIt, R.drawable.icon_pure_topbar_sign44_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                        SvgManager.bwr().a(this.iIt, R.drawable.icon_pure_topbar_sign44_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                     } else if (this.iFO.iGt > 0 && this.iFO.iGs > this.iFO.iGt / 2) {
-                        SvgManager.bwq().a(this.iIt, R.drawable.icon_pure_topbar_sign44_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                        SvgManager.bwr().a(this.iIt, R.drawable.icon_pure_topbar_sign44_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                     } else {
-                        SvgManager.bwq().a(this.iIt, R.drawable.icon_pure_topbar_sign44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                        SvgManager.bwr().a(this.iIt, R.drawable.icon_pure_topbar_sign44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                     }
                 } else {
-                    SvgManager.bwq().a(this.iIt, R.drawable.icon_pure_topbar_sign44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                    SvgManager.bwr().a(this.iIt, R.drawable.icon_pure_topbar_sign44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                 }
             } else {
-                SvgManager.bwq().a(this.iIt, R.drawable.icon_pure_topbar_sign44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.bwr().a(this.iIt, R.drawable.icon_pure_topbar_sign44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
         }
         if (this.iIw != null) {
@@ -426,7 +426,7 @@ public class c extends com.baidu.adp.base.d implements NoNetworkView.a {
         }
     }
 
-    public void cyT() {
+    public void cyU() {
         if (TbadkCoreApplication.getInst().getSkinType() == 1 || TbadkCoreApplication.getInst().getSkinType() == 4) {
             ar.setStatusBarDarkIcon(getPageContext().getPageActivity().getWindow(), false);
         } else if (this.iIp.getCurrentItem() == 0 && this.iIl.isPrimary()) {
@@ -455,7 +455,7 @@ public class c extends com.baidu.adp.base.d implements NoNetworkView.a {
         }
     }
 
-    public void ano() {
+    public void anp() {
         if (this.iIl != null && this.iIr != null && this.iIp != null && this.iIq != null) {
             FragmentManager supportFragmentManager = this.iIl.getActivity().getSupportFragmentManager();
             if (!supportFragmentManager.isDestroyed()) {
@@ -513,9 +513,9 @@ public class c extends com.baidu.adp.base.d implements NoNetworkView.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUX() {
+    public void bUY() {
         if (this.iIm != null && this.iIm.getPaddingTop() < 0) {
-            cyU();
+            cyV();
         } else if (this.iIx != null) {
             this.iIx.clearAnimation();
             if (this.iIx.getVisibility() != 0) {
@@ -530,7 +530,7 @@ public class c extends com.baidu.adp.base.d implements NoNetworkView.a {
         }
     }
 
-    public void bUY() {
+    public void bUZ() {
         if (this.iIx != null && this.iIx.getVisibility() != 8) {
             if (this.gEE == null) {
                 this.gEE = new AlphaAnimation(1.0f, 0.0f);
@@ -555,7 +555,7 @@ public class c extends com.baidu.adp.base.d implements NoNetworkView.a {
         }
     }
 
-    private void cyU() {
+    private void cyV() {
         if (this.iIx != null && this.iIx.getVisibility() != 8) {
             this.iIx.clearAnimation();
             this.iIx.setVisibility(8);
@@ -581,7 +581,7 @@ public class c extends com.baidu.adp.base.d implements NoNetworkView.a {
         return getPageContext().getPageActivity().getWindow().getDecorView();
     }
 
-    public View cyV() {
+    public View cyW() {
         return this.iIm;
     }
 
@@ -598,7 +598,7 @@ public class c extends com.baidu.adp.base.d implements NoNetworkView.a {
         this.iIx.setLayoutParams(layoutParams);
     }
 
-    public int cyW() {
+    public int cyX() {
         return this.iIp.getCurrentItem();
     }
 

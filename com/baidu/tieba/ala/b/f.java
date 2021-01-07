@@ -43,7 +43,7 @@ public class f implements h {
         this.mDialog = new Dialog(this.mContext, i.d.SoLoaderDialogStyle);
         this.mDialog.setContentView(i.b.dialog_soloader);
         this.gOf = (SimpleDraweeView) this.mDialog.findViewById(i.a.soloader_loading_anim);
-        this.gOf.setController(com.facebook.drawee.a.a.c.euI().Zv("https://pic.rmb.bdstatic.com/qmpic_InRooc_1563447539.webp").AX(true).evz());
+        this.gOf.setController(com.facebook.drawee.a.a.c.euP().Zu("https://pic.rmb.bdstatic.com/qmpic_InRooc_1563447539.webp").AX(true).evG());
         this.mTitle = (TextView) this.mDialog.findViewById(i.a.soloader_title);
         this.gOg = this.mDialog.findViewById(i.a.soloader_hide);
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.b.f.1
@@ -66,14 +66,14 @@ public class f implements h {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 f.this.dismiss();
-                f.this.bWl();
+                f.this.bWm();
             }
         });
-        bWm();
+        bWn();
     }
 
     protected void mR(boolean z) {
-        Wq();
+        Wr();
     }
 
     public f e(DialogInterface.OnDismissListener onDismissListener) {
@@ -81,7 +81,7 @@ public class f implements h {
         return this;
     }
 
-    protected void bWl() {
+    protected void bWm() {
     }
 
     public f o(Runnable runnable) {
@@ -94,7 +94,7 @@ public class f implements h {
         return this;
     }
 
-    public f bWm() {
+    public f bWn() {
         this.mTitle.setText(String.format("%s加载%s%%…", this.mName, Integer.valueOf((int) (this.gOh.getProgress() * 100.0f))));
         return this;
     }
@@ -123,7 +123,7 @@ public class f implements h {
             }
         }
         this.mDialog.dismiss();
-        Wq();
+        Wr();
     }
 
     private void complete() {
@@ -137,7 +137,7 @@ public class f implements h {
         }
     }
 
-    private void aXI() {
+    private void aXJ() {
         dismiss();
         Toast.makeText(this.mContext, i.c.soloader_failed, 0).show();
         if (this.gOe != null) {
@@ -157,13 +157,13 @@ public class f implements h {
 
     @Override // com.baidu.tieba.ala.b.h
     public void b(g gVar) {
-        aXI();
+        aXJ();
     }
 
-    public void Wq() {
-        Animatable evo;
-        if (this.gOf != null && this.gOf.getController() != null && (evo = this.gOf.getController().evo()) != null && evo.isRunning()) {
-            evo.stop();
+    public void Wr() {
+        Animatable evv;
+        if (this.gOf != null && this.gOf.getController() != null && (evv = this.gOf.getController().evv()) != null && evv.isRunning()) {
+            evv.stop();
         }
     }
 }

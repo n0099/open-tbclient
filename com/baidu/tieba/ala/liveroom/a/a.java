@@ -20,7 +20,7 @@ public class a implements c {
 
     public a(Activity activity) {
         this.mActivity = activity;
-        aaf();
+        aag();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
@@ -55,8 +55,8 @@ public class a implements c {
             alaLastLiveroomInfo.setLastAnchorPortrait(this.aQH);
             alaLastLiveroomInfo.setFrom(AlaLastLiveroomInfo.TYPE_FROM_HALF_WEBVIEW);
             gVar.w(this.mActivity).a(this.hpm).a(this.hpm.getWebView().getSchemeCallback()).bA(this.gqJ).jj(this.aQG).dD(this.aVQ).bB(this.bvY).a(alaLastLiveroomInfo);
-            com.baidu.live.view.web.a[] aae = gVar.aae();
-            for (com.baidu.live.view.web.a aVar : aae) {
+            com.baidu.live.view.web.a[] aaf = gVar.aaf();
+            for (com.baidu.live.view.web.a aVar : aaf) {
                 this.hpm.getWebView().addJavascriptInterface(aVar, aVar.getName());
             }
             this.hpm.aJ(str, i);
@@ -64,7 +64,7 @@ public class a implements c {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
-    public void HV(String str) {
+    public void HU(String str) {
         if (this.mActivity != null && !this.mActivity.isFinishing() && !this.mActivity.isDestroyed()) {
             if (this.hpn != null) {
                 if (this.hpn.isShowing()) {
@@ -81,7 +81,7 @@ public class a implements c {
             alaLastLiveroomInfo.setLastAnchorPortrait(this.aQH);
             alaLastLiveroomInfo.setFrom(AlaLastLiveroomInfo.TYPE_FROM_FULL_SCREEN_WEBVIEW);
             this.hpn.a(this.gqJ, this.aQG, this.bvY, alaLastLiveroomInfo, this.aVQ);
-            this.hpn.GB(str);
+            this.hpn.GA(str);
         }
     }
 
@@ -122,7 +122,7 @@ public class a implements c {
         MessageManager.getInstance().unRegisterListener(this.bXd);
         if (this.hpm != null) {
             this.hpm.getWebView().release();
-            this.hpm.aag();
+            this.hpm.aah();
         }
         if (this.hpn != null) {
             this.hpn.release();
@@ -130,7 +130,7 @@ public class a implements c {
         }
     }
 
-    private void aaf() {
+    private void aag() {
         this.bXd = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener

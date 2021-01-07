@@ -52,7 +52,7 @@ public class b implements com.baidu.live.ai.a {
                     b.this.ihM = false;
                     if (b.this.ihL < 3) {
                         b.b(b.this);
-                        b.this.crW();
+                        b.this.crX();
                         return;
                     }
                     return;
@@ -67,7 +67,7 @@ public class b implements com.baidu.live.ai.a {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (BdNetTypeUtil.isNetWorkAvailable() && b.this.ihK <= 0 && !b.this.ihM) {
-                b.this.crW();
+                b.this.crX();
             }
         }
     };
@@ -85,13 +85,13 @@ public class b implements com.baidu.live.ai.a {
     }
 
     public b() {
-        crV();
+        crW();
         MessageManager.getInstance().registerListener(this.ihN);
         MessageManager.getInstance().registerListener(this.iho);
         MessageManager.getInstance().registerListener(this.hpc);
     }
 
-    private static void crV() {
+    private static void crW() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021067, com.baidu.live.b.aAU);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -181,7 +181,7 @@ public class b implements com.baidu.live.ai.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crW() {
+    public void crX() {
         if (this.ihI != null) {
             HttpMessage httpMessage = new HttpMessage(1021067);
             httpMessage.addParam("task_id", this.ihI.aPz);

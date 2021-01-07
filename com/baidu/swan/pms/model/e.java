@@ -13,7 +13,7 @@ public class e extends c {
     public long versionCode;
     public String versionName;
 
-    public boolean auV() {
+    public boolean auW() {
         return (TextUtils.isEmpty(this.ewI) || this.versionCode <= 0 || TextUtils.isEmpty(this.md5) || TextUtils.isEmpty(this.sign) || TextUtils.isEmpty(this.downloadUrl)) ? false : true;
     }
 

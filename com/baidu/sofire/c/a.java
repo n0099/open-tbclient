@@ -21,10 +21,10 @@ public final class a {
     public static a d;
 
     /* renamed from: a  reason: collision with root package name */
-    int f5482a = 5;
+    int f5483a = 5;
 
     /* renamed from: b  reason: collision with root package name */
-    String f5483b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
+    String f5484b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
     public SQLiteDatabase c;
     private C0360a e;
     private Context f;
@@ -57,15 +57,15 @@ public final class a {
     /* loaded from: classes15.dex */
     private class C0360a extends SQLiteOpenHelper {
         public C0360a(Context context) {
-            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.f5482a);
-            new StringBuilder().append(a.this.f5482a);
+            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.f5483a);
+            new StringBuilder().append(a.this.f5483a);
             b.a();
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
         public final void onCreate(SQLiteDatabase sQLiteDatabase) {
             try {
-                sQLiteDatabase.execSQL(a.this.f5483b);
+                sQLiteDatabase.execSQL(a.this.f5484b);
             } catch (Throwable th) {
                 e.a();
             }
@@ -341,12 +341,12 @@ public final class a {
                         apkInfo2.activities = new ActivityInfo[size];
                         for (int i2 = 0; i2 < size; i2++) {
                             ActivityInfo activityInfo = new ActivityInfo();
-                            activityInfo.theme = a2.get(i2).f5488a;
+                            activityInfo.theme = a2.get(i2).f5489a;
                             activityInfo.name = a2.get(i2).j;
                             activityInfo.configChanges = a2.get(i2).h;
                             activityInfo.flags = a2.get(i2).f;
                             activityInfo.labelRes = a2.get(i2).l;
-                            activityInfo.launchMode = a2.get(i2).f5489b;
+                            activityInfo.launchMode = a2.get(i2).f5490b;
                             activityInfo.nonLocalizedLabel = a2.get(i2).m;
                             activityInfo.packageName = a2.get(i2).k;
                             activityInfo.permission = a2.get(i2).c;
@@ -605,7 +605,7 @@ public final class a {
         try {
             ArrayList<ApkInfo> arrayList = new ArrayList();
             for (ApkInfo apkInfo : a()) {
-                if (!e.c(apkInfo.pkgPath) && f.f5510b != null && !f.f5510b.contains(Integer.valueOf(apkInfo.key))) {
+                if (!e.c(apkInfo.pkgPath) && f.f5511b != null && !f.f5511b.contains(Integer.valueOf(apkInfo.key))) {
                     arrayList.add(apkInfo);
                 }
             }
@@ -1034,12 +1034,12 @@ public final class a {
                                 apkInfo3.activities = new ActivityInfo[size];
                                 for (int i = 0; i < size; i++) {
                                     ActivityInfo activityInfo = new ActivityInfo();
-                                    activityInfo.theme = a2.get(i).f5488a;
+                                    activityInfo.theme = a2.get(i).f5489a;
                                     activityInfo.name = a2.get(i).j;
                                     activityInfo.configChanges = a2.get(i).h;
                                     activityInfo.flags = a2.get(i).f;
                                     activityInfo.labelRes = a2.get(i).l;
-                                    activityInfo.launchMode = a2.get(i).f5489b;
+                                    activityInfo.launchMode = a2.get(i).f5490b;
                                     activityInfo.nonLocalizedLabel = a2.get(i).m;
                                     activityInfo.packageName = a2.get(i).k;
                                     activityInfo.permission = a2.get(i).c;

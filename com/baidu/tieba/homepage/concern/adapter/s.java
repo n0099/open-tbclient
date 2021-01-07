@@ -92,8 +92,8 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             return null;
         }
         aq aqVar = new aq("c13565");
-        aqVar.an("obj_source", aVar.bqE() ? 1 : 2);
-        com.baidu.tieba.card.s.cva().e(aqVar);
+        aqVar.an("obj_source", aVar.bqF() ? 1 : 2);
+        com.baidu.tieba.card.s.cvb().e(aqVar);
         threadCardViewHolder.ty().setPosition(i);
         if (threadCardViewHolder.ty() instanceof com.baidu.tieba.a.e) {
             threadCardViewHolder.ty().setPage(this.aji);
@@ -120,7 +120,7 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
                 this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.CONCERN_RECOMMEND_FEEDBACK);
                 this.mNetwork.addPostData("dislike_from", "concernpage");
                 this.mNetwork.addPostData("dislike_type", "1");
-                this.mNetwork.bvQ().bwz().mIsNeedTbs = true;
+                this.mNetwork.bvR().bwA().mIsNeedTbs = true;
                 return this.mNetwork.postNetData();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -146,7 +146,7 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 }

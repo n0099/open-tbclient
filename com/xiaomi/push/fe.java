@@ -13,50 +13,50 @@ import com.xiaomi.push.service.XMJobService;
 public class fe implements fc.a {
 
     /* renamed from: a  reason: collision with root package name */
-    JobScheduler f14307a;
+    JobScheduler f14308a;
 
     /* renamed from: a  reason: collision with other field name */
-    Context f395a;
+    Context f396a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f396a = false;
+    private boolean f397a = false;
 
     fe(Context context) {
-        this.f395a = context;
-        this.f14307a = (JobScheduler) context.getSystemService("jobscheduler");
+        this.f396a = context;
+        this.f14308a = (JobScheduler) context.getSystemService("jobscheduler");
     }
 
     @Override // com.xiaomi.push.fc.a
     public void a() {
-        this.f396a = false;
-        this.f14307a.cancel(1);
+        this.f397a = false;
+        this.f14308a.cancel(1);
     }
 
     void a(long j) {
-        JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f395a.getPackageName(), XMJobService.class.getName()));
+        JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f396a.getPackageName(), XMJobService.class.getName()));
         builder.setMinimumLatency(j);
         builder.setOverrideDeadline(j);
         builder.setRequiredNetworkType(1);
         builder.setPersisted(false);
         com.xiaomi.channel.commonutils.logger.b.c("schedule Job = " + builder.build().getId() + " in " + j);
-        this.f14307a.schedule(builder.build());
+        this.f14308a.schedule(builder.build());
     }
 
     @Override // com.xiaomi.push.fc.a
     public void a(boolean z) {
-        if (z || this.f396a) {
+        if (z || this.f397a) {
             long b2 = fy.b();
             if (z) {
                 a();
                 b2 -= SystemClock.elapsedRealtime() % b2;
             }
-            this.f396a = true;
+            this.f397a = true;
             a(b2);
         }
     }
 
     @Override // com.xiaomi.push.fc.a
     public boolean a() {
-        return this.f396a;
+        return this.f397a;
     }
 }

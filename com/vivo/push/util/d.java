@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.heytap.mcssdk.mode.Message;
 import com.vivo.push.b.aa;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class d {
     public static boolean a(Context context, long j, long j2) {
         p.d("ClientReportUtil", "report message: " + j + ", reportType: " + j2);

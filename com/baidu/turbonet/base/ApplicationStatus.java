@@ -61,7 +61,7 @@ public class ApplicationStatus {
             this.mStatus = i;
         }
 
-        public com.baidu.turbonet.base.b<b> ehn() {
+        public com.baidu.turbonet.base.b<b> eho() {
             return this.oIQ;
         }
     }
@@ -136,7 +136,7 @@ public class ApplicationStatus {
         }
         a aVar = sActivityInfo.get(activity);
         aVar.setStatus(i);
-        Iterator<b> it = aVar.ehn().iterator();
+        Iterator<b> it = aVar.eho().iterator();
         while (it.hasNext()) {
             it.next().l(activity, i);
         }
@@ -172,7 +172,7 @@ public class ApplicationStatus {
         int intValue;
         synchronized (oIJ) {
             if (oIK == null) {
-                oIK = Integer.valueOf(ehk());
+                oIK = Integer.valueOf(ehl());
             }
             intValue = oIK.intValue();
         }
@@ -201,7 +201,7 @@ public class ApplicationStatus {
         });
     }
 
-    private static int ehk() {
+    private static int ehl() {
         boolean z;
         boolean z2 = false;
         boolean z3 = false;

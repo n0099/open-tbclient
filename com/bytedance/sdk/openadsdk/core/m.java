@@ -32,10 +32,10 @@ import org.json.JSONObject;
 public class m {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile TTCustomController f6907b;
+    public static volatile TTCustomController f6908b;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f6906a = false;
+    public static volatile boolean f6907a = false;
     private static AtomicBoolean c = new AtomicBoolean(false);
 
     public static void a(Context context) {
@@ -51,13 +51,13 @@ public class m {
 
     private static void c(final Context context) {
         long currentTimeMillis = System.currentTimeMillis();
-        Log.d("InitHelper", "init start: " + f6906a);
+        Log.d("InitHelper", "init start: " + f6907a);
         com.bytedance.sdk.openadsdk.k.a.a(com.bytedance.sdk.openadsdk.multipro.b.b());
         p.a(context.getApplicationContext());
         if (com.bytedance.sdk.openadsdk.core.h.j.a()) {
             com.bytedance.sdk.openadsdk.multipro.d.a(context);
             e(context);
-            if (f6906a) {
+            if (f6907a) {
                 com.bytedance.sdk.openadsdk.k.a.a().c(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.m.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -127,21 +127,21 @@ public class m {
 
     private static void e(Context context) {
         com.bytedance.embedapplog.l lVar = new com.bytedance.embedapplog.l(String.valueOf(164362), "unionser_slardar_applog");
-        if (f6907b != null) {
-            lVar.AK(f6907b.isCanUsePhoneState());
-            if (!f6907b.isCanUsePhoneState()) {
-                lVar.YC(f6907b.getDevImei());
+        if (f6908b != null) {
+            lVar.AK(f6908b.isCanUsePhoneState());
+            if (!f6908b.isCanUsePhoneState()) {
+                lVar.YB(f6908b.getDevImei());
             }
-            lVar.AJ(f6907b.isCanUseWifiState());
+            lVar.AJ(f6908b.isCanUseWifiState());
         }
         lVar.a(new com.bytedance.embedapplog.k() { // from class: com.bytedance.sdk.openadsdk.core.m.2
             public String getImsi() {
-                return (m.f6907b == null || m.f6907b.isCanUsePhoneState()) ? k.f(p.a()) : "";
+                return (m.f6908b == null || m.f6908b.isCanUsePhoneState()) ? k.f(p.a()) : "";
             }
 
             @Override // com.bytedance.embedapplog.k
             public String getMac() {
-                if (m.f6907b == null || m.f6907b.isCanUseWifiState()) {
+                if (m.f6908b == null || m.f6908b.isCanUseWifiState()) {
                     return k.h(p.a());
                 }
                 return null;
@@ -229,7 +229,7 @@ public class m {
 
             @Override // com.bytedance.tea.crash.d
             public String c() {
-                return com.bytedance.embedapplog.b.eoU();
+                return com.bytedance.embedapplog.b.eoV();
             }
 
             @Override // com.bytedance.tea.crash.d

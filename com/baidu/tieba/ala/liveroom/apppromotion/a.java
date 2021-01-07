@@ -52,15 +52,15 @@ public class a implements com.baidu.live.c.a {
     }
 
     private void D(x xVar) {
-        if (this.aKU.Et() && ccO()) {
+        if (this.aKU.Et() && ccP()) {
             this.hqh = a(this.aKU);
             E(xVar);
-            ccL();
+            ccM();
             F(xVar);
         }
     }
 
-    private void ccL() {
+    private void ccM() {
         String string;
         if (this.hqg != null) {
             if (!TextUtils.isEmpty(this.aKU.icon) || !TextUtils.isEmpty(this.aKU.des)) {
@@ -73,7 +73,7 @@ public class a implements com.baidu.live.c.a {
                 } else {
                     string = this.mPageContext.getResources().getString(a.h.ala_app_promotion_download, this.aKU.des);
                     if (ApkManager.getInstance().isDownloading(this.hqh)) {
-                        ccN();
+                        ccO();
                     }
                 }
                 this.hqg.setStatus(string);
@@ -197,7 +197,7 @@ public class a implements com.baidu.live.c.a {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.G(xVar);
-                    a.this.ccM();
+                    a.this.ccN();
                 }
             });
         }
@@ -210,7 +210,7 @@ public class a implements com.baidu.live.c.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ccM() {
+    public void ccN() {
         ApkStatus apkStatus = ApkManager.getInstance().getApkStatus(this.mPageContext.getPageActivity(), this.hqh);
         if (apkStatus == ApkStatus.READY) {
             ApkManager.getInstance().launchApkByDeeplink(this.mPageContext.getPageActivity(), this.hqh);
@@ -227,7 +227,7 @@ public class a implements com.baidu.live.c.a {
         }
     }
 
-    private void ccN() {
+    private void ccO() {
         ApkManager.getInstance().addFileDownloadCallback(this.hqh, this.mPageContext.getPageActivity());
     }
 
@@ -239,7 +239,7 @@ public class a implements com.baidu.live.c.a {
 
     @Override // com.baidu.live.c.a
     public void onStart() {
-        ccL();
+        ccM();
     }
 
     @Override // com.baidu.live.c.a
@@ -247,7 +247,7 @@ public class a implements com.baidu.live.c.a {
         resetView();
     }
 
-    private boolean ccO() {
+    private boolean ccP() {
         if (Build.VERSION.SDK_INT >= 24) {
             return (TextUtils.isEmpty(TbConfig.FILE_PROVIDER_AUTHORITIES) || TextUtils.isEmpty(TbConfig.FILE_OUTPUT_FILE_ROOT_PATH)) ? false : true;
         }

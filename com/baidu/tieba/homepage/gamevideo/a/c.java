@@ -32,8 +32,8 @@ public class c extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(View view, l lVar) {
-        if (this.iNy != null && this.iNy.tE() != null && this.iNy.tE().dBx() != null) {
-            if (view.getId() == this.iNy.tE().dBx().getId()) {
+        if (this.iNy != null && this.iNy.tE() != null && this.iNy.tE().dBy() != null) {
+            if (view.getId() == this.iNy.tE().dBy().getId()) {
                 com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.fgN);
             } else if (view.getId() == R.id.thread_card_root) {
                 com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.fgN);
@@ -118,20 +118,20 @@ public class c extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
             oVar = new o();
             oVar.mLocate = Constants.VIA_REPORT_TYPE_START_GROUP;
             oVar.anD = lVar.tid;
-            if (lVar.boO() != null) {
-                oVar.fPy = String.valueOf(lVar.boO().getFid());
-                if (lVar.boO().brH() != null) {
-                    oVar.mDM = lVar.boO().brH().video_md5;
-                    oVar.mDO = String.valueOf(lVar.boO().brH().is_vertical);
+            if (lVar.boP() != null) {
+                oVar.fPy = String.valueOf(lVar.boP().getFid());
+                if (lVar.boP().brI() != null) {
+                    oVar.mDL = lVar.boP().brI().video_md5;
+                    oVar.mDN = String.valueOf(lVar.boP().brI().is_vertical);
                 }
             }
             oVar.eQd = lVar.getExtra();
             oVar.mSource = lVar.getSource();
-            oVar.mDL = lVar.cvn();
-            oVar.mDI = lVar.getWeight();
+            oVar.mDK = lVar.cvo();
+            oVar.mDH = lVar.getWeight();
             oVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            oVar.mFloor = String.valueOf(lVar.cvm());
-            oVar.mDP = String.valueOf(this.fgN);
+            oVar.mFloor = String.valueOf(lVar.cvn());
+            oVar.mDO = String.valueOf(this.fgN);
         }
         return oVar;
     }

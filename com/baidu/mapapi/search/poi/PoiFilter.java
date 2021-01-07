@@ -6,28 +6,28 @@ import android.text.TextUtils;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class PoiFilter implements Parcelable {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2998a;
+    private String f2999a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f2999b;
+    private String f3000b;
     private String c;
     private String d;
     private String e;
     private static Map<SortName, String> f = new HashMap();
     public static final Parcelable.Creator<PoiFilter> CREATOR = new c();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f3000a;
+        private String f3001a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f3001b;
+        private String f3002b;
         private String c;
         private String d;
         private String e;
@@ -53,22 +53,22 @@ public final class PoiFilter implements Parcelable {
         }
 
         public PoiFilter build() {
-            return new PoiFilter(this.f3000a, this.f3001b, this.c, this.e, this.d);
+            return new PoiFilter(this.f3001a, this.f3002b, this.c, this.e, this.d);
         }
 
         public Builder industryType(IndustryType industryType) {
             switch (industryType) {
                 case HOTEL:
-                    this.f3000a = "hotel";
+                    this.f3001a = "hotel";
                     break;
                 case CATER:
-                    this.f3000a = "cater";
+                    this.f3001a = "cater";
                     break;
                 case LIFE:
-                    this.f3000a = "life";
+                    this.f3001a = "life";
                     break;
                 default:
-                    this.f3000a = "";
+                    this.f3001a = "";
                     break;
             }
             return this;
@@ -93,8 +93,8 @@ public final class PoiFilter implements Parcelable {
         }
 
         public Builder sortName(SortName sortName) {
-            if (!TextUtils.isEmpty(this.f3000a) && sortName != null) {
-                this.f3001b = (String) PoiFilter.f.get(sortName);
+            if (!TextUtils.isEmpty(this.f3001a) && sortName != null) {
+                this.f3002b = (String) PoiFilter.f.get(sortName);
             }
             return this;
         }
@@ -105,17 +105,17 @@ public final class PoiFilter implements Parcelable {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public enum IndustryType {
         HOTEL,
         CATER,
         LIFE
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public interface SortName {
 
-        /* loaded from: classes15.dex */
+        /* loaded from: classes3.dex */
         public enum CaterSortName implements SortName {
             DEFAULT,
             CATER_PRICE,
@@ -125,7 +125,7 @@ public final class PoiFilter implements Parcelable {
             CATER_SERVICE_RATING
         }
 
-        /* loaded from: classes15.dex */
+        /* loaded from: classes3.dex */
         public enum HotelSortName implements SortName {
             DEFAULT,
             HOTEL_PRICE,
@@ -135,7 +135,7 @@ public final class PoiFilter implements Parcelable {
             HOTEL_HEALTH_SCORE
         }
 
-        /* loaded from: classes15.dex */
+        /* loaded from: classes3.dex */
         public enum LifeSortName implements SortName {
             DEFAULT,
             PRICE,
@@ -147,26 +147,26 @@ public final class PoiFilter implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public PoiFilter(Parcel parcel) {
-        this.f2998a = "";
-        this.f2999b = "";
+        this.f2999a = "";
+        this.f3000b = "";
         this.c = "";
         this.d = "";
         this.e = "";
-        this.f2998a = parcel.readString();
-        this.f2999b = parcel.readString();
+        this.f2999a = parcel.readString();
+        this.f3000b = parcel.readString();
         this.c = parcel.readString();
         this.e = parcel.readString();
         this.d = parcel.readString();
     }
 
     PoiFilter(String str, String str2, String str3, String str4, String str5) {
-        this.f2998a = "";
-        this.f2999b = "";
+        this.f2999a = "";
+        this.f3000b = "";
         this.c = "";
         this.d = "";
         this.e = "";
-        this.f2998a = str;
-        this.f2999b = str2;
+        this.f2999a = str;
+        this.f3000b = str2;
         this.c = str3;
         this.e = str4;
         this.d = str5;
@@ -179,14 +179,14 @@ public final class PoiFilter implements Parcelable {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(this.f2998a)) {
+        if (!TextUtils.isEmpty(this.f2999a)) {
             sb.append("industry_type:");
-            sb.append(this.f2998a);
+            sb.append(this.f2999a);
             sb.append("|");
         }
-        if (!TextUtils.isEmpty(this.f2999b)) {
+        if (!TextUtils.isEmpty(this.f3000b)) {
             sb.append("sort_name:");
-            sb.append(this.f2999b);
+            sb.append(this.f3000b);
             sb.append("|");
         }
         if (!TextUtils.isEmpty(this.c)) {
@@ -212,8 +212,8 @@ public final class PoiFilter implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f2998a);
-        parcel.writeString(this.f2999b);
+        parcel.writeString(this.f2999a);
+        parcel.writeString(this.f3000b);
         parcel.writeString(this.c);
         parcel.writeString(this.e);
         parcel.writeString(this.d);

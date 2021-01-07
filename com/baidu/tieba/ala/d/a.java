@@ -80,7 +80,7 @@ public class a implements com.baidu.live.a.a {
     public void a(ViewGroup viewGroup, x xVar) {
         if (viewGroup != null && (viewGroup instanceof PendantParentView)) {
             this.gqh = (PendantParentView) viewGroup;
-            bRi();
+            bRj();
         }
     }
 
@@ -135,8 +135,8 @@ public class a implements com.baidu.live.a.a {
                     public void fr(int i) {
                     }
                 }).a(this.gSq.getWebView().getSchemeCallback()).b(this.bWS);
-                com.baidu.live.view.web.a[] aae = gVar.aae();
-                for (com.baidu.live.view.web.a aVar : aae) {
+                com.baidu.live.view.web.a[] aaf = gVar.aaf();
+                for (com.baidu.live.view.web.a aVar : aaf) {
                     this.gSq.getWebView().addJavascriptInterface(aVar, aVar.getName());
                 }
                 this.gSq.getWebView().loadUrl(this.aJH);
@@ -248,7 +248,7 @@ public class a implements com.baidu.live.a.a {
         this.gSv = interfaceC0163a;
     }
 
-    private void bRi() {
+    private void bRj() {
         if (this.gqi == null) {
             this.gqi = new PendantChildView(this.bFa.getPageActivity()) { // from class: com.baidu.tieba.ala.d.a.3
                 @Override // com.baidu.live.pendantview.PendantChildView

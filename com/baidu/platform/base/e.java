@@ -12,15 +12,15 @@ import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public abstract class e {
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f4178b = true;
+    private boolean f4179b = true;
     private boolean c = true;
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.platform.util.a f4177a = new com.baidu.platform.util.a();
+    protected com.baidu.platform.util.a f4178a = new com.baidu.platform.util.a();
 
     private String a(SearchType searchType, String str) {
         if (TextUtils.isEmpty(str)) {
@@ -77,10 +77,10 @@ public abstract class e {
             }
             authToken = HttpClient.getAuthToken();
         }
-        if (this.f4178b) {
-            this.f4177a.a("token", authToken);
+        if (this.f4179b) {
+            this.f4178a.a("token", authToken);
         }
-        String a3 = this.f4177a.a();
+        String a3 = this.f4178a.a();
         if (b(searchType)) {
             a3 = a(searchType, a3);
         }
@@ -98,6 +98,6 @@ public abstract class e {
     }
 
     public void b(boolean z) {
-        this.f4178b = z;
+        this.f4179b = z;
     }
 }

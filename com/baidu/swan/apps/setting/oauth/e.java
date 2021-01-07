@@ -49,15 +49,15 @@ public class e {
         this.id = str;
     }
 
-    public boolean aOh() {
+    public boolean aOi() {
         return this.dLO > 0;
     }
 
-    public boolean aOi() {
+    public boolean aOj() {
         return this.dLO != 0;
     }
 
-    public boolean aOj() {
+    public boolean aOk() {
         return "1".equals(this.type);
     }
 
@@ -105,7 +105,7 @@ public class e {
         return eVar;
     }
 
-    public void aOk() {
+    public void aOl() {
         if (this.dLS != null && this.dLS.keys() != null && this.dLS.keys().hasNext()) {
             this.dLR = new a();
             this.dLR.dLX = this.dLS.optString("detail_text");

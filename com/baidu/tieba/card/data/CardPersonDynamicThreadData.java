@@ -154,22 +154,22 @@ public class CardPersonDynamicThreadData extends com.baidu.tbadk.core.data.a {
                 long longValue2 = threadInfo.agree.disagree_num.longValue() > 0 ? threadInfo.agree.disagree_num.longValue() : 0L;
                 this.eMv.dH(longValue);
                 this.eMv.dI(longValue2);
-                if (this.eMv.bsT() == 1 && longValue == 0 && longValue2 == 0) {
+                if (this.eMv.bsU() == 1 && longValue == 0 && longValue2 == 0) {
                     this.eMv.oV(1);
                 }
             }
             this.eMv.oS(threadInfo.is_ntitle.intValue());
             this.eMv.eWg = true;
-            if (this.eMv.brq() != null && user != null) {
-                this.eMv.brq().parserProtobuf(user);
-                this.eMv.brO();
+            if (this.eMv.brr() != null && user != null) {
+                this.eMv.brr().parserProtobuf(user);
+                this.eMv.brP();
             }
-            this.eMv.Bl(threadInfo.article_cover);
+            this.eMv.Bk(threadInfo.article_cover);
             this.eMv.a(this.videoInfo);
-            if (this.eMv.bpZ()) {
+            if (this.eMv.bqa()) {
                 this.eMv.oX(1);
             }
-            this.eMv.brT();
+            this.eMv.brU();
         }
     }
 
@@ -264,13 +264,13 @@ public class CardPersonDynamicThreadData extends com.baidu.tbadk.core.data.a {
                 long longValue2 = postInfoList.agree.disagree_num.longValue() > 0 ? postInfoList.agree.disagree_num.longValue() : 0L;
                 this.eMv.dH(longValue);
                 this.eMv.dI(longValue2);
-                if (this.eMv.bsT() == 1 && longValue == 0 && longValue2 == 0) {
+                if (this.eMv.bsU() == 1 && longValue == 0 && longValue2 == 0) {
                     this.eMv.oV(1);
                 }
-                AgreeData btk = this.eMv.btk();
-                if (btk != null) {
-                    btk.threadId = this.threadId;
-                    btk.parseProtobuf(postInfoList.agree);
+                AgreeData btl = this.eMv.btl();
+                if (btl != null) {
+                    btl.threadId = this.threadId;
+                    btl.parseProtobuf(postInfoList.agree);
                 }
             }
             if (postInfoList.is_share_thread.intValue() == 1) {
@@ -283,14 +283,14 @@ public class CardPersonDynamicThreadData extends com.baidu.tbadk.core.data.a {
             this.eMv.setId(this.threadId);
             this.eMv.setTid(this.threadId);
             this.eMv.setFid(postInfoList.forum_id.longValue());
-            this.eMv.Bd(this.forumName);
+            this.eMv.Bc(this.forumName);
             this.eMv.oN(this.iAj);
             this.eMv.oO(this.iAk);
             this.eMv.dG(this.iAg);
             this.eMv.setTitle(this.title);
             this.eMv.bw(this.rich_title);
             this.eMv.bx(this.rich_abstract);
-            this.eMv.Bg(this.iAh);
+            this.eMv.Bf(this.iAh);
             this.eMv.setThreadType((int) this.iAi);
             this.eMv.bv(postInfoList.first_post_content);
             if (this.iAq != null) {
@@ -301,13 +301,13 @@ public class CardPersonDynamicThreadData extends com.baidu.tbadk.core.data.a {
             }
             this.eMv.oS(postInfoList.is_ntitle.intValue());
             this.eMv.eWg = true;
-            if (this.eMv.brq() != null && user != null) {
-                this.eMv.brq().parserProtobuf(user);
-                this.eMv.brO();
+            if (this.eMv.brr() != null && user != null) {
+                this.eMv.brr().parserProtobuf(user);
+                this.eMv.brP();
             }
-            this.eMv.Bl(postInfoList.article_cover);
+            this.eMv.Bk(postInfoList.article_cover);
             this.eMv.a(this.videoInfo);
-            if (this.eMv.bpZ()) {
+            if (this.eMv.bqa()) {
                 this.eMv.oX(1);
             }
             this.eMv.isPrivacy = this.isPrivacy;
@@ -356,17 +356,17 @@ public class CardPersonDynamicThreadData extends com.baidu.tbadk.core.data.a {
                 }
                 this.eMv.bz(arrayList3);
             }
-            this.eMv.brT();
+            this.eMv.brU();
         }
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bz boO() {
+    public bz boP() {
         return this.eMv;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public com.baidu.tbadk.core.data.at boQ() {
+    public com.baidu.tbadk.core.data.at boR() {
         return null;
     }
 

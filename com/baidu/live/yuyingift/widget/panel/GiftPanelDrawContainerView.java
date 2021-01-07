@@ -221,7 +221,7 @@ public class GiftPanelDrawContainerView extends LinearLayout implements View.OnC
     public int getSelectWheatsCount() {
         List<AlaWheatInfoData> list = null;
         if (this.caZ != null) {
-            list = this.caZ.aaE().ccd;
+            list = this.caZ.aaF().ccd;
         }
         if (list == null) {
             return 0;
@@ -229,7 +229,7 @@ public class GiftPanelDrawContainerView extends LinearLayout implements View.OnC
         return list.size();
     }
 
-    public void abi() {
+    public void abj() {
         if (this.cbr != null && this.cbp != null && this.cbp.getCurrentPointSize() > 0) {
             this.cbr.g(this.cbp.getCurrentPointSize(), this.cbp.getTotalPrice());
         }

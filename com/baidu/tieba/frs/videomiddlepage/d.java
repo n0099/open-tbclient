@@ -17,11 +17,11 @@ public class d {
         this.jLM = hVar;
     }
 
-    public com.baidu.tieba.frs.aggregation.g cON() {
+    public com.baidu.tieba.frs.aggregation.g cOO() {
         if (this.jLN == null) {
             this.jLN = new com.baidu.tieba.frs.aggregation.g();
         }
-        a(this.jLN, this.jLM.cOU());
+        a(this.jLN, this.jLM.cOV());
         return this.jLN;
     }
 
@@ -80,13 +80,13 @@ public class d {
             gVar.jmO = videoSerializeVideoThreadInfo.disAgreeNum;
             gVar.agreeType = videoSerializeVideoThreadInfo.agreeType;
             gVar.hasAgree = videoSerializeVideoThreadInfo.hasAgree;
-            if (gVar.btk() != null && videoSerializeVideoThreadInfo.mAgreeData != null) {
-                gVar.btk().threadId = videoSerializeVideoThreadInfo.mAgreeData.threadId;
-                gVar.btk().agreeType = videoSerializeVideoThreadInfo.mAgreeData.agreeType;
-                gVar.btk().hasAgree = videoSerializeVideoThreadInfo.mAgreeData.hasAgree;
-                gVar.btk().agreeNum = videoSerializeVideoThreadInfo.mAgreeData.agreeNum;
-                gVar.btk().disAgreeNum = videoSerializeVideoThreadInfo.mAgreeData.disAgreeNum;
-                gVar.btk().diffAgreeNum = videoSerializeVideoThreadInfo.mAgreeData.diffAgreeNum;
+            if (gVar.btl() != null && videoSerializeVideoThreadInfo.mAgreeData != null) {
+                gVar.btl().threadId = videoSerializeVideoThreadInfo.mAgreeData.threadId;
+                gVar.btl().agreeType = videoSerializeVideoThreadInfo.mAgreeData.agreeType;
+                gVar.btl().hasAgree = videoSerializeVideoThreadInfo.mAgreeData.hasAgree;
+                gVar.btl().agreeNum = videoSerializeVideoThreadInfo.mAgreeData.agreeNum;
+                gVar.btl().disAgreeNum = videoSerializeVideoThreadInfo.mAgreeData.disAgreeNum;
+                gVar.btl().diffAgreeNum = videoSerializeVideoThreadInfo.mAgreeData.diffAgreeNum;
             }
             gVar.shareNum = videoSerializeVideoThreadInfo.shareNum;
             gVar.title = videoSerializeVideoThreadInfo.title;
@@ -97,7 +97,7 @@ public class d {
         }
     }
 
-    public void cHR() {
+    public void cHS() {
         if (this.jmr != null) {
             this.jmr.destroy();
             this.jmr = null;
@@ -112,6 +112,6 @@ public class d {
         if (this.rootView != null) {
             this.rootView.clearAnimation();
         }
-        cHR();
+        cHS();
     }
 }

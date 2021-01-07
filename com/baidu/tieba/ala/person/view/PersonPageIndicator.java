@@ -55,7 +55,7 @@ public class PersonPageIndicator extends LinearLayout {
         this.hYP.setLayoutParams(layoutParams);
     }
 
-    public void IT(String str) {
+    public void IS(String str) {
         if (!StringUtils.isNull(str)) {
             TextView textView = new TextView(getContext());
             textView.setTextSize(0, BdUtilHelper.getDimens(getContext(), a.d.sdk_fontsize24));

@@ -110,7 +110,7 @@ public class CircleTextProgressbar extends AppCompatTextView {
 
     public void setProgressType(ProgressType progressType) {
         this.eal = progressType;
-        aUR();
+        aUS();
         invalidate();
     }
 
@@ -158,7 +158,7 @@ public class CircleTextProgressbar extends AppCompatTextView {
 
     public void setProgressTotalPart(int i) {
         this.eak = i;
-        aUR();
+        aUS();
     }
 
     public int getProgressTotalPart() {
@@ -166,7 +166,7 @@ public class CircleTextProgressbar extends AppCompatTextView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aUQ() {
+    public void aUR() {
         removeCallbacks(this.eao);
         switch (this.eal) {
             case COUNT:
@@ -196,7 +196,7 @@ public class CircleTextProgressbar extends AppCompatTextView {
         this.eao = new b(this);
     }
 
-    private void aUR() {
+    private void aUS() {
         switch (this.eal) {
             case COUNT:
                 this.progress = 0.0f;
@@ -233,7 +233,7 @@ public class CircleTextProgressbar extends AppCompatTextView {
         public void run() {
             CircleTextProgressbar circleTextProgressbar = this.weakReference.get();
             if (circleTextProgressbar != null) {
-                circleTextProgressbar.aUQ();
+                circleTextProgressbar.aUR();
             }
         }
     }

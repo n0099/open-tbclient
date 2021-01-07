@@ -10,19 +10,19 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes11.dex */
 public class f extends BdBaseModel {
-    private a okG;
-    private HttpMessageListener okH = new HttpMessageListener(1031039) { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.f.1
+    private a okF;
+    private HttpMessageListener okG = new HttpMessageListener(1031039) { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.f.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof CancelBlockSpeakHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == f.this.getUniqueId()) {
                 CancelBlockSpeakHttpResponseMessage cancelBlockSpeakHttpResponseMessage = (CancelBlockSpeakHttpResponseMessage) httpResponsedMessage;
                 if (httpResponsedMessage.getError() == 0) {
-                    if (f.this.okG != null) {
-                        f.this.okG.a(null);
+                    if (f.this.okF != null) {
+                        f.this.okF.a(null);
                     }
-                } else if (f.this.okG != null) {
-                    f.this.okG.v(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (f.this.okF != null) {
+                    f.this.okF.v(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -37,7 +37,7 @@ public class f extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.okG = aVar;
+        this.okF = aVar;
     }
 
     public f(Context context) {
@@ -49,7 +49,7 @@ public class f extends BdBaseModel {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(CancelBlockSpeakHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.okH);
+        MessageManager.getInstance().registerListener(this.okG);
     }
 
     public void l(String str, String str2, String str3, int i) {

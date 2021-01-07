@@ -250,31 +250,31 @@ public class n {
         return null;
     }
 
-    public static String baf() {
+    public static String bag() {
         Context appContext = AppRuntime.getAppContext();
         if (appContext == null) {
             return "";
         }
         String eB = eB(appContext);
-        com.baidu.swan.apps.runtime.e aMk = com.baidu.swan.apps.runtime.e.aMk();
-        if (aMk != null) {
-            String aMm = com.baidu.swan.apps.runtime.e.aMm();
-            String version = aMk.getVersion();
+        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
+        if (aMl != null) {
+            String aMn = com.baidu.swan.apps.runtime.e.aMn();
+            String version = aMl.getVersion();
             String str = "";
-            if (aMk.aMx() != null) {
-                str = aMk.aMx().ajJ();
+            if (aMl.aMy() != null) {
+                str = aMl.aMy().ajK();
             }
-            String cd = com.baidu.swan.apps.t.a.aAw().cd(appContext);
+            String cd = com.baidu.swan.apps.t.a.aAx().cd(appContext);
             StringBuilder append = new StringBuilder().append(eB(appContext)).append(File.separator);
             if (TextUtils.isEmpty(str)) {
                 str = cd;
             }
-            return append.append(str).append("/aigames/swancache/").append(aMm).append(File.separator).append(version).append(File.separator).append("code").toString();
+            return append.append(str).append("/aigames/swancache/").append(aMn).append(File.separator).append(version).append(File.separator).append("code").toString();
         }
         return eB;
     }
 
-    public static void bag() {
+    public static void bah() {
         Context appContext = AppRuntime.getAppContext();
         if (appContext != null) {
             String eA = eA(appContext);
@@ -295,8 +295,8 @@ public class n {
             return "";
         }
         String eA = eA(appContext);
-        if (com.baidu.swan.apps.runtime.e.aMk() != null) {
-            return eA + File.separator + "swangame/anonymous/sandbox" + File.separator + com.baidu.swan.apps.runtime.e.aMm();
+        if (com.baidu.swan.apps.runtime.e.aMl() != null) {
+            return eA + File.separator + "swangame/anonymous/sandbox" + File.separator + com.baidu.swan.apps.runtime.e.aMn();
         }
         return eA;
     }
@@ -804,8 +804,8 @@ public class n {
     }
 
     public static void a(com.baidu.swan.games.f.a aVar, String str) {
-        if (aVar != null && aVar.aZI() != null && !TextUtils.isEmpty(str)) {
-            aVar.aZI().log(str);
+        if (aVar != null && aVar.aZJ() != null && !TextUtils.isEmpty(str)) {
+            aVar.aZJ().log(str);
         }
     }
 
@@ -986,7 +986,7 @@ public class n {
                 str2 = xn(str);
                 break;
             case RELATIVE:
-                str2 = com.baidu.swan.apps.v.f.aDG().aDn() + str;
+                str2 = com.baidu.swan.apps.v.f.aDH().aDo() + str;
                 break;
             default:
                 str2 = str;
@@ -997,12 +997,12 @@ public class n {
 
     public static void xD(String str) {
         Context appContext;
-        String cc = com.baidu.swan.apps.t.a.aAw().cc(AppRuntime.getAppContext());
+        String cc = com.baidu.swan.apps.t.a.aAx().cc(AppRuntime.getAppContext());
         if (!TextUtils.isEmpty(cc)) {
             xA(di(cc, str));
             xA(di(com.baidu.swan.c.e.toMd5(cc.getBytes(), false), str));
         }
-        String cd = com.baidu.swan.apps.t.a.aAw().cd(AppRuntime.getAppContext());
+        String cd = com.baidu.swan.apps.t.a.aAx().cd(AppRuntime.getAppContext());
         if (!TextUtils.isEmpty(cd)) {
             xA(di(cd, str));
             xA(di(com.baidu.swan.c.e.toMd5(cd.replace("|", "").getBytes(), false), str));

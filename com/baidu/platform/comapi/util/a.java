@@ -4,36 +4,36 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a {
     private final Map<Class<?>, CopyOnWriteArraySet<C0294a>> c = new HashMap();
     private final Map<Class<?>, Object> d = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f4379b = a.class.getName();
+    private static final String f4380b = a.class.getName();
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f4378a = new a();
+    public static final a f4379a = new a();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class C0294a implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final b f4382a;
+        private final b f4383a;
 
         @Override // com.baidu.platform.comapi.util.a.b
         public void a(Object obj) {
-            this.f4382a.a(obj);
+            this.f4383a.a(obj);
         }
 
         public boolean equals(Object obj) {
-            return this.f4382a.equals(obj);
+            return this.f4383a.equals(obj);
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(Object obj);
     }
@@ -42,7 +42,7 @@ public class a {
     }
 
     public static a a() {
-        return f4378a;
+        return f4379a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

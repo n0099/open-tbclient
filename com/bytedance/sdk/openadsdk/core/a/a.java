@@ -21,10 +21,10 @@ public class a extends b {
     private int E;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f6740a;
+    private boolean f6741a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f6741b;
+    private boolean f6742b;
 
     public void a(TTDrawFeedAd.DrawVideoListener drawVideoListener) {
         this.D = drawVideoListener;
@@ -32,17 +32,17 @@ public class a extends b {
 
     public a(@NonNull Context context, @NonNull l lVar, @NonNull String str, int i) {
         super(context, lVar, str, i);
-        this.f6740a = true;
-        this.f6741b = false;
+        this.f6741a = true;
+        this.f6742b = false;
         this.C = false;
     }
 
     public void a(boolean z) {
-        this.f6740a = z;
+        this.f6741a = z;
     }
 
     public void b(boolean z) {
-        this.f6741b = z;
+        this.f6742b = z;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.a.b, com.bytedance.sdk.openadsdk.core.a.c
@@ -65,12 +65,12 @@ public class a extends b {
                 switch (H) {
                     case 2:
                     case 3:
-                        if (this.k != null || this.f6741b) {
+                        if (this.k != null || this.f6742b) {
                             com.bytedance.sdk.openadsdk.c.d.a(this.c, "click_button", this.d, this.i, this.e, true, this.o);
                         }
                         z.a(true);
                         boolean a2 = z.a(this.c, this.d, this.f, this.k, this.p, aj.a(this.f), this.n, true);
-                        if (this.f6740a) {
+                        if (this.f6741a) {
                             com.bytedance.sdk.openadsdk.c.d.a(this.c, "click", this.d, this.i, this.e, a2, this.o);
                             i5 = H;
                             break;
@@ -80,7 +80,7 @@ public class a extends b {
                     case 4:
                         if (this.d.s() && (this.k != null || this.p != null)) {
                             boolean a3 = z.a(this.c, this.d, this.f, this.k, this.p, this.e, this.n, true);
-                            if (this.f6740a) {
+                            if (this.f6741a) {
                                 com.bytedance.sdk.openadsdk.c.d.a(this.c, "click", this.d, this.i, this.e, a3, this.o);
                             }
                             i5 = H;
@@ -88,7 +88,7 @@ public class a extends b {
                         } else {
                             if (this.n != null) {
                                 this.n.g();
-                                if (this.f6740a) {
+                                if (this.f6741a) {
                                     com.bytedance.sdk.openadsdk.c.d.a(this.c, "click", this.d, this.i, this.e, true, this.o);
                                     i5 = H;
                                     break;

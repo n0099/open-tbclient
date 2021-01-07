@@ -10,10 +10,10 @@ import java.io.InputStream;
 public class t implements com.kwad.sdk.glide.load.a<InputStream> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f10419a;
+    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f10420a;
 
     public t(com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-        this.f10419a = bVar;
+        this.f10420a = bVar;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x0062 */
@@ -30,7 +30,7 @@ public class t implements com.kwad.sdk.glide.load.a<InputStream> {
     public boolean a(@NonNull InputStream inputStream, @NonNull File file, @NonNull com.kwad.sdk.glide.load.e eVar) {
         FileOutputStream fileOutputStream;
         ?? r3 = byte[].class;
-        byte[] bArr = (byte[]) this.f10419a.a(65536, (Class<Object>) r3);
+        byte[] bArr = (byte[]) this.f10420a.a(65536, (Class<Object>) r3);
         try {
             try {
                 fileOutputStream = new FileOutputStream(file);
@@ -52,7 +52,7 @@ public class t implements com.kwad.sdk.glide.load.a<InputStream> {
                             } catch (IOException e2) {
                             }
                         }
-                        this.f10419a.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
+                        this.f10420a.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
                         return false;
                     }
                 }
@@ -63,7 +63,7 @@ public class t implements com.kwad.sdk.glide.load.a<InputStream> {
                     } catch (IOException e3) {
                     }
                 }
-                this.f10419a.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
+                this.f10420a.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
                 return true;
             } catch (Throwable th) {
                 th = th;
@@ -73,7 +73,7 @@ public class t implements com.kwad.sdk.glide.load.a<InputStream> {
                     } catch (IOException e4) {
                     }
                 }
-                this.f10419a.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
+                this.f10420a.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
                 throw th;
             }
         } catch (IOException e5) {
@@ -84,7 +84,7 @@ public class t implements com.kwad.sdk.glide.load.a<InputStream> {
             r3 = 0;
             if (r3 != 0) {
             }
-            this.f10419a.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
+            this.f10420a.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr);
             throw th;
         }
     }

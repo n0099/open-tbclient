@@ -55,7 +55,7 @@ public class i extends com.baidu.tbadk.editortools.view.a {
                 return sw;
             }
         });
-        bFZ().c(this);
+        bGa().c(this);
         a(new CommonTabContentView.b() { // from class: com.baidu.tbadk.editortools.i.2
             @Override // com.baidu.tbadk.editortools.view.CommonTabContentView.b
             public void c(View view, int i, long j) {

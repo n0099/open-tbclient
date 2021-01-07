@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 final class o {
-    private SQLiteDatabase oOc = f.ejz().awv();
+    private SQLiteDatabase oOc = f.ejA().aww();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(n nVar) {
@@ -35,12 +35,12 @@ final class o {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void XJ(String str) {
+    public final void XI(String str) {
         this.oOc.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final boolean XK(String str) {
+    public final boolean XJ(String str) {
         Cursor rawQuery = this.oOc.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
         int count = rawQuery.getCount();
         rawQuery.close();

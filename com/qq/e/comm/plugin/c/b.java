@@ -6,37 +6,37 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class b implements com.qq.e.comm.plugin.c.a.b, k {
 
     /* renamed from: a  reason: collision with root package name */
-    private f f12223a;
+    private f f12224a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.qq.e.comm.plugin.ad.j f12224b;
+    private com.qq.e.comm.plugin.ad.j f12225b;
     private String c;
     private int d;
     private com.qq.e.comm.plugin.c.a.a e;
 
     /* renamed from: com.qq.e.comm.plugin.c.b$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class AnonymousClass1 implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ com.qq.e.comm.plugin.c.a.a f12225a;
+        final /* synthetic */ com.qq.e.comm.plugin.c.a.a f12226a;
 
         AnonymousClass1(com.qq.e.comm.plugin.c.a.a aVar) {
-            this.f12225a = aVar;
+            this.f12226a = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f12225a.a(b.a(b.this).i(), b.b(b.this));
+            this.f12226a.a(b.a(b.this).i(), b.b(b.this));
         }
     }
 
     /* renamed from: com.qq.e.comm.plugin.c.b$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class AnonymousClass2 implements Runnable {
         AnonymousClass2() {
         }
@@ -48,7 +48,7 @@ class b implements com.qq.e.comm.plugin.c.a.b, k {
     }
 
     /* renamed from: com.qq.e.comm.plugin.c.b$3  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class AnonymousClass3 implements Runnable {
         AnonymousClass3() {
         }
@@ -56,7 +56,7 @@ class b implements com.qq.e.comm.plugin.c.a.b, k {
         @Override // java.lang.Runnable
         public void run() {
             a d = b.d(b.this);
-            if (d == null || b.e(b.this).a().f12744a != 200) {
+            if (d == null || b.e(b.this).a().f12745a != 200) {
                 if (b.c(b.this) != null) {
                     w.a(new Runnable() { // from class: com.qq.e.comm.plugin.c.b.3.1
                         @Override // java.lang.Runnable
@@ -82,23 +82,23 @@ class b implements com.qq.e.comm.plugin.c.a.b, k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f12232a;
+        private final String f12233a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final String f12233b;
+        private final String f12234b;
 
         public a(String str, String str2) {
-            this.f12232a = str;
-            this.f12233b = str2;
+            this.f12233a = str;
+            this.f12234b = str2;
         }
 
         public a(JSONObject jSONObject) {
-            this.f12232a = jSONObject.optString("name");
-            this.f12233b = jSONObject.optString("iconurl");
+            this.f12233a = jSONObject.optString("name");
+            this.f12234b = jSONObject.optString("iconurl");
         }
     }
 

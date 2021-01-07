@@ -15,7 +15,7 @@ public class c {
         String mU = mU(i);
         String aj = aj(mU, str, str2);
         if (!this.epO.contains(aj)) {
-            String appKey = com.baidu.swan.apps.runtime.e.aMk() == null ? null : com.baidu.swan.apps.runtime.e.aMk().getAppKey();
+            String appKey = com.baidu.swan.apps.runtime.e.aMl() == null ? null : com.baidu.swan.apps.runtime.e.aMl().getAppKey();
             com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
             eVar.mType = "click";
             eVar.mPage = mU;
@@ -44,7 +44,7 @@ public class c {
 
     public void c(int i, String str, String str2, String str3) {
         String mU = mU(i);
-        String appKey = com.baidu.swan.apps.runtime.e.aMk() == null ? null : com.baidu.swan.apps.runtime.e.aMk().getAppKey();
+        String appKey = com.baidu.swan.apps.runtime.e.aMl() == null ? null : com.baidu.swan.apps.runtime.e.aMl().getAppKey();
         com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
         eVar.mType = "click";
         eVar.mPage = mU;

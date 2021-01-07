@@ -26,16 +26,16 @@ public class a {
         this.gDY.a(new i() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a.1
             @Override // com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.i
             public void a(com.baidu.tieba.ala.alasquare.a.e eVar) {
-                if (eVar != null && eVar.boO() != null) {
-                    com.baidu.tieba.ala.alasquare.live_tab.c.a(tbPageContext.getPageActivity(), eVar.boO());
+                if (eVar != null && eVar.boP() != null) {
+                    com.baidu.tieba.ala.alasquare.live_tab.c.a(tbPageContext.getPageActivity(), eVar.boP());
                 }
             }
         });
         this.gEa.a(new i() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a.2
             @Override // com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.i
             public void a(com.baidu.tieba.ala.alasquare.a.e eVar) {
-                if (eVar != null && eVar.boO() != null) {
-                    com.baidu.tieba.ala.alasquare.live_tab.c.a(tbPageContext.getPageActivity(), eVar.boO());
+                if (eVar != null && eVar.boP() != null) {
+                    com.baidu.tieba.ala.alasquare.live_tab.c.a(tbPageContext.getPageActivity(), eVar.boP());
                 }
             }
         });
@@ -47,7 +47,7 @@ public class a {
         this.boM.add(this.gEc);
     }
 
-    public List<com.baidu.adp.widget.ListView.a> bUQ() {
+    public List<com.baidu.adp.widget.ListView.a> bUR() {
         return this.boM;
     }
 }

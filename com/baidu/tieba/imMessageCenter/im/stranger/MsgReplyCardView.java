@@ -40,42 +40,42 @@ public class MsgReplyCardView extends e {
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
-            a.C0774a NK = a.NK(chatMessage.getContent());
+            a.C0783a NJ = a.NJ(chatMessage.getContent());
             String valueOf = String.valueOf(chatMessage.getUserId());
-            this.kMs.setText(a(NK, valueOf));
-            this.kMt.setText(NK.kMb);
-            this.kMu.setText(b(NK, valueOf));
-            this.kMv.setText(NK.fName + this.mContext.getString(R.string.forum));
+            this.kMs.setText(a(NJ, valueOf));
+            this.kMt.setText(NJ.kMb);
+            this.kMu.setText(b(NJ, valueOf));
+            this.kMv.setText(NJ.fName + this.mContext.getString(R.string.forum));
         }
     }
 
-    private String a(a.C0774a c0774a, String str) {
+    private String a(a.C0783a c0783a, String str) {
         String string;
         String EH;
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            string = EH(c0774a.kMx);
+            string = EH(c0783a.kMx);
             EH = this.mContext.getString(R.string.you);
         } else {
             string = this.mContext.getString(R.string.you);
-            EH = EH(c0774a.kMx);
+            EH = EH(c0783a.kMx);
         }
-        return String.format(this.mContext.getString(R.string.add_friend_card_title), string, EI(c0774a.type), EH);
+        return String.format(this.mContext.getString(R.string.add_friend_card_title), string, EI(c0783a.type), EH);
     }
 
-    private String b(a.C0774a c0774a, String str) {
+    private String b(a.C0783a c0783a, String str) {
         String EH;
         StringBuilder sb = new StringBuilder();
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
             EH = this.mContext.getString(R.string.me);
         } else {
-            EH = EH(c0774a.kMx);
+            EH = EH(c0783a.kMx);
         }
-        if (c0774a.type == 1) {
+        if (c0783a.type == 1) {
             sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_comment), EH));
-            sb.append(c0774a.kMB);
+            sb.append(c0783a.kMB);
         } else {
             sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_thread), EH));
-            sb.append(c0774a.title);
+            sb.append(c0783a.title);
         }
         return sb.toString();
     }

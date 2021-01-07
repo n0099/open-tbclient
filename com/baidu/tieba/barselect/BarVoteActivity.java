@@ -25,16 +25,16 @@ public class BarVoteActivity extends BaseActivity {
             if (BarVoteActivity.this.ioe != null && BarVoteActivity.this.ioe.getRootView() != null) {
                 BarVoteActivity.this.hideLoadingView(BarVoteActivity.this.ioe.getRootView());
                 if (i == 0) {
-                    if (fVar == null || fVar.ctW() == null || fVar.ctW().getStatus() < 1 || fVar.ctW().getStatus() > 2) {
+                    if (fVar == null || fVar.ctX() == null || fVar.ctX().getStatus() < 1 || fVar.ctX().getStatus() > 2) {
                         if (BarVoteActivity.this.iod != null && BarVoteActivity.this.iod.mPn == 0) {
                             if (BarVoteActivity.this.ioe.getListView() != null) {
                                 BarVoteActivity.this.ioe.getListView().setVisibility(8);
                             }
-                            if (fVar == null || fVar.ctW() == null) {
-                                BarVoteActivity.this.ioe.Ji(TbadkCoreApplication.getInst().getString(R.string.no_data_text));
+                            if (fVar == null || fVar.ctX() == null) {
+                                BarVoteActivity.this.ioe.Jh(TbadkCoreApplication.getInst().getString(R.string.no_data_text));
                                 return;
-                            } else if (fVar.ctW().getStatus() < 1 || fVar.ctW().getStatus() > 2) {
-                                BarVoteActivity.this.ioe.Ji(TbadkCoreApplication.getInst().getString(R.string.error_status));
+                            } else if (fVar.ctX().getStatus() < 1 || fVar.ctX().getStatus() > 2) {
+                                BarVoteActivity.this.ioe.Jh(TbadkCoreApplication.getInst().getString(R.string.error_status));
                                 return;
                             } else {
                                 return;
@@ -57,13 +57,13 @@ public class BarVoteActivity extends BaseActivity {
                         if (BarVoteActivity.this.ioe.getListView() != null) {
                             BarVoteActivity.this.ioe.getListView().setVisibility(8);
                         }
-                        BarVoteActivity.this.ioe.Ji(str);
+                        BarVoteActivity.this.ioe.Jh(str);
                     }
                 } else if (BarVoteActivity.this.iod != null && BarVoteActivity.this.iod.mPn == 0) {
                     if (BarVoteActivity.this.ioe.getListView() != null) {
                         BarVoteActivity.this.ioe.getListView().setVisibility(8);
                     }
-                    BarVoteActivity.this.ioe.Ji(TbadkCoreApplication.getInst().getString(R.string.error_status));
+                    BarVoteActivity.this.ioe.Jh(TbadkCoreApplication.getInst().getString(R.string.error_status));
                 }
             }
         }
@@ -79,7 +79,7 @@ public class BarVoteActivity extends BaseActivity {
         this.iod = new BarVoteModel(this);
         this.iod.a(this.iof);
         this.ioe.h(new a());
-        new aq("c13440").an("obj_source", this.source).bwn();
+        new aq("c13440").an("obj_source", this.source).bwo();
     }
 
     @Override // android.app.Activity
@@ -89,12 +89,12 @@ public class BarVoteActivity extends BaseActivity {
         this.fid = intent.getLongExtra("fid", 0L);
         this.source = intent.getIntExtra("source", 0);
         reload();
-        new aq("c13440").an("obj_source", this.source).bwn();
+        new aq("c13440").an("obj_source", this.source).bwo();
     }
 
-    public void ctu() {
+    public void ctv() {
         if (this.iod != null) {
-            this.iod.bUp();
+            this.iod.bUq();
         }
     }
 
@@ -106,19 +106,19 @@ public class BarVoteActivity extends BaseActivity {
 
     public void refresh() {
         if (this.iod != null) {
-            this.iod.ctC();
+            this.iod.ctD();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.right_textview) {
-            be.bwu().b(getPageContext(), new String[]{"http://c.tieba.baidu.com/mo/q/bzrecruitrule?nomenu=1"});
+            be.bwv().b(getPageContext(), new String[]{"http://c.tieba.baidu.com/mo/q/bzrecruitrule?nomenu=1"});
         } else if (view.getId() == R.id.pb_more) {
-            if (this.ioe != null && this.ioe.ctE() != null) {
-                this.ioe.ctE().showLoading();
+            if (this.ioe != null && this.ioe.ctF() != null) {
+                this.ioe.ctF().showLoading();
             }
-            ctu();
+            ctv();
         }
     }
 
@@ -143,8 +143,8 @@ public class BarVoteActivity extends BaseActivity {
         super.onDestroy();
     }
 
-    public void bUH() {
-        this.ioe.bUH();
+    public void bUI() {
+        this.ioe.bUI();
     }
 
     /* loaded from: classes8.dex */

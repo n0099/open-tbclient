@@ -8,10 +8,10 @@ import org.json.JSONObject;
 public class aq {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3721a;
+    private String f3722a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f3722b;
+    private String f3723b;
     private JSONArray c;
     private String d;
     private String e;
@@ -25,8 +25,8 @@ public class aq {
     private String m;
 
     public aq(String str, String str2, JSONArray jSONArray, String str3, String str4, String str5, boolean z, int i, long j, long j2, long j3, String str6, String str7) {
-        this.f3721a = str;
-        this.f3722b = str2;
+        this.f3722a = str;
+        this.f3723b = str2;
         this.c = jSONArray;
         this.d = str3;
         this.e = str4;
@@ -41,11 +41,11 @@ public class aq {
     }
 
     public String a() {
-        return this.f3721a;
+        return this.f3722a;
     }
 
     public String b() {
-        return this.f3722b;
+        return this.f3723b;
     }
 
     public JSONArray c() {
@@ -109,13 +109,13 @@ public class aq {
     }
 
     public JSONObject a(String str, String str2, String str3) {
-        String a2 = a(this.f3721a, this.f3722b, this.c, this.d, this.e, this.f, this.g);
+        String a2 = a(this.f3722a, this.f3723b, this.c, this.d, this.e, this.f, this.g);
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("id", this.f3721a);
+            jSONObject.put("id", this.f3722a);
             jSONObject.put("d", this.l);
             jSONObject.put("p", str);
             jSONObject.put("path", str3);

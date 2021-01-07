@@ -35,7 +35,7 @@ public class q extends d {
         this.oSk = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
         this.oSn = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
         this.jnJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
-        this.mtx = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
+        this.mtw = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
         this.oSo = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
         this.mConvertView.setTag(this);
@@ -81,7 +81,7 @@ public class q extends d {
                     a.f subViewLongClickListener;
                     View contentView = q.this.getContentView();
                     if ((contentView instanceof EventDispatchRelativeLayout) && (subViewLongClickListener = ((EventDispatchRelativeLayout) contentView).getSubViewLongClickListener()) != null) {
-                        subViewLongClickListener.elc();
+                        subViewLongClickListener.eld();
                         return true;
                     }
                     return true;
@@ -106,7 +106,7 @@ public class q extends d {
                 spannableStringBuilder.setSpan(new ClickableSpan() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.q.2
                     @Override // android.text.style.ClickableSpan
                     public void onClick(View view) {
-                        com.baidu.yuyinala.privatemessage.implugin.d.b.ell().h(context, uRLSpan.getURL(), false);
+                        com.baidu.yuyinala.privatemessage.implugin.d.b.elm().h(context, uRLSpan.getURL(), false);
                     }
                 }, spanStart, spanEnd, 33);
             }
@@ -122,7 +122,7 @@ public class q extends d {
                     a.f subViewLongClickListener;
                     View contentView = q.this.getContentView();
                     if ((contentView instanceof EventDispatchRelativeLayout) && (subViewLongClickListener = ((EventDispatchRelativeLayout) contentView).getSubViewLongClickListener()) != null) {
-                        subViewLongClickListener.elc();
+                        subViewLongClickListener.eld();
                         return true;
                     }
                     return true;

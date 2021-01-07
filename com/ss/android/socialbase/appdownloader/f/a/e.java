@@ -312,7 +312,7 @@ public class e {
 
     public static PackageInfo a(@NonNull Context context, @NonNull File file, int i) {
         PackageInfo packageInfo = null;
-        if (com.ss.android.socialbase.downloader.k.a.eJs().a("getpackageinfo_by_reflect", 0) == 1 && (packageInfo = l(context, file.getAbsolutePath(), i)) == null) {
+        if (com.ss.android.socialbase.downloader.k.a.eJW().a("getpackageinfo_by_reflect", 0) == 1 && (packageInfo = l(context, file.getAbsolutePath(), i)) == null) {
             a("getPackageInfo::reflect", "packageInfo is null");
         }
         if (packageInfo == null) {
@@ -344,14 +344,14 @@ public class e {
     }
 
     private static void a(@NonNull String str, @NonNull String str2) {
-        com.ss.android.socialbase.downloader.h.c eHq = com.ss.android.socialbase.downloader.downloader.b.eHq();
-        if (eHq != null) {
+        com.ss.android.socialbase.downloader.h.c eHU = com.ss.android.socialbase.downloader.downloader.b.eHU();
+        if (eHU != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("message", str2);
             } catch (JSONException e) {
             }
-            eHq.a(str, jSONObject);
+            eHU.a(str, jSONObject);
         }
     }
 
@@ -363,7 +363,7 @@ public class e {
         int b2 = aVar.b(i);
         int c = aVar.c(i);
         if (b2 == 3) {
-            return aVar.Sh(i);
+            return aVar.Sx(i);
         }
         if (b2 == 2) {
             return String.format("?%s%08X", a(c), Integer.valueOf(c));

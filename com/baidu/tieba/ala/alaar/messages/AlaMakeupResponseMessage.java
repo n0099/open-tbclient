@@ -15,7 +15,7 @@ public class AlaMakeupResponseMessage extends JsonHttpResponsedMessage {
         super(1021214);
     }
 
-    public com.baidu.tieba.ala.alaar.makeup.a.c bSB() {
+    public com.baidu.tieba.ala.alaar.makeup.a.c bSC() {
         return this.gus;
     }
 
@@ -40,7 +40,7 @@ public class AlaMakeupResponseMessage extends JsonHttpResponsedMessage {
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject != null) {
-            this.gus = new com.baidu.tieba.ala.alaar.makeup.a.c(e.bSx());
+            this.gus = new com.baidu.tieba.ala.alaar.makeup.a.c(e.bSy());
             this.gus.dD(optJSONObject);
             if (h.isDebug()) {
                 h.d("MKNetLoader", "decodeLogicInBackGround-size: " + this.gus.size());

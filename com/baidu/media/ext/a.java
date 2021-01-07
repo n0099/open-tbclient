@@ -33,7 +33,7 @@ public class a {
         return cjd != null;
     }
 
-    public static RTCRoomProvider adB() {
+    public static RTCRoomProvider adC() {
         RTCRoomProvider createRtcRoom = a() ? cjd.createRtcRoom() : null;
         CyberLog.i("CyberExtRTCInvoker", "createRtcRoom provider = " + createRtcRoom + " isExtJarLoader = " + a());
         return createRtcRoom;

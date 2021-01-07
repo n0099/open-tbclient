@@ -12,11 +12,11 @@ public class f {
         this.amount = jSONObject.optLong(LogConfig.LOG_AMOUNT);
     }
 
-    public boolean bXq() {
+    public boolean bXr() {
         return this.gUc == 1;
     }
 
-    public long bXr() {
+    public long bXs() {
         return this.amount;
     }
 }

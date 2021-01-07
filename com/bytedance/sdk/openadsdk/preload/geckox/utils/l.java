@@ -10,10 +10,10 @@ import java.util.zip.ZipInputStream;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static byte[] f7829a = {80, 75, 3, 4};
+    private static byte[] f7830a = {80, 75, 3, 4};
 
     /* renamed from: b  reason: collision with root package name */
-    private static byte[] f7830b = {80, 75, 5, 6};
+    private static byte[] f7831b = {80, 75, 5, 6};
 
     public static void a(InputStream inputStream, String str, String str2) throws Exception {
         FileOutputStream fileOutputStream;
@@ -88,7 +88,7 @@ public class l {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:8:0x001b, code lost:
-        if (java.util.Arrays.equals(com.bytedance.sdk.openadsdk.preload.geckox.utils.l.f7830b, r1) != false) goto L13;
+        if (java.util.Arrays.equals(com.bytedance.sdk.openadsdk.preload.geckox.utils.l.f7831b, r1) != false) goto L13;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -98,7 +98,7 @@ public class l {
         try {
             byte[] bArr = new byte[4];
             if (inputStream.read(bArr, 0, bArr.length) == bArr.length) {
-                if (!Arrays.equals(f7829a, bArr)) {
+                if (!Arrays.equals(f7830a, bArr)) {
                 }
                 z = true;
             }

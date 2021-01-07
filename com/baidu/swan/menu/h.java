@@ -3,7 +3,7 @@ package com.baidu.swan.menu;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import com.baidu.swan.menu.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class h {
     private e evC;
     private com.baidu.swan.menu.viewpager.b evq;
@@ -29,7 +29,7 @@ public class h {
         this.mEnable = z;
     }
 
-    public int bfn() {
+    public int bfo() {
         return this.evA;
     }
 
@@ -37,7 +37,7 @@ public class h {
         this.evA = i;
     }
 
-    public long bfo() {
+    public long bfp() {
         return this.evB;
     }
 
@@ -81,7 +81,7 @@ public class h {
         return context.getResources().getDrawable(this.mIconResId);
     }
 
-    public int bfp() {
+    public int bfq() {
         return this.evy;
     }
 
@@ -97,11 +97,11 @@ public class h {
         this.evC = eVar;
     }
 
-    public e bfq() {
+    public e bfr() {
         return this.evC;
     }
 
-    public com.baidu.swan.menu.viewpager.b bfr() {
+    public com.baidu.swan.menu.viewpager.b bfs() {
         return this.evq;
     }
 

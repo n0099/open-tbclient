@@ -3,17 +3,17 @@ package com.baidu.fsg.base.utils;
 public final class ChannelUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f2013a;
+    private static boolean f2014a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f2014b;
+    private static String f2015b;
     private static String c = "";
     private static String d;
     private static String e;
 
     public static void initBussinessParams(String str, boolean z, String str2) {
-        f2014b = str;
-        f2013a = z;
+        f2015b = str;
+        f2014a = z;
         e = str2;
     }
 
@@ -22,11 +22,11 @@ public final class ChannelUtils {
     }
 
     public static boolean isSpecailPackage() {
-        return f2013a;
+        return f2014a;
     }
 
     public static String getSDKVersion() {
-        return f2014b;
+        return f2015b;
     }
 
     public static String getHostUA() {

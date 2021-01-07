@@ -33,7 +33,7 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                    NEGFeedBackReasonCheckBox.this.bxO();
+                    NEGFeedBackReasonCheckBox.this.bxP();
                 }
             }
         };
@@ -50,7 +50,7 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                    NEGFeedBackReasonCheckBox.this.bxO();
+                    NEGFeedBackReasonCheckBox.this.bxP();
                 }
             }
         };
@@ -67,7 +67,7 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                    NEGFeedBackReasonCheckBox.this.bxO();
+                    NEGFeedBackReasonCheckBox.this.bxP();
                 }
             }
         };
@@ -81,7 +81,7 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
         setButtonDrawable((Drawable) null);
     }
 
-    public void bxO() {
+    public void bxP() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             e(R.string.J_X07, l.getDimens(this.mContext, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0302, R.color.CAM_X0902);

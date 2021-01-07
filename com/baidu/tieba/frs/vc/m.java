@@ -39,7 +39,7 @@ public class m {
         this.mTipView.setEllipsize(TextUtils.TruncateAt.END);
     }
 
-    public void KI(String str) {
+    public void KH(String str) {
         String str2;
         if (!at.isEmpty(str) && this.jLi != null && this.jDI.isPrimary() && this.jLj <= 0) {
             this.jLj++;

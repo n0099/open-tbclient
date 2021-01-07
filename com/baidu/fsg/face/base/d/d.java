@@ -5,10 +5,10 @@ import android.util.Log;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2138a = "SAPI_BIOMETRIC";
+    private static final String f2139a = "SAPI_BIOMETRIC";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f2139b = "%1$s\n%2$s";
+    private static final String f2140b = "%1$s\n%2$s";
     private static boolean c = false;
 
     private d() {
@@ -49,9 +49,9 @@ public final class d {
                 if (format == null) {
                     format = th.getMessage();
                 }
-                format = String.format(f2139b, format, Log.getStackTraceString(th));
+                format = String.format(f2140b, format, Log.getStackTraceString(th));
             }
-            Log.println(i, f2138a, format);
+            Log.println(i, f2139a, format);
         }
     }
 }

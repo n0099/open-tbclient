@@ -4,15 +4,15 @@ public class c {
     public void onVideoPlayStart() {
     }
 
-    public void efP() {
+    public void efQ() {
     }
 
     public void onVideoPlayEnd() {
     }
 
-    public void efQ() {
+    public void efR() {
     }
 
-    public void efR() {
+    public void efS() {
     }
 }

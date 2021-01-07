@@ -6,22 +6,22 @@ import java.util.HashMap;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f13615a;
+    public static b f13616a;
     static final /* synthetic */ boolean d;
     private static int e;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, a> f13616b = new HashMap<>();
+    public HashMap<String, a> f13617b = new HashMap<>();
     public final String c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
     /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public IUiListener f13617a;
+        public IUiListener f13618a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.tencent.connect.auth.a f13618b;
+        public com.tencent.connect.auth.a f13619b;
         public String c;
     }
 
@@ -31,10 +31,10 @@ public class b {
     }
 
     public static b a() {
-        if (f13615a == null) {
-            f13615a = new b();
+        if (f13616a == null) {
+            f13616a = new b();
         }
-        return f13615a;
+        return f13616a;
     }
 
     public static int b() {
@@ -46,7 +46,7 @@ public class b {
     public String a(a aVar) {
         int b2 = b();
         try {
-            this.f13616b.put("" + b2, aVar);
+            this.f13617b.put("" + b2, aVar);
         } catch (Throwable th) {
             th.printStackTrace();
         }

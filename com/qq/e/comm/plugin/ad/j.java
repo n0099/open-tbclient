@@ -1,12 +1,12 @@
 package com.qq.e.comm.plugin.ad;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f12193a;
+    private String f12194a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f12194b;
+    private int f12195b;
     private double c;
     private int d;
     private int e;
@@ -41,7 +41,7 @@ public class j {
     }
 
     public void b(int i) {
-        this.f12194b = i;
+        this.f12195b = i;
     }
 
     public void b(long j) {
@@ -49,7 +49,7 @@ public class j {
     }
 
     public void b(String str) {
-        this.f12193a = str;
+        this.f12194a = str;
     }
 
     public long c() {
@@ -65,7 +65,7 @@ public class j {
     }
 
     public String d() {
-        return this.f12193a;
+        return this.f12194a;
     }
 
     public void d(String str) {
@@ -81,7 +81,7 @@ public class j {
     }
 
     public int g() {
-        return this.f12194b;
+        return this.f12195b;
     }
 
     public int h() {
@@ -97,6 +97,6 @@ public class j {
     }
 
     public String toString() {
-        return "AppInfo{packageName='" + this.f12193a + "', score=" + this.f12194b + ", price=" + this.c + ", status=" + this.d + ", progress=" + this.e + ", downloads=" + this.f + ", iconUrl='" + this.g + "', appName='" + this.h + "', versionName='" + this.i + "', pkgSize=" + this.j + '}';
+        return "AppInfo{packageName='" + this.f12194a + "', score=" + this.f12195b + ", price=" + this.c + ", status=" + this.d + ", progress=" + this.e + ", downloads=" + this.f + ", iconUrl='" + this.g + "', appName='" + this.h + "', versionName='" + this.i + "', pkgSize=" + this.j + '}';
     }
 }

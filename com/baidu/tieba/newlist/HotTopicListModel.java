@@ -19,11 +19,11 @@ public class HotTopicListModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: package-private */
     public HotTopicListModel(TbPageContext<?> tbPageContext, b bVar) {
         super(tbPageContext);
-        cSA();
+        cSB();
         this.lBW = bVar;
     }
 
-    private void cSA() {
+    private void cSB() {
         registerListener(new com.baidu.adp.framework.listener.a(1003078, CmdConfigSocket.CMD_HOT_TOPIC_RANKLIST) { // from class: com.baidu.tieba.newlist.HotTopicListModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {

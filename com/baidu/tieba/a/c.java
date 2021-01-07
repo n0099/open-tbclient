@@ -13,7 +13,7 @@ public class c {
     private int mChannel;
 
     public c() {
-        bOj();
+        bOk();
     }
 
     public void a(ArrayList<Integer> arrayList, b bVar) {
@@ -41,7 +41,7 @@ public class c {
 
     private int uy(int i) {
         String uz = uz(i);
-        return (!at.isEmpty(uz) && com.baidu.tbadk.core.sharedPref.b.bvq().getInt(uz, 0) == 1) ? 1 : 0;
+        return (!at.isEmpty(uz) && com.baidu.tbadk.core.sharedPref.b.bvr().getInt(uz, 0) == 1) ? 1 : 0;
     }
 
     private String uz(int i) {
@@ -59,8 +59,8 @@ public class c {
         if (at.isEmpty(uB)) {
             return 0;
         }
-        SampleResult XH = com.baidu.ubs.analytics.a.XH(uB);
-        return (XH == SampleResult.T1 || XH == SampleResult.T2 || XH == SampleResult.T3 || XH == SampleResult.T4 || XH == SampleResult.T5) ? 1 : 0;
+        SampleResult XG = com.baidu.ubs.analytics.a.XG(uB);
+        return (XG == SampleResult.T1 || XG == SampleResult.T2 || XG == SampleResult.T3 || XG == SampleResult.T4 || XG == SampleResult.T5) ? 1 : 0;
     }
 
     private String uB(int i) {
@@ -70,37 +70,37 @@ public class c {
         return null;
     }
 
-    private void bOj() {
-        this.mChannel = com.baidu.tbadk.core.sharedPref.b.bvq().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0);
+    private void bOk() {
+        this.mChannel = com.baidu.tbadk.core.sharedPref.b.bvr().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0);
         initSdk();
     }
 
     public void setChannel(int i) {
         if (i == 1 || i == 0) {
             this.mChannel = i;
-            com.baidu.tbadk.core.sharedPref.b.bvq().putInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, this.mChannel);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, this.mChannel);
             initSdk();
         }
     }
 
     private void initSdk() {
         if (!this.gih && this.mChannel == 1) {
-            this.gih = bOl();
+            this.gih = bOm();
             if (!this.gih) {
                 this.mChannel = 0;
             }
         }
     }
 
-    public boolean bOk() {
+    public boolean bOl() {
         return this.gih;
     }
 
-    public boolean bOl() {
+    public boolean bOm() {
         boolean z = true;
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             try {
-                com.baidu.ubs.analytics.a.a(new c.a().hn(TbadkCoreApplication.getInst()).Am(false).hR(30L).Oz(1).An(false).hS(15L).OA(1000).ejw());
+                com.baidu.ubs.analytics.a.a(new c.a().hn(TbadkCoreApplication.getInst()).Am(false).hR(30L).Oz(1).An(false).hS(15L).OA(1000).ejx());
             } catch (Exception e) {
                 e.printStackTrace();
                 z = false;

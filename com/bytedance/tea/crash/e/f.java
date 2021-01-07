@@ -19,9 +19,9 @@ public class f implements Handler.Callback {
         public void println(String str) {
             if (str != null) {
                 if (str.startsWith(">>>>> Dispatching")) {
-                    f.esA().a(str);
+                    f.esB().a(str);
                 } else if (str.startsWith("<<<<< Finished")) {
-                    f.esA().b(str);
+                    f.esB().b(str);
                 }
                 if (f.pqi != null && f.pqi != f.pqk) {
                     f.pqi.println(str);
@@ -43,7 +43,7 @@ public class f implements Handler.Callback {
         b();
     }
 
-    public static f esA() {
+    public static f esB() {
         if (pqj == null) {
             synchronized (f.class) {
                 if (pqj == null) {
@@ -57,7 +57,7 @@ public class f implements Handler.Callback {
     public void b() {
         if (!this.k) {
             this.k = true;
-            pqi = esB();
+            pqi = esC();
             if (pqi == pqk) {
                 pqi = null;
             }
@@ -65,7 +65,7 @@ public class f implements Handler.Callback {
         }
     }
 
-    private Printer esB() {
+    private Printer esC() {
         try {
             Field declaredField = Class.forName("android.os.Looper").getDeclaredField("mLogging");
             declaredField.setAccessible(true);

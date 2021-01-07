@@ -1,5 +1,5 @@
 package com.baidu.mapapi.walknavi.controllers;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a extends RuntimeException {
     public a() {
     }

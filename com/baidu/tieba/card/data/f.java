@@ -16,7 +16,7 @@ public class f extends k {
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.b, com.baidu.tbadk.core.data.a
-    public bz boO() {
+    public bz boP() {
         return this.eMv;
     }
 
@@ -24,6 +24,6 @@ public class f extends k {
         if (bzVar == null) {
             return false;
         }
-        return bzVar.bto();
+        return bzVar.btp();
     }
 }

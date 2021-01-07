@@ -54,9 +54,9 @@ public class d extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
             public void a(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if (nVar instanceof by) {
                     by byVar = (by) nVar;
-                    if (byVar.eMv != null && byVar.eSD && byVar.eMv.btx() != null) {
+                    if (byVar.eMv != null && byVar.eSD && byVar.eMv.bty() != null) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("itemID", String.valueOf(byVar.eMv.btx().item_id));
+                        hashMap.put("itemID", String.valueOf(byVar.eMv.bty().item_id));
                         hashMap.put("source", 3);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(TbadkApplication.getInst().getApplicationContext(), "GameItemDetailsPage", hashMap)));
                     }

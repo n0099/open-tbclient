@@ -33,8 +33,8 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
     private int jwE = 0;
     private boolean mIsLoading = false;
     private Handler mHandler = new Handler();
-    private a.InterfaceC0737a jwG = new a.InterfaceC0737a() { // from class: com.baidu.tieba.frs.game.strategy.a.b.1
-        @Override // com.baidu.tieba.frs.game.strategy.a.a.InterfaceC0737a
+    private a.InterfaceC0744a jwG = new a.InterfaceC0744a() { // from class: com.baidu.tieba.frs.game.strategy.a.b.1
+        @Override // com.baidu.tieba.frs.game.strategy.a.a.InterfaceC0744a
         public void c(List<e> list, List<n> list2, boolean z) {
             if (b.this.jwA != null && b.this.jws != null) {
                 b.this.jws.a(0, 0, list2, list, z, true, -1);
@@ -130,7 +130,7 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
         this.gDc = str;
         this.jwF.a(this.jwG);
         registerListeners();
-        bUn();
+        bUo();
     }
 
     private void registerListeners() {
@@ -138,7 +138,7 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
         MessageManager.getInstance().registerListener(this.jwH);
     }
 
-    private static void bUn() {
+    private static void bUo() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_FRS_GAME_STRATEGY, FrsGameStrategySocketResponseMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003362, com.baidu.tieba.tbadkCore.a.a.bU(Config.FRS_GAME_STRATEGY, CmdConfigSocket.CMD_FRS_GAME_STRATEGY));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -163,7 +163,7 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
         this.jwC = i;
         this.jwD = i2;
         if (i == 0 && i2 == 0) {
-            this.jwF.Lh(String.valueOf(this.mFid));
+            this.jwF.Lg(String.valueOf(this.mFid));
         } else {
             String cw = cw(i, i2);
             c cVar = this.jwB.get(cw);

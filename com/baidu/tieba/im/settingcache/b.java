@@ -14,7 +14,7 @@ public class b extends a {
     private b() {
     }
 
-    public static b cZK() {
+    public static b cZL() {
         return kIA;
     }
 
@@ -42,7 +42,7 @@ public class b extends a {
         return groupSettingItemData;
     }
 
-    public void cXk() {
+    public void cXl() {
         super.r(GroupSettingItemData.class);
     }
 
@@ -81,8 +81,8 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected com.baidu.adp.lib.cache.l<String> cZJ() {
-        return com.baidu.tbadk.core.c.a.btS().Bn("tb.im_group_setting");
+    protected com.baidu.adp.lib.cache.l<String> cZK() {
+        return com.baidu.tbadk.core.c.a.btT().Bm("tb.im_group_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -97,13 +97,13 @@ public class b extends a {
                 }
                 return;
             }
-            com.baidu.adp.lib.cache.l<String> cZJ = cZJ();
+            com.baidu.adp.lib.cache.l<String> cZK = cZK();
             String str = uid + "@" + gid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
             synchronized (this.kIy) {
                 this.kIy.put(str, groupSettingItemData);
             }
-            cZJ.setForever(str, jsonStrWithObject);
+            cZK.setForever(str, jsonStrWithObject);
         }
     }
 
@@ -126,9 +126,9 @@ public class b extends a {
             ac.b(new ab<Void>() { // from class: com.baidu.tieba.im.settingcache.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ab
-                /* renamed from: bPm */
+                /* renamed from: bPn */
                 public Void doInBackground() {
-                    b.this.cZJ().setForever(str, OrmObject.jsonStrWithObject(groupSettingItemData));
+                    b.this.cZK().setForever(str, OrmObject.jsonStrWithObject(groupSettingItemData));
                     return null;
                 }
             }, lVar);
@@ -144,9 +144,9 @@ public class b extends a {
             ac.b(new ab<Void>() { // from class: com.baidu.tieba.im.settingcache.b.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ab
-                /* renamed from: bPm */
+                /* renamed from: bPn */
                 public Void doInBackground() {
-                    b.this.cZJ().remove(str3);
+                    b.this.cZK().remove(str3);
                     return null;
                 }
             }, lVar);

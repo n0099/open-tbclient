@@ -5,33 +5,33 @@ import java.security.PrivilegedAction;
 /* loaded from: classes15.dex */
 public final class f {
     private static final boolean IS_ANDROID;
-    private static final int qvP = eOk();
+    private static final int qxx = eOO();
 
     static {
-        IS_ANDROID = qvP != 0;
+        IS_ANDROID = qxx != 0;
     }
 
     public static boolean isAndroid() {
         return IS_ANDROID;
     }
 
-    public static int eOj() {
-        return qvP;
+    public static int eON() {
+        return qxx;
     }
 
-    private static int eOk() {
+    private static int eOO() {
         try {
-            return ((Integer) Class.forName("android.os.Build$VERSION", true, eOl()).getField("SDK_INT").get(null)).intValue();
+            return ((Integer) Class.forName("android.os.Build$VERSION", true, eOP()).getField("SDK_INT").get(null)).intValue();
         } catch (Exception e) {
             return 0;
         }
     }
 
-    static ClassLoader eOl() {
+    static ClassLoader eOP() {
         return System.getSecurityManager() == null ? ClassLoader.getSystemClassLoader() : (ClassLoader) AccessController.doPrivileged(new PrivilegedAction<ClassLoader>() { // from class: rx.internal.util.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.security.PrivilegedAction
-            /* renamed from: eOm */
+            /* renamed from: eOQ */
             public ClassLoader run() {
                 return ClassLoader.getSystemClassLoader();
             }

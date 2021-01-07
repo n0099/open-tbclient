@@ -16,7 +16,7 @@ public class d extends i {
     @Override // a.a.a.b.b.i
     public Map<String, String> a(e eVar) {
         HashMap hashMap = new HashMap();
-        long j = eVar.f1040b;
+        long j = eVar.f1041b;
         long j2 = eVar.d;
         long j3 = eVar.c;
         hashMap.put(Headers.RANGE, "bytes=" + (j + j2) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + j3);

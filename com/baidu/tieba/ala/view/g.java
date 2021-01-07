@@ -73,10 +73,10 @@ public class g {
         this.gtp.setLastAnchorUid(String.valueOf(j));
         this.gtp.setLastLiveId(this.grz);
         this.gtp.setFrom(AlaLastLiveroomInfo.TYPE_FROM_HOUR_RANK);
-        Je(str);
+        Jd(str);
     }
 
-    private void Je(String str) {
+    private void Jd(String str) {
         this.grB = str;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.ala_rank_fragment_layout, (ViewGroup) null);
         this.ijb = (BdListView) this.mRootView.findViewById(a.f.ala_rank_list_view);
@@ -133,7 +133,7 @@ public class g {
         this.ijg.a(this.iiA, this.grB, j);
     }
 
-    public ArrayList<com.baidu.tieba.ala.data.h> bKW() {
+    public ArrayList<com.baidu.tieba.ala.data.h> bKX() {
         return this.iji;
     }
 
@@ -163,7 +163,7 @@ public class g {
         this.ijb.setVisibility(i);
     }
 
-    public r csl() {
+    public r csm() {
         return this.ijh;
     }
 
@@ -209,7 +209,7 @@ public class g {
         }
     }
 
-    public void csm() {
+    public void csn() {
         if (this.ijd != null) {
             this.ijd.getView().setVisibility(8);
         }
@@ -229,7 +229,7 @@ public class g {
         this.bxT.setVisibility(0);
     }
 
-    public void Zi() {
+    public void Zj() {
         this.bxT.setVisibility(8);
     }
 

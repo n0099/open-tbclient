@@ -3,57 +3,57 @@ package com.ss.android.a.a.d;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13190a;
+    public String f13191a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13191b;
+    public String f13192b;
     public String c;
     public String d;
     public String e;
 
-    public a(C1189a c1189a) {
-        this.f13191b = "";
-        this.f13190a = c1189a.f13192a;
-        this.f13191b = c1189a.f13193b;
-        this.c = c1189a.c;
-        this.d = c1189a.d;
-        this.e = c1189a.e;
+    public a(C1230a c1230a) {
+        this.f13192b = "";
+        this.f13191a = c1230a.f13193a;
+        this.f13192b = c1230a.f13194b;
+        this.c = c1230a.c;
+        this.d = c1230a.d;
+        this.e = c1230a.e;
     }
 
     /* renamed from: com.ss.android.a.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1189a {
+    public static class C1230a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f13192a;
+        private String f13193a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f13193b;
+        private String f13194b;
         private String c;
         private String d;
         private String e;
 
-        public C1189a aag(String str) {
-            this.f13192a = str;
+        public C1230a aah(String str) {
+            this.f13193a = str;
             return this;
         }
 
-        public C1189a aah(String str) {
-            this.f13193b = str;
+        public C1230a aai(String str) {
+            this.f13194b = str;
             return this;
         }
 
-        public C1189a aai(String str) {
+        public C1230a aaj(String str) {
             this.d = str;
             return this;
         }
 
-        public C1189a aaj(String str) {
+        public C1230a aak(String str) {
             this.e = str;
             return this;
         }
 
-        public a eEX() {
+        public a eFB() {
             return new a(this);
         }
     }

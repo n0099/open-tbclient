@@ -18,20 +18,20 @@ import java.util.List;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f5522a;
+    private static a f5523a;
 
     /* renamed from: b  reason: collision with root package name */
-    private C0361a f5523b;
+    private C0361a f5524b;
     private e c;
     private SQLiteDatabase d;
     private Context e;
 
     private a(Context context) {
         this.e = context;
-        this.f5523b = new C0361a(context);
+        this.f5524b = new C0361a(context);
         this.c = new e(context);
         try {
-            this.d = this.f5523b.getWritableDatabase();
+            this.d = this.f5524b.getWritableDatabase();
         } catch (Throwable th) {
             com.baidu.sofire.i.e.a();
         }
@@ -40,17 +40,17 @@ public final class a {
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f5522a == null) {
-                f5522a = new a(context);
+            if (f5523a == null) {
+                f5523a = new a(context);
             }
-            aVar = f5522a;
+            aVar = f5523a;
         }
         return aVar;
     }
 
     public final long a(com.baidu.sofire.f.a aVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(b.f4080a, aVar.f5526b);
+        contentValues.put(b.f4081a, aVar.f5527b);
         contentValues.put("c", Integer.valueOf(aVar.c));
         contentValues.put("d", Long.valueOf(aVar.e));
         contentValues.put("e", Integer.valueOf(aVar.g));
@@ -75,7 +75,7 @@ public final class a {
 
     public final long a(String str) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(b.f4080a, str);
+        contentValues.put(b.f4081a, str);
         try {
             return this.d.insert("c", null, contentValues);
         } catch (Throwable th) {
@@ -278,8 +278,8 @@ public final class a {
                     while (cursor.moveToNext()) {
                         try {
                             com.baidu.sofire.f.a aVar = new com.baidu.sofire.f.a();
-                            aVar.f5525a = cursor.getInt(cursor.getColumnIndex("a"));
-                            aVar.f5526b = cursor.getString(cursor.getColumnIndex(b.f4080a));
+                            aVar.f5526a = cursor.getInt(cursor.getColumnIndex("a"));
+                            aVar.f5527b = cursor.getString(cursor.getColumnIndex(b.f4081a));
                             aVar.c = cursor.getInt(cursor.getColumnIndex("c"));
                             aVar.e = cursor.getLong(cursor.getColumnIndex("d"));
                             aVar.f = cursor.getInt(cursor.getColumnIndex(IXAdRequestInfo.GPS));
@@ -357,8 +357,8 @@ public final class a {
                     try {
                         try {
                             com.baidu.sofire.f.a aVar = new com.baidu.sofire.f.a();
-                            aVar.f5525a = cursor.getInt(cursor.getColumnIndex("a"));
-                            aVar.f5526b = cursor.getString(cursor.getColumnIndex(b.f4080a));
+                            aVar.f5526a = cursor.getInt(cursor.getColumnIndex("a"));
+                            aVar.f5527b = cursor.getString(cursor.getColumnIndex(b.f4081a));
                             aVar.c = cursor.getInt(cursor.getColumnIndex("c"));
                             aVar.e = cursor.getLong(cursor.getColumnIndex("d"));
                             aVar.f = cursor.getInt(cursor.getColumnIndex(IXAdRequestInfo.GPS));
@@ -445,8 +445,8 @@ public final class a {
                     try {
                         try {
                             com.baidu.sofire.f.a aVar = new com.baidu.sofire.f.a();
-                            aVar.f5525a = cursor.getInt(cursor.getColumnIndex("a"));
-                            aVar.f5526b = cursor.getString(cursor.getColumnIndex(b.f4080a));
+                            aVar.f5526a = cursor.getInt(cursor.getColumnIndex("a"));
+                            aVar.f5527b = cursor.getString(cursor.getColumnIndex(b.f4081a));
                             aVar.c = cursor.getInt(cursor.getColumnIndex("c"));
                             aVar.e = cursor.getLong(cursor.getColumnIndex("d"));
                             aVar.f = cursor.getInt(cursor.getColumnIndex(IXAdRequestInfo.GPS));

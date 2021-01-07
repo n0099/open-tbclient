@@ -32,7 +32,7 @@ public class c {
     }
 
     public void a(d dVar, final b bVar, Looper looper) {
-        e.ejZ().a(this.mCtx, looper, new com.baidu.p.a.a.b() { // from class: com.baidu.p.c.1
+        e.eka().a(this.mCtx, looper, new com.baidu.p.a.a.b() { // from class: com.baidu.p.c.1
             @Override // com.baidu.p.a.a.b
             public void a(com.baidu.p.a.a.c cVar) {
                 if (c.DEBUG) {
@@ -40,7 +40,7 @@ public class c {
                     Log.d(c.TAG, "异步回调 (listener != null):" + (bVar != null));
                 }
                 if (bVar != null) {
-                    bVar.a(0, cVar == null ? null : new a(cVar.eke(), cVar.isSupport(), cVar.getOAID(), cVar.getAAID(), cVar.getVAID(), cVar.getStatusCode()));
+                    bVar.a(0, cVar == null ? null : new a(cVar.ekf(), cVar.isSupport(), cVar.getOAID(), cVar.getAAID(), cVar.getVAID(), cVar.getStatusCode()));
                 }
             }
         });

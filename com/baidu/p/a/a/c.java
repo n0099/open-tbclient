@@ -7,15 +7,15 @@ public interface c {
 
     void OE(int i);
 
+    void XV(String str);
+
     void XW(String str);
 
     void XX(String str);
 
-    void XY(String str);
+    c eke();
 
-    c ekd();
-
-    boolean eke();
+    boolean ekf();
 
     String getAAID();
 

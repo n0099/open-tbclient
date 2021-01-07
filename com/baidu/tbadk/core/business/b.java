@@ -17,7 +17,7 @@ public class b {
     private static b eMZ;
     private ArrayList<com.baidu.tbadk.BdToken.completeTask.a> eNa = new ArrayList<>();
 
-    public static b boI() {
+    public static b boJ() {
         if (eMZ == null) {
             synchronized (b.class) {
                 if (eMZ == null) {
@@ -106,27 +106,27 @@ public class b {
         TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0).edit().clear();
     }
 
-    private ArrayList<com.baidu.tbadk.BdToken.completeTask.a> boJ() {
+    private ArrayList<com.baidu.tbadk.BdToken.completeTask.a> boK() {
         return this.eNa;
     }
 
     public void dJ(String str, String str2) {
-        ArrayList<com.baidu.tbadk.BdToken.completeTask.a> boJ = boJ();
-        if (boJ != null && j.isNetWorkAvailable()) {
+        ArrayList<com.baidu.tbadk.BdToken.completeTask.a> boK = boK();
+        if (boK != null && j.isNetWorkAvailable()) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!StringUtils.isNull(currentAccount)) {
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 < boJ.size()) {
-                        int i3 = boJ.get(i2).activityId;
-                        int i4 = boJ.get(i2).missionId;
-                        int i5 = boJ.get(i2).showType;
+                    if (i2 < boK.size()) {
+                        int i3 = boK.get(i2).activityId;
+                        int i4 = boK.get(i2).missionId;
+                        int i5 = boK.get(i2).showType;
                         int i6 = getInt("business_count_hint" + currentAccount + i3);
-                        long j = boJ.get(i2).eIi;
-                        long j2 = boJ.get(i2).eIj;
-                        ArrayList<String> arrayList = boJ.get(i2).eIk;
-                        ArrayList<String> arrayList2 = boJ.get(i2).eIl;
+                        long j = boK.get(i2).eIi;
+                        long j2 = boK.get(i2).eIj;
+                        ArrayList<String> arrayList = boK.get(i2).eIk;
+                        ArrayList<String> arrayList2 = boK.get(i2).eIl;
                         if (i6 != 0 && System.currentTimeMillis() / 1000 > j && System.currentTimeMillis() / 1000 < j2) {
                             boolean z = false;
                             int i7 = 0;

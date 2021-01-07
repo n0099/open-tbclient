@@ -15,7 +15,7 @@ public class c {
         this.edL = downloadManager;
     }
 
-    public Collection<Download> aWS() {
+    public Collection<Download> aWT() {
         return this.edL.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.gamecenter.appmanager.download.c.1
             @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
             public boolean filter(Download download) {
@@ -70,10 +70,10 @@ public class c {
         });
     }
 
-    public void aVk() {
-        Collection<Download> aWS = aWS();
-        if (aWS != null && !aWS.isEmpty()) {
-            for (Download download : aWS) {
+    public void aVl() {
+        Collection<Download> aWT = aWT();
+        if (aWT != null && !aWT.isEmpty()) {
+            for (Download download : aWT) {
                 if (download != null && (download.getState() == Download.DownloadState.WAITING || download.getState() == Download.DownloadState.DOWNLOADING)) {
                     this.edL.pause(download.getId().longValue());
                 }
@@ -81,20 +81,20 @@ public class c {
         }
     }
 
-    public Collection<Download> aWT() {
-        Collection<Download> aWS = aWS();
-        if (aWS == null || aWS.isEmpty()) {
+    public Collection<Download> aWU() {
+        Collection<Download> aWT = aWT();
+        if (aWT == null || aWT.isEmpty()) {
             return null;
         }
-        for (Download download : aWS) {
+        for (Download download : aWT) {
             if (download != null && (download.getState() == Download.DownloadState.WAITING || download.getState() == Download.DownloadState.PAUSE)) {
                 this.edL.resume(download.getId().longValue());
             }
         }
-        return aWS;
+        return aWT;
     }
 
-    public synchronized void aWU() {
+    public synchronized void aWV() {
         int size;
         int i = 0;
         synchronized (this) {
@@ -124,7 +124,7 @@ public class c {
         }
     }
 
-    public synchronized void aWK() {
+    public synchronized void aWL() {
         int size;
         int i = 0;
         synchronized (this) {
@@ -154,7 +154,7 @@ public class c {
         }
     }
 
-    public synchronized void aWV() {
+    public synchronized void aWW() {
         j(this.edL.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.gamecenter.appmanager.download.c.7
             @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
             public boolean filter(Download download) {

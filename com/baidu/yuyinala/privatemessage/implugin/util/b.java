@@ -37,15 +37,15 @@ public class b {
         return pbg;
     }
 
-    public static DisplayImageOptions enR() {
+    public static DisplayImageOptions enS() {
         return pbi;
     }
 
-    public static DisplayImageOptions enS() {
+    public static DisplayImageOptions enT() {
         return pbj;
     }
 
-    public static DisplayImageOptions enT() {
+    public static DisplayImageOptions enU() {
         return pbk;
     }
 

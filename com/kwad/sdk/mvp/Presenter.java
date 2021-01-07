@@ -15,11 +15,11 @@ import java.util.List;
 public class Presenter {
 
     /* renamed from: b  reason: collision with root package name */
-    private View f10782b;
+    private View f10783b;
     private Object c;
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<Presenter> f10781a = new ArrayList();
+    private final List<Presenter> f10782a = new ArrayList();
     private PresenterState d = PresenterState.INIT;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -33,9 +33,9 @@ public class Presenter {
         CREATE(1) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.2
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
             public void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.f10781a) {
+                for (Presenter presenter2 : presenter.f10782a) {
                     try {
-                        presenter2.a(presenter.f10782b);
+                        presenter2.a(presenter.f10783b);
                     } catch (Exception e) {
                         a.a(e);
                         com.kwad.sdk.core.d.a.a(e);
@@ -46,7 +46,7 @@ public class Presenter {
         BIND(2) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.3
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
             void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.f10781a) {
+                for (Presenter presenter2 : presenter.f10782a) {
                     try {
                         presenter2.a(presenter.c);
                     } catch (Exception e) {
@@ -59,7 +59,7 @@ public class Presenter {
         UNBIND(3) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.4
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
             void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.f10781a) {
+                for (Presenter presenter2 : presenter.f10782a) {
                     try {
                         presenter2.i();
                     } catch (Exception e) {
@@ -72,7 +72,7 @@ public class Presenter {
         DESTROY(4) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.5
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
             void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.f10781a) {
+                for (Presenter presenter2 : presenter.f10782a) {
                     try {
                         presenter2.j();
                     } catch (Exception e) {
@@ -103,17 +103,17 @@ public class Presenter {
     @UiThread
     public final void a(View view) {
         this.d = PresenterState.CREATE;
-        this.f10782b = view;
+        this.f10783b = view;
         c();
         this.d.performCallState(this);
     }
 
     public final void a(Presenter presenter) {
-        this.f10781a.add(presenter);
+        this.f10782a.add(presenter);
         if (!k() || presenter.k()) {
             return;
         }
-        a(this.f10782b);
+        a(this.f10783b);
     }
 
     @UiThread
@@ -131,7 +131,7 @@ public class Presenter {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final <T extends View> T b(int i) {
-        return (T) this.f10782b.findViewById(i);
+        return (T) this.f10783b.findViewById(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -168,7 +168,7 @@ public class Presenter {
     }
 
     public View l() {
-        return this.f10782b;
+        return this.f10783b;
     }
 
     @Nullable
@@ -194,9 +194,9 @@ public class Presenter {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final Context o() {
-        if (this.f10782b == null) {
+        if (this.f10783b == null) {
             return null;
         }
-        return this.f10782b.getContext();
+        return this.f10783b.getContext();
     }
 }

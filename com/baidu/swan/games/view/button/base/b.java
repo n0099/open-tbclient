@@ -25,7 +25,7 @@ public class b extends EventTargetImpl implements a.InterfaceC0549a {
     public b(JsObject jsObject, com.baidu.swan.games.f.b bVar) {
         super(bVar);
         this.type = "text";
-        this.text = com.baidu.swan.apps.t.a.aAr().getString(a.h.aiapps_aigames_userinfo_button_text_des);
+        this.text = com.baidu.swan.apps.t.a.aAs().getString(a.h.aiapps_aigames_userinfo_button_text_des);
         p(jsObject);
     }
 
@@ -107,34 +107,34 @@ public class b extends EventTargetImpl implements a.InterfaceC0549a {
     }
 
     @Override // com.baidu.swan.games.view.button.base.a.InterfaceC0549a
-    public void bdk() {
+    public void bdl() {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.button.base.b.5
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.eoQ != null && !b.this.bdm()) {
-                    b.this.eoQ.bdb();
+                if (b.this.eoQ != null && !b.this.bdn()) {
+                    b.this.eoQ.bdc();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bdl() {
+    public boolean bdm() {
         if (this.eoQ == null || this.style == null) {
             return false;
         }
         this.style.a(this);
-        com.baidu.swan.apps.model.a.a.a bdn = bdn();
-        return bdn != null && com.baidu.swan.games.view.c.c(this.eoQ, bdn);
+        com.baidu.swan.apps.model.a.a.a bdo = bdo();
+        return bdo != null && com.baidu.swan.games.view.c.c(this.eoQ, bdo);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bdm() {
-        com.baidu.swan.apps.model.a.a.a bdn;
-        return (this.eoQ == null || this.style == null || (bdn = bdn()) == null || !com.baidu.swan.games.view.c.b(this.eoQ, bdn)) ? false : true;
+    public boolean bdn() {
+        com.baidu.swan.apps.model.a.a.a bdo;
+        return (this.eoQ == null || this.style == null || (bdo = bdo()) == null || !com.baidu.swan.games.view.c.b(this.eoQ, bdo)) ? false : true;
     }
 
-    private com.baidu.swan.apps.model.a.a.a bdn() {
+    private com.baidu.swan.apps.model.a.a.a bdo() {
         if (this.style == null || this.eoQ == null) {
             return null;
         }

@@ -33,10 +33,10 @@ public class an {
     private static volatile int d = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Handler f3710b = new Handler(Looper.getMainLooper());
+    private final Handler f3711b = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with root package name */
-    private final b f3709a = new b();
+    private final b f3710a = new b();
 
     public static void a() {
         d = 0;
@@ -185,9 +185,9 @@ public class an {
 
     public Bitmap b(Activity activity) {
         List list;
-        this.f3709a.a(activity);
-        FutureTask futureTask = new FutureTask(this.f3709a);
-        this.f3710b.post(futureTask);
+        this.f3710a.a(activity);
+        FutureTask futureTask = new FutureTask(this.f3710a);
+        this.f3711b.post(futureTask);
         List emptyList = Collections.emptyList();
         if (futureTask != null) {
             try {
@@ -206,7 +206,7 @@ public class an {
         if (emptyList.size() == 0) {
             return null;
         }
-        return ((c) emptyList.get(0)).c.f3711a;
+        return ((c) emptyList.get(0)).c.f3712a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -214,53 +214,53 @@ public class an {
     public static class b implements Callable<List<c>> {
 
         /* renamed from: a  reason: collision with root package name */
-        private Activity f3713a;
+        private Activity f3714a;
         private final int e = 160;
         private final DisplayMetrics c = new DisplayMetrics();
 
         /* renamed from: b  reason: collision with root package name */
-        private final List<c> f3714b = new ArrayList();
+        private final List<c> f3715b = new ArrayList();
         private final a d = new a();
 
         public void a(Activity activity) {
-            this.f3713a = activity;
+            this.f3714a = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public List<c> call() throws Exception {
-            this.f3714b.clear();
+            this.f3715b.clear();
             HashSet<Activity> hashSet = new HashSet(1);
-            hashSet.add(this.f3713a);
+            hashSet.add(this.f3714a);
             for (Activity activity : hashSet) {
                 String canonicalName = activity.getClass().getCanonicalName();
                 View b2 = bj.b(activity);
                 activity.getWindowManager().getDefaultDisplay().getMetrics(this.c);
-                this.f3714b.add(new c(canonicalName, b2));
+                this.f3715b.add(new c(canonicalName, b2));
             }
-            int size = this.f3714b.size();
+            int size = this.f3715b.size();
             for (int i = 0; i < size; i++) {
                 b();
-                a(this.f3714b.get(i));
+                a(this.f3715b.get(i));
                 c();
             }
-            return this.f3714b;
+            return this.f3715b;
         }
 
         private void b() {
-            ai.a(this.f3713a, false);
+            ai.a(this.f3714a, false);
         }
 
         private void c() {
-            ai.a(this.f3713a, true);
+            ai.a(this.f3714a, true);
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [359=5] */
         private void a(c cVar) {
             Bitmap bitmap;
             Bitmap bitmap2;
-            View view = cVar.f3716b;
+            View view = cVar.f3717b;
             try {
                 Method declaredMethod = View.class.getDeclaredMethod("createSnapshot", Bitmap.Config.class, Integer.TYPE, Boolean.TYPE);
                 declaredMethod.setAccessible(true);
@@ -321,24 +321,24 @@ public class an {
     public static class a {
 
         /* renamed from: b  reason: collision with root package name */
-        private final Paint f3712b = new Paint(2);
+        private final Paint f3713b = new Paint(2);
 
         /* renamed from: a  reason: collision with root package name */
-        private Bitmap f3711a = null;
+        private Bitmap f3712a = null;
 
         public synchronized void a(int i, int i2, int i3, Bitmap bitmap) {
-            if (this.f3711a == null || this.f3711a.getWidth() != i || this.f3711a.getHeight() != i2) {
+            if (this.f3712a == null || this.f3712a.getWidth() != i || this.f3712a.getHeight() != i2) {
                 try {
-                    this.f3711a = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
+                    this.f3712a = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
                 } catch (OutOfMemoryError e) {
-                    this.f3711a = null;
+                    this.f3712a = null;
                 }
-                if (this.f3711a != null) {
-                    this.f3711a.setDensity(i3);
+                if (this.f3712a != null) {
+                    this.f3712a.setDensity(i3);
                 }
             }
-            if (this.f3711a != null) {
-                new Canvas(this.f3711a).drawBitmap(bitmap, 0.0f, 0.0f, this.f3712b);
+            if (this.f3712a != null) {
+                new Canvas(this.f3712a).drawBitmap(bitmap, 0.0f, 0.0f, this.f3713b);
             }
         }
     }
@@ -348,16 +348,16 @@ public class an {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f3715a;
+        public final String f3716a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final View f3716b;
+        public final View f3717b;
         public a c = null;
         public float d = 1.0f;
 
         public c(String str, View view) {
-            this.f3715a = str;
-            this.f3716b = view;
+            this.f3716a = str;
+            this.f3717b = view;
         }
     }
 }

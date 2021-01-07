@@ -12,10 +12,10 @@ import java.util.Set;
 public class ActivityLifeObserver {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final ActivityLifeObserver f3565b = new ActivityLifeObserver();
+    private static final ActivityLifeObserver f3566b = new ActivityLifeObserver();
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f3566a;
+    private boolean f3567a;
     private Set<IActivityLifeCallback> c = new LinkedHashSet();
 
     /* loaded from: classes15.dex */
@@ -36,7 +36,7 @@ public class ActivityLifeObserver {
     }
 
     public static ActivityLifeObserver instance() {
-        return f3565b;
+        return f3566b;
     }
 
     public void addObserver(IActivityLifeCallback iActivityLifeCallback) {
@@ -58,9 +58,9 @@ public class ActivityLifeObserver {
     }
 
     public void registerActivityLifeCallback(Context context) {
-        if (!this.f3566a && Build.VERSION.SDK_INT >= 14) {
+        if (!this.f3567a && Build.VERSION.SDK_INT >= 14) {
             doRegister(context);
-            this.f3566a = true;
+            this.f3567a = true;
         }
     }
 

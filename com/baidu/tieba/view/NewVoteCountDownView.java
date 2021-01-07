@@ -19,17 +19,17 @@ public class NewVoteCountDownView extends LinearLayout {
     private CountDownTimer gSu;
     private a itd;
     private Context mContext;
-    private TextView nTW;
+    private TextView nTV;
+    private View nTW;
     private View nTX;
     private View nTY;
-    private View nTZ;
+    private TextView nTZ;
     private TextView nUa;
     private TextView nUb;
-    private TextView nUc;
 
     /* loaded from: classes.dex */
     public interface a {
-        void clr();
+        void cls();
     }
 
     public NewVoteCountDownView(Context context) {
@@ -68,7 +68,7 @@ public class NewVoteCountDownView extends LinearLayout {
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
                     NewVoteCountDownView.this.setContent(0L, 0L, 0L);
-                    NewVoteCountDownView.this.bRN();
+                    NewVoteCountDownView.this.bRO();
                 }
             };
             this.gSu.start();
@@ -76,38 +76,38 @@ public class NewVoteCountDownView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRN() {
+    public void bRO() {
         if (this.itd != null) {
-            this.itd.clr();
+            this.itd.cls();
         }
     }
 
     private void tN() {
-        this.nTW = (TextView) findViewById(R.id.prefix_count_down_view);
-        this.nTX = findViewById(R.id.day_num_container);
-        this.nTY = findViewById(R.id.hour_num_container);
-        this.nTZ = findViewById(R.id.minute_num_container);
-        this.nUa = (TextView) findViewById(R.id.day_num_count_down_view);
-        this.nUb = (TextView) findViewById(R.id.hour_num_count_down_view);
-        this.nUc = (TextView) findViewById(R.id.minute_num_count_down_view);
+        this.nTV = (TextView) findViewById(R.id.prefix_count_down_view);
+        this.nTW = findViewById(R.id.day_num_container);
+        this.nTX = findViewById(R.id.hour_num_container);
+        this.nTY = findViewById(R.id.minute_num_container);
+        this.nTZ = (TextView) findViewById(R.id.day_num_count_down_view);
+        this.nUa = (TextView) findViewById(R.id.hour_num_count_down_view);
+        this.nUb = (TextView) findViewById(R.id.minute_num_count_down_view);
     }
 
     public void setContent(long j, long j2, long j3) {
         String string = TbadkCoreApplication.getInst().getString(R.string.add_zero_when_less_ten);
-        this.nUa.setText(String.format(string, Long.valueOf(j)));
-        this.nUb.setText(String.format(string, Long.valueOf(j2)));
-        this.nUc.setText(String.format(string, Long.valueOf(j3)));
+        this.nTZ.setText(String.format(string, Long.valueOf(j)));
+        this.nUa.setText(String.format(string, Long.valueOf(j2)));
+        this.nUb.setText(String.format(string, Long.valueOf(j3)));
     }
 
     public void vU(int i) {
-        ao.setViewTextColor(this.nTW, R.color.CAM_X0105, 1, i);
-        ao.setViewTextColor(this.nUa, R.color.CAM_X0105, 1, i);
+        ao.setViewTextColor(this.nTV, R.color.CAM_X0105, 1, i);
+        ao.setViewTextColor(this.nTZ, R.color.CAM_X0105, 1, i);
+        ao.setBackgroundResource(this.nTW, R.drawable.bg_gradient_round, i);
         ao.setBackgroundResource(this.nTX, R.drawable.bg_gradient_round, i);
         ao.setBackgroundResource(this.nTY, R.drawable.bg_gradient_round, i);
-        ao.setBackgroundResource(this.nTZ, R.drawable.bg_gradient_round, i);
+        ao.setViewTextColor(this.nTZ, R.color.CAM_X0101, 1, i);
         ao.setViewTextColor(this.nUa, R.color.CAM_X0101, 1, i);
         ao.setViewTextColor(this.nUb, R.color.CAM_X0101, 1, i);
-        ao.setViewTextColor(this.nUc, R.color.CAM_X0101, 1, i);
     }
 
     public void setData(long j) {

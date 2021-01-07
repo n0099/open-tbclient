@@ -5,14 +5,14 @@ import android.widget.ImageView;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile a f12637a;
+    private static volatile a f12638a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final ExecutorService f12638b = Executors.newFixedThreadPool(5, new ThreadFactory() { // from class: com.qq.e.comm.plugin.p.a.1
+    private final ExecutorService f12639b = Executors.newFixedThreadPool(5, new ThreadFactory() { // from class: com.qq.e.comm.plugin.p.a.1
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
             return new Thread(runnable, "GDT_IMAGE_LOADER_THREAD");
@@ -23,23 +23,23 @@ public class a {
     }
 
     public static a a() {
-        if (f12637a == null) {
+        if (f12638a == null) {
             synchronized (a.class) {
                 try {
-                    if (f12637a == null) {
-                        f12637a = new a();
+                    if (f12638a == null) {
+                        f12638a = new a();
                     }
                 } catch (Throwable th) {
                     throw th;
                 }
             }
         }
-        return f12637a;
+        return f12638a;
     }
 
     private void a(String str, ImageView imageView, b bVar, boolean z) {
         if (!TextUtils.isEmpty(str)) {
-            this.f12638b.submit(new d(str, imageView, bVar, z));
+            this.f12639b.submit(new d(str, imageView, bVar, z));
         } else if (bVar != null) {
             bVar.a(str, 134217728, new Exception("UrlIsEmpty"));
         }

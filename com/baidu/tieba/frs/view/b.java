@@ -123,11 +123,9 @@ public abstract class b {
 
     public abstract void a(ForumData forumData, FrsViewData frsViewData);
 
-    public abstract boolean cIJ();
+    public abstract boolean cIK();
 
-    public abstract SignActivityInfo cIK();
-
-    public abstract void cIN();
+    public abstract SignActivityInfo cIL();
 
     public abstract void cIO();
 
@@ -135,7 +133,9 @@ public abstract class b {
 
     public abstract void cIQ();
 
-    public abstract void cIy();
+    public abstract void cIR();
+
+    public abstract void cIz();
 
     public abstract void changeSkinType(int i);
 
@@ -151,7 +151,7 @@ public abstract class b {
         jNY.put(5, "c0127");
     }
 
-    public boolean cOX() {
+    public boolean cOY() {
         return this.jNS;
     }
 
@@ -213,7 +213,7 @@ public abstract class b {
         ofFloat.start();
     }
 
-    public boolean cOY() {
+    public boolean cOZ() {
         int[] iArr = new int[2];
         try {
             this.jNE.getLocationOnScreen(iArr);
@@ -227,23 +227,23 @@ public abstract class b {
         return this.mParent;
     }
 
-    public View cOZ() {
+    public View cPa() {
         return this.jNl;
     }
 
-    public BarImageView cPa() {
+    public BarImageView cPb() {
         return this.jNG;
     }
 
-    public TextView cPb() {
+    public TextView cPc() {
         return this.bNi;
     }
 
-    public TextView cPc() {
+    public TextView cPd() {
         return this.jdI;
     }
 
-    public boolean cNV() {
+    public boolean cNW() {
         return this.jNU;
     }
 
@@ -254,7 +254,7 @@ public abstract class b {
         }
     }
 
-    public boolean cNW() {
+    public boolean cNX() {
         return this.jNV;
     }
 
@@ -264,18 +264,18 @@ public abstract class b {
     }
 
     public void onStop() {
-        cPd();
-        cIP();
+        cPe();
+        cIQ();
     }
 
     public void ca(boolean z) {
         if (!z) {
-            cPd();
-            cIP();
+            cPe();
+            cIQ();
         }
     }
 
-    private void cPd() {
+    private void cPe() {
         if (this.jNF != null && this.jNF.isShowing()) {
             this.jNF.dismiss();
         }
@@ -306,7 +306,7 @@ public abstract class b {
         this.jJl.setVisibility(8);
         this.jJs.setVisibility(0);
         if (z && !this.jOa) {
-            cIR();
+            cIS();
             this.jOa = true;
         }
     }
@@ -315,7 +315,7 @@ public abstract class b {
         c(false, f);
     }
 
-    protected void cIR() {
+    protected void cIS() {
     }
 
     public void Ct(int i) {
@@ -351,25 +351,25 @@ public abstract class b {
         if (i == 0) {
             this.jNU = false;
             this.jJs.setText(this.eXu.getString(R.string.sign));
-            cIB();
+            cIC();
             return;
         }
         this.jNU = true;
         this.jJs.setText(this.eXu.getString(R.string.signed));
-        cIA();
+        cIB();
+    }
+
+    protected void cIC() {
     }
 
     protected void cIB() {
-    }
-
-    protected void cIA() {
     }
 
     public void setMemberType(int i) {
         this.mMemberType = i;
     }
 
-    public void cIS() {
+    public void cIT() {
         if (this.mMemberType != 0) {
             ao.setImageResource(this.jNE, R.drawable.icon_speed_orange);
         } else {
@@ -397,7 +397,7 @@ public abstract class b {
     public void c(boolean z, float f) {
     }
 
-    public void cII() {
+    public void cIJ() {
     }
 
     public void c(w wVar) {

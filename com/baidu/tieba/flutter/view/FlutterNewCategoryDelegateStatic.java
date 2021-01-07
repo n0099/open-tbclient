@@ -102,7 +102,7 @@ public class FlutterNewCategoryDelegateStatic extends b {
         this.mIndicator.b("emotion", aVar);
         this.tipView.refresh(0);
         if (this.mFinalData != null) {
-            if (this.mFinalData.bzN() == l.fsW) {
+            if (this.mFinalData.bzO() == l.fsW) {
                 this.tipView.setVisibility(0);
             } else {
                 this.tipView.setVisibility(8);
@@ -115,9 +115,9 @@ public class FlutterNewCategoryDelegateStatic extends b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadStatus() {
-        this.mFinalData = TbSingleton.getInstance().getChannelConfigModel().bCe();
+        this.mFinalData = TbSingleton.getInstance().getChannelConfigModel().bCf();
         if (this.mFinalData != null) {
-            if (this.mFinalData.bzN() == l.fsX) {
+            if (this.mFinalData.bzO() == l.fsX) {
                 if (!TextUtils.isEmpty(this.mFinalData.getIcon())) {
                     final c cVar = new c();
                     cVar.fJx = this.mFinalData.getIcon();
@@ -133,7 +133,7 @@ public class FlutterNewCategoryDelegateStatic extends b {
                     }, 2000L);
                 }
                 TbSingleton.getInstance().getChannelConfigModel().rX(l.fsX);
-            } else if (this.mFinalData.bzN() == l.fsW) {
+            } else if (this.mFinalData.bzO() == l.fsW) {
                 if (this.tipView != null) {
                     this.tipView.setVisibility(0);
                 }

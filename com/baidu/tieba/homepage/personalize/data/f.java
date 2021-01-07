@@ -28,20 +28,20 @@ public class f extends com.baidu.tbadk.core.data.a {
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bz boO() {
+    public bz boP() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public at boQ() {
+    public at boR() {
         return null;
     }
 
-    public List<AlaLiveInfo> cTu() {
+    public List<AlaLiveInfo> cTv() {
         return this.khR;
     }
 
-    public aq cTv() {
+    public aq cTw() {
         aq aqVar = new aq("c13620");
         aqVar.w("uid", TbadkApplication.getCurrentAccountId());
         aqVar.an("fid", 0);

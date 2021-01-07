@@ -71,21 +71,21 @@ public class MutiImgTextLayout extends LinearLayout implements p<com.baidu.tbadk
     }
 
     private void setVoiceData(bz bzVar) {
-        ArrayList<VoiceData.VoiceModel> brD = bzVar.brD();
-        if (x.isEmpty(brD)) {
+        ArrayList<VoiceData.VoiceModel> brE = bzVar.brE();
+        if (x.isEmpty(brE)) {
             this.amd.setVisibility(8);
             this.amg = false;
             return;
         }
         this.amd.setVisibility(0);
-        VoiceData.VoiceModel voiceModel = brD.get(0);
+        VoiceData.VoiceModel voiceModel = brE.get(0);
         this.amd.setVoiceModel(voiceModel);
         this.amd.setTag(voiceModel);
-        this.amd.bxN();
+        this.amd.bxO();
         if (voiceModel != null) {
             this.amd.EE(voiceModel.voice_status.intValue());
         }
-        this.amd.cfq();
+        this.amd.cfr();
         this.amg = true;
     }
 
@@ -102,11 +102,11 @@ public class MutiImgTextLayout extends LinearLayout implements p<com.baidu.tbadk
     public void D(com.baidu.tbadk.core.data.a aVar) {
         boolean z = true;
         this.ahi = aVar;
-        bz boO = aVar.boO();
-        ay.a(this.mTitle, boO, this.ahF);
-        ay.a(this.aia, this.mTitle, boO, ahY, this.ahF);
+        bz boP = aVar.boP();
+        ay.a(this.mTitle, boP, this.ahF);
+        ay.a(this.aia, this.mTitle, boP, ahY, this.ahF);
         ay.a(this.amd, (this.mTitle == null || this.mTitle.getVisibility() != 0) && (this.aia == null || this.aia.getVisibility() != 0), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-        setVoiceData(boO);
+        setVoiceData(boP);
         if (this.amd != null && this.amd.getVisibility() == 0) {
             z = false;
         }

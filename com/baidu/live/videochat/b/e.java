@@ -4,15 +4,15 @@ public class e {
     public int bQh;
     public String bQi;
 
-    public boolean YD() {
+    public boolean YE() {
         return this.bQh == 1;
     }
 
-    public int YE() {
+    public int YF() {
         return this.bQh;
     }
 
-    public String YF() {
+    public String YG() {
         return this.bQi;
     }
 }

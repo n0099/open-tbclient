@@ -18,7 +18,7 @@ public class a {
     private TbPageContext mTbPageContext;
     private TextView mTip;
     private TextView mTitle;
-    private TextView myM;
+    private TextView myL;
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.tab.a.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -27,23 +27,23 @@ public class a {
             }
         }
     };
-    private boolean myL = com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("key_person_dynamic_tab_guide_has_shown", false);
+    private boolean myK = com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("key_person_dynamic_tab_guide_has_shown", false);
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
     }
 
-    public void dAR() {
-        if (!this.myL) {
-            this.myL = true;
-            com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("key_person_dynamic_tab_guide_has_shown", true);
+    public void dAS() {
+        if (!this.myK) {
+            this.myK = true;
+            com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean("key_person_dynamic_tab_guide_has_shown", true);
             initView();
             this.adc = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
             this.adc.pd(1);
             this.adc.jH(true);
             this.adc.jI(false);
             this.adc.br(this.mRootView);
-            this.adc.b(this.mTbPageContext).btX();
+            this.adc.b(this.mTbPageContext).btY();
         }
     }
 
@@ -57,8 +57,8 @@ public class a {
         this.iYh.setIsBitmapPic(true);
         this.mTip = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_tip);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_title);
-        this.myM = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_close);
-        this.myM.setOnClickListener(this.mOnClickListener);
+        this.myL = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_close);
+        this.myL.setOnClickListener(this.mOnClickListener);
         onChangeSkinType();
     }
 
@@ -72,14 +72,14 @@ public class a {
         }
     }
 
-    public boolean dAS() {
-        return this.myL;
+    public boolean dAT() {
+        return this.myK;
     }
 
     private void onChangeSkinType() {
         ao.setImageResource(this.iYh, R.drawable.pic_person_center_dynamic_guide);
         ao.setViewTextColor(this.mTip, R.color.CAM_X0107);
         ao.setViewTextColor(this.mTitle, R.color.CAM_X0105);
-        ao.setViewTextColor(this.myM, R.color.CAM_X0302);
+        ao.setViewTextColor(this.myL, R.color.CAM_X0302);
     }
 }

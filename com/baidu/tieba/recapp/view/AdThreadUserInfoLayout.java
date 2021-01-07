@@ -8,7 +8,7 @@ import com.baidu.card.view.CardUserInfoLayout;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
 /* loaded from: classes8.dex */
 public class AdThreadUserInfoLayout extends CardUserInfoLayout {
-    private AfterAdjustChildWidthListener mTS;
+    private AfterAdjustChildWidthListener mTR;
 
     /* loaded from: classes8.dex */
     public interface AfterAdjustChildWidthListener {
@@ -42,12 +42,12 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
     @Override // com.baidu.card.view.CardUserInfoLayout
     public void tP() {
         super.tP();
-        if (this.mTS != null) {
-            this.mTS.afterChildWidth();
+        if (this.mTR != null) {
+            this.mTR.afterChildWidth();
         }
     }
 
     public void setAfterAdjustChildWidthListener(AfterAdjustChildWidthListener afterAdjustChildWidthListener) {
-        this.mTS = afterAdjustChildWidthListener;
+        this.mTR = afterAdjustChildWidthListener;
     }
 }

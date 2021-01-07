@@ -4,17 +4,17 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.ArrayList;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class OverlayItem {
     public static final int ALIGN_BOTTON = 2;
     public static final int ALIGN_TOP = 3;
     public static final int ALING_CENTER = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    protected GeoPoint f4286a;
+    protected GeoPoint f4287a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected String f4287b;
+    protected String f4288b;
     protected String c;
     private int e;
     private int f;
@@ -32,7 +32,7 @@ public class OverlayItem {
     private float k = 1.0f;
     private ArrayList<Bundle> l = new ArrayList<>();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public enum AnimEffect {
         NONE,
         GROWTH,
@@ -46,15 +46,15 @@ public class OverlayItem {
         ALPHA
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public enum CoordType {
         CoordType_BD09LL,
         CoordType_BD09
     }
 
     public OverlayItem(GeoPoint geoPoint, String str, String str2) {
-        this.f4286a = geoPoint;
-        this.f4287b = str;
+        this.f4287a = geoPoint;
+        this.f4288b = str;
         this.c = str2;
     }
 
@@ -122,7 +122,7 @@ public class OverlayItem {
     }
 
     public GeoPoint getPoint() {
-        return this.f4286a;
+        return this.f4287a;
     }
 
     public int getResId() {
@@ -141,7 +141,7 @@ public class OverlayItem {
     }
 
     public String getTitle() {
-        return this.f4287b;
+        return this.f4288b;
     }
 
     public void setAnchor(float f, float f2) {
@@ -180,7 +180,7 @@ public class OverlayItem {
         if (this.m == null) {
             this.m = new Bundle();
         }
-        switch (aa.f4292a[animEffect.ordinal()]) {
+        switch (aa.f4293a[animEffect.ordinal()]) {
             case 1:
                 this.m.putInt("type", 1);
                 return;
@@ -247,7 +247,7 @@ public class OverlayItem {
     }
 
     public void setGeoPoint(GeoPoint geoPoint) {
-        this.f4286a = geoPoint;
+        this.f4287a = geoPoint;
     }
 
     public void setGeoZ(float f) {
@@ -287,6 +287,6 @@ public class OverlayItem {
     }
 
     public void setTitle(String str) {
-        this.f4287b = str;
+        this.f4288b = str;
     }
 }

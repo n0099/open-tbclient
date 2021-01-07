@@ -12,7 +12,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.live.yuyingift.yuyinhousegift.a.a
-    protected AnimatorSet aby() {
+    protected AnimatorSet abz() {
         AnimatorSet animatorSet = new AnimatorSet();
         PropertyValuesHolder ofFloat = PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.0f);
         PropertyValuesHolder ofFloat2 = PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.0f);

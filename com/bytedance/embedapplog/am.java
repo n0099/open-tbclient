@@ -35,8 +35,8 @@ public class am extends ac {
     @Override // com.bytedance.embedapplog.ac
     protected JSONObject b() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("local_time_ms", this.f6073a);
-        jSONObject.put("tea_event_index", this.f6074b);
+        jSONObject.put("local_time_ms", this.f6074a);
+        jSONObject.put("tea_event_index", this.f6075b);
         jSONObject.put("session_id", this.c);
         jSONObject.put("stop_timestamp", this.i);
         jSONObject.put("duration", this.h / 1000);

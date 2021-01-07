@@ -22,10 +22,10 @@ import org.json.JSONObject;
 public class b extends KSApiWebView {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String[] f9674b = {"getClass", "hashCode", "notify", "notifyAll", "equals", "toString", "wait"};
+    private static final String[] f9675b = {"getClass", "hashCode", "notify", "notifyAll", "equals", "toString", "wait"};
 
     /* renamed from: a  reason: collision with root package name */
-    private Boolean f9675a;
+    private Boolean f9676a;
     private final HashMap<String, Object> c;
     private String d;
 
@@ -158,7 +158,7 @@ public class b extends KSApiWebView {
     }
 
     private boolean a(String str) {
-        for (String str2 : f9674b) {
+        for (String str2 : f9675b) {
             if (str2.equals(str)) {
                 return true;
             }
@@ -216,8 +216,8 @@ public class b extends KSApiWebView {
     }
 
     public void a() {
-        if (Build.VERSION.SDK_INT == 17 && this.f9675a == null && f()) {
-            this.f9675a = true;
+        if (Build.VERSION.SDK_INT == 17 && this.f9676a == null && f()) {
+            this.f9676a = true;
             setAccessibilityEnabled(false);
         }
     }

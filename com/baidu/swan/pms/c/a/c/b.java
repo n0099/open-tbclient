@@ -77,7 +77,7 @@ public class b {
         f fVar;
         if (this.ewV != null) {
             if (z) {
-                fVar = this.ewV.bgx();
+                fVar = this.ewV.bgy();
             } else {
                 fVar = this.ewV.get();
             }
@@ -92,22 +92,22 @@ public class b {
         if (this.ewY == null) {
             z = false;
         } else {
-            Object bgE = this.ewY.bgE();
-            if (bgE instanceof com.baidu.swan.pms.model.f) {
-                com.baidu.swan.pms.model.f fVar = (com.baidu.swan.pms.model.f) bgE;
+            Object bgF = this.ewY.bgF();
+            if (bgF instanceof com.baidu.swan.pms.model.f) {
+                com.baidu.swan.pms.model.f fVar = (com.baidu.swan.pms.model.f) bgF;
                 if (d.DEBUG) {
                     Log.v("PMSThreadQueue", "Current PMSPkgMain appId: " + fVar.ewI + ", checking id: " + str);
                 }
                 z = TextUtils.equals(fVar.ewI, str);
-            } else if (bgE instanceof a.C0559a) {
-                a.C0559a c0559a = (a.C0559a) bgE;
+            } else if (bgF instanceof a.C0559a) {
+                a.C0559a c0559a = (a.C0559a) bgF;
                 if (d.DEBUG) {
                     Log.v("PMSThreadQueue", "Current Item appId: " + c0559a.ewI + ", checking id: " + str);
                 }
                 z = TextUtils.equals(c0559a.ewI, str);
             } else {
                 if (d.DEBUG) {
-                    Log.v("PMSThreadQueue", "Current model type not match: " + bgE.getClass().getSimpleName());
+                    Log.v("PMSThreadQueue", "Current model type not match: " + bgF.getClass().getSimpleName());
                 }
                 z = false;
             }
@@ -117,14 +117,14 @@ public class b {
 
     public synchronized boolean yL(String str) {
         boolean z;
-        Iterator<f> bgy = this.ewV.bgy();
+        Iterator<f> bgz = this.ewV.bgz();
         while (true) {
-            if (bgy.hasNext()) {
-                f next = bgy.next();
+            if (bgz.hasNext()) {
+                f next = bgz.next();
                 if (next != null) {
-                    Object bgE = next.bgE();
-                    if (bgE instanceof com.baidu.swan.pms.model.f) {
-                        com.baidu.swan.pms.model.f fVar = (com.baidu.swan.pms.model.f) bgE;
+                    Object bgF = next.bgF();
+                    if (bgF instanceof com.baidu.swan.pms.model.f) {
+                        com.baidu.swan.pms.model.f fVar = (com.baidu.swan.pms.model.f) bgF;
                         if (d.DEBUG) {
                             Log.v("PMSThreadQueue", "Queue PMSPkgMain appId: " + fVar.ewI + ", checking id: " + str);
                         }
@@ -132,8 +132,8 @@ public class b {
                             z = true;
                             break;
                         }
-                    } else if (bgE instanceof a.C0559a) {
-                        a.C0559a c0559a = (a.C0559a) bgE;
+                    } else if (bgF instanceof a.C0559a) {
+                        a.C0559a c0559a = (a.C0559a) bgF;
                         if (d.DEBUG) {
                             Log.v("PMSThreadQueue", "Queue Item appId: " + c0559a.ewI + ", checking id: " + str);
                         }
@@ -142,7 +142,7 @@ public class b {
                             break;
                         }
                     } else if (d.DEBUG) {
-                        Log.v("PMSThreadQueue", "Queue model type not match: " + bgE.getClass().getSimpleName());
+                        Log.v("PMSThreadQueue", "Queue model type not match: " + bgF.getClass().getSimpleName());
                     }
                 }
             } else {

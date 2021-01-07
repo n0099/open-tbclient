@@ -10,13 +10,13 @@ public abstract class a implements b {
     }
 
     @Override // com.baidu.swan.games.f.d.b
-    public String atK() {
+    public String atL() {
         return null;
     }
 
     @Override // com.baidu.swan.games.f.d.b
     @Nullable
-    public V8EngineConfiguration.CodeCacheSetting atJ() {
+    public V8EngineConfiguration.CodeCacheSetting atK() {
         return null;
     }
 

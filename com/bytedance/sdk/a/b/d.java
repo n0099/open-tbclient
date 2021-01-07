@@ -6,7 +6,7 @@ import java.net.Proxy;
 public final class d {
 
     /* renamed from: b  reason: collision with root package name */
-    final Proxy f6255b;
+    final Proxy f6256b;
     final a piU;
     final InetSocketAddress pll;
 
@@ -21,32 +21,32 @@ public final class d {
             throw new NullPointerException("inetSocketAddress == null");
         }
         this.piU = aVar;
-        this.f6255b = proxy;
+        this.f6256b = proxy;
         this.pll = inetSocketAddress;
     }
 
-    public a erm() {
+    public a ern() {
         return this.piU;
     }
 
-    public Proxy ern() {
-        return this.f6255b;
+    public Proxy ero() {
+        return this.f6256b;
     }
 
-    public InetSocketAddress ero() {
+    public InetSocketAddress erp() {
         return this.pll;
     }
 
     public boolean d() {
-        return this.piU.pio != null && this.f6255b.type() == Proxy.Type.HTTP;
+        return this.piU.pio != null && this.f6256b.type() == Proxy.Type.HTTP;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof d) && ((d) obj).piU.equals(this.piU) && ((d) obj).f6255b.equals(this.f6255b) && ((d) obj).pll.equals(this.pll);
+        return (obj instanceof d) && ((d) obj).piU.equals(this.piU) && ((d) obj).f6256b.equals(this.f6256b) && ((d) obj).pll.equals(this.pll);
     }
 
     public int hashCode() {
-        return ((((this.piU.hashCode() + 527) * 31) + this.f6255b.hashCode()) * 31) + this.pll.hashCode();
+        return ((((this.piU.hashCode() + 527) * 31) + this.f6256b.hashCode()) * 31) + this.pll.hashCode();
     }
 
     public String toString() {

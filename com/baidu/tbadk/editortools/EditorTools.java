@@ -46,7 +46,7 @@ public class EditorTools extends LinearLayout {
     private int fpV;
     private View mMaskView;
 
-    public void bEO() {
+    public void bEP() {
         m sv = sv(3);
         if (sv != null && (sv.fDH instanceof View)) {
             View view = (View) sv.fDH;
@@ -73,7 +73,7 @@ public class EditorTools extends LinearLayout {
         this.fEg = new Runnable() { // from class: com.baidu.tbadk.editortools.EditorTools.2
             @Override // java.lang.Runnable
             public void run() {
-                EditorTools.this.bEO();
+                EditorTools.this.bEP();
             }
         };
         this.fEh = new ArrayList();
@@ -84,11 +84,11 @@ public class EditorTools extends LinearLayout {
         this.fEc = z;
     }
 
-    public boolean bEP() {
+    public boolean bEQ() {
         return this.fEc;
     }
 
-    public boolean bEQ() {
+    public boolean bER() {
         return this.fEd;
     }
 
@@ -181,7 +181,7 @@ public class EditorTools extends LinearLayout {
                 }
             } else if (aVar.code == 5) {
                 this.fDQ.a((m) null);
-                this.fDR.bEK();
+                this.fDR.bEL();
             } else {
                 if (aVar.id > 0) {
                     b bVar = this.fDU.get(aVar.id);
@@ -191,8 +191,8 @@ public class EditorTools extends LinearLayout {
                         }
                         m sv2 = sv(aVar.id);
                         if (sv2 != null && sv2.fEB == 5) {
-                            bDe();
-                            bER();
+                            bDf();
+                            bES();
                         } else {
                             this.fDR.sq(aVar.id);
                         }
@@ -227,7 +227,7 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public void bER() {
+    public void bES() {
         boolean z;
         com.baidu.adp.lib.f.e.mB().removeCallbacks(this.fEg);
         if (getContext() instanceof Activity) {
@@ -340,7 +340,7 @@ public class EditorTools extends LinearLayout {
                 if (this.fDZ > 0 && jVar.fDH != null && (jVar.fDH instanceof CommonTabHost)) {
                     ((CommonTabHost) jVar.fDH).setBackgroundColorId(this.fDZ);
                 }
-                if (!com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("key_write_more_tool_point", false)) {
+                if (!com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("key_write_more_tool_point", false)) {
                     jVar.fEE = true;
                 } else {
                     jVar.fEE = false;
@@ -385,10 +385,10 @@ public class EditorTools extends LinearLayout {
             if (this.fEd) {
                 this.fDQ.setPadding(0, 0, 0, 0);
             }
-            bDe();
+            bDf();
             removeAllViews();
             if (this.fDQ.getBarLauncherType() != 4) {
-                bES();
+                bET();
             }
             addView(this.fDQ);
             addView(this.fDR);
@@ -411,7 +411,7 @@ public class EditorTools extends LinearLayout {
         eVar.C(baseActivity.getString(R.string.write_vote_hint), "write_vote_hint_tip_key", true);
     }
 
-    private void bES() {
+    private void bET() {
         if (this.fDS == null || this.fDS.getParent() != null) {
             this.fDS = new View(getContext());
             com.baidu.tbadk.core.elementsMaven.c.bv(this.fDS).pK(R.string.J_X02).setBackGroundColor(R.color.CAM_X0210);
@@ -420,7 +420,7 @@ public class EditorTools extends LinearLayout {
         addView(this.fDS);
     }
 
-    private void bET() {
+    private void bEU() {
         if (this.mMaskView == null || this.mMaskView.getParent() != null) {
             this.mMaskView = new View(getContext());
             ao.setBackgroundResource(this.mMaskView, R.color.transparent);
@@ -474,7 +474,7 @@ public class EditorTools extends LinearLayout {
         return ss;
     }
 
-    public void bEU() {
+    public void bEV() {
         this.fDQ.j(this.fEe);
     }
 
@@ -497,9 +497,9 @@ public class EditorTools extends LinearLayout {
         }
         if (this.fEa) {
             this.fEa = false;
-            bDe();
+            bDf();
         }
-        if (!bEM() && z) {
+        if (!bEN() && z) {
             com.baidu.adp.lib.f.e.mB().postDelayed(this.fEg, 200L);
         }
         setVisibility(0);
@@ -511,13 +511,13 @@ public class EditorTools extends LinearLayout {
     }
 
     public void hide() {
-        bDe();
+        bDf();
         setVisibility(8);
-        bER();
+        bES();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EDITOR_VISIBILITY_CHANGED, false));
     }
 
-    public void bDe() {
+    public void bDf() {
         this.fDR.hide();
         this.fDQ.a((m) null);
     }
@@ -536,8 +536,8 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public boolean bEM() {
-        return this.fDR.bEM();
+    public boolean bEN() {
+        return this.fDR.bEN();
     }
 
     public void setFrom(int i) {
@@ -583,9 +583,9 @@ public class EditorTools extends LinearLayout {
             if (sv.sj()) {
                 b(new a(31, 0, Integer.valueOf(hVar.getToolId())));
                 this.fDQ.a(sv);
-                if (hVar.getToolId() == 2 && !com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("key_write_more_tool_point", false)) {
-                    com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("key_write_more_tool_point", true);
-                    hVar.bEH();
+                if (hVar.getToolId() == 2 && !com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("key_write_more_tool_point", false)) {
+                    com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean("key_write_more_tool_point", true);
+                    hVar.bEI();
                 }
                 if (hVar.getToolId() == 1) {
                     hVar.hide();
@@ -602,7 +602,7 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public void bEV() {
+    public void bEW() {
         this.fDQ.a((m) null);
     }
 
@@ -612,6 +612,6 @@ public class EditorTools extends LinearLayout {
 
     public void setOnCancelClickListener(View.OnClickListener onClickListener) {
         this.fEf = onClickListener;
-        bET();
+        bEU();
     }
 }

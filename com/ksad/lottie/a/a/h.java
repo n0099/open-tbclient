@@ -13,7 +13,7 @@ import com.ksad.lottie.model.content.GradientType;
 public class h extends a {
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f8240b;
+    private final String f8241b;
     private final LongSparseArray<LinearGradient> c;
     private final LongSparseArray<RadialGradient> d;
     private final RectF e;
@@ -28,7 +28,7 @@ public class h extends a {
         this.c = new LongSparseArray<>();
         this.d = new LongSparseArray<>();
         this.e = new RectF();
-        this.f8240b = eVar.a();
+        this.f8241b = eVar.a();
         this.f = eVar.b();
         this.g = (int) (fVar.r().c() / 32.0f);
         this.h = eVar.c().a();
@@ -90,9 +90,9 @@ public class h extends a {
     public void a(Canvas canvas, Matrix matrix, int i) {
         a(this.e, matrix);
         if (this.f == GradientType.Linear) {
-            this.f8228a.setShader(b());
+            this.f8229a.setShader(b());
         } else {
-            this.f8228a.setShader(c());
+            this.f8229a.setShader(c());
         }
         super.a(canvas, matrix, i);
     }

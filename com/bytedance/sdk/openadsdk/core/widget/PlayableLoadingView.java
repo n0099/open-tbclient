@@ -16,10 +16,10 @@ import java.util.Locale;
 public class PlayableLoadingView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ProgressBar f7063a;
+    private ProgressBar f7064a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f7064b;
+    private TextView f7065b;
     private TextView c;
 
     public PlayableLoadingView(@NonNull Context context) {
@@ -42,19 +42,19 @@ public class PlayableLoadingView extends FrameLayout {
         setClickable(true);
         setVisibility(8);
         LayoutInflater.from(context).inflate(ac.f(context, "tt_playable_loading_layout"), (ViewGroup) this, true);
-        this.f7063a = (ProgressBar) findViewById(ac.e(context, "tt_playable_pb_view"));
-        this.f7064b = (TextView) findViewById(ac.e(context, "tt_playable_progress_tip"));
+        this.f7064a = (ProgressBar) findViewById(ac.e(context, "tt_playable_pb_view"));
+        this.f7065b = (TextView) findViewById(ac.e(context, "tt_playable_progress_tip"));
         this.c = (TextView) findViewById(ac.e(context, "tt_playable_play"));
     }
 
     public void setProgress(int i) {
         int i2 = i < 0 ? 0 : i;
         int i3 = i2 <= 100 ? i2 : 100;
-        if (this.f7063a != null) {
-            this.f7063a.setProgress(i3);
+        if (this.f7064a != null) {
+            this.f7064a.setProgress(i3);
         }
-        if (this.f7064b != null) {
-            this.f7064b.setText(String.format(Locale.getDefault(), "%d%%", Integer.valueOf(i3)));
+        if (this.f7065b != null) {
+            this.f7065b.setText(String.format(Locale.getDefault(), "%d%%", Integer.valueOf(i3)));
         }
     }
 

@@ -8,10 +8,10 @@ import android.view.ViewTreeObserver;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f5417a;
+    private View f5418a;
 
     /* renamed from: b  reason: collision with root package name */
-    int f5418b;
+    int f5419b;
     private b c;
 
     /* loaded from: classes3.dex */
@@ -22,24 +22,24 @@ public class i {
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Rect rect = new Rect();
-            i.this.f5417a.getWindowVisibleDisplayFrame(rect);
+            i.this.f5418a.getWindowVisibleDisplayFrame(rect);
             int height = rect.height();
             System.out.println("" + height);
             i iVar = i.this;
-            int i = iVar.f5418b;
+            int i = iVar.f5419b;
             if (i == 0) {
-                iVar.f5418b = height;
+                iVar.f5419b = height;
             } else if (i != height) {
                 if (i - height > 200) {
                     if (iVar.c != null) {
-                        i.this.c.keyBoardShow(i.this.f5418b - height);
+                        i.this.c.keyBoardShow(i.this.f5419b - height);
                     }
-                    i.this.f5418b = height;
+                    i.this.f5419b = height;
                 } else if (height - i > 200) {
                     if (iVar.c != null) {
-                        i.this.c.keyBoardHide(height - i.this.f5418b);
+                        i.this.c.keyBoardHide(height - i.this.f5419b);
                     }
-                    i.this.f5418b = height;
+                    i.this.f5419b = height;
                 }
             }
         }
@@ -53,8 +53,8 @@ public class i {
     }
 
     public i(Activity activity) {
-        this.f5417a = activity.getWindow().getDecorView();
-        this.f5417a.getViewTreeObserver().addOnGlobalLayoutListener(new a());
+        this.f5418a = activity.getWindow().getDecorView();
+        this.f5418a.getViewTreeObserver().addOnGlobalLayoutListener(new a());
     }
 
     private void a(b bVar) {

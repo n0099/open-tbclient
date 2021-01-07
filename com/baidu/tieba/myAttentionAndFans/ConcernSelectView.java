@@ -107,19 +107,19 @@ public class ConcernSelectView extends FrameLayout {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void diS() {
+    public void diT() {
         if (this.lrR.getVisibility() == 0) {
             B(this.lrR, 1);
         }
     }
 
-    public boolean diT() {
+    public boolean diU() {
         return this.lrR.getVisibility() == 0;
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            SvgManager.bwq().a(this.lrN, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+            SvgManager.bwr().a(this.lrN, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
             ao.setViewTextColor(this.lrO, R.color.CAM_X0109);
             ao.setViewTextColor(this.lrP, R.color.CAM_X0105);
             ao.setViewTextColor(this.lrQ, R.color.CAM_X0107);
@@ -178,7 +178,7 @@ public class ConcernSelectView extends FrameLayout {
                 if (this.lrN.getAnimation() == null || this.lrN.getAnimation().hasEnded()) {
                     if (i == 0) {
                         if (this.lrS == null) {
-                            diV();
+                            diW();
                         }
                         if (this.lrT != null) {
                             this.lrT.cancel();
@@ -187,7 +187,7 @@ public class ConcernSelectView extends FrameLayout {
                         return;
                     }
                     if (this.lrT == null) {
-                        diU();
+                        diV();
                     }
                     if (this.lrS != null) {
                         this.lrS.cancel();
@@ -198,7 +198,7 @@ public class ConcernSelectView extends FrameLayout {
         }
     }
 
-    private void diU() {
+    private void diV() {
         this.lrT = AnimationUtils.loadAnimation(this.mContext, R.anim.rotate_collapse);
         this.lrT.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.5
             @Override // android.view.animation.Animation.AnimationListener
@@ -216,7 +216,7 @@ public class ConcernSelectView extends FrameLayout {
         });
     }
 
-    private void diV() {
+    private void diW() {
         this.lrS = AnimationUtils.loadAnimation(this.mContext, R.anim.rotate_expand);
         this.lrS.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.6
             @Override // android.view.animation.Animation.AnimationListener

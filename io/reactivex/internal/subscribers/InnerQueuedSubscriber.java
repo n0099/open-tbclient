@@ -6,7 +6,7 @@ import io.reactivex.internal.util.i;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class InnerQueuedSubscriber<T> extends AtomicReference<d> implements j<T>, d {
     private static final long serialVersionUID = 22876611072430776L;
     volatile boolean done;
@@ -42,7 +42,7 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<d> implement
                     return;
                 }
             }
-            this.queue = i.Tl(this.prefetch);
+            this.queue = i.TB(this.prefetch);
             i.a(dVar, this.prefetch);
         }
     }

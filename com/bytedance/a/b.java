@@ -22,30 +22,30 @@ public final class b {
             this.pgw = true;
             int hO = hO(context);
             if (hO == 1008612) {
-                bb.b(bh.f6098a, "OaidMiit#getDeviceIds 不支持的设备");
+                bb.b(bh.f6099a, "OaidMiit#getDeviceIds 不支持的设备");
                 this.resultCode = "不支持的设备";
             } else if (hO == 1008613) {
-                bb.b(bh.f6098a, "OaidMiit#getDeviceIds 加载配置文件出错");
+                bb.b(bh.f6099a, "OaidMiit#getDeviceIds 加载配置文件出错");
                 this.resultCode = "加载配置文件出错";
             } else if (hO == 1008611) {
-                bb.b(bh.f6098a, "OaidMiit#getDeviceIds 不支持的设备厂商");
+                bb.b(bh.f6099a, "OaidMiit#getDeviceIds 不支持的设备厂商");
                 this.resultCode = "不支持的设备厂商";
             } else if (hO == 1008614) {
-                bb.b(bh.f6098a, "OaidMiit#getDeviceIds 获取接口是异步的，结果会在回调中返回，回调执行的回调可能在工作线程");
+                bb.b(bh.f6099a, "OaidMiit#getDeviceIds 获取接口是异步的，结果会在回调中返回，回调执行的回调可能在工作线程");
                 if (this.pgv.compareAndSet(false, true)) {
                     hN(context);
                 } else {
                     this.resultCode = "结果会在回调中返回";
                 }
             } else if (hO == 1008615) {
-                bb.b(bh.f6098a, "OaidMiit#getDeviceIds 反射调用出错");
+                bb.b(bh.f6099a, "OaidMiit#getDeviceIds 反射调用出错");
                 this.resultCode = "反射调用出错";
             } else if (hO == 0) {
-                bb.b(bh.f6098a, "OaidMiit#getDeviceIds 正确");
+                bb.b(bh.f6099a, "OaidMiit#getDeviceIds 正确");
                 this.resultCode = "正确";
             } else {
                 this.resultCode = "未知 resultCode=" + hO;
-                bb.b(bh.f6098a, "OaidMiit#getDeviceIds 未知 resultCode=" + hO);
+                bb.b(bh.f6099a, "OaidMiit#getDeviceIds 未知 resultCode=" + hO);
             }
         }
     }
@@ -61,7 +61,7 @@ public final class b {
             }
         }
         bi.a aVar = new bi.a();
-        aVar.f6100b = this.oaid;
+        aVar.f6101b = this.oaid;
         return aVar;
     }
 }

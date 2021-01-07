@@ -120,7 +120,7 @@ public class b {
         }
     }
 
-    public View cpx() {
+    public View cpy() {
         return this.mRootView;
     }
 
@@ -167,12 +167,12 @@ public class b {
                         bhVar.aQP = 1;
                         f fVar = new f(bhVar.portrait, bhVar.id, bhVar.metaKey, "1", true, b.this.gQC);
                         fVar.setFrom("source_person_card_list");
-                        com.baidu.live.view.a.Zx().a(bhVar.id, fVar);
+                        com.baidu.live.view.a.Zy().a(bhVar.id, fVar);
                     } else {
                         bhVar.aQP = 0;
                         f fVar2 = new f(bhVar.portrait, bhVar.id, bhVar.metaKey, "1", false, b.this.gQC);
                         fVar2.setFrom("source_person_card_list");
-                        com.baidu.live.view.a.Zx().a(bhVar.id, fVar2);
+                        com.baidu.live.view.a.Zy().a(bhVar.id, fVar2);
                     }
                     b.this.hWU.notifyDataSetChanged();
                 }

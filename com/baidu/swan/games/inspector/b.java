@@ -33,7 +33,7 @@ public class b {
             }
 
             @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.b
-            public void aDv() {
+            public void aDw() {
             }
         });
         this.ekm.setVisibility(0);
@@ -41,10 +41,10 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aa(Activity activity) {
-        e aMk = e.aMk();
-        if (aMk != null && aMk.aju() != null) {
+        e aMl = e.aMl();
+        if (aMl != null && aMl.ajv() != null) {
             Resources resources = activity.getResources();
-            new g.a(activity).f(resources.getString(a.h.aiapps_swan_inspector_info_title)).sp(SwanInspectorEndpoint.baR().g(resources)).a(new com.baidu.swan.apps.view.c.a()).gV(false).c(a.h.aiapps_ok, (DialogInterface.OnClickListener) null).aLx();
+            new g.a(activity).f(resources.getString(a.h.aiapps_swan_inspector_info_title)).sp(SwanInspectorEndpoint.baS().g(resources)).a(new com.baidu.swan.apps.view.c.a()).gV(false).c(a.h.aiapps_ok, (DialogInterface.OnClickListener) null).aLy();
         }
     }
 }

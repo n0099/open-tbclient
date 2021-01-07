@@ -17,7 +17,7 @@ public final class c {
         dai = new LruCache<>(10);
     }
 
-    public static c avw() {
+    public static c avx() {
         return a.daj;
     }
 

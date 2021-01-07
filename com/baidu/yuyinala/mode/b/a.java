@@ -31,7 +31,7 @@ public class a {
         return this.mIconUrl;
     }
 
-    public boolean eku() {
+    public boolean ekv() {
         return this.oQU;
     }
 

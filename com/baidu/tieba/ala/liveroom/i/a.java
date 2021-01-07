@@ -23,7 +23,7 @@ public class a {
     private a() {
     }
 
-    public static a chA() {
+    public static a chB() {
         if (hCv == null) {
             synchronized (a.class) {
                 if (hCv == null) {
@@ -34,7 +34,7 @@ public class a {
         return hCv;
     }
 
-    public double aey() {
+    public double aez() {
         if (Build.VERSION.SDK_INT >= 26) {
             String jN = jN(this.mPackageName);
             if (TextUtils.isEmpty(jN)) {
@@ -47,7 +47,7 @@ public class a {
                 return 0.0d;
             }
         }
-        return aeA();
+        return aeB();
     }
 
     private String jN(String str) {
@@ -76,7 +76,7 @@ public class a {
         return split[16];
     }
 
-    private double aeA() {
+    private double aeB() {
         double d = 0.0d;
         try {
             if (this.clO == null || this.clP == null) {
@@ -108,7 +108,7 @@ public class a {
         return d;
     }
 
-    public double chB() {
+    public double chC() {
         try {
             Debug.MemoryInfo[] processMemoryInfo = this.dRh.getProcessMemoryInfo(new int[]{Process.myPid()});
             if (processMemoryInfo.length <= 0) {

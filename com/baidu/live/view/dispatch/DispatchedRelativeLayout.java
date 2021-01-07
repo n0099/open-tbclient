@@ -49,7 +49,7 @@ public class DispatchedRelativeLayout extends RelativeLayout {
     public void removeAllViews() {
         super.removeAllViews();
         if (!this.bVD && this.bVC && this.bVE != null) {
-            this.bVE.ZV();
+            this.bVE.ZW();
         }
     }
 
@@ -68,12 +68,12 @@ public class DispatchedRelativeLayout extends RelativeLayout {
         if (this.bVC != z) {
             this.bVC = z;
             if (z) {
-                ZU();
+                ZV();
             }
         }
     }
 
-    private void ZU() {
+    private void ZV() {
         if (this.bVC && getChildCount() > 0 && this.bVE != null) {
             LinkedList linkedList = new LinkedList();
             for (int i = 0; i < getChildCount(); i++) {
@@ -97,6 +97,6 @@ public class DispatchedRelativeLayout extends RelativeLayout {
 
     public void setViewActionDispatchListener(a aVar) {
         this.bVE = aVar;
-        ZU();
+        ZV();
     }
 }

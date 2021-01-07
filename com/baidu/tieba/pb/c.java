@@ -21,9 +21,9 @@ public class c {
         return spannableStringBuilder;
     }
 
-    public static String dmo() {
+    public static String dmp() {
         if (TextUtils.isEmpty(jJy)) {
-            jJy = com.baidu.tbadk.core.sharedPref.b.bvq().getString("nick_name_activity_link", "");
+            jJy = com.baidu.tbadk.core.sharedPref.b.bvr().getString("nick_name_activity_link", "");
         }
         return jJy;
     }

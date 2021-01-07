@@ -24,16 +24,16 @@ public class a implements c {
 
     public a(Context context) {
         this.fHD.setText(R.string.frs_forum_bcast_return_info);
-        bxN();
+        bxO();
     }
 
     @Override // com.baidu.tbadk.k.c
-    public void bxN() {
+    public void bxO() {
         if (this.rootView != null) {
             ao.setViewTextColor(this.fHD, R.color.CAM_X0101);
             ao.setImageResource(this.fHB, R.drawable.pic_float_return_broadcast32);
-            SvgManager.bwq().a(this.fHC, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-            com.baidu.tbadk.core.util.f.a.bwU().qr(R.color.CAM_X0305).qq(0).qA(211).ag(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).ai(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).bz(this.fHE);
+            SvgManager.bwr().a(this.fHC, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            com.baidu.tbadk.core.util.f.a.bwV().qr(R.color.CAM_X0305).qq(0).qA(211).ag(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).ai(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).bz(this.fHE);
         }
     }
 

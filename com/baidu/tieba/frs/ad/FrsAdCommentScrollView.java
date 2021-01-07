@@ -40,7 +40,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         this.mScrollRunnable = new Runnable() { // from class: com.baidu.tieba.frs.ad.FrsAdCommentScrollView.1
             @Override // java.lang.Runnable
             public void run() {
-                FrsAdCommentScrollView.this.cHQ();
+                FrsAdCommentScrollView.this.cHR();
                 FrsAdCommentScrollView.this.mHandler.postDelayed(this, 5000L);
             }
         };
@@ -54,7 +54,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         this.mScrollRunnable = new Runnable() { // from class: com.baidu.tieba.frs.ad.FrsAdCommentScrollView.1
             @Override // java.lang.Runnable
             public void run() {
-                FrsAdCommentScrollView.this.cHQ();
+                FrsAdCommentScrollView.this.cHR();
                 FrsAdCommentScrollView.this.mHandler.postDelayed(this, 5000L);
             }
         };
@@ -68,7 +68,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         this.mScrollRunnable = new Runnable() { // from class: com.baidu.tieba.frs.ad.FrsAdCommentScrollView.1
             @Override // java.lang.Runnable
             public void run() {
-                FrsAdCommentScrollView.this.cHQ();
+                FrsAdCommentScrollView.this.cHR();
                 FrsAdCommentScrollView.this.mHandler.postDelayed(this, 5000L);
             }
         };
@@ -89,7 +89,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
 
     public void ca(boolean z) {
         if (z) {
-            cHO();
+            cHP();
         }
     }
 
@@ -103,11 +103,11 @@ public class FrsAdCommentScrollView extends LinearLayout {
         this.jlN.addAll(list);
         setVisibility(0);
         this.mCurIndex = 0;
+        cHQ();
         cHP();
-        cHO();
     }
 
-    private void cHO() {
+    private void cHP() {
         this.mHandler.removeCallbacks(this.mScrollRunnable);
         if (x.getCount(this.jlN) >= 2) {
             this.mHandler.postDelayed(this.mScrollRunnable, 5000L);
@@ -115,7 +115,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cHP() {
+    public void cHQ() {
         j jVar;
         j jVar2 = (j) x.getItem(this.jlN, this.mCurIndex);
         if (this.mCurIndex + 1 >= this.jlN.size()) {
@@ -125,19 +125,19 @@ public class FrsAdCommentScrollView extends LinearLayout {
         }
         if ((this.jlK.getTag() instanceof TextView) && jVar2 != null) {
             String title = jVar2.getTitle();
-            if (jVar2.dOd()) {
+            if (jVar2.dOe()) {
                 title = getContext().getString(R.string.frs_top_ad_lz_reply, title);
             }
             ((TextView) this.jlK.getTag()).setText(title);
         }
         if ((this.jlL.getTag() instanceof TextView) && jVar != null) {
             String title2 = jVar.getTitle();
-            ((TextView) this.jlL.getTag()).setText(jVar.dOd() ? getContext().getString(R.string.frs_top_ad_lz_reply, title2) : title2);
+            ((TextView) this.jlL.getTag()).setText(jVar.dOe() ? getContext().getString(R.string.frs_top_ad_lz_reply, title2) : title2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cHQ() {
+    public void cHR() {
         final float y = this.jlL.getY();
         this.jlM = ValueAnimator.ofFloat(0.0f, this.jlK.getMeasuredHeight());
         this.jlM.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.ad.FrsAdCommentScrollView.2
@@ -163,7 +163,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
                 FrsAdCommentScrollView.this.jlK = FrsAdCommentScrollView.this.jlL;
                 FrsAdCommentScrollView.this.jlL = frameLayout;
                 FrsAdCommentScrollView.this.jlL.setY(FrsAdCommentScrollView.this.getContext().getResources().getDimensionPixelSize(R.dimen.tbds99));
-                FrsAdCommentScrollView.this.cHP();
+                FrsAdCommentScrollView.this.cHQ();
             }
 
             @Override // android.animation.Animator.AnimatorListener

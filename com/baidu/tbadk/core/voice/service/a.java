@@ -65,12 +65,12 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean CJ(String str) {
+    public boolean CI(String str) {
         return a(frH, frE, frF, frG, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bzf() {
+    public void bzg() {
         if (this.mAudioRecord != null && this.file != null) {
             try {
                 this.adb = true;
@@ -98,11 +98,11 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean bzg() {
+    public boolean bzh() {
         Thread thread = new Thread(new Runnable() { // from class: com.baidu.tbadk.core.voice.service.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.bzf();
+                a.this.bzg();
             }
         });
         thread.setPriority(10);
@@ -112,12 +112,12 @@ public class a implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public void bzh() {
+    public void bzi() {
         this.adb = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean bzi() {
+    public boolean bzj() {
         return this.adb;
     }
 

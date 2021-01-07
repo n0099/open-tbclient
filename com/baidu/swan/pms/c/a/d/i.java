@@ -15,7 +15,7 @@ public class i implements b {
 
     public i(com.baidu.swan.pms.a.d dVar) {
         this.dhn = dVar;
-        d.bgC().c(this);
+        d.bgD().c(this);
     }
 
     public void a(com.baidu.swan.pms.c.a.b bVar) {
@@ -24,14 +24,14 @@ public class i implements b {
         }
     }
 
-    public void bgN() {
-        if (!bgO()) {
+    public void bgO() {
+        if (!bgP()) {
             if (DEBUG) {
-                Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bfV().getProcessName() + " startDownload: total=" + this.exq.size());
+                Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bfW().getProcessName() + " startDownload: total=" + this.exq.size());
             }
             for (com.baidu.swan.pms.c.a.b bVar : this.exq) {
                 if (DEBUG) {
-                    Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bfV().getProcessName() + " startDownload: for handler=" + bVar);
+                    Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bfW().getProcessName() + " startDownload: for handler=" + bVar);
                 }
                 bVar.iD(false);
             }
@@ -44,7 +44,7 @@ public class i implements b {
 
     @Override // com.baidu.swan.pms.c.a.d.b
     public <T> void e(f<T> fVar) {
-        if (!fVar.bgM()) {
+        if (!fVar.bgN()) {
             Iterator<com.baidu.swan.pms.c.a.b> it = this.exq.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -56,13 +56,13 @@ public class i implements b {
                     this.exq.remove(next);
                     switch (taskState) {
                         case 2:
-                            this.exu.add(next.bgw().exj.exi);
+                            this.exu.add(next.bgx().exj.exi);
                             break;
                         case 3:
-                            this.exs.add(next.bgw().exj.exi);
+                            this.exs.add(next.bgx().exj.exi);
                             break;
                         case 10:
-                            this.exr.add(next.bgw().exj.exi);
+                            this.exr.add(next.bgx().exj.exi);
                             break;
                         default:
                             if (com.baidu.swan.pms.d.DEBUG) {
@@ -73,14 +73,14 @@ public class i implements b {
                     }
                 }
             }
-            bgO();
+            bgP();
         }
     }
 
-    private boolean bgO() {
+    private boolean bgP() {
         if (this.exq.isEmpty()) {
-            this.dhn.atY();
-            d.bgC().d(this);
+            this.dhn.atZ();
+            d.bgD().d(this);
             return true;
         }
         return false;

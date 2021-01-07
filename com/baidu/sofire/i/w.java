@@ -8,24 +8,24 @@ import java.util.concurrent.TimeUnit;
 public class w {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int f5567b = Runtime.getRuntime().availableProcessors();
+    private static final int f5568b = Runtime.getRuntime().availableProcessors();
     private static volatile w c;
 
     /* renamed from: a  reason: collision with root package name */
-    private ThreadPoolExecutor f5568a;
+    private ThreadPoolExecutor f5569a;
 
     private w() {
-        this.f5568a = null;
-        int max = Math.max(7, (f5567b * 2) + 3);
-        this.f5568a = new ThreadPoolExecutor(max, max, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.f5569a = null;
+        int max = Math.max(7, (f5568b * 2) + 3);
+        this.f5569a = new ThreadPoolExecutor(max, max, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
         if (Build.VERSION.SDK_INT >= 9) {
-            this.f5568a.allowCoreThreadTimeOut(true);
+            this.f5569a.allowCoreThreadTimeOut(true);
         }
     }
 
     public final void a(Runnable runnable) {
         try {
-            this.f5568a.execute(runnable);
+            this.f5569a.execute(runnable);
         } catch (Throwable th) {
             e.a();
         }

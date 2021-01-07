@@ -66,14 +66,14 @@ public class RecommendBarLayout extends LinearLayout implements View.OnClickList
         this.pageContext = tbPageContext;
         this.jYx = b2;
         initUI();
-        cRh();
+        cRi();
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
         this.pageId = bdUniqueId;
     }
 
-    private void cRh() {
+    private void cRi() {
         this.jXu.setTag(this.pageId);
         MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_LIKE_FORUM, this.jXu);
         MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_UNLIKE_FORUM, this.jXu);
@@ -105,7 +105,7 @@ public class RecommendBarLayout extends LinearLayout implements View.OnClickList
                         an = an.dX("obj_name", dVar.jYJ);
                     }
                     TiebaStatic.log(an);
-                    aq an2 = new aq("c13643").dX("uid", TbadkApplication.getCurrentAccount()).dX("fid", dVar.cQZ()).an("obj_locate", RecommendBarLayout.this.jYx);
+                    aq an2 = new aq("c13643").dX("uid", TbadkApplication.getCurrentAccount()).dX("fid", dVar.cRa()).an("obj_locate", RecommendBarLayout.this.jYx);
                     TiebaStatic.log(StringUtils.isNull(dVar.jYJ) ? an2 : an2.dX("obj_name", dVar.jYJ));
                 }
             }
@@ -121,19 +121,19 @@ public class RecommendBarLayout extends LinearLayout implements View.OnClickList
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (i != this.mSkinType) {
             c.bv(this.jZx).pE(R.string.F_X02).pC(R.color.CAM_X0105);
-            SvgManager.bwq().a(this.jNa, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bwr().a(this.jNa, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             this.jZz.onSkinTypeChanged(i);
         }
         this.mSkinType = i;
     }
 
     public void setData(com.baidu.tieba.homepage.concern.a.c cVar) {
-        if (cVar == null || x.isEmpty(cVar.cQX())) {
+        if (cVar == null || x.isEmpty(cVar.cQY())) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        ((LinearLayout.LayoutParams) this.jZy.getLayoutParams()).height = l.getDimens(this.pageContext.getPageActivity(), cVar.cQY() ? R.dimen.tbds660 : R.dimen.tbds728);
+        ((LinearLayout.LayoutParams) this.jZy.getLayoutParams()).height = l.getDimens(this.pageContext.getPageActivity(), cVar.cQZ() ? R.dimen.tbds660 : R.dimen.tbds728);
         this.jZy.setCurrentItem(0, true);
         this.jZz.a(cVar);
         TiebaStatic.log(new aq("c13907").dX("uid", TbadkApplication.getCurrentAccount()).an("obj_locate", this.jYx));

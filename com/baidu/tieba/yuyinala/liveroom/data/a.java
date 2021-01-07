@@ -15,7 +15,7 @@ public class a {
     public boolean hBU = false;
     public ArrayList<AlaBroadcastGiftToastData> hBV;
     public boolean hBW;
-    public com.baidu.tieba.yuyinala.liveroom.k.a ooR;
-    public AlaLiveView ooS;
+    public com.baidu.tieba.yuyinala.liveroom.k.a ooQ;
+    public AlaLiveView ooR;
     public TbPageContext pageContext;
 }

@@ -129,7 +129,7 @@ public class AlaActiveBannerViewPager extends SlideRatioViewPager {
         return super.dispatchTouchEvent(motionEvent);
     }
 
-    public void ccB() {
+    public void ccC() {
         if (getAdapter().getCount() > 1) {
             setCurrentItem(1);
             this.mHandler.removeCallbacks(this.mRunnable);

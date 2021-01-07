@@ -66,11 +66,11 @@ public class e {
         if (this.eKn == null) {
             this.eKn = new MorePopupWindow(activity, this.iSr, view, ao.getDrawable(R.drawable.transparent_bg), new KeyEventDealContainerView.a() { // from class: com.baidu.tieba.frs.tab.e.2
                 @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
-                public void bok() {
+                public void bol() {
                 }
 
                 @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
-                public void bol() {
+                public void bom() {
                     if (e.this.eKn != null) {
                         com.baidu.adp.lib.f.g.dismissPopupWindow(e.this.eKn);
                     }
@@ -103,10 +103,10 @@ public class e {
                 horizontalTabView.getLocationInWindow(iArr);
                 l.initDeviceData(horizontalTabView.getContext());
                 int equipmentHeight = l.getEquipmentHeight(horizontalTabView.getContext());
-                int cML = this.jHe.cML();
+                int cMM = this.jHe.cMM();
                 int measuredHeight = (equipmentHeight - iArr[1]) - horizontalTabView.getMeasuredHeight();
-                if (measuredHeight < cML) {
-                    horizontalTabView.getmShowMenuCallBack().BL(cML - measuredHeight);
+                if (measuredHeight < cMM) {
+                    horizontalTabView.getmShowMenuCallBack().BL(cMM - measuredHeight);
                 }
             }
         }
@@ -124,7 +124,7 @@ public class e {
         }
     }
 
-    public void cMN() {
+    public void cMO() {
         if (this.eKn != null) {
             try {
                 this.eKn.dismiss();
@@ -134,7 +134,7 @@ public class e {
         }
     }
 
-    public b cMO() {
+    public b cMP() {
         return this.jGP;
     }
 }

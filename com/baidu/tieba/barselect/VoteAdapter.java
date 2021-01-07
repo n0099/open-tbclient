@@ -21,7 +21,7 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void a(f fVar) {
         this.mVoteData = fVar;
         if (fVar != null) {
-            this.ipg = fVar.ctU();
+            this.ipg = fVar.ctV();
         }
         this.iph = -1;
         notifyDataSetChanged();
@@ -59,7 +59,7 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         return com.baidu.tieba.barselect.a.a.isk;
     }
 
-    public int ctF() {
+    public int ctG() {
         return this.iph;
     }
 

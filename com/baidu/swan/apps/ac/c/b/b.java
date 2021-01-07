@@ -14,11 +14,11 @@ public class b {
     public com.baidu.swan.apps.api.c.b dvb;
     public JSONObject pageParams;
 
-    public boolean aIl() {
+    public boolean aIm() {
         return (this.dvb == null || this.dvb.isSuccess()) ? false : true;
     }
 
-    public boolean aIm() {
+    public boolean aIn() {
         return (TextUtils.isEmpty(this.duX) || TextUtils.isEmpty(this.duZ) || TextUtils.isEmpty(this.dva) || TextUtils.isEmpty(this.cNO) || TextUtils.isEmpty(this.cNP)) ? false : true;
     }
 

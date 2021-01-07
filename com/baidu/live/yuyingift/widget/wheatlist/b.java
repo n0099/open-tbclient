@@ -10,19 +10,19 @@ public abstract class b {
     protected View contentView = getContentView();
     protected Context mContext;
 
-    protected abstract int abm();
-
-    abstract void abn();
+    protected abstract int abn();
 
     abstract void abo();
+
+    abstract void abp();
 
     protected abstract View getContentView();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context) {
         this.mContext = context;
-        this.cbF = LayoutInflater.from(context).inflate(abm(), (ViewGroup) null, false);
-        abn();
+        this.cbF = LayoutInflater.from(context).inflate(abn(), (ViewGroup) null, false);
         abo();
+        abp();
     }
 }

@@ -74,15 +74,15 @@ public class g {
         return this.url;
     }
 
-    public String blp() {
+    public String blq() {
         return this.eGR;
     }
 
-    public String blq() {
+    public String blr() {
         return this.eGS;
     }
 
-    public int blr() {
+    public int bls() {
         return this.urlType;
     }
 }

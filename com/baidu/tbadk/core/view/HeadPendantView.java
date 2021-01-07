@@ -128,7 +128,7 @@ public class HeadPendantView extends RelativeLayout {
         super.onMeasure(i, i2);
     }
 
-    public void Cu(String str) {
+    public void Ct(String str) {
         if (this.fim != null) {
             if (this.fiq && !StringUtils.isNull(str)) {
                 this.fir = true;
@@ -150,12 +150,12 @@ public class HeadPendantView extends RelativeLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     public void init() {
         this.fiv = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42);
-        bxo();
         bxp();
         bxq();
+        bxr();
     }
 
-    private void bxo() {
+    private void bxp() {
         this.fio = new HeadImageView(this.mContext);
         this.fio.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.fio.setPlaceHolder(1);
@@ -167,7 +167,7 @@ public class HeadPendantView extends RelativeLayout {
         addView(this.fio);
     }
 
-    private void bxp() {
+    private void bxq() {
         this.fim = new TbImageView(this.mContext);
         this.fim.setPageId(this.mPageId);
         this.fim.setDefaultBgResource(0);
@@ -178,7 +178,7 @@ public class HeadPendantView extends RelativeLayout {
         addView(this.fim);
     }
 
-    private void bxq() {
+    private void bxr() {
         this.fin = new ImageView(this.mContext);
         this.fin.setImageDrawable(null);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.fiv, this.fiv);
@@ -220,10 +220,10 @@ public class HeadPendantView extends RelativeLayout {
         if (i > 0) {
             this.fiv = com.baidu.adp.lib.util.l.getDimens(getContext(), i);
         }
-        bxr();
+        bxs();
     }
 
-    private void bxr() {
+    private void bxs() {
         if (this.fiv > 0 && this.fin != null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fin.getLayoutParams();
             layoutParams.width = this.fiv;
@@ -248,15 +248,15 @@ public class HeadPendantView extends RelativeLayout {
         this.fio.setDefaultResource(i);
     }
 
-    public void Cv(String str) {
+    public void Cu(String str) {
         if (!StringUtils.isNull(str)) {
-            String BQ = q.BQ(str);
+            String BP = q.BP(str);
             this.fio.setImageBitmap(null);
-            this.fio.setUrl(BQ);
-            if (BQ.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                startLoad(BQ, 10, false);
+            this.fio.setUrl(BP);
+            if (BP.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                startLoad(BP, 10, false);
             } else {
-                startLoad(BQ, 25, false);
+                startLoad(BP, 25, false);
             }
         }
     }
@@ -267,12 +267,12 @@ public class HeadPendantView extends RelativeLayout {
 
     public void a(MetaData metaData) {
         if (metaData != null && !TextUtils.isEmpty(metaData.getPortrait())) {
-            String BQ = q.BQ(metaData.getAvater());
-            setUrl(BQ);
-            if (BQ.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                startLoad(BQ, 10, false);
+            String BP = q.BP(metaData.getAvater());
+            setUrl(BP);
+            if (BP.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                startLoad(BP, 10, false);
             } else {
-                startLoad(BQ, 25, false);
+                startLoad(BP, 25, false);
             }
             b(metaData);
         }
@@ -281,9 +281,9 @@ public class HeadPendantView extends RelativeLayout {
     public void b(MetaData metaData) {
         if (metaData != null) {
             if (metaData.getPendantData() != null) {
-                Cu(metaData.getPendantData().getImgUrl());
+                Ct(metaData.getPendantData().getImgUrl());
             } else {
-                Cu(null);
+                Ct(null);
             }
             c(metaData);
         }
@@ -305,7 +305,7 @@ public class HeadPendantView extends RelativeLayout {
             this.fio.setShowV(false);
             if (!UtilHelper.showOfficialIcon(this.fin, metaData)) {
                 if (metaData.isNewGod()) {
-                    SvgManager.bwq().a(this.fin, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
+                    SvgManager.bwr().a(this.fin, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
                     jZ(true);
                     return;
                 }

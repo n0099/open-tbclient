@@ -59,7 +59,7 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
         if (this.fnJ != null) {
             if (!com.baidu.tieba.aiapps.a.b(this.fnJ.id, this.fnJ.link, "1191003900000000", this.fnJ.is_game)) {
                 if (!at.isEmpty(this.fnJ.h5_url)) {
-                    be.bwu().b(X(getContext()), new String[]{this.fnJ.h5_url});
+                    be.bwv().b(X(getContext()), new String[]{this.fnJ.h5_url});
                 } else {
                     return;
                 }
@@ -84,11 +84,11 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void D(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar == null || aVar.boO() == null || aVar.boO().bsf() == null) {
+        if (aVar == null || aVar.boP() == null || aVar.boP().bsg() == null) {
             setVisibility(8);
             return;
         }
-        this.fnJ = aVar.boO().bsf();
+        this.fnJ = aVar.boP().bsg();
         if (!at.isEmpty(this.fnJ.avatar)) {
             this.fio.startLoad(this.fnJ.avatar, 10, false, false);
         }

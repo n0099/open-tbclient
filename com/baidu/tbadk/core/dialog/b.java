@@ -66,13 +66,13 @@ public class b {
         this.mLineView = this.mRootView.findViewById(R.id.line_bg);
     }
 
-    public b Bq(String str) {
+    public b Bp(String str) {
         this.mTitle = str;
         return this;
     }
 
     public b pf(int i) {
-        return Bq(this.mActivity.getResources().getString(i));
+        return Bp(this.mActivity.getResources().getString(i));
     }
 
     public b a(CharSequence[] charSequenceArr, InterfaceC0578b interfaceC0578b) {
@@ -125,7 +125,7 @@ public class b {
         return this;
     }
 
-    public b btZ() {
+    public b bua() {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }

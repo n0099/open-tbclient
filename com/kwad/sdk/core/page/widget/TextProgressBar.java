@@ -23,11 +23,11 @@ import com.kwad.sdk.utils.ao;
 public class TextProgressBar extends ProgressBar {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f9665a = KsAdSDKImpl.get().isDebugLogEnable();
+    private static final boolean f9666a = KsAdSDKImpl.get().isDebugLogEnable();
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    private String f9666b;
+    private String f9667b;
     private Paint c;
     private LinearGradient d;
     private Matrix e;
@@ -73,7 +73,7 @@ public class TextProgressBar extends ProgressBar {
     }
 
     private void setProgressText(int i) {
-        this.f9666b = String.valueOf((int) (((i * 1.0f) / getMax()) * 100.0f)) + "%";
+        this.f9667b = String.valueOf((int) (((i * 1.0f) / getMax()) * 100.0f)) + "%";
     }
 
     public void a(@ColorInt int i, @ColorInt int i2) {
@@ -84,7 +84,7 @@ public class TextProgressBar extends ProgressBar {
     }
 
     public void a(String str, int i) {
-        this.f9666b = str;
+        this.f9667b = str;
         this.f = true;
         setProgress(i);
         invalidate();
@@ -102,8 +102,8 @@ public class TextProgressBar extends ProgressBar {
         } else {
             super.onDraw(canvas);
         }
-        if (!TextUtils.isEmpty(this.f9666b)) {
-            this.c.getTextBounds(this.f9666b, 0, this.f9666b.length(), this.m);
+        if (!TextUtils.isEmpty(this.f9667b)) {
+            this.c.getTextBounds(this.f9667b, 0, this.f9667b.length(), this.m);
         }
         int height = (getHeight() / 2) - this.m.centerY();
         if (this.k != null) {
@@ -130,29 +130,29 @@ public class TextProgressBar extends ProgressBar {
             } else {
                 this.c.setShader(null);
             }
-            canvas.drawText(this.f9666b, width, height, this.c);
+            canvas.drawText(this.f9667b, width, height, this.c);
         } else if (isIndeterminate() || this.r) {
             float width3 = (getWidth() * getProgress()) / getMax();
             int save = canvas.save();
             this.q.set(width3, 0.0f, getWidth(), getHeight());
             canvas.clipRect(this.q);
             this.c.setColor(this.p);
-            if (this.f9666b != null) {
-                canvas.drawText(this.f9666b, width, height, this.c);
+            if (this.f9667b != null) {
+                canvas.drawText(this.f9667b, width, height, this.c);
             }
             canvas.restoreToCount(save);
             int save2 = canvas.save();
             this.q.set(0.0f, 0.0f, width3, getHeight());
             canvas.clipRect(this.q);
             this.c.setColor(this.o);
-            if (this.f9666b != null) {
-                canvas.drawText(this.f9666b, width, height, this.c);
+            if (this.f9667b != null) {
+                canvas.drawText(this.f9667b, width, height, this.c);
             }
             canvas.restoreToCount(save2);
         } else {
             this.c.setColor(this.o);
-            if (this.f9666b != null) {
-                canvas.drawText(this.f9666b, width, height, this.c);
+            if (this.f9667b != null) {
+                canvas.drawText(this.f9667b, width, height, this.c);
             }
         }
     }
@@ -160,9 +160,9 @@ public class TextProgressBar extends ProgressBar {
     @Override // android.widget.ProgressBar, android.view.View
     protected synchronized void onMeasure(int i, int i2) {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        if (layoutParams != null && !TextUtils.isEmpty(this.f9666b)) {
+        if (layoutParams != null && !TextUtils.isEmpty(this.f9667b)) {
             Rect rect = new Rect();
-            this.c.getTextBounds(this.f9666b, 0, this.f9666b.length(), rect);
+            this.c.getTextBounds(this.f9667b, 0, this.f9667b.length(), rect);
             if (layoutParams.width == -2) {
                 layoutParams.width = rect.width() + this.i + this.j;
                 i = View.MeasureSpec.makeMeasureSpec(layoutParams.width, 1073741824);

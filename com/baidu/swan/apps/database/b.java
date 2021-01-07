@@ -20,7 +20,7 @@ public final class b {
         this.dbk = str;
     }
 
-    public String awx() {
+    public String awy() {
         return this.appTitle;
     }
 
@@ -28,7 +28,7 @@ public final class b {
         this.appTitle = str;
     }
 
-    public String awy() {
+    public String awz() {
         return this.dbm;
     }
 

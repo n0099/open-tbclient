@@ -18,7 +18,7 @@ public final class a {
     private a() {
     }
 
-    public static a aOI() {
+    public static a aOJ() {
         if (dNi == null) {
             synchronized (a.class) {
                 if (dNi == null) {
@@ -45,28 +45,28 @@ public final class a {
         this.dNk.cj(jSONObject);
     }
 
-    public JSONObject aOJ() {
-        JSONObject aOP = this.dNj.aOP();
-        if (DEBUG) {
-            Log.d("SwanStabilityTracer", "LaunchTraces: " + aOP);
-        }
-        return aOP;
-    }
-
     public JSONObject aOK() {
-        JSONObject aOP = this.dNk.aOP();
+        JSONObject aOQ = this.dNj.aOQ();
         if (DEBUG) {
-            Log.d("SwanStabilityTracer", "WhiteTraces: " + aOP);
+            Log.d("SwanStabilityTracer", "LaunchTraces: " + aOQ);
         }
-        return aOP;
+        return aOQ;
     }
 
     public JSONObject aOL() {
-        JSONObject aOP = this.dNl.aOP();
+        JSONObject aOQ = this.dNk.aOQ();
         if (DEBUG) {
-            Log.d("SwanStabilityTracer", "extraTraces: " + aOP);
+            Log.d("SwanStabilityTracer", "WhiteTraces: " + aOQ);
         }
-        return aOP;
+        return aOQ;
+    }
+
+    public JSONObject aOM() {
+        JSONObject aOQ = this.dNl.aOQ();
+        if (DEBUG) {
+            Log.d("SwanStabilityTracer", "extraTraces: " + aOQ);
+        }
+        return aOQ;
     }
 
     public void clear() {
@@ -75,25 +75,25 @@ public final class a {
         this.dNl.clear();
     }
 
-    public File aOM() {
+    public File aON() {
         JSONArray jSONArray = new JSONArray();
-        jSONArray.put(aOJ());
         jSONArray.put(aOK());
         jSONArray.put(aOL());
+        jSONArray.put(aOM());
         return this.dNm.H(jSONArray);
     }
 
-    public void aON() {
+    public void aOO() {
         if (this.dNl.dNn != null && this.dNl.dNn.length() != 0) {
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(aOJ());
             jSONArray.put(aOK());
             jSONArray.put(aOL());
+            jSONArray.put(aOM());
             this.dNm.H(jSONArray);
         }
     }
 
-    public com.baidu.swan.apps.aj.a.a aOO() {
+    public com.baidu.swan.apps.aj.a.a aOP() {
         return this.dNm;
     }
 
@@ -106,7 +106,7 @@ public final class a {
         private C0376a() {
         }
 
-        public JSONObject aOP() {
+        public JSONObject aOQ() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("extra", this.dNn);

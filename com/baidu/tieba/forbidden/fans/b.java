@@ -26,7 +26,7 @@ public class b {
                     b.this.jae = new ArrayList();
                 }
                 if (b.this.jad != null) {
-                    if (b.this.jad.bqd() == 1) {
+                    if (b.this.jad.bqe() == 1) {
                         b.this.jae.clear();
                     }
                     if (getForbiddenFansResponse.getFansList() != null) {
@@ -55,25 +55,25 @@ public class b {
         MessageManager.getInstance().registerListener(this.jag);
     }
 
-    public void cDf() {
+    public void cDg() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
         httpMessage.addParam("rn", 20);
         httpMessage.addParam(Config.PACKAGE_NAME, 1);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void cDg() {
-        if (this.jad == null || this.jad.bqf() == 1) {
-            int bqd = this.jad != null ? this.jad.bqd() + 1 : 1;
+    public void cDh() {
+        if (this.jad == null || this.jad.bqg() == 1) {
+            int bqe = this.jad != null ? this.jad.bqe() + 1 : 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
             httpMessage.addParam("rn", 20);
-            httpMessage.addParam(Config.PACKAGE_NAME, bqd);
+            httpMessage.addParam(Config.PACKAGE_NAME, bqe);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     public boolean hasMore() {
-        return this.jad != null && this.jad.bqf() == 1;
+        return this.jad != null && this.jad.bqg() == 1;
     }
 
     public void onDestroy() {

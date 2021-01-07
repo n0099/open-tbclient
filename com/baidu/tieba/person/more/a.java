@@ -11,17 +11,17 @@ import java.util.List;
 public class a {
     private List<com.baidu.adp.widget.ListView.a> boM = new ArrayList();
     private BdTypeListView gAY;
-    private d moz;
+    private d moy;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView, aa<h> aaVar) {
         this.gAY = bdTypeListView;
-        this.moz = new d(tbPageContext, h.mpG);
-        this.moz.c(aaVar);
-        this.boM.add(this.moz);
+        this.moy = new d(tbPageContext, h.mpF);
+        this.moy.c(aaVar);
+        this.boM.add(this.moy);
         this.gAY.addAdapters(this.boM);
     }
 
     public void notifyDataSetChanged() {
-        this.moz.notifyDataSetChanged();
+        this.moy.notifyDataSetChanged();
     }
 }

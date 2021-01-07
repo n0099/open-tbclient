@@ -1,7 +1,7 @@
 package com.baidu.mapapi.walknavi.params;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class WalkRouteNodeInfo extends a {
     @Override // com.baidu.mapapi.walknavi.params.a
     public String getBuildingID() {
@@ -15,22 +15,22 @@ public class WalkRouteNodeInfo extends a {
 
     @Override // com.baidu.mapapi.walknavi.params.a
     public RouteNodeType getType() {
-        return this.f3108a;
+        return this.f3109a;
     }
 
     @Override // com.baidu.mapapi.walknavi.params.a
     public void setType(RouteNodeType routeNodeType) {
-        this.f3108a = routeNodeType;
+        this.f3109a = routeNodeType;
     }
 
     @Override // com.baidu.mapapi.walknavi.params.a
     public String getKeyword() {
-        return this.f3109b;
+        return this.f3110b;
     }
 
     @Override // com.baidu.mapapi.walknavi.params.a
     public void setKeyword(String str) {
-        this.f3109b = str;
+        this.f3110b = str;
     }
 
     @Override // com.baidu.mapapi.walknavi.params.a

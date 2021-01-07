@@ -11,10 +11,10 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1467a;
+    public String f1468a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1468b;
+    public String f1469b;
     public String c;
     public String d;
     public String e;
@@ -35,12 +35,12 @@ public class i {
             if (TextUtils.isEmpty(this.g) && TextUtils.isEmpty(this.h)) {
                 publicMsg.mTitle = this.e;
                 publicMsg.mDescription = this.f;
-                publicMsg.mUrl = this.f1467a;
+                publicMsg.mUrl = this.f1468a;
                 publicMsg.mPkgContent = this.c;
             } else {
                 publicMsg.mTitle = this.g;
                 publicMsg.mDescription = this.h;
-                publicMsg.mUrl = this.f1468b;
+                publicMsg.mUrl = this.f1469b;
                 publicMsg.mPkgContent = this.d;
             }
             return publicMsg;

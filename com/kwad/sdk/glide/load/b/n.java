@@ -11,10 +11,10 @@ public interface n<Model, Data> {
     public static class a<Data> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final com.kwad.sdk.glide.load.c f10399a;
+        public final com.kwad.sdk.glide.load.c f10400a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<com.kwad.sdk.glide.load.c> f10400b;
+        public final List<com.kwad.sdk.glide.load.c> f10401b;
         public final com.kwad.sdk.glide.load.a.d<Data> c;
 
         public a(@NonNull com.kwad.sdk.glide.load.c cVar, @NonNull com.kwad.sdk.glide.load.a.d<Data> dVar) {
@@ -22,8 +22,8 @@ public interface n<Model, Data> {
         }
 
         public a(@NonNull com.kwad.sdk.glide.load.c cVar, @NonNull List<com.kwad.sdk.glide.load.c> list, @NonNull com.kwad.sdk.glide.load.a.d<Data> dVar) {
-            this.f10399a = (com.kwad.sdk.glide.load.c) com.kwad.sdk.glide.g.j.a(cVar);
-            this.f10400b = (List) com.kwad.sdk.glide.g.j.a(list);
+            this.f10400a = (com.kwad.sdk.glide.load.c) com.kwad.sdk.glide.g.j.a(cVar);
+            this.f10401b = (List) com.kwad.sdk.glide.g.j.a(list);
             this.c = (com.kwad.sdk.glide.load.a.d) com.kwad.sdk.glide.g.j.a(dVar);
         }
     }

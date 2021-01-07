@@ -48,9 +48,9 @@ public class c {
                 } else if (Math.abs(i3) < com.baidu.tbadk.editortools.noConflictPanel.b.b.fn(this.fFy.getContext())) {
                     Log.w("KPSRootLayoutHandler", "system bottom-menu-bar(such as HuaWei Mate7) causes layout changed");
                 } else if (i3 > 0) {
+                    bR.ajb();
+                } else if (bR.bFi() && bR.isVisible()) {
                     bR.aja();
-                } else if (bR.bFh() && bR.isVisible()) {
-                    bR.aiZ();
                 }
             }
         }

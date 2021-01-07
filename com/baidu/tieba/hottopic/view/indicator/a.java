@@ -91,7 +91,7 @@ public class a {
         }
     }
 
-    public void bof() {
+    public void bog() {
         this.kuY = false;
         if (this.kuT != null) {
             this.kuT.clearAnimation();
@@ -109,7 +109,7 @@ public class a {
         this.kuU.setVisibility(8);
     }
 
-    public void cVJ() {
+    public void cVK() {
         this.kuY = true;
         if (this.kuT != null) {
             this.kuT.clearAnimation();

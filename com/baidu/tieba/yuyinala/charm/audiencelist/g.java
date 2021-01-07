@@ -10,27 +10,27 @@ public class g implements com.baidu.live.liveroom.d.d {
     private boolean boZ;
     private boolean bxC;
     private String mLiveId;
-    private YuyinALaAudiencesActivity ojN;
-    com.baidu.live.k.c okf = null;
+    private YuyinALaAudiencesActivity ojM;
+    com.baidu.live.k.c oke = null;
 
     public g(YuyinALaAudiencesActivity yuyinALaAudiencesActivity) {
-        this.ojN = yuyinALaAudiencesActivity;
+        this.ojM = yuyinALaAudiencesActivity;
     }
 
     public void createView() {
         com.baidu.live.noble.data.e eVar = new com.baidu.live.noble.data.e();
-        eVar.mTbPageContext = this.ojN.getPageContext();
+        eVar.mTbPageContext = this.ojM.getPageContext();
         eVar.mLiveId = this.mLiveId;
         eVar.bvS = this.aGB;
         eVar.mIsHost = this.boZ;
         eVar.bxC = this.bxC;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2501013, com.baidu.live.k.c.class, eVar);
         if (runTask != null && runTask.getData() != null) {
-            this.okf = (com.baidu.live.k.c) runTask.getData();
+            this.oke = (com.baidu.live.k.c) runTask.getData();
         }
     }
 
-    public g VJ(String str) {
+    public g VI(String str) {
         this.mLiveId = str;
         return this;
     }
@@ -45,30 +45,30 @@ public class g implements com.baidu.live.liveroom.d.d {
         return this;
     }
 
-    public g VK(String str) {
+    public g VJ(String str) {
         this.aGB = str;
         return this;
     }
 
-    public g VL(String str) {
+    public g VK(String str) {
         this.beR = str;
         return this;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.okf == null) {
+        if (this.oke == null) {
             return null;
         }
-        return this.okf.getView();
+        return this.oke.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        if (this.okf == null) {
+        if (this.oke == null) {
             return null;
         }
-        return this.okf.getTitle();
+        return this.oke.getTitle();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -83,22 +83,22 @@ public class g implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterBackground() {
-        if (this.okf != null) {
-            this.okf.ca(false);
+        if (this.oke != null) {
+            this.oke.ca(false);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterForeground() {
-        if (this.okf != null) {
-            this.okf.ca(true);
+        if (this.oke != null) {
+            this.oke.ca(true);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.okf != null) {
-            this.okf.onDestroy();
+        if (this.oke != null) {
+            this.oke.onDestroy();
         }
     }
 
@@ -107,8 +107,8 @@ public class g implements com.baidu.live.liveroom.d.d {
     }
 
     public void mH(boolean z) {
-        if (this.okf != null) {
-            this.okf.cb(z);
+        if (this.oke != null) {
+            this.oke.cb(z);
         }
     }
 }

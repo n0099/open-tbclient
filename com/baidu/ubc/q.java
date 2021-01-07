@@ -3,9 +3,9 @@ package com.baidu.ubc;
 import java.util.List;
 /* loaded from: classes3.dex */
 public interface q {
-    String aGU();
+    String aGV();
 
-    List<String> dLN();
+    List<String> dLO();
 
     boolean isBeta();
 

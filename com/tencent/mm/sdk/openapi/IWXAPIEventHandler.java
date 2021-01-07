@@ -2,7 +2,7 @@ package com.tencent.mm.sdk.openapi;
 
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public interface IWXAPIEventHandler {
     void onReq(BaseReq baseReq);
 

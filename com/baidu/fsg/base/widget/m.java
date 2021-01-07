@@ -5,11 +5,11 @@ import android.content.Context;
 class m implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SafeScrollView f2097a;
+    final /* synthetic */ SafeScrollView f2098a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(SafeScrollView safeScrollView) {
-        this.f2097a = safeScrollView;
+        this.f2098a = safeScrollView;
     }
 
     @Override // java.lang.Runnable
@@ -20,13 +20,13 @@ class m implements Runnable {
         SafeKeyBoardUtil safeKeyBoardUtil2;
         SafeKeyBoardEditText safeKeyBoardEditText2;
         SafeKeyBoardEditText safeKeyBoardEditText3;
-        safeKeyBoardUtil = this.f2097a.g;
-        context = this.f2097a.e;
-        safeKeyBoardEditText = this.f2097a.f;
-        safeKeyBoardUtil.init(context, safeKeyBoardEditText.getViewGroup(), this.f2097a);
-        safeKeyBoardUtil2 = this.f2097a.g;
-        safeKeyBoardEditText2 = this.f2097a.f;
-        safeKeyBoardEditText3 = this.f2097a.f;
+        safeKeyBoardUtil = this.f2098a.g;
+        context = this.f2098a.e;
+        safeKeyBoardEditText = this.f2098a.f;
+        safeKeyBoardUtil.init(context, safeKeyBoardEditText.getViewGroup(), this.f2098a);
+        safeKeyBoardUtil2 = this.f2098a.g;
+        safeKeyBoardEditText2 = this.f2098a.f;
+        safeKeyBoardEditText3 = this.f2098a.f;
         safeKeyBoardUtil2.showSoftKeyBoard(safeKeyBoardEditText2, safeKeyBoardEditText3.getVisibleView());
     }
 }

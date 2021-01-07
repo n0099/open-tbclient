@@ -9,13 +9,13 @@ import java.util.TreeSet;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String[] f11447a;
+    private final String[] f11448a;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final List<String> f11448a = new ArrayList(20);
+        private final List<String> f11449a = new ArrayList(20);
 
         private void c(String str, String str2) {
             if (str == null) {
@@ -53,18 +53,18 @@ public final class c {
         }
 
         a b(String str, String str2) {
-            this.f11448a.add(str);
-            this.f11448a.add(str2.trim());
+            this.f11449a.add(str);
+            this.f11449a.add(str2.trim());
             return this;
         }
     }
 
     private c(a aVar) {
-        this.f11447a = (String[]) aVar.f11448a.toArray(new String[aVar.f11448a.size()]);
+        this.f11448a = (String[]) aVar.f11449a.toArray(new String[aVar.f11449a.size()]);
     }
 
     private c(String[] strArr) {
-        this.f11447a = strArr;
+        this.f11448a = strArr;
     }
 
     public static c a(String... strArr) {
@@ -98,19 +98,19 @@ public final class c {
     }
 
     public int a() {
-        return this.f11447a.length / 2;
+        return this.f11448a.length / 2;
     }
 
     public String a(int i) {
-        return this.f11447a[i * 2];
+        return this.f11448a[i * 2];
     }
 
     public String a(String str) {
-        return a(this.f11447a, str);
+        return a(this.f11448a, str);
     }
 
     public String b(int i) {
-        return this.f11447a[(i * 2) + 1];
+        return this.f11448a[(i * 2) + 1];
     }
 
     public Set<String> b() {
@@ -124,7 +124,7 @@ public final class c {
 
     public a c() {
         a aVar = new a();
-        Collections.addAll(aVar.f11448a, this.f11447a);
+        Collections.addAll(aVar.f11449a, this.f11448a);
         return aVar;
     }
 

@@ -9,10 +9,10 @@ import java.util.Collection;
 public final class b implements w {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.bytedance.sdk.openadsdk.d.b.c f7170a;
+    private final com.bytedance.sdk.openadsdk.d.b.c f7171a;
 
     public b(com.bytedance.sdk.openadsdk.d.b.c cVar) {
-        this.f7170a = cVar;
+        this.f7171a = cVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.w
@@ -23,17 +23,17 @@ public final class b implements w {
             return null;
         }
         Type a3 = com.bytedance.sdk.openadsdk.d.b.b.a(b2, (Class<?>) a2);
-        return new a(fVar, a3, fVar.a((com.bytedance.sdk.openadsdk.d.c.a) com.bytedance.sdk.openadsdk.d.c.a.a(a3)), this.f7170a.a(aVar));
+        return new a(fVar, a3, fVar.a((com.bytedance.sdk.openadsdk.d.c.a) com.bytedance.sdk.openadsdk.d.c.a.a(a3)), this.f7171a.a(aVar));
     }
 
     /* loaded from: classes4.dex */
     private static final class a<E> extends v<Collection<E>> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final v<E> f7171a;
+        private final v<E> f7172a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final com.bytedance.sdk.openadsdk.d.b.i<? extends Collection<E>> f7172b;
+        private final com.bytedance.sdk.openadsdk.d.b.i<? extends Collection<E>> f7173b;
 
         @Override // com.bytedance.sdk.openadsdk.d.v
         public /* bridge */ /* synthetic */ void a(com.bytedance.sdk.openadsdk.d.d.c cVar, Object obj) throws IOException {
@@ -41,8 +41,8 @@ public final class b implements w {
         }
 
         public a(com.bytedance.sdk.openadsdk.d.f fVar, Type type, v<E> vVar, com.bytedance.sdk.openadsdk.d.b.i<? extends Collection<E>> iVar) {
-            this.f7171a = new m(fVar, vVar, type);
-            this.f7172b = iVar;
+            this.f7172a = new m(fVar, vVar, type);
+            this.f7173b = iVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -53,10 +53,10 @@ public final class b implements w {
                 aVar.j();
                 return null;
             }
-            Collection<E> a2 = this.f7172b.a();
+            Collection<E> a2 = this.f7173b.a();
             aVar.a();
             while (aVar.e()) {
-                a2.add(this.f7171a.b(aVar));
+                a2.add(this.f7172a.b(aVar));
             }
             aVar.b();
             return a2;
@@ -69,7 +69,7 @@ public final class b implements w {
             }
             cVar.b();
             for (E e : collection) {
-                this.f7171a.a(cVar, e);
+                this.f7172a.a(cVar, e);
             }
             cVar.c();
         }

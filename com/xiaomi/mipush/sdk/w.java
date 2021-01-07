@@ -11,11 +11,11 @@ import java.util.HashMap;
 public class w implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ v f14140a;
+    final /* synthetic */ v f14141a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(v vVar) {
-        this.f14140a = vVar;
+        this.f14141a = vVar;
     }
 
     @Override // java.lang.Runnable
@@ -30,37 +30,37 @@ public class w implements Runnable {
         Context context5;
         File file = null;
         try {
-            context = this.f14140a.f162a;
+            context = this.f14141a.f163a;
             a2 = s.a(context).a();
         } catch (IOException e) {
             e = e;
         } catch (Throwable th) {
         }
         if (a2 == null || a2.size() < 1) {
-            com.xiaomi.channel.commonutils.logger.b.m73a("no crash file to upload");
+            com.xiaomi.channel.commonutils.logger.b.m84a("no crash file to upload");
             return;
         }
-        context2 = this.f14140a.f162a;
+        context2 = this.f14141a.f163a;
         HashMap<String, String> a3 = ac.a(context2, "C100000");
         int i = 0;
         File file2 = null;
         while (i < a2.size()) {
             try {
                 File file3 = a2.get(i);
-                context3 = this.f14140a.f162a;
+                context3 = this.f14141a.f163a;
                 String a4 = s.a(context3).a(file3);
                 StringBuilder sb = new StringBuilder();
-                context4 = this.f14140a.f162a;
+                context4 = this.f14141a.f163a;
                 File file4 = new File(sb.append(context4.getFilesDir()).append("/crash").append("/").append(file3.getName()).append(".zip").toString());
                 com.xiaomi.push.y.a(file4, file3);
                 if (file4.exists()) {
                     az.a("https://api.xmpush.xiaomi.com/upload/crash_log?file=" + file4.getName(), a3, file4, "file");
                     StringBuilder sb2 = new StringBuilder();
-                    context5 = this.f14140a.f162a;
+                    context5 = this.f14141a.f163a;
                     file3.renameTo(new File(sb2.append(context5.getFilesDir()).append("/crash").toString(), a4 + ":0"));
-                    this.f14140a.b();
+                    this.f14141a.b();
                 } else {
-                    com.xiaomi.channel.commonutils.logger.b.m73a("zip crash file failed");
+                    com.xiaomi.channel.commonutils.logger.b.m84a("zip crash file failed");
                 }
                 i++;
                 file2 = file4;
@@ -74,11 +74,11 @@ public class w implements Runnable {
         }
         file = file2;
         if (file != null && file.exists() && !file.delete()) {
-            com.xiaomi.channel.commonutils.logger.b.m73a("delete zip crash file failed");
+            com.xiaomi.channel.commonutils.logger.b.m84a("delete zip crash file failed");
         }
-        obj = v.f14139a;
+        obj = v.f14140a;
         synchronized (obj) {
-            obj2 = v.f14139a;
+            obj2 = v.f14140a;
             obj2.notifyAll();
         }
     }

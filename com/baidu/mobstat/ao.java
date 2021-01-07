@@ -8,10 +8,10 @@ import org.json.JSONObject;
 public class ao {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3717a;
+    private String f3718a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f3718b;
+    private String f3719b;
     private String c;
     private long d;
     private long e;
@@ -24,8 +24,8 @@ public class ao {
     private String l;
 
     public ao(String str, String str2, String str3, long j, long j2, float f, float f2, float f3, float f4, String str4, boolean z, String str5) {
-        this.f3717a = str;
-        this.f3718b = str2;
+        this.f3718a = str;
+        this.f3719b = str2;
         this.c = str3;
         this.d = j;
         this.e = j2;
@@ -39,7 +39,7 @@ public class ao {
     }
 
     public String a() {
-        return this.f3717a;
+        return this.f3718a;
     }
 
     public String b() {
@@ -53,7 +53,7 @@ public class ao {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("n", str);
-            jSONObject.put("t", this.f3718b);
+            jSONObject.put("t", this.f3719b);
             jSONObject.put("d", this.d);
             long j2 = this.e - j;
             if (j2 <= 0) {

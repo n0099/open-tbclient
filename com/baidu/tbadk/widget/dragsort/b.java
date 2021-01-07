@@ -122,7 +122,7 @@ public class b extends e implements GestureDetector.OnGestureListener, View.OnTo
         tq(i2);
     }
 
-    public GestureDetector bKj() {
+    public GestureDetector bKk() {
         return this.fTY;
     }
 

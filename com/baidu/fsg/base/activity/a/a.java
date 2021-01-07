@@ -11,10 +11,10 @@ import com.baidu.fsg.base.utils.ResUtils;
 public class a extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f1922a;
+    private View f1923a;
 
     /* renamed from: b  reason: collision with root package name */
-    private RotateAnimation f1923b;
+    private RotateAnimation f1924b;
 
     public a(Context context) {
         super(context, ResUtils.style(context, "RimThemeLoadingDialog"));
@@ -30,11 +30,11 @@ public class a extends Dialog {
         setContentView(ResUtils.layout(getContext(), "rim_base_dialog_common_loading_layout"));
         setCanceledOnTouchOutside(false);
         setCancelable(false);
-        this.f1922a = findViewById(ResUtils.id(getContext(), "rim_base_dialog_common_loading_view"));
-        this.f1923b = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
-        this.f1923b.setRepeatCount(-1);
-        this.f1923b.setDuration(1000L);
-        this.f1923b.setInterpolator(new LinearInterpolator());
-        this.f1922a.startAnimation(this.f1923b);
+        this.f1923a = findViewById(ResUtils.id(getContext(), "rim_base_dialog_common_loading_view"));
+        this.f1924b = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
+        this.f1924b.setRepeatCount(-1);
+        this.f1924b.setDuration(1000L);
+        this.f1924b.setInterpolator(new LinearInterpolator());
+        this.f1923a.startAnimation(this.f1924b);
     }
 }

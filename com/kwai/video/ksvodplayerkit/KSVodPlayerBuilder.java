@@ -9,10 +9,10 @@ import java.util.Map;
 public class KSVodPlayerBuilder {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f11335a;
+    public Context f11336a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11336b;
+    public String f11337b;
     public List<String> c;
     public Map<String, String> d;
     public l e;
@@ -39,11 +39,11 @@ public class KSVodPlayerBuilder {
             throw new IllegalArgumentException("Wrong Input Arguments! Context con't be null!");
         }
         this.p = new KwaiPlayerVodBuilder(context);
-        this.f11335a = context;
+        this.f11336a = context;
     }
 
     public KSVodPlayerBuilder a(String str) {
-        this.f11336b = str;
+        this.f11337b = str;
         return this;
     }
 
@@ -62,10 +62,10 @@ public class KSVodPlayerBuilder {
     }
 
     public g b() {
-        if (this.f11335a == null) {
+        if (this.f11336a == null) {
             throw new IllegalArgumentException("Wrong Input Arguments! Please set context!");
         }
-        if ((this.f11336b == null || TextUtils.isEmpty(this.f11336b)) && ((this.c == null || this.c.isEmpty()) && (this.h == null || this.h.f11348b == null || this.h.f11348b.isEmpty()))) {
+        if ((this.f11337b == null || TextUtils.isEmpty(this.f11337b)) && ((this.c == null || this.c.isEmpty()) && (this.h == null || this.h.f11349b == null || this.h.f11349b.isEmpty()))) {
             throw new IllegalArgumentException("Wrong Input Arguments! Please SetDatasource!");
         }
         return new g(this);

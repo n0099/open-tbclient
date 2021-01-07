@@ -30,7 +30,7 @@ public class d {
         return Build.MODEL;
     }
 
-    public static String bPO() {
+    public static String bPP() {
         return Build.VERSION.RELEASE;
     }
 

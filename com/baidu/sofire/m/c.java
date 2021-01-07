@@ -7,24 +7,24 @@ import android.text.TextUtils;
 public final class c implements com.baidu.sofire.j.b {
 
     /* renamed from: a  reason: collision with root package name */
-    b f5587a;
+    b f5588a;
 
     /* renamed from: b  reason: collision with root package name */
-    String f5588b;
+    String f5589b;
     private Context c;
     private a d;
 
     @Override // com.baidu.sofire.j.b
     public final String b() {
-        if (TextUtils.isEmpty(this.f5588b)) {
-            this.f5588b = this.f5587a.a();
+        if (TextUtils.isEmpty(this.f5589b)) {
+            this.f5589b = this.f5588a.a();
         }
-        return this.f5588b;
+        return this.f5589b;
     }
 
     @Override // com.baidu.sofire.j.b
     public final void a(Context context, com.baidu.sofire.j.c cVar) {
-        this.f5587a = new b(context);
+        this.f5588a = new b(context);
         this.c = context;
         if ("1".equals(com.baidu.sofire.o.a.a("persist.sys.identifierid.supported", "0"))) {
             this.d = new a(this);

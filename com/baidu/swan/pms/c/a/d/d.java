@@ -4,7 +4,7 @@ public class d {
     private static d exf;
     private com.baidu.swan.pms.c.a.c.b exg = new com.baidu.swan.pms.c.a.c.b();
 
-    public static d bgC() {
+    public static d bgD() {
         if (exf != null) {
             return exf;
         }

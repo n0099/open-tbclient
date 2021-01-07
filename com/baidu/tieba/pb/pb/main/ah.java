@@ -9,17 +9,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.PbPageNewsInfoHolder;
 /* loaded from: classes2.dex */
 public class ah extends l<af, PbPageNewsInfoHolder> {
-    private com.baidu.tieba.pb.data.f lJI;
-    private PbPageNewsInfoHolder.a lTj;
+    private com.baidu.tieba.pb.data.f lJH;
+    private PbPageNewsInfoHolder.a lTi;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ah(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
-        this.lTj = new PbPageNewsInfoHolder.a() { // from class: com.baidu.tieba.pb.pb.main.ah.1
+        this.lTi = new PbPageNewsInfoHolder.a() { // from class: com.baidu.tieba.pb.pb.main.ah.1
             @Override // com.baidu.tieba.pb.pb.main.PbPageNewsInfoHolder.a
             public void b(af afVar) {
                 if (afVar != null) {
-                    com.baidu.tieba.pb.c.a.a(ah.this.lJI, afVar, afVar.locate, 5);
+                    com.baidu.tieba.pb.c.a.a(ah.this.lJH, afVar, afVar.locate, 5);
                 }
             }
         };
@@ -30,7 +30,7 @@ public class ah extends l<af, PbPageNewsInfoHolder> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: cz */
     public PbPageNewsInfoHolder e(ViewGroup viewGroup) {
-        return new PbPageNewsInfoHolder(this.lIO.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_page_news, viewGroup, false), this.lTj);
+        return new PbPageNewsInfoHolder(this.lIN.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_page_news, viewGroup, false), this.lTi);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,7 +40,7 @@ public class ah extends l<af, PbPageNewsInfoHolder> {
         super.a(i, view, viewGroup, (ViewGroup) afVar, (af) pbPageNewsInfoHolder);
         if (afVar != null) {
             afVar.locate = i + 1;
-            com.baidu.tieba.pb.c.a.a(this.lIO.getUniqueId(), this.lJI, afVar, afVar.locate, 5);
+            com.baidu.tieba.pb.c.a.a(this.lIN.getUniqueId(), this.lJH, afVar, afVar.locate, 5);
             pbPageNewsInfoHolder.a(afVar);
             pbPageNewsInfoHolder.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -48,6 +48,6 @@ public class ah extends l<af, PbPageNewsInfoHolder> {
     }
 
     public void setData(com.baidu.tieba.pb.data.f fVar) {
-        this.lJI = fVar;
+        this.lJH = fVar;
     }
 }

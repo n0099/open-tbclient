@@ -17,14 +17,14 @@ public final class a {
     private static long pdU = -1;
 
     public static String k(Context context, long j) {
-        Calendar calendar = Calendar.getInstance(eow());
+        Calendar calendar = Calendar.getInstance(eox());
         calendar.setTimeInMillis(j);
         Date time = calendar.getTime();
-        Calendar calendar2 = Calendar.getInstance(eow());
+        Calendar calendar2 = Calendar.getInstance(eox());
         calendar2.setTimeInMillis(hZ(System.currentTimeMillis()));
         SimpleDateFormat simpleDateFormat = null;
         if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) == calendar2.get(5)) {
-            simpleDateFormat = new SimpleDateFormat("HH:mm", eow());
+            simpleDateFormat = new SimpleDateFormat("HH:mm", eox());
         } else if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) == calendar2.get(5) - 1) {
             return "昨天";
         } else {
@@ -52,9 +52,9 @@ public final class a {
                     return "星期日";
                 }
             } else if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) != calendar2.get(5)) {
-                simpleDateFormat = new SimpleDateFormat("MM-dd", eow());
+                simpleDateFormat = new SimpleDateFormat("MM-dd", eox());
             } else {
-                simpleDateFormat = new SimpleDateFormat("yy-MM-dd", eow());
+                simpleDateFormat = new SimpleDateFormat("yy-MM-dd", eox());
             }
         }
         return simpleDateFormat.format(time);
@@ -70,7 +70,7 @@ public final class a {
         return pdU;
     }
 
-    public static Locale eow() {
+    public static Locale eox() {
         return BdBaseApplication.getInst().getResources().getConfiguration().locale;
     }
 
@@ -89,7 +89,7 @@ public final class a {
     }
 
     public static void ib(long j) {
-        b.eot().hY(j);
+        b.eou().hY(j);
     }
 
     public static String b(ChatSession chatSession) {

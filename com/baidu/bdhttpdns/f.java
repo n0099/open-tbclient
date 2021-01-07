@@ -22,10 +22,10 @@ final class f {
         private a afL;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f1627b;
+        private String f1628b;
 
         public b(String str, a aVar) {
-            this.f1627b = str;
+            this.f1628b = str;
             this.afL = aVar;
         }
 
@@ -33,7 +33,7 @@ final class f {
         public void run() {
             ArrayList<String> arrayList;
             ArrayList<String> arrayList2;
-            Map b2 = f.this.b(this.f1627b);
+            Map b2 = f.this.b(this.f1628b);
             if (b2 != null) {
                 arrayList = (ArrayList) b2.get("ipv6");
                 arrayList2 = (ArrayList) b2.get("ipv4");
@@ -41,7 +41,7 @@ final class f {
                 arrayList = null;
                 arrayList2 = null;
             }
-            this.afL.a(((arrayList2 == null || arrayList2.isEmpty()) && (arrayList == null || arrayList.isEmpty())) ? -1 : 0, arrayList2, arrayList, 60L, this.f1627b);
+            this.afL.a(((arrayList2 == null || arrayList2.isEmpty()) && (arrayList == null || arrayList.isEmpty())) ? -1 : 0, arrayList2, arrayList, 60L, this.f1628b);
         }
     }
 

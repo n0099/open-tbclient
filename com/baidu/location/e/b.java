@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static String e = null;
     public static String f = null;
@@ -15,25 +15,25 @@ public class b {
     public static long k = -1;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2711a;
+    public String f2712a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2712b;
+    public String f2713b;
     public String c;
     public String d;
     private boolean l;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f2713a = new b();
+        public static final b f2714a = new b();
     }
 
     private b() {
-        this.f2711a = null;
-        this.f2712b = null;
+        this.f2712a = null;
+        this.f2713b = null;
         this.c = null;
         this.d = null;
         this.l = false;
@@ -43,7 +43,7 @@ public class b {
     }
 
     public static b a() {
-        return a.f2713a;
+        return a.f2714a;
     }
 
     public String a(boolean z) {
@@ -92,18 +92,18 @@ public class b {
         }
         if (this.c == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(this.f2711a);
+            stringBuffer.append(this.f2712a);
         } else {
             stringBuffer.append("&cu=");
             stringBuffer.append(this.c);
-            if (this.f2711a != null && !this.f2711a.equals("NULL") && !this.c.contains(new StringBuffer(this.f2711a).reverse().toString())) {
+            if (this.f2712a != null && !this.f2712a.equals("NULL") && !this.c.contains(new StringBuffer(this.f2712a).reverse().toString())) {
                 stringBuffer.append("&Aim=");
-                stringBuffer.append(this.f2711a);
+                stringBuffer.append(this.f2712a);
             }
         }
-        if (this.f2712b != null) {
+        if (this.f2713b != null) {
             stringBuffer.append("&snd=");
-            stringBuffer.append(this.f2712b);
+            stringBuffer.append(this.f2713b);
         }
         if (this.d != null) {
             stringBuffer.append("&Aid=");
@@ -163,7 +163,7 @@ public class b {
             stringBuffer.append(this.c);
         } else {
             stringBuffer.append("&im=");
-            stringBuffer.append(this.f2711a);
+            stringBuffer.append(this.f2712a);
         }
         try {
             stringBuffer.append("&mb=");

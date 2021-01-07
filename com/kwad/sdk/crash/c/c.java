@@ -18,14 +18,14 @@ public final class c extends b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final c f9931a = new c();
+        private static final c f9932a = new c();
     }
 
     private c() {
     }
 
     public static c d() {
-        return a.f9931a;
+        return a.f9932a;
     }
 
     @Override // com.kwad.sdk.crash.c.b
@@ -55,13 +55,13 @@ public final class c extends b {
                 z2 = false;
             }
             if (file == null || andIncrement != 0) {
-                file = new File(this.e, f9928a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + andIncrement + ".dump");
+                file = new File(this.e, f9929a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + andIncrement + ".dump");
             }
             if (file2 == null || andIncrement != 0) {
-                file2 = new File(this.e, f9928a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + andIncrement + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
+                file2 = new File(this.e, f9929a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + andIncrement + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
             }
             if (file3 == null || andIncrement != 0) {
-                file3 = new File(this.e, f9928a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + andIncrement + ".jtrace");
+                file3 = new File(this.e, f9929a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + andIncrement + ".jtrace");
             }
             f.a(th, exceptionMessage, context);
             f.a(exceptionMessage, c());

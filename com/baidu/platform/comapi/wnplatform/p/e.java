@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.wnplatform.p;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static void a(String str, String str2, boolean z) {
         BaiduMap map;

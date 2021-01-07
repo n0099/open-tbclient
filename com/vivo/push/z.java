@@ -1,14 +1,14 @@
 package com.vivo.push;
 
 import android.net.Uri;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class z {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Uri f14014a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
+    public static final Uri f14015a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Uri f14015b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
+    public static final Uri f14016b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
     public static final Uri c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
     public static final Uri d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");
 

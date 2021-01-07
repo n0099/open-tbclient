@@ -146,18 +146,18 @@ public class RefreshingAnimView extends View {
     public void setAnimPercent(float f) {
         float f2 = f >= 0.0f ? f : 0.0f;
         this.dCf = f2 <= 1.0f ? f2 : 1.0f;
-        aKX();
+        aKY();
         postInvalidate();
     }
 
-    public void aKW() {
+    public void aKX() {
         cM(300L);
     }
 
     private void cM(long j) {
         ki(2);
         if (this.dCz != null) {
-            aKI();
+            aKJ();
         }
         this.dCz = ValueAnimator.ofFloat(0.0f, 1.0f);
         this.dCz.setDuration(j);
@@ -194,7 +194,7 @@ public class RefreshingAnimView extends View {
     public void cN(long j) {
         ki(3);
         if (this.dCw != null) {
-            aKI();
+            aKJ();
         }
         this.dCw = ValueAnimator.ofFloat(0.0f, 1.0f);
         this.dCw.setDuration(j);
@@ -245,7 +245,7 @@ public class RefreshingAnimView extends View {
     }
 
     public void stopAnim() {
-        aKI();
+        aKJ();
         clearAnimation();
         this.dCf = 0.0f;
         this.dCv = 1;
@@ -293,9 +293,9 @@ public class RefreshingAnimView extends View {
         if (this.mBitmap != null && this.mCanvas != null) {
             this.mBitmap.eraseColor(0);
             this.mPaint.setStyle(Paint.Style.FILL);
-            if (this.dAP != com.baidu.swan.apps.t.a.aAN().alD()) {
+            if (this.dAP != com.baidu.swan.apps.t.a.aAO().alE()) {
                 this.mPaint.setColor(getResources().getColor(a.c.aiapps_pull_loading_refresh_anim_color));
-                this.dAP = com.baidu.swan.apps.t.a.aAN().alD();
+                this.dAP = com.baidu.swan.apps.t.a.aAO().alE();
             }
             this.mPaint.setAlpha(76);
             this.dCp.set(this.dCm.x - this.dCi, this.dCm.y - this.dCi, this.dCm.x + this.dCi, this.dCm.y + this.dCi);
@@ -311,7 +311,7 @@ public class RefreshingAnimView extends View {
         }
     }
 
-    private void aKX() {
+    private void aKY() {
         this.dCg = this.dCf;
         if (this.dCf < 0.5f) {
             this.dCh = 0.0f;
@@ -390,7 +390,7 @@ public class RefreshingAnimView extends View {
     }
 
     private void sa() {
-        this.dAP = com.baidu.swan.apps.t.a.aAN().alD();
+        this.dAP = com.baidu.swan.apps.t.a.aAO().alE();
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setColor(getResources().getColor(a.c.aiapps_pull_loading_refresh_anim_color));
@@ -415,7 +415,7 @@ public class RefreshingAnimView extends View {
         }
     }
 
-    private void aKI() {
+    private void aKJ() {
         if (this.dCz != null) {
             this.dCz.setRepeatCount(0);
             this.dCz.removeAllUpdateListeners();
@@ -435,6 +435,6 @@ public class RefreshingAnimView extends View {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        aKI();
+        aKJ();
     }
 }

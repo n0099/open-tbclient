@@ -42,7 +42,7 @@ public class c extends com.baidu.swan.apps.event.a.b {
         }
         switch (c) {
             case 0:
-                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.logType, JSONObject.quote(j.a(j.aRl(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.data));
+                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.logType, JSONObject.quote(j.a(j.aRm(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.data));
             case 1:
                 return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.logType, JSONObject.quote(this.data));
             case 2:

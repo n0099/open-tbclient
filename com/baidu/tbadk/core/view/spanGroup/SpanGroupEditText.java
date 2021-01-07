@@ -61,7 +61,7 @@ public class SpanGroupEditText extends AppCompatEditText {
     @Override // android.widget.EditText, android.widget.TextView
     public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
         if (this.mSpanGroupManager != null) {
-            this.mSpanGroupManager.byD();
+            this.mSpanGroupManager.byE();
         }
         super.setText(charSequence, bufferType);
     }
@@ -74,12 +74,12 @@ public class SpanGroupEditText extends AppCompatEditText {
                 if (i2 < list.size()) {
                     com.baidu.tieba.j.a aVar = list.get(i2);
                     String str = list2.get(i2);
-                    if (!this.mSpanGroupManager.CD(aVar.cQi())) {
+                    if (!this.mSpanGroupManager.CC(aVar.cQj())) {
                         TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                         tbLinkSpanGroup.a(getText(), getSelectionEnd(), getSelectionEnd(), (int) getTextSize());
                         u a2 = u.a(tbLinkSpanGroup, aVar);
                         a2.ePl = str;
-                        tbLinkSpanGroup.CE(a2.mContent);
+                        tbLinkSpanGroup.CD(a2.mContent);
                         tbLinkSpanGroup.build();
                         this.mSpanGroupManager.a(tbLinkSpanGroup);
                     }
@@ -98,15 +98,15 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
     }
 
-    public void byz() {
-        if (this.mSpanGroupManager != null) {
-            this.mSpanGroupManager.byz();
-        }
-    }
-
     public void byA() {
         if (this.mSpanGroupManager != null) {
             this.mSpanGroupManager.byA();
+        }
+    }
+
+    public void byB() {
+        if (this.mSpanGroupManager != null) {
+            this.mSpanGroupManager.byB();
         }
     }
 

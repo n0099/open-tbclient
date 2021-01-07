@@ -14,18 +14,18 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class a implements e {
-    final Pools.SynchronizedPool<ByteBuffer> pDS;
-    private final com.facebook.imagepipeline.memory.c pzs;
-    private static final Class<?> prQ = a.class;
-    private static final byte[] pDT = {-1, -39};
+    private final com.facebook.imagepipeline.memory.c pAZ;
+    final Pools.SynchronizedPool<ByteBuffer> pFz;
+    private static final Class<?> prR = a.class;
+    private static final byte[] pFA = {-1, -39};
 
     public a(com.facebook.imagepipeline.memory.c cVar, int i, Pools.SynchronizedPool synchronizedPool) {
-        this.pzs = cVar;
-        this.pDS = synchronizedPool;
+        this.pAZ = cVar;
+        this.pFz = synchronizedPool;
         for (int i2 = 0; i2 < i; i2++) {
-            this.pDS.release(ByteBuffer.allocate(16384));
+            this.pFz.release(ByteBuffer.allocate(16384));
         }
     }
 
@@ -45,12 +45,12 @@ public class a implements e {
 
     @Override // com.facebook.imagepipeline.h.e
     public com.facebook.common.references.a<Bitmap> a(com.facebook.imagepipeline.f.e eVar, Bitmap.Config config, @Nullable Rect rect, int i) {
-        boolean QI = eVar.QI(i);
+        boolean QZ = eVar.QZ(i);
         BitmapFactory.Options a2 = a(eVar, config);
         InputStream inputStream = eVar.getInputStream();
         g.checkNotNull(inputStream);
         InputStream aVar = eVar.getSize() > i ? new com.facebook.common.f.a(inputStream, i) : inputStream;
-        InputStream bVar = !QI ? new com.facebook.common.f.b(aVar, pDT) : aVar;
+        InputStream bVar = !QZ ? new com.facebook.common.f.b(aVar, pFA) : aVar;
         boolean z = a2.inPreferredConfig != Bitmap.Config.ARGB_8888;
         try {
             return a(bVar, a2, rect);
@@ -88,12 +88,12 @@ public class a implements e {
             i = i4;
             i2 = i3;
         }
-        Bitmap bitmap2 = this.pzs.get(com.facebook.d.a.g(i2, i, options.inPreferredConfig));
+        Bitmap bitmap2 = this.pAZ.get(com.facebook.d.a.i(i2, i, options.inPreferredConfig));
         if (bitmap2 == null) {
             throw new NullPointerException("BitmapPool.get returned null");
         }
         options.inBitmap = bitmap2;
-        ByteBuffer acquire = this.pDS.acquire();
+        ByteBuffer acquire = this.pFz.acquire();
         ByteBuffer allocate = acquire == null ? ByteBuffer.allocate(16384) : acquire;
         try {
             try {
@@ -112,20 +112,20 @@ public class a implements e {
                                     bitmap = decodeRegion;
                                 }
                             } catch (IOException e) {
-                                com.facebook.common.c.a.d(prQ, "Could not decode region %s, decoding full bitmap instead.", rect);
+                                com.facebook.common.c.a.d(prR, "Could not decode region %s, decoding full bitmap instead.", rect);
                                 if (bitmapRegionDecoder != null) {
                                     bitmapRegionDecoder.recycle();
                                     bitmap = null;
                                     if (bitmap == null) {
                                     }
-                                    this.pDS.release(allocate);
+                                    this.pFz.release(allocate);
                                     if (bitmap2 == bitmap) {
                                     }
                                 }
                                 bitmap = null;
                                 if (bitmap == null) {
                                 }
-                                this.pDS.release(allocate);
+                                this.pFz.release(allocate);
                                 if (bitmap2 == bitmap) {
                                 }
                             }
@@ -148,40 +148,40 @@ public class a implements e {
                     if (bitmap == null) {
                         bitmap = BitmapFactory.decodeStream(inputStream, null, options);
                     }
-                    this.pDS.release(allocate);
+                    this.pFz.release(allocate);
                     if (bitmap2 == bitmap) {
-                        this.pzs.release(bitmap2);
+                        this.pAZ.release(bitmap2);
                         bitmap.recycle();
                         throw new IllegalStateException();
                     }
-                    return com.facebook.common.references.a.a(bitmap, this.pzs);
+                    return com.facebook.common.references.a.a(bitmap, this.pAZ);
                 }
                 bitmap = null;
                 if (bitmap == null) {
                 }
-                this.pDS.release(allocate);
+                this.pFz.release(allocate);
                 if (bitmap2 == bitmap) {
                 }
             } catch (Throwable th4) {
-                this.pDS.release(allocate);
+                this.pFz.release(allocate);
                 throw th4;
             }
         } catch (IllegalArgumentException e3) {
-            this.pzs.release(bitmap2);
+            this.pAZ.release(bitmap2);
             try {
                 inputStream.reset();
                 Bitmap decodeStream = BitmapFactory.decodeStream(inputStream);
                 if (decodeStream == null) {
                     throw e3;
                 }
-                com.facebook.common.references.a<Bitmap> a2 = com.facebook.common.references.a.a(decodeStream, com.facebook.imagepipeline.a.g.ewB());
-                this.pDS.release(allocate);
+                com.facebook.common.references.a<Bitmap> a2 = com.facebook.common.references.a.a(decodeStream, com.facebook.imagepipeline.a.g.exe());
+                this.pFz.release(allocate);
                 return a2;
             } catch (IOException e4) {
                 throw e3;
             }
         } catch (RuntimeException e5) {
-            this.pzs.release(bitmap2);
+            this.pAZ.release(bitmap2);
             throw e5;
         }
     }

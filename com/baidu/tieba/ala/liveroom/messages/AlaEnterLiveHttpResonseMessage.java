@@ -21,7 +21,7 @@ public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
         return this.aGe;
     }
 
-    public az clI() {
+    public az clJ() {
         return this.hJB;
     }
 

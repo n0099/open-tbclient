@@ -17,7 +17,7 @@ import com.baidu.webkit.sdk.JsResult;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebStorage;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public class BdSailorWebChromeClient implements INoProGuard {
     private Activity getActivityFromContext(BdSailorWebView bdSailorWebView) {
         if (bdSailorWebView.getContext() instanceof Activity) {

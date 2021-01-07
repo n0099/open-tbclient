@@ -30,9 +30,9 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             AddGroupActivity.this.kHP.sU(false);
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103007) {
-                AddGroupActivity.this.cZB();
+                AddGroupActivity.this.cZC();
             } else if (!(socketResponsedMessage instanceof ResponseSearchGroupMessage)) {
-                AddGroupActivity.this.cZB();
+                AddGroupActivity.this.cZC();
             } else {
                 ResponseSearchGroupMessage responseSearchGroupMessage = (ResponseSearchGroupMessage) socketResponsedMessage;
                 if (responseSearchGroupMessage.getError() != 0) {
@@ -41,7 +41,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
                 }
                 List<BaseGroupData> searchResult = responseSearchGroupMessage.getSearchResult();
                 if (searchResult == null || searchResult.size() <= 0) {
-                    AddGroupActivity.this.cZB();
+                    AddGroupActivity.this.cZC();
                 } else {
                     AddGroupActivity.this.a(searchResult.get(0));
                 }
@@ -68,16 +68,16 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.kHP.cZE()) {
+        if (view == this.kHP.cZF()) {
             finish();
-        } else if (view == this.kHP.cZD()) {
+        } else if (view == this.kHP.cZE()) {
             TiebaStatic.log("add_group_searchbtn_click");
             if (view.getTag() instanceof String) {
-                Nw((String) view.getTag());
+                Nv((String) view.getTag());
             }
-        } else if (view == this.kHP.cZC()) {
-            this.kHP.cZG();
-        } else if (view == this.kHP.cZF()) {
+        } else if (view == this.kHP.cZD()) {
+            this.kHP.cZH();
+        } else if (view == this.kHP.cZG()) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ZXING_CAPTURE, new IntentConfig(getPageContext().getPageActivity())));
         }
     }
@@ -100,7 +100,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         }
     }
 
-    public void Nw(String str) {
+    public void Nv(String str) {
         if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
             try {
                 this.kHP.sU(true);
@@ -117,7 +117,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cZB() {
+    public void cZC() {
         showToast(R.string.add_group_toast_noresult);
     }
 

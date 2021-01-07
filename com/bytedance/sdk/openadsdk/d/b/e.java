@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.d.b;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f7256a = c();
+    private static final int f7257a = c();
 
     private static int c() {
         return a(System.getProperty("java.version"));
@@ -50,10 +50,10 @@ public final class e {
     }
 
     public static int a() {
-        return f7256a;
+        return f7257a;
     }
 
     public static boolean b() {
-        return f7256a >= 9;
+        return f7257a >= 9;
     }
 }

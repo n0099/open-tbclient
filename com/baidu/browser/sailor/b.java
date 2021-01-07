@@ -1,6 +1,6 @@
 package com.baidu.browser.sailor;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public final class b implements Runnable {
     final /* synthetic */ BdSailorWebView agR;
     final /* synthetic */ BdSailorWebViewClientExt agS;

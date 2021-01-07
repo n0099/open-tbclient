@@ -14,7 +14,7 @@ import java.util.List;
 public class c extends BaseAdapter {
     private Context mContext;
     private boolean mHasMore = true;
-    private List<d> mXw = new ArrayList();
+    private List<d> mXv = new ArrayList();
 
     public c(Context context) {
         this.mContext = context;
@@ -22,8 +22,8 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.mXw != null) {
-            return this.mXw.size();
+        if (this.mXv != null) {
+            return this.mXv.size();
         }
         return 0;
     }
@@ -32,10 +32,10 @@ public class c extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: JC */
     public d getItem(int i) {
-        if (this.mXw == null || i >= this.mXw.size()) {
+        if (this.mXv == null || i >= this.mXv.size()) {
             return null;
         }
-        return this.mXw.get(i);
+        return this.mXv.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,7 +45,7 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return a(this.mXw.get(i), view, viewGroup);
+        return a(this.mXv.get(i), view, viewGroup);
     }
 
     public View a(d dVar, View view, ViewGroup viewGroup) {
@@ -62,16 +62,16 @@ public class c extends BaseAdapter {
         if (dVar == null) {
             return inflate;
         }
-        eh.mXx.setText(dVar.title);
-        eh.mXy.setText(dVar.content);
-        eh.mXz.setDefaultResource(R.drawable.screen_notify_default_bg);
-        eh.mXz.a(dVar.pic, 10, 0, 0, false);
+        eh.mXw.setText(dVar.title);
+        eh.mXx.setText(dVar.content);
+        eh.mXy.setDefaultResource(R.drawable.screen_notify_default_bg);
+        eh.mXy.a(dVar.pic, 10, 0, 0, false);
         return inflate;
     }
 
     public void fR(List<d> list) {
         if (list != null && list.size() != 0) {
-            this.mXw.addAll(list);
+            this.mXv.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -80,9 +80,9 @@ public class c extends BaseAdapter {
     /* loaded from: classes8.dex */
     public class a {
         View mLine;
+        TextView mXw;
         TextView mXx;
-        TextView mXy;
-        TbImageView mXz;
+        TbImageView mXy;
 
         private a() {
         }
@@ -90,10 +90,10 @@ public class c extends BaseAdapter {
 
     private a eh(View view) {
         a aVar = new a();
-        aVar.mXx = (TextView) view.findViewById(R.id.push_msg_title);
-        aVar.mXy = (TextView) view.findViewById(R.id.push_msg_content);
-        aVar.mXz = (TbImageView) view.findViewById(R.id.push_msg_pic);
-        aVar.mXz.setAutoChangeStyle(false);
+        aVar.mXw = (TextView) view.findViewById(R.id.push_msg_title);
+        aVar.mXx = (TextView) view.findViewById(R.id.push_msg_content);
+        aVar.mXy = (TbImageView) view.findViewById(R.id.push_msg_pic);
+        aVar.mXy.setAutoChangeStyle(false);
         aVar.mLine = view.findViewById(R.id.line);
         return aVar;
     }

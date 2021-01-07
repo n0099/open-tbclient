@@ -15,10 +15,10 @@ public abstract class i extends BaseHttpRequest {
     public Map<String, String> getHeaders() {
         HashMap hashMap = new HashMap();
         if (!AccountManager.isCuidLogin(this.mContext)) {
-            hashMap.put(SM.COOKIE, "BDUSS=" + com.baidu.yuyinala.privatemessage.implugin.d.b.ell().getBduss(this.mContext));
+            hashMap.put(SM.COOKIE, "BDUSS=" + com.baidu.yuyinala.privatemessage.implugin.d.b.elm().getBduss(this.mContext));
         } else {
             try {
-                hashMap.put(SM.COOKIE, "BAIDUCUID=" + URLEncoder.encode(new String(Base64Encoder.b64Encode(com.baidu.yuyinala.privatemessage.implugin.d.b.ell().getCuid(this.mContext).getBytes())), "UTF-8"));
+                hashMap.put(SM.COOKIE, "BAIDUCUID=" + URLEncoder.encode(new String(Base64Encoder.b64Encode(com.baidu.yuyinala.privatemessage.implugin.d.b.elm().getCuid(this.mContext).getBytes())), "UTF-8"));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -31,8 +31,8 @@ public abstract class i extends BaseHttpRequest {
         return "GET";
     }
 
-    public String Yn(String str) {
-        switch (com.baidu.yuyinala.privatemessage.implugin.d.b.ell().hx(this.mContext)) {
+    public String Ym(String str) {
+        switch (com.baidu.yuyinala.privatemessage.implugin.d.b.elm().hx(this.mContext)) {
             case 0:
                 return "https://ext.baidu.com/";
             case 1:

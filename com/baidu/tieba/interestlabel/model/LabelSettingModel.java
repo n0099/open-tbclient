@@ -60,7 +60,7 @@ public class LabelSettingModel extends BdBaseModel {
         this.kUi = aVar;
     }
 
-    public void dcB() {
+    public void dcC() {
         if (!j.isNetworkAvailableForImmediately()) {
             if (this.kUi != null) {
                 this.kUi.a(LabelRequestEnum.GET_LABEL, null, -1);

@@ -41,7 +41,7 @@ public class a {
             for (ThreadInfo threadInfo : dataRes.thread_list) {
                 bz bzVar = new bz();
                 bzVar.a(threadInfo);
-                bzVar.bqS();
+                bzVar.bqT();
                 this.iNF.add(bzVar);
             }
             List<BannerImage> list = dataRes.banner_image;
@@ -84,7 +84,7 @@ public class a {
         }
     }
 
-    public int cTM() {
+    public int cTN() {
         return this.kkb;
     }
 
@@ -92,31 +92,31 @@ public class a {
         return this.hasMore;
     }
 
-    public ArrayList<bz> czG() {
+    public ArrayList<bz> czH() {
         return this.iNF;
     }
 
-    public bm cTN() {
+    public bm cTO() {
         return this.kke;
     }
 
-    public br cTO() {
+    public br cTP() {
         return this.kkf;
     }
 
-    public l cTP() {
+    public l cTQ() {
         return this.kkc;
     }
 
-    public aj cTQ() {
+    public aj cTR() {
         return this.kkd;
     }
 
-    public b cTR() {
+    public b cTS() {
         return this.kkg;
     }
 
-    public SpecialColumnListData cTS() {
+    public SpecialColumnListData cTT() {
         return this.kkh;
     }
 }

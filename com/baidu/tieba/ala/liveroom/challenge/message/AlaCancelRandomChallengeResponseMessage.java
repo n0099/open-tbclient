@@ -27,11 +27,11 @@ public class AlaCancelRandomChallengeResponseMessage extends JsonHttpResponsedMe
         }
     }
 
-    public com.baidu.live.challenge.a cfJ() {
+    public com.baidu.live.challenge.a cfK() {
         return this.hvz;
     }
 
-    public boolean cfL() {
+    public boolean cfM() {
         return this.hvA == 1;
     }
 }

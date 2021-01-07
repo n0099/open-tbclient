@@ -58,13 +58,13 @@ public class g extends a {
         this.k.a(this);
         a(this.k);
         k t = layer.t();
-        if (t != null && t.f8343a != null) {
-            this.n = t.f8343a.a();
+        if (t != null && t.f8344a != null) {
+            this.n = t.f8344a.a();
             this.n.a(this);
             a(this.n);
         }
-        if (t != null && t.f8344b != null) {
-            this.o = t.f8344b.a();
+        if (t != null && t.f8345b != null) {
+            this.o = t.f8345b.a();
             this.o.a(this);
             a(this.o);
         }
@@ -119,7 +119,7 @@ public class g extends a {
     private void a(com.ksad.lottie.model.b bVar, Matrix matrix, com.ksad.lottie.model.c cVar, Canvas canvas) {
         float f = ((float) bVar.c) / 100.0f;
         float a2 = com.ksad.lottie.d.f.a(matrix);
-        String str = bVar.f8348a;
+        String str = bVar.f8349a;
         int i = 0;
         while (true) {
             int i2 = i;
@@ -143,7 +143,7 @@ public class g extends a {
         if (a3 == null) {
             return;
         }
-        String str = bVar.f8348a;
+        String str = bVar.f8349a;
         m o = this.l.o();
         String a4 = o != null ? o.a(str) : str;
         this.h.setTypeface(a3);
@@ -195,7 +195,7 @@ public class g extends a {
             canvas.setMatrix(matrix);
         }
         com.ksad.lottie.model.b e = this.k.e();
-        com.ksad.lottie.model.c cVar = this.m.i().get(e.f8349b);
+        com.ksad.lottie.model.c cVar = this.m.i().get(e.f8350b);
         if (cVar == null) {
             canvas.restore();
             return;

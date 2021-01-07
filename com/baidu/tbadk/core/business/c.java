@@ -99,7 +99,7 @@ public class c extends PopupWindow {
     public void dealJump(String str) {
         TbPageContext<?> currentActivityPageContext;
         if (!at.isEmpty(str) && (currentActivityPageContext = getCurrentActivityPageContext(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
-            be.bwu().b(currentActivityPageContext, new String[]{str});
+            be.bwv().b(currentActivityPageContext, new String[]{str});
         }
     }
 
@@ -148,13 +148,13 @@ public class c extends PopupWindow {
     }
 
     public void show() {
-        if (boK() && this.eNf != null && this.eNf.getLayoutParams() != null) {
+        if (boL() && this.eNf != null && this.eNf.getLayoutParams() != null) {
             this.eNf.getLayoutParams().width = (this.mScreenWidth * 2) / 3;
         }
         showAtLocation(getContentView(), 17, 0, 0);
     }
 
-    private boolean boK() {
+    private boolean boL() {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity != null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();

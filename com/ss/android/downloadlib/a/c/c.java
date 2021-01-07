@@ -11,13 +11,13 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class c {
     public static void a() {
-        List<com.ss.android.socialbase.downloader.g.c> a2 = com.ss.android.socialbase.appdownloader.d.eGi().a(j.a());
+        List<com.ss.android.socialbase.downloader.g.c> a2 = com.ss.android.socialbase.appdownloader.d.eGM().a(j.a());
         if (a2 != null && a2.size() > 0) {
             for (int i = 0; i < a2.size(); i++) {
                 com.ss.android.socialbase.downloader.g.c cVar = a2.get(i);
                 File file = new File(cVar.l(), cVar.m());
                 long lastModified = file.lastModified();
-                long a3 = com.ss.android.socialbase.downloader.k.a.SR(cVar.g()).a("download_file_expire_hours", 0) * BdKVCache.MILLS_1Hour;
+                long a3 = com.ss.android.socialbase.downloader.k.a.Th(cVar.g()).a("download_file_expire_hours", 0) * BdKVCache.MILLS_1Hour;
                 if (a3 <= 0) {
                     a3 = 604800000;
                 }
@@ -40,7 +40,7 @@ public class c {
                     File file = new File(str);
                     if (file != null && file.exists()) {
                         long currentTimeMillis = System.currentTimeMillis() - file.lastModified();
-                        long a2 = com.ss.android.socialbase.downloader.k.a.SR(cVar.g()).a("download_complete_file_expire_hours", 0) * BdKVCache.MILLS_1Hour;
+                        long a2 = com.ss.android.socialbase.downloader.k.a.Th(cVar.g()).a("download_complete_file_expire_hours", 0) * BdKVCache.MILLS_1Hour;
                         if (a2 <= 0) {
                             a2 = 604800000;
                         }

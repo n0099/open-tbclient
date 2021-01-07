@@ -2,7 +2,7 @@ package com.qq.e.comm.plugin.a.e;
 
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.status.NetworkType;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static boolean a() {
         return GDTADManager.getInstance().getSM().getInteger("appLandingPageWifiAutoDownload", 0) == 1 && NetworkType.WIFI == GDTADManager.getInstance().getDeviceStatus().getNetworkType();

@@ -351,8 +351,8 @@ public class c extends Request<File> {
     }
 
     private String a(com.bytedance.sdk.adnet.core.b bVar, String str) {
-        if (bVar != null && bVar.esm() != null && !bVar.esm().isEmpty()) {
-            for (com.bytedance.sdk.adnet.core.a aVar : bVar.esm()) {
+        if (bVar != null && bVar.esn() != null && !bVar.esn().isEmpty()) {
+            for (com.bytedance.sdk.adnet.core.a aVar : bVar.esn()) {
                 if (aVar != null && TextUtils.equals(aVar.getName(), str)) {
                     return aVar.getValue();
                 }

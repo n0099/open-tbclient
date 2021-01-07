@@ -12,28 +12,28 @@ import java.util.concurrent.atomic.AtomicInteger;
 final class g {
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f9795b;
+    private final String f9796b;
     private volatile e c;
     private final b e;
     private final c f;
 
     /* renamed from: a  reason: collision with root package name */
-    private final AtomicInteger f9794a = new AtomicInteger(0);
+    private final AtomicInteger f9795a = new AtomicInteger(0);
     private final List<b> d = new CopyOnWriteArrayList();
 
     /* loaded from: classes5.dex */
     private static final class a extends Handler implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f9796a;
+        private final String f9797a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final List<b> f9797b;
+        private final List<b> f9798b;
 
         public a(String str, List<b> list) {
             super(Looper.getMainLooper());
-            this.f9796a = str;
-            this.f9797b = list;
+            this.f9797a = str;
+            this.f9798b = list;
         }
 
         @Override // com.kwad.sdk.core.videocache.b
@@ -46,14 +46,14 @@ final class g {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            for (b bVar : this.f9797b) {
-                bVar.a((File) message.obj, this.f9796a, message.arg1);
+            for (b bVar : this.f9798b) {
+                bVar.a((File) message.obj, this.f9797a, message.arg1);
             }
         }
     }
 
     public g(String str, c cVar) {
-        this.f9795b = (String) j.a(str);
+        this.f9796b = (String) j.a(str);
         this.f = (c) j.a(cVar);
         this.e = new a(str, this.d);
     }
@@ -63,14 +63,14 @@ final class g {
     }
 
     private synchronized void d() {
-        if (this.f9794a.decrementAndGet() <= 0) {
+        if (this.f9795a.decrementAndGet() <= 0) {
             this.c.a();
             this.c = null;
         }
     }
 
     private e e() {
-        e eVar = new e(new h(this.f9795b, this.f.d, this.f.e), new com.kwad.sdk.core.videocache.a.b(this.f.a(this.f9795b), this.f.c));
+        e eVar = new e(new h(this.f9796b, this.f.d, this.f.e), new com.kwad.sdk.core.videocache.a.b(this.f.a(this.f9796b), this.f.c));
         eVar.a(this.e);
         return eVar;
     }
@@ -82,13 +82,13 @@ final class g {
             this.c.a();
             this.c = null;
         }
-        this.f9794a.set(0);
+        this.f9795a.set(0);
     }
 
     public void a(d dVar, Socket socket) {
         c();
         try {
-            this.f9794a.incrementAndGet();
+            this.f9795a.incrementAndGet();
             this.c.a(dVar, socket);
         } finally {
             d();
@@ -96,6 +96,6 @@ final class g {
     }
 
     public int b() {
-        return this.f9794a.get();
+        return this.f9795a.get();
     }
 }

@@ -8,11 +8,11 @@ public class t {
     private ArrayList<String> ePi = new ArrayList<>();
     private int ePj;
 
-    public ArrayList<String> bpq() {
+    public ArrayList<String> bpr() {
         return this.ePi;
     }
 
-    public int bpr() {
+    public int bps() {
         return this.ePj;
     }
 

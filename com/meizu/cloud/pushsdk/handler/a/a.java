@@ -17,10 +17,10 @@ import org.json.JSONObject;
 public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.meizu.cloud.pushsdk.handler.a f11603a;
+    private com.meizu.cloud.pushsdk.handler.a f11604a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f11604b;
+    private Context f11605b;
     private Map<Integer, String> c;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -28,8 +28,8 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         if (context == null) {
             throw new IllegalArgumentException("Context must not be null.");
         }
-        this.f11604b = context.getApplicationContext();
-        this.f11603a = aVar;
+        this.f11605b = context.getApplicationContext();
+        this.f11604a = aVar;
         this.c = new HashMap();
         this.c.put(2, "MESSAGE_TYPE_PUSH_SERVICE_V2");
         this.c.put(4, "MESSAGE_TYPE_PUSH_SERVICE_V3");
@@ -116,7 +116,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     }
 
     public com.meizu.cloud.pushsdk.handler.a b() {
-        return this.f11603a;
+        return this.f11604a;
     }
 
     public String b(String str) {
@@ -199,7 +199,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     }
 
     public Context c() {
-        return this.f11604b;
+        return this.f11605b;
     }
 
     protected abstract T c(Intent intent);

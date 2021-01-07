@@ -13,16 +13,16 @@ public class a extends ThreadPoolExecutor {
     protected class C0041a<V> extends FutureTask<V> implements Comparable<C0041a<V>> {
 
         /* renamed from: b  reason: collision with root package name */
-        private Object f1305b;
+        private Object f1306b;
 
         public C0041a(Runnable runnable, V v) {
             super(runnable, v);
-            this.f1305b = runnable;
+            this.f1306b = runnable;
         }
 
         public C0041a(Callable<V> callable) {
             super(callable);
-            this.f1305b = callable;
+            this.f1306b = callable;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,10 +35,10 @@ public class a extends ThreadPoolExecutor {
             if (c0041a == null) {
                 return -1;
             }
-            if (this.f1305b == null || c0041a.f1305b == null || !(this.f1305b instanceof c) || !(c0041a.f1305b instanceof c)) {
+            if (this.f1306b == null || c0041a.f1306b == null || !(this.f1306b instanceof c) || !(c0041a.f1306b instanceof c)) {
                 return 0;
             }
-            return ((c) c0041a.f1305b).d() - ((c) this.f1305b).d();
+            return ((c) c0041a.f1306b).d() - ((c) this.f1306b).d();
         }
     }
 

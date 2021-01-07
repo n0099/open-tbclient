@@ -13,11 +13,11 @@ public class e {
     public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.b.e.1
             @Override // com.baidu.tieba.im.chat.b.a.c
-            public boolean MS(String str) {
+            public boolean MR(String str) {
                 return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(0) && str.equals(ChatStatusManager.getInst().getCurId(0));
             }
-        }, ChatStatusManager.getInst().getIsOpen(5), new a.InterfaceC0758a() { // from class: com.baidu.tieba.im.chat.b.e.2
-            @Override // com.baidu.tieba.im.chat.b.a.InterfaceC0758a
+        }, ChatStatusManager.getInst().getIsOpen(5), new a.InterfaceC0767a() { // from class: com.baidu.tieba.im.chat.b.e.2
+            @Override // com.baidu.tieba.im.chat.b.a.InterfaceC0767a
             public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo2) {
                 if (chatMessage != null && chatMessage.getMsgType() == 22) {
                     if (com.baidu.tieba.im.util.c.r(chatMessage)) {

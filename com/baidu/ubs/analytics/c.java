@@ -101,7 +101,7 @@ public final class c {
             return this;
         }
 
-        public c ejw() {
+        public c ejx() {
             if (this.mContext == null) {
                 j.I("Context must be not empty!");
                 return null;

@@ -72,7 +72,7 @@ public class a {
             }
         }
         com.baidu.tbadk.a.a.a.bo(linkedList);
-        com.baidu.tieba.recapp.report.b.dFU().q("CONCERN", arrayList);
+        com.baidu.tieba.recapp.report.b.dFV().q("CONCERN", arrayList);
         this.jYV.geK = linkedList;
         return this.jYV;
     }
@@ -89,9 +89,9 @@ public class a {
             } else {
                 k kVar2 = new k();
                 kVar2.isLinkThread = bzVar.isLinkThread();
-                kVar2.eSB = bzVar.bsv();
-                if (!bzVar.isLinkThread() && !bzVar.bsv()) {
-                    kVar2.izS = bzVar.brt();
+                kVar2.eSB = bzVar.bsw();
+                if (!bzVar.isLinkThread() && !bzVar.bsw()) {
+                    kVar2.izS = bzVar.bru();
                 }
                 kVar2.eMv = bzVar;
                 kVar2.izT = true;
@@ -99,13 +99,13 @@ public class a {
             }
             kVar.tid = bzVar.getTid();
             if (k.ad(bzVar)) {
-                kVar.Jr("1");
+                kVar.Jq("1");
             } else if (l.ad(bzVar)) {
-                kVar.Jr("2");
+                kVar.Jq("2");
             }
             kVar.izj = true;
-            if (d.bmN() && kVar.boO() != null && kVar.boO().brq() != null) {
-                if (kVar.boO().brq().hadConcerned() || ay.x(bzVar)) {
+            if (d.bmO() && kVar.boP() != null && kVar.boP().brr() != null) {
+                if (kVar.boP().brr().hadConcerned() || ay.x(bzVar)) {
                     com.baidu.tieba.homepage.personalize.model.d.a(kVar);
                 } else {
                     com.baidu.tieba.homepage.personalize.model.d.h(kVar);
@@ -114,16 +114,16 @@ public class a {
             } else {
                 com.baidu.tieba.homepage.personalize.model.d.a(kVar);
             }
-            kVar.eMv.bqS();
+            kVar.eMv.bqT();
             if (kVar instanceof k) {
-                if (bzVar.bto()) {
+                if (bzVar.btp()) {
                     com.baidu.tieba.homepage.personalize.model.d.d(kVar);
-                } else if (bzVar.bsy() == 1) {
+                } else if (bzVar.bsz() == 1) {
                     com.baidu.tieba.homepage.personalize.model.d.b(kVar);
                     int[] imageWidthAndHeight = bzVar.getImageWidthAndHeight();
                     kVar.eSI = imageWidthAndHeight[0];
                     kVar.eSJ = imageWidthAndHeight[1];
-                } else if (bzVar.bsy() >= 2) {
+                } else if (bzVar.bsz() >= 2) {
                     com.baidu.tieba.homepage.personalize.model.d.c(kVar);
                 } else {
                     com.baidu.tieba.homepage.personalize.model.d.e(kVar);
@@ -131,11 +131,11 @@ public class a {
             } else if (kVar instanceof l) {
                 com.baidu.tieba.homepage.personalize.model.d.f(kVar);
             }
-            if (bzVar.btx() != null) {
+            if (bzVar.bty() != null) {
                 com.baidu.tieba.homepage.personalize.model.d.k(kVar);
             }
-            if (!x.isEmpty(bzVar.btA()) || !x.isEmpty(bzVar.btB())) {
-                if (x.getCount(bzVar.btA()) + x.getCount(bzVar.btB()) == 1) {
+            if (!x.isEmpty(bzVar.btB()) || !x.isEmpty(bzVar.btC())) {
+                if (x.getCount(bzVar.btB()) + x.getCount(bzVar.btC()) == 1) {
                     com.baidu.tieba.homepage.personalize.model.d.l(kVar);
                 } else {
                     com.baidu.tieba.homepage.personalize.model.d.m(kVar);
@@ -150,7 +150,7 @@ public class a {
             kVar.position = i;
             arrayList.add(kVar);
         } else {
-            if (d.bmN() && bzVar.boO() != null && bzVar.boO().brq() != null && !(hadConcerned = bzVar.boO().brq().hadConcerned()) && (hadConcerned || !ay.x(bzVar))) {
+            if (d.bmO() && bzVar.boP() != null && bzVar.boP().brr() != null && !(hadConcerned = bzVar.boP().brr().hadConcerned()) && (hadConcerned || !ay.x(bzVar))) {
                 com.baidu.tieba.homepage.personalize.model.d.aC(bzVar);
             }
             if (bzVar.isShareThread) {
@@ -170,18 +170,18 @@ public class a {
             } else if (j.ad(bzVar)) {
                 j jVar = new j(bzVar);
                 jVar.tid = bzVar.getTid();
-                jVar.Jr("3");
+                jVar.Jq("3");
                 if (jVar.isValid()) {
                     arrayList.add(jVar);
                 }
-            } else if (e.ad(bzVar) && bzVar.bpX()) {
+            } else if (e.ad(bzVar) && bzVar.bpY()) {
                 e eVar = new e(bzVar);
                 eVar.position = i;
                 arrayList.add(eVar);
             } else {
                 k kVar4 = new k();
                 kVar4.eMv = bzVar;
-                kVar4.Jr(kVar4.eMv.isLinkThread() ? "4" : "1");
+                kVar4.Jq(kVar4.eMv.isLinkThread() ? "4" : "1");
                 kVar4.position = i;
                 kVar4.isLinkThread = false;
                 if (concernData != null) {
@@ -214,7 +214,7 @@ public class a {
                     }
                 }
             } else {
-                if (!com.baidu.tieba.homepage.concern.d.cQQ()) {
+                if (!com.baidu.tieba.homepage.concern.d.cQR()) {
                     list.clear();
                 }
                 for (int count2 = x.getCount(list2) - 1; count2 >= 0; count2--) {

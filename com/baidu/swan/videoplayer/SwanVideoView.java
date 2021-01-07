@@ -154,7 +154,7 @@ public class SwanVideoView extends FrameLayout {
 
             @Override // com.baidu.swan.videoplayer.a.InterfaceC0565a
             public void a(a.b bVar, int i, int i2) {
-                if (bVar.bjr() == SwanVideoView.this.eCF && SwanVideoView.this.mMediaPlayer != null) {
+                if (bVar.bjs() == SwanVideoView.this.eCF && SwanVideoView.this.mMediaPlayer != null) {
                     SwanVideoView.this.a(SwanVideoView.this.mMediaPlayer, bVar);
                 }
             }
@@ -261,7 +261,7 @@ public class SwanVideoView extends FrameLayout {
 
             @Override // com.baidu.swan.videoplayer.a.InterfaceC0565a
             public void a(a.b bVar, int i, int i2) {
-                if (bVar.bjr() == SwanVideoView.this.eCF && SwanVideoView.this.mMediaPlayer != null) {
+                if (bVar.bjs() == SwanVideoView.this.eCF && SwanVideoView.this.mMediaPlayer != null) {
                     SwanVideoView.this.a(SwanVideoView.this.mMediaPlayer, bVar);
                 }
             }
@@ -368,7 +368,7 @@ public class SwanVideoView extends FrameLayout {
 
             @Override // com.baidu.swan.videoplayer.a.InterfaceC0565a
             public void a(a.b bVar, int i2, int i22) {
-                if (bVar.bjr() == SwanVideoView.this.eCF && SwanVideoView.this.mMediaPlayer != null) {
+                if (bVar.bjs() == SwanVideoView.this.eCF && SwanVideoView.this.mMediaPlayer != null) {
                     SwanVideoView.this.a(SwanVideoView.this.mMediaPlayer, bVar);
                 }
             }
@@ -392,8 +392,8 @@ public class SwanVideoView extends FrameLayout {
         this.eCy.setVisibility(8);
         addView(this.eCy, layoutParams2);
         this.eCy.i(this);
+        bjx();
         bjw();
-        bjv();
         setFocusable(true);
         setFocusableInTouchMode(true);
         requestFocus();
@@ -403,15 +403,15 @@ public class SwanVideoView extends FrameLayout {
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            bju();
+            bjv();
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    private void bju() {
+    private void bjv() {
         if (this.eCB) {
             if (this.eCy.getVisibility() != 0) {
-                this.eCy.bkb();
+                this.eCy.bkc();
             } else {
                 this.eCy.hide();
             }
@@ -422,7 +422,7 @@ public class SwanVideoView extends FrameLayout {
         this.mMediaPlayer.setSurface(surface);
     }
 
-    private void bjv() {
+    private void bjw() {
         this.eCC = new RelativeLayout(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         this.eCC.setVisibility(8);
@@ -461,7 +461,7 @@ public class SwanVideoView extends FrameLayout {
         if (this.cvb != i) {
             this.cvb = i;
             if (this.eCy != null) {
-                this.eCy.bjY();
+                this.eCy.bjZ();
             }
         }
     }
@@ -475,7 +475,7 @@ public class SwanVideoView extends FrameLayout {
         }
     }
 
-    private void bjw() {
+    private void bjx() {
         setRenderView(new TextureRenderView(getContext()));
     }
 
@@ -530,14 +530,14 @@ public class SwanVideoView extends FrameLayout {
     public void stopPlayback() {
         if (this.mMediaPlayer != null) {
             this.mMediaPlayer.stop();
-            bjz();
+            bjA();
             this.eCx = false;
         }
     }
 
-    public void bjx() {
+    public void bjy() {
         try {
-            this.mMediaPlayer = bjy();
+            this.mMediaPlayer = bjz();
             this.mMediaPlayer.setOnPreparedListener(this.eCI);
             this.mMediaPlayer.setOnCompletionListener(this.eCJ);
             this.mMediaPlayer.setOnErrorListener(this.eCL);
@@ -554,7 +554,7 @@ public class SwanVideoView extends FrameLayout {
         }
     }
 
-    public MediaPlayer bjy() {
+    public MediaPlayer bjz() {
         MediaPlayer mediaPlayer = new MediaPlayer();
         mediaPlayer.setLooping(this.bfX);
         mediaPlayer.setWakeMode(getContext(), 10);
@@ -601,7 +601,7 @@ public class SwanVideoView extends FrameLayout {
     }
 
     public void release() {
-        bjz();
+        bjA();
         this.eCx = false;
         if (this.eCF != null) {
             this.eCF.release();
@@ -616,7 +616,7 @@ public class SwanVideoView extends FrameLayout {
         }
     }
 
-    private void bjz() {
+    private void bjA() {
         if (this.mMediaPlayer != null) {
             this.mMediaPlayer.reset();
             this.mMediaPlayer.setDisplay(null);

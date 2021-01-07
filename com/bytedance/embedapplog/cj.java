@@ -17,7 +17,7 @@ public final class cj extends ch {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.embedapplog.ch
     public boolean a(JSONObject jSONObject) {
-        String c = ba.c(this.pgK.epH());
+        String c = ba.c(this.pgK.epI());
         if (TextUtils.isEmpty(c)) {
             return false;
         }

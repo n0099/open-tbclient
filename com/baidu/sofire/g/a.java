@@ -11,10 +11,10 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f5531a;
+    private Context f5532a;
 
     public a(Context context) {
-        this.f5531a = context;
+        this.f5532a = context;
     }
 
     public final boolean a(String str) {
@@ -28,7 +28,7 @@ public final class a {
             String str2 = e.b() + "p/1/r";
             new StringBuilder().append(str2);
             b.a();
-            a2 = i.a(this.f5531a, str2, str, false, false);
+            a2 = i.a(this.f5532a, str2, str, false, false);
         } catch (Throwable th) {
             e.a();
         }

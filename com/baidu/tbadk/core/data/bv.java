@@ -30,7 +30,7 @@ public class bv implements com.baidu.tbadk.core.view.commonLike.forum.b {
         this.eSk = z;
     }
 
-    public boolean bqF() {
+    public boolean bqG() {
         return this.eSk;
     }
 
@@ -38,7 +38,7 @@ public class bv implements com.baidu.tbadk.core.view.commonLike.forum.b {
         return this.avatar;
     }
 
-    public int bqG() {
+    public int bqH() {
         return this.forumLevel;
     }
 

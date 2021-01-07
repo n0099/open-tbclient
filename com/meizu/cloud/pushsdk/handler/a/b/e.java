@@ -11,10 +11,10 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f11616a;
+    private int f11617a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f11617b = String.valueOf(-1);
+    private String f11618b = String.valueOf(-1);
     private String c = "";
     private String d = "";
     private int e = -1;
@@ -24,10 +24,10 @@ public class e {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f11618a;
+        public String f11619a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f11619b;
+        public String f11620b;
         String c;
 
         public a(String str) {
@@ -58,11 +58,11 @@ public class e {
         }
 
         public void a(String str) {
-            this.f11618a = str;
+            this.f11619a = str;
         }
 
         public void b(String str) {
-            this.f11619b = str;
+            this.f11620b = str;
         }
 
         public void c(String str) {
@@ -70,7 +70,7 @@ public class e {
         }
 
         public String toString() {
-            return "PublicKeyStatus{code='" + this.f11618a + "', message='" + this.f11619b + "', publicKey='" + this.c + "'}";
+            return "PublicKeyStatus{code='" + this.f11619a + "', message='" + this.f11620b + "', publicKey='" + this.c + "'}";
         }
     }
 
@@ -189,19 +189,19 @@ public class e {
     }
 
     public int a() {
-        return this.f11616a;
+        return this.f11617a;
     }
 
     public void a(int i) {
-        this.f11616a = i;
+        this.f11617a = i;
     }
 
     public void a(String str) {
-        this.f11617b = str;
+        this.f11618b = str;
     }
 
     public String b() {
-        return this.f11617b;
+        return this.f11618b;
     }
 
     public void b(int i) {
@@ -237,6 +237,6 @@ public class e {
     }
 
     public String toString() {
-        return "SecurityMessage{timestamp=" + this.f11616a + ", taskId='" + this.f11617b + "', title='" + this.c + "', content='" + this.d + "', clickType=" + this.e + ", params='" + this.f + "'}";
+        return "SecurityMessage{timestamp=" + this.f11617a + ", taskId='" + this.f11618b + "', title='" + this.c + "', content='" + this.d + "', clickType=" + this.e + ", params='" + this.f + "'}";
     }
 }

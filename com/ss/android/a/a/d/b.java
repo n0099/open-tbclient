@@ -3,10 +3,10 @@ package com.ss.android.a.a.d;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f13194a;
+    private long f13195a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f13195b;
+    private String f13196b;
     private String c;
     private String d;
     private String e;
@@ -37,10 +37,10 @@ public class b {
     }
 
     public void a(long j) {
-        this.f13194a = j;
+        this.f13195a = j;
     }
 
     public void d(String str) {
-        this.f13195b = str;
+        this.f13196b = str;
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.yuyinala.background.c;
 import com.baidu.yuyinala.background.d.a;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAudioBackgroundDialogData> implements com.baidu.live.tieba.pb.interactionpopupwindow.c, c.a, a.InterfaceC0932a {
+public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAudioBackgroundDialogData> implements com.baidu.live.tieba.pb.interactionpopupwindow.c, c.a, a.InterfaceC0970a {
     private com.baidu.yuyinala.background.d.a oPJ;
 
     public b(TbPageContext tbPageContext, x xVar) {
@@ -30,7 +30,7 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAu
 
     @Override // com.baidu.yuyinala.background.c.a
     public void loadData() {
-        this.oPJ.ekx();
+        this.oPJ.eky();
     }
 
     @Override // com.baidu.yuyinala.background.c.a
@@ -44,13 +44,13 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAu
     }
 
     @Override // com.baidu.yuyinala.background.c.a
-    public void ekh() {
-        this.oPJ.ekh();
+    public void eki() {
+        this.oPJ.eki();
     }
 
     @Override // com.baidu.yuyinala.background.c.a
-    public void eki() {
-        this.oPJ.eki();
+    public void ekj() {
+        this.oPJ.ekj();
     }
 
     @Override // com.baidu.yuyinala.background.c.a
@@ -58,20 +58,20 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAu
         return this.oPJ.getCustomRoomId();
     }
 
-    @Override // com.baidu.yuyinala.background.d.a.InterfaceC0932a
+    @Override // com.baidu.yuyinala.background.d.a.InterfaceC0970a
     public void a(AlaAudioBackgroundDialogData alaAudioBackgroundDialogData, com.baidu.yuyinala.background.b.a aVar) {
         ((c) this.bKA).a(alaAudioBackgroundDialogData, aVar, true);
     }
 
-    @Override // com.baidu.yuyinala.background.d.a.InterfaceC0932a
-    public void ekj() {
+    @Override // com.baidu.yuyinala.background.d.a.InterfaceC0970a
+    public void ekk() {
         this.mPageContext.showToast(a.h.ala_audio_set_background_fail);
     }
 
-    @Override // com.baidu.yuyinala.background.d.a.InterfaceC0932a
-    public void ekk() {
+    @Override // com.baidu.yuyinala.background.d.a.InterfaceC0970a
+    public void ekl() {
         this.mPageContext.showToast(a.h.ala_audio_set_background_success);
-        ekl();
+        ekm();
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
@@ -95,12 +95,12 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAu
         loadData();
     }
 
-    private void ekl() {
+    private void ekm() {
         JSONObject jSONObject = new JSONObject();
         try {
-            x aas = com.baidu.live.aq.a.aam().aas();
+            x aat = com.baidu.live.aq.a.aan().aat();
             String str = null;
-            switch (aas.aLq.getRoomMode()) {
+            switch (aat.aLq.getRoomMode()) {
                 case 0:
                     str = "normal";
                     break;
@@ -112,7 +112,7 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAu
                     break;
             }
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, str);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aas.aLl.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aat.aLl.croom_id);
         } catch (Exception e) {
             BdLog.e(e);
         }

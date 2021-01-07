@@ -5,7 +5,7 @@ import com.coremedia.iso.IsoTypeWriter;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @Descriptor(tags = {6})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SLConfigDescriptor extends BaseDescriptor {
     int predefined;
 

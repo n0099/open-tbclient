@@ -13,7 +13,7 @@ public class LocalViewSize {
         public int width;
     }
 
-    public static LocalViewSize bvN() {
+    public static LocalViewSize bvO() {
         if (fcn == null) {
             fcn = new LocalViewSize();
         }
@@ -58,7 +58,7 @@ public class LocalViewSize {
         return imageSize2;
     }
 
-    public ImageSize bvO() {
+    public ImageSize bvP() {
         int i = 240;
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext);
         if (equipmentWidth < 240) {
@@ -76,7 +76,7 @@ public class LocalViewSize {
         return imageSize;
     }
 
-    public ImageSize bvP() {
+    public ImageSize bvQ() {
         ImageSize imageSize = new ImageSize();
         imageSize.height = com.baidu.adp.lib.util.l.getEquipmentHeight(this.mContext);
         imageSize.width = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext);
@@ -84,7 +84,7 @@ public class LocalViewSize {
     }
 
     public int getMsgSPicMaxSizeInt() {
-        ImageSize bvO = bvO();
-        return bvO.height >= bvO.width ? bvO.height : bvO.width;
+        ImageSize bvP = bvP();
+        return bvP.height >= bvP.width ? bvP.height : bvP.width;
     }
 }

@@ -86,7 +86,7 @@ public class d extends BaseCardInfo implements com.baidu.tieba.lego.card.a.b, co
 
     public void qW() {
         if (!this.aaz) {
-            com.baidu.tieba.recapp.report.e.dFV().a(com.baidu.tieba.recapp.report.h.a(this, ParseError.ERROR_SMOOTH_SCROLL));
+            com.baidu.tieba.recapp.report.e.dFW().a(com.baidu.tieba.recapp.report.h.a(this, ParseError.ERROR_SMOOTH_SCROLL));
             return;
         }
         com.baidu.tbadk.core.data.c.a(this);

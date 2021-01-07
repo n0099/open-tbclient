@@ -8,10 +8,10 @@ import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    private static u f6982a;
+    private static u f6983a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.core.video.nativevideo.c f6983b;
+    private com.bytedance.sdk.openadsdk.core.video.nativevideo.c f6984b;
     private com.bytedance.sdk.openadsdk.core.d.l d;
     private TTRewardVideoAd.RewardAdInteractionListener e;
     private com.bytedance.sdk.openadsdk.downloadnew.core.a f;
@@ -24,10 +24,10 @@ public class u {
 
     @MainThread
     public static u a() {
-        if (f6982a == null) {
-            f6982a = new u();
+        if (f6983a == null) {
+            f6983a = new u();
         }
-        return f6982a;
+        return f6983a;
     }
 
     public void a(boolean z) {
@@ -76,7 +76,7 @@ public class u {
     }
 
     public void g() {
-        this.f6983b = null;
+        this.f6984b = null;
         this.d = null;
         this.e = null;
         this.g = null;

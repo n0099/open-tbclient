@@ -7,39 +7,39 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class n implements com.qq.e.comm.plugin.c.a.b, k {
 
     /* renamed from: a  reason: collision with root package name */
-    private f f12265a;
+    private f f12266a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.qq.e.comm.plugin.c.a.a f12266b;
+    private com.qq.e.comm.plugin.c.a.a f12267b;
     private Intent c;
 
     /* renamed from: com.qq.e.comm.plugin.c.n$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class AnonymousClass1 implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ com.qq.e.comm.plugin.c.a.a f12267a;
+        final /* synthetic */ com.qq.e.comm.plugin.c.a.a f12268a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ String f12268b;
+        final /* synthetic */ String f12269b;
 
         AnonymousClass1(com.qq.e.comm.plugin.c.a.a aVar, String str) {
-            this.f12267a = aVar;
-            this.f12268b = str;
+            this.f12268a = aVar;
+            this.f12269b = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f12267a.a(this.f12268b, n.this);
+            this.f12268a.a(this.f12269b, n.this);
         }
     }
 
     /* renamed from: com.qq.e.comm.plugin.c.n$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class AnonymousClass2 implements Runnable {
         AnonymousClass2() {
         }

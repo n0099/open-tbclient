@@ -40,11 +40,11 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d implements ACTD, b.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private Activity f12564b;
+    private Activity f12565b;
     private FrameLayout c;
     private com.qq.e.comm.plugin.aa.b.f d;
     private MediaView e;
@@ -66,20 +66,20 @@ public class d implements ACTD, b.a {
     private int v;
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f12563a = getClass().getSimpleName();
+    private final String f12564a = getClass().getSimpleName();
     private a t = new a();
     private b w = new b();
     private com.qq.e.comm.plugin.y.c x = new com.qq.e.comm.plugin.y.c();
     private boolean y = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private class a implements b.a {
         private a() {
         }
 
         @Override // com.qq.e.comm.plugin.nativeadunified.b.a
         public void a() {
-            d.this.f12564b.setRequestedOrientation(d.this.v == 4 ? 1 : 0);
+            d.this.f12565b.setRequestedOrientation(d.this.v == 4 ? 1 : 0);
             u.a(30262, d.this.v, d.this.x);
         }
 
@@ -98,7 +98,7 @@ public class d implements ACTD, b.a {
         @Override // com.qq.e.comm.plugin.nativeadunified.b.a
         public void b() {
             if (d.this.v == 4) {
-                d.this.f12564b.setRequestedOrientation(1);
+                d.this.f12565b.setRequestedOrientation(1);
                 return;
             }
             if (d.this.d != null && d.this.d.c() && d.this.g != null) {
@@ -115,7 +115,7 @@ public class d implements ACTD, b.a {
 
         @Override // com.qq.e.comm.plugin.nativeadunified.b.a
         public void d() {
-            ai.a(d.this.f12563a, "onVideoPlaying: isResume = " + d.this.l);
+            ai.a(d.this.f12564a, "onVideoPlaying: isResume = " + d.this.l);
             if (d.this.k || d.this.l) {
                 return;
             }
@@ -123,7 +123,7 @@ public class d implements ACTD, b.a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private class b extends Handler {
         private b() {
         }
@@ -167,13 +167,13 @@ public class d implements ACTD, b.a {
     }
 
     public d(Activity activity) {
-        this.f12564b = activity;
+        this.f12565b = activity;
     }
 
     private void a() {
-        FrameLayout frameLayout = new FrameLayout(this.f12564b);
+        FrameLayout frameLayout = new FrameLayout(this.f12565b);
         frameLayout.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
-        TextView textView = new TextView(this.f12564b);
+        TextView textView = new TextView(this.f12565b);
         textView.setTextColor(SupportMenu.CATEGORY_MASK);
         textView.setText("未知错误，请稍后再试");
         textView.setTextSize(24.0f);
@@ -181,16 +181,16 @@ public class d implements ACTD, b.a {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 17;
         frameLayout.addView(textView, layoutParams);
-        this.f12564b.setContentView(frameLayout);
-        this.f12564b.setRequestedOrientation(1);
-        JSONObject a2 = n.a(this.f12564b, this.r);
+        this.f12565b.setContentView(frameLayout);
+        this.f12565b.setRequestedOrientation(1);
+        JSONObject a2 = n.a(this.f12565b, this.r);
         u.a(30292, 5, this.x, new com.qq.e.comm.plugin.y.d(a2));
         GDTLogger.i("after: " + a2.toString());
     }
 
     private void a(int i) {
         if (this.n == null) {
-            this.n = new com.qq.e.comm.plugin.gdtnativead.a.b(this.f12564b, this.s.z(), this.s.E());
+            this.n = new com.qq.e.comm.plugin.gdtnativead.a.b(this.f12565b, this.s.z(), this.s.E());
             this.n.a(this);
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
@@ -203,7 +203,7 @@ public class d implements ACTD, b.a {
 
     private void a(int i, String str, boolean z) {
         if (this.m == null) {
-            this.m = new com.qq.e.comm.plugin.ab.d.e(this.f12564b, this.s.E()).a();
+            this.m = new com.qq.e.comm.plugin.ab.d.e(this.f12565b, this.s.E()).a();
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         layoutParams.topMargin = i;
@@ -281,7 +281,7 @@ public class d implements ACTD, b.a {
         if (this.e != null && this.g != null && this.g.getParent() == null) {
             this.g.setVisibility(0);
         }
-        int min = (int) (Math.min(ak.b(this.f12564b), ak.c(this.f12564b)) * 0.5625f);
+        int min = (int) (Math.min(ak.b(this.f12565b), ak.c(this.f12565b)) * 0.5625f);
         if (this.s.v()) {
             if (this.s.w()) {
                 a(min, this.u ? this.q : com.qq.e.comm.plugin.w.a.d.a((String) null, this.s.E(), str, this.r.i()), z);
@@ -308,7 +308,7 @@ public class d implements ACTD, b.a {
 
     @TargetApi(14)
     private void b() {
-        this.e = new MediaView(this.f12564b);
+        this.e = new MediaView(this.f12565b);
         this.e.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
         this.e.setOnClickListener(new View.OnClickListener() { // from class: com.qq.e.comm.plugin.nativeadunified.d.2
             @Override // android.view.View.OnClickListener
@@ -321,9 +321,9 @@ public class d implements ACTD, b.a {
         this.i = new FrameLayout.LayoutParams(-1, -1);
         this.c.addView(this.e, this.i);
         if (this.p) {
-            this.h = new FrameLayout.LayoutParams(-1, Math.min(ak.c(this.f12564b), (ak.b(this.f12564b) * this.s.Q()) / this.s.P()), 17);
+            this.h = new FrameLayout.LayoutParams(-1, Math.min(ak.c(this.f12565b), (ak.b(this.f12565b) * this.s.Q()) / this.s.P()), 17);
         } else {
-            this.h = new FrameLayout.LayoutParams(-1, (int) (Math.min(ak.c(this.f12564b), ak.b(this.f12564b)) * 0.5625f));
+            this.h = new FrameLayout.LayoutParams(-1, (int) (Math.min(ak.c(this.f12565b), ak.b(this.f12565b)) * 0.5625f));
         }
         this.e.post(new Runnable() { // from class: com.qq.e.comm.plugin.nativeadunified.d.3
             @Override // java.lang.Runnable
@@ -448,7 +448,7 @@ public class d implements ACTD, b.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         GDTLogger.d("NativeAdDetailPage stopVideo() mVideoView: " + this.d);
-        this.r.a(b.EnumC1175b.AUTO_PAUSE);
+        this.r.a(b.EnumC1216b.AUTO_PAUSE);
         if (this.d != null) {
             this.d.a();
         }
@@ -493,7 +493,7 @@ public class d implements ACTD, b.a {
         if (this.r != null) {
             this.r.k();
         }
-        this.f12564b.finish();
+        this.f12565b.finish();
     }
 
     private void k() {
@@ -507,10 +507,10 @@ public class d implements ACTD, b.a {
 
     private void l() {
         if (this.o == null) {
-            this.o = new com.qq.e.comm.plugin.gdtnativead.a.a(this.f12564b, this.s.z(), this.s);
+            this.o = new com.qq.e.comm.plugin.gdtnativead.a.a(this.f12565b, this.s.z(), this.s);
             this.o.a(this);
-            this.o.a(new a.InterfaceC1167a() { // from class: com.qq.e.comm.plugin.nativeadunified.d.7
-                @Override // com.qq.e.comm.plugin.gdtnativead.a.a.InterfaceC1167a
+            this.o.a(new a.InterfaceC1208a() { // from class: com.qq.e.comm.plugin.nativeadunified.d.7
+                @Override // com.qq.e.comm.plugin.gdtnativead.a.a.InterfaceC1208a
                 public void a() {
                     if (d.this.d != null && d.this.d.c() && d.this.g != null) {
                         d.this.g.d();
@@ -520,7 +520,7 @@ public class d implements ACTD, b.a {
                     d.this.j();
                 }
 
-                @Override // com.qq.e.comm.plugin.gdtnativead.a.a.InterfaceC1167a
+                @Override // com.qq.e.comm.plugin.gdtnativead.a.a.InterfaceC1208a
                 public void b() {
                     d.this.g.k();
                     d.this.o.postDelayed(new Runnable() { // from class: com.qq.e.comm.plugin.nativeadunified.d.7.1
@@ -587,19 +587,19 @@ public class d implements ACTD, b.a {
             a();
             return;
         }
-        this.c = new FrameLayout(this.f12564b) { // from class: com.qq.e.comm.plugin.nativeadunified.d.1
+        this.c = new FrameLayout(this.f12565b) { // from class: com.qq.e.comm.plugin.nativeadunified.d.1
             @Override // android.view.ViewGroup, android.view.View
             public boolean dispatchTouchEvent(MotionEvent motionEvent) {
                 d.this.a(motionEvent);
                 return super.dispatchTouchEvent(motionEvent);
             }
         };
-        this.f12564b.setContentView(this.c);
-        this.f12564b.setRequestedOrientation(1);
+        this.f12565b.setContentView(this.c);
+        this.f12565b.setRequestedOrientation(1);
         this.j = this.r.e();
         this.v = i() ? 4 : 3;
         this.r.a(this.v);
-        Intent intent = this.f12564b.getIntent();
+        Intent intent = this.f12565b.getIntent();
         String stringExtra = intent.getStringExtra("antiSpam");
         this.y = intent.getBooleanExtra("detailPageMuted", false);
         this.q = intent.getStringExtra("url");
@@ -618,7 +618,7 @@ public class d implements ACTD, b.a {
     public void onBackPressed() {
         GDTLogger.d("NativeAdDetailPageActivityDelegate onBackPressed");
         if (i()) {
-            this.f12564b.setRequestedOrientation(1);
+            this.f12565b.setRequestedOrientation(1);
             return;
         }
         GDTLogger.d("NativeAdDetailPageActivityDelegate onBackPressed");
@@ -633,17 +633,17 @@ public class d implements ACTD, b.a {
     public void onBeforeCreate(Bundle bundle) {
         this.r = c.a();
         if (this.r != null && this.r.d() && Build.VERSION.SDK_INT >= 11) {
-            this.f12564b.getWindow().setFlags(16777216, 16777216);
+            this.f12565b.getWindow().setFlags(16777216, 16777216);
         }
         if (this.r == null) {
             GDTLogger.e("mAd is null, why??");
-            JSONObject a2 = n.a(this.f12564b, this.r);
+            JSONObject a2 = n.a(this.f12565b, this.r);
             u.a(30292, 2, this.x, new com.qq.e.comm.plugin.y.d(a2));
             GDTLogger.i("before: mAdController " + a2.toString());
         } else {
             this.s = this.r.n();
             if (this.s == null) {
-                JSONObject a3 = n.a(this.f12564b, this.r);
+                JSONObject a3 = n.a(this.f12565b, this.r);
                 u.a(30292, 6, this.x, new com.qq.e.comm.plugin.y.d(a3));
                 GDTLogger.i("before: mAdInfo " + a3.toString());
             } else {
@@ -689,8 +689,8 @@ public class d implements ACTD, b.a {
         if (this.r == null) {
             return;
         }
-        ai.a(this.f12563a, "onPause() MediaStatus: " + this.r.h());
-        if (this.r.h() != b.EnumC1175b.PLAYING || this.k) {
+        ai.a(this.f12564a, "onPause() MediaStatus: " + this.r.h());
+        if (this.r.h() != b.EnumC1216b.PLAYING || this.k) {
             return;
         }
         e();
@@ -702,10 +702,10 @@ public class d implements ACTD, b.a {
         if (this.r == null || this.s == null) {
             return;
         }
-        ai.a(this.f12563a, "onResume: mediaStatus = " + this.r.h());
-        if (this.r.h() == b.EnumC1175b.AUTO_PAUSE) {
+        ai.a(this.f12564a, "onResume: mediaStatus = " + this.r.h());
+        if (this.r.h() == b.EnumC1216b.AUTO_PAUSE) {
             this.r.e_();
-            this.r.a(b.EnumC1175b.PLAYING);
+            this.r.a(b.EnumC1216b.PLAYING);
         }
         if (this.s.z() != null) {
             Message obtain = Message.obtain();

@@ -24,7 +24,7 @@ public class e extends Handler implements com.baidu.adp.framework.client.socket.
     private int mCurrentInterval = this.mBackgroundInterval;
     private PingMessage fBH = null;
 
-    public static e bDJ() {
+    public static e bDK() {
         if (fBG == null) {
             synchronized (e.class) {
                 if (fBG == null) {

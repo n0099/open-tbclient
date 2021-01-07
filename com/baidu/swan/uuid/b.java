@@ -7,7 +7,7 @@ import com.baidu.swan.uuid.a.d;
 import com.baidu.swan.uuid.a.e;
 import com.baidu.swan.uuid.a.f;
 import com.baidu.swan.uuid.a.g;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class b {
     private static b eCi;
     private final a<String> eCj = new a<>();
@@ -37,7 +37,7 @@ public class b {
         if (TextUtils.isEmpty(this.eCk)) {
             synchronized (this) {
                 if (TextUtils.isEmpty(this.eCk)) {
-                    this.eCk = this.eCj.bjh();
+                    this.eCk = this.eCj.bji();
                     this.eCj.ar(this.eCk);
                 }
             }

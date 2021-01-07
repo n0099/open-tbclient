@@ -14,7 +14,7 @@ public class y implements ar {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ar
-    public ar alA() {
+    public ar alB() {
         return null;
     }
 

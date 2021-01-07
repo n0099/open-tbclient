@@ -10,10 +10,10 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9835a;
+    public int f9836a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f9836b;
+    public AdTemplate f9837b;
     public AdBaseFrameLayout c;
     @Nullable
     public JSONObject d;

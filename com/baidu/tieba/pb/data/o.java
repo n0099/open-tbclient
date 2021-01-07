@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.bz;
 /* loaded from: classes2.dex */
 public class o implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId lHp = BdUniqueId.gen();
+    public static final BdUniqueId lHo = BdUniqueId.gen();
     private bz alW;
     private AntiData fkR;
-    private boolean lHq = false;
-    public boolean lHr = false;
+    private boolean lHp = false;
+    public boolean lHq = false;
 
     public o(bz bzVar, AntiData antiData) {
         this.alW = bzVar;
@@ -18,33 +18,33 @@ public class o implements com.baidu.adp.widget.ListView.n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return lHp;
+        return lHo;
     }
 
-    public int bsU() {
+    public int bsV() {
         if (this.alW != null) {
-            return this.alW.bsU();
+            return this.alW.bsV();
         }
         return 0;
     }
 
-    public boolean dnz() {
-        return this.alW != null && this.alW.bsT() == 1;
+    public boolean dnA() {
+        return this.alW != null && this.alW.bsU() == 1;
     }
 
     public AntiData getAnti() {
         return this.fkR;
     }
 
-    public bz boO() {
+    public bz boP() {
         return this.alW;
     }
 
     public void uy(boolean z) {
-        this.lHq = z;
+        this.lHp = z;
     }
 
-    public boolean dnA() {
-        return this.lHq;
+    public boolean dnB() {
+        return this.lHp;
     }
 }

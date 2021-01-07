@@ -30,14 +30,14 @@ public class b extends a {
                 int i = e.getInt("todayPlayedTime");
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("ma_id", com.baidu.swan.apps.runtime.e.aMm());
+                    jSONObject.put("ma_id", com.baidu.swan.apps.runtime.e.aMn());
                     jSONObject.put("todayPlayedTime", String.valueOf(i));
                 } catch (JSONException e2) {
                     if (DEBUG) {
                         e2.printStackTrace();
                     }
                 }
-                c(com.baidu.swan.apps.t.a.aAD().akP(), jSONObject.toString(), new ResponseCallback<com.baidu.swan.games.r.a.a>() { // from class: com.baidu.swan.games.r.b.1
+                c(com.baidu.swan.apps.t.a.aAE().akQ(), jSONObject.toString(), new ResponseCallback<com.baidu.swan.games.r.a.a>() { // from class: com.baidu.swan.games.r.b.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.searchbox.http.callback.ResponseCallback
                     /* renamed from: e */

@@ -150,7 +150,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
     private void d(com.baidu.tbadk.editortools.a aVar) {
         if (aVar != null && aVar.data != null && (aVar.data instanceof u)) {
             u uVar = (u) aVar.data;
-            if (uVar.bzW() == EmotionGroupType.NET_SUG) {
+            if (uVar.bzX() == EmotionGroupType.NET_SUG) {
                 a(uVar);
             } else {
                 b(uVar);
@@ -161,8 +161,8 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
     private void a(u uVar) {
         if (uVar != null && !TextUtils.isEmpty(uVar.getName()) && !TextUtils.isEmpty(uVar.getUrl())) {
             String obj = this.fGr.getText().toString();
-            if (this.fFo && com.baidu.tieba.face.a.JT(obj) >= 10 && getContext() != null) {
-                com.baidu.tbadk.core.util.e.bvy().showToast(R.string.too_many_face);
+            if (this.fFo && com.baidu.tieba.face.a.JS(obj) >= 10 && getContext() != null) {
+                com.baidu.tbadk.core.util.e.bvz().showToast(R.string.too_many_face);
             } else {
                 com.baidu.tieba.face.b.a(getContext(), uVar, this.fGr);
             }
@@ -170,10 +170,10 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
     }
 
     private void b(u uVar) {
-        if (!this.fFn || uVar.bzW() == EmotionGroupType.LOCAL) {
+        if (!this.fFn || uVar.bzX() == EmotionGroupType.LOCAL) {
             String obj = this.fGr.getText().toString();
-            if (this.fFo && com.baidu.tieba.face.a.JT(obj) >= 10 && getContext() != null) {
-                com.baidu.tbadk.core.util.e.bvy().showToast(R.string.too_many_face);
+            if (this.fFo && com.baidu.tieba.face.a.JS(obj) >= 10 && getContext() != null) {
+                com.baidu.tbadk.core.util.e.bvz().showToast(R.string.too_many_face);
             } else {
                 com.baidu.tieba.face.b.b(getContext(), uVar, this.fGr);
             }

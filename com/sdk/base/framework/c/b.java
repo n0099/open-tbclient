@@ -4,10 +4,10 @@ public final class b {
     private int c;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f13111a = System.currentTimeMillis();
+    private long f13112a = System.currentTimeMillis();
 
     /* renamed from: b  reason: collision with root package name */
-    private c f13112b = new c();
+    private c f13113b = new c();
     private String d = "";
 
     public final String a() {
@@ -27,10 +27,10 @@ public final class b {
     }
 
     public final c c() {
-        return this.f13112b;
+        return this.f13113b;
     }
 
     public final String toString() {
-        return "MobileLog{time=" + this.f13111a + ", status=" + this.f13112b + '}';
+        return "MobileLog{time=" + this.f13112a + ", status=" + this.f13113b + '}';
     }
 }

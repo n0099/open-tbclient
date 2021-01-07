@@ -75,15 +75,15 @@ public class c {
         int i2 = 0;
         int i3 = 0;
         for (int hk = com.ss.android.downloadlib.f.d.hk(i); hk > 0; hk--) {
-            Pair<Integer, Integer> ja = ja(calendar.getTimeInMillis());
-            i3 += ((Integer) ja.first).intValue();
-            i2 += ((Integer) ja.second).intValue();
+            Pair<Integer, Integer> jd = jd(calendar.getTimeInMillis());
+            i3 += ((Integer) jd.first).intValue();
+            i2 += ((Integer) jd.second).intValue();
             calendar.setTimeInMillis(calendar.getTimeInMillis() - 86400000);
         }
-        return ((double) i2) >= ((double) i3) * com.ss.android.downloadlib.f.d.RT(i);
+        return ((double) i2) >= ((double) i3) * com.ss.android.downloadlib.f.d.Sj(i);
     }
 
-    private static Pair<Integer, Integer> ja(long j) {
+    private static Pair<Integer, Integer> jd(long j) {
         try {
             JSONObject jSONObject = new JSONObject(j.a().getSharedPreferences("sp_install_guide", 0).getString(b(j), "{}"));
             return new Pair<>(Integer.valueOf(jSONObject.optInt("key_install_finish")), Integer.valueOf(jSONObject.optInt("key_install_finish_hijack")));

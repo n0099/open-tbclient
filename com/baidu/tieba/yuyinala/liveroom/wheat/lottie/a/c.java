@@ -11,16 +11,16 @@ import java.io.File;
 import org.json.JSONArray;
 /* loaded from: classes11.dex */
 public class c {
-    public static String oDQ = "audio_anim_md5_";
+    public static String oDP = "audio_anim_md5_";
 
     public static void b(final String str, final String str2, final b.a aVar) {
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !WG(str)) {
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !WF(str)) {
             new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 public Boolean doInBackground(Void... voidArr) {
-                    return Boolean.valueOf(c.WH(str2));
+                    return Boolean.valueOf(c.WG(str2));
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -41,37 +41,37 @@ public class c {
         }
     }
 
-    private static boolean WG(String str) {
+    private static boolean WF(String str) {
         return FileSerialDownLoader.getInstance().isDownloading(str, 23);
     }
 
-    public static boolean WH(String str) {
+    public static boolean WG(String str) {
         if (StringUtils.isNull(str, true)) {
             return false;
         }
-        String str2 = oDQ + str;
-        String WI = WI(com.baidu.live.ah.b.iv(str));
-        return com.baidu.live.i.a.existFile(WI) && com.baidu.live.i.a.isDirectory(WI) && !com.baidu.live.i.b.b(WI, com.baidu.live.i.b.gt(str2));
+        String str2 = oDP + str;
+        String WH = WH(com.baidu.live.ah.b.iv(str));
+        return com.baidu.live.i.a.existFile(WH) && com.baidu.live.i.a.isDirectory(WH) && !com.baidu.live.i.b.b(WH, com.baidu.live.i.b.gt(str2));
     }
 
     public static void gR(String str, String str2) {
         File[] listFiles;
         String fileMd5;
         if (!TextUtils.isEmpty(str)) {
-            String WI = WI(str2);
-            if (com.baidu.live.i.a.existFile(WI) && com.baidu.live.i.a.isDirectory(WI) && (listFiles = new File(WI).listFiles()) != null) {
+            String WH = WH(str2);
+            if (com.baidu.live.i.a.existFile(WH) && com.baidu.live.i.a.isDirectory(WH) && (listFiles = new File(WH).listFiles()) != null) {
                 JSONArray jSONArray = new JSONArray();
                 for (File file : listFiles) {
                     if (file != null && !file.isDirectory() && (fileMd5 = com.baidu.live.i.a.getFileMd5(file)) != null) {
                         jSONArray.put(fileMd5);
                     }
                 }
-                d.Ba().putString(oDQ + str, jSONArray.toString());
+                d.Ba().putString(oDP + str, jSONArray.toString());
             }
         }
     }
 
-    public static String WI(String str) {
+    public static String WH(String str) {
         if (com.baidu.live.i.a.existFile(str)) {
             if (!com.baidu.live.i.a.isDirectory(str)) {
                 FileHelper.deleteFileOrDir(new File(str));
@@ -82,7 +82,7 @@ public class c {
                 return null;
             }
             if (listFiles.length == 1 && listFiles[0] != null && listFiles[0].isDirectory()) {
-                return WI(listFiles[0].getAbsolutePath());
+                return WH(listFiles[0].getAbsolutePath());
             }
             return str;
         }

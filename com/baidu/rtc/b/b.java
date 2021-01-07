@@ -65,7 +65,7 @@ public class b {
     private void o(Map<String, String> map) {
         try {
             this.cBl.bQ(Integer.parseInt(map.get("bytesReceived")));
-            this.cBk = this.cBl.aiN();
+            this.cBk = this.cBl.aiO();
         } catch (NumberFormatException e) {
             Log.e("HUDStatistic", "parseAudioRecvStatsReport" + e);
         }
@@ -77,7 +77,7 @@ public class b {
     private void p(Map<String, String> map) {
         try {
             this.cBo.bQ(Long.parseLong(map.get("bytesSent")));
-            this.cBn = this.cBo.aiN();
+            this.cBn = this.cBo.aiO();
         } catch (NumberFormatException e) {
         }
         this.cBp = map.get("googCodecName");
@@ -101,9 +101,9 @@ public class b {
         }
         try {
             this.cBt.bQ(Long.parseLong(map.get("bytesReceived")));
-            this.cBs = this.cBt.aiN();
+            this.cBs = this.cBt.aiO();
             this.cBw.bQ(Long.parseLong(map.get("bytesSent")));
-            this.cBv = this.cBw.aiN();
+            this.cBv = this.cBw.aiO();
         } catch (NumberFormatException e) {
             Log.e("HUDStatistics", "parseConnectionStatsReport" + e);
         }
@@ -119,7 +119,7 @@ public class b {
         this.cBK = map.get("googFrameRateOutput");
         this.cBP = map.get("googFrameRateReceived");
         this.cBO.bQ(Long.parseLong(map.get("bytesReceived")));
-        this.cBN = this.cBO.aiN();
+        this.cBN = this.cBO.aiO();
         this.cBQ = map.get("googFrameHeightReceived");
         this.cBS = map.get("googFrameWidthReceived");
     }
@@ -140,7 +140,7 @@ public class b {
             if (str != null) {
                 this.cBU.bQ(Integer.parseInt(str));
             }
-            this.cBT = this.cBU.aiN();
+            this.cBT = this.cBU.aiO();
             this.cBA = this.cBM;
             String str2 = map.get("qpSum");
             if (str2 != null) {
@@ -156,11 +156,11 @@ public class b {
         }
     }
 
-    public String aiL() {
+    public String aiM() {
         return this.cBS + "*" + this.cBQ;
     }
 
-    public String aiM() {
+    public String aiN() {
         return this.cBZ + "*" + this.cBX;
     }
 

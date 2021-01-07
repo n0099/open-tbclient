@@ -30,11 +30,11 @@ public class a implements IAdapterData {
         return this.mAction;
     }
 
-    public boolean ekV() {
+    public boolean ekW() {
         return this.oRs;
     }
 
-    public boolean ekW() {
+    public boolean ekX() {
         return this.oRt;
     }
 

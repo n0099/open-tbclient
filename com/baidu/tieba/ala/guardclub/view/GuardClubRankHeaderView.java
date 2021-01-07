@@ -118,7 +118,7 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
             if (str == null) {
                 str = "";
             }
-            this.hdW.setData(2, kVar.name, String.format(getResources().getString(i), HJ(str)));
+            this.hdW.setData(2, kVar.name, String.format(getResources().getString(i), HI(str)));
             if (list.size() > 1) {
                 k kVar2 = list.get(1);
                 this.hdT.setTag(kVar2);
@@ -137,7 +137,7 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
                 if (str3 == null) {
                     str3 = "";
                 }
-                this.hdX.setData(1, kVar2.name, String.format(getResources().getString(i), HJ(str3)));
+                this.hdX.setData(1, kVar2.name, String.format(getResources().getString(i), HI(str3)));
             } else {
                 this.hdX.setData(1, "虚位以待", "");
             }
@@ -159,20 +159,20 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
                 if (str2 == null) {
                     str2 = "";
                 }
-                this.hdY.setData(1, kVar3.name, String.format(getResources().getString(i), HJ(str2)));
+                this.hdY.setData(1, kVar3.name, String.format(getResources().getString(i), HI(str2)));
                 return;
             }
             this.hdY.setData(1, "虚位以待", "");
         }
     }
 
-    public void bZu() {
+    public void bZv() {
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < this.hdR.getChildCount()) {
                 if (this.hdR.getChildAt(i2) instanceof GuardClubRankHeaderAvatarItemView) {
-                    ((GuardClubRankHeaderAvatarItemView) this.hdR.getChildAt(i2)).bZr();
+                    ((GuardClubRankHeaderAvatarItemView) this.hdR.getChildAt(i2)).bZs();
                 }
                 i = i2 + 1;
             } else {
@@ -181,13 +181,13 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
         }
     }
 
-    public void ZF() {
+    public void ZG() {
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < this.hdR.getChildCount()) {
                 if (this.hdR.getChildAt(i2) instanceof GuardClubRankHeaderAvatarItemView) {
-                    ((GuardClubRankHeaderAvatarItemView) this.hdR.getChildAt(i2)).bZs();
+                    ((GuardClubRankHeaderAvatarItemView) this.hdR.getChildAt(i2)).bZt();
                 }
                 i = i2 + 1;
             } else {
@@ -248,7 +248,7 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
         }
     }
 
-    private String HJ(String str) {
+    private String HI(String str) {
         try {
             long parseLong = Long.parseLong(str);
             if (parseLong > 100000000) {

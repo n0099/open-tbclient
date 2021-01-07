@@ -33,7 +33,7 @@ public class bg {
         fdU = true;
     }
 
-    private static void bwv() {
+    private static void bww() {
         if (mAppContext != null && mAppContext.getResources() != null) {
             fdT = mAppContext.getResources().getColor(R.color.common_color_10097);
             fdS = mAppContext.getResources().getColor(R.color.common_color_10004);
@@ -52,7 +52,7 @@ public class bg {
     public static int jQ(boolean z) {
         if (fdU) {
             fdU = false;
-            bwv();
+            bww();
         }
         return z ? fdS : fdT;
     }

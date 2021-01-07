@@ -16,10 +16,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class InstallGuideActivity extends TTDelegateActivity {
-    private static m pVz;
+    private static m pXh;
 
     public static void a(int i, @NonNull m mVar) {
-        pVz = mVar;
+        pXh = mVar;
         Intent intent = new Intent(j.a(), InstallGuideActivity.class);
         intent.addFlags(268435456);
         intent.putExtra("type", 6);
@@ -31,13 +31,13 @@ public class InstallGuideActivity extends TTDelegateActivity {
     protected void a() {
         Drawable drawable = null;
         PackageInfo packageInfo = null;
-        if (this.f13263a == null) {
-            this.f13263a = getIntent();
+        if (this.f13264a == null) {
+            this.f13264a = getIntent();
         }
-        if (this.f13263a.getIntExtra("type", 0) == 6) {
-            int intExtra = this.f13263a.getIntExtra("download_info_id", 0);
+        if (this.f13264a.getIntExtra("type", 0) == 6) {
+            int intExtra = this.f13264a.getIntExtra("download_info_id", 0);
             String b2 = b(intExtra);
-            long RU = com.ss.android.downloadlib.f.d.RU(intExtra);
+            long Sk = com.ss.android.downloadlib.f.d.Sk(intExtra);
             com.ss.android.socialbase.downloader.g.c h = f.iA(j.a()).h(intExtra);
             if (h == null) {
                 a(intExtra);
@@ -62,19 +62,19 @@ public class InstallGuideActivity extends TTDelegateActivity {
                 }
             }
             c.b();
-            j.eFN().a(this, intExtra, h2, drawable, b2, RU, pVz);
+            j.eGr().a(this, intExtra, h2, drawable, b2, Sk, pXh);
         }
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        j.eFN().a();
+        j.eGr().a();
     }
 
     private void a(int i) {
-        if (pVz != null) {
-            pVz.a();
+        if (pXh != null) {
+            pXh.a();
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -83,12 +83,12 @@ public class InstallGuideActivity extends TTDelegateActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        j.eFE().a(null, new com.ss.android.socialbase.downloader.e.a(0, jSONObject.toString()), 6);
+        j.eGi().a(null, new com.ss.android.socialbase.downloader.e.a(0, jSONObject.toString()), 6);
     }
 
     private String b(int i) {
         if (g.b()) {
-            return com.ss.android.downloadlib.f.d.RS(i);
+            return com.ss.android.downloadlib.f.d.Si(i);
         }
         if (g.d()) {
             return com.ss.android.downloadlib.f.d.PV(i);

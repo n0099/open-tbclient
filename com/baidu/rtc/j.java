@@ -17,7 +17,7 @@ public abstract class j implements VideoSink {
         this.cxX = bVar;
     }
 
-    public boolean aio() {
+    public boolean aip() {
         return this.cxW;
     }
 

@@ -25,19 +25,19 @@ public class b implements com.baidu.swan.game.ad.downloader.c.d {
                         downloadInfo.getDownloadListener().onStart();
                         return;
                     case 3:
-                        downloadInfo.getDownloadListener().aVa();
+                        downloadInfo.getDownloadListener().aVb();
                         return;
                     case 4:
                         downloadInfo.getDownloadListener().r(downloadInfo.getProgress(), downloadInfo.getSize());
                         return;
                     case 5:
-                        downloadInfo.getDownloadListener().aVc();
+                        downloadInfo.getDownloadListener().aVd();
                         return;
                     case 6:
                         downloadInfo.getDownloadListener().a(downloadInfo.getException());
                         return;
                     case 7:
-                        downloadInfo.getDownloadListener().aVb();
+                        downloadInfo.getDownloadListener().aVc();
                         return;
                     default:
                         return;

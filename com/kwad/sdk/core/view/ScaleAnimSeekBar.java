@@ -36,10 +36,10 @@ public class ScaleAnimSeekBar extends View {
     private boolean P;
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f9816a;
+    private Paint f9817a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f9817b;
+    private int f9818b;
     private int c;
     private int d;
     private int e;
@@ -146,12 +146,12 @@ public class ScaleAnimSeekBar extends View {
         if (attributeSet != null) {
             a(context);
         }
-        this.f9816a = new Paint();
-        this.f9816a.setStyle(Paint.Style.FILL);
-        this.f9816a.setAntiAlias(true);
+        this.f9817a = new Paint();
+        this.f9817a.setStyle(Paint.Style.FILL);
+        this.f9817a.setAntiAlias(true);
         this.r = new GradientDrawable();
         this.r.setShape(0);
-        this.r.setColor(this.f9817b);
+        this.r.setColor(this.f9818b);
         this.s = new GradientDrawable();
         this.s.setShape(0);
         this.s.setColor(this.c);
@@ -171,8 +171,8 @@ public class ScaleAnimSeekBar extends View {
             this.y.setBounds(this.x);
             this.y.draw(canvas);
         } else {
-            this.f9816a.setColor(this.c);
-            canvas.drawCircle(this.x.centerX(), this.x.centerY(), (this.x.width() * this.K) / 2.0f, this.f9816a);
+            this.f9817a.setColor(this.c);
+            canvas.drawCircle(this.x.centerX(), this.x.centerY(), (this.x.width() * this.K) / 2.0f, this.f9817a);
         }
         canvas.restore();
     }
@@ -327,7 +327,7 @@ public class ScaleAnimSeekBar extends View {
         this.G = false;
         this.i = ao.a(context, 0.3f);
         this.h = ao.a(context, 1.0f);
-        this.f9817b = 654311423;
+        this.f9818b = 654311423;
         this.c = -1;
         this.d = 1090519039;
         this.f = 0;
@@ -481,8 +481,8 @@ public class ScaleAnimSeekBar extends View {
     }
 
     public void setProgressBackgroundColor(@ColorInt int i) {
-        this.f9817b = i;
-        this.r.setColor(this.f9817b);
+        this.f9818b = i;
+        this.r.setColor(this.f9818b);
     }
 
     public void setProgressColor(@ColorInt int i) {

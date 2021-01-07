@@ -15,7 +15,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import com.baidu.swan.menu.f;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PopupWindow {
     private static final int[] eve = {16842922};
     private boolean epJ;
@@ -61,7 +61,7 @@ public class PopupWindow {
     private int mWidthMode;
     private WindowManager mWindowManager;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void onDismiss();
     }
@@ -207,7 +207,7 @@ public class PopupWindow {
         this.euJ = z;
     }
 
-    public boolean agb() {
+    public boolean agc() {
         return (this.euK >= 0 || this.mContext == null) ? this.euK == 1 : this.mContext.getApplicationInfo().targetSdkVersion >= 11;
     }
 
@@ -229,11 +229,11 @@ public class PopupWindow {
 
     public void b(IBinder iBinder, int i, int i2, int i3) {
         if (iBinder != null && !isShowing() && this.mContentView != null) {
-            bfk();
+            bfl();
             this.epJ = true;
             this.euF = false;
             WindowManager.LayoutParams d = d(iBinder);
-            d.windowAnimations = bfj();
+            d.windowAnimations = bfk();
             c(d);
             if (i == 0) {
                 i = 51;
@@ -277,7 +277,7 @@ public class PopupWindow {
                 this.euR = i4;
                 d.width = i4;
             }
-            d.windowAnimations = bfj();
+            d.windowAnimations = bfk();
             d(d);
         }
     }
@@ -374,7 +374,7 @@ public class PopupWindow {
         if (!this.euJ) {
             i2 |= 512;
         }
-        if (agb()) {
+        if (agc()) {
             i2 |= 8388608;
         }
         if (this.euL) {
@@ -389,7 +389,7 @@ public class PopupWindow {
         return i2;
     }
 
-    private int bfj() {
+    private int bfk() {
         if (this.evd == -1) {
             if (this.euF) {
                 return this.euZ ? f.g.PopupWindow_DropDownUp : f.g.PopupWindow_DropDownDown;
@@ -455,7 +455,7 @@ public class PopupWindow {
     public void dismiss() {
         if (isShowing() && this.euG != null) {
             this.epJ = false;
-            bfk();
+            bfl();
             try {
                 this.mWindowManager.removeView(this.euG);
                 if (this.euG != this.mContentView && (this.euG instanceof ViewGroup)) {
@@ -495,9 +495,9 @@ public class PopupWindow {
         if (isShowing() && this.mContentView != null) {
             WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.euG.getLayoutParams();
             boolean z2 = false;
-            int bfj = bfj();
-            if (bfj != layoutParams.windowAnimations) {
-                layoutParams.windowAnimations = bfj;
+            int bfk = bfk();
+            if (bfk != layoutParams.windowAnimations) {
+                layoutParams.windowAnimations = bfk;
                 z2 = true;
             }
             int nf = nf(layoutParams.flags);
@@ -544,9 +544,9 @@ public class PopupWindow {
                 layoutParams.y = i2;
                 z = true;
             }
-            int bfj = bfj();
-            if (bfj != layoutParams.windowAnimations) {
-                layoutParams.windowAnimations = bfj;
+            int bfk = bfk();
+            if (bfk != layoutParams.windowAnimations) {
+                layoutParams.windowAnimations = bfk;
                 z = true;
             }
             int nf = nf(layoutParams.flags);
@@ -561,7 +561,7 @@ public class PopupWindow {
         }
     }
 
-    private void bfk() {
+    private void bfl() {
         WeakReference<View> weakReference = this.evf;
         View view = weakReference != null ? weakReference.get() : null;
         if (view != null) {
@@ -571,7 +571,7 @@ public class PopupWindow {
     }
 
     private void i(View view, int i, int i2) {
-        bfk();
+        bfl();
         this.evf = new WeakReference<>(view);
         ViewTreeObserver viewTreeObserver = view.getViewTreeObserver();
         if (viewTreeObserver != null) {
@@ -582,7 +582,7 @@ public class PopupWindow {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends FrameLayout {
         public b(Context context) {
             super(context);

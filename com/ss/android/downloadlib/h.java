@@ -14,27 +14,27 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes4.dex */
 public class h {
-    private static volatile h pVs = null;
+    private static volatile h pXa = null;
     private long f;
     private final List<com.ss.android.downloadlib.a.g> c = new CopyOnWriteArrayList();
     private final Map<String, com.ss.android.downloadlib.a.g> d = new ConcurrentHashMap();
-    private final CopyOnWriteArrayList<com.ss.android.a.a.b.a.a> pVt = new CopyOnWriteArrayList<>();
+    private final CopyOnWriteArrayList<com.ss.android.a.a.b.a.a> pXb = new CopyOnWriteArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Handler f13296b = new Handler(Looper.getMainLooper());
+    private final Handler f13297b = new Handler(Looper.getMainLooper());
 
     private h() {
     }
 
-    public static h eFY() {
-        if (pVs == null) {
+    public static h eGC() {
+        if (pXa == null) {
             synchronized (h.class) {
-                if (pVs == null) {
-                    pVs = new h();
+                if (pXa == null) {
+                    pXa = new h();
                 }
             }
         }
-        return pVs;
+        return pXa;
     }
 
     public void a(Context context, int i, com.ss.android.a.a.b.d dVar, com.ss.android.a.a.b.c cVar) {
@@ -50,7 +50,7 @@ public class h {
         }
     }
 
-    public com.ss.android.downloadlib.a.f aaS(String str) {
+    public com.ss.android.downloadlib.a.f aaT(String str) {
         if (this.d == null || this.d.size() == 0 || TextUtils.isEmpty(str)) {
             return null;
         }
@@ -114,7 +114,7 @@ public class h {
 
     public void a(com.ss.android.a.a.b.a.a aVar) {
         if (aVar != null) {
-            this.pVt.add(aVar);
+            this.pXb.add(aVar);
         }
     }
 
@@ -143,10 +143,10 @@ public class h {
     }
 
     public void a(final com.ss.android.a.a.b.c cVar, @Nullable final com.ss.android.a.a.b.a aVar, @Nullable final com.ss.android.a.a.b.b bVar) {
-        this.f13296b.post(new Runnable() { // from class: com.ss.android.downloadlib.h.1
+        this.f13297b.post(new Runnable() { // from class: com.ss.android.downloadlib.h.1
             @Override // java.lang.Runnable
             public void run() {
-                Iterator it = h.this.pVt.iterator();
+                Iterator it = h.this.pXb.iterator();
                 while (it.hasNext()) {
                     ((com.ss.android.a.a.b.a.a) it.next()).a(cVar, aVar, bVar);
                 }
@@ -155,10 +155,10 @@ public class h {
     }
 
     public void a(final com.ss.android.socialbase.downloader.g.c cVar, final com.ss.android.socialbase.downloader.e.a aVar, final String str) {
-        this.f13296b.post(new Runnable() { // from class: com.ss.android.downloadlib.h.2
+        this.f13297b.post(new Runnable() { // from class: com.ss.android.downloadlib.h.2
             @Override // java.lang.Runnable
             public void run() {
-                Iterator it = h.this.pVt.iterator();
+                Iterator it = h.this.pXb.iterator();
                 while (it.hasNext()) {
                     ((com.ss.android.a.a.b.a.a) it.next()).a(cVar, aVar, str);
                 }
@@ -167,10 +167,10 @@ public class h {
     }
 
     public void a(final com.ss.android.socialbase.downloader.g.c cVar, final String str) {
-        this.f13296b.post(new Runnable() { // from class: com.ss.android.downloadlib.h.3
+        this.f13297b.post(new Runnable() { // from class: com.ss.android.downloadlib.h.3
             @Override // java.lang.Runnable
             public void run() {
-                Iterator it = h.this.pVt.iterator();
+                Iterator it = h.this.pXb.iterator();
                 while (it.hasNext()) {
                     ((com.ss.android.a.a.b.a.a) it.next()).a(cVar, str);
                 }
@@ -179,10 +179,10 @@ public class h {
     }
 
     public void b(final com.ss.android.socialbase.downloader.g.c cVar, final String str) {
-        this.f13296b.post(new Runnable() { // from class: com.ss.android.downloadlib.h.4
+        this.f13297b.post(new Runnable() { // from class: com.ss.android.downloadlib.h.4
             @Override // java.lang.Runnable
             public void run() {
-                Iterator it = h.this.pVt.iterator();
+                Iterator it = h.this.pXb.iterator();
                 while (it.hasNext()) {
                     ((com.ss.android.a.a.b.a.a) it.next()).b(cVar, str);
                 }
@@ -191,10 +191,10 @@ public class h {
     }
 
     public void a(final com.ss.android.socialbase.downloader.g.c cVar) {
-        this.f13296b.post(new Runnable() { // from class: com.ss.android.downloadlib.h.5
+        this.f13297b.post(new Runnable() { // from class: com.ss.android.downloadlib.h.5
             @Override // java.lang.Runnable
             public void run() {
-                Iterator it = h.this.pVt.iterator();
+                Iterator it = h.this.pXb.iterator();
                 while (it.hasNext()) {
                     ((com.ss.android.a.a.b.a.a) it.next()).a(cVar);
                 }

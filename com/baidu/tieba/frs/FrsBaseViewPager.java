@@ -17,9 +17,9 @@ public class FrsBaseViewPager extends BdBaseViewPager {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void cEG();
+        void cEH();
 
-        boolean cEH();
+        boolean cEI();
     }
 
     public FrsBaseViewPager(Context context) {
@@ -44,7 +44,7 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         switch (motionEvent.getAction()) {
             case 0:
                 if (this.jeA != null) {
-                    this.jeA.cEG();
+                    this.jeA.cEH();
                 }
                 if (this.x >= getMeasuredWidth() - this.jey && this.x <= getMeasuredWidth()) {
                     setmDisallowSlip(false);
@@ -61,12 +61,12 @@ public class FrsBaseViewPager extends BdBaseViewPager {
                 break;
             case 2:
                 if (this.jeC) {
-                    boolean cEH = this.jeA != null ? this.jeA.cEH() : true;
-                    if (this.jez && cEH) {
+                    boolean cEI = this.jeA != null ? this.jeA.cEI() : true;
+                    if (this.jez && cEI) {
                         z = false;
                     }
                     setmDisallowSlip(z);
-                    this.jeC = cEH;
+                    this.jeC = cEI;
                     break;
                 }
                 break;

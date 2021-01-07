@@ -19,10 +19,10 @@ import java.io.Serializable;
 public class b extends IFragmentActivityProxy implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private ProfileVideoDetailParam f9109a;
+    private ProfileVideoDetailParam f9110a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f9110b;
+    private ImageView f9111b;
 
     public static void a(Context context, ProfileVideoDetailParam profileVideoDetailParam) {
         if (profileVideoDetailParam == null) {
@@ -36,30 +36,30 @@ public class b extends IFragmentActivityProxy implements View.OnClickListener {
     private boolean a() {
         Serializable serializableExtra = getIntent().getSerializableExtra("KEY_PROFILE_VIDEO_DETAIL_PARAM");
         if (serializableExtra instanceof ProfileVideoDetailParam) {
-            this.f9109a = (ProfileVideoDetailParam) serializableExtra;
+            this.f9110a = (ProfileVideoDetailParam) serializableExtra;
         }
-        return (this.f9109a == null || this.f9109a.mEnterScene == 0) ? false : true;
+        return (this.f9110a == null || this.f9110a.mEnterScene == 0) ? false : true;
     }
 
     private void b() {
-        this.f9110b = (ImageView) findViewById(R.id.ksad_profile_back);
+        this.f9111b = (ImageView) findViewById(R.id.ksad_profile_back);
         if (d.a(getActivity())) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f9110b.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f9111b.getLayoutParams();
             marginLayoutParams.topMargin = ao.a((Context) getActivity());
-            this.f9110b.setLayoutParams(marginLayoutParams);
+            this.f9111b.setLayoutParams(marginLayoutParams);
         }
-        this.f9110b.setOnClickListener(this);
+        this.f9111b.setOnClickListener(this);
     }
 
     private void c() {
-        g a2 = g.a(new KsScene.Builder(this.f9109a.mEnterScene).build());
-        a2.getArguments().putSerializable("KEY_PROFILE_VIDEO_DETAIL_PARAM", this.f9109a);
+        g a2 = g.a(new KsScene.Builder(this.f9110a.mEnterScene).build());
+        a2.getArguments().putSerializable("KEY_PROFILE_VIDEO_DETAIL_PARAM", this.f9110a);
         getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, a2).commitAllowingStateLoss();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f9110b == view) {
+        if (this.f9111b == view) {
             onBackPressed();
         }
     }

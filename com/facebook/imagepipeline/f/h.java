@@ -1,9 +1,9 @@
 package com.facebook.imagepipeline.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface h {
-    int ezo();
+    int ezS();
 
-    boolean ezp();
+    boolean ezT();
 
-    boolean ezq();
+    boolean ezU();
 }

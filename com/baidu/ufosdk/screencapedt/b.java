@@ -8,11 +8,11 @@ import com.baidu.ufosdk.f.m;
 final class b implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ScreenCapEditActivity f5679a;
+    final /* synthetic */ ScreenCapEditActivity f5680a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ScreenCapEditActivity screenCapEditActivity) {
-        this.f5679a = screenCapEditActivity;
+        this.f5680a = screenCapEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,17 +21,17 @@ final class b implements View.OnClickListener {
         boolean z2;
         RelativeLayout relativeLayout;
         RelativeLayout relativeLayout2;
-        ScreenCapEditActivity screenCapEditActivity = this.f5679a;
-        z = this.f5679a.H;
+        ScreenCapEditActivity screenCapEditActivity = this.f5680a;
+        z = this.f5680a.H;
         screenCapEditActivity.H = !z;
-        z2 = this.f5679a.H;
+        z2 = this.f5680a.H;
         if (z2) {
-            relativeLayout2 = this.f5679a.Q;
+            relativeLayout2 = this.f5680a.Q;
             relativeLayout2.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
             return;
         }
-        relativeLayout = this.f5679a.Q;
-        this.f5679a.getApplicationContext();
+        relativeLayout = this.f5680a.Q;
+        this.f5680a.getApplicationContext();
         relativeLayout.setBackgroundDrawable(m.a((int) ViewCompat.MEASURED_STATE_MASK));
     }
 }

@@ -64,7 +64,7 @@ public class a {
                 @Override // java.lang.Runnable
                 public void run() {
                     if (a.this.gFK != null) {
-                        a.this.gFK.bUN();
+                        a.this.gFK.bUO();
                     }
                 }
             }, 500L);
@@ -106,7 +106,7 @@ public class a {
         this.gFI = (ScrollHorizontalTabView) this.mRootView.findViewById(R.id.live_tab_top_tab_layout);
         this.gFH = new d(this.mPageContext);
         this.gFJ = (NestedNoScrollViewPager) this.mRootView.findViewById(R.id.live_tab_view_pager);
-        mD(com.baidu.tbadk.core.sharedPref.b.bvq().getInt("chushou_game_tab", 1) == 1);
+        mD(com.baidu.tbadk.core.sharedPref.b.bvr().getInt("chushou_game_tab", 1) == 1);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds256));
         if (this.gFH.getView() != null && this.gFH.getView().getParent() == null) {
             this.gFG.addView(this.gFH.getView(), layoutParams);
@@ -117,7 +117,7 @@ public class a {
     }
 
     public void mD(boolean z) {
-        boolean z2 = com.baidu.tbadk.core.sharedPref.b.bvq().getInt("key_show_ala_friend_tab", 0) == 1;
+        boolean z2 = com.baidu.tbadk.core.sharedPref.b.bvr().getInt("key_show_ala_friend_tab", 0) == 1;
         int i = z ? 2 : 1;
         if (z2) {
             i++;
@@ -153,7 +153,7 @@ public class a {
         this.gFI.setData(K(z, z2));
     }
 
-    public ViewGroup bVc() {
+    public ViewGroup bVd() {
         return this.mRootView;
     }
 
@@ -197,7 +197,7 @@ public class a {
         this.gFK.loadData();
     }
 
-    public void bVd() {
+    public void bVe() {
         this.gFK.vl(this.gFJ.getCurrentItem());
     }
 
@@ -296,7 +296,7 @@ public class a {
             }
         }
 
-        public void bUN() {
+        public void bUO() {
             if (!x.isEmpty(this.mFragments)) {
                 int i = 0;
                 while (true) {
@@ -304,7 +304,7 @@ public class a {
                     if (i2 < this.mFragments.size()) {
                         LiveTabBaseSubFragment liveTabBaseSubFragment = this.mFragments.get(i2);
                         if (liveTabBaseSubFragment != null) {
-                            liveTabBaseSubFragment.bUN();
+                            liveTabBaseSubFragment.bUO();
                         }
                         i = i2 + 1;
                     } else {
@@ -316,7 +316,7 @@ public class a {
 
         public void vl(int i) {
             if (i >= 0 && i < this.mFragments.size()) {
-                this.mFragments.get(i).WE();
+                this.mFragments.get(i).WF();
             }
         }
     }

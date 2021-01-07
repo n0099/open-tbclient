@@ -112,10 +112,10 @@ public class SapiUtils implements NoProguard {
     public static final String QR_LOGIN_LP_PC = "pc";
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f5371a = "cmd";
+    static final String f5372a = "cmd";
 
     /* renamed from: b  reason: collision with root package name */
-    static final String f5372b = "error";
+    static final String f5373b = "error";
     static final String c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
     static final String d = Character.toString(2);
     static final String e = Character.toString(3);
@@ -843,7 +843,7 @@ public class SapiUtils implements NoProguard {
                     hashMap2.put("islogin", "1");
                 }
                 hashMap2.put("client", HttpConstants.OS_TYPE_VALUE);
-                k.a(k.f5422a, hashMap2);
+                k.a(k.f5423a, hashMap2);
             }
             return urlParamsToMap;
         } else {

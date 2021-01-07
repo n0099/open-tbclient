@@ -38,16 +38,16 @@ public class MediaController extends RelativeLayout {
     public MediaController(Context context) {
         super(context);
         this.eEf = false;
-        bjX();
+        bjY();
     }
 
     public MediaController(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.eEf = false;
-        bjX();
+        bjY();
     }
 
-    private void bjX() {
+    private void bjY() {
         View inflate = LayoutInflater.from(getContext()).inflate(c.C0567c.media_controller, this);
         this.eDU = (ImageButton) inflate.findViewById(c.b.btn_play);
         this.eDU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.videoplayer.widget.MediaController.1
@@ -127,13 +127,13 @@ public class MediaController extends RelativeLayout {
         return this.mMainThreadHandler;
     }
 
-    public void bjY() {
+    public void bjZ() {
         int currentPlayerState = this.eEd.getCurrentPlayerState();
         this.eEf = false;
         switch (currentPlayerState) {
             case -1:
             case 0:
-                bka();
+                bkb();
                 this.eDU.setEnabled(true);
                 this.eDU.setBackgroundResource(c.a.btn_play);
                 this.eDY.setEnabled(false);
@@ -152,7 +152,7 @@ public class MediaController extends RelativeLayout {
                 this.eDY.setMax(this.eEd != null ? this.eEd.getDuration() : 0);
                 return;
             case 3:
-                bjZ();
+                bka();
                 this.eDY.setEnabled(true);
                 this.eDU.setEnabled(true);
                 this.eDU.setBackgroundResource(c.a.btn_pause);
@@ -162,7 +162,7 @@ public class MediaController extends RelativeLayout {
                 this.eDU.setBackgroundResource(c.a.btn_play);
                 return;
             case 5:
-                bka();
+                bkb();
                 this.eDY.setProgress(this.eDY.getMax());
                 this.eDY.setEnabled(false);
                 this.eDU.setEnabled(true);
@@ -173,7 +173,7 @@ public class MediaController extends RelativeLayout {
         }
     }
 
-    private void bjZ() {
+    private void bka() {
         if (this.eEb != null) {
             this.eEb.cancel();
             this.eEb = null;
@@ -188,14 +188,14 @@ public class MediaController extends RelativeLayout {
                         if (MediaController.this.eEd != null && MediaController.this.eEd.getVideoPlayerCallback() != null) {
                             MediaController.this.eEd.getVideoPlayerCallback().h(MediaController.this.eEd);
                         }
-                        MediaController.this.bkc();
+                        MediaController.this.bkd();
                     }
                 });
             }
         }, 0L, 1000L);
     }
 
-    private void bka() {
+    private void bkb() {
         if (this.eEb != null) {
             this.eEb.cancel();
             this.eEb = null;
@@ -217,7 +217,7 @@ public class MediaController extends RelativeLayout {
         }
     }
 
-    public void bkb() {
+    public void bkc() {
         show();
         if (this.eEc != null) {
             this.eEc.cancel();
@@ -289,7 +289,7 @@ public class MediaController extends RelativeLayout {
         }
     }
 
-    public void bkc() {
+    public void bkd() {
         int duration;
         if (this.eEd != null && !this.eEe) {
             long currentPosition = this.eEd.getCurrentPosition();

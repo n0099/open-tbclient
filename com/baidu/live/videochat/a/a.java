@@ -61,7 +61,7 @@ public class a implements com.baidu.live.videochat.e.a {
         return com.baidu.live.videochat.g.a.a(this.bFC, com.baidu.live.videochat.g.a.b(alaAvtsData, alaAvtsConfigInfo), str);
     }
 
-    public void Yv() {
+    public void Yw() {
         if (this.bFC != null) {
             this.bFC.stopRecord();
             this.bFC.release();
@@ -69,31 +69,31 @@ public class a implements com.baidu.live.videochat.e.a {
         }
     }
 
-    public boolean Yw() {
+    public boolean Yx() {
         return this.bFC != null;
     }
 
-    public View Yx() {
+    public View Yy() {
         if (this.bFC != null) {
             return this.bFC.getPreview();
         }
         return null;
     }
 
-    public View Yy() {
+    public View Yz() {
         if (this.bFC != null) {
             return this.bFC.createPKPlayer();
         }
         return null;
     }
 
-    public void XK() {
+    public void XL() {
         if (this.bFC != null && !UtilHelper.isAppForeground()) {
             this.bFC.stopRecord();
         }
     }
 
-    public void XL() {
+    public void XM() {
         if (this.bFC != null) {
             this.bFC.startRecord();
         }
@@ -115,7 +115,7 @@ public class a implements com.baidu.live.videochat.e.a {
     }
 
     @Override // com.baidu.live.videochat.e.a
-    public int Yj() {
+    public int Yk() {
         return this.bPS;
     }
 }

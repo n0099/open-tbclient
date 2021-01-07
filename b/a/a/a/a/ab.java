@@ -14,11 +14,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ab {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1050a = 0;
+    public static int f1051a = 0;
     public final af Be;
     private final z Bf;
     private final aa Bg;
@@ -231,18 +231,18 @@ public final class ab {
             return "";
         }
         try {
-            boolean z2 = this.Bf == null ? true : f1050a != this.Bf.e;
-            f1050a = this.Bf == null ? f1050a : this.Bf.e;
+            boolean z2 = this.Bf == null ? true : f1051a != this.Bf.e;
+            f1051a = this.Bf == null ? f1051a : this.Bf.e;
             if (this.Be == null) {
                 sb = "[]";
             } else {
                 af afVar = this.Be;
-                if (afVar.f1053b.size() <= 0) {
+                if (afVar.f1054b.size() <= 0) {
                     sb = "[]";
                 } else {
                     StringBuilder sb3 = new StringBuilder("[");
                     int i = 0;
-                    for (ScanResult scanResult : afVar.f1053b) {
+                    for (ScanResult scanResult : afVar.f1054b) {
                         if (i > 0) {
                             sb3.append(",");
                         }
@@ -257,7 +257,7 @@ public final class ab {
             if (this.Bg == null) {
                 sb2 = "{}";
             } else {
-                Location location = this.Bg.f1049b;
+                Location location = this.Bg.f1050b;
                 StringBuilder sb4 = new StringBuilder();
                 String a3 = aa.a(location.getLatitude(), 6);
                 String a4 = aa.a(location.getLongitude(), 6);
@@ -284,8 +284,8 @@ public final class ab {
             hashMap.put("mac", xVar.e().toLowerCase(Locale.ENGLISH));
             String jSONObject2 = new JSONObject(hashMap).toString();
             String i2 = xVar.i();
-            int a9 = a(wVar.f1081a);
-            String a10 = j.a(wVar.f1081a);
+            int a9 = a(wVar.f1082a);
+            String a10 = j.a(wVar.f1082a);
             try {
                 if (!sb.equals("[]") || a10.equals("{}")) {
                     str = sb;
@@ -300,7 +300,7 @@ public final class ab {
             if (str2 != null) {
                 str2 = str2.replaceAll("[\"|_]", "");
             }
-            String str3 = (("{\"version\":\"" + x.b() + "\",\"address\":0") + ",\"source\":203,\"access_token\":\"" + i2 + "\",\"app_name\":\"" + x.d() + "\",\"app_label\":\"" + (str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + xVar.f1082a) + "\",\"bearing\":1") + ",\"control\":0";
+            String str3 = (("{\"version\":\"" + x.b() + "\",\"address\":0") + ",\"source\":203,\"access_token\":\"" + i2 + "\",\"app_name\":\"" + x.d() + "\",\"app_label\":\"" + (str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + xVar.f1083a) + "\",\"bearing\":1") + ",\"control\":0";
             return (((z ? str3 + ",\"detectgps\":1" : str3 + ",\"detectgps\":0") + ",\"pstat\":" + a9) + ",\"wlan\":" + a10) + ",\"attribute\":" + jSONObject2 + ",\"location\":" + sb2 + ",\"cells\":" + a2 + ",\"wifis\":" + str + ",\"bles\":[]}";
         } catch (Throwable th2) {
             return null;

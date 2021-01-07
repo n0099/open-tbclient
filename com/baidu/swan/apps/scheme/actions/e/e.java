@@ -24,7 +24,7 @@ public class e extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (eVar != null && eVar.ank()) {
+        if (eVar != null && eVar.anl()) {
             if (DEBUG) {
                 Log.d("ShowToastAction", "ShowToastAction does not supported when app is invisible.");
             }
@@ -141,30 +141,30 @@ public class e extends aa {
     public void a(Context context, final CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, @NonNull String str2, final String str3) {
         com.baidu.swan.apps.res.widget.b.d.m32do(context).h(str).i(str2).kM(i).b(new d.a() { // from class: com.baidu.swan.apps.scheme.actions.e.e.5
             @Override // com.baidu.swan.apps.res.widget.b.d.a
-            public void ajM() {
+            public void ajN() {
                 if (!TextUtils.isEmpty(str3)) {
                     callbackHandler.handleSchemeDispatchCallback(str3, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                 }
             }
-        }).aLX();
+        }).aLY();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, str).kM(i).he(z).kI(2).aLS();
+        com.baidu.swan.apps.res.widget.b.d.a(context, str).kM(i).he(z).kI(2).aLT();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, Drawable drawable, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, h.N(str, 14)).i(drawable).kM(i).he(z).aLV();
+        com.baidu.swan.apps.res.widget.b.d.a(context, h.N(str, 14)).i(drawable).kM(i).he(z).aLW();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, h.N(str, 14)).kM(i).he(z).aLW();
+        com.baidu.swan.apps.res.widget.b.d.a(context, h.N(str, 14)).kM(i).he(z).aLX();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 

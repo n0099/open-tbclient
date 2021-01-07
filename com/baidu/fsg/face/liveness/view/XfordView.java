@@ -16,35 +16,35 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class XfordView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Bitmap f2439a;
+    private Bitmap f2440a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Paint f2440b;
+    private Paint f2441b;
     private Rect c;
     private Rect d;
     private Xfermode e;
 
     public XfordView(Context context) {
         super(context);
-        this.f2439a = null;
-        this.f2440b = null;
+        this.f2440a = null;
+        this.f2441b = null;
         a();
     }
 
     public XfordView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2439a = null;
-        this.f2440b = null;
+        this.f2440a = null;
+        this.f2441b = null;
         a();
     }
 
     private void a() {
-        if (this.f2440b == null) {
-            this.f2440b = new Paint();
-            this.f2440b.setColor(1711276032);
+        if (this.f2441b == null) {
+            this.f2441b = new Paint();
+            this.f2441b.setColor(1711276032);
         }
-        if (this.f2439a == null) {
-            this.f2439a = BitmapFactory.decodeResource(getResources(), R.drawable.sapi_liveness_recog_face_mask);
+        if (this.f2440a == null) {
+            this.f2440a = BitmapFactory.decodeResource(getResources(), R.drawable.sapi_liveness_recog_face_mask);
         }
         if (this.e == null) {
             this.e = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
@@ -52,10 +52,10 @@ public class XfordView extends ImageView {
     }
 
     public void setBgPaintColor(int i) {
-        if (this.f2440b == null) {
-            this.f2440b = new Paint();
+        if (this.f2441b == null) {
+            this.f2441b = new Paint();
         }
-        this.f2440b.setColor(i);
+        this.f2441b.setColor(i);
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -70,21 +70,21 @@ public class XfordView extends ImageView {
             this.d = new Rect(width, height, dimensionPixelSize2 + width, dimensionPixelSize + height);
         }
         if (this.c == null) {
-            this.c = new Rect(0, 0, this.f2439a.getWidth(), this.f2439a.getHeight());
+            this.c = new Rect(0, 0, this.f2440a.getWidth(), this.f2440a.getHeight());
         }
-        canvas.drawBitmap(this.f2439a, this.c, this.d, this.f2440b);
-        this.f2440b.setXfermode(this.e);
-        canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f2440b);
-        this.f2440b.setXfermode(null);
+        canvas.drawBitmap(this.f2440a, this.c, this.d, this.f2441b);
+        this.f2441b.setXfermode(this.e);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f2441b);
+        this.f2441b.setXfermode(null);
         canvas.restoreToCount(saveLayer);
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.f2439a != null && !this.f2439a.isRecycled()) {
-            this.f2439a.recycle();
-            this.f2439a = null;
+        if (this.f2440a != null && !this.f2440a.isRecycled()) {
+            this.f2440a.recycle();
+            this.f2440a = null;
         }
         System.gc();
         this.e = null;

@@ -28,11 +28,11 @@ public class a extends Dialog implements View.OnClickListener {
     public interface InterfaceC0229a {
         void TX();
 
-        void Yd();
-
         void Ye();
 
         void Yf();
+
+        void Yg();
     }
 
     public void a(InterfaceC0229a interfaceC0229a) {
@@ -61,11 +61,11 @@ public class a extends Dialog implements View.OnClickListener {
         this.bQn = (TextView) findViewById(a.f.ala_link_mic_status_dialog_btn_second);
         this.bQn.setVisibility(8);
         this.bQk.setBackgroundResource(a.e.sdk_default_avatar);
-        RoundingParams evT = this.bQk.getHierarchy().evT();
-        RoundingParams roundingParams = evT == null ? new RoundingParams() : evT;
+        RoundingParams ewa = this.bQk.getHierarchy().ewa();
+        RoundingParams roundingParams = ewa == null ? new RoundingParams() : ewa;
         roundingParams.Bc(true);
         roundingParams.bI(6.0f);
-        roundingParams.Qx(-1);
+        roundingParams.QC(-1);
         this.bQk.getHierarchy().a(roundingParams);
         this.bQk.setOnClickListener(this);
         this.bDN.setOnClickListener(this);
@@ -121,14 +121,14 @@ public class a extends Dialog implements View.OnClickListener {
     public void onClick(View view) {
         if (view == this.bQk) {
             if (this.bQj != null) {
-                this.bQj.Yd();
+                this.bQj.Ye();
             }
         } else if (view == this.bDN) {
             if (this.bQj != null) {
-                this.bQj.Ye();
+                this.bQj.Yf();
             }
         } else if (view == this.bQn && this.bQj != null) {
-            this.bQj.Yf();
+            this.bQj.Yg();
         }
     }
 }

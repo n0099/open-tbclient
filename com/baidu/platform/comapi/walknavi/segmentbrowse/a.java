@@ -1,14 +1,14 @@
 package com.baidu.platform.comapi.walknavi.segmentbrowse;
 
 import java.util.ArrayList;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4582a;
+    private String f4583a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f4583b;
+    private String f4584b;
     private ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.b> c = new ArrayList<>();
     private ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.b> d = new ArrayList<>();
     private int e;
@@ -31,15 +31,15 @@ public class a {
     }
 
     public String c() {
-        return this.f4582a;
+        return this.f4583a;
     }
 
     public void a(String str) {
-        this.f4582a = str;
+        this.f4583a = str;
     }
 
     public void b(String str) {
-        this.f4583b = str;
+        this.f4584b = str;
     }
 
     public int d() {
@@ -59,6 +59,6 @@ public class a {
     }
 
     public String toString() {
-        return "WRouteMessageModel [iconName=" + this.f4582a + ", guideText=" + this.f4583b + ", stepLength=" + this.e + ", uid=" + this.f + "]";
+        return "WRouteMessageModel [iconName=" + this.f4583a + ", guideText=" + this.f4584b + ", stepLength=" + this.e + ", uid=" + this.f + "]";
     }
 }

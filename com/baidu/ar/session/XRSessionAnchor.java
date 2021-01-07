@@ -15,7 +15,7 @@ import com.baidu.smallgame.sdk.permission.PermissionProxy;
 import com.google.ar.core.ArCoreApk;
 import java.io.File;
 @NotProguard
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class XRSessionAnchor {
     private static final String TAG = "XRSessionAnchor";
     private static final String apkinfo = "com.google.ar.core";
@@ -57,7 +57,7 @@ public class XRSessionAnchor {
 
     public static boolean supportArCore(Context context) {
         try {
-            ArCoreApk.Availability ip = ArCoreApk.eBG().ip(context);
+            ArCoreApk.Availability ip = ArCoreApk.eCk().ip(context);
             return ip != null && (ip.isSupported() || ip.isTransient());
         } catch (Exception e) {
             return true;

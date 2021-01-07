@@ -32,12 +32,12 @@ public class b {
     }
 
     private void dk(String str, String str2) {
-        if (this.ekY != null && this.ekY.aZG() != null && this.ekY.aZG().hasEventListener(str2)) {
+        if (this.ekY != null && this.ekY.aZH() != null && this.ekY.aZH().hasEventListener(str2)) {
             com.baidu.swan.games.n.a.a aVar = new com.baidu.swan.games.n.a.a();
             aVar.value = str;
             JSEvent jSEvent = new JSEvent(str2);
             jSEvent.data = aVar;
-            this.ekY.aZG().dispatchEvent(jSEvent);
+            this.ekY.aZH().dispatchEvent(jSEvent);
         }
     }
 }

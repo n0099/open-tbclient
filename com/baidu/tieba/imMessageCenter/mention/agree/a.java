@@ -38,7 +38,7 @@ public class a {
     private d kOL;
     private boolean kOM;
     private View kPp;
-    private InterfaceC0775a kPq;
+    private InterfaceC0784a kPq;
     private RelativeLayout mContainer;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
@@ -50,7 +50,7 @@ public class a {
                 a.this.gCf.showEmptyView(0);
                 a.this.gCf.setOnClickListener(null);
                 a.this.gCf.startLoadData();
-                a.this.kPq.ctu();
+                a.this.kPq.ctv();
             }
         }
     };
@@ -59,7 +59,7 @@ public class a {
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
                 if (a.this.kPq != null) {
-                    a.this.kPq.cIi();
+                    a.this.kPq.cIj();
                 }
             } else if (a.this.gEz != null) {
                 a.this.gEz.setRefreshing(false);
@@ -69,10 +69,10 @@ public class a {
 
     /* renamed from: com.baidu.tieba.imMessageCenter.mention.agree.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0775a {
-        void cIi();
+    public interface InterfaceC0784a {
+        void cIj();
 
-        void ctu();
+        void ctv();
     }
 
     public a(TbPageContext tbPageContext, View view) {
@@ -82,8 +82,8 @@ public class a {
         this.kOL = new d(tbPageContext, this.Yc);
     }
 
-    public void a(InterfaceC0775a interfaceC0775a) {
-        this.kPq = interfaceC0775a;
+    public void a(InterfaceC0784a interfaceC0784a) {
+        this.kPq = interfaceC0784a;
     }
 
     private void v(TbPageContext tbPageContext) {
@@ -133,7 +133,7 @@ public class a {
                         a.this.gCf.showEmptyView(0);
                         a.this.gCf.setOnClickListener(null);
                         a.this.gCf.showLoading();
-                        a.this.kPq.ctu();
+                        a.this.kPq.ctv();
                     }
                 }
             });
@@ -235,7 +235,7 @@ public class a {
         return this.kPp;
     }
 
-    public RelativeLayout bUZ() {
+    public RelativeLayout bVa() {
         return this.mContainer;
     }
 }

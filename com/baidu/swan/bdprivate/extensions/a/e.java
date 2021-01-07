@@ -44,7 +44,7 @@ public class e extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             return false;
         } else {
-            eVar.aMw().b(context, "mapp_i_get_stoken", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.e.1
+            eVar.aMx().b(context, "mapp_i_get_stoken", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */

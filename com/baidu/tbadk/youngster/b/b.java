@@ -14,14 +14,14 @@ public class b {
         this.fPy = str2;
     }
 
-    public long bMA() {
+    public long bMB() {
         if (ei(this.mUid, this.fPy)) {
             return this.gef.getLong(this.mUid + '_' + this.fPy + "_youngster_tip_time", 0L);
         }
         return 0L;
     }
 
-    public int bMB() {
+    public int bMC() {
         if (ei(this.mUid, this.fPy)) {
             return this.gef.getInt(this.mUid + '_' + this.fPy + "_youngster_tip_times", 0);
         }

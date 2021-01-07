@@ -13,14 +13,14 @@ import com.baidu.helios.common.c.a;
 import com.baidu.mobstat.Config;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class a extends com.baidu.helios.channels.a {
     a.C0141a awu;
     private b axa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.helios.channels.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class C0139a {
         static boolean a(a.C0141a c0141a, com.baidu.helios.common.c.a aVar) {
             if (Build.VERSION.SDK_INT < 23) {
@@ -56,7 +56,7 @@ public class a extends com.baidu.helios.channels.a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public class b {
         private long j;
         private String k;
@@ -147,7 +147,7 @@ public class a extends com.baidu.helios.channels.a {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     class c extends a.b {
         private int i;
         private String j;

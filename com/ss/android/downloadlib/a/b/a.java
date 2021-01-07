@@ -7,10 +7,10 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f13228a;
+    public long f13229a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f13229b;
+    public long f13230b;
     public long c;
     public String d;
     public String e;
@@ -22,8 +22,8 @@ public class a {
     }
 
     public a(long j, long j2, long j3, String str, String str2, String str3, String str4) {
-        this.f13228a = j;
-        this.f13229b = j2;
+        this.f13229a = j;
+        this.f13230b = j2;
         this.c = j3;
         this.d = str;
         this.e = str2;
@@ -34,8 +34,8 @@ public class a {
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("mDownloadId", this.f13228a);
-            jSONObject.put("mAdId", this.f13229b);
+            jSONObject.put("mDownloadId", this.f13229a);
+            jSONObject.put("mAdId", this.f13230b);
             jSONObject.put("mExtValue", this.c);
             jSONObject.put("mPackageName", this.d);
             jSONObject.put("mAppName", this.e);
@@ -54,8 +54,8 @@ public class a {
         }
         a aVar = new a();
         try {
-            aVar.f13228a = i.C(jSONObject, "mDownloadId");
-            aVar.f13229b = i.C(jSONObject, "mAdId");
+            aVar.f13229a = i.C(jSONObject, "mDownloadId");
+            aVar.f13230b = i.C(jSONObject, "mAdId");
             aVar.c = i.C(jSONObject, "mExtValue");
             aVar.d = jSONObject.optString("mPackageName");
             aVar.e = jSONObject.optString("mAppName");

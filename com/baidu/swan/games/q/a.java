@@ -24,15 +24,15 @@ public final class a {
             switch (str.hashCode()) {
                 case 3202370:
                     if (str.equals("hide")) {
-                        f aDG = f.aDG();
-                        p.n(aDG, "SwanAppController.getInstance()");
-                        com.baidu.swan.apps.core.d.f ajs = aDG.ajs();
-                        j jVar = ajs != null ? (j) ajs.j(j.class) : null;
-                        g atu = jVar != null ? jVar.atu() : null;
-                        if (atu != null && jVar != null) {
+                        f aDH = f.aDH();
+                        p.n(aDH, "SwanAppController.getInstance()");
+                        com.baidu.swan.apps.core.d.f ajt = aDH.ajt();
+                        j jVar = ajt != null ? (j) ajt.j(j.class) : null;
+                        g atv = jVar != null ? jVar.atv() : null;
+                        if (atv != null && jVar != null) {
                             jVar.ft(true);
                         }
-                        return a(atu, str2);
+                        return a(atv, str2);
                     }
                     break;
             }

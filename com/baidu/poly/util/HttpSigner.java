@@ -5,7 +5,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HttpSigner {
     static {
         System.loadLibrary("hs");

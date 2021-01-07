@@ -20,7 +20,7 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
     private TextView bYS;
     private Context mContext;
     private TextView mTitle;
-    private a okJ;
+    private a okI;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -38,12 +38,12 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(a.g.yuyin_layout_dialog_connnection_wheat_remind);
-        aaD();
+        aaE();
         initView();
         initListener();
     }
 
-    private void aaD() {
+    private void aaE() {
         Window window = getWindow();
         if (window != null) {
             window.setBackgroundDrawable(new ColorDrawable(getContext().getResources().getColor(a.c.sdk_black_alpha30)));
@@ -82,7 +82,7 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
         }
     }
 
-    public void VN(String str) {
+    public void VM(String str) {
         if (this.bYR != null && !TextUtils.isEmpty(str)) {
             this.bYR.setText(str);
         }
@@ -110,13 +110,13 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
     public void onClick(View view) {
         if (view == this.bYQ || view == this.bYR) {
             dismiss();
-            if (this.okJ != null) {
-                this.okJ.onCancel();
+            if (this.okI != null) {
+                this.okI.onCancel();
             }
         } else if (view == this.bYS) {
             dismiss();
-            if (this.okJ != null) {
-                this.okJ.onConfirm();
+            if (this.okI != null) {
+                this.okI.onConfirm();
             }
         }
     }
@@ -126,6 +126,6 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
     }
 
     public void a(a aVar) {
-        this.okJ = aVar;
+        this.okI = aVar;
     }
 }

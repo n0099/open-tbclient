@@ -8,10 +8,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public final class ObjectTypeAdapter extends TypeAdapter<Object> {
-    public static final TypeAdapterFactory pLE = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ObjectTypeAdapter.1
+    public static final TypeAdapterFactory pNm = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ObjectTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-            if (aVar.eCI() == Object.class) {
+            if (aVar.eDm() == Object.class) {
                 return new ObjectTypeAdapter(gson);
             }
             return null;
@@ -25,10 +25,10 @@ public final class ObjectTypeAdapter extends TypeAdapter<Object> {
 
     @Override // com.google.gson.TypeAdapter
     public Object read(com.google.gson.stream.a aVar) throws IOException {
-        switch (aVar.eCl()) {
+        switch (aVar.eCP()) {
             case BEGIN_ARRAY:
                 ArrayList arrayList = new ArrayList();
-                aVar.eCj();
+                aVar.eCN();
                 while (aVar.hasNext()) {
                     arrayList.add(read(aVar));
                 }
@@ -36,20 +36,20 @@ public final class ObjectTypeAdapter extends TypeAdapter<Object> {
                 return arrayList;
             case BEGIN_OBJECT:
                 LinkedTreeMap linkedTreeMap = new LinkedTreeMap();
-                aVar.eCk();
+                aVar.eCO();
                 while (aVar.hasNext()) {
-                    linkedTreeMap.put(aVar.eCo(), read(aVar));
+                    linkedTreeMap.put(aVar.eCS(), read(aVar));
                 }
                 aVar.endObject();
                 return linkedTreeMap;
             case STRING:
-                return aVar.eCp();
+                return aVar.eCT();
             case NUMBER:
-                return Double.valueOf(aVar.eCs());
+                return Double.valueOf(aVar.eCW());
             case BOOLEAN:
-                return Boolean.valueOf(aVar.eCq());
+                return Boolean.valueOf(aVar.eCU());
             case NULL:
-                aVar.eCr();
+                aVar.eCV();
                 return null;
             default:
                 throw new IllegalStateException();
@@ -59,13 +59,13 @@ public final class ObjectTypeAdapter extends TypeAdapter<Object> {
     @Override // com.google.gson.TypeAdapter
     public void write(com.google.gson.stream.b bVar, Object obj) throws IOException {
         if (obj == null) {
-            bVar.eCE();
+            bVar.eDi();
             return;
         }
         TypeAdapter adapter = this.gson.getAdapter(obj.getClass());
         if (adapter instanceof ObjectTypeAdapter) {
-            bVar.eCC();
-            bVar.eCD();
+            bVar.eDg();
+            bVar.eDh();
             return;
         }
         adapter.write(bVar, obj);

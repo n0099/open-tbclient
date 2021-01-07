@@ -44,9 +44,9 @@ public class j extends Request<String> {
     public p<String> a(l lVar) {
         String str;
         try {
-            str = new String(lVar.f6340b, com.bytedance.sdk.adnet.d.c.a(lVar.c));
+            str = new String(lVar.f6341b, com.bytedance.sdk.adnet.d.c.a(lVar.c));
         } catch (UnsupportedEncodingException e) {
-            str = new String(lVar.f6340b);
+            str = new String(lVar.f6341b);
         }
         return p.a(str, com.bytedance.sdk.adnet.d.c.c(lVar));
     }

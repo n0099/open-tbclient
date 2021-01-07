@@ -131,7 +131,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
                 onNoMoreData();
                 return;
             case RELEASE_TO_LONG_REFRESH:
-                aKF();
+                aKG();
                 return;
             default:
                 return;
@@ -145,7 +145,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aKF() {
+    public void aKG() {
     }
 
     protected void onReleaseToRefresh() {

@@ -47,7 +47,7 @@ public final class a {
         tbImageView.setDefaultResource(R.drawable.toastpic);
         tbImageView.setAutoChangeStyle(false);
         final PopupWindow popupWindow = new PopupWindow(currentActivity);
-        switch (gVar.blr()) {
+        switch (gVar.bls()) {
             case 3:
                 tbImageView.setImageResource(R.drawable.toastpic_scheme);
                 onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.a.1
@@ -114,8 +114,8 @@ public final class a {
         }
         textView.setOnClickListener(onClickListener);
         textView2.setOnClickListener(onClickListener);
-        textView.setText(gVar.blp());
-        textView2.setText(gVar.blq());
+        textView.setText(gVar.blq());
+        textView2.setText(gVar.blr());
         textView3.setText(gVar.getTitle());
         textView4.setText(gVar.getTips());
         ColorDrawable colorDrawable = new ColorDrawable();

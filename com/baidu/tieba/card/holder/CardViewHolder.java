@@ -11,7 +11,7 @@ public class CardViewHolder<T extends b> extends TypeAdapter.ViewHolder {
         this.iAP = t;
     }
 
-    public T cvG() {
+    public T cvH() {
         return this.iAP;
     }
 }

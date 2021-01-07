@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
     final boolean delayErrors;
     final h<? super T, ? extends aa<? extends R>> mapper;
@@ -20,10 +20,10 @@ public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        this.qgK.a((j) new FlatMapSingleSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.qit.a((j) new FlatMapSingleSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class FlatMapSingleSubscriber<T, R> extends AtomicInteger implements j<T>, d {
         private static final long serialVersionUID = 8600231336733376951L;
         final org.a.c<? super R> actual;
@@ -158,7 +158,7 @@ public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
                 if (aVar != null) {
                     break;
                 }
-                aVar = new io.reactivex.internal.queue.a<>(g.eLa());
+                aVar = new io.reactivex.internal.queue.a<>(g.eLE());
             } while (!this.queue.compareAndSet(null, aVar));
             return aVar;
         }
@@ -336,7 +336,7 @@ public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes5.dex */
         final class InnerObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<R> {
             private static final long serialVersionUID = -502562646270949838L;
 

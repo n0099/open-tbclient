@@ -21,8 +21,8 @@ import java.util.List;
 public class c extends BaseAdapter {
     private f eXW;
     private List<MusicData> mList;
-    public int nHc;
-    public String nHd;
+    public int nHb;
+    public String nHc;
 
     public c(f fVar) {
         this.eXW = fVar;
@@ -31,7 +31,7 @@ public class c extends BaseAdapter {
     public void setData(List<MusicData> list) {
         if (list != null) {
             this.mList = list;
-            Ur(this.nHd);
+            Uq(this.nHc);
             notifyDataSetChanged();
         }
     }
@@ -67,16 +67,16 @@ public class c extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.eXW.getPageActivity()).inflate(R.layout.layout_music_item, (ViewGroup) null);
             aVar = new a();
-            aVar.nGl = (TbImageView) view.findViewById(R.id.music_image);
-            aVar.nGo = (TextView) view.findViewById(R.id.music_title);
-            aVar.nGn = view.findViewById(R.id.music_loading);
-            aVar.nGl.setDrawerType(1);
-            aVar.nGl.setIsRound(true);
-            aVar.nGl.setDefaultBgResource(R.color.transparent);
-            aVar.nGl.setDefaultResource(R.drawable.bg_video_cloudmusic);
-            aVar.nGl.setBorderWidth(l.getDimens(this.eXW.getPageActivity(), R.dimen.ds4));
-            aVar.nGl.setBorderColor(ao.getColor(R.color.CAM_X0302));
-            aVar.nGl.setConrers(15);
+            aVar.nGk = (TbImageView) view.findViewById(R.id.music_image);
+            aVar.nGn = (TextView) view.findViewById(R.id.music_title);
+            aVar.nGm = view.findViewById(R.id.music_loading);
+            aVar.nGk.setDrawerType(1);
+            aVar.nGk.setIsRound(true);
+            aVar.nGk.setDefaultBgResource(R.color.transparent);
+            aVar.nGk.setDefaultResource(R.drawable.bg_video_cloudmusic);
+            aVar.nGk.setBorderWidth(l.getDimens(this.eXW.getPageActivity(), R.dimen.ds4));
+            aVar.nGk.setBorderColor(ao.getColor(R.color.CAM_X0302));
+            aVar.nGk.setConrers(15);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -85,23 +85,23 @@ public class c extends BaseAdapter {
         if (musicData != null) {
             switch (musicData.editMusicType) {
                 case 1:
-                    aVar.nGl.startLoad(String.valueOf(R.drawable.icon_video_mute), 24, false);
+                    aVar.nGk.startLoad(String.valueOf(R.drawable.icon_video_mute), 24, false);
                     break;
                 case 2:
-                    aVar.nGl.startLoad(String.valueOf(R.drawable.icon_video_cloudmusic), 24, false);
+                    aVar.nGk.startLoad(String.valueOf(R.drawable.icon_video_cloudmusic), 24, false);
                     break;
                 default:
-                    aVar.nGl.startLoad(musicData.img, 10, false);
+                    aVar.nGk.startLoad(musicData.img, 10, false);
                     break;
             }
-            aVar.nGn.setVisibility(4);
-            aVar.nGo.setTextColor(ao.getColor(R.color.CAM_X0107));
-            aVar.nGo.setText(musicData.name);
-            a(aVar.nGo, l.getDimens(this.eXW.getPageActivity(), R.dimen.ds120), musicData.name);
-            if (i == this.nHc) {
-                aVar.nGl.setDrawBorder(true);
+            aVar.nGm.setVisibility(4);
+            aVar.nGn.setTextColor(ao.getColor(R.color.CAM_X0107));
+            aVar.nGn.setText(musicData.name);
+            a(aVar.nGn, l.getDimens(this.eXW.getPageActivity(), R.dimen.ds120), musicData.name);
+            if (i == this.nHb) {
+                aVar.nGk.setDrawBorder(true);
             } else {
-                aVar.nGl.setDrawBorder(false);
+                aVar.nGk.setDrawBorder(false);
             }
             if (i == 0) {
                 view.setPadding(l.getDimens(this.eXW.getPageActivity(), R.dimen.ds34), l.getDimens(this.eXW.getPageActivity(), R.dimen.ds44), 0, 0);
@@ -122,12 +122,12 @@ public class c extends BaseAdapter {
     }
 
     public void LP(int i) {
-        this.nHc = i;
+        this.nHb = i;
         notifyDataSetChanged();
     }
 
-    public void Ur(String str) {
-        this.nHd = str;
+    public void Uq(String str) {
+        this.nHc = str;
         if (!TextUtils.isEmpty(str) && this.mList != null) {
             int i = -1;
             for (int i2 = 0; i2 < this.mList.size(); i2++) {
@@ -138,12 +138,12 @@ public class c extends BaseAdapter {
             if (i == -1) {
                 i = 1;
             }
-            this.nHc = i;
+            this.nHb = i;
         }
     }
 
-    public int dUd() {
-        return this.nHc;
+    public int dUe() {
+        return this.nHb;
     }
 
     public void a(TextView textView, int i, String str) {
@@ -161,9 +161,9 @@ public class c extends BaseAdapter {
 
     /* loaded from: classes8.dex */
     public class a {
-        public TbImageView nGl;
-        public View nGn;
-        public TextView nGo;
+        public TbImageView nGk;
+        public View nGm;
+        public TextView nGn;
 
         public a() {
         }

@@ -15,7 +15,7 @@ public class b {
         if (imageFileInfo == null) {
             return null;
         }
-        return com.baidu.tbadk.imageManager.c.bGp().Ef(imageFileInfo.toCachedKey(z));
+        return com.baidu.tbadk.imageManager.c.bGq().Ee(imageFileInfo.toCachedKey(z));
     }
 
     public com.baidu.adp.widget.ImageView.a a(ImageFileInfo imageFileInfo, com.baidu.tbadk.imageManager.b bVar, boolean z, boolean z2) {
@@ -80,9 +80,9 @@ public class b {
                     this.imagesWaitingForLoadRef.add(poll);
                     break;
                 } else {
-                    com.baidu.adp.widget.ImageView.a Ef = com.baidu.tbadk.imageManager.c.bGp().Ef(poll.fIG.toCachedKey(poll.includePersistActions));
-                    if (Ef != null) {
-                        poll.fII = Ef;
+                    com.baidu.adp.widget.ImageView.a Ee = com.baidu.tbadk.imageManager.c.bGq().Ee(poll.fIG.toCachedKey(poll.includePersistActions));
+                    if (Ee != null) {
+                        poll.fII = Ee;
                         poll.isFromCache = true;
                     } else {
                         Bitmap b2 = b.this.b(poll.fIG, poll.includePersistActions);
@@ -141,7 +141,7 @@ public class b {
                 for (a aVar : aVarArr) {
                     com.baidu.adp.widget.ImageView.a aVar2 = aVar.fII;
                     if (aVar2 != null && !aVar.isFromCache) {
-                        com.baidu.tbadk.imageManager.c.bGp().b(aVar.fIG.toCachedKey(aVar.includePersistActions), aVar2);
+                        com.baidu.tbadk.imageManager.c.bGq().b(aVar.fIG.toCachedKey(aVar.includePersistActions), aVar2);
                     }
                     if (aVar.fIH != null) {
                         aVar.fIH.a(aVar2, aVar.fIG.toCachedKey(aVar.includePersistActions), aVar.isFromCache);
@@ -181,14 +181,14 @@ public class b {
         }
         if (imageFileInfo.getOrginalBitmap() != null) {
             try {
-                return com.baidu.tbadk.img.effect.c.bGr().a(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList, imageFileInfo);
+                return com.baidu.tbadk.img.effect.c.bGs().a(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList, imageFileInfo);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
             }
         } else if (imageFileInfo.hasActions(z)) {
             try {
-                return com.baidu.tbadk.img.effect.c.bGr().a(imageFileInfo.getFilePath(), linkedList, imageFileInfo);
+                return com.baidu.tbadk.img.effect.c.bGs().a(imageFileInfo.getFilePath(), linkedList, imageFileInfo);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;

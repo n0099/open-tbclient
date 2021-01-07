@@ -30,7 +30,7 @@ public class i extends BdBaseModel {
     };
 
     public void init() {
-        bSG();
+        bSH();
         registerListener();
     }
 
@@ -53,7 +53,7 @@ public class i extends BdBaseModel {
         }
     }
 
-    private void bSG() {
+    private void bSH() {
         String str = TbConfig.SERVER_ADDRESS + "ala/sys/getBeautyConf";
         if (h.isDebug()) {
             h.d("MKNetLoader", "registerFilterAndBeautyTask: " + str);
@@ -108,7 +108,7 @@ public class i extends BdBaseModel {
             return;
         }
         AlaMakeupResponseMessage alaMakeupResponseMessage = (AlaMakeupResponseMessage) httpResponsedMessage;
-        this.guf = alaMakeupResponseMessage.bSB();
+        this.guf = alaMakeupResponseMessage.bSC();
         if (h.isDebug()) {
             h.d("MKNetLoader", "onGetMakeup: " + (this.guf == null ? "null" : Integer.valueOf(this.guf.size())));
         }

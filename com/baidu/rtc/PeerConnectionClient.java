@@ -199,11 +199,11 @@ public class PeerConnectionClient implements DataChannel.Observer {
                     public void run() {
                         Log.d("PCRTCClient", "IceConnectionState: " + iceConnectionState);
                         if (iceConnectionState == PeerConnection.IceConnectionState.CONNECTED) {
-                            PeerConnectionClient.this.cwA.aik();
-                        } else if (iceConnectionState == PeerConnection.IceConnectionState.DISCONNECTED) {
                             PeerConnectionClient.this.cwA.ail();
-                        } else if (iceConnectionState == PeerConnection.IceConnectionState.FAILED) {
+                        } else if (iceConnectionState == PeerConnection.IceConnectionState.DISCONNECTED) {
                             PeerConnectionClient.this.cwA.aim();
+                        } else if (iceConnectionState == PeerConnection.IceConnectionState.FAILED) {
+                            PeerConnectionClient.this.cwA.ain();
                         }
                     }
                 });
@@ -262,13 +262,13 @@ public class PeerConnectionClient implements DataChannel.Observer {
 
         void a(StatsReport[] statsReportArr, BigInteger bigInteger, StatsEventsType statsEventsType);
 
-        void aik();
-
         void ail();
 
         void aim();
 
         void ain();
+
+        void aio();
 
         void b(com.baidu.rtc.a aVar);
 
@@ -518,14 +518,14 @@ public class PeerConnectionClient implements DataChannel.Observer {
             this.cwP.addTrack(a(context, this.cxb));
         }
         if (this.mHasAudio) {
-            this.cwP.addTrack(aif());
+            this.cwP.addTrack(aig());
         }
         a2.addStream(this.cwP);
         g(bigInteger);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aie() {
+    public void aif() {
         Log.d("PCRTCClient", "Closing peer connection.");
         this.cwY.cancel();
         if (this.cwR != null) {
@@ -570,12 +570,12 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
         this.options = null;
         Log.d("PCRTCClient", "Closing peer connection done.");
-        this.cwA.ain();
+        this.cwA.aio();
         PeerConnectionFactory.stopInternalTracingCapture();
         PeerConnectionFactory.shutdownInternalTracer();
     }
 
-    private AudioTrack aif() {
+    private AudioTrack aig() {
         this.cwx = this.cwB.createAudioSource(this.cww);
         this.cwF = this.cwB.createAudioTrack("ARDAMSa0", this.cwx);
         this.cwF.setEnabled(this.cwz);
@@ -583,7 +583,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aig() {
+    public void aih() {
         this.cwQ = new MediaConstraints();
         this.cwQ.optional.add(new MediaConstraints.KeyValuePair("DtlsSrtpKeyAgreement", "true"));
         this.videoWidth = this.cwS.videoWidth;
@@ -617,7 +617,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
     }
 
-    public static PeerConnectionClient aih() {
+    public static PeerConnectionClient aii() {
         PeerConnectionClient peerConnectionClient;
         synchronized (PeerConnectionClient.class) {
             try {
@@ -712,11 +712,11 @@ public class PeerConnectionClient implements DataChannel.Observer {
             str = str + "BRTC.Required.Resolustion.Aligment32/Enabled/";
         }
         PeerConnectionFactory.initialize(PeerConnectionFactory.InitializationOptions.builder(context).setFieldTrials(str).createInitializationOptions());
-        AudioDeviceModule aii = aii();
-        this.cwu = (JavaAudioDeviceModule) aii;
-        this.cwB = PeerConnectionFactory.builder().setAudioDeviceModule(aii).setVideoDecoderFactory(MediaCodecVideoDecoder.createFactory()).setVideoEncoderFactory(MediaCodecVideoEncoder.createFactory()).createPeerConnectionFactory();
+        AudioDeviceModule aij = aij();
+        this.cwu = (JavaAudioDeviceModule) aij;
+        this.cwB = PeerConnectionFactory.builder().setAudioDeviceModule(aij).setVideoDecoderFactory(MediaCodecVideoDecoder.createFactory()).setVideoEncoderFactory(MediaCodecVideoEncoder.createFactory()).createPeerConnectionFactory();
         Log.d("PCRTCClient", "Peer connection factory created.");
-        aii.release();
+        aij.release();
         if (!this.cwO) {
             Logging.enableLogToDebugOutput(Logging.Severity.LS_ERROR);
             return;
@@ -819,7 +819,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        PeerConnectionClient.this.aig();
+                        PeerConnectionClient.this.aih();
                         PeerConnectionClient.this.a(context, bigInteger);
                     } catch (Exception e) {
                         PeerConnectionClient peerConnectionClient = PeerConnectionClient.this;
@@ -887,7 +887,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
     }
 
-    AudioDeviceModule aii() {
+    AudioDeviceModule aij() {
         AudioDeviceModule createAudioDeviceModule = JavaAudioDeviceModule.builder(this.context).setSamplesReadyCallback(this.cwC).setRemoteSamplesReadyCallback(this.cwN).setExternalAudioRecord(this.cwL).setUseHardwareAcousticEchoCanceler(!this.cwS.cxz).setUseHardwareNoiseSuppressor(!this.cwS.cxB).setAudioRecordErrorCallback(new JavaAudioDeviceModule.AudioRecordErrorCallback() { // from class: com.baidu.rtc.PeerConnectionClient.11
             @Override // org.webrtc.audio.JavaAudioDeviceModule.AudioRecordErrorCallback
             public void onWebRtcAudioRecordError(String str) {
@@ -930,7 +930,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         return createAudioDeviceModule;
     }
 
-    public void aij() {
+    public void aik() {
         if (this.executor.isShutdown()) {
             Log.w("PCRTCClient", "executor is already shutdown");
         } else {
@@ -975,7 +975,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         this.executor.execute(new Runnable() { // from class: com.baidu.rtc.PeerConnectionClient.10
             @Override // java.lang.Runnable
             public void run() {
-                PeerConnectionClient.this.aie();
+                PeerConnectionClient.this.aif();
             }
         });
         try {

@@ -33,27 +33,27 @@ public class GameWebViewManager extends SwanAppWebViewManager implements g<NgWeb
     public GameWebViewManager(Context context) {
         super(context);
         initView();
-        bdQ();
+        bdR();
         a(new GameWebViewClient());
         em(context);
     }
 
     private void em(Context context) {
-        com.baidu.swan.apps.adaptation.a.b alH = d.aMg().aMi().ajN().alH();
-        if (alH != null) {
-            alH.bY(context);
+        com.baidu.swan.apps.adaptation.a.b alI = d.aMh().aMj().ajO().alI();
+        if (alI != null) {
+            alI.bY(context);
         }
     }
 
     private void initView() {
         this.bDW = new FrameLayout(this.cSp.getBaseContext());
-        this.bDW.addView(amr(), -1, -1);
-        bdN();
+        this.bDW.addView(ams(), -1, -1);
         bdO();
         bdP();
+        bdQ();
     }
 
-    private void bdN() {
+    private void bdO() {
         if (this.eqT == null) {
             this.eqT = new ImageView(this.cSp.getBaseContext());
             Resources resources = this.cSp.getResources();
@@ -77,16 +77,16 @@ public class GameWebViewManager extends SwanAppWebViewManager implements g<NgWeb
         }
     }
 
-    private void bdO() {
+    private void bdP() {
         this.cZT = new NetworkErrorView(this.cSp.getBaseContext());
         this.cZT.setBackgroundColor(this.cSp.getResources().getColor(a.c.aiapps_white));
-        amr().addView(this.cZT, -1, -1);
+        ams().addView(this.cZT, -1, -1);
         this.cZT.setVisibility(8);
         View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.swan.games.view.webview.GameWebViewManager.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (SwanAppNetworkUtils.isNetworkConnected(GameWebViewManager.this.cSp) && com.baidu.swan.apps.af.a.b.sQ(GameWebViewManager.this.amr().getUrl())) {
-                    GameWebViewManager.this.amr().reload();
+                if (SwanAppNetworkUtils.isNetworkConnected(GameWebViewManager.this.cSp) && com.baidu.swan.apps.af.a.b.sQ(GameWebViewManager.this.ams().getUrl())) {
+                    GameWebViewManager.this.ams().reload();
                     GameWebViewManager.this.cZT.setVisibility(8);
                 }
             }
@@ -95,7 +95,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements g<NgWeb
         this.cZT.setReloadClickListener(onClickListener);
     }
 
-    private void bdP() {
+    private void bdQ() {
         this.mLoadingView = new ImageView(this.cSp.getBaseContext());
         int dimension = (int) this.cSp.getResources().getDimension(a.d.swangame_webview_loading_size);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimension, dimension);
@@ -105,7 +105,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements g<NgWeb
         this.bDW.addView(this.mLoadingView, layoutParams);
     }
 
-    private void bdQ() {
+    private void bdR() {
         a(new BdSailorWebViewClientExt() { // from class: com.baidu.swan.games.view.webview.GameWebViewManager.3
             @Override // com.baidu.browser.sailor.BdSailorWebViewClientExt
             public boolean onSubFrameBeforeRequest(BdSailorWebView bdSailorWebView, String str) {
@@ -118,7 +118,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements g<NgWeb
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    protected void aqQ() {
+    protected void aqR() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -127,12 +127,12 @@ public class GameWebViewManager extends SwanAppWebViewManager implements g<NgWeb
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    protected void aqP() {
+    protected void aqQ() {
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    protected void aqR() {
-        amr().addJavascriptInterface(new GameWebViewJavascriptInterface(), GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME);
+    protected void aqS() {
+        ams().addJavascriptInterface(new GameWebViewJavascriptInterface(), GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME);
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
@@ -147,23 +147,23 @@ public class GameWebViewManager extends SwanAppWebViewManager implements g<NgWeb
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
-    public String amt() {
+    public String amu() {
         return "SwanGameWebView";
     }
 
     @Override // com.baidu.swan.games.view.a
-    public void aWC() {
-        amr().onResume();
-    }
-
-    @Override // com.baidu.swan.games.view.a
     public void aWD() {
-        bdR();
-        amr().onPause();
+        ams().onResume();
     }
 
     @Override // com.baidu.swan.games.view.a
     public void aWE() {
+        bdS();
+        ams().onPause();
+    }
+
+    @Override // com.baidu.swan.games.view.a
+    public void aWF() {
         destroy();
     }
 
@@ -173,20 +173,20 @@ public class GameWebViewManager extends SwanAppWebViewManager implements g<NgWeb
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.g
-    public void amy() {
-        com.baidu.swan.games.view.c.c(this.bDW, com.baidu.swan.apps.model.a.a.a.aFY());
+    public void amz() {
+        com.baidu.swan.games.view.c.c(this.bDW, com.baidu.swan.apps.model.a.a.a.aFZ());
         com.baidu.swan.games.view.c.a(this);
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.g
-    public boolean ami() {
+    public boolean amj() {
         return this.bDW.getParent() != null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.g
-    public void amz() {
-        amr().stopLoading();
-        amr().clearView();
+    public void amA() {
+        ams().stopLoading();
+        ams().clearView();
         com.baidu.swan.games.view.c.removeView(this.bDW);
         com.baidu.swan.games.view.c.b(this);
     }
@@ -216,7 +216,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements g<NgWeb
         }
     }
 
-    private void bdR() {
+    private void bdS() {
         loadJavaScript("var eles = document.querySelectorAll('video,audio');eles && eles.forEach(function (item, index) {item.pause();});");
     }
 
@@ -246,9 +246,9 @@ public class GameWebViewManager extends SwanAppWebViewManager implements g<NgWeb
             if (!z && (com.baidu.swan.apps.af.a.b.sU(str) || com.baidu.swan.apps.af.a.b.sV(str))) {
                 try {
                     Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-                    e aMl = e.aMl();
-                    if (aMl != null) {
-                        aMl.aMe().startActivity(intent);
+                    e aMm = e.aMm();
+                    if (aMm != null) {
+                        aMm.aMf().startActivity(intent);
                         return true;
                     }
                 } catch (Exception e) {

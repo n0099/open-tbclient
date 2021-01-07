@@ -28,7 +28,7 @@ public class j extends DeflatedChunksSet {
         int i2 = 1;
         int i3 = 1 - this.i.j;
         while (i2 <= i) {
-            this.g[i2] = (byte) ((((i3 > 0 ? this.g[i3] & 255 : 0) + (this.h[i2] & 255)) / 2) + this.f10786a[i2]);
+            this.g[i2] = (byte) ((((i3 > 0 ? this.g[i3] & 255 : 0) + (this.h[i2] & 255)) / 2) + this.f10787a[i2]);
             i2++;
             i3++;
         }
@@ -36,14 +36,14 @@ public class j extends DeflatedChunksSet {
 
     private void d(int i) {
         for (int i2 = 1; i2 <= i; i2++) {
-            this.g[i2] = this.f10786a[i2];
+            this.g[i2] = this.f10787a[i2];
         }
     }
 
     private void e(int i) {
         int i2 = 1 - this.i.j;
         for (int i3 = 1; i3 <= i; i3++) {
-            this.g[i3] = (byte) (n.a(i2 > 0 ? this.g[i2] & 255 : 0, this.h[i3] & 255, i2 > 0 ? this.h[i2] & 255 : 0) + this.f10786a[i3]);
+            this.g[i3] = (byte) (n.a(i2 > 0 ? this.g[i2] & 255 : 0, this.h[i3] & 255, i2 > 0 ? this.h[i2] & 255 : 0) + this.f10787a[i3]);
             i2++;
         }
     }
@@ -51,11 +51,11 @@ public class j extends DeflatedChunksSet {
     private void f(int i) {
         int i2 = 1;
         for (int i3 = 1; i3 <= this.i.j; i3++) {
-            this.g[i3] = this.f10786a[i3];
+            this.g[i3] = this.f10787a[i3];
         }
         int i4 = this.i.j + 1;
         while (i4 <= i) {
-            this.g[i4] = (byte) (this.f10786a[i4] + this.g[i2]);
+            this.g[i4] = (byte) (this.f10787a[i4] + this.g[i2]);
             i4++;
             i2++;
         }
@@ -63,7 +63,7 @@ public class j extends DeflatedChunksSet {
 
     private void g(int i) {
         for (int i2 = 1; i2 <= i; i2++) {
-            this.g[i2] = (byte) (this.f10786a[i2] + this.h[i2]);
+            this.g[i2] = (byte) (this.f10787a[i2] + this.h[i2]);
         }
     }
 
@@ -82,9 +82,9 @@ public class j extends DeflatedChunksSet {
     }
 
     protected void b(int i) {
-        if (this.g == null || this.g.length < this.f10786a.length) {
-            this.g = new byte[this.f10786a.length];
-            this.h = new byte[this.f10786a.length];
+        if (this.g == null || this.g.length < this.f10787a.length) {
+            this.g = new byte[this.f10787a.length];
+            this.h = new byte[this.f10787a.length];
         }
         if (this.k.j == 0) {
             Arrays.fill(this.g, (byte) 0);
@@ -92,14 +92,14 @@ public class j extends DeflatedChunksSet {
         byte[] bArr = this.g;
         this.g = this.h;
         this.h = bArr;
-        byte b2 = this.f10786a[0];
+        byte b2 = this.f10787a[0];
         if (!FilterType.isValidStandard(b2)) {
             throw new PngjException("Filter type " + ((int) b2) + " invalid");
         }
         FilterType byVal = FilterType.getByVal(b2);
         int[] iArr = this.l;
         iArr[b2] = iArr[b2] + 1;
-        this.g[0] = this.f10786a[0];
+        this.g[0] = this.f10787a[0];
         switch (byVal) {
             case FILTER_NONE:
                 d(i);
@@ -141,7 +141,7 @@ public class j extends DeflatedChunksSet {
     public int j() {
         int i = 0;
         if (this.j == null) {
-            if (h() < this.i.f10811b - 1) {
+            if (h() < this.i.f10812b - 1) {
                 i = this.i.k + 1;
             }
         } else if (this.j.a()) {

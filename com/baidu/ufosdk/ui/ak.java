@@ -10,11 +10,11 @@ import com.baidu.ufosdk.UfoSDK;
 public final class ak implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackFacePageActivity f5716a;
+    final /* synthetic */ FeedbackFacePageActivity f5717a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(FeedbackFacePageActivity feedbackFacePageActivity) {
-        this.f5716a = feedbackFacePageActivity;
+        this.f5717a = feedbackFacePageActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,12 +26,12 @@ public final class ak implements View.OnClickListener {
         SharedPreferences.Editor editor2;
         SharedPreferences.Editor editor3;
         if (UfoSDK.clientid.length() == 0) {
-            Toast.makeText(this.f5716a.getApplicationContext(), com.baidu.ufosdk.f.s.a("62"), 1).show();
-            if (com.baidu.ufosdk.b.d.c(this.f5716a.getApplicationContext())) {
+            Toast.makeText(this.f5717a.getApplicationContext(), com.baidu.ufosdk.f.s.a("62"), 1).show();
+            if (com.baidu.ufosdk.b.d.c(this.f5717a.getApplicationContext())) {
                 new Thread(new al(this)).start();
                 return;
             } else {
-                Toast.makeText(this.f5716a.getApplicationContext(), com.baidu.ufosdk.f.s.a("64"), 1).show();
+                Toast.makeText(this.f5717a.getApplicationContext(), com.baidu.ufosdk.f.s.a("64"), 1).show();
                 return;
             }
         }
@@ -40,26 +40,26 @@ public final class ak implements View.OnClickListener {
                 return;
             }
             if (UfoSDK.startStr.equals(com.baidu.ufosdk.f.i.b(System.currentTimeMillis()) + "-enable")) {
-                sharedPreferences = this.f5716a.f5691b;
+                sharedPreferences = this.f5717a.f5692b;
                 if (!sharedPreferences.getBoolean("robotUv_has", false)) {
-                    sharedPreferences2 = this.f5716a.f5691b;
+                    sharedPreferences2 = this.f5717a.f5692b;
                     int i = sharedPreferences2.getInt("robotUv", 0);
-                    editor2 = this.f5716a.f5690a;
+                    editor2 = this.f5717a.f5691a;
                     editor2.putInt("robotUv", i + 1);
-                    editor3 = this.f5716a.f5690a;
+                    editor3 = this.f5717a.f5691a;
                     editor3.putBoolean("robotUv_has", true);
                 }
-                editor = this.f5716a.f5690a;
+                editor = this.f5717a.f5691a;
                 editor.commit();
             }
             Intent intent = new Intent();
-            intent.setClass(this.f5716a, FeedbackInputActivity.class);
-            str = this.f5716a.t;
+            intent.setClass(this.f5717a, FeedbackInputActivity.class);
+            str = this.f5717a.t;
             intent.putExtra("msgid", str);
             intent.putExtra("fromlist", "no");
             intent.putExtra("from_facepage", true);
             intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
-            this.f5716a.startActivity(intent);
+            this.f5717a.startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -26,10 +26,10 @@ public class b {
         return aVar;
     }
 
-    public static AlaLiveInfoData bXV() {
+    public static AlaLiveInfoData bXW() {
         a aVar = gVZ;
         if (aVar != null) {
-            return aVar.bXV();
+            return aVar.bXW();
         }
         return null;
     }
@@ -38,14 +38,14 @@ public class b {
         a aVar = gVZ;
         if (aVar != null) {
             aVar.a(interfaceC0644a);
-            aVar.bYa();
+            aVar.bYb();
         }
     }
 
-    public static boolean bXY() {
+    public static boolean bXZ() {
         a aVar = gVZ;
         if (aVar != null) {
-            return aVar.bXY();
+            return aVar.bXZ();
         }
         return false;
     }

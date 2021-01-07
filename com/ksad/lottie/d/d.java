@@ -3,17 +3,17 @@ package com.ksad.lottie.d;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private float f8286a;
+    private float f8287a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f8287b;
+    private int f8288b;
 
     public void a(float f) {
-        this.f8286a += f;
-        this.f8287b++;
-        if (this.f8287b == Integer.MAX_VALUE) {
-            this.f8286a /= 2.0f;
-            this.f8287b /= 2;
+        this.f8287a += f;
+        this.f8288b++;
+        if (this.f8288b == Integer.MAX_VALUE) {
+            this.f8287a /= 2.0f;
+            this.f8288b /= 2;
         }
     }
 }

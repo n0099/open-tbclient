@@ -110,7 +110,7 @@ public class a extends BdBaseModel {
     private Runnable hKe = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.p.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.clS();
+            a.this.clT();
         }
     };
 
@@ -122,7 +122,7 @@ public class a extends BdBaseModel {
         }
     }
 
-    public void clR() {
+    public void clS() {
         this.mHandler.removeCallbacks(this.hKe);
     }
 
@@ -141,11 +141,11 @@ public class a extends BdBaseModel {
     public void stop() {
         this.hKb = false;
         MessageManager.getInstance().unRegisterListener(this.hKd);
-        clR();
+        clS();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void clS() {
+    public void clT() {
         if (this.aGe != null && this.aGe.mLiveInfo != null) {
             a(this.aGe.mLiveInfo.live_id, this.bvZ, this.hGS);
         }

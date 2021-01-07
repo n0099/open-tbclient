@@ -6,13 +6,13 @@ import java.util.HashMap;
 public class ErrorAction implements RouterAction {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1968a = "Action not implement";
+    private static final String f1969a = "Action not implement";
 
     @Override // com.baidu.fsg.base.router.RouterAction
     public void invoke(Context context, HashMap hashMap, RouterCallback routerCallback) {
         if (routerCallback != null) {
             HashMap hashMap2 = new HashMap();
-            hashMap2.put("result", f1968a);
+            hashMap2.put("result", f1969a);
             routerCallback.onResult(RouterCallback.CODE_NOT_IMPLEMENT, hashMap2);
         }
     }

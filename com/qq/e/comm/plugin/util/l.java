@@ -4,14 +4,14 @@ import android.content.SharedPreferences;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.status.SDKStatus;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile l f12884a = null;
+    private static volatile l f12885a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f12885b = SDKStatus.getSDKVersion() + "." + GDTADManager.getInstance().getPM().getPluginVersion();
+    private static final String f12886b = SDKStatus.getSDKVersion() + "." + GDTADManager.getInstance().getPM().getPluginVersion();
     private static int c = GDTADManager.getInstance().getSM().getInteger("buglyRate", 0);
     private boolean d;
 
@@ -20,18 +20,18 @@ public class l {
     }
 
     public static l a(String str) {
-        if (f12884a == null) {
+        if (f12885a == null) {
             synchronized (l.class) {
                 try {
-                    if (f12884a == null) {
-                        f12884a = new l(str);
+                    if (f12885a == null) {
+                        f12885a = new l(str);
                     }
                 } catch (Throwable th) {
                     throw th;
                 }
             }
         }
-        return f12884a;
+        return f12885a;
     }
 
     private void b() {
@@ -56,7 +56,7 @@ public class l {
 
     private void c() {
         SharedPreferences.Editor edit = GDTADManager.getInstance().getAppContext().getApplicationContext().getSharedPreferences("BuglySdkInfos", 0).edit();
-        edit.putString("2c39b77689", f12885b);
+        edit.putString("2c39b77689", f12886b);
         edit.apply();
     }
 

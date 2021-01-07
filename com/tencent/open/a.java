@@ -16,27 +16,27 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected HashMap<String, b> f13665a = new HashMap<>();
+    protected HashMap<String, b> f13666a = new HashMap<>();
 
     /* renamed from: com.tencent.open.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1239a {
+    public static class C1280a {
 
         /* renamed from: a  reason: collision with root package name */
-        protected WeakReference<WebView> f13668a;
+        protected WeakReference<WebView> f13669a;
 
         /* renamed from: b  reason: collision with root package name */
-        protected long f13669b;
+        protected long f13670b;
         protected String c;
 
-        public C1239a(WebView webView, long j, String str) {
-            this.f13668a = new WeakReference<>(webView);
-            this.f13669b = j;
+        public C1280a(WebView webView, long j, String str) {
+            this.f13669a = new WeakReference<>(webView);
+            this.f13670b = j;
             this.c = str;
         }
 
         public void a(Object obj) {
-            WebView webView = this.f13668a.get();
+            WebView webView = this.f13669a.get();
             if (webView != null) {
                 String str = "'undefined'";
                 if (obj instanceof String) {
@@ -46,19 +46,19 @@ public class a {
                 } else if (obj instanceof Boolean) {
                     str = obj.toString();
                 }
-                webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f13669b + ",{'r':0,'result':" + str + "});");
+                webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f13670b + ",{'r':0,'result':" + str + "});");
             }
         }
 
         public void a() {
-            WebView webView = this.f13668a.get();
+            WebView webView = this.f13669a.get();
             if (webView != null) {
-                webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f13669b + ",{'r':1,'result':'no such method'})");
+                webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f13670b + ",{'r':1,'result':'no such method'})");
             }
         }
 
         public void a(String str) {
-            WebView webView = this.f13668a.get();
+            WebView webView = this.f13669a.get();
             if (webView != null) {
                 webView.loadUrl("javascript:" + str);
             }
@@ -67,7 +67,7 @@ public class a {
 
     /* loaded from: classes4.dex */
     public static class b {
-        public void call(String str, List<String> list, C1239a c1239a) {
+        public void call(String str, List<String> list, C1280a c1280a) {
             Object invoke;
             Method[] declaredMethods = getClass().getDeclaredMethods();
             Method method = null;
@@ -86,8 +86,8 @@ public class a {
                     i++;
                 } catch (Exception e) {
                     f.b("openSDK_LOG.JsBridge", "-->handler call mehtod ex. targetMethod: " + ((Object) null), e);
-                    if (c1239a != null) {
-                        c1239a.a();
+                    if (c1280a != null) {
+                        c1280a.a();
                         return;
                     }
                     return;
@@ -120,14 +120,14 @@ public class a {
                 Class<?> returnType = method.getReturnType();
                 f.b("openSDK_LOG.JsBridge", "-->call, result: " + invoke + " | ReturnType: " + returnType.getName());
                 if ("void".equals(returnType.getName()) || returnType == Void.class) {
-                    if (c1239a != null) {
-                        c1239a.a((Object) null);
+                    if (c1280a != null) {
+                        c1280a.a((Object) null);
                     }
-                } else if (c1239a != null && customCallback()) {
-                    c1239a.a(invoke != null ? invoke.toString() : null);
+                } else if (c1280a != null && customCallback()) {
+                    c1280a.a(invoke != null ? invoke.toString() : null);
                 }
-            } else if (c1239a != null) {
-                c1239a.a();
+            } else if (c1280a != null) {
+                c1280a.a();
             }
         }
 
@@ -137,10 +137,10 @@ public class a {
     }
 
     public void a(b bVar, String str) {
-        this.f13665a.put(str, bVar);
+        this.f13666a.put(str, bVar);
     }
 
-    public void a(String str, String str2, List<String> list, C1239a c1239a) {
+    public void a(String str, String str2, List<String> list, C1280a c1280a) {
         f.a("openSDK_LOG.JsBridge", "getResult---objName = " + str + " methodName = " + str2);
         int size = list.size();
         for (int i = 0; i < size; i++) {
@@ -150,15 +150,15 @@ public class a {
                 e.printStackTrace();
             }
         }
-        b bVar = this.f13665a.get(str);
+        b bVar = this.f13666a.get(str);
         if (bVar != null) {
             f.b("openSDK_LOG.JsBridge", "call----");
-            bVar.call(str2, list, c1239a);
+            bVar.call(str2, list, c1280a);
             return;
         }
         f.b("openSDK_LOG.JsBridge", "not call----objName NOT FIND");
-        if (c1239a != null) {
-            c1239a.a();
+        if (c1280a != null) {
+            c1280a.a();
         }
     }
 
@@ -168,9 +168,9 @@ public class a {
             ArrayList arrayList = new ArrayList(Arrays.asList((str + "/#").split("/")));
             if (arrayList.size() >= 6) {
                 List<String> subList = arrayList.subList(4, arrayList.size() - 1);
-                C1239a c1239a = new C1239a(webView, 4L, str);
+                C1280a c1280a = new C1280a(webView, 4L, str);
                 webView.getUrl();
-                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c1239a);
+                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c1280a);
                 return true;
             }
             return false;

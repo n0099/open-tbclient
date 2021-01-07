@@ -17,7 +17,7 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public class BinderPoolService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private Binder f7642a = new a();
+    private Binder f7643a = new a();
 
     @Override // android.app.Service
     public void onCreate() {
@@ -29,7 +29,7 @@ public class BinderPoolService extends Service {
     @Nullable
     public IBinder onBind(Intent intent) {
         u.b("MultiProcess", "BinderPoolService onBind ! ");
-        return this.f7642a;
+        return this.f7643a;
     }
 
     @Override // android.app.Service

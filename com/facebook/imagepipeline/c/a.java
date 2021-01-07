@@ -2,40 +2,40 @@ package com.facebook.imagepipeline.c;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements e {
-    private final Executor pAO;
-    private final Executor pAP;
-    private final Executor pAN = Executors.newFixedThreadPool(2, new k(10, "FrescoIoBoundExecutor", true));
-    private final Executor pAQ = Executors.newFixedThreadPool(1, new k(10, "FrescoLightWeightBackgroundExecutor", true));
+    private final Executor pCv;
+    private final Executor pCw;
+    private final Executor pCu = Executors.newFixedThreadPool(2, new k(10, "FrescoIoBoundExecutor", true));
+    private final Executor pCx = Executors.newFixedThreadPool(1, new k(10, "FrescoLightWeightBackgroundExecutor", true));
 
     public a(int i) {
-        this.pAO = Executors.newFixedThreadPool(i, new k(10, "FrescoDecodeExecutor", true));
-        this.pAP = Executors.newFixedThreadPool(i, new k(10, "FrescoBackgroundExecutor", true));
+        this.pCv = Executors.newFixedThreadPool(i, new k(10, "FrescoDecodeExecutor", true));
+        this.pCw = Executors.newFixedThreadPool(i, new k(10, "FrescoBackgroundExecutor", true));
     }
 
     @Override // com.facebook.imagepipeline.c.e
-    public Executor exq() {
-        return this.pAN;
+    public Executor exS() {
+        return this.pCu;
     }
 
     @Override // com.facebook.imagepipeline.c.e
-    public Executor exr() {
-        return this.pAN;
+    public Executor exT() {
+        return this.pCu;
     }
 
     @Override // com.facebook.imagepipeline.c.e
-    public Executor exs() {
-        return this.pAO;
+    public Executor exU() {
+        return this.pCv;
     }
 
     @Override // com.facebook.imagepipeline.c.e
-    public Executor ext() {
-        return this.pAP;
+    public Executor exV() {
+        return this.pCw;
     }
 
     @Override // com.facebook.imagepipeline.c.e
-    public Executor exu() {
-        return this.pAQ;
+    public Executor exW() {
+        return this.pCx;
     }
 }

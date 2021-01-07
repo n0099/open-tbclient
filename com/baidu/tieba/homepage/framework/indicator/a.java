@@ -10,16 +10,16 @@ public class a {
     private final List<x> kaU = new ArrayList();
 
     public a() {
-        List<x> cRC = cRC();
-        if (!com.baidu.tbadk.core.util.x.isEmpty(cRC)) {
-            this.kaU.addAll(cRC);
+        List<x> cRD = cRD();
+        if (!com.baidu.tbadk.core.util.x.isEmpty(cRD)) {
+            this.kaU.addAll(cRD);
         }
     }
 
-    private List<x> cRC() {
+    private List<x> cRD() {
         ArrayList arrayList = new ArrayList();
         try {
-            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bvq().getString("key_index_tab_info_list", "[]"));
+            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bvr().getString("key_index_tab_info_list", "[]"));
             for (int i = 0; i < jSONArray.length(); i++) {
                 x xVar = new x();
                 xVar.parserJson(jSONArray.getJSONObject(i));
@@ -33,11 +33,11 @@ public class a {
         return arrayList;
     }
 
-    public List<x> cRD() {
+    public List<x> cRE() {
         return this.kaU;
     }
 
-    public int cRE() {
+    public int cRF() {
         return this.kaT;
     }
 }

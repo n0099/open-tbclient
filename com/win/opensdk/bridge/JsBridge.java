@@ -3,19 +3,19 @@ package com.win.opensdk.bridge;
 import com.win.opensdk.bridge.core.NativeMethodInjectHelper;
 /* loaded from: classes4.dex */
 public class JsBridge {
-    private static volatile JsBridge qda;
+    private static volatile JsBridge qeI;
 
     private JsBridge() {
     }
 
-    public static JsBridge eKb() {
-        JsBridge jsBridge = qda;
+    public static JsBridge eKF() {
+        JsBridge jsBridge = qeI;
         if (jsBridge == null) {
             synchronized (JsBridge.class) {
-                jsBridge = qda;
+                jsBridge = qeI;
                 if (jsBridge == null) {
                     jsBridge = new JsBridge();
-                    qda = jsBridge;
+                    qeI = jsBridge;
                 }
             }
         }
@@ -23,6 +23,6 @@ public class JsBridge {
     }
 
     public NativeMethodInjectHelper E(Class<?> cls) {
-        return NativeMethodInjectHelper.eKd().E(cls);
+        return NativeMethodInjectHelper.eKH().E(cls);
     }
 }

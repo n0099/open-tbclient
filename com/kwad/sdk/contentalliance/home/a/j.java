@@ -8,74 +8,74 @@ public class j implements i {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    private b f8966a;
+    private b f8967a;
 
     /* renamed from: b  reason: collision with root package name */
-    private b f8967b;
+    private b f8968b;
 
     public j(@NonNull b bVar) {
-        this.f8966a = bVar;
-        this.f8967b = bVar;
+        this.f8967a = bVar;
+        this.f8968b = bVar;
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public int a(AdTemplate adTemplate) {
-        return this.f8966a.a(adTemplate);
+        return this.f8967a.a(adTemplate);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public void a() {
-        this.f8967b.a();
+        this.f8968b.a();
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public void a(int i) {
-        this.f8967b.a(i);
+        this.f8968b.a(i);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public void a(int i, AdTemplate adTemplate) {
-        this.f8966a.a(i, adTemplate);
+        this.f8967a.a(i, adTemplate);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public void a(d dVar) {
-        this.f8967b.a(dVar);
+        this.f8968b.a(dVar);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public boolean a(@NonNull b bVar) {
-        if (this.f8967b == bVar) {
+        if (this.f8968b == bVar) {
             return false;
         }
-        this.f8967b.d();
-        this.f8967b = bVar;
+        this.f8968b.d();
+        this.f8968b = bVar;
         return true;
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public int b(AdTemplate adTemplate) {
-        return this.f8967b.a(adTemplate);
+        return this.f8968b.a(adTemplate);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public void b() {
-        this.f8967b.d();
+        this.f8968b.d();
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public void b(d dVar) {
-        this.f8967b.b(dVar);
+        this.f8968b.b(dVar);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     @NonNull
     public b c() {
-        return this.f8966a;
+        return this.f8967a;
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public List<AdTemplate> d() {
-        return this.f8967b.b();
+        return this.f8968b.b();
     }
 }

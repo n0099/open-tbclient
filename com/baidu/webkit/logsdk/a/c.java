@@ -3,22 +3,22 @@ package com.baidu.webkit.logsdk.a;
 import android.os.Message;
 import android.text.TextUtils;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public final class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f5989a;
+    final /* synthetic */ String f5990a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ String f5990b;
+    final /* synthetic */ String f5991b;
     final /* synthetic */ long c;
     final /* synthetic */ String d;
     final /* synthetic */ b e;
 
     public c(b bVar, String str, String str2, long j, String str3) {
         this.e = bVar;
-        this.f5989a = str;
-        this.f5990b = str2;
+        this.f5990a = str;
+        this.f5991b = str2;
         this.c = j;
         this.d = str3;
     }
@@ -27,21 +27,21 @@ public final class c implements Runnable {
     public final void run() {
         ConcurrentHashMap concurrentHashMap;
         com.baidu.webkit.logsdk.c.c h = this.e.h();
-        String str = this.f5989a;
-        String str2 = this.f5990b;
+        String str = this.f5990a;
+        String str2 = this.f5991b;
         long j = this.c;
         com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "BdLogDataProcessor addLog = " + str);
         com.baidu.webkit.logsdk.b.a a2 = b.a().e().a(str);
-        switch (a2.f5997b) {
+        switch (a2.f5998b) {
             case 1:
-                if (com.baidu.webkit.logsdk.a.f5984b) {
+                if (com.baidu.webkit.logsdk.a.f5985b) {
                     com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "BdLogDataProcessor handleNewRealTimeLog", str2);
                 }
                 String a3 = com.baidu.webkit.logsdk.c.c.a(str2, j);
                 if (!TextUtils.isEmpty(a3)) {
-                    h.f6006a.add(new com.baidu.webkit.logsdk.upload.a(a2, a3));
+                    h.f6007a.add(new com.baidu.webkit.logsdk.upload.a(a2, a3));
                     com.baidu.webkit.logsdk.c.c.a(a2);
-                    if ("frame_app".equals(a2.f5996a) && "app_pause".equals(str2)) {
+                    if ("frame_app".equals(a2.f5997a) && "app_pause".equals(str2)) {
                         com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "checkAppPause");
                         h.a();
                         break;
@@ -49,19 +49,19 @@ public final class c implements Runnable {
                 }
                 break;
             case 2:
-                if (com.baidu.webkit.logsdk.a.f5983a) {
+                if (com.baidu.webkit.logsdk.a.f5984a) {
                     com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "BdLogDataProcessor handleNewShortTimeLog", str2);
                 }
                 String a4 = com.baidu.webkit.logsdk.c.c.a(str2, j);
                 if (!TextUtils.isEmpty(a4)) {
-                    com.baidu.webkit.logsdk.c.a a5 = h.a(a2.f5996a);
+                    com.baidu.webkit.logsdk.c.a a5 = h.a(a2.f5997a);
                     int a6 = a5.a(a4);
                     com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "BdLogDataProcessor handleNewShortTimeLog current = " + a6);
                     long j2 = a6;
                     b.a().e();
                     if (j2 >= com.baidu.webkit.logsdk.b.b.a().getLong("threshold", 10L)) {
-                        h.f6006a.add(new com.baidu.webkit.logsdk.upload.a(a2, a5.a()));
-                        a5.f6003b.clear();
+                        h.f6007a.add(new com.baidu.webkit.logsdk.upload.a(a2, a5.a()));
+                        a5.f6004b.clear();
                         h.a(2);
                         com.baidu.webkit.logsdk.c.c.a(a2);
                         break;
@@ -69,13 +69,13 @@ public final class c implements Runnable {
                 }
                 break;
             case 3:
-                if (com.baidu.webkit.logsdk.a.f5983a) {
+                if (com.baidu.webkit.logsdk.a.f5984a) {
                     com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "BdLogDataProcessor handleNewLongTimeLog", str2);
                 }
                 String a7 = com.baidu.webkit.logsdk.c.c.a(str2, j);
                 if (!TextUtils.isEmpty(a7)) {
-                    com.baidu.webkit.logsdk.c.a a8 = h.a(a2.f5996a);
-                    if (a8.a(a7) >= com.baidu.webkit.logsdk.d.a.f6009a) {
+                    com.baidu.webkit.logsdk.c.a a8 = h.a(a2.f5997a);
+                    if (a8.a(a7) >= com.baidu.webkit.logsdk.d.a.f6010a) {
                         b a9 = b.a();
                         e eVar = new e(a9, a8);
                         if (a9.c != null) {

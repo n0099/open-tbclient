@@ -33,7 +33,7 @@ public class e implements CustomMessageTask.CustomRunnable<Object> {
         if (currentAccount == null) {
             currentAccount = "";
         }
-        List<String> eO = eO(r.b(com.baidu.tbadk.core.c.a.btS().dM("tb.searchperson_history", currentAccount)));
+        List<String> eO = eO(r.b(com.baidu.tbadk.core.c.a.btT().dM("tb.searchperson_history", currentAccount)));
         ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
         responseSearchPersonHistoryReadMessage.datas.addAll(eO);
         return responseSearchPersonHistoryReadMessage;

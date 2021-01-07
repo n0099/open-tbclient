@@ -27,10 +27,10 @@ public class e extends f.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.r.f.a
-    public void aAm() {
-        super.aAm();
-        if (aAo().getBoolean("result_output_dir_allow_rollback", false)) {
-            com.baidu.swan.c.d.zG(aAo().getString("result_output_dir"));
+    public void aAn() {
+        super.aAn();
+        if (aAp().getBoolean("result_output_dir_allow_rollback", false)) {
+            com.baidu.swan.c.d.zG(aAp().getString("result_output_dir"));
         }
     }
 
@@ -40,7 +40,7 @@ public class e extends f.a {
         com.baidu.swan.apps.u.e.a aVar = null;
         if (DEBUG) {
             aVar = com.baidu.swan.apps.u.e.a.pZ(string);
-            aVar.aCW().qc("SwanExtractor").jw(1);
+            aVar.aCX().qc("SwanExtractor").jw(1);
         }
         boolean h = h(Channels.newInputStream(sourceChannel), string);
         if (aVar != null && DEBUG) {
@@ -60,7 +60,7 @@ public class e extends f.a {
         if (DEBUG) {
             com.baidu.swan.apps.u.e.a.pZ(str).cb("SwanExtractor", "onProcess installe error=" + a2);
         }
-        aAo().putLong("result_error_code", a2.aQF());
+        aAp().putLong("result_error_code", a2.aQG());
         return false;
     }
 
@@ -70,7 +70,7 @@ public class e extends f.a {
         com.baidu.swan.apps.u.e.a pZ = com.baidu.swan.apps.u.e.a.pZ(str);
         if (this.dhu == null) {
             com.baidu.swan.apps.al.a uz = new com.baidu.swan.apps.al.a().cV(11L).cW(2320L).uz("pkg info is empty");
-            com.baidu.swan.apps.al.e.aQJ().j(uz);
+            com.baidu.swan.apps.al.e.aQK().j(uz);
             return uz;
         }
         if (this.dhu.category == 1) {
@@ -79,7 +79,7 @@ public class e extends f.a {
             bS = d.C0466d.bS(this.dhu.ewI, String.valueOf(this.dhu.versionCode));
         } else {
             com.baidu.swan.apps.al.a uz2 = new com.baidu.swan.apps.al.a().cV(11L).cW(2320L).uz("pkh category illegal");
-            com.baidu.swan.apps.al.e.aQJ().j(uz2);
+            com.baidu.swan.apps.al.e.aQK().j(uz2);
             return uz2;
         }
         if (bS.isFile() && !bS.delete()) {
@@ -87,24 +87,24 @@ public class e extends f.a {
                 pZ.cb("SwanExtractor", "解压失败：解压目录被文件占用，且无法删除");
             }
             com.baidu.swan.apps.al.a uz3 = new com.baidu.swan.apps.al.a().cV(11L).cW(2320L).uz("解压失败：解压目录被文件占用，且无法删除");
-            com.baidu.swan.apps.al.e.aQJ().j(uz3);
+            com.baidu.swan.apps.al.e.aQK().j(uz3);
             return uz3;
         }
         if (!bS.exists()) {
-            aAo().putBoolean("result_output_dir_allow_rollback", true);
+            aAp().putBoolean("result_output_dir_allow_rollback", true);
             if (!bS.mkdirs()) {
                 if (DEBUG) {
                     pZ.cb("SwanExtractor", "解压失败：解压文件夹创建失败");
                 }
                 com.baidu.swan.apps.al.a uz4 = new com.baidu.swan.apps.al.a().cV(11L).cW(2320L).uz("解压失败：解压文件夹创建失败");
-                com.baidu.swan.apps.al.e.aQJ().j(uz4);
+                com.baidu.swan.apps.al.e.aQK().j(uz4);
                 return uz4;
             }
         }
         if (DEBUG) {
             pZ.cb("SwanExtractor", "开始执行解压操作, folder:" + bS.getPath());
         }
-        aAo().putString("result_output_dir", bS.toString());
+        aAp().putString("result_output_dir", bS.toString());
         a.C0465a c0465a = null;
         long currentTimeMillis = System.currentTimeMillis();
         try {
@@ -141,7 +141,7 @@ public class e extends f.a {
             } else {
                 cV.cW(2320L).uz("unzip failed");
             }
-            com.baidu.swan.apps.al.e.aQJ().j(cV);
+            com.baidu.swan.apps.al.e.aQK().j(cV);
             return cV;
         } catch (IOException e) {
             if (DEBUG) {
@@ -149,7 +149,7 @@ public class e extends f.a {
                 e.printStackTrace();
             }
             com.baidu.swan.apps.al.a uz5 = new com.baidu.swan.apps.al.a().cV(11L).cW(2320L).uz("obtainEncryptedBundle Exception: " + e.toString());
-            com.baidu.swan.apps.al.e.aQJ().j(uz5);
+            com.baidu.swan.apps.al.e.aQK().j(uz5);
             return uz5;
         }
     }

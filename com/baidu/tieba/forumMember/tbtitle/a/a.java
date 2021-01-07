@@ -41,7 +41,7 @@ public class a extends d<TbTitleActivity> {
     public LinearLayout jcD;
     private List<LevelInfo> jcE;
     private DataRes jcF;
-    private C0729a jcG;
+    private C0736a jcG;
     private View.OnClickListener jcs;
     private TbTitleActivity jcx;
     private LinearLayout jcy;
@@ -51,7 +51,7 @@ public class a extends d<TbTitleActivity> {
 
     public a(TbTitleActivity tbTitleActivity, View.OnClickListener onClickListener) {
         super(tbTitleActivity.getPageContext());
-        this.jcG = new C0729a(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.tbtitle.a.a.1
+        this.jcG = new C0736a(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.tbtitle.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(a.this.jcx.getPageContext().getContext()).createNormalCfg(a.this.getPageContext().getString(R.string.tieba_text), "from")));
@@ -83,11 +83,11 @@ public class a extends d<TbTitleActivity> {
         this.jcA = (ImageView) this.mRootView.findViewById(R.id.header_level_img);
         this.jcB = (TextView) this.mRootView.findViewById(R.id.tbtitle_tip_detail2);
         this.gCe = (NoNetworkView) this.mRootView.findViewById(R.id.view_no_network);
-        cDy();
         cDz();
+        cDA();
     }
 
-    private void cDy() {
+    private void cDz() {
         String string = getPageContext().getResources().getString(R.string.tbtitle_tip_detail2);
         String string2 = getPageContext().getResources().getString(R.string.tbtitle_tip_tieba_bar);
         int length = string2.length();
@@ -101,10 +101,10 @@ public class a extends d<TbTitleActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.forumMember.tbtitle.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0729a extends ClickableSpan {
+    public class C0736a extends ClickableSpan {
         private View.OnClickListener fko;
 
-        public C0729a(View.OnClickListener onClickListener) {
+        public C0736a(View.OnClickListener onClickListener) {
             this.fko = onClickListener;
         }
 
@@ -175,7 +175,7 @@ public class a extends d<TbTitleActivity> {
         }
     }
 
-    private void cDz() {
+    private void cDA() {
         this.jcC.setOnClickListener(this.jcs);
         this.jcB.setOnClickListener(this.jcs);
     }
@@ -193,13 +193,13 @@ public class a extends d<TbTitleActivity> {
         this.jcx.getLayoutMode().onModeChanged(this.mRootView);
     }
 
-    public void KB(String str) {
+    public void KA(String str) {
         this.cPa.setVisibility(8);
         this.jcx.showNetRefreshView(this.mRootView, str, true);
         this.jcx.setNetRefreshViewTopMargin(400);
     }
 
-    public void cDA() {
+    public void cDB() {
         this.cPa.setVisibility(0);
         this.jcx.hideNetRefreshView(this.mRootView);
     }
@@ -209,7 +209,7 @@ public class a extends d<TbTitleActivity> {
         this.jcx.showLoadingView(this.mRootView, true);
     }
 
-    public void cDB() {
+    public void cDC() {
         this.cPa.setVisibility(0);
         this.jcx.hideLoadingView(this.mRootView);
     }

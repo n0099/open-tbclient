@@ -2,7 +2,7 @@ package com.facebook.drawee.controller;
 
 import android.graphics.drawable.Animatable;
 import javax.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public interface c<INFO> {
     void a(String str, @Nullable INFO info, @Nullable Animatable animatable);
 

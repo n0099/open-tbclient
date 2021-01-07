@@ -33,11 +33,11 @@ public class f extends v implements com.baidu.tbadk.mvc.b.a {
         ox(1);
     }
 
-    public String cxM() {
+    public String cxN() {
         return this.mContent;
     }
 
-    public int cxN() {
+    public int cxO() {
         return this.iGL;
     }
 
@@ -53,11 +53,11 @@ public class f extends v implements com.baidu.tbadk.mvc.b.a {
         this.iGH = i;
     }
 
-    public int cxO() {
+    public int cxP() {
         return this.iGH;
     }
 
-    public int cxP() {
+    public int cxQ() {
         return this.iGJ;
     }
 
@@ -65,7 +65,7 @@ public class f extends v implements com.baidu.tbadk.mvc.b.a {
         return this.iGK;
     }
 
-    public int cxQ() {
+    public int cxR() {
         return this.iGI;
     }
 
@@ -81,11 +81,11 @@ public class f extends v implements com.baidu.tbadk.mvc.b.a {
         return this.eRJ;
     }
 
-    public ThemeColorInfo cxR() {
+    public ThemeColorInfo cxS() {
         return this.iGM;
     }
 
-    public ArrayList<Integer> cxS() {
+    public ArrayList<Integer> cxT() {
         if (this.iGM == null || this.iGM.day == null || this.iGM.night == null || this.iGM.dark == null) {
             return null;
         }
@@ -99,7 +99,7 @@ public class f extends v implements com.baidu.tbadk.mvc.b.a {
         return arrayList;
     }
 
-    public boolean bEp() {
+    public boolean bEq() {
         return this.iGN;
     }
 
@@ -109,11 +109,11 @@ public class f extends v implements com.baidu.tbadk.mvc.b.a {
         }
     }
 
-    public boolean cxT() {
+    public boolean cxU() {
         return this.iGJ == 1 && this.iGK == 1 && this.eRx != null && this.eRx.private_forum_status.intValue() == 1;
     }
 
-    public boolean cxU() {
+    public boolean cxV() {
         return this.iGJ == 1 && this.iGK == 1 && this.eRx != null && this.eRx.private_forum_status.intValue() == 1 && this.eRx.private_forum_audit_status.intValue() == 2;
     }
 
@@ -147,7 +147,7 @@ public class f extends v implements com.baidu.tbadk.mvc.b.a {
         }
     }
 
-    public long cxV() {
+    public long cxW() {
         return this.iGO;
     }
 
@@ -155,7 +155,7 @@ public class f extends v implements com.baidu.tbadk.mvc.b.a {
         this.iGO = j;
     }
 
-    public ArrayList<FrsTabItemData> cxW() {
+    public ArrayList<FrsTabItemData> cxX() {
         return this.tabItemDatas;
     }
 }

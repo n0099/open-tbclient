@@ -5,11 +5,11 @@ import java.nio.charset.Charset;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1103a = d.class.getSimpleName();
+    private static final String f1104a = d.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Charset f1104b = Charset.forName("UTF-8");
-    private static byte[] c = "D@^12S".getBytes(f1104b);
+    private static final Charset f1105b = Charset.forName("UTF-8");
+    private static byte[] c = "D@^12S".getBytes(f1105b);
 
     public static String a(byte[] bArr) {
         try {

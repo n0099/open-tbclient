@@ -19,10 +19,10 @@ public class m {
     private static final String[] f = {"channel", "package", "app_version"};
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f6130a;
+    private boolean f6131a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Context f6131b;
+    private final Context f6132b;
     private final cn pgH;
     private final SharedPreferences pgI;
     private final ArrayList<ch> e = new ArrayList<>(32);
@@ -31,16 +31,16 @@ public class m {
     private JSONObject d = new JSONObject();
 
     public m(Context context, cn cnVar) {
-        this.f6131b = context;
+        this.f6132b = context;
         this.pgH = cnVar;
-        this.pgI = cnVar.epH();
-        ba.a(this.f6131b);
+        this.pgI = cnVar.epI();
+        ba.a(this.f6132b);
     }
 
     @Nullable
     public JSONObject a() {
-        if (this.f6130a) {
-            return epr();
+        if (this.f6131a) {
+            return eps();
         }
         return null;
     }
@@ -67,32 +67,32 @@ public class m {
     @Nullable
     public <T> T D(String str, T t) {
         Object obj;
-        JSONObject epr = epr();
-        if (epr == null || (obj = epr.opt(str)) == null) {
+        JSONObject eps = eps();
+        if (eps == null || (obj = eps.opt(str)) == null) {
             obj = null;
         }
         return obj == null ? t : (T) obj;
     }
 
     @NonNull
-    private JSONObject epr() {
+    private JSONObject eps() {
         return this.d;
     }
 
     public int c() {
-        int optInt = this.f6130a ? epr().optInt("version_code", -1) : -1;
+        int optInt = this.f6131a ? eps().optInt("version_code", -1) : -1;
         for (int i = 0; i < 3 && optInt == -1; i++) {
             e();
-            optInt = this.f6130a ? epr().optInt("version_code", -1) : -1;
+            optInt = this.f6131a ? eps().optInt("version_code", -1) : -1;
         }
         return optInt;
     }
 
     public String d() {
-        String optString = this.f6130a ? epr().optString("app_version", null) : null;
+        String optString = this.f6131a ? eps().optString("app_version", null) : null;
         for (int i = 0; i < 3 && optString == null; i++) {
             e();
-            optString = this.f6130a ? epr().optString("app_version", null) : null;
+            optString = this.f6131a ? eps().optString("app_version", null) : null;
         }
         return optString;
     }
@@ -101,52 +101,52 @@ public class m {
         synchronized (this.e) {
             if (this.e.size() == 0) {
                 this.e.add(new ci());
-                this.e.add(new ck(this.f6131b));
-                this.e.add(new cm(this.f6131b, this.pgH));
-                this.e.add(new n(this.f6131b));
-                this.e.add(new p(this.f6131b));
-                this.e.add(new q(this.f6131b, this.pgH));
-                this.e.add(new r(this.f6131b));
-                this.e.add(new t(this.f6131b));
-                this.e.add(new u(this.f6131b, this.pgH));
+                this.e.add(new ck(this.f6132b));
+                this.e.add(new cm(this.f6132b, this.pgH));
+                this.e.add(new n(this.f6132b));
+                this.e.add(new p(this.f6132b));
+                this.e.add(new q(this.f6132b, this.pgH));
+                this.e.add(new r(this.f6132b));
+                this.e.add(new t(this.f6132b));
+                this.e.add(new u(this.f6132b, this.pgH));
                 this.e.add(new v());
                 this.e.add(new w(this.pgH));
-                this.e.add(new x(this.f6131b));
-                this.e.add(new y(this.f6131b));
-                this.e.add(new z(this.f6131b, this.pgH));
-                this.e.add(new cf(this.f6131b, this.pgH));
-                this.e.add(new s(this.f6131b, this.pgH));
-                this.e.add(new cj(this.f6131b, this.pgH));
+                this.e.add(new x(this.f6132b));
+                this.e.add(new y(this.f6132b));
+                this.e.add(new z(this.f6132b, this.pgH));
+                this.e.add(new cf(this.f6132b, this.pgH));
+                this.e.add(new s(this.f6132b, this.pgH));
+                this.e.add(new cj(this.f6132b, this.pgH));
             }
         }
-        JSONObject epr = epr();
+        JSONObject eps = eps();
         JSONObject jSONObject = new JSONObject();
-        av.e(jSONObject, epr);
+        av.e(jSONObject, eps);
         Iterator<ch> it = this.e.iterator();
         boolean z = true;
         int i = 0;
         int i2 = 0;
         while (it.hasNext()) {
             ch next = it.next();
-            if (!next.f6122a || next.c || a(next)) {
+            if (!next.f6123a || next.c || a(next)) {
                 try {
-                    next.f6122a = next.a(jSONObject);
+                    next.f6123a = next.a(jSONObject);
                 } catch (SecurityException e) {
-                    if (!next.f6123b) {
+                    if (!next.f6124b) {
                         i2++;
                         au.b("loadHeader, " + this.h, e);
-                        if (!next.f6122a && this.h > 10) {
-                            next.f6122a = true;
+                        if (!next.f6123a && this.h > 10) {
+                            next.f6123a = true;
                         }
                     }
                 } catch (JSONException e2) {
                     au.a(e2);
                 }
-                if (!next.f6122a && !next.f6123b) {
+                if (!next.f6123a && !next.f6124b) {
                     i++;
                 }
             }
-            z = (next.f6122a || next.f6123b) & z;
+            z = (next.f6123a || next.f6124b) & z;
         }
         if (z) {
             for (String str : f) {
@@ -161,11 +161,11 @@ public class m {
             }
         }
         this.d = jSONObject;
-        this.f6130a = z;
-        if (au.f6085b) {
-            au.a("loadHeader, " + this.f6130a + ", " + this.h + ", " + this.d.toString(), null);
+        this.f6131a = z;
+        if (au.f6086b) {
+            au.a("loadHeader, " + this.f6131a + ", " + this.h + ", " + this.d.toString(), null);
         } else {
-            au.d("loadHeader, " + this.f6130a + ", " + this.h, null);
+            au.d("loadHeader, " + this.f6131a + ", " + this.h, null);
         }
         if (i2 > 0 && i2 == i) {
             this.h++;
@@ -173,15 +173,15 @@ public class m {
                 this.h += 10;
             }
         }
-        if (this.f6130a) {
-            b.eoV().onIdLoaded(g(), j(), k());
+        if (this.f6131a) {
+            b.eoW().onIdLoaded(g(), j(), k());
         }
-        return this.f6130a;
+        return this.f6131a;
     }
 
     private boolean a(ch chVar) {
         boolean z = !this.pgH.r() && chVar.d;
-        if (au.f6085b) {
+        if (au.f6086b) {
             au.a("needSyncFromSub " + chVar + " " + z, null);
         }
         return z;
@@ -196,7 +196,7 @@ public class m {
         if (jSONObject == null) {
             au.b("null abconfig", null);
         } else {
-            String optString = epr().optString("ab_version");
+            String optString = eps().optString("ab_version");
             if (!TextUtils.isEmpty(optString)) {
                 String[] split = optString.split(",");
                 Set<String> hashSet = new HashSet<>();
@@ -247,7 +247,7 @@ public class m {
         JSONObject jSONObject = null;
         if (hashMap != null && !hashMap.isEmpty()) {
             try {
-                JSONObject optJSONObject = epr().optJSONObject("custom");
+                JSONObject optJSONObject = eps().optJSONObject("custom");
                 if (optJSONObject == null) {
                     try {
                         optJSONObject = new JSONObject();
@@ -283,28 +283,28 @@ public class m {
     }
 
     public String f() {
-        return epr().optString("user_unique_id", "");
+        return eps().optString("user_unique_id", "");
     }
 
     public String g() {
-        return epr().optString("device_id", "");
+        return eps().optString("device_id", "");
     }
 
     public String j() {
-        return epr().optString("install_id", "");
+        return eps().optString("install_id", "");
     }
 
     public String k() {
-        return epr().optString("ssid", "");
+        return eps().optString("ssid", "");
     }
 
     public String l() {
-        return epr().optString("user_unique_id", "");
+        return eps().optString("user_unique_id", "");
     }
 
     private boolean E(String str, Object obj) {
         boolean z = false;
-        Object opt = epr().opt(str);
+        Object opt = eps().opt(str);
         if ((obj != null && !obj.equals(opt)) || (obj == null && opt != null)) {
             synchronized (this) {
                 try {
@@ -366,20 +366,20 @@ public class m {
     }
 
     public int o() {
-        String optString = epr().optString("device_id", "");
-        epr().optString("install_id", "");
+        String optString = eps().optString("device_id", "");
+        eps().optString("install_id", "");
         if (e(optString)) {
-            return this.pgI.getInt("version_code", 0) == epr().optInt("version_code", -1) ? 1 : 2;
+            return this.pgI.getInt("version_code", 0) == eps().optInt("version_code", -1) ? 1 : 2;
         }
         return 0;
     }
 
     public long p() {
-        return epr().optLong("register_time", 0L);
+        return eps().optLong("register_time", 0L);
     }
 
     public boolean a(JSONObject jSONObject, String str, String str2, String str3) {
-        if (au.f6085b) {
+        if (au.f6086b) {
             au.a("saveRegisterInfo, " + str + ", " + str2 + ", " + str3 + ", " + jSONObject, null);
         }
         boolean e = e(str);
@@ -387,7 +387,7 @@ public class m {
         try {
             boolean e3 = e(str3);
             int i = this.pgI.getInt("version_code", 0);
-            int optInt = epr().optInt("version_code", 0);
+            int optInt = eps().optInt("version_code", 0);
             SharedPreferences.Editor edit = this.pgI.edit();
             if (i != optInt) {
                 edit.putInt("version_code", optInt);
@@ -402,22 +402,22 @@ public class m {
                 b.v("tt_fetch_did_error", jSONObject2);
             }
             boolean z = false;
-            String optString = epr().optString("device_id", "");
+            String optString = eps().optString("device_id", "");
             if (e && E("device_id", str)) {
                 edit.putString("device_id", str);
                 z = true;
             }
-            String optString2 = epr().optString("install_id", "");
+            String optString2 = eps().optString("install_id", "");
             if (e2 && E("install_id", str2)) {
                 edit.putString("install_id", str2);
                 z = true;
             }
-            String optString3 = epr().optString("ssid", "");
+            String optString3 = eps().optString("ssid", "");
             if (e3 && E("ssid", str3)) {
                 edit.putString("ssid", str3);
                 z = true;
             }
-            b.eoV().onRemoteIdGet(z, optString, str, optString2, str2, optString3, str3);
+            b.eoW().onRemoteIdGet(z, optString, str, optString2, str2, optString3, str3);
             edit.apply();
         } catch (JSONException e4) {
             au.a(e4);
@@ -426,6 +426,6 @@ public class m {
     }
 
     public String q() {
-        return epr().optString("ab_sdk_version", "");
+        return eps().optString("ab_sdk_version", "");
     }
 }

@@ -16,7 +16,7 @@ public class a {
     public static String TAG = a.class.getSimpleName();
     private static volatile a pcs = new a();
 
-    public static a eoe() {
+    public static a eog() {
         a aVar = pcs;
         if (aVar == null) {
             synchronized (a.class) {
@@ -36,7 +36,7 @@ public class a {
         textMsg.setFromUser(ChatInfo.oTJ);
         textMsg.setText(str);
         textMsg.setStatus(1);
-        textMsg.setSenderUid(com.baidu.yuyinala.privatemessage.implugin.d.b.ell().getUserId(context) != null ? com.baidu.yuyinala.privatemessage.implugin.d.b.ell().getUserId(context) : "0");
+        textMsg.setSenderUid(com.baidu.yuyinala.privatemessage.implugin.d.b.elm().getUserId(context) != null ? com.baidu.yuyinala.privatemessage.implugin.d.b.elm().getUserId(context) : "0");
         if (ChatInfo.oTH == ChatInfo.ChatCategory.C2C) {
             textMsg.setCategory(0);
             textMsg.setChatType(0);
@@ -52,9 +52,9 @@ public class a {
         }
         textMsg.setMsgTime(System.currentTimeMillis() / 1000);
         c(context, textMsg);
-        c Yu = d.emC().Yu(str2);
-        if (Yu != null) {
-            Yu.h(textMsg);
+        c Yt = d.emD().Yt(str2);
+        if (Yt != null) {
+            Yt.h(textMsg);
         }
         return true;
     }
@@ -71,11 +71,11 @@ public class a {
         long j = 0;
         if (ChatInfo.oTM == 2) {
             try {
-                j = Long.valueOf(com.baidu.yuyinala.privatemessage.implugin.d.b.ell().getUserId(context)).longValue();
+                j = Long.valueOf(com.baidu.yuyinala.privatemessage.implugin.d.b.elm().getUserId(context)).longValue();
             } catch (Exception e) {
                 com.baidu.yuyinala.privatemessage.implugin.util.c.e(TAG, "transfer build to long value exception");
             }
-            String d = com.baidu.yuyinala.privatemessage.implugin.d.b.ell().d(context, String.valueOf(ChatInfo.mContacter), j);
+            String d = com.baidu.yuyinala.privatemessage.implugin.d.b.elm().d(context, String.valueOf(ChatInfo.mContacter), j);
             com.baidu.yuyinala.privatemessage.implugin.util.c.d(TAG, "nickname " + d + " " + ChatInfo.mContacter + " " + j);
             JSONObject jSONObject2 = new JSONObject();
             try {
@@ -106,11 +106,11 @@ public class a {
             chatMsg.setChatType(4);
         } else if (ChatInfo.oTM == 1) {
             try {
-                j = Long.valueOf(com.baidu.yuyinala.privatemessage.implugin.d.b.ell().getUserId(context)).longValue();
+                j = Long.valueOf(com.baidu.yuyinala.privatemessage.implugin.d.b.elm().getUserId(context)).longValue();
             } catch (Exception e3) {
                 com.baidu.yuyinala.privatemessage.implugin.util.c.e(TAG, "transfer build to long value exception");
             }
-            String d2 = com.baidu.yuyinala.privatemessage.implugin.d.b.ell().d(context, String.valueOf(ChatInfo.mContacter), j);
+            String d2 = com.baidu.yuyinala.privatemessage.implugin.d.b.elm().d(context, String.valueOf(ChatInfo.mContacter), j);
             com.baidu.yuyinala.privatemessage.implugin.util.c.d(TAG, "nickname " + d2 + " " + ChatInfo.mContacter + " " + j);
             ?? jSONObject3 = new JSONObject();
             try {

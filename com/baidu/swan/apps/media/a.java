@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.media;
 /* loaded from: classes9.dex */
 public interface a {
-    String aDZ();
+    String aEa();
 
-    Object aEa();
+    Object aEb();
 
-    String azX();
+    String azY();
 
     void fZ(boolean z);
 

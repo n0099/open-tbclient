@@ -16,10 +16,10 @@ import com.kwad.sdk.utils.x;
 public class b extends AlertDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f9393a;
+    private static b f9394a;
 
     /* renamed from: b  reason: collision with root package name */
-    private a f9394b;
+    private a f9395b;
     private AdTemplate c;
 
     private b(Activity activity, @NonNull AdTemplate adTemplate) {
@@ -29,8 +29,8 @@ public class b extends AlertDialog {
     }
 
     public static boolean a() {
-        if (f9393a != null) {
-            return f9393a.isShowing();
+        if (f9394a != null) {
+            return f9394a.isShowing();
         }
         return false;
     }
@@ -38,12 +38,12 @@ public class b extends AlertDialog {
     public static boolean a(@NonNull Context context, @NonNull AdTemplate adTemplate) {
         if (context instanceof Activity) {
             try {
-                if (f9393a == null) {
-                    f9393a = new b((Activity) context, adTemplate);
-                    f9393a.getWindow().addFlags(1024);
+                if (f9394a == null) {
+                    f9394a = new b((Activity) context, adTemplate);
+                    f9394a.getWindow().addFlags(1024);
                 }
-                if (!f9393a.isShowing()) {
-                    f9393a.show();
+                if (!f9394a.isShowing()) {
+                    f9394a.show();
                     com.kwad.sdk.core.report.b.c(adTemplate, 86, null);
                 }
                 return true;
@@ -72,7 +72,7 @@ public class b extends AlertDialog {
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         super.dismiss();
-        f9393a = null;
+        f9394a = null;
     }
 
     @Override // android.app.Dialog
@@ -89,9 +89,9 @@ public class b extends AlertDialog {
     @Override // android.app.AlertDialog, android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.f9394b == null) {
-            this.f9394b = new a(Wrapper.wrapContextIfNeed(getOwnerActivity()), this, this.c, x.e(getOwnerActivity()) ? 0 : 1);
-            this.f9394b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.download.a.b.1
+        if (this.f9395b == null) {
+            this.f9395b = new a(Wrapper.wrapContextIfNeed(getOwnerActivity()), this, this.c, x.e(getOwnerActivity()) ? 0 : 1);
+            this.f9395b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.download.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     com.kwad.sdk.core.report.b.o(b.this.c);
@@ -99,7 +99,7 @@ public class b extends AlertDialog {
                 }
             });
         }
-        setContentView(this.f9394b);
+        setContentView(this.f9395b);
         setCanceledOnTouchOutside(true);
         getWindow().getDecorView().setPadding(0, 0, 0, 0);
         getWindow().setBackgroundDrawable(new ColorDrawable(0));
@@ -109,16 +109,16 @@ public class b extends AlertDialog {
     @Override // android.app.Dialog, android.view.Window.Callback
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.f9394b != null) {
-            this.f9394b.c();
+        if (this.f9395b != null) {
+            this.f9395b.c();
         }
     }
 
     @Override // android.app.Dialog
     protected void onStart() {
         super.onStart();
-        if (f9393a != null) {
-            f9393a.setTitle((CharSequence) null);
+        if (f9394a != null) {
+            f9394a.setTitle((CharSequence) null);
         }
     }
 

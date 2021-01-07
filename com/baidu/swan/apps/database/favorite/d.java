@@ -16,7 +16,7 @@ public class d {
     }
 
     @NonNull
-    public static synchronized Uri awM() {
+    public static synchronized Uri awN() {
         Uri uri;
         synchronized (d.class) {
             if (dby == null) {

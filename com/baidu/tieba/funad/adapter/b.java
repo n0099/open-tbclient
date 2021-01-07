@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.by;
 import com.baidu.tieba.recapp.k;
 import com.baidu.tieba.recapp.o;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class b extends com.baidu.adp.widget.ListView.a<by, FunAdEmptyHolder> implements k, o {
     private BaseFragmentActivity iJr;
 

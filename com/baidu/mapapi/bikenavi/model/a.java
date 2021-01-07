@@ -1,33 +1,33 @@
 package com.baidu.mapapi.bikenavi.model;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2763a;
+        private String f2764a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f2764b;
+        private String f2765b;
         private String c;
         private String d;
         private String e;
 
         public String a() {
-            return this.f2763a;
+            return this.f2764a;
         }
 
         public void a(String str) {
-            this.f2763a = str;
+            this.f2764a = str;
         }
 
         public String b() {
-            return this.f2764b;
+            return this.f2765b;
         }
 
         public void b(String str) {
-            this.f2764b = str;
+            this.f2765b = str;
         }
 
         public String c() {
@@ -55,65 +55,65 @@ public class a {
         }
 
         public String toString() {
-            return "TopGuideLayoutID{guideIconID='" + this.f2763a + "', guideGpsWeakLayoutID='" + this.f2764b + "', guideTextID='" + this.c + "', guideGpsWeakId='" + this.d + "', guideGpsHintId='" + this.e + "'}";
+            return "TopGuideLayoutID{guideIconID='" + this.f2764a + "', guideGpsWeakLayoutID='" + this.f2765b + "', guideTextID='" + this.c + "', guideGpsWeakId='" + this.d + "', guideGpsHintId='" + this.e + "'}";
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2761a;
+        private String f2762a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f2762b;
+        private String f2763b;
 
         public String a() {
-            return this.f2761a;
+            return this.f2762a;
         }
 
         public void a(String str) {
-            this.f2761a = str;
+            this.f2762a = str;
         }
 
         public String b() {
-            return this.f2762b;
+            return this.f2763b;
         }
 
         public void b(String str) {
-            this.f2762b = str;
+            this.f2763b = str;
         }
 
         public String toString() {
-            return "SpeedLayoutID{speedID='" + this.f2761a + "', speedUnitID='" + this.f2762b + "'}";
+            return "SpeedLayoutID{speedID='" + this.f2762a + "', speedUnitID='" + this.f2763b + "'}";
         }
     }
 
     /* renamed from: com.baidu.mapapi.bikenavi.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class C0258a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2759a;
+        private String f2760a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f2760b;
+        private String f2761b;
         private String c;
 
         public String a() {
-            return this.f2759a;
+            return this.f2760a;
         }
 
         public void a(String str) {
-            this.f2759a = str;
+            this.f2760a = str;
         }
 
         public String b() {
-            return this.f2760b;
+            return this.f2761b;
         }
 
         public void b(String str) {
-            this.f2760b = str;
+            this.f2761b = str;
         }
 
         public String c() {
@@ -125,7 +125,7 @@ public class a {
         }
 
         public String toString() {
-            return "BottomSettingLayoutID{quitIconID='" + this.f2759a + "', botSetlookOverID='" + this.f2760b + "', botSetRemain='" + this.c + "'}";
+            return "BottomSettingLayoutID{quitIconID='" + this.f2760a + "', botSetlookOverID='" + this.f2761b + "', botSetRemain='" + this.c + "'}";
         }
     }
 }

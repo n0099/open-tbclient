@@ -8,10 +8,10 @@ public class a {
         if (str.startsWith("file:///")) {
             str = str.substring("file:///".length());
         }
-        e aMk = e.aMk();
-        if (!com.baidu.swan.apps.storage.b.tN(str) || aMk == null) {
+        e aMl = e.aMl();
+        if (!com.baidu.swan.apps.storage.b.tN(str) || aMl == null) {
             return str;
         }
-        return com.baidu.swan.apps.storage.b.c(str, aMk);
+        return com.baidu.swan.apps.storage.b.c(str, aMl);
     }
 }

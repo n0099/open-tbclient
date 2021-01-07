@@ -12,8 +12,8 @@ public class PostSearchActivity extends BaseFragmentActivity {
     public String jcX;
     public String mForumId;
     public String mForumName;
-    private g mHV;
-    private d mHW;
+    private g mHU;
+    private d mHV;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.postsearch.PostSearchActivity.1
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
@@ -33,58 +33,58 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mHV = new g(this);
-        this.mHV.initView();
-        this.mHV.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.mHW = new d(this);
+        this.mHU = new g(this);
+        this.mHU.initView();
+        this.mHU.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.mHV = new d(this);
         initData();
     }
 
     public void yI(String str) {
         this.jcX = str;
-        this.mHV.IO(1);
-        this.mHW.dDv();
-        this.mHV.showLoadingView();
+        this.mHU.IO(1);
+        this.mHV.dDw();
+        this.mHU.showLoadingView();
     }
 
-    public void Rc(String str) {
-        this.mHV.Rc(str);
+    public void Rb(String str) {
+        this.mHU.Rb(str);
     }
 
-    public void dDf() {
-        this.mHV.bh(this.mHW.mIw);
+    public void dDg() {
+        this.mHU.bh(this.mHV.mIv);
     }
 
     public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.cZx())) {
-            this.mHV.hideLoadingView();
-            this.mHV.dDz();
+        if (i == 1 && (bVar == null || !bVar.cZy())) {
+            this.mHU.hideLoadingView();
+            this.mHU.dDA();
             return;
         }
-        this.mHV.hideLoadingView();
-        this.mHV.dDn();
-        this.mHV.a(i, bVar, z);
+        this.mHU.hideLoadingView();
+        this.mHU.dDo();
+        this.mHU.a(i, bVar, z);
     }
 
-    public boolean dDg() {
-        return this.mHV.dDg();
+    public boolean dDh() {
+        return this.mHU.dDh();
     }
 
     public void hideSoftKeyPad() {
-        this.mHV.hideSoftKeyPad();
+        this.mHU.hideSoftKeyPad();
     }
 
-    public d dDh() {
-        return this.mHW;
-    }
-
-    public g dDi() {
+    public d dDi() {
         return this.mHV;
+    }
+
+    public g dDj() {
+        return this.mHU;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.mHV.onChangeSkinType(i);
+        this.mHU.onChangeSkinType(i);
     }
 
     private void initData() {
@@ -93,14 +93,14 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.mHW.dDs();
+        this.mHV.dDt();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.mHV != null) {
-            this.mHV.onDestroy();
+        if (this.mHU != null) {
+            this.mHU.onDestroy();
         }
         super.onDestroy();
     }

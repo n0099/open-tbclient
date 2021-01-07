@@ -16,16 +16,16 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 /* loaded from: classes8.dex */
 public class e {
     private Context context;
-    private View lFo;
-    private TextView lFp;
-    private ImageView lFq;
+    private View lFn;
+    private TextView lFo;
+    private ImageView lFp;
+    private TextView lFq;
     private TextView lFr;
-    private TextView lFs;
-    private a lFt;
-    public boolean lFu;
-    private Animation lFw;
-    private long lFv = 0;
-    private boolean lFx = false;
+    private a lFs;
+    public boolean lFt;
+    private Animation lFv;
+    private long lFu = 0;
+    private boolean lFw = false;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -36,42 +36,42 @@ public class e {
 
     public e(Context context) {
         this.context = context;
-        this.lFo = LayoutInflater.from(context).inflate(R.layout.chosen_pb_post_info, (ViewGroup) null);
-        this.lFp = (TextView) this.lFo.findViewById(R.id.chosen_post_info_copyright);
-        this.lFq = (ImageView) this.lFo.findViewById(R.id.chosen_post_info_praise_icon);
-        this.lFr = (TextView) this.lFo.findViewById(R.id.chosen_post_info_praise_num);
-        this.lFs = (TextView) this.lFo.findViewById(R.id.chosen_post_info_original_post);
+        this.lFn = LayoutInflater.from(context).inflate(R.layout.chosen_pb_post_info, (ViewGroup) null);
+        this.lFo = (TextView) this.lFn.findViewById(R.id.chosen_post_info_copyright);
+        this.lFp = (ImageView) this.lFn.findViewById(R.id.chosen_post_info_praise_icon);
+        this.lFq = (TextView) this.lFn.findViewById(R.id.chosen_post_info_praise_num);
+        this.lFr = (TextView) this.lFn.findViewById(R.id.chosen_post_info_original_post);
     }
 
-    public View dmy() {
-        return this.lFo;
+    public View dmz() {
+        return this.lFn;
     }
 
     public void a(a aVar) {
-        this.lFt = aVar;
+        this.lFs = aVar;
     }
 
     public void GG(int i) {
-        if (this.lFp != null) {
-            this.lFp.setText(i);
+        if (this.lFo != null) {
+            this.lFo.setText(i);
         }
     }
 
     public void R(View.OnClickListener onClickListener) {
-        if (this.lFs != null) {
-            this.lFs.setOnClickListener(onClickListener);
+        if (this.lFr != null) {
+            this.lFr.setOnClickListener(onClickListener);
         }
     }
 
     public void hn(long j) {
         if (j >= 0) {
-            this.lFv = j;
-            if (this.lFr != null) {
-                this.lFr.setVisibility(0);
-                this.lFr.setText(this.context.getString(R.string.chosen_pb_praise_num, at.numFormatOver10000(j)));
+            this.lFu = j;
+            if (this.lFq != null) {
+                this.lFq.setVisibility(0);
+                this.lFq.setText(this.context.getString(R.string.chosen_pb_praise_num, at.numFormatOver10000(j)));
             }
-            if (this.lFr != null && this.lFr.getVisibility() == 8) {
-                this.lFr.setVisibility(0);
+            if (this.lFq != null && this.lFq.getVisibility() == 8) {
+                this.lFq.setVisibility(0);
             }
         }
     }
@@ -81,14 +81,14 @@ public class e {
             GG(R.string.chosen_pb_copyright);
             hn(excellentPbThreadInfo.zan.zansum.longValue());
             ux(excellentPbThreadInfo.zan.is_zan.booleanValue());
-            this.lFq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
+            this.lFp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (!e.this.lFx && bg.checkUpIsLogin(e.this.context)) {
-                        e.this.lFx = true;
-                        e.this.lFq.startAnimation(e.this.dmA());
-                        if (e.this.lFt != null) {
-                            e.this.lFt.ut(e.this.lFu);
+                    if (!e.this.lFw && bg.checkUpIsLogin(e.this.context)) {
+                        e.this.lFw = true;
+                        e.this.lFp.startAnimation(e.this.dmB());
+                        if (e.this.lFs != null) {
+                            e.this.lFs.ut(e.this.lFt);
                         }
                     }
                 }
@@ -96,43 +96,43 @@ public class e {
             R(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (e.this.lFt != null) {
-                        e.this.lFt.x(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
+                    if (e.this.lFs != null) {
+                        e.this.lFs.x(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
                     }
                 }
             });
         }
     }
 
-    public void dmz() {
-        this.lFx = false;
+    public void dmA() {
+        this.lFw = false;
     }
 
     public void uw(boolean z) {
         ux(z);
         if (z) {
-            this.lFv++;
+            this.lFu++;
         } else {
-            this.lFv--;
+            this.lFu--;
         }
-        hn(this.lFv);
+        hn(this.lFu);
     }
 
     private void ux(boolean z) {
-        this.lFu = z;
+        this.lFt = z;
         if (z) {
-            ao.setImageResource(this.lFq, R.drawable.btn_zambia_big_s);
+            ao.setImageResource(this.lFp, R.drawable.btn_zambia_big_s);
         } else {
-            ao.setImageResource(this.lFq, R.drawable.btn_zambia_big_n);
+            ao.setImageResource(this.lFp, R.drawable.btn_zambia_big_n);
         }
-        this.lFq.setVisibility(0);
+        this.lFp.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation dmA() {
-        if (this.lFw == null) {
-            this.lFw = AnimationUtils.loadAnimation(this.context, R.anim.praise_animation_scale3);
+    public Animation dmB() {
+        if (this.lFv == null) {
+            this.lFv = AnimationUtils.loadAnimation(this.context, R.anim.praise_animation_scale3);
         }
-        return this.lFw;
+        return this.lFv;
     }
 }

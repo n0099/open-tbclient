@@ -53,10 +53,10 @@ public class g {
     }
 
     public static boolean fi(Context context) {
-        return bCK();
+        return bCL();
     }
 
-    public static boolean bCK() {
+    public static boolean bCL() {
         return TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.CMD_CREATE_SHARE_DIALOG);
     }
 
@@ -121,7 +121,7 @@ public class g {
     public void j(ShareItem shareItem) {
         if (this.fxO != null) {
             if (!a.F(TbadkApplication.getInst().getApplicationContext(), 6)) {
-                BdToast.b(TbadkApplication.getInst().getApplicationContext(), TbadkApplication.getInst().getApplicationContext().getText(R.string.share_sina_weibo_not_install)).bud();
+                BdToast.b(TbadkApplication.getInst().getApplicationContext(), TbadkApplication.getInst().getApplicationContext().getText(R.string.share_sina_weibo_not_install)).bue();
                 return;
             }
             shareItem.content = b(shareItem.content, 140, 20, shareItem.fxA ? this.fxQ : "");
@@ -152,7 +152,7 @@ public class g {
         if (shareItem == null) {
             return null;
         }
-        if ((shareItem.imageUri == null || shareItem.imageUri.equals("")) && shareItem.bCE() == null) {
+        if ((shareItem.imageUri == null || shareItem.imageUri.equals("")) && shareItem.bCF() == null) {
             String str2 = "https://tieba-fe.gz.bcebos.com/yunying/tieba_logo.jpg";
             if (str.startsWith(LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND)) {
                 str2 = "https://tieba-fe.gz.bcebos.com/yunying/tieba_logo.jpg";
@@ -161,7 +161,7 @@ public class g {
         }
         if (shareItem.imageUri != null && !shareItem.imageUri.equals("")) {
             String uri = shareItem.imageUri.toString();
-            if (!Dg(uri) && !Dh(uri)) {
+            if (!Df(uri) && !Dg(uri)) {
                 shareItem.imageUri = Uri.parse("https://tieba-fe.gz.bcebos.com/yunying/tieba_logo.jpg");
             } else {
                 shareItem.imageUri = Uri.parse(uri);
@@ -175,7 +175,7 @@ public class g {
         return shareItem;
     }
 
-    protected boolean Dg(String str) {
+    protected boolean Df(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith("file://")) {
             try {
                 File file = new File(new URI(str));
@@ -213,9 +213,9 @@ public class g {
         return str + str3 + str2;
     }
 
-    private boolean Dh(String str) {
+    private boolean Dg(String str) {
         String[] split = "jpg,jpeg,png,gif,bmp".split(",");
-        if (be.bwu().UrlValidated(str)) {
+        if (be.bwv().UrlValidated(str)) {
             if (split == null || split.length <= 0) {
                 return true;
             }

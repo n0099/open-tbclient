@@ -5,18 +5,18 @@ import android.os.Looper;
 import android.os.Message;
 import android.telephony.CellInfo;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 final class i extends Handler {
     private /* synthetic */ g As;
 
     /* renamed from: a  reason: collision with root package name */
-    private byte[] f1062a;
+    private byte[] f1063a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     private i(g gVar, Looper looper) {
         super(looper);
         this.As = gVar;
-        this.f1062a = new byte[0];
+        this.f1063a = new byte[0];
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,7 +27,7 @@ final class i extends Handler {
     @Override // android.os.Handler
     public final void handleMessage(Message message) {
         super.handleMessage(message);
-        if (this.As.f1054b) {
+        if (this.As.f1055b) {
             try {
                 switch (message.what) {
                     case 1:
@@ -46,7 +46,7 @@ final class i extends Handler {
                         return;
                     case 2:
                         z zVar = this.As.Ao;
-                        synchronized (this.f1062a) {
+                        synchronized (this.f1063a) {
                             if (zVar != null) {
                                 this.As.a(zVar);
                             }

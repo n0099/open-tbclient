@@ -20,9 +20,9 @@ public class ClientReportClient {
     public static void init(Context context, Config config, IEventProcessor iEventProcessor, IPerfProcessor iPerfProcessor) {
         com.xiaomi.channel.commonutils.logger.b.c("init in process " + com.xiaomi.push.g.a(context) + " pid :" + Process.myPid() + " threadId: " + Thread.currentThread().getId());
         a.a(context).a(config, iEventProcessor, iPerfProcessor);
-        if (com.xiaomi.push.g.m327a(context)) {
+        if (com.xiaomi.push.g.m338a(context)) {
             com.xiaomi.channel.commonutils.logger.b.c("init in process\u3000start scheduleJob");
-            a.a(context).m78a();
+            a.a(context).m89a();
         }
     }
 

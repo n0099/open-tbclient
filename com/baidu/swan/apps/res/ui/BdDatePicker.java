@@ -110,8 +110,8 @@ public class BdDatePicker extends LinearLayout {
             @Override // com.baidu.swan.apps.res.ui.wheelview3d.c.b
             public void a(WheelView3d wheelView3d, int i) {
                 BdDatePicker.this.VL = BdDatePicker.this.dxk + i;
-                BdDatePicker.this.aKb();
                 BdDatePicker.this.aKc();
+                BdDatePicker.this.aKd();
             }
         });
         this.dxf = (WheelView3d) findViewById(a.f.wheel_month);
@@ -126,7 +126,7 @@ public class BdDatePicker extends LinearLayout {
             @Override // com.baidu.swan.apps.res.ui.wheelview3d.c.b
             public void a(WheelView3d wheelView3d, int i) {
                 BdDatePicker.this.VM = BdDatePicker.this.dxm + i;
-                BdDatePicker.this.aKc();
+                BdDatePicker.this.aKd();
             }
         });
         this.dxg = (WheelView3d) findViewById(a.f.wheel_day);
@@ -143,24 +143,24 @@ public class BdDatePicker extends LinearLayout {
                 BdDatePicker.this.VN = BdDatePicker.this.dxp + i;
             }
         });
-        aJY();
+        aJZ();
     }
 
-    private void aJY() {
+    private void aJZ() {
         Calendar calendar = Calendar.getInstance();
         this.VL = calendar.get(1);
         this.VM = calendar.get(2) + 1;
         this.VN = calendar.get(5);
-        aJZ();
+        aKa();
     }
 
-    public void aJZ() {
-        aKa();
+    public void aKa() {
         aKb();
         aKc();
+        aKd();
     }
 
-    private void aKa() {
+    private void aKb() {
         if (this.VL < this.dxk || this.VL > this.dxl) {
             this.VL = this.dxk;
         }
@@ -168,7 +168,7 @@ public class BdDatePicker extends LinearLayout {
         a(this.dxe, this.dxk, this.dxl);
     }
 
-    public void aKb() {
+    public void aKc() {
         this.dxm = 1;
         this.dxn = 12;
         if (this.dxi != null && this.VL == this.dxk) {
@@ -182,7 +182,7 @@ public class BdDatePicker extends LinearLayout {
         setMonth(this.VM);
     }
 
-    public void aKc() {
+    public void aKd() {
         int[] iArr = {4, 6, 9, 11};
         if (Arrays.binarySearch(new int[]{1, 3, 5, 7, 8, 10, 12}, this.VM) >= 0) {
             this.dxo = 31;
@@ -220,12 +220,12 @@ public class BdDatePicker extends LinearLayout {
         if (i < this.dxk) {
             i = this.dxk;
             if (DEBUG) {
-                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The year must be between " + this.dxk + " and " + this.dxl).aLU();
+                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The year must be between " + this.dxk + " and " + this.dxl).aLV();
             }
         } else if (i > this.dxl) {
             i = this.dxl;
             if (DEBUG) {
-                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The year must be between " + this.dxk + " and " + this.dxl).aLS();
+                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The year must be between " + this.dxk + " and " + this.dxl).aLT();
             }
         }
         this.VL = i;
@@ -240,12 +240,12 @@ public class BdDatePicker extends LinearLayout {
         if (i < this.dxm) {
             i = this.dxm;
             if (DEBUG) {
-                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The month must be between " + this.dxm + " and " + this.dxn).aLU();
+                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The month must be between " + this.dxm + " and " + this.dxn).aLV();
             }
         } else if (i > this.dxn) {
             i = this.dxn;
             if (DEBUG) {
-                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The month must be between " + this.dxm + " and " + this.dxn).aLS();
+                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The month must be between " + this.dxm + " and " + this.dxn).aLT();
             }
         }
         this.VM = i;
@@ -260,12 +260,12 @@ public class BdDatePicker extends LinearLayout {
         if (i < this.dxp || i > this.dxq) {
             i = this.dxp;
             if (DEBUG) {
-                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The day must be between " + this.dxp + " and " + this.dxq).aLS();
+                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The day must be between " + this.dxp + " and " + this.dxq).aLT();
             }
         } else if (i > this.dxq) {
             i = this.dxq;
             if (DEBUG) {
-                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The day must be between " + this.dxp + " and " + this.dxq).aLU();
+                com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), "The day must be between " + this.dxp + " and " + this.dxq).aLV();
             }
         }
         this.VN = i;

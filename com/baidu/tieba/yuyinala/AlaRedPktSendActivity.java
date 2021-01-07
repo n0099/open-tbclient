@@ -18,7 +18,7 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
     private int availableHeight;
     private int mLastScreenHeight;
     private int mLastScreenWidth;
-    private a ojx;
+    private a ojw;
     private boolean mIsKeyboardOpen = false;
     private boolean bNW = true;
     ViewTreeObserver.OnGlobalLayoutListener globalListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.yuyinala.AlaRedPktSendActivity.1
@@ -57,8 +57,8 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
         }
         super.onCreate(bundle);
         if (!isFinishing()) {
-            this.ojx = new com.baidu.tieba.yuyinala.a.a(getPageContext().getPageActivity());
-            setContentView(this.ojx.getView());
+            this.ojw = new com.baidu.tieba.yuyinala.a.a(getPageContext().getPageActivity());
+            setContentView(this.ojw.getView());
             Window window = getWindow();
             if (window != null) {
                 window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.globalListener);
@@ -69,15 +69,15 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.ojx != null) {
-            this.ojx.Is();
+        if (this.ojw != null) {
+            this.ojw.Is();
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.ojx != null) {
-            this.ojx.onKeyboardVisibilityChanged(z);
+        if (this.ojw != null) {
+            this.ojw.onKeyboardVisibilityChanged(z);
         }
     }
 
@@ -99,8 +99,8 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.ojx != null) {
-            this.ojx.destroy();
+        if (this.ojw != null) {
+            this.ojw.destroy();
         }
     }
 

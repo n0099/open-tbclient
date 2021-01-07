@@ -9,18 +9,18 @@ import java.util.List;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f8751a;
+    private long f8752a;
 
     /* renamed from: b  reason: collision with root package name */
-    private PhotoInfo f8752b;
+    private PhotoInfo f8753b;
     private AdTemplate c;
     private long d;
     private List<PhotoComment> e;
 
     public e(@NonNull AdTemplate adTemplate, long j) {
         this.c = adTemplate;
-        this.f8751a = com.kwad.sdk.core.response.b.c.e(adTemplate);
-        this.f8752b = com.kwad.sdk.core.response.b.c.k(adTemplate);
+        this.f8752a = com.kwad.sdk.core.response.b.c.e(adTemplate);
+        this.f8753b = com.kwad.sdk.core.response.b.c.k(adTemplate);
         this.d = j;
     }
 

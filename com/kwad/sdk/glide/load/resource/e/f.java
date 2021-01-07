@@ -7,26 +7,26 @@ import java.util.List;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<a<?, ?>> f10628a = new ArrayList();
+    private final List<a<?, ?>> f10629a = new ArrayList();
 
     /* loaded from: classes5.dex */
     private static final class a<Z, R> {
 
         /* renamed from: a  reason: collision with root package name */
-        final e<Z, R> f10629a;
+        final e<Z, R> f10630a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final Class<Z> f10630b;
+        private final Class<Z> f10631b;
         private final Class<R> c;
 
         a(@NonNull Class<Z> cls, @NonNull Class<R> cls2, @NonNull e<Z, R> eVar) {
-            this.f10630b = cls;
+            this.f10631b = cls;
             this.c = cls2;
-            this.f10629a = eVar;
+            this.f10630a = eVar;
         }
 
         public boolean a(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
-            return this.f10630b.isAssignableFrom(cls) && cls2.isAssignableFrom(this.c);
+            return this.f10631b.isAssignableFrom(cls) && cls2.isAssignableFrom(this.c);
         }
     }
 
@@ -34,9 +34,9 @@ public class f {
     public synchronized <Z, R> e<Z, R> a(@NonNull Class<Z> cls, @NonNull Class<R> cls2) {
         e<Z, R> eVar;
         if (!cls2.isAssignableFrom(cls)) {
-            for (a<?, ?> aVar : this.f10628a) {
+            for (a<?, ?> aVar : this.f10629a) {
                 if (aVar.a(cls, cls2)) {
-                    eVar = (e<Z, R>) aVar.f10629a;
+                    eVar = (e<Z, R>) aVar.f10630a;
                 }
             }
             throw new IllegalArgumentException("No transcoder registered to transcode from " + cls + " to " + cls2);
@@ -46,7 +46,7 @@ public class f {
     }
 
     public synchronized <Z, R> void a(@NonNull Class<Z> cls, @NonNull Class<R> cls2, @NonNull e<Z, R> eVar) {
-        this.f10628a.add(new a<>(cls, cls2, eVar));
+        this.f10629a.add(new a<>(cls, cls2, eVar));
     }
 
     @NonNull
@@ -57,7 +57,7 @@ public class f {
             arrayList2.add(cls2);
             arrayList = arrayList2;
         } else {
-            for (a<?, ?> aVar : this.f10628a) {
+            for (a<?, ?> aVar : this.f10629a) {
                 if (aVar.a(cls, cls2)) {
                     arrayList2.add(cls2);
                 }

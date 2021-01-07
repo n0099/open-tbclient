@@ -22,7 +22,7 @@ public class f {
     private IStatusListener aDS;
     private IStatusListener aDU;
     private IStatusListener aDW;
-    private BIMRtcTokenListener oAk;
+    private BIMRtcTokenListener oAj;
 
     public f(Handler handler) {
         this.aDN = handler;
@@ -34,7 +34,7 @@ public class f {
             return;
         }
         final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.oAk = new BIMRtcTokenListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.1
+        this.oAj = new BIMRtcTokenListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.1
             @Override // com.baidu.android.imrtc.request.BIMRtcTokenListener
             public void onResult(int i, String str3, @NonNull BIMRtcTokenListener.BIMRTCGetTokeResult bIMRTCGetTokeResult) {
                 if (i == 0) {
@@ -45,7 +45,7 @@ public class f {
                     if (f.this.b(i, new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            BIMRtcClient.generateToken(context, str, str2, j, f.this.oAk);
+                            BIMRtcClient.generateToken(context, str, str2, j, f.this.oAj);
                         }
                     })) {
                         atomicInteger.incrementAndGet();
@@ -57,7 +57,7 @@ public class f {
                 }
             }
         };
-        BIMRtcClient.generateToken(context, str, str2, j, this.oAk);
+        BIMRtcClient.generateToken(context, str, str2, j, this.oAj);
     }
 
     public void join(@NonNull final Context context, @NonNull final String str, final IStatusListener iStatusListener) {

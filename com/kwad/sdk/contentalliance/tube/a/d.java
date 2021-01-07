@@ -16,7 +16,7 @@ public class d extends e {
         if (b2 == null) {
             return;
         }
-        SceneImpl sceneImpl = this.f9033a.e;
+        SceneImpl sceneImpl = this.f9034a.e;
         ArrayList arrayList = new ArrayList(b2.size());
         for (AdTemplate adTemplate : b2) {
             if (adTemplate != null) {
@@ -26,6 +26,6 @@ public class d extends e {
         }
         com.kwad.sdk.contentalliance.home.c.a(arrayList);
         com.kwad.sdk.contentalliance.tube.episode.b.a().c();
-        this.f9033a.c.setInitStartPosition(this.f9033a.j);
+        this.f9034a.c.setInitStartPosition(this.f9034a.j);
     }
 }

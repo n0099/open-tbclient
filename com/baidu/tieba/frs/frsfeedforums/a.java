@@ -239,7 +239,7 @@ public class a {
         } else {
             this.jpA.setVisibility(8);
         }
-        cKq();
+        cKr();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -269,7 +269,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void SY() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
-        aVar.Bp(this.mTbPageContext.getPageActivity().getString(R.string.not_intrested));
+        aVar.Bo(this.mTbPageContext.getPageActivity().getString(R.string.not_intrested));
         aVar.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.frs.frsfeedforums.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -286,10 +286,10 @@ public class a {
                 aVar2.dismiss();
             }
         });
-        aVar.b(this.mTbPageContext).btX();
+        aVar.b(this.mTbPageContext).btY();
     }
 
-    private void cKq() {
+    private void cKr() {
         ao.setBackgroundColor(this.jvX, R.color.CAM_X0201);
         ao.setBackgroundColor(this.jtt, R.color.CAM_X0204);
         ao.setBackgroundColor(this.jwa, R.color.CAM_X0201);

@@ -18,34 +18,34 @@ import java.lang.ref.SoftReference;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.ConcurrentHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class d implements Runnable {
     private static final ConcurrentHashMap<String, Object> f = new ConcurrentHashMap<>();
     private static final com.qq.e.comm.plugin.j.b g = new b.a().a(false).a(10000).b(10000).a();
     private static final LruCache<String, SoftReference<Bitmap>> h = new LruCache<>(5);
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f12642a;
+    private final String f12643a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final WeakReference<ImageView> f12643b;
+    private final WeakReference<ImageView> f12644b;
     private final b c;
     private final File d;
     private final boolean e;
 
     public d(String str, ImageView imageView, b bVar, boolean z) {
-        this.f12642a = str;
-        this.f12643b = new WeakReference<>(imageView);
+        this.f12643a = str;
+        this.f12644b = new WeakReference<>(imageView);
         this.c = bVar;
         this.d = new File(ah.l(), FileUtil.getFileName(str));
         this.e = z;
     }
 
     private void a() {
-        Object obj = f.get(this.f12642a);
+        Object obj = f.get(this.f12643a);
         if (obj != null) {
             synchronized (obj) {
-                Object obj2 = f.get(this.f12642a);
+                Object obj2 = f.get(this.f12643a);
                 if (obj2 != null) {
                     try {
                         obj2.wait(5000L);
@@ -61,7 +61,7 @@ public final class d implements Runnable {
             @Override // java.lang.Runnable
             public void run() {
                 if (d.this.c != null) {
-                    d.this.c.a(d.this.f12642a, i, exc);
+                    d.this.c.a(d.this.f12643a, i, exc);
                 }
             }
         });
@@ -71,7 +71,7 @@ public final class d implements Runnable {
         w.a(new Runnable() { // from class: com.qq.e.comm.plugin.p.d.2
             @Override // java.lang.Runnable
             public void run() {
-                ImageView imageView = (ImageView) d.this.f12643b.get();
+                ImageView imageView = (ImageView) d.this.f12644b.get();
                 if (imageView != null) {
                     imageView.setScaleType(ImageView.ScaleType.FIT_XY);
                     if (cVar.a() && (imageView instanceof g)) {
@@ -81,7 +81,7 @@ public final class d implements Runnable {
                     }
                 }
                 if (d.this.c != null) {
-                    d.this.c.a(d.this.f12642a, imageView, new e.a().a(cVar.c()).a(z).a(d.this.d).a());
+                    d.this.c.a(d.this.f12643a, imageView, new e.a().a(cVar.c()).a(z).a(d.this.d).a());
                 }
             }
         });
@@ -112,7 +112,7 @@ public final class d implements Runnable {
     }
 
     private void b() throws com.qq.e.comm.plugin.j.c {
-        f fVar = new f(this.f12642a, this.d, 1, g);
+        f fVar = new f(this.f12643a, this.d, 1, g);
         if (!fVar.c()) {
             throw new com.qq.e.comm.plugin.j.c(fVar.a(), fVar.b());
         }
@@ -123,7 +123,7 @@ public final class d implements Runnable {
         if (b2 != null) {
             return new c(b2);
         }
-        Bitmap a2 = k.a(this.d, this.f12643b.get());
+        Bitmap a2 = k.a(this.d, this.f12644b.get());
         if (a2 != null) {
             h.put(e(), new SoftReference<>(a2));
             return new c(a2);
@@ -143,9 +143,9 @@ public final class d implements Runnable {
     }
 
     private String e() {
-        ImageView imageView = this.f12643b.get();
+        ImageView imageView = this.f12644b.get();
         int a2 = k.a(imageView);
-        return this.f12642a + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + a2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + k.b(imageView);
+        return this.f12643a + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + a2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + k.b(imageView);
     }
 
     @Override // java.lang.Runnable
@@ -156,17 +156,17 @@ public final class d implements Runnable {
             a(new c(d), true);
         } else if (this.d.exists() && a(true)) {
         } else {
-            f.putIfAbsent(this.f12642a, new Object());
-            Object obj = f.get(this.f12642a);
+            f.putIfAbsent(this.f12643a, new Object());
+            Object obj = f.get(this.f12643a);
             synchronized (obj) {
                 try {
                     b();
                     a(false);
-                    f.remove(this.f12642a);
+                    f.remove(this.f12643a);
                     obj.notifyAll();
                 } catch (com.qq.e.comm.plugin.j.c e) {
                     a(e.a(), e);
-                    f.remove(this.f12642a);
+                    f.remove(this.f12643a);
                     obj.notifyAll();
                 }
             }

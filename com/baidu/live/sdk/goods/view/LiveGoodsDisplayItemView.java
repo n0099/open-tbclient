@@ -83,7 +83,7 @@ public class LiveGoodsDisplayItemView extends FrameLayout {
                 this.bBT.startAnim();
             } else {
                 this.bBS.setVisibility(8);
-                this.bBT.ZF();
+                this.bBT.ZG();
             }
             this.mTitleTextView.setText(aVar.title);
             if (!TextUtils.isEmpty(aVar.source)) {
@@ -149,7 +149,7 @@ public class LiveGoodsDisplayItemView extends FrameLayout {
 
     public void release() {
         if (this.bBT != null) {
-            this.bBT.ZF();
+            this.bBT.ZG();
         }
     }
 

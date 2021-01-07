@@ -32,7 +32,7 @@ public class k {
     public void a(com.baidu.swan.apps.api.a.d dVar, JSONObject jSONObject) {
         com.baidu.swan.apps.api.c.b bVar = new com.baidu.swan.apps.api.c.b(0, jSONObject);
         if (this.cKL) {
-            com.baidu.swan.apps.v.f.aDG().b(new com.baidu.swan.apps.event.a.f(this.cKK, bVar));
+            com.baidu.swan.apps.v.f.aDH().b(new com.baidu.swan.apps.event.a.f(this.cKK, bVar));
         } else {
             dVar.a(this.cKv, bVar);
         }
@@ -40,7 +40,7 @@ public class k {
 
     public void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONObject jSONObject) {
         if (this.cKL) {
-            com.baidu.swan.apps.v.f.aDG().b(new com.baidu.swan.apps.event.a.f(this.cKK, new com.baidu.swan.apps.api.c.b(0, jSONObject)));
+            com.baidu.swan.apps.v.f.aDH().b(new com.baidu.swan.apps.event.a.f(this.cKK, new com.baidu.swan.apps.api.c.b(0, jSONObject)));
             return;
         }
         UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.cKv);
@@ -49,7 +49,7 @@ public class k {
     public void a(com.baidu.swan.apps.api.a.d dVar, String str) {
         com.baidu.swan.apps.api.c.b bVar = new com.baidu.swan.apps.api.c.b(1001, str);
         if (this.cKL) {
-            com.baidu.swan.apps.v.f.aDG().b(new com.baidu.swan.apps.event.a.f(this.cKK, bVar));
+            com.baidu.swan.apps.v.f.aDH().b(new com.baidu.swan.apps.event.a.f(this.cKK, bVar));
         } else {
             dVar.a(this.cKv, bVar);
         }
@@ -57,7 +57,7 @@ public class k {
 
     public void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         if (this.cKL) {
-            com.baidu.swan.apps.v.f.aDG().b(new com.baidu.swan.apps.event.a.f(this.cKK, new com.baidu.swan.apps.api.c.b(1001, str)));
+            com.baidu.swan.apps.v.f.aDH().b(new com.baidu.swan.apps.event.a.f(this.cKK, new com.baidu.swan.apps.api.c.b(1001, str)));
             return;
         }
         UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), this.cKv);

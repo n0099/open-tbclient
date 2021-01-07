@@ -11,14 +11,14 @@ import com.baidu.helios.common.c.a;
 import com.baidu.mobstat.Config;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class a extends com.baidu.helios.channels.a {
     private C0137a awW;
     a.C0141a awu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.helios.channels.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public class C0137a {
         private long f;
         private String g;
@@ -129,7 +129,7 @@ public class a extends com.baidu.helios.channels.a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     class b extends a.b {
         private int i;
         private String j;

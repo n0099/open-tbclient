@@ -13,7 +13,7 @@ public class d extends c {
     public boolean gtU;
     private int mPosition = 0;
 
-    public List<c> bSv() {
+    public List<c> bSw() {
         return this.gtS;
     }
 
@@ -21,7 +21,7 @@ public class d extends c {
         this.gtS = list;
     }
 
-    public c bSw() {
+    public c bSx() {
         if (this.gtS == null || this.mPosition < 0 || this.mPosition >= this.gtS.size()) {
             return null;
         }
@@ -78,7 +78,7 @@ public class d extends c {
                 if (optJSONObject != null) {
                     c cVar = new c();
                     cVar.setTypeName(getTypeName());
-                    cVar.Z(bSs());
+                    cVar.Z(bSt());
                     if (cVar.dD(optJSONObject)) {
                         this.gtS.add(cVar);
                     }
@@ -111,7 +111,7 @@ public class d extends c {
         this.mPosition = i;
     }
 
-    public boolean aCP() {
+    public boolean aCQ() {
         return this.gtU;
     }
 }

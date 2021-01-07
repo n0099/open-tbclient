@@ -19,8 +19,8 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             str = "DOWNLOAD_PAGE";
         }
-        cVar.Se(str);
-        cVar.Sf("DOWNLOAD_BUTTON");
+        cVar.Sd(str);
+        cVar.Se("DOWNLOAD_BUTTON");
         if (!TextUtils.isEmpty(str2)) {
             DownloadStaticsData downloadStaticsData = new DownloadStaticsData();
             downloadStaticsData.setApk_name(str2);
@@ -29,6 +29,6 @@ public class c {
         if (!TextUtils.isEmpty(str3)) {
             cVar.setExtInfo(str3);
         }
-        e.dFV().a(cVar);
+        e.dFW().a(cVar);
     }
 }

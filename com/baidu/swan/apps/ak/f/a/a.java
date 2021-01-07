@@ -44,9 +44,9 @@ public class a extends aa {
     }
 
     public void b(Context context, final CallbackHandler callbackHandler, final String str) {
-        b ajw;
-        if ((context instanceof com.baidu.swan.apps.ak.f.c) && (ajw = ((com.baidu.swan.apps.ak.f.c) context).ajw()) != null) {
-            ajw.a(new com.baidu.swan.apps.ak.f.a() { // from class: com.baidu.swan.apps.ak.f.a.a.1
+        b ajx;
+        if ((context instanceof com.baidu.swan.apps.ak.f.c) && (ajx = ((com.baidu.swan.apps.ak.f.c) context).ajx()) != null) {
+            ajx.a(new com.baidu.swan.apps.ak.f.a() { // from class: com.baidu.swan.apps.ak.f.a.a.1
                 @Override // com.baidu.swan.apps.ak.f.a
                 public void lC(int i) {
                     c.i("MemoryWarningAction", "trimMemory consume level:" + i);

@@ -82,8 +82,8 @@ public class PayConfigModel extends BdBaseModel {
         return false;
     }
 
-    public void bHu() {
-        if (!c.bHv().isWalletOk()) {
+    public void bHv() {
+        if (!c.bHw().isWalletOk()) {
             if (this.fLn != null) {
                 this.fLn.onPayH5();
             }

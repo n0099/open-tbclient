@@ -39,7 +39,7 @@ public class i extends h {
         return this.dFm.getMinute();
     }
 
-    private void aLo() {
+    private void aLp() {
         this.dFm = new BdTimePicker(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 17;
@@ -49,7 +49,7 @@ public class i extends h {
         this.dFm.setmEndDate(this.dxj);
         this.dFm.setHour(this.dxH);
         this.dFm.setMinute(this.VQ);
-        this.dFm.aJZ();
+        this.dFm.aKa();
         this.dFm.setDisabled(this.dxs);
     }
 
@@ -58,8 +58,8 @@ public class i extends h {
         if (this.dFn) {
             getWindow().addFlags(4718592);
         }
-        aLo();
-        aLB().aL(this.dFm);
+        aLp();
+        aLC().aL(this.dFm);
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.c, android.app.Dialog
@@ -134,8 +134,8 @@ public class i extends h {
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.h.a
-        public h aLp() {
-            i iVar = (i) super.aLp();
+        public h aLq() {
+            i iVar = (i) super.aLq();
             iVar.setFields(this.dEF);
             iVar.setDisabled(this.dEG);
             if (this.dEE != null) {

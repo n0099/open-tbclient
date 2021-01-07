@@ -86,7 +86,7 @@ public abstract class j<E> extends h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l bhG() {
+    public l bhH() {
         return this.ezb;
     }
 
@@ -108,11 +108,11 @@ public abstract class j<E> extends h {
         if (!this.ezg) {
             this.ezg = true;
             if (this.ezf != null) {
-                this.ezf.bhK();
+                this.ezf.bhL();
             } else if (!this.ezh) {
                 this.ezf = d("(root)", this.ezg, false);
                 if (this.ezf != null && !this.ezf.mStarted) {
-                    this.ezf.bhK();
+                    this.ezf.bhL();
                 }
             }
             this.ezh = true;
@@ -124,7 +124,7 @@ public abstract class j<E> extends h {
         if (this.ezf != null && this.ezg) {
             this.ezg = false;
             if (z) {
-                this.ezf.bhL();
+                this.ezf.bhM();
             } else {
                 this.ezf.doStop();
             }
@@ -148,8 +148,8 @@ public abstract class j<E> extends h {
             }
             for (int i2 = 0; i2 < size; i2++) {
                 p pVar = pVarArr[i2];
-                pVar.bhM();
-                pVar.bhO();
+                pVar.bhN();
+                pVar.bhP();
             }
         }
     }
@@ -173,7 +173,7 @@ public abstract class j<E> extends h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public com.baidu.swan.support.v4.b.f<String, o> bhF() {
+    public com.baidu.swan.support.v4.b.f<String, o> bhG() {
         boolean z;
         if (this.ezr != null) {
             int size = this.ezr.size();

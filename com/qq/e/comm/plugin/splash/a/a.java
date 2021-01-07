@@ -9,14 +9,14 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    static String f12755a = "uoid";
+    static String f12756a = "uoid";
 
     /* renamed from: b  reason: collision with root package name */
-    static String f12756b = "date";
+    static String f12757b = "date";
     static String c = "exposureUrl";
     static String d = "customUrls";
     static String e = "c2sSdkUrls";
@@ -39,8 +39,8 @@ public class a {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f = jSONObject.optString(f12755a, "");
-            this.g = jSONObject.optString(f12756b, "");
+            this.f = jSONObject.optString(f12756a, "");
+            this.g = jSONObject.optString(f12757b, "");
             this.h = jSONObject.optString(c, "");
             JSONArray jSONArray = jSONObject.getJSONArray(d);
             if (jSONArray != null && jSONArray.length() > 0) {
@@ -69,10 +69,10 @@ public class a {
         try {
             JSONObject jSONObject = new JSONObject();
             if (!TextUtils.isEmpty(this.f)) {
-                jSONObject.put(f12755a, this.f);
+                jSONObject.put(f12756a, this.f);
             }
             if (!TextUtils.isEmpty(this.g)) {
-                jSONObject.put(f12756b, this.g);
+                jSONObject.put(f12757b, this.g);
             }
             if (!TextUtils.isEmpty(this.h)) {
                 jSONObject.put(c, this.h);

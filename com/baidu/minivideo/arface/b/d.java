@@ -13,27 +13,27 @@ public class d {
     public String mVersion = "5.1_v2";
     public File cld = null;
 
-    public static d aee() {
+    public static d aef() {
         d dVar = new d();
         dVar.clb = "so";
         dVar.clc = "so2";
         dVar.mVersion = "5.1_v2";
         dVar.mUrl = dVar.getUrl();
         dVar.mMd5 = g.toMd5(dVar.mUrl);
-        dVar.cld = dVar.aeg();
-        dVar.cle = dVar.aej();
+        dVar.cld = dVar.aeh();
+        dVar.cle = dVar.aek();
         return dVar;
     }
 
-    public static d aef() {
+    public static d aeg() {
         d dVar = new d();
         dVar.clb = "source";
         dVar.clc = "so2";
         dVar.mVersion = "5.1_v2";
         dVar.mUrl = dVar.getUrl();
         dVar.mMd5 = g.toMd5(dVar.mUrl);
-        dVar.cld = dVar.aeg();
-        dVar.cle = dVar.aej();
+        dVar.cld = dVar.aeh();
+        dVar.cle = dVar.aek();
         return dVar;
     }
 
@@ -57,31 +57,31 @@ public class d {
         return this.mVersion + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mMd5;
     }
 
-    public File aeg() {
+    public File aeh() {
         if (this.cld == null && !TextUtils.isEmpty(this.mVersion)) {
-            this.cld = new File(aei(), getName());
+            this.cld = new File(aej(), getName());
         }
         return this.cld;
     }
 
-    public File aeh() {
-        return aeg();
+    public File aei() {
+        return aeh();
     }
 
-    public String aei() {
+    public String aej() {
         if (TextUtils.equals(this.clb, "so")) {
             if (TextUtils.equals(this.clc, "so2")) {
-                return e.aeo().getAbsolutePath();
+                return e.aep().getAbsolutePath();
             }
-            return e.aen().getAbsolutePath();
+            return e.aeo().getAbsolutePath();
         }
-        return e.aek().aem().getAbsolutePath();
+        return e.ael().aen().getAbsolutePath();
     }
 
-    public File aej() {
+    public File aek() {
         if (this.cle == null) {
-            File aeh = aeh();
-            String absolutePath = aeh != null ? aeh.getAbsolutePath() : null;
+            File aei = aei();
+            String absolutePath = aei != null ? aei.getAbsolutePath() : null;
             if (absolutePath == null) {
                 return null;
             }

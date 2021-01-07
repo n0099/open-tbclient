@@ -1,9 +1,9 @@
 package com.facebook.imagepipeline.memory;
 
 import android.util.SparseIntArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class f {
-    public static r ezC() {
+    public static r eAg() {
         SparseIntArray sparseIntArray = new SparseIntArray();
         sparseIntArray.put(16384, 5);
         return new r(81920, 1048576, sparseIntArray);

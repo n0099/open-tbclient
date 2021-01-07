@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.data.bz;
 import com.baidu.tieba.tbadkCore.data.n;
 import com.fun.ad.sdk.FunNativeAd;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class c {
     public static void onNativeAdLoaded(String str, List<FunNativeAd> list) {
         for (FunNativeAd funNativeAd : list) {
@@ -13,7 +13,7 @@ public class c {
                 bzVar.eWF = new n(funNativeAd);
                 bzVar.eWz = true;
                 bzVar.eWA = funNativeAd.mAid;
-                com.baidu.tieba.h.a.cPm().c(str, bzVar);
+                com.baidu.tieba.h.a.cPn().c(str, bzVar);
             }
         }
     }

@@ -35,19 +35,19 @@ public class a {
         private static final a dJQ = new a();
     }
 
-    public static a aNu() {
+    public static a aNv() {
         return C0477a.dJQ;
     }
 
     public boolean ta(String str) {
         boolean z = false;
-        if (!TextUtils.isEmpty(str) && com.baidu.swan.apps.f.a.a(d.aMg().aMc().aju())) {
+        if (!TextUtils.isEmpty(str) && com.baidu.swan.apps.f.a.a(d.aMh().aMd().ajv())) {
             String delAllParamsFromUrl = ai.delAllParamsFromUrl(str);
             if (!TextUtils.isEmpty(delAllParamsFromUrl) && delAllParamsFromUrl.startsWith("/")) {
                 delAllParamsFromUrl = delAllParamsFromUrl.substring(1);
             }
             if (!this.dJK) {
-                aNw();
+                aNx();
             }
             z = tb(delAllParamsFromUrl);
             if (DEBUG) {
@@ -59,9 +59,9 @@ public class a {
 
     public boolean f(com.baidu.swan.apps.model.b bVar) {
         boolean z = false;
-        if (bVar != null && com.baidu.swan.apps.f.a.a(d.aMg().aMc().aju())) {
+        if (bVar != null && com.baidu.swan.apps.f.a.a(d.aMh().aMd().ajv())) {
             if (!this.dJK) {
-                aNw();
+                aNx();
             }
             z = (tb(bVar.mPage) || tb(bVar.dqt)) ? true : true;
             if (DEBUG) {
@@ -72,9 +72,9 @@ public class a {
     }
 
     public void c(final String str, com.baidu.swan.apps.model.b bVar) {
-        final f ajs;
+        final f ajt;
         String d;
-        if (bVar != null && (ajs = com.baidu.swan.apps.v.f.aDG().ajs()) != null && !(ajs.asT() instanceof com.baidu.swan.apps.core.d.d)) {
+        if (bVar != null && (ajt = com.baidu.swan.apps.v.f.aDH().ajt()) != null && !(ajt.asU() instanceof com.baidu.swan.apps.core.d.d)) {
             if (tb(bVar.dqt)) {
                 d = com.baidu.swan.apps.model.b.e(bVar);
             } else {
@@ -83,14 +83,14 @@ public class a {
             if (DEBUG) {
                 Log.d(TAG, "jump from " + str + " ; path = " + d);
             }
-            e aMc = d.aMg().aMc();
-            b.a aMo = aMc.aMo();
+            e aMd = d.aMh().aMd();
+            b.a aMp = aMd.aMp();
             ForbiddenInfo forbiddenInfo = new ForbiddenInfo();
-            forbiddenInfo.appId = aMc.getAppId();
-            forbiddenInfo.appKey = aMc.getAppKey();
-            forbiddenInfo.appTitle = aMo.awx();
-            forbiddenInfo.forbiddenReason = aNv();
-            forbiddenInfo.launchSource = aMo.aCv();
+            forbiddenInfo.appId = aMd.getAppId();
+            forbiddenInfo.appKey = aMd.getAppKey();
+            forbiddenInfo.appTitle = aMp.awy();
+            forbiddenInfo.forbiddenReason = aNw();
+            forbiddenInfo.launchSource = aMp.aCw();
             forbiddenInfo.launchPath = d;
             forbiddenInfo.enableSlidingFlag = 0;
             a(forbiddenInfo);
@@ -98,24 +98,24 @@ public class a {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.forbidden.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    ajs.nv(str).ai(f.cUY, f.cVa).f(a2).ate();
+                    ajt.nv(str).ai(f.cUY, f.cVa).f(a2).atf();
                 }
             });
         }
     }
 
     private void a(ForbiddenInfo forbiddenInfo) {
-        SwanAppActivity aMe;
-        e aMl = e.aMl();
-        if (aMl != null && (aMe = aMl.aMc().aMe()) != null) {
-            String a2 = com.baidu.swan.apps.swancore.b.a(com.baidu.swan.apps.v.f.aDG().aDi(), aMl.aju().getAppFrameType());
+        SwanAppActivity aMf;
+        e aMm = e.aMm();
+        if (aMm != null && (aMf = aMm.aMd().aMf()) != null) {
+            String a2 = com.baidu.swan.apps.swancore.b.a(com.baidu.swan.apps.v.f.aDH().aDj(), aMm.ajv().getAppFrameType());
             com.baidu.swan.apps.al.a aVar = new com.baidu.swan.apps.al.a();
             aVar.cV(10L).cW(48L).ux("path forbiddeon");
-            forbiddenInfo.forbiddenDetail = aMe.getString(a.h.aiapps_open_failed_detail_format, ak.getVersionName(), a2, String.valueOf(aVar.aQF()));
+            forbiddenInfo.forbiddenDetail = aMf.getString(a.h.aiapps_open_failed_detail_format, ak.getVersionName(), a2, String.valueOf(aVar.aQG()));
         }
     }
 
-    public String aNv() {
+    public String aNw() {
         return this.dJM;
     }
 
@@ -139,7 +139,7 @@ public class a {
             String tc = tc(str2);
             String td = td(str2);
             if (jSONArray == null || jSONArray.length() == 0) {
-                h.aPH().edit().remove(tc).remove(td).apply();
+                h.aPI().edit().remove(tc).remove(td).apply();
                 if (DEBUG) {
                     Log.d(TAG, "writeDataSwanKv, but list is null, appKey = " + str2 + " ; tips = " + str);
                     return;
@@ -147,17 +147,17 @@ public class a {
                 return;
             }
             String jSONArray2 = jSONArray.toString();
-            h.aPH().edit().putString(tc, jSONArray2).putString(td, str).apply();
+            h.aPI().edit().putString(tc, jSONArray2).putString(td, str).apply();
             if (DEBUG) {
                 Log.d(TAG, "writeDataSwanKv, appKey = " + str2 + " ; tips = " + str + " ; path = " + jSONArray2);
             }
         }
     }
 
-    private void aNw() {
-        com.baidu.swan.apps.storage.c.b aPH = h.aPH();
-        String appKey = d.aMg().aMc().getAppKey();
-        String string = aPH.getString(tc(appKey), null);
+    private void aNx() {
+        com.baidu.swan.apps.storage.c.b aPI = h.aPI();
+        String appKey = d.aMh().aMd().getAppKey();
+        String string = aPI.getString(tc(appKey), null);
         if (DEBUG) {
             Log.d(TAG, "readDataSwanKv, appKey = " + appKey + " ; tips = " + this.dJM + " ; path = " + string);
         }
@@ -174,12 +174,12 @@ public class a {
                     this.dJL.add(optString);
                 }
             }
-            this.dJM = aPH.getString(td(appKey), null);
+            this.dJM = aPI.getString(td(appKey), null);
         }
         this.dJK = true;
     }
 
-    public void aNx() {
+    public void aNy() {
         if (DEBUG) {
             Log.d(TAG, "releaseData");
         }

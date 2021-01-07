@@ -104,7 +104,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.enterForum.recomme
     public void onDestroy() {
         super.onDestroy();
         if (this.fpO != null) {
-            this.fpO.dOt();
+            this.fpO.dOu();
         }
     }
 

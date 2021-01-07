@@ -17,7 +17,7 @@ public class e {
     private File cll;
     private File mSourceDir;
 
-    public static e aek() {
+    public static e ael() {
         if (clf == null) {
             createInst();
         }
@@ -58,11 +58,11 @@ public class e {
         }
     }
 
-    public File ael() {
+    public File aem() {
         return this.mSourceDir;
     }
 
-    public File aem() {
+    public File aen() {
         return this.clj;
     }
 
@@ -82,11 +82,11 @@ public class e {
         return file;
     }
 
-    public static File aen() {
-        return aek().clk;
+    public static File aeo() {
+        return ael().clk;
     }
 
-    public static File aeo() {
-        return aek().cll;
+    public static File aep() {
+        return ael().cll;
     }
 }

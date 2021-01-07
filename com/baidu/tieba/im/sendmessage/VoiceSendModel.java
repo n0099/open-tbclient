@@ -55,7 +55,7 @@ public class VoiceSendModel extends BdBaseModel {
         /* renamed from: l */
         public String doInBackground(Object... objArr) {
             try {
-                return this.kIw.Nx(this.mVid);
+                return this.kIw.Nw(this.mVid);
             } catch (Exception e) {
                 return null;
             }

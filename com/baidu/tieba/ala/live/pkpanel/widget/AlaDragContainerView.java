@@ -97,7 +97,7 @@ public class AlaDragContainerView extends FrameLayout {
         return Boolean.valueOf(this.hmW);
     }
 
-    public void cbE() {
+    public void cbF() {
         layout(this.hmY, this.hmZ, this.hna, this.hnb);
     }
 }

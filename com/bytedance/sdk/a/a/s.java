@@ -9,5 +9,5 @@ public interface s extends Closeable {
     @Override // java.io.Closeable, java.lang.AutoCloseable
     void close() throws IOException;
 
-    t epR();
+    t epS();
 }

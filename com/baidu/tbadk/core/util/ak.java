@@ -40,10 +40,10 @@ public class ak {
         this.ahE = bdUniqueId;
         this.fcS.setTag(bdUniqueId);
         this.mPageContext.registerListener(this.fcS);
-        bwd();
+        bwe();
     }
 
-    private static void bwd() {
+    private static void bwe() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003396, TbConfig.SERVER_ADDRESS + TbConfig.URL_REMOVE_FANS);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

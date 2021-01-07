@@ -9,17 +9,17 @@ public class f<T extends com.baidu.tieba.ala.alaar.sticker.model.e> {
     private ArrayMap<String, T> gvd = new ArrayMap<>();
     private File mFolder;
 
-    public static f<com.baidu.tieba.ala.alaar.sticker.model.c> bTj() {
+    public static f<com.baidu.tieba.ala.alaar.sticker.model.c> bTk() {
         if (gvi == null) {
-            bTk();
+            bTl();
         }
         return gvi;
     }
 
-    private static synchronized void bTk() {
+    private static synchronized void bTl() {
         synchronized (f.class) {
             if (gvi == null) {
-                gvi = new f(a.bTa().bTc());
+                gvi = new f(a.bTb().bTd());
             }
         }
     }
@@ -32,7 +32,7 @@ public class f<T extends com.baidu.tieba.ala.alaar.sticker.model.e> {
         return this.gvd.put(str, t);
     }
 
-    public T Gv(String str) {
+    public T Gu(String str) {
         return this.gvd.get(str);
     }
 }

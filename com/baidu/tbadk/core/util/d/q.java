@@ -38,12 +38,12 @@ public class q extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bwM() {
+    public int bwN() {
         return this.size;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bwN() {
+    public int bwO() {
         return this.size;
     }
 
@@ -60,11 +60,11 @@ public class q extends a {
             return null;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        com.baidu.adp.widget.ImageView.a Ee = com.baidu.tbadk.imageManager.c.bGp().Ee(str);
+        com.baidu.adp.widget.ImageView.a Ed = com.baidu.tbadk.imageManager.c.bGq().Ed(str);
         if (z) {
-            com.baidu.adp.lib.e.a.b(Ee != null, System.currentTimeMillis() - currentTimeMillis);
+            com.baidu.adp.lib.e.a.b(Ed != null, System.currentTimeMillis() - currentTimeMillis);
         }
-        return Ee;
+        return Ed;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -89,7 +89,7 @@ public class q extends a {
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
             aVar.aP(i);
             aVar.aQ(i2);
-            com.baidu.tbadk.imageManager.c.bGp().a(str, aVar);
+            com.baidu.tbadk.imageManager.c.bGq().a(str, aVar);
         }
     }
 
@@ -107,7 +107,7 @@ public class q extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bwO() {
+    public int bwP() {
         return this.ffz;
     }
 }

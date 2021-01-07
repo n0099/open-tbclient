@@ -7,8 +7,8 @@ public class b extends g {
     private boolean fLx;
     private boolean fLy;
 
-    public void bHx() {
-        if (!this.fLx && k.bHF().isSmallFlow()) {
+    public void bHy() {
+        if (!this.fLx && k.bHG().isSmallFlow()) {
             this.fLx = true;
             if (Build.VERSION.SDK_INT >= 16) {
                 if (this.fLw == null) {
@@ -19,15 +19,15 @@ public class b extends g {
         }
     }
 
-    public void bHy() {
+    public void bHz() {
         if (Build.VERSION.SDK_INT >= 16 && this.fLw != null) {
             this.fLw.stop();
         }
     }
 
-    public void bHz() {
+    public void bHA() {
         m mVar;
-        if (!this.fLy && this.fLw != null && this.fLw.getFps() >= 0 && (mVar = (m) k.bHF().sW(this.mSubType)) != null) {
+        if (!this.fLy && this.fLw != null && this.fLw.getFps() >= 0 && (mVar = (m) k.bHG().sW(this.mSubType)) != null) {
             mVar.a(this);
             this.fLy = true;
         }

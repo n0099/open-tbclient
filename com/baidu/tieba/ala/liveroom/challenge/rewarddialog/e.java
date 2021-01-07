@@ -12,7 +12,7 @@ public class e {
         public static final e hyK = new e();
     }
 
-    public static e cgH() {
+    public static e cgI() {
         return a.hyK;
     }
 

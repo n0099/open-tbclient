@@ -3,17 +3,17 @@ package com.xiaomi.push;
 public final class jg {
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte f14471a;
+    public final byte f14472a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f858a;
+    public final int f859a;
 
     public jg() {
         this((byte) 0, 0);
     }
 
     public jg(byte b2, int i) {
-        this.f14471a = b2;
-        this.f858a = i;
+        this.f14472a = b2;
+        this.f859a = i;
     }
 }

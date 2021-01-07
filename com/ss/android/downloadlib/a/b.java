@@ -6,20 +6,20 @@ import android.os.Looper;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class b {
-    private static volatile b pTK;
+    private static volatile b pVs;
 
     /* renamed from: b  reason: collision with root package name */
-    private Handler f13226b = null;
+    private Handler f13227b = null;
 
-    public static b eFn() {
-        if (pTK == null) {
+    public static b eFR() {
+        if (pVs == null) {
             synchronized (b.class) {
-                if (pTK == null) {
-                    pTK = new b();
+                if (pVs == null) {
+                    pVs = new b();
                 }
             }
         }
-        return pTK;
+        return pVs;
     }
 
     public void a(Context context, com.ss.android.socialbase.downloader.g.c cVar) {
@@ -32,18 +32,18 @@ public class b {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.f13226b == null) {
-                this.f13226b = new Handler(Looper.getMainLooper());
+            if (this.f13227b == null) {
+                this.f13227b = new Handler(Looper.getMainLooper());
             }
             final String j = cVar.j();
             com.ss.android.socialbase.downloader.downloader.f.iA(context).j(cVar.g());
-            this.f13226b.post(new Runnable() { // from class: com.ss.android.downloadlib.a.b.1
+            this.f13227b.post(new Runnable() { // from class: com.ss.android.downloadlib.a.b.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    j.eFB().a(3, j.a(), null, "下载失败，请重试！", null, 0);
-                    f aaS = com.ss.android.downloadlib.h.eFY().aaS(j);
-                    if (aaS != null) {
-                        aaS.f();
+                    j.eGf().a(3, j.a(), null, "下载失败，请重试！", null, 0);
+                    f aaT = com.ss.android.downloadlib.h.eGC().aaT(j);
+                    if (aaT != null) {
+                        aaT.f();
                     }
                 }
             });

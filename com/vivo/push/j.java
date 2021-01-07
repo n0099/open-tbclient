@@ -10,21 +10,21 @@ import com.vivo.push.model.UnvarnishedMessage;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UnvarnishedMessage f13947a;
+    final /* synthetic */ UnvarnishedMessage f13948a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ LocalAliasTagsManager.LocalMessageCallback f13948b;
+    final /* synthetic */ LocalAliasTagsManager.LocalMessageCallback f13949b;
     final /* synthetic */ LocalAliasTagsManager c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(LocalAliasTagsManager localAliasTagsManager, UnvarnishedMessage unvarnishedMessage, LocalAliasTagsManager.LocalMessageCallback localMessageCallback) {
         this.c = localAliasTagsManager;
-        this.f13947a = unvarnishedMessage;
-        this.f13948b = localMessageCallback;
+        this.f13948a = unvarnishedMessage;
+        this.f13949b = localMessageCallback;
     }
 
     @Override // java.lang.Runnable
@@ -32,8 +32,8 @@ public final class j implements Runnable {
         Handler handler;
         ISubscribeAppTagManager iSubscribeAppTagManager;
         ISubscribeAppAliasManager iSubscribeAppAliasManager;
-        int targetType = this.f13947a.getTargetType();
-        String tragetContent = this.f13947a.getTragetContent();
+        int targetType = this.f13948a.getTargetType();
+        String tragetContent = this.f13948a.getTragetContent();
         if (!TextUtils.isEmpty(tragetContent) && targetType != 0) {
             switch (targetType) {
                 case 3:

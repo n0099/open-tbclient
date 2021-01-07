@@ -68,7 +68,7 @@ public class b extends aa {
             }
         }
         final String jSONObject = optJSONObject.toString();
-        eVar.aMw().b((Activity) context, "mapp_i_baiduapp_page_trans", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.tieba.aiapps.apps.h.b.1
+        eVar.aMx().b((Activity) context, "mapp_i_baiduapp_page_trans", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.tieba.aiapps.apps.h.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
@@ -105,7 +105,7 @@ public class b extends aa {
                     try {
                         String optString = new JSONObject(str5).optString("url");
                         if (!StringUtils.isNull(optString)) {
-                            Gc(optString);
+                            Gb(optString);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -122,13 +122,13 @@ public class b extends aa {
         return z;
     }
 
-    private void Gc(String str) {
-        com.baidu.swan.apps.process.messaging.client.a aMb;
-        com.baidu.swan.apps.runtime.e aMk = com.baidu.swan.apps.runtime.e.aMk();
-        if (aMk != null && (aMb = aMk.aMb()) != null) {
+    private void Gb(String str) {
+        com.baidu.swan.apps.process.messaging.client.a aMc;
+        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
+        if (aMl != null && (aMc = aMl.aMc()) != null) {
             Bundle bundle = new Bundle();
             bundle.putString("key_param_url", str);
-            aMb.b(bundle, a.class);
+            aMc.b(bundle, a.class);
         }
     }
 
@@ -185,7 +185,7 @@ public class b extends aa {
         if (!TextUtils.isEmpty(str) && str.contains("tbwebview")) {
             Uri parse = Uri.parse(str);
             if (f.r(parse)) {
-                f.bln().a(str, parse, new f.a() { // from class: com.baidu.tieba.aiapps.apps.h.b.2
+                f.blo().a(str, parse, new f.a() { // from class: com.baidu.tieba.aiapps.apps.h.b.2
                     @Override // com.baidu.tbadk.BdToken.f.a
                     public void onCallBack(HashMap<String, Object> hashMap) {
                         if (hashMap != null && (hashMap.get(f.PARAM_URL) instanceof String)) {

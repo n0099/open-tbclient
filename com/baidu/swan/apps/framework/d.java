@@ -17,15 +17,6 @@ public class d implements b {
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void ayp() {
-        if (this.dfo != null && this.dfo.size() > 0) {
-            for (b bVar : this.dfo) {
-                bVar.ayp();
-            }
-        }
-    }
-
-    @Override // com.baidu.swan.apps.framework.b
     public void ayq() {
         if (this.dfo != null && this.dfo.size() > 0) {
             for (b bVar : this.dfo) {
@@ -35,37 +26,46 @@ public class d implements b {
     }
 
     @Override // com.baidu.swan.apps.framework.b
+    public void ayr() {
+        if (this.dfo != null && this.dfo.size() > 0) {
+            for (b bVar : this.dfo) {
+                bVar.ayr();
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.apps.framework.b
+    public void anr() {
+        if (this.dfo != null && this.dfo.size() > 0) {
+            for (b bVar : this.dfo) {
+                bVar.anr();
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.apps.framework.b
+    public void aoK() {
+        if (this.dfo != null && this.dfo.size() > 0) {
+            for (b bVar : this.dfo) {
+                bVar.aoK();
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.apps.framework.b
+    public void aqN() {
+        if (this.dfo != null && this.dfo.size() > 0) {
+            for (b bVar : this.dfo) {
+                bVar.aqN();
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.apps.framework.b
     public void anq() {
         if (this.dfo != null && this.dfo.size() > 0) {
             for (b bVar : this.dfo) {
                 bVar.anq();
-            }
-        }
-    }
-
-    @Override // com.baidu.swan.apps.framework.b
-    public void aoJ() {
-        if (this.dfo != null && this.dfo.size() > 0) {
-            for (b bVar : this.dfo) {
-                bVar.aoJ();
-            }
-        }
-    }
-
-    @Override // com.baidu.swan.apps.framework.b
-    public void aqM() {
-        if (this.dfo != null && this.dfo.size() > 0) {
-            for (b bVar : this.dfo) {
-                bVar.aqM();
-            }
-        }
-    }
-
-    @Override // com.baidu.swan.apps.framework.b
-    public void anp() {
-        if (this.dfo != null && this.dfo.size() > 0) {
-            for (b bVar : this.dfo) {
-                bVar.anp();
             }
         }
     }
@@ -83,11 +83,11 @@ public class d implements b {
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void anr() {
+    public void ans() {
         if (this.dfo != null && this.dfo.size() > 0) {
             for (b bVar : this.dfo) {
                 if (bVar != null) {
-                    bVar.anr();
+                    bVar.ans();
                 }
             }
         }

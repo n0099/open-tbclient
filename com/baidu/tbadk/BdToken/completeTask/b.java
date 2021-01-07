@@ -27,14 +27,14 @@ public class b {
     public void show() {
         if (this.mData != null) {
             if (this.mData.showType == a.eHZ) {
-                this.eIw = h.b(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData).bum();
+                this.eIw = h.b(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData).bun();
             } else if (this.mData.showType == a.eIa) {
                 Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                 com.baidu.tbadk.core.business.c cVar = new com.baidu.tbadk.core.business.c(currentActivity);
                 cVar.a(currentActivity, this.mData);
                 cVar.show();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                com.baidu.tbadk.core.business.b.boI().putInt("business_count_hint" + currentAccount + this.mData.activityId, com.baidu.tbadk.core.business.b.boI().getInt("business_count_hint" + currentAccount + this.mData.activityId) - 1);
+                com.baidu.tbadk.core.business.b.boJ().putInt("business_count_hint" + currentAccount + this.mData.activityId, com.baidu.tbadk.core.business.b.boJ().getInt("business_count_hint" + currentAccount + this.mData.activityId) - 1);
             } else if (this.mData.showType == a.eIb) {
                 if (this.mData.eIg == a.eIe) {
                     if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData.schema) && !at.isEmpty(this.mData.url)) {
@@ -50,7 +50,7 @@ public class b {
                 completeTaskToastData.duration = this.mData.duration;
                 completeTaskToastData.message = this.mData.message;
                 completeTaskToastData.url = this.mData.url;
-                completeTaskToastData.pageId = com.baidu.tbadk.BdToken.c.bkT().bld();
+                completeTaskToastData.pageId = com.baidu.tbadk.BdToken.c.bkU().ble();
                 CompeteTaskEvent competeTaskEvent = new CompeteTaskEvent();
                 competeTaskEvent.taskToastData = completeTaskToastData;
                 g.publishEvent(competeTaskEvent);

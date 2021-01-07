@@ -21,8 +21,8 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     private final com.baidu.tbadk.h.g fJZ;
     private View jko;
     private Activity mActivity;
-    private View.OnClickListener nRF;
-    private NavigationBarCoverTip.a nRG;
+    private View.OnClickListener nRE;
+    private NavigationBarCoverTip.a nRF;
 
     public static DefaultNavigationBarCoverTip d(Activity activity, String str, String str2) {
         if (activity == null) {
@@ -33,13 +33,13 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
 
     private DefaultNavigationBarCoverTip(Activity activity) {
         super(activity);
-        this.nRF = new View.OnClickListener() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.1
+        this.nRE = new View.OnClickListener() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TbPageContext<?> tbPageContext;
                 DefaultNavigationBarCoverTip.this.hideTip();
                 if (DefaultNavigationBarCoverTip.this.mActivity != null && !TextUtils.isEmpty(DefaultNavigationBarCoverTip.this.ePM) && (tbPageContext = UtilHelper.getTbPageContext(DefaultNavigationBarCoverTip.this.mActivity)) != null) {
-                    be.bwu().b(tbPageContext, new String[]{DefaultNavigationBarCoverTip.this.ePM});
+                    be.bwv().b(tbPageContext, new String[]{DefaultNavigationBarCoverTip.this.ePM});
                 }
             }
         };
@@ -52,19 +52,19 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                 }
             }
         };
-        this.nRG = new NavigationBarCoverTip.a() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.3
+        this.nRF = new NavigationBarCoverTip.a() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.3
             @Override // com.baidu.tieba.view.NavigationBarCoverTip.a
             public void onShow() {
             }
 
             @Override // com.baidu.tieba.view.NavigationBarCoverTip.a
-            public void dXw() {
+            public void dXx() {
                 DefaultNavigationBarCoverTip.this.detach();
             }
         };
         this.mActivity = activity;
-        bRc();
-        setCoverTipListener(this.nRG);
+        bRd();
+        setCoverTipListener(this.nRF);
     }
 
     public void show() {
@@ -84,12 +84,12 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.jko.findViewById(R.id.share_icon);
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
             com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-            cVar.byx();
+            cVar.byy();
             tBSpecificationBtn.setConfig(cVar);
             textView.setSingleLine();
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setText(str);
-            tBSpecificationBtn.setOnClickListener(this.nRF);
+            tBSpecificationBtn.setOnClickListener(this.nRE);
             if (TextUtils.isEmpty(str2)) {
                 tBSpecificationBtn.setVisibility(8);
             } else {
@@ -97,13 +97,13 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                 tBSpecificationBtn.setText(context.getString(R.string.jump_link));
             }
             ao.setViewTextColor(textView, R.color.CAM_X0101);
-            tBSpecificationBtn.bxO();
+            tBSpecificationBtn.bxP();
             ao.setBackgroundColor(this, R.color.CAM_X0302);
         }
         return this;
     }
 
-    private void bRc() {
+    private void bRd() {
         try {
             TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(this.fJZ);
         } catch (Exception e) {

@@ -16,7 +16,7 @@ import com.baidu.yuyinala.emoticon.b.a;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<AlaEmoticonListView, AlaEmoticonListDialogData> implements c, AlaEmoticonListView.a, a.InterfaceC0934a {
+public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<AlaEmoticonListView, AlaEmoticonListDialogData> implements c, AlaEmoticonListView.a, a.InterfaceC0972a {
     private com.baidu.yuyinala.emoticon.b.a oQn;
 
     public b(TbPageContext tbPageContext, x xVar) {
@@ -34,13 +34,13 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<AlaEmoti
 
     @Override // com.baidu.yuyinala.emoticon.AlaEmoticonListView.a
     public void loadData() {
-        this.oQn.ekC();
+        this.oQn.ekD();
     }
 
     @Override // com.baidu.yuyinala.emoticon.AlaEmoticonListView.a
     public void a(com.baidu.yuyinala.emoticon.a.a aVar) {
         if (aVar != null) {
-            this.oQn.Yc(aVar.getId());
+            this.oQn.Yb(aVar.getId());
             b(aVar);
         }
     }
@@ -83,13 +83,13 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<AlaEmoti
         return 0;
     }
 
-    @Override // com.baidu.yuyinala.emoticon.b.a.InterfaceC0934a
+    @Override // com.baidu.yuyinala.emoticon.b.a.InterfaceC0972a
     public void a(AlaEmoticonListDialogData alaEmoticonListDialogData) {
         ((AlaEmoticonListView) this.bKA).a(alaEmoticonListDialogData, true);
     }
 
-    @Override // com.baidu.yuyinala.emoticon.b.a.InterfaceC0934a
-    public void Yb(String str) {
+    @Override // com.baidu.yuyinala.emoticon.b.a.InterfaceC0972a
+    public void Ya(String str) {
         if (StringUtils.isNull(str)) {
             this.mPageContext.showToast(a.h.send_emoticon_fail);
         } else {

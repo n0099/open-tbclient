@@ -57,9 +57,9 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == HotTopicSelectActivity.this.kvE) {
-                HotTopicSelectActivity.this.cVL();
+                HotTopicSelectActivity.this.cVM();
             } else if (view == HotTopicSelectActivity.this.jzB) {
-                HotTopicSelectActivity.this.MF("");
+                HotTopicSelectActivity.this.ME("");
             }
         }
     };
@@ -69,7 +69,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
             d dVar = (d) x.getItem(HotTopicSelectActivity.this.kvB.getList(), i);
             if (dVar != null) {
                 String topicName = dVar.getTopicName();
-                HotTopicSelectActivity.this.MF(topicName);
+                HotTopicSelectActivity.this.ME(topicName);
                 HotTopicSelectActivity.this.bf(topicName, 3);
             }
         }
@@ -90,7 +90,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
             d child;
             if (HotTopicSelectActivity.this.kvA != null && (child = HotTopicSelectActivity.this.kvA.getChild(i, i2)) != null) {
                 String topicName = child.getTopicName();
-                HotTopicSelectActivity.this.MF(topicName);
+                HotTopicSelectActivity.this.ME(topicName);
                 c group = HotTopicSelectActivity.this.kvA.getGroup(i);
                 if (group != null) {
                     HotTopicSelectActivity.this.bf(topicName, group.getType() == 0 ? 1 : 2);
@@ -108,11 +108,11 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
         super.onCreate(bundle);
         this.kvv = new HotTopicSelectModel(getPageContext(), this);
         this.kvv.W(getIntent());
-        this.kvv.cVV();
+        this.kvv.cVW();
         initUI();
         getWindow().setSoftInputMode(1);
         showLoadingView();
-        this.kvv.cVR();
+        this.kvv.cVS();
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -124,7 +124,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bIg() {
+    public boolean bIh() {
         ListView listView;
         View childAt;
         if (this.kvy.getVisibility() == 0) {
@@ -136,7 +136,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bIh() {
+    public boolean bIi() {
         return true;
     }
 
@@ -145,12 +145,12 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public Intent bIi() {
+    public Intent bIj() {
         return this.ghm;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected void bIm() {
+    protected void bIn() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -182,7 +182,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
         this.jzB.setOnClickListener(this.mOnClickListener);
         this.kvE.setOnClickListener(this.mOnClickListener);
         pi(false);
-        cVN();
+        cVO();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -194,19 +194,19 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String cDM() {
-        String cDM = this.kvv != null ? this.kvv.cDM() : "";
-        return cDM != null ? cDM : "";
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cVL() {
-        this.kvv.MK("");
-        this.kvD.setText("");
+    public String cDN() {
+        String cDN = this.kvv != null ? this.kvv.cDN() : "";
+        return cDN != null ? cDN : "";
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cVM() {
+        this.kvv.MJ("");
+        this.kvD.setText("");
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void cVN() {
         this.kvz.setVisibility(0);
         this.kvy.setVisibility(8);
         this.kvB.clearList();
@@ -220,11 +220,11 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onBackPressed() {
-        MF("");
+        ME("");
         super.onBackPressed();
     }
 
-    private void cVN() {
+    private void cVO() {
         this.kvD = (EditText) findViewById(R.id.search_root);
         this.kvD.setCompoundDrawablePadding(l.getDimens(getPageContext().getPageActivity(), R.dimen.ds8));
         this.kvD.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.5
@@ -240,8 +240,8 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 6) {
                     l.showSoftKeyPad(HotTopicSelectActivity.this.getPageContext().getPageActivity(), textView);
-                    if (!TextUtils.isEmpty(HotTopicSelectActivity.this.cDM())) {
-                        HotTopicSelectActivity.this.MF(HotTopicSelectActivity.this.cDM());
+                    if (!TextUtils.isEmpty(HotTopicSelectActivity.this.cDN())) {
+                        HotTopicSelectActivity.this.ME(HotTopicSelectActivity.this.cDN());
                     }
                     return true;
                 }
@@ -261,15 +261,15 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
             public void afterTextChanged(Editable editable) {
                 String obj = editable.toString();
                 if (obj == null || obj.trim().length() <= 0) {
-                    HotTopicSelectActivity.this.cVM();
+                    HotTopicSelectActivity.this.cVN();
                 } else {
                     HotTopicSelectActivity.this.mNoDataView.setVisibility(8);
                     HotTopicSelectActivity.this.kvx.setVisibility(8);
                     HotTopicSelectActivity.this.showLoadingView();
-                    HotTopicSelectActivity.this.kvv.MJ(obj);
+                    HotTopicSelectActivity.this.kvv.MI(obj);
                 }
                 HotTopicSelectActivity.this.pi(!StringUtils.isNull(editable.toString()));
-                HotTopicSelectActivity.this.cVO();
+                HotTopicSelectActivity.this.cVP();
             }
         });
         this.kvD.requestFocus();
@@ -280,7 +280,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cVO() {
+    public void cVP() {
         if (this.kvD != null && this.kvF != null) {
             if (TextUtils.isEmpty(this.kvD.getText())) {
                 ao.setViewTextColor(this.kvF, R.color.CAM_X0109, 1);
@@ -291,7 +291,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void MF(String str) {
+    public void ME(String str) {
         if (this.kvD != null && this.kvD.hasFocus()) {
             l.hideSoftKeyPad(getPageContext().getPageActivity(), this.kvD);
         }
@@ -304,14 +304,14 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
         finish();
     }
 
-    private d MG(String str) {
+    private d MF(String str) {
         d dVar = new d();
         dVar.setTopicName(str);
         return dVar;
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.a
-    public void MH(String str) {
+    public void MG(String str) {
         hideLoadingView(this.kvC);
         this.kvx.setVisibility(8);
         if (!j.isNetWorkAvailable()) {
@@ -326,7 +326,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
 
     private void a(c cVar, boolean z) {
         if (cVar != null && !x.isEmpty(cVar.getList())) {
-            if (TextUtils.isEmpty(cVar.cVP())) {
+            if (TextUtils.isEmpty(cVar.cVQ())) {
                 cVar.setTitle(getString(z ? R.string.group_topic_default : R.string.group_topic_hot));
             }
             this.kvA.b(cVar);
@@ -350,16 +350,16 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.a
-    public void MI(String str) {
+    public void MH(String str) {
         this.kvx.setVisibility(0);
         this.kvz.setVisibility(8);
         this.kvy.setVisibility(0);
         hideLoadingView(this.kvC);
-        String cDM = cDM();
-        d MG = MG(cDM);
+        String cDN = cDN();
+        d MF = MF(cDN);
         this.kvw.clear();
-        this.kvw.add(MG);
-        this.kvB.j(cDM, this.kvw);
+        this.kvw.add(MF);
+        this.kvB.j(cDN, this.kvw);
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.a
@@ -369,14 +369,14 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
         this.kvy.setVisibility(0);
         hideLoadingView(this.kvC);
         this.kvw.clear();
-        String cDM = cDM();
-        this.kvw.add(MG(cDM));
+        String cDN = cDN();
+        this.kvw.add(MF(cDN));
         if (cVar == null || cVar.getList() == null) {
-            this.kvB.j(cDM, this.kvw);
+            this.kvB.j(cDN, this.kvw);
             return;
         }
         this.kvw.addAll(cVar.getList());
-        this.kvB.j(cDM, this.kvw);
+        this.kvB.j(cDN, this.kvw);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -385,7 +385,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
         super.onStop();
         setSkinType(3);
         if (this.mNoDataView != null) {
-            this.mNoDataView.bxw();
+            this.mNoDataView.bxx();
         }
     }
 
@@ -409,7 +409,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
         ao.setViewTextColor(this.jzB, R.color.CAM_X0302, 1);
         ao.setViewTextColor(this.kvD, R.color.CAM_X0105, 2);
         ao.setImageResource(this.kvE, R.drawable.del_search_btn);
-        cVO();
+        cVP();
         if (this.mSkinType == 2) {
             StatusBarUtil.from(getPageContext().getPageActivity()).setTransparentStatusbar(true).setLightStatusBar(true).process();
         }
@@ -419,7 +419,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         this.kvv.onDestroy();
-        this.mNoDataView.bxw();
+        this.mNoDataView.bxx();
         hideLoadingView(this.kvC);
         super.onDestroy();
     }

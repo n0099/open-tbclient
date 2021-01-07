@@ -32,7 +32,7 @@ public class b extends com.baidu.swan.impl.map.a.a<g> {
     private String etk;
     private String etl;
 
-    public static b beM() {
+    public static b beN() {
         return new b();
     }
 
@@ -56,14 +56,14 @@ public class b extends com.baidu.swan.impl.map.a.a<g> {
             Log.e("WalkNavigationAction", "mGuideIconPath = " + this.etl);
         }
         if (com.baidu.swan.apps.storage.b.tW(this.etl) == PathType.BD_FILE) {
-            this.etl = com.baidu.swan.apps.storage.b.cE(this.etl, com.baidu.swan.apps.runtime.e.aMm());
+            this.etl = com.baidu.swan.apps.storage.b.cE(this.etl, com.baidu.swan.apps.runtime.e.aMn());
         }
         if (!SwanAppNetworkUtils.isNetworkConnected(context)) {
             c.w("map", "no network");
             bVar.j(str, 1003, "no network");
             return false;
         }
-        this.etj = new WeakReference<>(f.aDG().asU());
+        this.etj = new WeakReference<>(f.aDH().asV());
         d.a(context, new d.a() { // from class: com.baidu.swan.impl.map.location.a.b.1
             @Override // com.baidu.swan.impl.map.a.b.d.a
             public void onSuccess() {
@@ -74,12 +74,12 @@ public class b extends com.baidu.swan.impl.map.a.a<g> {
             @Override // com.baidu.swan.impl.map.a.b.d.a
             public void onFail() {
                 c.w("map", "location permission fail");
-                eVar.aMw().e("mapp_location", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.impl.map.location.a.b.1.1
+                eVar.aMx().e("mapp_location", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.impl.map.location.a.b.1.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.ao.e.b
                     /* renamed from: c */
                     public void L(com.baidu.swan.apps.setting.oauth.e eVar2) {
-                        if (eVar2 != null && (eVar2.forbidden || !eVar2.aOh())) {
+                        if (eVar2 != null && (eVar2.forbidden || !eVar2.aOi())) {
                             bVar.j(str, 1009, "location is not authorized");
                         } else {
                             bVar.j(str, 1010, "no location permission");
@@ -94,7 +94,7 @@ public class b extends com.baidu.swan.impl.map.a.a<g> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Context context, final com.baidu.swan.apps.w.a.c cVar, final com.baidu.swan.apps.w.b bVar, final com.baidu.swan.apps.runtime.e eVar, final String str) {
-        eVar.aMw().b((Activity) context, PermissionProxy.SCOPE_ID_CAMERA, new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.impl.map.location.a.b.2
+        eVar.aMx().b((Activity) context, PermissionProxy.SCOPE_ID_CAMERA, new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.impl.map.location.a.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
@@ -112,12 +112,12 @@ public class b extends com.baidu.swan.impl.map.a.a<g> {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Context context, final com.baidu.swan.apps.w.b bVar, com.baidu.swan.apps.runtime.e eVar, final g gVar) {
         c.i("map", "handleAuthorized camera start");
-        if (com.baidu.swan.apps.camera.a.anZ().cv(context)) {
+        if (com.baidu.swan.apps.camera.a.aoa().cv(context)) {
             c.e("map", "has camera authorize");
             a(context, gVar, bVar);
             return;
         }
-        eVar.aMe().a(1, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new c.a() { // from class: com.baidu.swan.impl.map.location.a.b.3
+        eVar.aMf().a(1, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new c.a() { // from class: com.baidu.swan.impl.map.location.a.b.3
             @Override // com.baidu.swan.apps.ab.c.a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 boolean z = false;
@@ -151,11 +151,11 @@ public class b extends com.baidu.swan.impl.map.a.a<g> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, final g gVar, final com.baidu.swan.apps.w.b bVar) {
-        com.baidu.swan.apps.t.a.aAJ().a("gcj02", true, true, new d.a() { // from class: com.baidu.swan.impl.map.location.a.b.4
+        com.baidu.swan.apps.t.a.aAK().a("gcj02", true, true, new d.a() { // from class: com.baidu.swan.impl.map.location.a.b.4
             @Override // com.baidu.swan.apps.t.b.d.a
             public void a(com.baidu.swan.apps.scheme.actions.f.b bVar2) {
                 com.baidu.swan.apps.console.c.i("map", "get location ok ");
-                b.this.a(com.baidu.swan.apps.runtime.e.aMk().getActivity(), new LatLng(bVar2.latitude, bVar2.longitude), bVar, gVar);
+                b.this.a(com.baidu.swan.apps.runtime.e.aMl().getActivity(), new LatLng(bVar2.latitude, bVar2.longitude), bVar, gVar);
             }
 
             @Override // com.baidu.swan.apps.t.b.d.a
@@ -170,17 +170,17 @@ public class b extends com.baidu.swan.impl.map.a.a<g> {
     public void a(Activity activity, LatLng latLng, final com.baidu.swan.apps.w.b bVar, final g gVar) {
         com.baidu.swan.impl.map.location.b.b.a(activity, latLng, new LatLng(gVar.dkA.latitude, gVar.dkA.longitude), new b.a() { // from class: com.baidu.swan.impl.map.location.a.b.5
             @Override // com.baidu.swan.impl.map.location.b.b.a
-            public void beN() {
+            public void beO() {
                 com.baidu.swan.apps.console.c.i("map", "walk navigation onPrepareStart ");
                 SDKInitializer.setCoordType(CoordType.BD09LL);
             }
 
             @Override // com.baidu.swan.impl.map.location.b.b.a
-            public void beO() {
+            public void beP() {
                 Bundle bundle;
                 com.baidu.swan.apps.console.c.i("map", "walk navigation onPrepareSuccess ");
-                e asU = f.aDG().asU();
-                if (b.this.etj == null || asU != b.this.etj.get()) {
+                e asV = f.aDH().asV();
+                if (b.this.etj == null || asV != b.this.etj.get()) {
                     bVar.j(gVar.callBack, 1001, "open navigation canceled on another page");
                     return;
                 }
@@ -192,7 +192,7 @@ public class b extends com.baidu.swan.impl.map.a.a<g> {
                     bundle.putString("guideKey", b.this.etk);
                     bundle.putString("guideIcon", b.this.etl);
                 }
-                com.baidu.swan.impl.map.location.b.a.ac(bundle).beq();
+                com.baidu.swan.impl.map.location.b.a.ac(bundle).ber();
                 bVar.g(gVar.callBack, null);
             }
 

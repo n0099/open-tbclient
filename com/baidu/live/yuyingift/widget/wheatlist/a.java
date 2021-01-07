@@ -28,12 +28,12 @@ public class a extends b {
     }
 
     @Override // com.baidu.live.yuyingift.widget.wheatlist.b
-    protected int abm() {
+    protected int abn() {
         return a.g.yuyin_ala_gift_microphone_aboveone_footerview;
     }
 
     @Override // com.baidu.live.yuyingift.widget.wheatlist.b
-    void abn() {
+    void abo() {
         this.cbB = (AlphaGradientHListView) this.contentView;
         this.cbB.setShadowWidth(this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds56));
         this.cbB.setNeedAlphaShade(true);
@@ -44,7 +44,7 @@ public class a extends b {
     }
 
     @Override // com.baidu.live.yuyingift.widget.wheatlist.b
-    void abo() {
+    void abp() {
         this.cbC = (AlaGiftMicrophoneOpBtn) this.cbF.findViewById(a.f.yuyin_ala_gift_microphone_person_selectall);
         this.cbC.setSelected(true);
     }

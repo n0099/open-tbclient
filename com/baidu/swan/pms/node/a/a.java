@@ -13,11 +13,11 @@ public class a {
         this.exV = jSONObject;
     }
 
-    public JSONObject bhe() {
+    public JSONObject bhf() {
         return this.exV;
     }
 
-    public JSONArray bhf() {
+    public JSONArray bhg() {
         return this.exU;
     }
 }

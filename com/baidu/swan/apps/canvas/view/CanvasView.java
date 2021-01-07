@@ -26,7 +26,7 @@ public class CanvasView extends AbsCanvasView {
 
     /* loaded from: classes9.dex */
     public interface b {
-        void aoh();
+        void aoi();
     }
 
     public CanvasView(Context context) {
@@ -67,7 +67,7 @@ public class CanvasView extends AbsCanvasView {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.canvas.view.CanvasView.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    CanvasView.this.aoq();
+                    CanvasView.this.aor();
                 }
             });
         }
@@ -75,7 +75,7 @@ public class CanvasView extends AbsCanvasView {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return aop() || super.onTouchEvent(motionEvent);
+        return aoq() || super.onTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
@@ -118,7 +118,7 @@ public class CanvasView extends AbsCanvasView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aoq() {
+    public void aor() {
         int i;
         int i2 = this.cNg;
         if (this.cNe.size() > 0) {

@@ -9,7 +9,7 @@ public class cd {
     private int eWQ = 0;
     private String link = "";
 
-    public int btK() {
+    public int btL() {
         return this.eWP;
     }
 

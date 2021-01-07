@@ -19,7 +19,7 @@ public class a {
             return 0;
         }
         if (!this.mData.containsKey(str)) {
-            Fk(str);
+            Fj(str);
         }
         b bVar = this.mData.get(str);
         if (bVar == null) {
@@ -28,7 +28,7 @@ public class a {
         return bVar.ux(i);
     }
 
-    public void Fk(String str) {
+    public void Fj(String str) {
         if (this.mData != null && !at.isEmpty(str) && this.gif != null) {
             if (this.mData.containsKey(str)) {
                 b bVar = this.mData.get(str);

@@ -18,7 +18,7 @@ class v {
         this.dxx.put(jSONObject);
     }
 
-    public final SparseArray<Integer> biX() {
+    public final SparseArray<Integer> biY() {
         return this.eBY;
     }
 
@@ -26,7 +26,7 @@ class v {
         this.eBY.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList biY() {
+    public final ArrayList biZ() {
         return this.eBZ;
     }
 
@@ -53,7 +53,7 @@ class v {
         return this.dxx.length() == 0;
     }
 
-    public JSONArray biZ() {
+    public JSONArray bja() {
         return this.dxx;
     }
 
@@ -67,11 +67,11 @@ class v {
         this.eBe = str;
     }
 
-    public String bja() {
+    public String bjb() {
         return this.eBe;
     }
 
-    public long bjb() {
+    public long bjc() {
         return this.eCa;
     }
 
@@ -79,11 +79,11 @@ class v {
         return this.eCb;
     }
 
-    public JSONArray bjc() {
+    public JSONArray bjd() {
         return this.dxx;
     }
 
-    public boolean bjd() {
+    public boolean bje() {
         return this.eCc;
     }
 

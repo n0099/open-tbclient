@@ -5694,7 +5694,7 @@ public final class a {
         public static final int comments_text = 2131299141;
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f2565common = 2131299152;
+        public static final int f2566common = 2131299152;
         public static final int confirm = 2131299181;
         public static final int confirm_btn_root = 2131299182;
         public static final int confirm_tv = 2131299187;
@@ -7241,7 +7241,7 @@ public final class a {
         public static final int turntable_icon = 2131307292;
 
         /* renamed from: tv  reason: collision with root package name */
-        public static final int f2566tv = 2131307293;
+        public static final int f2567tv = 2131307293;
         public static final int tvAlaImBottomNewMsg = 2131307296;
         public static final int tvGradeNum = 2131307304;
         public static final int tvLevelUpTipLebel = 2131307307;

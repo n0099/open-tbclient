@@ -84,10 +84,10 @@ public class c extends com.baidu.swan.apps.component.b.b {
     }
 
     private static String pc(String str) {
-        if (!com.baidu.swan.apps.storage.b.tN(str) || e.aMk() == null) {
+        if (!com.baidu.swan.apps.storage.b.tN(str) || e.aMl() == null) {
             return str;
         }
-        return com.baidu.swan.apps.storage.b.c(str, e.aMk());
+        return com.baidu.swan.apps.storage.b.c(str, e.aMl());
     }
 
     @Override // com.baidu.swan.apps.component.b.b

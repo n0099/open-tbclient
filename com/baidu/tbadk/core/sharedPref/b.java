@@ -42,7 +42,7 @@ public class b {
         mContentResolver = TbadkCoreApplication.getInst().getContentResolver();
     }
 
-    public static synchronized b bvq() {
+    public static synchronized b bvr() {
         b bVar;
         synchronized (b.class) {
             if (fbl == null) {
@@ -54,14 +54,14 @@ public class b {
     }
 
     public boolean isContains(String str) {
-        if (BE(str)) {
+        if (BD(str)) {
             return false;
         }
         return this.fbm.containsKey(str) || getSharedPreferences().contains(str);
     }
 
     public boolean getBoolean(String str, boolean z) {
-        if (BE(str)) {
+        if (BD(str)) {
             String value = getValue(str);
             if (value != null) {
                 try {
@@ -82,7 +82,7 @@ public class b {
     }
 
     public int getInt(String str, int i) {
-        if (BE(str)) {
+        if (BD(str)) {
             String value = getValue(str);
             if (value != null) {
                 try {
@@ -103,7 +103,7 @@ public class b {
     }
 
     public long getLong(String str, long j) {
-        if (BE(str)) {
+        if (BD(str)) {
             String value = getValue(str);
             if (value != null) {
                 try {
@@ -129,7 +129,7 @@ public class b {
     }
 
     public String getString(String str, String str2) {
-        if (BE(str)) {
+        if (BD(str)) {
             String value = getValue(str);
             return value != null ? value : str2;
         }
@@ -187,7 +187,7 @@ public class b {
     }
 
     public void putBoolean(String str, boolean z) {
-        if (BE(str)) {
+        if (BD(str)) {
             aw(str, z);
         } else if (l.isMainThread()) {
             x(str, Boolean.valueOf(z));
@@ -200,7 +200,7 @@ public class b {
     }
 
     public void putString(String str, String str2) {
-        if (BE(str)) {
+        if (BD(str)) {
             dT(str, str2);
         } else if ("null".equals(str2)) {
             remove(str);
@@ -215,7 +215,7 @@ public class b {
     }
 
     public void putInt(String str, int i) {
-        if (BE(str)) {
+        if (BD(str)) {
             am(str, i);
         } else if (l.isMainThread()) {
             x(str, Integer.valueOf(i));
@@ -228,7 +228,7 @@ public class b {
     }
 
     public void putLong(String str, long j) {
-        if (BE(str)) {
+        if (BD(str)) {
             v(str, j);
         } else if (l.isMainThread()) {
             x(str, Long.valueOf(j));
@@ -241,7 +241,7 @@ public class b {
     }
 
     public void remove(String str) {
-        if (BE(str)) {
+        if (BD(str)) {
             removeValue(str);
         } else if (this.fbm.containsKey(str)) {
             this.fbm.remove(str);
@@ -251,7 +251,7 @@ public class b {
         }
     }
 
-    private boolean BE(String str) {
+    private boolean BD(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }
@@ -265,39 +265,39 @@ public class b {
     }
 
     private String getValue(String str) {
-        return t(Uri.parse(bvr() + str));
+        return t(Uri.parse(bvs() + str));
     }
 
     private void dT(String str, String str2) {
-        Uri parse = Uri.parse(bvr() + str);
+        Uri parse = Uri.parse(bvs() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, str2);
         b(parse, contentValues);
     }
 
     private void am(String str, int i) {
-        Uri parse = Uri.parse(bvr() + str);
+        Uri parse = Uri.parse(bvs() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(i));
         b(parse, contentValues);
     }
 
     private void v(String str, long j) {
-        Uri parse = Uri.parse(bvr() + str);
+        Uri parse = Uri.parse(bvs() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(j));
         b(parse, contentValues);
     }
 
     private void aw(String str, boolean z) {
-        Uri parse = Uri.parse(bvr() + str);
+        Uri parse = Uri.parse(bvs() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(z));
         b(parse, contentValues);
     }
 
     private void removeValue(String str) {
-        u(Uri.parse(bvr() + str));
+        u(Uri.parse(bvs() + str));
     }
 
     public synchronized SharedPreferences getSharedPreferences() {
@@ -331,7 +331,7 @@ public class b {
         return str;
     }
 
-    protected String bvr() {
+    protected String bvs() {
         if (this.fbo == null) {
             String packageName = TbadkCoreApplication.getInst().getContext().getPackageName();
             if ("com.baidu.tieba".equals(packageName)) {

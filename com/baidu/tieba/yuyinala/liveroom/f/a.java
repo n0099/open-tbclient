@@ -52,7 +52,7 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
         super.onDestroy();
     }
 
-    public void In(String str) {
+    public void Im(String str) {
         this.hBy = str;
     }
 }

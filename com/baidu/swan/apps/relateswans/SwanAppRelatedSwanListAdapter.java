@@ -141,12 +141,12 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             if (!TextUtils.isEmpty(str3)) {
                 fVar.mType = str3;
             }
-            b.a aMo = d.aMg().aMc().aMo();
-            fVar.mFrom = h.kX(d.aMg().ajk());
-            fVar.mAppId = aMo.getAppId();
-            fVar.mSource = aMo.aCv();
-            fVar.cl(h.tC(aMo.aCx()));
-            fVar.tL(aMo.aCB().getString("ubc"));
+            b.a aMp = d.aMh().aMd().aMp();
+            fVar.mFrom = h.kX(d.aMh().ajl());
+            fVar.mAppId = aMp.getAppId();
+            fVar.mSource = aMp.aCw();
+            fVar.cl(h.tC(aMp.aCy()));
+            fVar.tL(aMp.aCC().getString("ubc"));
             com.baidu.swan.apps.statistic.d.b(fVar);
         }
     }

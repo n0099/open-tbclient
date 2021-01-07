@@ -10,24 +10,24 @@ import java.util.concurrent.TimeUnit;
 public class ai {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile ai f14150a;
+    private static volatile ai f14151a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f173a;
+    private SharedPreferences f174a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ScheduledThreadPoolExecutor f176a = new ScheduledThreadPoolExecutor(1);
+    private ScheduledThreadPoolExecutor f177a = new ScheduledThreadPoolExecutor(1);
 
     /* renamed from: a  reason: collision with other field name */
-    private SparseArray<ScheduledFuture> f174a = new SparseArray<>();
+    private SparseArray<ScheduledFuture> f175a = new SparseArray<>();
 
     /* renamed from: a  reason: collision with other field name */
-    private Object f175a = new Object();
+    private Object f176a = new Object();
 
     /* loaded from: classes6.dex */
     public static abstract class a implements Runnable {
         /* renamed from: a */
-        public abstract int mo185a();
+        public abstract int mo196a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -35,10 +35,10 @@ public class ai {
     public static class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        a f14151a;
+        a f14152a;
 
         public b(a aVar) {
-            this.f14151a = aVar;
+            this.f14152a = aVar;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -51,24 +51,24 @@ public class ai {
         @Override // java.lang.Runnable
         public void run() {
             a();
-            this.f14151a.run();
+            this.f14152a.run();
             b();
         }
     }
 
     private ai(Context context) {
-        this.f173a = context.getSharedPreferences("mipush_extra", 0);
+        this.f174a = context.getSharedPreferences("mipush_extra", 0);
     }
 
     public static ai a(Context context) {
-        if (f14150a == null) {
+        if (f14151a == null) {
             synchronized (ai.class) {
-                if (f14150a == null) {
-                    f14150a = new ai(context);
+                if (f14151a == null) {
+                    f14151a = new ai(context);
                 }
             }
         }
-        return f14150a;
+        return f14151a;
     }
 
     private static String a(int i) {
@@ -77,8 +77,8 @@ public class ai {
 
     private ScheduledFuture a(a aVar) {
         ScheduledFuture scheduledFuture;
-        synchronized (this.f175a) {
-            scheduledFuture = this.f174a.get(aVar.mo185a());
+        synchronized (this.f176a) {
+            scheduledFuture = this.f175a.get(aVar.mo196a());
         }
         return scheduledFuture;
     }
@@ -88,23 +88,23 @@ public class ai {
     }
 
     public void a(Runnable runnable, int i) {
-        this.f176a.schedule(runnable, i, TimeUnit.SECONDS);
+        this.f177a.schedule(runnable, i, TimeUnit.SECONDS);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m147a(int i) {
-        synchronized (this.f175a) {
-            ScheduledFuture scheduledFuture = this.f174a.get(i);
+    public boolean m158a(int i) {
+        synchronized (this.f176a) {
+            ScheduledFuture scheduledFuture = this.f175a.get(i);
             if (scheduledFuture == null) {
                 return false;
             }
-            this.f174a.remove(i);
+            this.f175a.remove(i);
             return scheduledFuture.cancel(false);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m148a(a aVar) {
+    public boolean m159a(a aVar) {
         return b(aVar, 0);
     }
 
@@ -116,16 +116,16 @@ public class ai {
         if (aVar == null || a(aVar) != null) {
             return false;
         }
-        String a2 = a(aVar.mo185a());
+        String a2 = a(aVar.mo196a());
         aj ajVar = new aj(this, aVar, a2);
-        long abs = Math.abs(System.currentTimeMillis() - this.f173a.getLong(a2, 0L)) / 1000;
+        long abs = Math.abs(System.currentTimeMillis() - this.f174a.getLong(a2, 0L)) / 1000;
         if (abs < i - i2) {
             i2 = (int) (i - abs);
         }
         try {
-            ScheduledFuture<?> scheduleAtFixedRate = this.f176a.scheduleAtFixedRate(ajVar, i2, i, TimeUnit.SECONDS);
-            synchronized (this.f175a) {
-                this.f174a.put(aVar.mo185a(), scheduleAtFixedRate);
+            ScheduledFuture<?> scheduleAtFixedRate = this.f177a.scheduleAtFixedRate(ajVar, i2, i, TimeUnit.SECONDS);
+            synchronized (this.f176a) {
+                this.f175a.put(aVar.mo196a(), scheduleAtFixedRate);
             }
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -137,9 +137,9 @@ public class ai {
         if (aVar == null || a(aVar) != null) {
             return false;
         }
-        ScheduledFuture<?> schedule = this.f176a.schedule(new ak(this, aVar), i, TimeUnit.SECONDS);
-        synchronized (this.f175a) {
-            this.f174a.put(aVar.mo185a(), schedule);
+        ScheduledFuture<?> schedule = this.f177a.schedule(new ak(this, aVar), i, TimeUnit.SECONDS);
+        synchronized (this.f176a) {
+            this.f175a.put(aVar.mo196a(), schedule);
         }
         return true;
     }

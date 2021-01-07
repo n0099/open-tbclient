@@ -37,7 +37,7 @@ public class a {
         if (DEBUG) {
             String e = e.e(new File(str2), false);
             if (!TextUtils.isEmpty(e)) {
-                h.aPH().putString(com.baidu.swan.apps.swancore.a.kZ(i), e);
+                h.aPI().putString(com.baidu.swan.apps.swancore.a.kZ(i), e);
             }
         }
         if (ProcessUtils.isMainProcess()) {
@@ -47,20 +47,20 @@ public class a {
         if (DEBUG) {
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + uo);
         }
-        return C0491a.aPV();
+        return C0491a.aPW();
     }
 
     private static ArrayList<Long> p(long j, long j2) {
-        SwanCoreVersion avV;
+        SwanCoreVersion avW;
         ArrayList<Long> arrayList = new ArrayList<>();
         if (j != 0) {
             arrayList.add(Long.valueOf(j));
         }
         arrayList.add(Long.valueOf(j2));
-        for (c cVar : com.baidu.swan.apps.process.messaging.service.e.aJL().aJN()) {
-            SwanAppCores aJx = cVar.aJx();
-            if (cVar.aJy() && aJx != null && (avV = aJx.avV()) != null && !arrayList.contains(Long.valueOf(avV.swanCoreVersion))) {
-                arrayList.add(Long.valueOf(avV.swanCoreVersion));
+        for (c cVar : com.baidu.swan.apps.process.messaging.service.e.aJM().aJO()) {
+            SwanAppCores aJy = cVar.aJy();
+            if (cVar.aJz() && aJy != null && (avW = aJy.avW()) != null && !arrayList.contains(Long.valueOf(avW.swanCoreVersion))) {
+                arrayList.add(Long.valueOf(avW.swanCoreVersion));
             }
         }
         if (DEBUG) {
@@ -78,7 +78,7 @@ public class a {
     }
 
     public static long lw(int i) {
-        return h.aPH().getLong(ly(i), 0L);
+        return h.aPI().getLong(ly(i), 0L);
     }
 
     public static void lx(int i) {
@@ -90,12 +90,12 @@ public class a {
     }
 
     private static void p(final long j, final int i) {
-        h.aPH().putLong(ly(i), j);
+        h.aPI().putLong(ly(i), j);
         p.a(new Runnable() { // from class: com.baidu.swan.apps.swancore.d.a.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    com.baidu.swan.apps.swancore.a.aPI().m(j, i);
+                    com.baidu.swan.apps.swancore.a.aPJ().m(j, i);
                 } catch (Exception e) {
                     if (a.DEBUG) {
                         e.printStackTrace();
@@ -123,7 +123,7 @@ public class a {
             return this.statusCode == 0;
         }
 
-        public static C0491a aPV() {
+        public static C0491a aPW() {
             return ap(0, "");
         }
 

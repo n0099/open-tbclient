@@ -87,19 +87,19 @@ public class aa implements s {
             if (lT <= 0) {
                 j8 = 0;
             }
-            HashMap<String, String> bwC = this.fcq.bwC();
-            bwC.put("startTime", String.valueOf(System.currentTimeMillis()));
-            bwC.put("netConTime", String.valueOf(j3));
-            bwC.put("netRWTime", String.valueOf(j5));
-            bwC.put("firstByteTime", String.valueOf(j6));
-            bwC.put("allDataReadTime", String.valueOf(j7));
-            bwC.put("dataDeCompressTime", String.valueOf(j8));
-            bwC.put("httpRetryNum", String.valueOf(lU));
-            bwC.put("httpRetryCostTime", String.valueOf(j4));
-            bwC.put("dataParseTime", String.valueOf(j2 - lT));
-            bwC.put("isHttp", "1");
-            bwC.put("httpSize", String.valueOf(i));
-            bwC.put("errCode", String.valueOf(this.fcq.bwA().mNetErrorCode));
+            HashMap<String, String> bwD = this.fcq.bwD();
+            bwD.put("startTime", String.valueOf(System.currentTimeMillis()));
+            bwD.put("netConTime", String.valueOf(j3));
+            bwD.put("netRWTime", String.valueOf(j5));
+            bwD.put("firstByteTime", String.valueOf(j6));
+            bwD.put("allDataReadTime", String.valueOf(j7));
+            bwD.put("dataDeCompressTime", String.valueOf(j8));
+            bwD.put("httpRetryNum", String.valueOf(lU));
+            bwD.put("httpRetryCostTime", String.valueOf(j4));
+            bwD.put("dataParseTime", String.valueOf(j2 - lT));
+            bwD.put("isHttp", "1");
+            bwD.put("httpSize", String.valueOf(i));
+            bwD.put("errCode", String.valueOf(this.fcq.bwB().mNetErrorCode));
         }
     }
 
@@ -120,29 +120,29 @@ public class aa implements s {
         boolean z = true;
         com.baidu.adp.lib.network.a.a.setUid(TbadkCoreApplication.getCurrentAccount());
         try {
-            if (this.fcq.bwz().bwD().mPostData != null && this.fcq.bwz().bwD().mPostData.size() > 0 && !this.fcq.bwz().mIsFromCDN) {
+            if (this.fcq.bwA().bwE().mPostData != null && this.fcq.bwA().bwE().mPostData.size() > 0 && !this.fcq.bwA().mIsFromCDN) {
                 StringBuilder sb = new StringBuilder(30);
-                sb.append(this.fcq.bwz().bwD().mUrl);
-                if (this.fcq.bwz().bwD().mUrl.indexOf("?") < 0) {
+                sb.append(this.fcq.bwA().bwE().mUrl);
+                if (this.fcq.bwA().bwE().mUrl.indexOf("?") < 0) {
                     sb.append("?");
-                } else if (!this.fcq.bwz().bwD().mUrl.endsWith("?") && !this.fcq.bwz().bwD().mUrl.endsWith(ETAG.ITEM_SEPARATOR)) {
+                } else if (!this.fcq.bwA().bwE().mUrl.endsWith("?") && !this.fcq.bwA().bwE().mUrl.endsWith(ETAG.ITEM_SEPARATOR)) {
                     sb.append(ETAG.ITEM_SEPARATOR);
                 }
-                for (int i = 0; i < this.fcq.bwz().bwD().mPostData.size(); i++) {
+                for (int i = 0; i < this.fcq.bwA().bwE().mPostData.size(); i++) {
                     if (i != 0) {
                         sb.append(ETAG.ITEM_SEPARATOR);
                     }
-                    sb.append(this.fcq.bwz().bwD().mPostData.get(i).getName());
+                    sb.append(this.fcq.bwA().bwE().mPostData.get(i).getName());
                     sb.append("=");
-                    sb.append(at.getUrlEncode(this.fcq.bwz().bwD().mPostData.get(i).getValue()));
+                    sb.append(at.getUrlEncode(this.fcq.bwA().bwE().mPostData.get(i).getValue()));
                 }
                 str = sb.toString();
             } else {
-                str = this.fcq.bwz().bwD().mUrl;
+                str = this.fcq.bwA().bwE().mUrl;
             }
             if (TbConfig.getDebugSwitch()) {
             }
-            if ((!this.fcq.bwz().bwD().mRequestGzip || this.fcq.bwz().bwD().mIsBDImage) && !this.fcq.bwz().mIsFromCDN) {
+            if ((!this.fcq.bwA().bwE().mRequestGzip || this.fcq.bwA().bwE().mIsBDImage) && !this.fcq.bwA().mIsFromCDN) {
                 z = false;
             }
         } catch (BdHttpCancelException e) {
@@ -165,7 +165,7 @@ public class aa implements s {
             throw new BdHttpCancelException();
         }
         long j = new Date().getTime();
-        this.fcw.a(str, z, 5, 100, -1, -1, bvT());
+        this.fcw.a(str, z, 5, 100, -1, -1, bvU());
         com.baidu.adp.lib.network.http.e mp = this.fcw.mp();
         if (mp == null) {
             return null;
@@ -174,21 +174,21 @@ public class aa implements s {
         if (mp != null) {
             try {
                 if (mp.lX() != null && (size = mp.lX().size()) > 0) {
-                    this.fcq.bwB().fej = mp.lX().get(size - 1);
+                    this.fcq.bwC().fej = mp.lX().get(size - 1);
                 }
             } catch (BdHttpCancelException e6) {
                 bdHttpCancelException = e6;
-                this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.neterror);
-                this.fcq.bwA().mException = String.valueOf(this.fcq.bwA().mNetErrorCode) + "|retryCount:" + (this.fcq.bwB().fej == null ? -1 : this.fcq.bwB().fej.retry) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
-                this.fcq.bwA().mNetErrorCode = -14;
+                this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                this.fcq.bwB().mException = String.valueOf(this.fcq.bwB().mNetErrorCode) + "|retryCount:" + (this.fcq.bwC().fej == null ? -1 : this.fcq.bwC().fej.retry) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
+                this.fcq.bwB().mNetErrorCode = -14;
                 if (gVar == null) {
                 }
                 return bArr;
             } catch (OutOfMemoryError e7) {
                 e = e7;
-                this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
-                this.fcq.bwA().mException = String.valueOf(this.fcq.bwA().mNetErrorCode) + "|retryCount:" + (this.fcq.bwB().fej != null ? this.fcq.bwB().fej.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.fcq.bwA().mNetErrorCode = -15;
+                this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
+                this.fcq.bwB().mException = String.valueOf(this.fcq.bwB().mNetErrorCode) + "|retryCount:" + (this.fcq.bwC().fej != null ? this.fcq.bwC().fej.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.fcq.bwB().mNetErrorCode = -15;
                 BdLog.e(e.getMessage());
                 TiebaStatic.net(this.fcq);
                 if (gVar == null) {
@@ -196,27 +196,27 @@ public class aa implements s {
                 return bArr;
             } catch (SocketException e8) {
                 e = e8;
-                this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.neterror);
-                this.fcq.bwA().mException = String.valueOf(this.fcq.bwA().mNetErrorCode) + "|retryCount:" + (this.fcq.bwB().fej != null ? this.fcq.bwB().fej.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.fcq.bwA().mNetErrorCode = -12;
+                this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                this.fcq.bwB().mException = String.valueOf(this.fcq.bwB().mNetErrorCode) + "|retryCount:" + (this.fcq.bwC().fej != null ? this.fcq.bwC().fej.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.fcq.bwB().mNetErrorCode = -12;
                 TiebaStatic.net(this.fcq);
                 if (gVar == null) {
                 }
                 return bArr;
             } catch (SocketTimeoutException e9) {
                 e = e9;
-                this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.neterror);
-                this.fcq.bwA().mException = String.valueOf(this.fcq.bwA().mNetErrorCode) + "|retryCount:" + (this.fcq.bwB().fej != null ? this.fcq.bwB().fej.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.fcq.bwA().mNetErrorCode = -13;
+                this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                this.fcq.bwB().mException = String.valueOf(this.fcq.bwB().mNetErrorCode) + "|retryCount:" + (this.fcq.bwC().fej != null ? this.fcq.bwC().fej.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.fcq.bwB().mNetErrorCode = -13;
                 TiebaStatic.net(this.fcq);
                 if (gVar == null) {
                 }
                 return bArr;
             } catch (Exception e10) {
                 e = e10;
-                this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
-                this.fcq.bwA().mException = String.valueOf(this.fcq.bwA().mNetErrorCode) + "|retryCount:" + (this.fcq.bwB().fej != null ? this.fcq.bwB().fej.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.fcq.bwA().mNetErrorCode = -10;
+                this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
+                this.fcq.bwB().mException = String.valueOf(this.fcq.bwB().mNetErrorCode) + "|retryCount:" + (this.fcq.bwC().fej != null ? this.fcq.bwC().fej.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.fcq.bwB().mNetErrorCode = -10;
                 BdLog.e(e.getMessage());
                 TiebaStatic.net(this.fcq);
                 if (gVar == null) {
@@ -227,13 +227,13 @@ public class aa implements s {
         if (gVar == null) {
             return null;
         }
-        this.fcq.bwA().mNetErrorCode = gVar.responseCode;
-        if (this.fcq.bwA().mNetErrorCode != 200) {
-            this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.neterror);
-            if (this.fcq.bwB().fej != null && !TextUtils.isEmpty(this.fcq.bwB().fej.exception)) {
-                this.fcq.bwA().mException = this.fcq.bwB().fej.exception;
+        this.fcq.bwB().mNetErrorCode = gVar.responseCode;
+        if (this.fcq.bwB().mNetErrorCode != 200) {
+            this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+            if (this.fcq.bwC().fej != null && !TextUtils.isEmpty(this.fcq.bwC().fej.exception)) {
+                this.fcq.bwB().mException = this.fcq.bwC().fej.exception;
             } else {
-                this.fcq.bwA().mException = String.valueOf(this.fcq.bwA().mNetErrorCode) + "|retryCount:" + (this.fcq.bwB().fej == null ? -1 : this.fcq.bwB().fej.retry);
+                this.fcq.bwB().mException = String.valueOf(this.fcq.bwB().mNetErrorCode) + "|retryCount:" + (this.fcq.bwC().fej == null ? -1 : this.fcq.bwC().fej.retry);
             }
             TiebaStatic.net(this.fcq);
             return null;
@@ -242,7 +242,7 @@ public class aa implements s {
             try {
                 int parseInt = Integer.parseInt(str2);
                 if (parseInt > fcv) {
-                    this.fcq.bwA().mNetErrorCode = -11;
+                    this.fcq.bwB().mNetErrorCode = -11;
                     TiebaStatic.net(this.fcq);
                     bArr = null;
                 } else {
@@ -250,9 +250,9 @@ public class aa implements s {
                     if (i2 > 0) {
                         if (BdLog.isDebugMode()) {
                         }
-                        if (!com.baidu.tbadk.imageManager.c.bGp().freePicCache(i2)) {
-                            BdLog.d("Image download cacelled. out of memory. url:[" + this.fcq.bwz().bwD().mUrl + "], size:" + i2);
-                            this.fcq.bwA().mNetErrorCode = -16;
+                        if (!com.baidu.tbadk.imageManager.c.bGq().freePicCache(i2)) {
+                            BdLog.d("Image download cacelled. out of memory. url:[" + this.fcq.bwA().bwE().mUrl + "], size:" + i2);
+                            this.fcq.bwB().mNetErrorCode = -16;
                             TiebaStatic.net(this.fcq);
                             bArr = null;
                         }
@@ -264,32 +264,32 @@ public class aa implements s {
         }
         ac.a aVar = new ac.a();
         aVar.mMode = getMode(com.baidu.adp.lib.util.j.netType());
-        aVar.mSize = this.fcq.bwB().fej.downloadSize;
+        aVar.mSize = this.fcq.bwC().fej.downloadSize;
         aVar.mTime = new Date().getTime() - j;
-        aVar.mTimesNum = this.fcq.bwB().fej.retry;
+        aVar.mTimesNum = this.fcq.bwC().fej.retry;
         aVar.mMethod = 2;
         ac.a(aVar);
-        ac.mErrorNums.set(this.fcq.bwB().fej.retry);
+        ac.mErrorNums.set(this.fcq.bwC().fej.retry);
         TiebaStatic.net(this.fcq);
         bArr = gVar == null ? gVar.retBytes : null;
         return bArr;
     }
 
-    public void BV(String str) {
-        this.fcq.bwA().mServerErrorCode = -1;
+    public void BU(String str) {
+        this.fcq.bwB().mServerErrorCode = -1;
         if (str != null) {
             try {
                 ErrorData errorData = new ErrorData();
                 errorData.parserJson(str);
-                this.fcq.bwA().mServerErrorCode = errorData.getError_code();
-                if (this.fcq.bwA().mServerErrorCode == -1) {
-                    this.fcq.bwA().mErrorString = this.mContext.getString(R.string.error_unkown_try_again);
-                } else if (this.fcq.bwA().mServerErrorCode != 0) {
-                    this.fcq.bwA().mErrorString = errorData.getError_msg();
+                this.fcq.bwB().mServerErrorCode = errorData.getError_code();
+                if (this.fcq.bwB().mServerErrorCode == -1) {
+                    this.fcq.bwB().mErrorString = this.mContext.getString(R.string.error_unkown_try_again);
+                } else if (this.fcq.bwB().mServerErrorCode != 0) {
+                    this.fcq.bwB().mErrorString = errorData.getError_msg();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                this.fcq.bwA().mErrorString = this.mContext.getString(R.string.error_unkown_try_again);
+                this.fcq.bwB().mErrorString = this.mContext.getString(R.string.error_unkown_try_again);
             }
         }
     }
@@ -298,14 +298,14 @@ public class aa implements s {
     public String getNetString() {
         String str;
         byte[] netData = getNetData();
-        if (netData == null || this.fcq.bwA().mNetErrorCode != 200) {
+        if (netData == null || this.fcq.bwB().mNetErrorCode != 200) {
             return null;
         }
         try {
-            this.fcq.bwz().bwD().charSet = TextUtils.isEmpty(this.fcq.bwz().bwD().charSet) ? "UTF-8" : this.fcq.bwz().bwD().charSet;
-            str = new String(netData, 0, netData.length, this.fcq.bwz().bwD().charSet);
+            this.fcq.bwA().bwE().charSet = TextUtils.isEmpty(this.fcq.bwA().bwE().charSet) ? "UTF-8" : this.fcq.bwA().bwE().charSet;
+            str = new String(netData, 0, netData.length, this.fcq.bwA().bwE().charSet);
             try {
-                BV(str);
+                BU(str);
                 return str;
             } catch (Exception e) {
                 e = e;
@@ -338,10 +338,10 @@ public class aa implements s {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (this.fcq.bwz().bwD().mPostData == null || i3 >= this.fcq.bwz().bwD().mPostData.size()) {
+            if (this.fcq.bwA().bwE().mPostData == null || i3 >= this.fcq.bwA().bwE().mPostData.size()) {
                 break;
             }
-            BasicNameValuePair basicNameValuePair = this.fcq.bwz().bwD().mPostData.get(i3);
+            BasicNameValuePair basicNameValuePair = this.fcq.bwA().bwE().mPostData.get(i3);
             if (basicNameValuePair != null) {
                 String name = basicNameValuePair.getName();
                 String value = basicNameValuePair.getValue();
@@ -351,11 +351,11 @@ public class aa implements s {
             }
             i2 = i3 + 1;
         }
-        if (this.fcq.bwz().bwD().mIsBaiduServer) {
+        if (this.fcq.bwA().bwE().mIsBaiduServer) {
             sb.append("tiebaclient!!!");
             addPostData("sign", com.baidu.adp.lib.util.s.toMd5(sb.toString()));
-            if (this.fcq.bwz().fct) {
-                addPostData("sig", StringU.Fi(sb.toString()));
+            if (this.fcq.bwA().fct) {
+                addPostData("sig", StringU.Fh(sb.toString()));
             }
         }
         if (TbConfig.getDebugSwitch()) {
@@ -395,7 +395,7 @@ public class aa implements s {
         if (this.fcw.isCanceled()) {
             return null;
         }
-        if (this.fcw.a(this.fcq.bwz().bwD().mUrl, this.fcq.bwz().bwD().mPostData, this.fcq.bwz().bwD().mRequestGzip, 5, -1, bvT()) == null) {
+        if (this.fcw.a(this.fcq.bwA().bwE().mUrl, this.fcq.bwA().bwE().mPostData, this.fcq.bwA().bwE().mRequestGzip, 5, -1, bvU()) == null) {
             throw new BdHttpCancelException();
         }
         com.baidu.adp.lib.network.http.e mp = this.fcw.mp();
@@ -404,15 +404,15 @@ public class aa implements s {
         }
         com.baidu.adp.lib.network.http.g lW = mp.lW();
         if (mp != null && mp.lX() != null && (size = mp.lX().size()) > 0) {
-            this.fcq.bwB().fej = mp.lX().get(size - 1);
+            this.fcq.bwC().fej = mp.lX().get(size - 1);
         }
-        this.fcq.bwA().mNetErrorCode = lW.responseCode;
-        this.fcq.bwA().mHeader = lW.MI;
-        if (this.fcq.bwA().mNetErrorCode != 200) {
-            if (this.fcq.bwB().fej != null && !TextUtils.isEmpty(this.fcq.bwB().fej.exception)) {
-                this.fcq.bwA().mException = this.fcq.bwB().fej.exception;
+        this.fcq.bwB().mNetErrorCode = lW.responseCode;
+        this.fcq.bwB().mHeader = lW.MI;
+        if (this.fcq.bwB().mNetErrorCode != 200) {
+            if (this.fcq.bwC().fej != null && !TextUtils.isEmpty(this.fcq.bwC().fej.exception)) {
+                this.fcq.bwB().mException = this.fcq.bwC().fej.exception;
             } else {
-                this.fcq.bwA().mException = String.valueOf(this.fcq.bwA().mNetErrorCode) + "|retryCount:" + (this.fcq.bwB().fej == null ? -1 : this.fcq.bwB().fej.retry);
+                this.fcq.bwB().mException = String.valueOf(this.fcq.bwB().mNetErrorCode) + "|retryCount:" + (this.fcq.bwC().fej == null ? -1 : this.fcq.bwC().fej.retry);
             }
             TiebaStatic.net(this.fcq);
             return null;
@@ -421,8 +421,8 @@ public class aa implements s {
         } else {
             str = new String(lW.retBytes, "utf-8");
             try {
-                if (this.fcq.bwz().bwD().mIsBaiduServer && this.fcq.bwz().bwD().mIsJson) {
-                    BV(str);
+                if (this.fcq.bwA().bwE().mIsBaiduServer && this.fcq.bwA().bwE().mIsJson) {
+                    BU(str);
                 }
                 i = lW.retBytes.length;
                 try {
@@ -430,58 +430,58 @@ public class aa implements s {
                     try {
                         ac.a aVar = new ac.a();
                         aVar.mMode = getMode(com.baidu.adp.lib.util.j.netType());
-                        aVar.mSize = this.fcq.bwB().fej.downloadSize;
-                        aVar.mTime = this.fcq.bwB().fej.Mf;
-                        aVar.mTimesNum = this.fcq.bwB().fej.retry;
+                        aVar.mSize = this.fcq.bwC().fej.downloadSize;
+                        aVar.mTime = this.fcq.bwC().fej.Mf;
+                        aVar.mTimesNum = this.fcq.bwC().fej.retry;
                         aVar.mMethod = 1;
                         ac.a(aVar);
-                        ac.mErrorNums.set(this.fcq.bwB().fej.retry);
+                        ac.mErrorNums.set(this.fcq.bwC().fej.retry);
                         TiebaStatic.net(this.fcq);
                     } catch (BdHttpCancelException e7) {
                         e = e7;
                         str2 = str;
-                        this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.neterror);
-                        this.fcq.bwA().mException = String.valueOf(this.fcq.bwA().mNetErrorCode) + "|retryCount:" + (this.fcq.bwB().fej == null ? -1 : this.fcq.bwB().fej.retry) + "|" + e.getClass() + "|" + e.getMessage();
-                        this.fcq.bwA().mNetErrorCode = -14;
+                        this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                        this.fcq.bwB().mException = String.valueOf(this.fcq.bwB().mNetErrorCode) + "|retryCount:" + (this.fcq.bwC().fej == null ? -1 : this.fcq.bwC().fej.retry) + "|" + e.getClass() + "|" + e.getMessage();
+                        this.fcq.bwB().mNetErrorCode = -14;
                         str = str2;
                         b(currentTimeMillis, j, i);
                         return str;
                     } catch (Exception e8) {
                         e = e8;
-                        this.fcq.bwA().mNetErrorCode = -10;
-                        this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
+                        this.fcq.bwB().mNetErrorCode = -10;
+                        this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
                         BdLog.e(e.getMessage());
                         TiebaStatic.net(this.fcq);
                         b(currentTimeMillis, j, i);
                         return str;
                     } catch (OutOfMemoryError e9) {
                         e = e9;
-                        this.fcq.bwA().mNetErrorCode = -15;
-                        this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
+                        this.fcq.bwB().mNetErrorCode = -15;
+                        this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
                         BdLog.e(e.getMessage());
                         TiebaStatic.net(this.fcq);
                         b(currentTimeMillis, j, i);
                         return str;
                     } catch (SocketException e10) {
                         e = e10;
-                        this.fcq.bwA().mNetErrorCode = -12;
-                        this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                        this.fcq.bwB().mNetErrorCode = -12;
+                        this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.neterror);
                         BdLog.e(e.getMessage());
                         TiebaStatic.net(this.fcq);
                         b(currentTimeMillis, j, i);
                         return str;
                     } catch (SocketTimeoutException e11) {
                         e = e11;
-                        this.fcq.bwA().mNetErrorCode = -13;
-                        this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                        this.fcq.bwB().mNetErrorCode = -13;
+                        this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.neterror);
                         BdLog.e(e.getMessage());
                         TiebaStatic.net(this.fcq);
                         b(currentTimeMillis, j, i);
                         return str;
                     } catch (Throwable th2) {
                         th = th2;
-                        this.fcq.bwA().mNetErrorCode = -10;
-                        this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                        this.fcq.bwB().mNetErrorCode = -10;
+                        this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.neterror);
                         BdLog.e(th.getMessage());
                         TiebaStatic.net(this.fcq);
                         b(currentTimeMillis, j, i);
@@ -574,10 +574,10 @@ public class aa implements s {
         if (this.fcw.isCanceled()) {
             throw new BdHttpCancelException();
         }
-        com.baidu.adp.lib.network.http.g a2 = this.fcw.a(this.fcq.bwz().bwD().mUrl, this.fcq.bwz().bwD().mRequestGzip, this.fcq.bwz().bwD().mPostData, this.fcq.bwz().bwD().mFileData, 5, -1, bvT());
-        this.fcq.bwA().mNetErrorCode = a2.responseCode;
-        this.fcq.bwA().mHeader = a2.MI;
-        if (this.fcq.bwA().mNetErrorCode != 200) {
+        com.baidu.adp.lib.network.http.g a2 = this.fcw.a(this.fcq.bwA().bwE().mUrl, this.fcq.bwA().bwE().mRequestGzip, this.fcq.bwA().bwE().mPostData, this.fcq.bwA().bwE().mFileData, 5, -1, bvU());
+        this.fcq.bwB().mNetErrorCode = a2.responseCode;
+        this.fcq.bwB().mHeader = a2.MI;
+        if (this.fcq.bwB().mNetErrorCode != 200) {
             com.baidu.adp.lib.network.http.e mp = this.fcw.mp();
             int i2 = 0;
             if (mp != null && mp.lX() != null) {
@@ -589,9 +589,9 @@ public class aa implements s {
                 str2 = dVar.exception;
             }
             if (!TextUtils.isEmpty(str2)) {
-                this.fcq.bwA().mException = str2;
+                this.fcq.bwB().mException = str2;
             } else {
-                this.fcq.bwA().mException = String.valueOf(this.fcq.bwA().mNetErrorCode) + "|retryCount:" + (this.fcq.bwB().fej == null ? -1 : this.fcq.bwB().fej.retry);
+                this.fcq.bwB().mException = String.valueOf(this.fcq.bwB().mNetErrorCode) + "|retryCount:" + (this.fcq.bwC().fej == null ? -1 : this.fcq.bwC().fej.retry);
             }
             TiebaStatic.net(this.fcq);
             return null;
@@ -600,7 +600,7 @@ public class aa implements s {
         } else {
             str = new String(a2.retBytes, "UTF-8");
             try {
-                BV(str);
+                BU(str);
                 i = a2.retBytes.length;
                 try {
                     j = System.currentTimeMillis();
@@ -622,35 +622,35 @@ public class aa implements s {
                     TiebaStatic.net(this.fcq);
                 } catch (BdHttpCancelException e11) {
                     e = e11;
-                    this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.neterror);
-                    this.fcq.bwA().mException = String.valueOf(this.fcq.bwA().mNetErrorCode) + "|retryCount:" + (this.fcq.bwB().fej == null ? -1 : this.fcq.bwB().fej.retry) + "|" + e.getClass() + "|" + e.getMessage();
-                    this.fcq.bwA().mNetErrorCode = -14;
+                    this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    this.fcq.bwB().mException = String.valueOf(this.fcq.bwB().mNetErrorCode) + "|retryCount:" + (this.fcq.bwC().fej == null ? -1 : this.fcq.bwC().fej.retry) + "|" + e.getClass() + "|" + e.getMessage();
+                    this.fcq.bwB().mNetErrorCode = -14;
                     b(currentTimeMillis, j, i);
                     return str;
                 } catch (OutOfMemoryError e12) {
                     e = e12;
-                    this.fcq.bwA().mNetErrorCode = -15;
-                    this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
+                    this.fcq.bwB().mNetErrorCode = -15;
+                    this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
                     BdLog.e(e.getMessage());
                     TiebaStatic.net(this.fcq);
                     b(currentTimeMillis, j, i);
                     return str;
                 } catch (SocketException e13) {
-                    this.fcq.bwA().mNetErrorCode = -12;
-                    this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    this.fcq.bwB().mNetErrorCode = -12;
+                    this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.neterror);
                     TiebaStatic.net(this.fcq);
                     b(currentTimeMillis, j, i);
                     return str;
                 } catch (SocketTimeoutException e14) {
-                    this.fcq.bwA().mNetErrorCode = -13;
-                    this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    this.fcq.bwB().mNetErrorCode = -13;
+                    this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.neterror);
                     TiebaStatic.net(this.fcq);
                     b(currentTimeMillis, j, i);
                     return str;
                 } catch (Exception e15) {
                     e = e15;
-                    this.fcq.bwA().mNetErrorCode = -10;
-                    this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
+                    this.fcq.bwB().mNetErrorCode = -10;
+                    this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
                     BdLog.e(e.getMessage());
                     TiebaStatic.net(this.fcq);
                     b(currentTimeMillis, j, i);
@@ -691,7 +691,7 @@ public class aa implements s {
                 if (this.fcw.isCanceled()) {
                     return false;
                 }
-                z2 = this.fcw.a(this.fcq.bwz().bwD().mUrl, (z ? new File(str) : n.CreateFileIfNotFoundInCache(str)).getAbsolutePath(), false, i2, i3, -1, -1, bvT(), new com.baidu.adp.lib.network.http.h() { // from class: com.baidu.tbadk.core.util.aa.1
+                z2 = this.fcw.a(this.fcq.bwA().bwE().mUrl, (z ? new File(str) : n.CreateFileIfNotFoundInCache(str)).getAbsolutePath(), false, i2, i3, -1, -1, bvU(), new com.baidu.adp.lib.network.http.h() { // from class: com.baidu.tbadk.core.util.aa.1
                     int fcx = 0;
                     int fcy = 0;
                     int fcz = 0;
@@ -710,9 +710,9 @@ public class aa implements s {
                             }
                         }
                     }
-                }, true, false, this.fcq.bwz().MD);
+                }, true, false, this.fcq.bwA().MD);
                 try {
-                    this.fcq.bwA().mNetErrorCode = this.fcw.mp().lW().responseCode;
+                    this.fcq.bwB().mNetErrorCode = this.fcw.mp().lW().responseCode;
                     com.baidu.adp.lib.network.http.e mp2 = this.fcw.mp();
                     if (mp2 != null && mp2.lX() != null && handler != null) {
                         int i4 = mp2.lW().mNetErrorCode;
@@ -721,9 +721,9 @@ public class aa implements s {
                         if (size > 0) {
                             com.baidu.adp.lib.network.http.d dVar = mp2.lX().get(size - 1);
                             bVar.setErrorCode(i4);
-                            bVar.sX(this.fcq.bwA().mNetErrorCode);
+                            bVar.sX(this.fcq.bwB().mNetErrorCode);
                             bVar.setException(dVar.exception);
-                            bVar.Et(dVar.Mn + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.LR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.Mj + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.Mk + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.Ml);
+                            bVar.Es(dVar.Mn + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.LR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.Mj + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.Mk + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.Ml);
                             bVar.setUrl(dVar.url);
                             bVar.Mr = dVar.Mr;
                             bVar.Ms = dVar.Ms;
@@ -735,8 +735,8 @@ public class aa implements s {
                     return z2;
                 } catch (Exception e) {
                     e = e;
-                    this.fcq.bwA().mNetErrorCode = -10;
-                    this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
+                    this.fcq.bwB().mNetErrorCode = -10;
+                    this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
                     BdLog.e(e.getMessage());
                     com.baidu.adp.lib.network.http.e mp3 = this.fcw.mp();
                     if (mp3 != null && mp3.lX() != null && handler != null) {
@@ -746,9 +746,9 @@ public class aa implements s {
                         if (size2 > 0) {
                             com.baidu.adp.lib.network.http.d dVar2 = mp3.lX().get(size2 - 1);
                             bVar2.setErrorCode(i5);
-                            bVar2.sX(this.fcq.bwA().mNetErrorCode);
+                            bVar2.sX(this.fcq.bwB().mNetErrorCode);
                             bVar2.setException(dVar2.exception);
-                            bVar2.Et(dVar2.Mn + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.LR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.Mj + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.Mk + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.Ml);
+                            bVar2.Es(dVar2.Mn + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.LR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.Mj + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.Mk + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.Ml);
                             bVar2.setUrl(dVar2.url);
                             bVar2.Mr = dVar2.Mr;
                             bVar2.Ms = dVar2.Ms;
@@ -760,8 +760,8 @@ public class aa implements s {
                     return z2;
                 } catch (OutOfMemoryError e2) {
                     e = e2;
-                    this.fcq.bwA().mNetErrorCode = -15;
-                    this.fcq.bwA().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
+                    this.fcq.bwB().mNetErrorCode = -15;
+                    this.fcq.bwB().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
                     BdLog.e(e.getMessage());
                     com.baidu.adp.lib.network.http.e mp4 = this.fcw.mp();
                     if (mp4 != null && mp4.lX() != null && handler != null) {
@@ -771,9 +771,9 @@ public class aa implements s {
                         if (size3 > 0) {
                             com.baidu.adp.lib.network.http.d dVar3 = mp4.lX().get(size3 - 1);
                             bVar3.setErrorCode(i6);
-                            bVar3.sX(this.fcq.bwA().mNetErrorCode);
+                            bVar3.sX(this.fcq.bwB().mNetErrorCode);
                             bVar3.setException(dVar3.exception);
-                            bVar3.Et(dVar3.Mn + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.LR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.Mj + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.Mk + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.Ml);
+                            bVar3.Es(dVar3.Mn + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.LR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.Mj + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.Mk + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.Ml);
                             bVar3.setUrl(dVar3.url);
                             bVar3.Mr = dVar3.Mr;
                             bVar3.Ms = dVar3.Ms;
@@ -793,9 +793,9 @@ public class aa implements s {
                     if (size4 > 0) {
                         com.baidu.adp.lib.network.http.d dVar4 = mp.lX().get(size4 - 1);
                         bVar4.setErrorCode(i7);
-                        bVar4.sX(this.fcq.bwA().mNetErrorCode);
+                        bVar4.sX(this.fcq.bwB().mNetErrorCode);
                         bVar4.setException(dVar4.exception);
-                        bVar4.Et(dVar4.Mn + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.LR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.Mj + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.Mk + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.Ml);
+                        bVar4.Es(dVar4.Mn + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.LR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.Mj + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.Mk + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.Ml);
                         bVar4.setUrl(dVar4.url);
                         bVar4.Mr = dVar4.Mr;
                         bVar4.Ms = dVar4.Ms;
@@ -816,13 +816,13 @@ public class aa implements s {
 
     @Override // com.baidu.tbadk.core.util.s
     public ArrayList<BasicNameValuePair> getPostData() {
-        return this.fcq.bwz().bwD().mPostData;
+        return this.fcq.bwA().bwE().mPostData;
     }
 
     @Override // com.baidu.tbadk.core.util.s
     public void setPostData(ArrayList<BasicNameValuePair> arrayList) {
-        if (this.fcq.bwz().bwD().mPostData != null) {
-            this.fcq.bwz().bwD().mPostData.clear();
+        if (this.fcq.bwA().bwE().mPostData != null) {
+            this.fcq.bwA().bwE().mPostData.clear();
         }
         int i = 0;
         while (true) {
@@ -843,28 +843,28 @@ public class aa implements s {
 
     @Override // com.baidu.tbadk.core.util.s
     public void addPostData(String str, byte[] bArr) {
-        if (this.fcq.bwz().bwD().mFileData == null) {
-            this.fcq.bwz().bwD().mFileData = new HashMap<>();
+        if (this.fcq.bwA().bwE().mFileData == null) {
+            this.fcq.bwA().bwE().mFileData = new HashMap<>();
         }
-        this.fcq.bwz().bwD().mFileData.put(str, bArr);
+        this.fcq.bwA().bwE().mFileData.put(str, bArr);
     }
 
     @Override // com.baidu.tbadk.core.util.s
     public void addPostData(BasicNameValuePair basicNameValuePair) {
         if (basicNameValuePair != null && basicNameValuePair.getName() != null) {
-            if (this.fcq.bwz().bwD().mPostData == null) {
-                this.fcq.bwz().bwD().mPostData = new ArrayList<>();
+            if (this.fcq.bwA().bwE().mPostData == null) {
+                this.fcq.bwA().bwE().mPostData = new ArrayList<>();
             }
-            int c = c(this.fcq.bwz().bwD().mPostData, basicNameValuePair.getName());
-            int size = this.fcq.bwz().bwD().mPostData.size();
+            int c = c(this.fcq.bwA().bwE().mPostData, basicNameValuePair.getName());
+            int size = this.fcq.bwA().bwE().mPostData.size();
             if (c >= 0 && c < size) {
-                if (basicNameValuePair.getName().equals(this.fcq.bwz().bwD().mPostData.get(c).getName())) {
-                    this.fcq.bwz().bwD().mPostData.set(c, basicNameValuePair);
+                if (basicNameValuePair.getName().equals(this.fcq.bwA().bwE().mPostData.get(c).getName())) {
+                    this.fcq.bwA().bwE().mPostData.set(c, basicNameValuePair);
                 } else {
-                    this.fcq.bwz().bwD().mPostData.add(c, basicNameValuePair);
+                    this.fcq.bwA().bwE().mPostData.add(c, basicNameValuePair);
                 }
             } else if (c == size) {
-                this.fcq.bwz().bwD().mPostData.add(c, basicNameValuePair);
+                this.fcq.bwA().bwE().mPostData.add(c, basicNameValuePair);
             }
         }
     }
@@ -894,14 +894,14 @@ public class aa implements s {
         return i >= size ? size : i2;
     }
 
-    private LinkedList<BasicNameValuePair> bvT() {
+    private LinkedList<BasicNameValuePair> bvU() {
         if (this.fcq != null) {
             LinkedList<BasicNameValuePair> linkedList = new LinkedList<>();
-            if (!TextUtils.isEmpty(this.fcq.bwz().bwD().mSeqId)) {
-                linkedList.add(new BasicNameValuePair(UbcStatConstant.KEY_CONTENT_EXT_SID, this.fcq.bwz().bwD().mSeqId));
+            if (!TextUtils.isEmpty(this.fcq.bwA().bwE().mSeqId)) {
+                linkedList.add(new BasicNameValuePair(UbcStatConstant.KEY_CONTENT_EXT_SID, this.fcq.bwA().bwE().mSeqId));
             }
-            if (!NetDeleteSwitch.isOn() && !TextUtils.isEmpty(this.fcq.bwz().bwD().mNetType)) {
-                linkedList.add(new BasicNameValuePair("net", this.fcq.bwz().bwD().mNetType));
+            if (!NetDeleteSwitch.isOn() && !TextUtils.isEmpty(this.fcq.bwA().bwE().mNetType)) {
+                linkedList.add(new BasicNameValuePair("net", this.fcq.bwA().bwE().mNetType));
                 return linkedList;
             }
             return linkedList;

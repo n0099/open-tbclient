@@ -19,11 +19,11 @@ public class PersonListActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PersonListActivityConfig.class, PersonListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(MyForbiddenFansActivityConfig.class, MyForbiddenFansActivity.class);
-        cEu();
+        cEv();
     }
 
-    public static void cEu() {
-        com.baidu.tbadk.ala.b.bno().a(5, new e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
+    public static void cEv() {
+        com.baidu.tbadk.ala.b.bnp().a(5, new e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
             @Override // com.baidu.tbadk.ala.e
             public View createView(Context context) {
                 TextView eR = com.baidu.tbadk.ala.c.eR(context);

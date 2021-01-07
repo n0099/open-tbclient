@@ -24,11 +24,11 @@ public class b {
     private BdListView.e WN = new BdListView.e() { // from class: com.baidu.tieba.square.view.b.1
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (b.this.nkz != null) {
-                b.this.nkz.stopScroll();
+            if (b.this.nky != null) {
+                b.this.nky.stopScroll();
             }
-            if (b.this.noA != null) {
-                b.this.noA.onScrollToBottom();
+            if (b.this.noz != null) {
+                b.this.noz.onScrollToBottom();
             }
         }
     };
@@ -36,55 +36,55 @@ public class b {
     private g gLj;
     private TbPageContext<?> mPageContext;
     private final View mRoot;
-    private BdTypeRecyclerView nkz;
-    private BdListView.e noA;
-    private RelativeLayout nos;
-    private RecyclerView nou;
-    private LinearLayoutManager nov;
-    private LeftAdapter nox;
-    private LinearLayoutManager noy;
-    private com.baidu.tieba.square.adapter.a noz;
+    private BdTypeRecyclerView nky;
+    private RelativeLayout nor;
+    private RecyclerView nos;
+    private LinearLayoutManager nou;
+    private LeftAdapter nov;
+    private LinearLayoutManager nox;
+    private com.baidu.tieba.square.adapter.a noy;
+    private BdListView.e noz;
 
     public b(TbPageContext tbPageContext, View view) {
         this.mPageContext = tbPageContext;
         this.mRoot = view;
         initView();
-        dCF();
+        dCG();
     }
 
     private void initView() {
-        this.nos = (RelativeLayout) this.mRoot.findViewById(R.id.right_container);
-        this.nou = (RecyclerView) this.mRoot.findViewById(R.id.rv_left);
-        this.nkz = (BdTypeRecyclerView) this.mRoot.findViewById(R.id.rv_right);
+        this.nor = (RelativeLayout) this.mRoot.findViewById(R.id.right_container);
+        this.nos = (RecyclerView) this.mRoot.findViewById(R.id.rv_left);
+        this.nky = (BdTypeRecyclerView) this.mRoot.findViewById(R.id.rv_right);
     }
 
-    public String dMY() {
-        return this.nox.dNk();
+    public String dMZ() {
+        return this.nov.dNl();
     }
 
-    public void SS(String str) {
+    public void SR(String str) {
         if (str != null) {
-            int ST = this.nox.ST(str);
-            this.nox.we(ST);
-            KE(ST);
+            int SS = this.nov.SS(str);
+            this.nov.we(SS);
+            KE(SS);
         }
     }
 
     public void d(String str, List<String> list, boolean z) {
         int position = x.getPosition(list, str);
-        this.nox.p(position, list);
+        this.nov.p(position, list);
         if (z) {
             KE(position);
         }
     }
 
-    public void dMZ() {
+    public void dNa() {
         ArrayList arrayList = new ArrayList();
         v vVar = new v();
         vVar.showText = this.mPageContext.getString(R.string.forum_square_list_no_data);
         vVar.resId = R.drawable.new_pic_emotion_06;
         arrayList.add(vVar);
-        this.noz.setData(arrayList);
+        this.noy.setData(arrayList);
     }
 
     public void fS(List<n> list) {
@@ -93,34 +93,34 @@ public class b {
 
     public void v(List<n> list, int i) {
         if (x.isEmpty(list)) {
-            dMZ();
+            dNa();
             return;
         }
         if (i > 0) {
-            Pair<Integer, Integer> dMX = dMX();
-            int intValue = ((Integer) dMX.first).intValue();
-            int intValue2 = ((Integer) dMX.second).intValue();
+            Pair<Integer, Integer> dMY = dMY();
+            int intValue = ((Integer) dMY.first).intValue();
+            int intValue2 = ((Integer) dMY.second).intValue();
             int i2 = intValue - i;
-            if (this.noy != null && this.nkz != null) {
-                this.nkz.qv();
-                this.noy.scrollToPositionWithOffset(i2, intValue2);
-                this.nkz.qw();
+            if (this.nox != null && this.nky != null) {
+                this.nky.qv();
+                this.nox.scrollToPositionWithOffset(i2, intValue2);
+                this.nky.qw();
             }
         }
-        this.noz.setData(list);
+        this.noy.setData(list);
     }
 
-    private void dCF() {
-        this.nov = new LinearLayoutManager(this.mPageContext.getPageActivity());
-        this.nou.setLayoutManager(this.nov);
-        this.nox = new LeftAdapter(this.mPageContext.getPageActivity());
-        this.nou.setAdapter(this.nox);
-        this.noz = new com.baidu.tieba.square.adapter.a(this.mPageContext, this.nkz);
-        this.noy = new LinearLayoutManager(this.mPageContext.getPageActivity());
-        this.nkz.setLayoutManager(this.noy);
-        this.nkz.setFadingEdgeLength(0);
-        this.nkz.setOverScrollMode(2);
-        this.nkz.setOnSrollToBottomListener(this.WN);
+    private void dCG() {
+        this.nou = new LinearLayoutManager(this.mPageContext.getPageActivity());
+        this.nos.setLayoutManager(this.nou);
+        this.nov = new LeftAdapter(this.mPageContext.getPageActivity());
+        this.nos.setAdapter(this.nov);
+        this.noy = new com.baidu.tieba.square.adapter.a(this.mPageContext, this.nky);
+        this.nox = new LinearLayoutManager(this.mPageContext.getPageActivity());
+        this.nky.setLayoutManager(this.nox);
+        this.nky.setFadingEdgeLength(0);
+        this.nky.setOverScrollMode(2);
+        this.nky.setOnSrollToBottomListener(this.WN);
         this.gCf = new PbListView(this.mPageContext.getPageActivity());
         this.gCf.getView();
         this.gCf.setContainerBackgroundColorResId(R.color.CAM_X0205);
@@ -129,32 +129,32 @@ public class b {
         this.gCf.setTextSize(R.dimen.tbfontsize33);
         this.gCf.setTextColor(ao.getColor(R.color.CAM_X0107));
         this.gCf.setNoMoreTextColorId(R.color.CAM_X0110);
-        this.gCf.bxC();
+        this.gCf.bxD();
     }
 
     public void e(BdListView.e eVar) {
-        this.noA = eVar;
+        this.noz = eVar;
     }
 
     public void b(RecyclerView.OnScrollListener onScrollListener) {
-        if (this.nkz != null) {
-            this.nkz.removeOnScrollListener(onScrollListener);
-            this.nkz.addOnScrollListener(onScrollListener);
+        if (this.nky != null) {
+            this.nky.removeOnScrollListener(onScrollListener);
+            this.nky.addOnScrollListener(onScrollListener);
         }
     }
 
     public void a(LeftAdapter.a aVar) {
-        if (this.nox != null) {
-            this.nox.b(aVar);
+        if (this.nov != null) {
+            this.nov.b(aVar);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.noz != null) {
-            this.noz.notifyDataSetChanged();
+        if (this.noy != null) {
+            this.noy.notifyDataSetChanged();
         }
-        if (this.nox != null) {
-            this.nox.notifyDataSetChanged();
+        if (this.nov != null) {
+            this.nov.notifyDataSetChanged();
         }
         if (this.gCf != null) {
             this.gCf.setTextColor(ao.getColor(R.color.CAM_X0107));
@@ -165,58 +165,58 @@ public class b {
         }
     }
 
-    public Pair<Integer, Integer> dMX() {
-        int firstVisiblePosition = this.nkz.getFirstVisiblePosition();
-        View childAt = this.nkz.getChildAt(0);
+    public Pair<Integer, Integer> dMY() {
+        int firstVisiblePosition = this.nky.getFirstVisiblePosition();
+        View childAt = this.nky.getChildAt(0);
         return new Pair<>(Integer.valueOf(firstVisiblePosition), Integer.valueOf(childAt != null ? childAt.getTop() : 0));
     }
 
     public void scrollToPositionWithOffset(int i, int i2) {
-        if (this.nkz != null && (this.nkz.getLayoutManager() instanceof LinearLayoutManager) && i <= this.nkz.getCount() - 1) {
-            ((LinearLayoutManager) this.nkz.getLayoutManager()).scrollToPositionWithOffset(i, i2);
+        if (this.nky != null && (this.nky.getLayoutManager() instanceof LinearLayoutManager) && i <= this.nky.getCount() - 1) {
+            ((LinearLayoutManager) this.nky.getLayoutManager()).scrollToPositionWithOffset(i, i2);
         }
     }
 
     private void KE(int i) {
-        if (this.nou != null && (this.nou.getLayoutManager() instanceof LinearLayoutManager)) {
-            LinearLayoutManager linearLayoutManager = (LinearLayoutManager) this.nou.getLayoutManager();
+        if (this.nos != null && (this.nos.getLayoutManager() instanceof LinearLayoutManager)) {
+            LinearLayoutManager linearLayoutManager = (LinearLayoutManager) this.nos.getLayoutManager();
             if (i < 0) {
                 i = 0;
-            } else if (i > this.nox.getItemCount() - 1) {
-                i = this.nox.getItemCount() - 1;
+            } else if (i > this.nov.getItemCount() - 1) {
+                i = this.nov.getItemCount() - 1;
             }
             linearLayoutManager.scrollToPositionWithOffset(i, 0);
         }
     }
 
-    public void bVF() {
-        this.nkz.setNextPage(null);
+    public void bVG() {
+        this.nky.setNextPage(null);
     }
 
-    public void dNe() {
-        this.nkz.setNextPage(this.gCf);
+    public void dNf() {
+        this.nky.setNextPage(this.gCf);
         this.gCf.hideEmptyView();
         this.gCf.getView().setPadding(0, 0, 0, 0);
         this.gCf.setText(this.mPageContext.getPageActivity().getString(R.string.pb_load_more));
         this.gCf.endLoadData();
     }
 
-    public void dNf() {
-        this.nkz.setNextPage(this.gCf);
+    public void dNg() {
+        this.nky.setNextPage(this.gCf);
         this.gCf.hideEmptyView();
         this.gCf.getView().setPadding(0, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds62), 0, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds362));
         this.gCf.setText(this.mPageContext.getPageActivity().getString(R.string.forum_square_list_has_no_more));
         this.gCf.endLoadData();
     }
 
-    public void dNg() {
-        this.nkz.setNextPage(this.gCf);
+    public void dNh() {
+        this.nky.setNextPage(this.gCf);
         this.gCf.hideEmptyView();
         this.gCf.getView().setPadding(0, 0, 0, 0);
         this.gCf.showLoading();
     }
 
-    private boolean cts() {
+    private boolean ctt() {
         if (this.gLj != null) {
             return this.gLj.isViewAttached();
         }
@@ -225,28 +225,28 @@ public class b {
 
     public void hideLoadingView() {
         if (this.gLj != null) {
-            this.gLj.dettachView(this.nos);
+            this.gLj.dettachView(this.nor);
             this.gLj = null;
         }
     }
 
     public void it(boolean z) {
-        if (!cts()) {
+        if (!ctt()) {
             if (this.gLj == null) {
                 this.gLj = new g(this.mPageContext.getPageActivity());
                 this.gLj.setTopMargin(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds270));
             }
             this.gLj.onChangeSkinType();
-            this.gLj.attachView(this.nos, z);
+            this.gLj.attachView(this.nor, z);
         }
     }
 
     public void KF(int i) {
-        this.nkz.setVisibility(i);
+        this.nky.setVisibility(i);
     }
 
     public void In(int i) {
-        this.nou.setVisibility(i);
-        this.nkz.setVisibility(i);
+        this.nos.setVisibility(i);
+        this.nky.setVisibility(i);
     }
 }

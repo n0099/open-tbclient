@@ -34,7 +34,7 @@ public class c implements d.a {
     }
 
     @Override // com.baidu.swan.game.ad.downloader.core.d.a
-    public void aVi() {
+    public void aVj() {
         if (!this.eaO.get()) {
             synchronized (this) {
                 if (!this.eaO.get()) {
@@ -51,7 +51,7 @@ public class c implements d.a {
     }
 
     @Override // com.baidu.swan.game.ad.downloader.core.d.a
-    public void aVc() {
+    public void aVd() {
         if (this.eaM.getProgress() == this.eaM.getSize()) {
             String av = e.av(AppRuntime.getAppContext(), this.eaM.getPath());
             if (com.baidu.swan.apps.b.DEBUG) {

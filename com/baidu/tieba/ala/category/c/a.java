@@ -36,15 +36,15 @@ public class a extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaCategoryResponseMessage) {
                     AlaCategoryResponseMessage alaCategoryResponseMessage = (AlaCategoryResponseMessage) httpResponsedMessage;
-                    com.baidu.tieba.ala.category.b.b bWF = alaCategoryResponseMessage.bWF();
-                    if (!alaCategoryResponseMessage.isSuccess() || bWF == null || ListUtils.isEmpty(bWF.bWB())) {
+                    com.baidu.tieba.ala.category.b.b bWG = alaCategoryResponseMessage.bWG();
+                    if (!alaCategoryResponseMessage.isSuccess() || bWG == null || ListUtils.isEmpty(bWG.bWC())) {
                         if (a.this.gOX != null) {
                             a.this.gOX.aE(alaCategoryResponseMessage.getError(), alaCategoryResponseMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    a.this.gOR = bWF.bWB();
+                    a.this.gOR = bWG.bWC();
                     if (a.this.gOX != null) {
                         a.this.gOX.onLoadSuccess();
                     }
@@ -64,7 +64,7 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bWG() {
+    public void bWH() {
         loadData();
     }
 
@@ -84,7 +84,7 @@ public class a extends BdBaseModel {
         this.gOX = interfaceC0639a;
     }
 
-    public List<IAdapterData> bWB() {
+    public List<IAdapterData> bWC() {
         return this.gOR;
     }
 }

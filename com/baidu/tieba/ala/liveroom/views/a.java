@@ -51,13 +51,13 @@ public abstract class a implements e {
         }
     };
 
-    protected abstract int bUl();
+    protected abstract int bUm();
 
-    protected abstract com.baidu.tieba.ala.category.b.a cnL();
+    protected abstract com.baidu.tieba.ala.category.b.a cnM();
 
-    protected abstract int cnO();
+    protected abstract int cnP();
 
-    protected abstract boolean cnP();
+    protected abstract boolean cnQ();
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -65,7 +65,7 @@ public abstract class a implements e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cnE() {
+    public void cnF() {
         this.hPq = (EditText) this.mRootView.findViewById(a.f.ala_liveroom_prepare_title);
         this.hPq.setOnFocusChangeListener(this.focusChangeListener);
         this.hPr = (LinearLayout) this.mRootView.findViewById(a.f.ala_live_prepare_locate_layout);
@@ -83,46 +83,46 @@ public abstract class a implements e {
         this.bCM = alaLiveRecorder;
     }
 
-    protected void cnF() {
-        this.bCM.setVideoConfig(LiveRecorderConfigHelper.Sb().d(cnO(), bUl(), cnP()));
-    }
-
-    protected boolean cnG() {
-        return false;
+    protected void cnG() {
+        this.bCM.setVideoConfig(LiveRecorderConfigHelper.Sb().d(cnP(), bUm(), cnQ()));
     }
 
     protected boolean cnH() {
         return false;
     }
 
-    public String cnI() {
+    protected boolean cnI() {
+        return false;
+    }
+
+    public String cnJ() {
         return com.baidu.live.d.Ba().getString(com.baidu.live.d.getSharedPrefKeyWithAccount("key_default_cover"), "");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean cnJ() {
+    public boolean cnK() {
         if (TextUtils.isEmpty(getLiveTitle().trim())) {
             BdUtilHelper.showToast(this.mPageContext.getPageActivity(), a.h.ala_live_please_input_title);
             return false;
-        } else if (TextUtils.isEmpty(cnI())) {
+        } else if (TextUtils.isEmpty(cnJ())) {
             this.mPageContext.showToast(a.h.hk_live_upload_cover);
             return false;
         } else {
+            boolean cnI = cnI();
             boolean cnH = cnH();
-            boolean cnG = cnG();
-            if (cnH || cnG) {
+            if (cnI || cnH) {
                 return false;
             }
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
                 this.mPageContext.showToast(a.h.ala_create_to_retry);
                 return false;
             } else if (!ao.ET()) {
-                return cnK();
-            } else if (cnL() == null || cnL().bWz() == null || cnL().bWA() == null) {
+                return cnL();
+            } else if (cnM() == null || cnM().bWA() == null || cnM().bWB() == null) {
                 this.mPageContext.showToast(a.h.ala_live_prepare_select_livetype_tips);
                 return false;
             } else if (this.hPz != null) {
-                this.hPz.d(cnL());
+                this.hPz.d(cnM());
                 return false;
             } else {
                 return false;
@@ -130,11 +130,11 @@ public abstract class a implements e {
         }
     }
 
-    private boolean cnK() {
+    private boolean cnL() {
         if (this.hPz != null) {
             this.hPx = true;
-            cnF();
-            this.hPz.cli();
+            cnG();
+            this.hPz.clj();
             if (TextUtils.isEmpty(this.hPq.getText().toString())) {
                 return true;
             }
@@ -146,7 +146,7 @@ public abstract class a implements e {
 
     public void oc(boolean z) {
         if (z) {
-            cnK();
+            cnL();
         } else {
             this.mPageContext.showToast(a.h.ala_live_prepare_add_category_fail);
         }
@@ -156,7 +156,7 @@ public abstract class a implements e {
         this.hPs.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.a.1
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                a.this.cnN();
+                a.this.cnO();
                 if (z) {
                     a.this.hPs.setCompoundDrawablesWithIntrinsicBounds(a.this.mPageContext.getResources().getDrawable(a.e.icon_live_video_choose_s), (Drawable) null, (Drawable) null, (Drawable) null);
                 } else {
@@ -168,7 +168,7 @@ public abstract class a implements e {
             this.hPt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.ala.liveroom.views.a.2
                 @Override // android.widget.CompoundButton.OnCheckedChangeListener
                 public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                    a.this.cnN();
+                    a.this.cnO();
                     if (z) {
                         a.this.hPt.setCompoundDrawablesWithIntrinsicBounds(a.this.mPageContext.getResources().getDrawable(a.e.icon_live_video_choose_s), (Drawable) null, (Drawable) null, (Drawable) null);
                     } else {
@@ -181,7 +181,7 @@ public abstract class a implements e {
             this.hPu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.hPz.cll();
+                    a.this.hPz.clm();
                     LogManager.getLiveRecordLogger().doClickLiveRulesButtonLog("");
                 }
             });
@@ -189,13 +189,13 @@ public abstract class a implements e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cnM() {
+    public void cnN() {
         if (this.hPy) {
             BdUtilHelper.hideSoftKeyPad(this.mPageContext.getPageActivity(), this.mRootView);
         }
     }
 
-    protected void cnN() {
+    protected void cnO() {
     }
 
     public View getView() {
@@ -206,7 +206,7 @@ public abstract class a implements e {
         return this.hPq.getText().toString();
     }
 
-    public boolean chp() {
+    public boolean chq() {
         return this.hPw.isShowLocation();
     }
 
@@ -219,11 +219,11 @@ public abstract class a implements e {
         this.hPs.setChecked(false);
     }
 
-    public boolean chm() {
+    public boolean chn() {
         return this.hPs.isChecked();
     }
 
-    public boolean chn() {
+    public boolean cho() {
         return this.hPt.isChecked();
     }
 

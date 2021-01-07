@@ -84,7 +84,7 @@ public class i extends com.baidu.adp.widget.ListView.a<m, QualityThreadItemHolde
 
     private void a(QualityThreadItemHolder qualityThreadItemHolder, m mVar) {
         if (qualityThreadItemHolder != null && mVar != null) {
-            if (mVar.cVl()) {
+            if (mVar.cVm()) {
                 qualityThreadItemHolder.ksi.setVisibility(0);
                 qualityThreadItemHolder.ksj.setVisibility(0);
                 qualityThreadItemHolder.ksq.setVisibility(8);
@@ -141,10 +141,10 @@ public class i extends com.baidu.adp.widget.ListView.a<m, QualityThreadItemHolde
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(m mVar) {
-        if (mVar != null && !mVar.cVl()) {
+        if (mVar != null && !mVar.cVm()) {
             String valueOf = String.valueOf(mVar.tid);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.koZ.getActivity()).createNormalCfg(valueOf, String.valueOf(mVar.postId), "hot_topic")));
-            TiebaStatic.log(new aq("c10522").dX("tid", valueOf).dX("obj_id", this.koZ.cUK()));
+            TiebaStatic.log(new aq("c10522").dX("tid", valueOf).dX("obj_id", this.koZ.cUL()));
         }
     }
 }

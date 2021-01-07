@@ -79,7 +79,7 @@ public class a extends aa {
             if (bv == null) {
                 bv = new HashMap<>();
             }
-            bv.put("Referer", com.baidu.swan.apps.api.module.network.c.anA());
+            bv.put("Referer", com.baidu.swan.apps.api.module.network.c.anB());
         }
         return bv;
     }
@@ -162,8 +162,8 @@ public class a extends aa {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String aGz() {
-        return com.baidu.swan.apps.t.a.aAQ().alT().getCookie(".baidu.com");
+    public String aGA() {
+        return com.baidu.swan.apps.t.a.aAR().alU().getCookie(".baidu.com");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -196,7 +196,7 @@ public class a extends aa {
                     jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, a2);
                     HashMap hashMap = new HashMap();
                     hashMap.put("data", jSONObject.toString());
-                    com.baidu.swan.apps.v.f.aDG().b(new com.baidu.swan.apps.event.a.b(str, hashMap));
+                    com.baidu.swan.apps.v.f.aDH().b(new com.baidu.swan.apps.event.a.b(str, hashMap));
                 }
             } catch (JSONException e) {
                 if (DEBUG) {

@@ -33,7 +33,7 @@ public class f extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        String string = eVar.aMv().aPr().getString(aX, null);
+        String string = eVar.aMw().aPs().getString(aX, null);
         if (string == null && com.baidu.swan.apps.storage.c.dOx) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "data not found");
             return false;

@@ -20,7 +20,7 @@ public class c extends f.a {
     protected boolean a(Pipe.SourceChannel sourceChannel, Bundle bundle) {
         com.baidu.swan.apps.al.a uz;
         com.baidu.swan.apps.u.e.a pZ = com.baidu.swan.apps.u.e.a.pZ(bundle.getString("launch_id"));
-        pZ.aCW().qc("SignChecker").jw(1);
+        pZ.aCX().qc("SignChecker").jw(1);
         long currentTimeMillis = System.currentTimeMillis();
         try {
             uz = com.baidu.swan.apps.core.pms.f.a.a(sourceChannel, this.mSign, this.dhn);
@@ -29,7 +29,7 @@ public class c extends f.a {
                 e.printStackTrace();
             }
             uz = new com.baidu.swan.apps.al.a().cV(11L).cW(2300L).uz("inputStream IOException:" + e.toString());
-            com.baidu.swan.apps.al.e.aQJ().j(uz);
+            com.baidu.swan.apps.al.e.aQK().j(uz);
             pZ.cb("SignChecker", uz.toString());
         } finally {
             com.baidu.swan.apps.ao.b.b.a(sourceChannel);
@@ -38,7 +38,7 @@ public class c extends f.a {
         boolean z = uz == null;
         if (uz != null) {
             pZ.cb("SignChecker", uz.toString());
-            aAo().putLong("result_error_code", uz.aQF());
+            aAp().putLong("result_error_code", uz.aQG());
         }
         pZ.cb("SignChecker", "done: " + z);
         return z;

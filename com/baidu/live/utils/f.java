@@ -60,7 +60,7 @@ public class f {
         if (Integer.parseInt(substring2) > 31 || Integer.parseInt(substring2) == 0) {
             return "身份证号错误";
         }
-        if (Xx().get(str2.substring(0, 2)) == null) {
+        if (Xy().get(str2.substring(0, 2)) == null) {
             return "身份证号错误";
         }
         int i3 = 0;
@@ -82,7 +82,7 @@ public class f {
         return "Success";
     }
 
-    private static Hashtable Xx() {
+    private static Hashtable Xy() {
         Hashtable hashtable = new Hashtable();
         hashtable.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "北京");
         hashtable.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, "天津");

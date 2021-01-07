@@ -48,7 +48,7 @@ public class a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ShareEvent) && ((ShareEvent) customResponsedMessage.getData()).status == 1) {
                 f.sa(((ShareEvent) customResponsedMessage.getData()).channel);
-                a.this.bvp();
+                a.this.bvq();
             }
         }
     };
@@ -71,7 +71,7 @@ public class a {
     private NewUserRedPackageData mNewUserRedPackageData;
     private int missionId;
 
-    public static a bvm() {
+    public static a bvn() {
         if (faU == null) {
             synchronized (a.class) {
                 if (faU == null) {
@@ -87,17 +87,17 @@ public class a {
         TbPageContext currentActivityPageContext;
         if (aVar != null) {
             if (aVar.eHU == null || !aVar.eHU.is_new_window) {
-                boolean z = com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("key_task_system_new_user_popup_show_number", false);
+                boolean z = com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("key_task_system_new_user_popup_show_number", false);
                 if (aVar.isNewUser && !StringUtils.isNull(aVar.eHQ) && !z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (currentActivityPageContext = getCurrentActivityPageContext(currentActivity)) != null) {
                     this.mNewUserRedPackageData = aVar.eHT;
                     d.mx().a(this.mNewUserRedPackageData.topPicUrl, 10, this.fba, 0, 0, currentActivityPageContext.getUniqueId(), new Object[0]);
-                    com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("key_task_system_new_user_popup_show_number", true);
+                    com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean("key_task_system_new_user_popup_show_number", true);
                 }
             }
         }
     }
 
-    public void bvn() {
+    public void bvo() {
         TbPageContext currentActivityPageContext;
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity != null && (currentActivityPageContext = getCurrentActivityPageContext(currentActivity)) != null && b.kC().bo("MainTabActivity")) {
@@ -126,32 +126,32 @@ public class a {
             com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b();
             bVar.dz(this.faW);
             bVar.og(this.faX);
-            com.baidu.tbadk.core.sharedPref.b.bvq().putInt("task_share_thread_success_data_total_limit", this.faV);
-            com.baidu.tbadk.core.sharedPref.b.bvq().putInt("task_share_thread_success_data_mission_id", this.missionId);
-            com.baidu.tbadk.core.sharedPref.b.bvq().putInt("task_share_thread_success_data_action_id", this.activityId);
-            com.baidu.tbadk.core.sharedPref.b.bvq().putLong("task_share_thread_success_data_specific_clear_time", bVar.bkB());
+            com.baidu.tbadk.core.sharedPref.b.bvr().putInt("task_share_thread_success_data_total_limit", this.faV);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putInt("task_share_thread_success_data_mission_id", this.missionId);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putInt("task_share_thread_success_data_action_id", this.activityId);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putLong("task_share_thread_success_data_specific_clear_time", bVar.bkC());
         }
     }
 
-    private void bvo() {
-        com.baidu.tbadk.core.sharedPref.b.bvq().remove("task_share_thread_success_data_total_limit");
-        com.baidu.tbadk.core.sharedPref.b.bvq().remove("task_share_thread_success_data_mission_id");
-        com.baidu.tbadk.core.sharedPref.b.bvq().remove("task_share_thread_success_data_action_id");
-        com.baidu.tbadk.core.sharedPref.b.bvq().remove("task_share_thread_success_data_specific_clear_time");
+    private void bvp() {
+        com.baidu.tbadk.core.sharedPref.b.bvr().remove("task_share_thread_success_data_total_limit");
+        com.baidu.tbadk.core.sharedPref.b.bvr().remove("task_share_thread_success_data_mission_id");
+        com.baidu.tbadk.core.sharedPref.b.bvr().remove("task_share_thread_success_data_action_id");
+        com.baidu.tbadk.core.sharedPref.b.bvr().remove("task_share_thread_success_data_specific_clear_time");
     }
 
-    public void bvp() {
+    public void bvq() {
         int i;
         if (TbadkCoreApplication.isLogin()) {
-            int i2 = com.baidu.tbadk.core.sharedPref.b.bvq().getInt("task_share_thread_success_data_mission_id", 0);
-            int i3 = com.baidu.tbadk.core.sharedPref.b.bvq().getInt("task_share_thread_success_data_action_id", 0);
-            long j = com.baidu.tbadk.core.sharedPref.b.bvq().getLong("task_share_thread_success_data_specific_clear_time", 0L);
+            int i2 = com.baidu.tbadk.core.sharedPref.b.bvr().getInt("task_share_thread_success_data_mission_id", 0);
+            int i3 = com.baidu.tbadk.core.sharedPref.b.bvr().getInt("task_share_thread_success_data_action_id", 0);
+            long j = com.baidu.tbadk.core.sharedPref.b.bvr().getLong("task_share_thread_success_data_specific_clear_time", 0L);
             com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b();
             bVar.dA(j);
-            if (bVar.bkA()) {
-                bvo();
-            } else if (i3 != 0 && i2 != 0 && (i = com.baidu.tbadk.core.sharedPref.b.bvq().getInt("task_share_thread_success_data_total_limit", 0)) > 0) {
-                com.baidu.tbadk.core.sharedPref.b.bvq().putInt("task_share_thread_success_data_total_limit", i - 1);
+            if (bVar.bkB()) {
+                bvp();
+            } else if (i3 != 0 && i2 != 0 && (i = com.baidu.tbadk.core.sharedPref.b.bvr().getInt("task_share_thread_success_data_total_limit", 0)) > 0) {
+                com.baidu.tbadk.core.sharedPref.b.bvr().putInt("task_share_thread_success_data_total_limit", i - 1);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(String.valueOf(i3), String.valueOf(i2));

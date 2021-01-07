@@ -19,7 +19,7 @@ public class Prefetch {
         if (b2 == null) {
             b2 = "";
         }
-        if (Utils.a() > Utils.f3234b) {
+        if (Utils.a() > Utils.f3235b) {
             nativeAdd(str, str2 != null ? str2 : "", str3 != null ? str3 : "", b2, i, i2, i4, str4);
         }
     }
@@ -36,7 +36,7 @@ public class Prefetch {
         if (b2 == null) {
             b2 = "";
         }
-        if (Utils.a() > Utils.f3234b) {
+        if (Utils.a() > Utils.f3235b) {
             nativeAdd(str, str2 != null ? str2 : "", str3 != null ? str3 : "", b2, i, 0, i3, str4);
         }
     }

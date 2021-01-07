@@ -95,15 +95,15 @@ public final class c {
                 Log.i("SoLibManager", "tryInstallUpdatePkg: return by soLib unavailable update libname=" + str);
             }
             bVar.invoke(new com.baidu.swan.apps.al.a().cV(16).cX(2900).uz("not available: so=" + os));
-        } else if (os.axi()) {
+        } else if (os.axj()) {
             if (DEBUG) {
                 Log.i("SoLibManager", "tryInstallUpdatePkg: return by soLib unavailable update soLib=" + os);
             }
             bVar.invoke(null);
         } else {
             Ref.ObjectRef objectRef = new Ref.ObjectRef();
-            objectRef.element = com.baidu.swan.pms.database.a.bgb().yM(str);
-            if (((i) objectRef.element) == null || !((i) objectRef.element).auV() || !AbiType.currentAbi().compat(((i) objectRef.element).ewO)) {
+            objectRef.element = com.baidu.swan.pms.database.a.bgc().yM(str);
+            if (((i) objectRef.element) == null || !((i) objectRef.element).auW() || !AbiType.currentAbi().compat(((i) objectRef.element).ewO)) {
                 if (DEBUG) {
                     Log.i("SoLibManager", "tryInstallUpdatePkg: return by soPkg unavailable update libname=" + str + " soPkg=" + ((i) objectRef.element));
                 }
@@ -161,7 +161,7 @@ public final class c {
         }
     }
 
-    private final File axn() {
+    private final File axo() {
         Context appContext = AppRuntime.getAppContext();
         p.n(appContext, "AppRuntime.getAppContext()");
         return new File(appContext.getFilesDir(), dcF);
@@ -184,7 +184,7 @@ public final class c {
         if (TextUtils.isEmpty(str) || j < 1) {
             return "";
         }
-        File file = new File(axn(), "" + str + "" + File.separator + "" + j + "" + File.separator + "" + abiType.id);
+        File file = new File(axo(), "" + str + "" + File.separator + "" + j + "" + File.separator + "" + abiType.id);
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -201,7 +201,7 @@ public final class c {
         p.o(str, "libName");
         com.baidu.swan.apps.env.b.a os = com.baidu.swan.apps.env.b.b.os(str);
         if (os != null) {
-            if (os.axi()) {
+            if (os.axj()) {
                 return true;
             }
             long ow = ow(str);
@@ -215,30 +215,30 @@ public final class c {
 
     public final void m(String str, long j) {
         p.o(str, "libName");
-        g.bhy().edit().putLong("swan_so_latest_update_time_" + str, j).apply();
+        g.bhz().edit().putLong("swan_so_latest_update_time_" + str, j).apply();
     }
 
     private final long ow(String str) {
-        return com.baidu.swan.apps.storage.c.h.aPH().getLong(oy(str), 0L);
+        return com.baidu.swan.apps.storage.c.h.aPI().getLong(oy(str), 0L);
     }
 
     private final AbiType ox(String str) {
-        return AbiType.findById(com.baidu.swan.apps.storage.c.h.aPH().getString(oA(str), ""));
+        return AbiType.findById(com.baidu.swan.apps.storage.c.h.aPI().getString(oA(str), ""));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void n(String str, long j) {
-        com.baidu.swan.apps.storage.c.h.aPH().putLong(oy(str), j);
+        com.baidu.swan.apps.storage.c.h.aPI().putLong(oy(str), j);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void bK(String str, String str2) {
-        com.baidu.swan.apps.storage.c.h.aPH().putString(oz(str), str2);
+        com.baidu.swan.apps.storage.c.h.aPI().putString(oz(str), str2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void a(String str, AbiType abiType) {
-        com.baidu.swan.apps.storage.c.h.aPH().putString(oA(str), abiType.id);
+        com.baidu.swan.apps.storage.c.h.aPI().putString(oA(str), abiType.id);
     }
 
     private final String oy(String str) {

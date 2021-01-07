@@ -35,7 +35,7 @@ public class a {
         this.mContext = context;
         this.mHost = str;
         this.cVP = str2;
-        atC();
+        atD();
     }
 
     private String getUsername() {
@@ -59,7 +59,7 @@ public class a {
         this.cVR.requestFocus();
     }
 
-    private void atC() {
+    private void atD() {
         View inflate = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_browser_http_authentication, (ViewGroup) null);
         this.cVR = (TextView) inflate.findViewById(a.f.username_edit);
         this.cVS = (TextView) inflate.findViewById(a.f.password_edit);
@@ -70,7 +70,7 @@ public class a {
                     if (i == 0 && keyEvent != null && keyEvent.getAction() == 1) {
                         return true;
                     }
-                    a.this.atD();
+                    a.this.atE();
                     return true;
                 }
                 return false;
@@ -79,7 +79,7 @@ public class a {
         this.cVQ = new g.a(this.mContext).f(this.mContext.getText(a.h.aiapps_sign_in_to).toString().replace("%s1", this.mHost).replace("%s2", this.cVP)).kx(17301543).aK(inflate).c(a.h.aiapps_http_authentication_login, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.a.4
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                a.this.atD();
+                a.this.atE();
             }
         }).d(a.h.aiapps_http_authentication_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.a.3
             @Override // android.content.DialogInterface.OnClickListener
@@ -95,12 +95,12 @@ public class a {
                     a.this.cVU.onCancel();
                 }
             }
-        }).atG();
+        }).atH();
         this.cVQ.getWindow().setSoftInputMode(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void atD() {
+    public void atE() {
         if (this.cVT != null) {
             this.cVT.r(this.mHost, this.cVP, getUsername(), getPassword());
         }

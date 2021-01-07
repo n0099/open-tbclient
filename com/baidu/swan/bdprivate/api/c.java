@@ -32,11 +32,11 @@ public class c extends d {
         if (TextUtils.isEmpty(optString)) {
             return new com.baidu.swan.apps.api.c.b(1001, "cb is empty");
         }
-        e aMl = e.aMl();
-        if (aMl == null) {
+        e aMm = e.aMm();
+        if (aMm == null) {
             return new com.baidu.swan.apps.api.c.b(1001);
         }
-        aMl.aMw().b(getContext(), "scope_quick_login", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.api.c.1
+        aMm.aMx().b(getContext(), "scope_quick_login", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.api.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
@@ -68,7 +68,7 @@ public class c extends d {
                 boolean z = quickLoginInfo.supportQuickLogin;
                 int i = quickLoginInfo.loginMode;
                 if (z) {
-                    f.a(com.baidu.swan.apps.runtime.d.aMg().aMe(), i, new com.baidu.swan.bdprivate.extensions.quicklogin.e() { // from class: com.baidu.swan.bdprivate.api.c.2.1
+                    f.a(com.baidu.swan.apps.runtime.d.aMh().aMf(), i, new com.baidu.swan.bdprivate.extensions.quicklogin.e() { // from class: com.baidu.swan.bdprivate.api.c.2.1
                         @Override // com.baidu.swan.bdprivate.extensions.quicklogin.e
                         public void onResult(int i2) {
                             if (i2 == 0) {
@@ -99,11 +99,11 @@ public class c extends d {
         if (TextUtils.isEmpty(optString)) {
             return new com.baidu.swan.apps.api.c.b(1001, "cb is empty");
         }
-        e aMl = e.aMl();
-        if (aMl == null) {
+        e aMm = e.aMm();
+        if (aMm == null) {
             return new com.baidu.swan.apps.api.c.b(1001);
         }
-        aMl.aMw().b(getContext(), "scope_quick_login", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.api.c.3
+        aMm.aMx().b(getContext(), "scope_quick_login", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.api.c.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */

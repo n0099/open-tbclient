@@ -41,15 +41,15 @@ public class b {
 
     public b() {
         MessageManager.getInstance().registerListener(this.fvY);
-        this.fvW = com.baidu.tbadk.core.sharedPref.b.bvq().getInt("key_common_category_version", 0);
-        this.fvX = com.baidu.tbadk.core.sharedPref.b.bvq().getInt("key_special_category_version", 0);
+        this.fvW = com.baidu.tbadk.core.sharedPref.b.bvr().getInt("key_common_category_version", 0);
+        this.fvX = com.baidu.tbadk.core.sharedPref.b.bvr().getInt("key_special_category_version", 0);
     }
 
     public void startLoad() {
         MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_CHANNEL_CONFIG));
     }
 
-    public l bCe() {
+    public l bCf() {
         if (this.mFinalData != null) {
             return this.mFinalData;
         }
@@ -57,13 +57,13 @@ public class b {
             return null;
         }
         l lVar = new l();
-        if (this.mData != null && this.mData.bzQ() != null && this.fvX < this.mData.bzQ().getVersion()) {
-            lVar.setIcon(this.mData.bzQ().getIcon());
-            lVar.CO(this.mData.bzQ().getPopText());
-            lVar.setTabCode(this.mData.bzQ().bzO());
-            lVar.setTid(this.mData.bzQ().getTid());
+        if (this.mData != null && this.mData.bzR() != null && this.fvX < this.mData.bzR().getVersion()) {
+            lVar.setIcon(this.mData.bzR().getIcon());
+            lVar.CN(this.mData.bzR().getPopText());
+            lVar.setTabCode(this.mData.bzR().bzP());
+            lVar.setTid(this.mData.bzR().getTid());
             lVar.rO(l.fsX);
-        } else if (this.mData != null && this.mData.bzP() > 0 && this.fvW < this.mData.bzP()) {
+        } else if (this.mData != null && this.mData.bzQ() > 0 && this.fvW < this.mData.bzQ()) {
             lVar.rO(l.fsW);
         } else {
             lVar.rO(l.fsV);
@@ -74,11 +74,11 @@ public class b {
 
     public void rX(int i) {
         if (i == l.fsX) {
-            if (this.mData.bzQ() != null) {
-                com.baidu.tbadk.core.sharedPref.b.bvq().putInt("key_special_category_version", this.mData.bzQ().getVersion());
+            if (this.mData.bzR() != null) {
+                com.baidu.tbadk.core.sharedPref.b.bvr().putInt("key_special_category_version", this.mData.bzR().getVersion());
             }
         } else if (i == l.fsW) {
-            com.baidu.tbadk.core.sharedPref.b.bvq().putInt("key_common_category_version", this.mData.bzP());
+            com.baidu.tbadk.core.sharedPref.b.bvr().putInt("key_common_category_version", this.mData.bzQ());
         }
     }
 }

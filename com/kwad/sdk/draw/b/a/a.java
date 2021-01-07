@@ -12,17 +12,17 @@ import org.json.JSONObject;
 public class a extends com.kwad.sdk.draw.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private AdTemplate f9981b;
+    private AdTemplate f9982b;
     private AdInfo c;
     private List<Integer> d;
     private boolean e = false;
     private e f = new f() { // from class: com.kwad.sdk.draw.b.a.a.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a() {
-            b.i(a.this.f9981b);
-            if (a.this.f9972a.f9973a != null) {
+            b.i(a.this.f9982b);
+            if (a.this.f9973a.f9974a != null) {
                 try {
-                    a.this.f9972a.f9973a.onVideoPlayEnd();
+                    a.this.f9973a.f9974a.onVideoPlayEnd();
                 } catch (Throwable th) {
                     com.kwad.sdk.core.d.a.b(th);
                 }
@@ -32,9 +32,9 @@ public class a extends com.kwad.sdk.draw.a.a {
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a(int i, int i2) {
             super.a(i, i2);
-            if (a.this.f9972a.f9973a != null) {
+            if (a.this.f9973a.f9974a != null) {
                 try {
-                    a.this.f9972a.f9973a.onVideoPlayError();
+                    a.this.f9973a.f9974a.onVideoPlayError();
                 } catch (Throwable th) {
                     com.kwad.sdk.core.d.a.b(th);
                 }
@@ -48,27 +48,27 @@ public class a extends com.kwad.sdk.draw.a.a {
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
-            if (!a.this.f9981b.mPvReported && a.this.f9972a.f9973a != null) {
-                a.this.f9972a.f9973a.onAdShow();
+            if (!a.this.f9982b.mPvReported && a.this.f9973a.f9974a != null) {
+                a.this.f9973a.f9974a.onAdShow();
             }
-            if (a.this.f9972a.f9973a != null) {
+            if (a.this.f9973a.f9974a != null) {
                 try {
-                    a.this.f9972a.f9973a.onVideoPlayStart();
+                    a.this.f9973a.f9974a.onVideoPlayStart();
                 } catch (Throwable th) {
                     com.kwad.sdk.core.d.a.b(th);
                 }
                 a.this.e = false;
             }
-            b.a(a.this.f9981b, (JSONObject) null);
-            b.h(a.this.f9981b);
+            b.a(a.this.f9982b, (JSONObject) null);
+            b.h(a.this.f9982b);
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void c() {
             super.c();
-            if (a.this.f9972a.f9973a != null) {
+            if (a.this.f9973a.f9974a != null) {
                 try {
-                    a.this.f9972a.f9973a.onVideoPlayPause();
+                    a.this.f9973a.f9974a.onVideoPlayPause();
                 } catch (Throwable th) {
                     com.kwad.sdk.core.d.a.b(th);
                 }
@@ -81,9 +81,9 @@ public class a extends com.kwad.sdk.draw.a.a {
             super.d();
             if (a.this.e) {
                 a.this.e = false;
-                if (a.this.f9972a.f9973a != null) {
+                if (a.this.f9973a.f9974a != null) {
                     try {
-                        a.this.f9972a.f9973a.onVideoPlayResume();
+                        a.this.f9973a.f9974a.onVideoPlayResume();
                     } catch (Throwable th) {
                         com.kwad.sdk.core.d.a.b(th);
                     }
@@ -100,7 +100,7 @@ public class a extends com.kwad.sdk.draw.a.a {
         }
         for (Integer num : this.d) {
             if (ceil >= num.intValue()) {
-                b.b(this.f9981b, ceil, null);
+                b.b(this.f9982b, ceil, null);
                 this.d.remove(num);
                 return;
             }
@@ -111,16 +111,16 @@ public class a extends com.kwad.sdk.draw.a.a {
     @Override // com.kwad.sdk.draw.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f9981b = this.f9972a.c;
-        this.c = c.j(this.f9981b);
+        this.f9982b = this.f9973a.c;
+        this.c = c.j(this.f9982b);
         this.d = com.kwad.sdk.core.response.b.a.M(this.c);
-        this.f9972a.e.a(this.f);
+        this.f9973a.e.a(this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f9972a.e.b(this.f);
+        this.f9973a.e.b(this.f);
     }
 }

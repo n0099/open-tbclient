@@ -28,112 +28,112 @@ public class c {
     private boolean isShow;
     NavigationBar mNavigationBar;
     ProgressBar mProgressBar;
+    final View nlO;
     final View nlP;
-    final View nlQ;
-    LinearLayout nlR;
-    private ImageView nlT;
+    LinearLayout nlQ;
+    private ImageView nlS;
+    BdListView nlT;
     BdListView nlU;
-    BdListView nlV;
+    TextView nlV;
     TextView nlW;
-    TextView nlX;
-    LinearLayout nlY;
-    TextView nlZ;
-    ImageView nma;
-    LinearLayout nmb;
-    TextView nmc;
-    ImageView nmd;
+    LinearLayout nlX;
+    TextView nlY;
+    ImageView nlZ;
+    LinearLayout nma;
+    TextView nmb;
+    ImageView nmc;
+    g nmd;
     g nme;
-    g nmf;
-    PopupWindow nmg;
-    View nmh;
-    ForumListActivity nmi;
-    ListView nmj;
-    a nmk;
-    LinearLayout nml;
-    boolean nlS = true;
-    private int nmm = 0;
+    PopupWindow nmf;
+    View nmg;
+    ForumListActivity nmh;
+    ListView nmi;
+    a nmj;
+    LinearLayout nmk;
+    boolean nlR = true;
+    private int nml = 0;
 
     public c(ForumListActivity forumListActivity) {
         this.isShow = false;
         this.iSr = (LinearLayout) forumListActivity.findViewById(R.id.forum_list_root);
         this.Zk = (ViewPager) forumListActivity.findViewById(R.id.view_pager);
         this.Zk.setOnPageChangeListener(forumListActivity);
-        this.nlR = (LinearLayout) forumListActivity.findViewById(R.id.tab_strip);
+        this.nlQ = (LinearLayout) forumListActivity.findViewById(R.id.tab_strip);
         this.mNavigationBar = (NavigationBar) forumListActivity.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.nml = (LinearLayout) this.mNavigationBar.setTitleView(R.layout.nb_item_forum_list, (View.OnClickListener) null);
-        this.bNi = (TextView) this.nml.findViewById(R.id.title_text);
-        this.nlT = (ImageView) this.nml.findViewById(R.id.forum_list_title_arrow);
-        this.nlW = (TextView) forumListActivity.findViewById(R.id.tab_recommends);
+        this.nmk = (LinearLayout) this.mNavigationBar.setTitleView(R.layout.nb_item_forum_list, (View.OnClickListener) null);
+        this.bNi = (TextView) this.nmk.findViewById(R.id.title_text);
+        this.nlS = (ImageView) this.nmk.findViewById(R.id.forum_list_title_arrow);
+        this.nlV = (TextView) forumListActivity.findViewById(R.id.tab_recommends);
+        this.nlV.setOnClickListener(forumListActivity);
+        this.nlW = (TextView) forumListActivity.findViewById(R.id.tab_hot);
         this.nlW.setOnClickListener(forumListActivity);
-        this.nlX = (TextView) forumListActivity.findViewById(R.id.tab_hot);
-        this.nlX.setOnClickListener(forumListActivity);
+        this.nmd = new g(forumListActivity.getPageContext());
         this.nme = new g(forumListActivity.getPageContext());
-        this.nmf = new g(forumListActivity.getPageContext());
-        this.nlY = (LinearLayout) LayoutInflater.from(forumListActivity.getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
-        this.nlP = this.nlY.findViewById(R.id.footer_background);
-        this.nlZ = (TextView) this.nlY.findViewById(R.id.footer_text);
-        this.nma = (ImageView) this.nlY.findViewById(R.id.footer_icon);
-        this.nmb = (LinearLayout) LayoutInflater.from(forumListActivity.getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
-        this.nlQ = this.nmb.findViewById(R.id.footer_background);
-        this.nmc = (TextView) this.nmb.findViewById(R.id.footer_text);
-        this.nmd = (ImageView) this.nmb.findViewById(R.id.footer_icon);
+        this.nlX = (LinearLayout) LayoutInflater.from(forumListActivity.getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
+        this.nlO = this.nlX.findViewById(R.id.footer_background);
+        this.nlY = (TextView) this.nlX.findViewById(R.id.footer_text);
+        this.nlZ = (ImageView) this.nlX.findViewById(R.id.footer_icon);
+        this.nma = (LinearLayout) LayoutInflater.from(forumListActivity.getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
+        this.nlP = this.nma.findViewById(R.id.footer_background);
+        this.nmb = (TextView) this.nma.findViewById(R.id.footer_text);
+        this.nmc = (ImageView) this.nma.findViewById(R.id.footer_icon);
         this.mProgressBar = (ProgressBar) forumListActivity.findViewById(R.id.loading);
         this.isShow = false;
-        this.nmi = forumListActivity;
-        this.nmk = new a(this.nmi.getPageContext().getContext());
+        this.nmh = forumListActivity;
+        this.nmj = new a(this.nmh.getPageContext().getContext());
     }
 
     public View a(int i, AdapterView.OnItemClickListener onItemClickListener) {
-        View inflate = LayoutInflater.from(this.nmi.getPageContext().getPageActivity()).inflate(R.layout.forum_list__dir_menu, (ViewGroup) null);
-        this.nmj = (ListView) inflate.findViewById(R.id.dir_menu_list);
-        this.nmj.setOnItemClickListener(onItemClickListener);
+        View inflate = LayoutInflater.from(this.nmh.getPageContext().getPageActivity()).inflate(R.layout.forum_list__dir_menu, (ViewGroup) null);
+        this.nmi = (ListView) inflate.findViewById(R.id.dir_menu_list);
+        this.nmi.setOnItemClickListener(onItemClickListener);
         inflate.setBackgroundResource(R.drawable.bg_allsproutpop_dropdown);
-        this.nmm = this.nmk.getCount();
-        this.nmj.setAdapter((ListAdapter) this.nmk);
+        this.nml = this.nmj.getCount();
+        this.nmi.setAdapter((ListAdapter) this.nmj);
         return inflate;
     }
 
     public void c(AdapterView.OnItemClickListener onItemClickListener) {
         if (!this.isShow) {
             this.isShow = true;
-            if (this.nmh == null) {
-                this.nmh = a(0, onItemClickListener);
-            }
-            int dip2px = (l.dip2px(this.nmi.getPageContext().getPageActivity(), 160.0f) - this.nml.getWidth()) / 2;
             if (this.nmg == null) {
-                this.nmg = new PopupWindow(this.nmh, l.dip2px(this.nmi.getPageContext().getPageActivity(), 160.0f), -2, true);
-                this.nmg.setBackgroundDrawable(new ColorDrawable(17170445));
-                if (this.nmm > 6) {
-                    this.nmg.setHeight(l.dip2px(this.nmi.getPageContext().getPageActivity(), 272.0f));
+                this.nmg = a(0, onItemClickListener);
+            }
+            int dip2px = (l.dip2px(this.nmh.getPageContext().getPageActivity(), 160.0f) - this.nmk.getWidth()) / 2;
+            if (this.nmf == null) {
+                this.nmf = new PopupWindow(this.nmg, l.dip2px(this.nmh.getPageContext().getPageActivity(), 160.0f), -2, true);
+                this.nmf.setBackgroundDrawable(new ColorDrawable(17170445));
+                if (this.nml > 6) {
+                    this.nmf.setHeight(l.dip2px(this.nmh.getPageContext().getPageActivity(), 272.0f));
                 }
             }
-            this.nmg.setOutsideTouchable(true);
+            this.nmf.setOutsideTouchable(true);
+            this.nmf.setFocusable(true);
             this.nmg.setFocusable(true);
-            this.nmh.setFocusable(true);
-            this.nmh.setFocusableInTouchMode(true);
-            com.baidu.adp.lib.f.g.showPopupWindowAsDropDown(this.nmg, this.nml, 0 - dip2px, l.dip2px(this.nmi.getPageContext().getPageActivity(), 0.0f));
-            this.nmh.setOnKeyListener(new View.OnKeyListener() { // from class: com.baidu.tieba.square.flist.c.1
+            this.nmg.setFocusableInTouchMode(true);
+            com.baidu.adp.lib.f.g.showPopupWindowAsDropDown(this.nmf, this.nmk, 0 - dip2px, l.dip2px(this.nmh.getPageContext().getPageActivity(), 0.0f));
+            this.nmg.setOnKeyListener(new View.OnKeyListener() { // from class: com.baidu.tieba.square.flist.c.1
                 @Override // android.view.View.OnKeyListener
                 public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                    if (i == 4 && c.this.nmg.isShowing()) {
-                        com.baidu.adp.lib.f.g.dismissPopupWindow(c.this.nmg, c.this.nmi.getPageContext().getPageActivity());
+                    if (i == 4 && c.this.nmf.isShowing()) {
+                        com.baidu.adp.lib.f.g.dismissPopupWindow(c.this.nmf, c.this.nmh.getPageContext().getPageActivity());
                         return false;
                     }
                     return false;
                 }
             });
-            this.nmh.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.square.flist.c.2
+            this.nmg.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.square.flist.c.2
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
-                    if (c.this.nmg.isShowing()) {
-                        com.baidu.adp.lib.f.g.dismissPopupWindow(c.this.nmg, c.this.nmi.getPageContext().getPageActivity());
+                    if (c.this.nmf.isShowing()) {
+                        com.baidu.adp.lib.f.g.dismissPopupWindow(c.this.nmf, c.this.nmh.getPageContext().getPageActivity());
                         return false;
                     }
                     return false;
                 }
             });
-            this.nmg.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.square.flist.c.3
+            this.nmf.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.square.flist.c.3
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
                     c.this.isShow = false;
@@ -141,38 +141,38 @@ public class c {
             });
             return;
         }
-        com.baidu.adp.lib.f.g.dismissPopupWindow(this.nmg, this.nmi.getPageContext().getPageActivity());
+        com.baidu.adp.lib.f.g.dismissPopupWindow(this.nmf, this.nmh.getPageContext().getPageActivity());
         this.isShow = false;
     }
 
-    public void dNz() {
-        this.nlR.setVisibility(0);
-    }
-
     public void dNA() {
-        this.nlR.setVisibility(8);
+        this.nlQ.setVisibility(0);
     }
 
     public void dNB() {
+        this.nlQ.setVisibility(8);
+    }
+
+    public void dNC() {
         if (this.mProgressBar != null) {
             this.mProgressBar.setVisibility(8);
         }
         if (this.Zk != null) {
-            if (this.Zk.getCurrentItem() == 0 && this.nlU != null) {
+            if (this.Zk.getCurrentItem() == 0 && this.nlT != null) {
+                this.nlT.completePullRefreshPostDelayed(0L);
+            } else if (this.nlU != null) {
                 this.nlU.completePullRefreshPostDelayed(0L);
-            } else if (this.nlV != null) {
-                this.nlV.completePullRefreshPostDelayed(0L);
             }
         }
     }
 
-    public void dNC() {
-        this.nlT.setVisibility(4);
-        this.nml.setClickable(false);
-        this.nml.setOnClickListener(null);
+    public void dND() {
+        this.nlS.setVisibility(4);
+        this.nmk.setClickable(false);
+        this.nmk.setOnClickListener(null);
     }
 
-    public void dND() {
-        this.nlT.setVisibility(0);
+    public void dNE() {
+        this.nlS.setVisibility(0);
     }
 }

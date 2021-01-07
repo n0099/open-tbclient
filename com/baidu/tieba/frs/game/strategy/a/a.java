@@ -15,11 +15,11 @@ import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
 /* loaded from: classes2.dex */
 public class a {
     private l<byte[]> jaF;
-    private InterfaceC0737a jwy;
+    private InterfaceC0744a jwy;
 
     /* renamed from: com.baidu.tieba.frs.game.strategy.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0737a {
+    public interface InterfaceC0744a {
         void c(List<e> list, List<n> list2, boolean z);
     }
 
@@ -28,12 +28,12 @@ public class a {
         this.jaF = BdCacheService.lx().b("tb.frs.game.strategy.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    public void Lh(final String str) {
+    public void Lg(final String str) {
         if (this.jaF != null && str != null) {
             ac.a(new ab<GameForumGuideTabResIdl>() { // from class: com.baidu.tieba.frs.game.strategy.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ab
-                /* renamed from: cKs */
+                /* renamed from: cKt */
                 public GameForumGuideTabResIdl doInBackground() {
                     Wire wire = new Wire(new Class[0]);
                     byte[] bArr = (byte[]) a.this.jaF.get(TbadkCoreApplication.getCurrentAccount() + str);
@@ -75,7 +75,7 @@ public class a {
         }
     }
 
-    public void a(InterfaceC0737a interfaceC0737a) {
-        this.jwy = interfaceC0737a;
+    public void a(InterfaceC0744a interfaceC0744a) {
+        this.jwy = interfaceC0744a;
     }
 }

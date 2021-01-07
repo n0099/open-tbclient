@@ -15,7 +15,7 @@ public class a {
     @NonNull
     public static Pair<Boolean, com.baidu.swan.apps.api.c.a> a(com.baidu.swan.apps.api.a.a aVar, String str) {
         com.baidu.swan.apps.api.c.b bVar = new com.baidu.swan.apps.api.c.b();
-        boolean a2 = a(str, aVar.ani().ang());
+        boolean a2 = a(str, aVar.anj().anh());
         if (a2) {
             bVar.status = 402;
         }
@@ -33,14 +33,14 @@ public class a {
                 throw new RuntimeException("whitelistName is empty");
             }
         } else {
-            String ams = ((e) callbackHandler).ams();
-            if ("ai_apps_widget".equals(ams)) {
+            String amt = ((e) callbackHandler).amt();
+            if ("ai_apps_widget".equals(amt)) {
                 z = ms(str);
-            } else if ("ai_apps_ad_landing".equals(ams)) {
+            } else if ("ai_apps_ad_landing".equals(amt)) {
                 if (!com.baidu.swan.apps.af.a.b.sT(str)) {
                     z = true;
                 }
-            } else if (!"swan_app_alliance_login_widget".equals(ams) && !"swan_app_alliance_choose_address_widget".equals(ams) && DEBUG) {
+            } else if (!"swan_app_alliance_login_widget".equals(amt) && !"swan_app_alliance_choose_address_widget".equals(amt) && DEBUG) {
                 Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
             }
             if (DEBUG) {

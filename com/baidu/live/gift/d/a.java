@@ -44,7 +44,7 @@ public class a implements c {
     @Override // com.baidu.live.gift.d.c
     public void hB(String str) {
         com.baidu.live.gift.message.a aVar = new com.baidu.live.gift.message.a(str);
-        aVar.addParam("scene_from", q.XF());
+        aVar.addParam("scene_from", q.XG());
         aVar.addParam("platform", "2");
         MessageManager.getInstance().sendMessage(aVar);
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_LIST_REQ, UbcStatConstant.ContentType.UBC_TYPE_GIFT_PACKAGE_LIST, "liveroom", ""));

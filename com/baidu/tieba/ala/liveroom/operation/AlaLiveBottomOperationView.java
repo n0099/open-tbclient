@@ -251,7 +251,7 @@ public class AlaLiveBottomOperationView extends FrameLayout {
     public void VI() {
         this.hMz = false;
         this.hMA = false;
-        cmM();
+        cmN();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -412,7 +412,7 @@ public class AlaLiveBottomOperationView extends FrameLayout {
             if (!com.baidu.live.af.a.SE().SI()) {
                 z = false;
             }
-            am amVar = com.baidu.tieba.ala.liveroom.v.b.cnp().bwr;
+            am amVar = com.baidu.tieba.ala.liveroom.v.b.cnq().bwr;
             if (amVar != null) {
                 z2 = (amVar.aMl == 1 || TextUtils.isEmpty(amVar.iconUrl)) ? false : true;
             } else {
@@ -430,7 +430,7 @@ public class AlaLiveBottomOperationView extends FrameLayout {
                 this.hLP.setAlpha(0.0f);
                 this.hMk.setVisibility(8);
                 this.hMh.setVisibility(0);
-                cmN();
+                cmO();
                 if (alaLiveInfoData != null) {
                     long j = alaLiveInfoData.live_id;
                     if (!this.hMw.contains(Long.valueOf(j))) {
@@ -519,7 +519,7 @@ public class AlaLiveBottomOperationView extends FrameLayout {
         MessageManager.getInstance().registerListener(this.bpW);
     }
 
-    private void cmM() {
+    private void cmN() {
         if (this.hMC == null) {
             this.hMC = new a();
         }
@@ -527,14 +527,14 @@ public class AlaLiveBottomOperationView extends FrameLayout {
         this.hMB.postDelayed(this.hMC, 5000L);
     }
 
-    private void cmN() {
+    private void cmO() {
         if (this.hMu == null) {
             this.hMu = new b();
         }
         this.handler.postDelayed(this.hMu, 1000L);
     }
 
-    public void cft() {
+    public void cfu() {
         if (this.hLM != null) {
             if (this.hLM.isAnimating()) {
                 this.hLM.cancelAnimation();
@@ -585,7 +585,7 @@ public class AlaLiveBottomOperationView extends FrameLayout {
         }
     }
 
-    public void bnO() {
+    public void bnP() {
         if (this.hLM != null) {
             if (this.hLM.isAnimating()) {
                 this.hLM.cancelAnimation();

@@ -21,13 +21,13 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2) {
-        if (this.dnR.aEL() == null) {
+        if (this.dnR.aEM() == null) {
             return false;
         }
         int adapterPosition = viewHolder.getAdapterPosition();
         int adapterPosition2 = viewHolder2.getAdapterPosition();
         if (this.dnR != null) {
-            Collections.swap(this.dnR.aEL(), adapterPosition, adapterPosition2);
+            Collections.swap(this.dnR.aEM(), adapterPosition, adapterPosition2);
             this.dnR.notifyItemMoved(adapterPosition, adapterPosition2);
         }
         if (this.dnQ != null) {

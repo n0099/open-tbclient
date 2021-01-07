@@ -77,16 +77,16 @@ public class a {
                         if (adResponseInfo == null) {
                             a.this.wi("200000");
                         } else if (adResponseInfo.getAdInstanceList().size() > 0) {
-                            final AdElementInfo aVE = adResponseInfo.aVE();
+                            final AdElementInfo aVF = adResponseInfo.aVF();
                             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.b.a.1.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     if (a.this.ebm != null) {
-                                        a.this.ebm.a(aVE);
+                                        a.this.ebm.a(aVF);
                                     }
                                 }
                             });
-                        } else if (this.count == 1 && AnonymousClass1.this.ebo.ebR.rw() == 1 && com.baidu.swan.game.ad.d.f.aWd()) {
+                        } else if (this.count == 1 && AnonymousClass1.this.ebo.ebR.rw() == 1 && com.baidu.swan.game.ad.d.f.aWe()) {
                             a.this.a(AnonymousClass1.this.ebp, AnonymousClass1.this.ebo, this);
                         } else {
                             this.count = 0;
@@ -106,16 +106,16 @@ public class a {
                 if (SwanAppNetworkUtils.isNetworkConnected(a.this.mContext)) {
                     if (!a.this.ebn || !(this.ebo instanceof e)) {
                         a.this.ebn = false;
-                        String aVP = this.ebo.aVP();
+                        String aVQ = this.ebo.aVQ();
                         if (this.ebp != null) {
-                            this.ebp.a(aVP, responseCallback);
+                            this.ebp.a(aVQ, responseCallback);
                             return;
                         }
                         return;
                     }
                     e eVar = (e) this.ebo;
-                    if (this.ebp != null && eVar.aVS() != null) {
-                        this.ebp.a(eVar.aVP(), eVar.aVS(), responseCallback);
+                    if (this.ebp != null && eVar.aVT() != null) {
+                        this.ebp.a(eVar.aVQ(), eVar.aVT(), responseCallback);
                         return;
                     }
                     return;
@@ -134,15 +134,15 @@ public class a {
             this.ebn = true;
             if (dVar instanceof e) {
                 e eVar = (e) dVar;
-                if (bVar != null && eVar.aVS() != null) {
-                    bVar.a(eVar.aVP(), eVar.aVS(), responseCallback);
+                if (bVar != null && eVar.aVT() != null) {
+                    bVar.a(eVar.aVQ(), eVar.aVT(), responseCallback);
                     return;
                 }
                 return;
             }
-            e eVar2 = new e(this.mContext, new b.a().wj(com.baidu.swan.game.ad.d.f.aWa()).wk(com.baidu.swan.game.ad.d.f.aWb()).wl(dVar.ebR.aVL()).mr(ah.getDisplayWidth(this.mContext)).ms(ah.getDisplayHeight(this.mContext)).aVM(), 5, 5);
-            if (bVar != null && eVar2.aVS() != null) {
-                bVar.a(eVar2.aVP(), eVar2.aVS(), responseCallback);
+            e eVar2 = new e(this.mContext, new b.a().wj(com.baidu.swan.game.ad.d.f.aWb()).wk(com.baidu.swan.game.ad.d.f.aWc()).wl(dVar.ebR.aVM()).mr(ah.getDisplayWidth(this.mContext)).ms(ah.getDisplayHeight(this.mContext)).aVN(), 5, 5);
+            if (bVar != null && eVar2.aVT() != null) {
+                bVar.a(eVar2.aVQ(), eVar2.aVT(), responseCallback);
                 return;
             }
             return;

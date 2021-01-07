@@ -21,12 +21,12 @@ public class a extends BdBaseModel {
     private static a oQH;
     private x aGe;
     private AlaEmoticonListDialogData oQF = new AlaEmoticonListDialogData();
-    private InterfaceC0934a oQG;
+    private InterfaceC0972a oQG;
 
     /* renamed from: com.baidu.yuyinala.emoticon.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0934a {
-        void Yb(String str);
+    public interface InterfaceC0972a {
+        void Ya(String str);
 
         void a(AlaEmoticonListDialogData alaEmoticonListDialogData);
     }
@@ -69,9 +69,9 @@ public class a extends BdBaseModel {
                         a.this.a(alaSendEmoticonResponseMessage);
                     } else if (a.this.oQG != null) {
                         if (httpResponsedMessage.getError() == 149010) {
-                            a.this.oQG.Yb(((AlaSendEmoticonResponseMessage) httpResponsedMessage).getUserMsg());
+                            a.this.oQG.Ya(((AlaSendEmoticonResponseMessage) httpResponsedMessage).getUserMsg());
                         } else {
-                            a.this.oQG.Yb(null);
+                            a.this.oQG.Ya(null);
                         }
                     }
                 }
@@ -132,15 +132,15 @@ public class a extends BdBaseModel {
         return false;
     }
 
-    public void a(InterfaceC0934a interfaceC0934a) {
-        this.oQG = interfaceC0934a;
+    public void a(InterfaceC0972a interfaceC0972a) {
+        this.oQG = interfaceC0972a;
     }
 
-    public void ekC() {
+    public void ekD() {
         sendMessage(new HttpMessage(1031004));
     }
 
-    public void Yc(String str) {
+    public void Yb(String str) {
         String str2;
         String str3;
         String str4;

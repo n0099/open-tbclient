@@ -1,11 +1,11 @@
 package com.facebook.imagepipeline.producers;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public interface al {
-    void eAk();
+    void eAO();
 
-    void eAl();
+    void eAP();
 
-    void eAm();
+    void eAQ();
 
-    void eAn();
+    void eAR();
 }

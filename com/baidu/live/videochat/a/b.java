@@ -33,7 +33,7 @@ public class b {
         this.bPU.c(alaLiveInfoData);
     }
 
-    public void Yz() {
+    public void YA() {
         if (this.bPU != null) {
             this.bPU.setIPlayerCallBack(null);
             this.bPU.cH(true);
@@ -46,7 +46,7 @@ public class b {
         return this.bPU != null;
     }
 
-    public View Yx() {
+    public View Yy() {
         if (this.bPU != null) {
             return this.bPU.getLivePlayer();
         }

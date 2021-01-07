@@ -20,7 +20,7 @@ public class a implements Cloneable {
         this.height = i4;
     }
 
-    public static a aFY() {
+    public static a aFZ() {
         a aVar = new a();
         aVar.gl(true);
         aVar.gm(true);
@@ -57,7 +57,7 @@ public class a implements Cloneable {
         this.left = i;
     }
 
-    public int aFZ() {
+    public int aGa() {
         return this.top;
     }
 

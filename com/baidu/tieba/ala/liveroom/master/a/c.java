@@ -38,7 +38,7 @@ public class c extends a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void clA() {
+    public void clB() {
         if (this.huX != null && this.huX.hCk != null && this.cvb != 4) {
             this.huX.hCk.a((short) 4, this.hHZ);
         }

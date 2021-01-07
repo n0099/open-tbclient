@@ -1,13 +1,13 @@
 package com.baidu.tieba.l;
 /* loaded from: classes.dex */
 public interface e {
+    void OR(String str);
+
     void OS(String str);
 
-    void OT(String str);
+    boolean OT(String str);
 
     boolean OU(String str);
-
-    boolean OV(String str);
 
     void e(String str, int i, int i2, String str2);
 

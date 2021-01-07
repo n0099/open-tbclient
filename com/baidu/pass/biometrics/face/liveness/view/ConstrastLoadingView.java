@@ -12,10 +12,10 @@ import com.baidu.pass.biometrics.face.R;
 public class ConstrastLoadingView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f4084a;
+    private ImageView f4085a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f4085b;
+    private ImageView f4086b;
 
     public ConstrastLoadingView(Context context) {
         super(context);
@@ -24,13 +24,13 @@ public class ConstrastLoadingView extends LinearLayout {
 
     private void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.layout_pass_liveness_constrast_loading, this);
-        this.f4084a = (ImageView) findViewById(R.id.iv_recog_circle);
-        this.f4085b = (ImageView) findViewById(R.id.iv_recog_logo);
+        this.f4085a = (ImageView) findViewById(R.id.iv_recog_circle);
+        this.f4086b = (ImageView) findViewById(R.id.iv_recog_logo);
         b();
     }
 
     private void b() {
-        this.f4084a.startAnimation(a(true, 1200L));
+        this.f4085a.startAnimation(a(true, 1200L));
     }
 
     public void setVisible(int i) {
@@ -59,7 +59,7 @@ public class ConstrastLoadingView extends LinearLayout {
     }
 
     public void a() {
-        this.f4084a.clearAnimation();
+        this.f4085a.clearAnimation();
         clearAnimation();
         setVisibility(4);
     }

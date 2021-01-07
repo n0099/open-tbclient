@@ -34,7 +34,7 @@ public class SwanJSVersionUpdateEvent {
     public static void sendEvent(long j) {
         SwanJSVersionUpdateEvent swanJSVersionUpdateEvent = new SwanJSVersionUpdateEvent();
         if (swanJSVersionUpdateEvent.mVersionString != null) {
-            com.baidu.swan.apps.t.a.aBa().a(swanJSVersionUpdateEvent);
+            com.baidu.swan.apps.t.a.aBb().a(swanJSVersionUpdateEvent);
             if (DEBUG) {
                 Log.d(TAG, "send SwanJSVersionUpdateEvent, downVersion:" + j + ", getVersion:" + swanJSVersionUpdateEvent.getVersionString() + "(" + swanJSVersionUpdateEvent.getVersionNum() + ")");
             }

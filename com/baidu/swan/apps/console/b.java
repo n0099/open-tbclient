@@ -6,14 +6,14 @@ import com.baidu.swan.apps.storage.c.g;
 /* loaded from: classes9.dex */
 public class b {
     public static void eZ(boolean z) {
-        e aMk = e.aMk();
-        if (aMk != null) {
-            a.aph().putBoolean(mM(aMk.getAppKey()), z);
+        e aMl = e.aMl();
+        if (aMl != null) {
+            a.apj().putBoolean(mM(aMl.getAppKey()), z);
         }
     }
 
     public static boolean mL(String str) {
-        return !TextUtils.isEmpty(str) && a.aph().getBoolean(mM(str), false);
+        return !TextUtils.isEmpty(str) && a.apj().getBoolean(mM(str), false);
     }
 
     private static String mM(String str) {
@@ -33,7 +33,7 @@ public class b {
             private static final a cPk = new a();
         }
 
-        public static a aph() {
+        public static a apj() {
             return C0412a.cPk;
         }
     }

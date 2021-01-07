@@ -15,13 +15,13 @@ public class l extends com.kwad.sdk.contentalliance.home.e {
         if (b2 == null) {
             return;
         }
-        SceneImpl sceneImpl = this.f9033a.e;
+        SceneImpl sceneImpl = this.f9034a.e;
         ArrayList arrayList = new ArrayList(b2.size());
         for (AdTemplate adTemplate : b2) {
             arrayList.add(new CacheTemplate(adTemplate, sceneImpl));
         }
         com.kwad.sdk.contentalliance.home.c.a(arrayList);
         com.kwad.sdk.contentalliance.profile.tabvideo.detail.a.a().c();
-        this.f9033a.c.setInitStartPosition(this.f9033a.j);
+        this.f9034a.c.setInitStartPosition(this.f9034a.j);
     }
 }

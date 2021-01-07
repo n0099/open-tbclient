@@ -22,7 +22,7 @@ public class AlaGetHourRankListResponseMessage extends JsonHttpResponsedMessage 
         }
     }
 
-    public p coG() {
+    public p coH() {
         return this.hTu;
     }
 }

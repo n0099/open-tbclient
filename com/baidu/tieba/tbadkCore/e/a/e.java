@@ -7,8 +7,8 @@ public class e {
     private String OY;
     private String mAction;
     private JSONObject mParams;
+    private String ntW;
     private String ntX;
-    private String ntY;
 
     public String getAction() {
         return this.mAction;
@@ -26,7 +26,7 @@ public class e {
         this.OY = str;
     }
 
-    public JSONObject dPN() {
+    public JSONObject dPO() {
         return this.mParams;
     }
 
@@ -34,19 +34,19 @@ public class e {
         this.mParams = jSONObject;
     }
 
-    public String dPO() {
-        return this.ntX;
+    public String dPP() {
+        return this.ntW;
+    }
+
+    public void Tu(String str) {
+        this.ntW = str;
     }
 
     public void Tv(String str) {
         this.ntX = str;
     }
 
-    public void Tw(String str) {
-        this.ntY = str;
-    }
-
-    public String dPP() {
+    public String dPQ() {
         return at.isEmpty(this.OY) ? this.mAction : this.OY + "/" + this.mAction;
     }
 }

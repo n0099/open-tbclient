@@ -30,9 +30,9 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
             }
             i.khT = false;
             if (i.g(this) && personalizedResIdl.data != null && personalizedResIdl.data.thread_list != null && personalizedResIdl.data.thread_list.size() == 0) {
-                this.resultData = i.cTw();
+                this.resultData = i.cTx();
                 i.khT = true;
-                i.cTx();
+                i.cTy();
                 return;
             }
             this.resultData = personalizedResIdl.data;

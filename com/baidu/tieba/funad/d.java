@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.funad.adapter.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class d implements com.baidu.tieba.h.c {
     @Override // com.baidu.tieba.h.c
     public com.baidu.adp.widget.ListView.a<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {

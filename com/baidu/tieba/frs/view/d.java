@@ -28,8 +28,8 @@ public class d extends com.baidu.tieba.card.c<x> {
         this.akV = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.cuC() != null) {
-                    d.this.cuC().a(view, null);
+                if (d.this.cuD() != null) {
+                    d.this.cuD().a(view, null);
                 }
             }
         };

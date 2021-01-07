@@ -12,20 +12,20 @@ public interface a {
 
     /* renamed from: com.baidu.tieba.lego.card.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0779a {
+    public static class C0790a {
         public String kXR;
         public Rect kXS;
         public String picUrl;
         public Rect rect;
 
-        public C0779a() {
+        public C0790a() {
             this.picUrl = "";
             this.rect = new Rect(0, 0, 0, 0);
             this.kXR = "";
             this.kXS = new Rect(0, 0, 0, 0);
         }
 
-        private C0779a(JSONObject jSONObject) {
+        private C0790a(JSONObject jSONObject) {
             this.picUrl = jSONObject.optString("pic_url");
             this.rect = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
         }
@@ -34,7 +34,7 @@ public interface a {
             return (TextUtils.isEmpty(this.picUrl) || this.rect.isEmpty()) ? false : true;
         }
 
-        public boolean ddq() {
+        public boolean ddr() {
             return (TextUtils.isEmpty(this.kXR) || this.kXS.isEmpty()) ? false : true;
         }
 
@@ -55,19 +55,19 @@ public interface a {
             return jSONObject.toString();
         }
 
-        public static C0779a NY(String str) {
+        public static C0790a NX(String str) {
             if (TextUtils.isEmpty(str)) {
-                return new C0779a();
+                return new C0790a();
             }
             try {
-                return new C0779a(new JSONObject(str));
+                return new C0790a(new JSONObject(str));
             } catch (Throwable th) {
                 th.printStackTrace();
-                return new C0779a();
+                return new C0790a();
             }
         }
 
-        public void NZ(String str) {
+        public void NY(String str) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONArray optJSONArray = new JSONObject(str).optJSONArray(SocialConstants.PARAM_IMAGE);

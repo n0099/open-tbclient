@@ -38,7 +38,7 @@ public class ae {
         return this.list;
     }
 
-    public boolean bJj() {
+    public boolean bJk() {
         return this.eWs;
     }
 }

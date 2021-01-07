@@ -31,16 +31,16 @@ public class a {
 
     public void a(com.baidu.tieba.hottopic.data.j jVar, String str) {
         ArrayList<n> arrayList;
-        if (jVar.cVg() != null) {
-            arrayList = jVar.cVg();
+        if (jVar.cVh() != null) {
+            arrayList = jVar.cVh();
         } else {
             arrayList = new ArrayList<>();
         }
         if (this.koL != null) {
-            this.koL.cUw();
+            this.koL.cUx();
         }
         if (this.koJ != null) {
-            this.koJ.MC(str);
+            this.koJ.MB(str);
         }
         if (this.gAY != null) {
             this.gAY.setData(arrayList);

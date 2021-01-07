@@ -9,21 +9,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class bk extends SQLiteOpenHelper {
-    public static volatile bk pIw;
+    public static volatile bk pKe;
 
     public bk(Context context) {
         super(context, "ad_log_report.db", (SQLiteDatabase.CursorFactory) null, 1);
     }
 
     public static bk in(Context context) {
-        if (pIw == null) {
+        if (pKe == null) {
             synchronized (bk.class) {
-                if (pIw == null) {
-                    pIw = new bk(context.getApplicationContext());
+                if (pKe == null) {
+                    pKe = new bk(context.getApplicationContext());
                 }
             }
         }
-        return pIw;
+        return pKe;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:24:0x008f  */
@@ -69,8 +69,8 @@ public class bk extends SQLiteOpenHelper {
                     String string4 = cursor.getString(cursor.getColumnIndex("ad_aid"));
                     long j = cursor.getLong(cursor.getColumnIndex(IMConstants.MSG_ROW_ID));
                     bf bfVar = new bf();
-                    bfVar.f8065a = j;
-                    bfVar.f8066b = string;
+                    bfVar.f8066a = j;
+                    bfVar.f8067b = string;
                     bfVar.c = string2;
                     bfVar.d = string3;
                     bfVar.e = string4;

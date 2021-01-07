@@ -38,18 +38,18 @@ public class a {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, a.this.bGg());
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, a.this.bGh());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static a bGd() {
+    public static a bGe() {
         return fHM;
     }
 
-    private GameInfoData bGe() {
+    private GameInfoData bGf() {
         GameInfoData gameInfoData = new GameInfoData();
         gameInfoData.setGameName(TbadkApplication.getInst().getContext().getString(R.string.default_share_to_game_title));
         gameInfoData.setGameLink(this.mUrl);
@@ -59,19 +59,19 @@ public class a {
         return gameInfoData;
     }
 
-    public GameInfoData bGf() {
-        return this.fHN == null ? bGe() : this.fHN;
+    public GameInfoData bGg() {
+        return this.fHN == null ? bGf() : this.fHN;
     }
 
-    public ShareFromGameCenterMsgData bGg() {
-        GameInfoData bGf = bGf();
+    public ShareFromGameCenterMsgData bGh() {
+        GameInfoData bGg = bGg();
         ShareFromGameCenterMsgData shareFromGameCenterMsgData = new ShareFromGameCenterMsgData();
-        shareFromGameCenterMsgData.setTitle(StringUtils.isNull(GameShareJsBridge.getInstance().getShareTitle(), true) ? bGf.getGameName() : GameShareJsBridge.getInstance().getShareTitle());
-        shareFromGameCenterMsgData.setContent(StringUtils.isNull(GameShareJsBridge.getInstance().getShareContent(), true) ? bGf.getIntroduce() : GameShareJsBridge.getInstance().getShareContent());
-        shareFromGameCenterMsgData.setImageUrl(StringUtils.isNull(GameShareJsBridge.getInstance().getShareImage(), true) ? bGf.getIconUrl() : GameShareJsBridge.getInstance().getShareImage());
-        shareFromGameCenterMsgData.setShareSource(StringUtils.isNull(GameShareJsBridge.getInstance().getShareName(), true) ? bGf.getGameName() : GameShareJsBridge.getInstance().getShareName());
-        shareFromGameCenterMsgData.setShareSourceIcon(StringUtils.isNull(GameShareJsBridge.getInstance().getIconUrl(), true) ? bGf.getIconUrl() : GameShareJsBridge.getInstance().getIconUrl());
-        String gameId = StringUtils.isNull(GameShareJsBridge.getInstance().getGameId(), true) ? bGf.getGameId() : GameShareJsBridge.getInstance().getGameId();
+        shareFromGameCenterMsgData.setTitle(StringUtils.isNull(GameShareJsBridge.getInstance().getShareTitle(), true) ? bGg.getGameName() : GameShareJsBridge.getInstance().getShareTitle());
+        shareFromGameCenterMsgData.setContent(StringUtils.isNull(GameShareJsBridge.getInstance().getShareContent(), true) ? bGg.getIntroduce() : GameShareJsBridge.getInstance().getShareContent());
+        shareFromGameCenterMsgData.setImageUrl(StringUtils.isNull(GameShareJsBridge.getInstance().getShareImage(), true) ? bGg.getIconUrl() : GameShareJsBridge.getInstance().getShareImage());
+        shareFromGameCenterMsgData.setShareSource(StringUtils.isNull(GameShareJsBridge.getInstance().getShareName(), true) ? bGg.getGameName() : GameShareJsBridge.getInstance().getShareName());
+        shareFromGameCenterMsgData.setShareSourceIcon(StringUtils.isNull(GameShareJsBridge.getInstance().getIconUrl(), true) ? bGg.getIconUrl() : GameShareJsBridge.getInstance().getIconUrl());
+        String gameId = StringUtils.isNull(GameShareJsBridge.getInstance().getGameId(), true) ? bGg.getGameId() : GameShareJsBridge.getInstance().getGameId();
         if ("default".equals(gameId)) {
             shareFromGameCenterMsgData.setShareSourceUrl(gameId);
         } else {
@@ -79,7 +79,7 @@ public class a {
         }
         String shareContentUrl = GameShareJsBridge.getInstance().getShareContentUrl();
         if (StringUtils.isNull(shareContentUrl)) {
-            shareContentUrl = bGf.getGameLink();
+            shareContentUrl = bGg.getGameLink();
         }
         if (StringUtils.isNull(shareContentUrl, true)) {
             shareContentUrl = "";

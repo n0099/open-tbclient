@@ -47,7 +47,7 @@ public class a extends BdBaseModel {
                         a.this.mList.addAll(alaChallengeShowAllJinzhuListResponse.getUserList());
                     }
                     a.this.mHasMore = alaChallengeShowAllJinzhuListResponse.isHasMore();
-                    a.this.mPn = alaChallengeShowAllJinzhuListResponse.bNc() + 1;
+                    a.this.mPn = alaChallengeShowAllJinzhuListResponse.bNd() + 1;
                     if (a.this.hvR != null) {
                         a.this.hvR.f(a.this.mHasMore, a.this.mList);
                     }
@@ -87,17 +87,17 @@ public class a extends BdBaseModel {
     public void refresh() {
         this.hvQ = false;
         this.mPn = 1;
-        bIm();
+        bIn();
     }
 
-    public void bUp() {
+    public void bUq() {
         if (this.mHasMore && !this.hvQ) {
             this.hvQ = true;
-            bIm();
+            bIn();
         }
     }
 
-    private void bIm() {
+    private void bIn() {
         HttpMessage httpMessage = new HttpMessage(1021198);
         httpMessage.addParam("challenge_id", this.huC);
         httpMessage.addParam("live_id", this.bvY);

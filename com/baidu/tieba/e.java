@@ -22,7 +22,7 @@ public class e {
         this.geT = i;
     }
 
-    public int bNh() {
+    public int bNi() {
         return this.geT;
     }
 

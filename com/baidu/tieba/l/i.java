@@ -54,11 +54,11 @@ public class i implements h {
         this.anD = str;
         this.mVideoUrl = str2;
         this.lqY = str3;
-        diK();
+        diL();
     }
 
     @Override // com.baidu.tieba.l.h
-    public void diC() {
+    public void diD() {
         this.lrc = System.currentTimeMillis();
         this.lra.add(new com.baidu.tieba.n.a(3));
         this.cvb = 0;
@@ -109,7 +109,7 @@ public class i implements h {
     @Override // com.baidu.tieba.l.h
     public void FZ(int i) {
         if (this.cvb == 5) {
-            diE();
+            diF();
         } else if (this.cvb == 3) {
             this.lqZ = i;
             this.lrd = System.currentTimeMillis();
@@ -126,7 +126,7 @@ public class i implements h {
     }
 
     @Override // com.baidu.tieba.l.h
-    public void diD() {
+    public void diE() {
         if (this.cvb == 4 || this.cvb == 3) {
             if (this.lrd != 0) {
                 long currentTimeMillis = System.currentTimeMillis();
@@ -138,7 +138,7 @@ public class i implements h {
         }
     }
 
-    public void diE() {
+    public void diF() {
         if (this.cvb == 5) {
             this.lrd = System.currentTimeMillis();
             this.lra.add(new com.baidu.tieba.n.a(204));
@@ -147,44 +147,44 @@ public class i implements h {
     }
 
     @Override // com.baidu.tieba.l.h
-    public void OY(String str) {
+    public void OX(String str) {
         if (this.cvb != 8 && this.cvb != 7 && this.cvb != 6 && this.cvb != -1) {
-            this.mSource = VideoPlatformStatic.Fj(str);
-            diF();
+            this.mSource = VideoPlatformStatic.Fi(str);
+            diG();
             this.lra.add(new com.baidu.tieba.n.a(205));
             this.cvb = 8;
-            axJ();
+            axK();
         }
     }
 
     @Override // com.baidu.tieba.l.h
-    public String OZ(String str) {
+    public String OY(String str) {
         if (this.cvb == 8 || this.cvb == 7 || this.cvb == 6 || this.cvb == -1) {
             return this.mUuid;
         }
-        this.mSource = VideoPlatformStatic.Fj(str);
-        diF();
+        this.mSource = VideoPlatformStatic.Fi(str);
+        diG();
         this.lrb.put("stallDuration", Long.valueOf(this.lrg));
         this.lra.add(new com.baidu.tieba.n.a(206));
         this.cvb = 6;
-        axJ();
+        axK();
         return this.mUuid;
     }
 
     @Override // com.baidu.tieba.l.h
-    public boolean Pa(String str) {
+    public boolean OZ(String str) {
         if (this.cvb == 8 || this.cvb == 7 || this.cvb == 6 || this.cvb == -1 || this.cvb == 1) {
             return false;
         }
-        this.mSource = VideoPlatformStatic.Fj(str);
-        diF();
+        this.mSource = VideoPlatformStatic.Fi(str);
+        diG();
         this.lra.add(new com.baidu.tieba.n.a(207));
         this.cvb = 7;
-        axJ();
+        axK();
         return true;
     }
 
-    private void diF() {
+    private void diG() {
         if (this.lrd != 0) {
             this.lre += System.currentTimeMillis() - this.lrd;
         }
@@ -202,33 +202,33 @@ public class i implements h {
         this.lrh = 0L;
     }
 
-    public void axJ() {
+    public void axK() {
         if (!this.lrn) {
-            int bCx = com.baidu.tbadk.coreExtra.model.g.bCx();
-            if ((com.baidu.tbadk.coreExtra.model.g.bCw() || !this.lrk) && bCx != 3) {
+            int bCy = com.baidu.tbadk.coreExtra.model.g.bCy();
+            if ((com.baidu.tbadk.coreExtra.model.g.bCx() || !this.lrk) && bCy != 3) {
                 this.lrn = true;
                 new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.l.i.1
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     public Void doInBackground(Void... voidArr) {
-                        int bCx2 = com.baidu.tbadk.coreExtra.model.g.bCx();
+                        int bCy2 = com.baidu.tbadk.coreExtra.model.g.bCy();
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("baseInfo", i.this.bOi());
-                            jSONObject.put("kpiInfo", i.this.diG());
-                            if (bCx2 == 0 || (bCx2 == 4 && i.this.lrk)) {
-                                JSONObject diI = i.this.diI();
-                                diI.put("running", i.this.diJ());
-                                jSONObject.put("debugInfo", diI);
-                            } else if (bCx2 == 2) {
-                                jSONObject.put("debugInfo", i.this.diI());
-                            } else if (bCx2 == 1) {
+                            jSONObject.put("baseInfo", i.this.bOj());
+                            jSONObject.put("kpiInfo", i.this.diH());
+                            if (bCy2 == 0 || (bCy2 == 4 && i.this.lrk)) {
+                                JSONObject diJ = i.this.diJ();
+                                diJ.put("running", i.this.diK());
+                                jSONObject.put("debugInfo", diJ);
+                            } else if (bCy2 == 2) {
+                                jSONObject.put("debugInfo", i.this.diJ());
+                            } else if (bCy2 == 1) {
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        com.baidu.tieba.u.e.dTf().i(jSONObject, i.this.lrk ? false : true);
+                        com.baidu.tieba.u.e.dTg().i(jSONObject, i.this.lrk ? false : true);
                         if (i.this.lrp != null) {
                             i.this.lrp.clear();
                             return null;
@@ -241,23 +241,23 @@ public class i implements h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject bOi() {
-        JSONObject bOi = VideoPlatformStatic.bOi();
+    public JSONObject bOj() {
+        JSONObject bOj = VideoPlatformStatic.bOj();
         if (this.lrp != null) {
             try {
                 int size = this.lrp.size();
                 for (int i = 0; i < size; i++) {
-                    this.lrp.get(i).eB(bOi);
+                    this.lrp.get(i).eB(bOj);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        return bOi;
+        return bOj;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject diG() {
+    public JSONObject diH() {
         JSONObject jSONObject = new JSONObject();
         try {
             for (Map.Entry<String, Long> entry : this.lrb.entrySet()) {
@@ -277,7 +277,7 @@ public class i implements h {
             }
             jSONObject.put("isCacheHit", this.lrj ? 1 : 0);
             jSONObject.put("playSuccess", this.lrk ? 1 : 0);
-            jSONObject.put("startPlayTimeInfo", diH());
+            jSONObject.put("startPlayTimeInfo", diI());
             jSONObject.put("retryError", this.lrm ? 1 : 0);
             jSONObject.put(BdStatsConstant.StatsType.ERROR, this.mError);
             if (this.lrp != null) {
@@ -292,7 +292,7 @@ public class i implements h {
         return jSONObject;
     }
 
-    private JSONObject diH() {
+    private JSONObject diI() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("preparedTime", this.lrr);
@@ -301,12 +301,12 @@ public class i implements h {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        diK();
+        diL();
         return jSONObject;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject diI() {
+    public JSONObject diJ() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("uuid", this.mUuid);
@@ -341,14 +341,14 @@ public class i implements h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONArray diJ() {
+    public JSONArray diK() {
         JSONArray jSONArray = new JSONArray();
         if (this.lra == null) {
             return jSONArray;
         }
         int size = this.lra.size();
         for (int i = 0; i < size; i++) {
-            jSONArray.put(this.lra.get(i).dCA());
+            jSONArray.put(this.lra.get(i).dCB());
         }
         return jSONArray;
     }
@@ -360,7 +360,7 @@ public class i implements h {
         this.lrt = j3;
     }
 
-    private void diK() {
+    private void diL() {
         this.lrr = 0L;
         this.lrs = 0L;
         this.lrt = 0L;

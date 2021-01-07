@@ -12,7 +12,7 @@ public interface aq {
 
     void a(String str, String str2, int i, String str3, long j, int i2);
 
-    ExecutorService alz();
+    ExecutorService alA();
 
     void i(String str, int i, String str2);
 }

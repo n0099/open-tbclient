@@ -7,18 +7,18 @@ import java.io.PushbackInputStream;
 public final class a extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final char[] f13124a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+    private static final char[] f13125a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
 
     /* renamed from: b  reason: collision with root package name */
-    private static final byte[] f13125b = new byte[256];
+    private static final byte[] f13126b = new byte[256];
     private byte[] c = new byte[4];
 
     static {
         for (int i = 0; i < 255; i++) {
-            f13125b[i] = -1;
+            f13126b[i] = -1;
         }
         for (int i2 = 0; i2 < 64; i2++) {
-            f13125b[f13124a[i2]] = (byte) i2;
+            f13126b[f13125a[i2]] = (byte) i2;
         }
     }
 
@@ -64,17 +64,17 @@ public final class a extends d {
                     case 2:
                         b2 = -1;
                         b3 = -1;
-                        byte b7 = f13125b[this.c[1] & 255];
-                        b4 = f13125b[this.c[0] & 255];
+                        byte b7 = f13126b[this.c[1] & 255];
+                        b4 = f13126b[this.c[0] & 255];
                         b5 = b7;
                         break;
                     case 4:
-                        b6 = f13125b[this.c[3] & 255];
+                        b6 = f13126b[this.c[3] & 255];
                     case 3:
-                        b3 = f13125b[this.c[2] & 255];
+                        b3 = f13126b[this.c[2] & 255];
                         b2 = b6;
-                        byte b72 = f13125b[this.c[1] & 255];
-                        b4 = f13125b[this.c[0] & 255];
+                        byte b72 = f13126b[this.c[1] & 255];
+                        b4 = f13126b[this.c[0] & 255];
                         b5 = b72;
                         break;
                     default:

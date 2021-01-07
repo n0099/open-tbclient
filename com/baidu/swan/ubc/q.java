@@ -30,19 +30,19 @@ public class q {
         return this.mSign;
     }
 
-    public int biN() {
+    public int biO() {
         return this.mThreshold;
     }
 
-    public int biO() {
+    public int biP() {
         return this.eBE;
     }
 
-    public List<g> biP() {
+    public List<g> biQ() {
         return this.eBG;
     }
 
-    public boolean biQ() {
+    public boolean biR() {
         String str;
         try {
             JSONObject jSONObject = this.eBF;

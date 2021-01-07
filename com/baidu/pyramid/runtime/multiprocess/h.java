@@ -10,7 +10,7 @@ public abstract class h {
     private static final HashMap<String, h> cvQ = new HashMap<>();
     private static final ConcurrentHashMap<String, a> cvR = new ConcurrentHashMap<>();
 
-    public abstract IBinder ahN();
+    public abstract IBinder ahO();
 
     /* loaded from: classes6.dex */
     private static class a {
@@ -26,8 +26,8 @@ public abstract class h {
     public static IBinder getService(String str) {
         h hVar = cvQ.get(str);
         if (hVar != null) {
-            hVar.ahO();
-            return hVar.ahN();
+            hVar.ahP();
+            return hVar.ahO();
         }
         a aVar = cvR.get(str);
         if (aVar != null) {
@@ -61,7 +61,7 @@ public abstract class h {
         cvR.put(str, aVar);
     }
 
-    public void ahO() {
+    public void ahP() {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }

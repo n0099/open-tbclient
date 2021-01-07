@@ -37,8 +37,8 @@ public class a {
     }
 
     public static void a(final String str, final String str2, final boolean z, VideoContainerManager videoContainerManager) {
-        final SwanAppComponentContainerView bjJ = videoContainerManager.bjJ();
-        bjJ.post(new Runnable() { // from class: com.baidu.swan.videoplayer.media.video.a.a.1
+        final SwanAppComponentContainerView bjK = videoContainerManager.bjK();
+        bjK.post(new Runnable() { // from class: com.baidu.swan.videoplayer.media.video.a.a.1
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject jSONObject = new JSONObject();

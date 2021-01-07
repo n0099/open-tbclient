@@ -3,33 +3,33 @@ package com.facebook.imagepipeline.producers;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class b<T> implements k<T> {
-    private boolean pEa = false;
+    private boolean pFH = false;
 
     protected abstract void C(Throwable th);
 
-    protected abstract void eyT();
+    protected abstract void ezv();
 
     protected abstract void f(T t, int i);
 
-    public static boolean Rf(int i) {
+    public static boolean Rv(int i) {
         return (i & 1) == 1;
     }
 
-    public static boolean Rg(int i) {
-        return !Rf(i);
+    public static boolean Rw(int i) {
+        return !Rv(i);
     }
 
-    public static int ec(int i, int i2) {
+    public static int ee(int i, int i2) {
         return (i2 ^ (-1)) & i;
     }
 
-    public static boolean ed(int i, int i2) {
+    public static boolean ef(int i, int i2) {
         return (i & i2) == i2;
     }
 
-    public static boolean ee(int i, int i2) {
+    public static boolean eg(int i, int i2) {
         return (i & i2) != 0;
     }
 
@@ -39,8 +39,8 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void g(@Nullable T t, int i) {
-        if (!this.pEa) {
-            this.pEa = Rf(i);
+        if (!this.pFH) {
+            this.pFH = Rv(i);
             try {
                 f(t, i);
             } catch (Exception e) {
@@ -51,8 +51,8 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void D(Throwable th) {
-        if (!this.pEa) {
-            this.pEa = true;
+        if (!this.pFH) {
+            this.pFH = true;
             try {
                 C(th);
             } catch (Exception e) {
@@ -62,11 +62,11 @@ public abstract class b<T> implements k<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void etQ() {
-        if (!this.pEa) {
-            this.pEa = true;
+    public synchronized void etW() {
+        if (!this.pFH) {
+            this.pFH = true;
             try {
-                eyT();
+                ezv();
             } catch (Exception e) {
                 C(e);
             }
@@ -75,7 +75,7 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void aX(float f) {
-        if (!this.pEa) {
+        if (!this.pFH) {
             try {
                 bK(f);
             } catch (Exception e) {

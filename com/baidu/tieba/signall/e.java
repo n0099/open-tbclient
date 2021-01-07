@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.z;
 /* loaded from: classes8.dex */
 public class e {
-    private static final String niA = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
+    private static final String niz = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
     private z cmJ = null;
     private String mAuthSid;
 
@@ -15,27 +15,27 @@ public class e {
         this.mAuthSid = str;
     }
 
-    public String dMw() {
-        this.cmJ = new z(niA);
+    public String dMx() {
+        this.cmJ = new z(niz);
         this.cmJ.addPostData("authsid", this.mAuthSid);
-        this.cmJ.bvQ().bwz().mNeedBackgroundLogin = true;
-        this.cmJ.bvQ().bwz().mIsNeedTbs = true;
+        this.cmJ.bvR().bwA().mNeedBackgroundLogin = true;
+        this.cmJ.bvR().bwA().mIsNeedTbs = true;
         this.cmJ.jM(true);
         return this.cmJ.postNetData();
     }
 
-    public String SL(String str) {
+    public String SK(String str) {
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str2 = null;
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.cmJ = new z(niA);
+        this.cmJ = new z(niz);
         this.cmJ.addPostData("user_id", str2);
         this.cmJ.addPostData("forum_ids", str);
         this.cmJ.addPostData("authsid", this.mAuthSid);
-        this.cmJ.bvQ().bwz().mNeedBackgroundLogin = true;
-        this.cmJ.bvQ().bwz().mIsNeedTbs = true;
+        this.cmJ.bvR().bwA().mNeedBackgroundLogin = true;
+        this.cmJ.bvR().bwA().mIsNeedTbs = true;
         this.cmJ.jM(true);
         return this.cmJ.postNetData();
     }
@@ -48,12 +48,12 @@ public class e {
 
     public boolean isRequestSuccess() {
         if (this.cmJ != null) {
-            return this.cmJ.bvQ().bwA().isRequestSuccess();
+            return this.cmJ.bvR().bwB().isRequestSuccess();
         }
         return false;
     }
 
-    public String bos() {
+    public String bot() {
         if (this.cmJ != null) {
             return this.cmJ.getErrorString();
         }

@@ -36,48 +36,48 @@ public abstract class a {
     protected boolean isHost;
     protected i mCardNullPolymericData;
     private UserData mUserData;
-    private PersonUserGodInfo mpm;
-    private com.baidu.tieba.person.data.d mpo;
-    private ArrayList<com.baidu.adp.widget.ListView.n> mwE;
-    private c mwF;
-    private com.baidu.tieba.person.a.f mwG;
-    private m mwH;
-    private AlaLiveInfoCoreData mwI;
-    private com.baidu.tieba.j.b mwJ;
-    private List<AlaLiveInfoCoreData> mwK;
-    protected g mwL;
-    protected List<com.baidu.adp.widget.ListView.n> mwM;
-    protected ArrayList<com.baidu.adp.widget.ListView.n> mwP;
+    private PersonUserGodInfo mpl;
+    private com.baidu.tieba.person.data.d mpn;
+    private ArrayList<com.baidu.adp.widget.ListView.n> mwD;
+    private c mwE;
+    private com.baidu.tieba.person.a.f mwF;
+    private m mwG;
+    private AlaLiveInfoCoreData mwH;
+    private com.baidu.tieba.j.b mwI;
+    private List<AlaLiveInfoCoreData> mwJ;
+    protected g mwK;
+    protected List<com.baidu.adp.widget.ListView.n> mwL;
+    protected ArrayList<com.baidu.adp.widget.ListView.n> mwO;
+    public n mwP;
     public n mwQ;
     public n mwR;
     public n mwS;
     public n mwT;
-    public n mwU;
-    public UserAgreeInfo mwV;
-    public NicknameInfo mwW;
-    public User mwX;
-    private boolean mwA = true;
+    public UserAgreeInfo mwU;
+    public NicknameInfo mwV;
+    public User mwW;
+    private boolean mwz = true;
     protected int sex = 1;
+    private int mwA = 1;
     private int mwB = 1;
-    private int mwC = 1;
-    private int mwD = -1;
+    private int mwC = -1;
     public int maskType = 0;
-    protected ArrayList<com.baidu.adp.widget.ListView.n> mwN = new ArrayList<>();
-    private ArrayList<n> mwO = new ArrayList<>();
-    private List<bz> mwY = new ArrayList();
+    protected ArrayList<com.baidu.adp.widget.ListView.n> mwM = new ArrayList<>();
+    private ArrayList<n> mwN = new ArrayList<>();
+    private List<bz> mwX = new ArrayList();
 
-    public abstract void dAk();
+    public abstract void dAl();
 
     public a(boolean z) {
         this.isHost = z;
     }
 
-    public boolean dad() {
-        return this.mwA;
+    public boolean dae() {
+        return this.mwz;
     }
 
     public void wE(boolean z) {
-        this.mwA = z;
+        this.mwz = z;
     }
 
     public boolean isHost() {
@@ -89,54 +89,54 @@ public abstract class a {
         boolean z2;
         String str;
         if (cVar != null) {
-            this.mwX = cVar.GetUser();
+            this.mwW = cVar.GetUser();
             if (this.mUserData == null) {
                 this.mUserData = new UserData();
             }
-            this.mUserData.parserProtobuf(this.mwX);
+            this.mUserData.parserProtobuf(this.mwW);
             if (this.eTY == null) {
                 this.eTY = new MetaData();
             }
-            this.eTY.parserProtobuf(this.mwX);
-            if (this.mpm == null) {
-                this.mpm = new PersonUserGodInfo();
+            this.eTY.parserProtobuf(this.mwW);
+            if (this.mpl == null) {
+                this.mpl = new PersonUserGodInfo();
             }
             UserGodInfo userGodInfo = cVar.getUserGodInfo();
             if (userGodInfo != null && (userGodInfo.god_type.intValue() == 2 || userGodInfo.god_type.intValue() == 1)) {
                 this.mUserData.setIsBigV(true);
-                this.mpm.parserProtobuf(cVar.getUserGodInfo());
+                this.mpl.parserProtobuf(cVar.getUserGodInfo());
             }
             if (this.ftd == null) {
                 this.ftd = new AntiData();
             }
             this.ftd.parserProtobuf(cVar.GetAntiStat());
-            if (this.mwX != null) {
-                if (this.mwX.priv_sets != null) {
-                    this.mwB = this.mwX.priv_sets.like.intValue();
-                    this.mwC = this.mwX.priv_sets.post.intValue();
+            if (this.mwW != null) {
+                if (this.mwW.priv_sets != null) {
+                    this.mwA = this.mwW.priv_sets.like.intValue();
+                    this.mwB = this.mwW.priv_sets.post.intValue();
                 }
-                this.sex = this.mwX.sex.intValue();
+                this.sex = this.mwW.sex.intValue();
             }
             if (cVar.getTaInfo() != null) {
-                this.mwA = cVar.getTaInfo().is_friend.intValue() == 1;
+                this.mwz = cVar.getTaInfo().is_friend.intValue() == 1;
             }
             this.mUserData.setIsFriend(cVar.getTaInfo().is_friend.intValue());
             if (cVar.getBookrackData() != null) {
                 com.baidu.tieba.person.data.a aVar = new com.baidu.tieba.person.data.a();
                 aVar.a(cVar.getBookrackData());
-                this.mpo = new com.baidu.tieba.person.data.d(true, aVar);
+                this.mpn = new com.baidu.tieba.person.data.d(true, aVar);
             }
-            if (!x.isEmpty(cVar.getConcernedForumList()) && !this.isHost && !dAl()) {
+            if (!x.isEmpty(cVar.getConcernedForumList()) && !this.isHost && !dAm()) {
                 fA(cVar.getConcernedForumList());
             }
-            if (this.mwL == null) {
-                c(this.mwX);
+            if (this.mwK == null) {
+                c(this.mwW);
             }
             Random random = new Random();
             if (this.isHost && !x.isEmpty(cVar.GetPostList())) {
                 for (PostInfoList postInfoList : cVar.GetPostList()) {
                     if ((postInfoList != null && postInfoList.is_post_deleted.intValue() == 2 && postInfoList.thread_type.longValue() == 40) || (postInfoList != null && postInfoList.is_post_deleted.intValue() == 2 && postInfoList.is_share_thread.intValue() == 1)) {
-                        a(this.mwX, postInfoList, random);
+                        a(this.mwW, postInfoList, random);
                     }
                 }
             }
@@ -169,7 +169,7 @@ public abstract class a {
                         }
                         switch (dynamicInfo.type.intValue()) {
                             case 1:
-                                a(this.mwX, dynamicInfo, random, z, z2, z3);
+                                a(this.mwW, dynamicInfo, random, z, z2, z3);
                                 break;
                             case 2:
                                 a(dynamicInfo, z2);
@@ -183,20 +183,20 @@ public abstract class a {
                     }
                 }
             }
-            if (this.mCardNullPolymericData == null && x.isEmpty(this.mwM) && x.isEmpty(this.mwP)) {
+            if (this.mCardNullPolymericData == null && x.isEmpty(this.mwL) && x.isEmpty(this.mwO)) {
                 this.mCardNullPolymericData = new i();
                 this.mCardNullPolymericData.sex = this.sex;
                 this.mCardNullPolymericData.isHost = this.isHost;
             }
             if (this.isHost) {
-                dyo();
+                dyp();
                 this.maskType = cVar.getMaskType();
             }
-            this.mwV = cVar.getUserAgreeInfo();
-            this.mwI = cVar.getLiveInfo();
-            this.mwJ = cVar.getGoodsWindowInfo();
-            this.mwK = cVar.getLiveReplayInfo();
-            this.mwW = cVar.getNicknameInfo();
+            this.mwU = cVar.getUserAgreeInfo();
+            this.mwH = cVar.getLiveInfo();
+            this.mwI = cVar.getGoodsWindowInfo();
+            this.mwJ = cVar.getLiveReplayInfo();
+            this.mwV = cVar.getNicknameInfo();
             this.hotUserRankEntry = cVar.getHotRankEntry();
             List<ThreadInfo> newestThreadList = cVar.getNewestThreadList();
             if (!x.isEmpty(newestThreadList)) {
@@ -207,8 +207,8 @@ public abstract class a {
                         bz bzVar = new bz();
                         bzVar.a(newestThreadList.get(i2));
                         bzVar.a(this.eTY);
-                        bzVar.brO();
-                        this.mwY.add(bzVar);
+                        bzVar.brP();
+                        this.mwX.add(bzVar);
                         i = i2 + 1;
                     } else {
                         return;
@@ -220,19 +220,19 @@ public abstract class a {
 
     private void c(User user) {
         if (user != null && !x.isEmpty(user.gift_list)) {
-            this.mwL = new g();
-            this.mwL.parserProtoBuf(user);
+            this.mwK = new g();
+            this.mwK.parserProtoBuf(user);
         }
     }
 
     private void a(User user, DynamicInfo dynamicInfo, Random random, boolean z, boolean z2, boolean z3) {
         ThreadInfo threadInfo;
-        if ((!dAm() || this.isHost) && (threadInfo = dynamicInfo.thread_dynamic) != null) {
-            if (this.mwM == null) {
-                this.mwM = new ArrayList();
+        if ((!dAn() || this.isHost) && (threadInfo = dynamicInfo.thread_dynamic) != null) {
+            if (this.mwL == null) {
+                this.mwL = new ArrayList();
             }
-            int random2 = UtilHelper.getRandom(random, 3, this.mwD);
-            this.mwD = random2;
+            int random2 = UtilHelper.getRandom(random, 3, this.mwC);
+            this.mwC = random2;
             CardPersonDynamicThreadData cardPersonDynamicThreadData = new CardPersonDynamicThreadData();
             cardPersonDynamicThreadData.iAx = true;
             cardPersonDynamicThreadData.isHost = this.isHost;
@@ -242,24 +242,24 @@ public abstract class a {
             cardPersonDynamicThreadData.iAw = z3;
             cardPersonDynamicThreadData.from = 3;
             cardPersonDynamicThreadData.a(user, threadInfo, random2, dynamicInfo.dynamic_timestamp.longValue());
-            this.mwM.add(cardPersonDynamicThreadData);
+            this.mwL.add(cardPersonDynamicThreadData);
         }
     }
 
     private void a(User user, PostInfoList postInfoList, Random random) {
-        if (!dAm() || this.isHost) {
-            if (this.mwP == null) {
-                this.mwP = new ArrayList<>();
+        if (!dAn() || this.isHost) {
+            if (this.mwO == null) {
+                this.mwO = new ArrayList<>();
             }
-            this.mwD = UtilHelper.getRandom(random, 3, this.mwD);
+            this.mwC = UtilHelper.getRandom(random, 3, this.mwC);
             CardPersonDynamicThreadData cardPersonDynamicThreadData = new CardPersonDynamicThreadData();
             cardPersonDynamicThreadData.iAx = true;
             cardPersonDynamicThreadData.isHost = this.isHost;
             cardPersonDynamicThreadData.sex = this.sex;
             cardPersonDynamicThreadData.iAv = false;
             cardPersonDynamicThreadData.iAu = false;
-            cardPersonDynamicThreadData.a(user, postInfoList, this.mwD);
-            this.mwP.add(cardPersonDynamicThreadData);
+            cardPersonDynamicThreadData.a(user, postInfoList, this.mwC);
+            this.mwO.add(cardPersonDynamicThreadData);
         }
     }
 
@@ -268,8 +268,8 @@ public abstract class a {
         if (userDynamic != null) {
             List<User> list = userDynamic.concerned_user_list;
             if (!x.isEmpty(list)) {
-                if (this.mwM == null) {
-                    this.mwM = new ArrayList();
+                if (this.mwL == null) {
+                    this.mwL = new ArrayList();
                 }
                 d dVar = new d();
                 dVar.isHost = this.isHost;
@@ -286,16 +286,16 @@ public abstract class a {
                         dVar.users.add(userData);
                     }
                 }
-                this.mwM.add(dVar);
+                this.mwL.add(dVar);
             }
         }
     }
 
     private void b(DynamicInfo dynamicInfo, boolean z) {
         ForumDynamic forumDynamic;
-        if ((!dAl() || this.isHost) && (forumDynamic = dynamicInfo.forum_dynamic) != null) {
-            if (this.mwM == null) {
-                this.mwM = new ArrayList();
+        if ((!dAm() || this.isHost) && (forumDynamic = dynamicInfo.forum_dynamic) != null) {
+            if (this.mwL == null) {
+                this.mwL = new ArrayList();
             }
             b bVar = new b();
             bVar.isHost = this.isHost;
@@ -307,23 +307,23 @@ public abstract class a {
             bVar.avatar = forumDynamic.avatar;
             bVar.jYM = forumDynamic.forum_name;
             bVar.isAttention = forumDynamic.is_like.intValue() == 1;
-            bVar.mxa = forumDynamic.member_count.intValue();
+            bVar.mwZ = forumDynamic.member_count.intValue();
             bVar.postNum = forumDynamic.thread_count.intValue();
-            this.mwM.add(bVar);
-            this.mwM.add(dh(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getApplicationContext(), R.dimen.ds1), R.color.CAM_X0204));
+            this.mwL.add(bVar);
+            this.mwL.add(dh(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getApplicationContext(), R.dimen.ds1), R.color.CAM_X0204));
         }
     }
 
-    public List<com.baidu.adp.widget.ListView.n> dAa() {
-        if (this.mwG == null) {
+    public List<com.baidu.adp.widget.ListView.n> dAb() {
+        if (this.mwF == null) {
             return null;
         }
-        return this.mwG.getPhotoAlbum();
+        return this.mwF.getPhotoAlbum();
     }
 
     private void fA(List<ForumDynamic> list) {
-        this.mwF = new c();
-        this.mwF.mxc = new ArrayList();
+        this.mwE = new c();
+        this.mwE.mxb = new ArrayList();
         for (ForumDynamic forumDynamic : list) {
             if (forumDynamic != null) {
                 f fVar = new f();
@@ -331,74 +331,74 @@ public abstract class a {
                 fVar.forumName = forumDynamic.forum_name;
                 fVar.avatar = forumDynamic.avatar;
                 fVar.sex = this.sex;
-                fVar.mxg = forumDynamic.user_thread_count.intValue();
-                this.mwF.mxc.add(fVar);
+                fVar.mxf = forumDynamic.user_thread_count.intValue();
+                this.mwE.mxb.add(fVar);
             }
         }
     }
 
-    private boolean dAl() {
+    private boolean dAm() {
+        if (this.isHost) {
+            return false;
+        }
+        if (this.mwA == 3) {
+            return true;
+        }
+        return this.mwA == 2 && !this.mwz;
+    }
+
+    public boolean dAn() {
         if (this.isHost) {
             return false;
         }
         if (this.mwB == 3) {
             return true;
         }
-        return this.mwB == 2 && !this.mwA;
-    }
-
-    public boolean dAm() {
-        if (this.isHost) {
-            return false;
-        }
-        if (this.mwC == 3) {
-            return true;
-        }
-        return this.mwC == 2 && !this.mwA;
+        return this.mwB == 2 && !this.mwz;
     }
 
     protected com.baidu.tieba.person.d dh(int i, int i2) {
         com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d();
-        dVar.mkF = i;
+        dVar.mkE = i;
         dVar.backgroundId = i2;
         return dVar;
     }
 
-    public void dAn() {
-        this.mwA = true;
+    public void dAo() {
+        this.mwz = true;
         this.sex = 1;
+        this.mwA = 1;
         this.mwB = 1;
-        this.mwC = 1;
-        this.mwD = -1;
+        this.mwC = -1;
         this.mUserData = null;
-        if (this.mwE != null) {
-            this.mwE.clear();
+        if (this.mwD != null) {
+            this.mwD.clear();
         }
+        this.mwD = null;
         this.mwE = null;
         this.mwF = null;
         this.mwG = null;
-        this.mwH = null;
-        this.mwL = null;
+        this.mwK = null;
         this.mCardNullPolymericData = null;
-        if (this.mwM != null) {
-            this.mwM.clear();
+        if (this.mwL != null) {
+            this.mwL.clear();
         }
-        if (this.mwP != null) {
-            this.mwP.clear();
+        if (this.mwO != null) {
+            this.mwO.clear();
         }
-        this.mwM = null;
-        this.mwP = null;
-        this.mwN.clear();
+        this.mwL = null;
+        this.mwO = null;
+        this.mwM.clear();
+        this.mwU = null;
         this.mwV = null;
-        this.mwW = null;
         this.maskType = 0;
+        this.mwH = null;
         this.mwI = null;
-        this.mwJ = null;
-        if (this.mwK != null) {
-            this.mwK.clear();
+        if (this.mwJ != null) {
+            this.mwJ.clear();
         }
-        if (this.mwY != null) {
-            this.mwY.clear();
+        if (this.mwX != null) {
+            this.mwX.clear();
         }
     }
 
@@ -407,89 +407,89 @@ public abstract class a {
     }
 
     public User getThreadUser() {
-        return this.mwX;
+        return this.mwW;
     }
 
-    public AntiData cDY() {
+    public AntiData cDZ() {
         return this.ftd;
     }
 
-    public com.baidu.tieba.j.b dAo() {
-        return this.mwJ;
+    public com.baidu.tieba.j.b dAp() {
+        return this.mwI;
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.n> cVg() {
-        return this.mwN;
+    public ArrayList<com.baidu.adp.widget.ListView.n> cVh() {
+        return this.mwM;
     }
 
-    private void dyo() {
-        this.mwO.clear();
-        this.mwR = ac(R.drawable.icon_starer_caise_heibai, R.string.mark, 20);
-        this.mwR.iQK = new Bundle();
-        this.mwR.iQK.putBoolean("person_center_item_red_tip", true);
-        this.mwR.mxr.iQK = new Bundle();
-        this.mwR.mxr.iQK.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.mwO.add(this.mwR);
-        this.mwS = ac(R.drawable.icon_lover_caise_heibai, R.string.contacts, 24);
-        this.mwS.iQK = new Bundle();
-        this.mwS.iQK.putBoolean("person_center_item_red_tip", true);
-        this.mwS.mxr.iQK = new Bundle();
-        this.mwS.mxr.iQK.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.mwO.add(this.mwS);
-        this.mwQ = ac(R.drawable.icon_liwu_caise_heibai, R.string.gift, 32);
+    private void dyp() {
+        this.mwN.clear();
+        this.mwQ = ac(R.drawable.icon_starer_caise_heibai, R.string.mark, 20);
         this.mwQ.iQK = new Bundle();
         this.mwQ.iQK.putBoolean("person_center_item_red_tip", true);
-        this.mwQ.mxr.iQK = new Bundle();
-        this.mwQ.mxr.iQK.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.mwO.add(this.mwQ);
+        this.mwQ.mxq.iQK = new Bundle();
+        this.mwQ.mxq.iQK.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.mwN.add(this.mwQ);
+        this.mwR = ac(R.drawable.icon_lover_caise_heibai, R.string.contacts, 24);
+        this.mwR.iQK = new Bundle();
+        this.mwR.iQK.putBoolean("person_center_item_red_tip", true);
+        this.mwR.mxq.iQK = new Bundle();
+        this.mwR.mxq.iQK.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.mwN.add(this.mwR);
+        this.mwP = ac(R.drawable.icon_liwu_caise_heibai, R.string.gift, 32);
+        this.mwP.iQK = new Bundle();
+        this.mwP.iQK.putBoolean("person_center_item_red_tip", true);
+        this.mwP.mxq.iQK = new Bundle();
+        this.mwP.mxq.iQK.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.mwN.add(this.mwP);
         n ac = ac(R.drawable.icon_lishi_caise_heibai, R.string.history, 21);
-        ac.mxr.iQK = new Bundle();
-        ac.mxr.iQK.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.mwO.add(ac);
+        ac.mxq.iQK = new Bundle();
+        ac.mxq.iQK.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.mwN.add(ac);
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(AlaLiveRoomActivityConfig.class)) {
             n ac2 = ac(R.drawable.icon_zhibou_caise_heibai, R.string.ala_live, 29);
             ac2.iQK = new Bundle();
-            ac2.mxr.iQK = new Bundle();
-            ac2.mxr.iQK.putSerializable(UserData.TYPE_USER, this.mUserData);
-            this.mwO.add(ac2);
+            ac2.mxq.iQK = new Bundle();
+            ac2.mxq.iQK.putSerializable(UserData.TYPE_USER, this.mUserData);
+            this.mwN.add(ac2);
         }
-        this.mwT = ac(R.drawable.icon_vip_heibai, R.string.member_center_item, 16);
-        this.mwT.iQK = new Bundle();
-        this.mwT.iQK.putBoolean("person_center_item_red_tip", true);
-        this.mwT.mxr.iQK = new Bundle();
-        this.mwT.mxr.iQK.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.mwO.add(this.mwT);
+        this.mwS = ac(R.drawable.icon_vip_heibai, R.string.member_center_item, 16);
+        this.mwS.iQK = new Bundle();
+        this.mwS.iQK.putBoolean("person_center_item_red_tip", true);
+        this.mwS.mxq.iQK = new Bundle();
+        this.mwS.mxq.iQK.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.mwN.add(this.mwS);
         n ac3 = ac(R.drawable.icon_bookshoop_caise_heibai, R.string.book_shel, 31);
-        ac3.mxr.iQK = new Bundle();
-        ac3.mxr.iQK.putSerializable(UserData.TYPE_USER, this.mUserData);
-        if (this.mpo != null) {
-            ac3.mxr.iQK.putString("book_jump_link", this.mpo.mob);
+        ac3.mxq.iQK = new Bundle();
+        ac3.mxq.iQK.putSerializable(UserData.TYPE_USER, this.mUserData);
+        if (this.mpn != null) {
+            ac3.mxq.iQK.putString("book_jump_link", this.mpn.moa);
         }
-        this.mwO.add(ac3);
+        this.mwN.add(ac3);
         n ac4 = ac(R.drawable.icon_kabao_caise_heibai, R.string.card_box, 33);
-        ac4.mxr.iQK = new Bundle();
-        ac4.mxr.iQK.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.mwO.add(ac4);
+        ac4.mxq.iQK = new Bundle();
+        ac4.mxq.iQK.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.mwN.add(ac4);
         n ac5 = ac(R.drawable.icon_xiaofeijilu_caise_heibai, R.string.consumption_records, 17);
-        ac5.mxr.iQK = new Bundle();
-        ac5.mxr.iQK.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.mwO.add(ac5);
+        ac5.mxq.iQK = new Bundle();
+        ac5.mxq.iQK.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.mwN.add(ac5);
         n ac6 = ac(R.drawable.icon_fuwu_caise_heibai, R.string.person_service_centre, 39);
-        ac6.mxr.iQK = new Bundle();
-        ac6.mxr.iQK.putString("key_service_centre", "");
-        this.mwO.add(ac6);
+        ac6.mxq.iQK = new Bundle();
+        ac6.mxq.iQK.putString("key_service_centre", "");
+        this.mwN.add(ac6);
     }
 
     private n ac(int i, int i2, int i3) {
         n nVar = new n();
         nVar.gtC = i;
         nVar.title = TbadkCoreApplication.getInst().getString(i2);
-        nVar.mxr = new com.baidu.tieba.personCenter.d.a();
-        nVar.mxr.iQJ = i3;
+        nVar.mxq = new com.baidu.tieba.personCenter.d.a();
+        nVar.mxq.iQJ = i3;
         return nVar;
     }
 
     public List<bz> getNewestThreadList() {
-        return this.mwY;
+        return this.mwX;
     }
 }

@@ -6,29 +6,29 @@ import android.os.HandlerThread;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile HandlerThread f7949a;
+    private static volatile HandlerThread f7950a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile Handler f7950b;
+    private static volatile Handler f7951b;
     private static volatile Handler c = null;
 
     public static HandlerThread a() {
-        if (f7949a == null) {
+        if (f7950a == null) {
             synchronized (h.class) {
-                if (f7949a == null) {
-                    f7949a = new HandlerThread("default_npth_thread");
-                    f7949a.start();
-                    f7950b = new Handler(f7949a.getLooper());
+                if (f7950a == null) {
+                    f7950a = new HandlerThread("default_npth_thread");
+                    f7950a.start();
+                    f7951b = new Handler(f7950a.getLooper());
                 }
             }
         }
-        return f7949a;
+        return f7950a;
     }
 
     public static Handler b() {
-        if (f7950b == null) {
+        if (f7951b == null) {
             a();
         }
-        return f7950b;
+        return f7951b;
     }
 }

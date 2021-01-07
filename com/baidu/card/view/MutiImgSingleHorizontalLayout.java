@@ -65,11 +65,11 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<com
     }
 
     private void setImageData(bz bzVar) {
-        ArrayList<MediaData> brz = bzVar.brz();
-        if (k.bou().isShowImages() && x.getCount(brz) != 0) {
+        ArrayList<MediaData> brA = bzVar.brA();
+        if (k.bov().isShowImages() && x.getCount(brA) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < brz.size(); i++) {
-                MediaData mediaData = (MediaData) x.getItem(brz, i);
+            for (int i = 0; i < brA.size(); i++) {
+                MediaData mediaData = (MediaData) x.getItem(brA, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
@@ -82,7 +82,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<com
                 this.amp.setVisibility(0);
                 this.amB.setVisibility(0);
                 this.amp.setConrers(15);
-                a((MediaData) x.getItem(brz, 0), this.amp, true, false, true, 0);
+                a((MediaData) x.getItem(brA, 0), this.amp, true, false, true, 0);
                 return;
             }
             this.amp.setVisibility(8);
@@ -107,9 +107,9 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<com
     /* renamed from: b */
     public void D(com.baidu.tbadk.core.data.a aVar) {
         this.ahi = aVar;
-        bz boO = aVar.boO();
-        ay.a(this.mTitle, boO);
-        setImageData(boO);
+        bz boP = aVar.boP();
+        ay.a(this.mTitle, boP);
+        setImageData(boP);
     }
 
     public void setMarginsTop(View view, int i) {

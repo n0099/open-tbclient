@@ -6,10 +6,10 @@ import android.database.Cursor;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f9434a;
+    private Context f9435a;
 
     public d(Context context) {
-        this.f9434a = context;
+        this.f9435a = context;
     }
 
     private String a(Cursor cursor) {
@@ -46,7 +46,7 @@ public class d {
             java.lang.String r7 = ""
             java.lang.String r0 = "content://com.meizu.flyme.openidsdk/"
             android.net.Uri r1 = android.net.Uri.parse(r0)     // Catch: java.lang.Throwable -> L43
-            android.content.Context r0 = r9.f9434a     // Catch: java.lang.Throwable -> L43
+            android.content.Context r0 = r9.f9435a     // Catch: java.lang.Throwable -> L43
             android.content.ContentResolver r0 = r0.getContentResolver()     // Catch: java.lang.Throwable -> L43
             r2 = 0
             r3 = 0

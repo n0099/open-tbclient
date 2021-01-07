@@ -15,16 +15,16 @@ import java.util.concurrent.TimeUnit;
 public class b extends c<RegisterStatus> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Handler f11654a;
+    protected Handler f11655a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected ScheduledExecutorService f11655b;
+    protected ScheduledExecutorService f11656b;
     protected int c;
 
     public b(Context context, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, null, null, aVar, scheduledExecutorService);
-        this.f11655b = (ScheduledExecutorService) com.meizu.cloud.pushsdk.c.b.a.b.a();
-        this.f11654a = new Handler(context.getMainLooper()) { // from class: com.meizu.cloud.pushsdk.platform.b.b.1
+        this.f11656b = (ScheduledExecutorService) com.meizu.cloud.pushsdk.c.b.a.b.a();
+        this.f11655a = new Handler(context.getMainLooper()) { // from class: com.meizu.cloud.pushsdk.platform.b.b.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
@@ -49,11 +49,11 @@ public class b extends c<RegisterStatus> {
     }
 
     protected void a(long j) {
-        this.f11655b.schedule(new Runnable() { // from class: com.meizu.cloud.pushsdk.platform.b.b.2
+        this.f11656b.schedule(new Runnable() { // from class: com.meizu.cloud.pushsdk.platform.b.b.2
             @Override // java.lang.Runnable
             public void run() {
                 b.this.o();
-                b.this.f11654a.sendEmptyMessage(0);
+                b.this.f11655a.sendEmptyMessage(0);
             }
         }, j, TimeUnit.SECONDS);
     }

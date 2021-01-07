@@ -86,7 +86,7 @@ public class b {
     }
 
     private void a(@NonNull final Request request) {
-        if (com.baidu.swan.apps.runtime.e.aMl() != null) {
+        if (com.baidu.swan.apps.runtime.e.aMm() != null) {
             com.baidu.swan.a.b.a aVar = new com.baidu.swan.a.b.a(request.url().toString(), new ResponseCallback() { // from class: com.baidu.swan.apps.adlanding.b.1
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public Object parseResponse(Response response, int i) throws Exception {
@@ -110,7 +110,7 @@ public class b {
             aVar.ewn = true;
             aVar.ewo = false;
             aVar.ewp = false;
-            com.baidu.swan.a.c.a.bfE().a(aVar);
+            com.baidu.swan.a.c.a.bfF().a(aVar);
         }
     }
 }

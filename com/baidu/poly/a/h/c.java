@@ -6,7 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     private static String coB = "https://etrade.baidu.com/sgw/common/pingd/trace";
 

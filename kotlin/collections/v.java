@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 @kotlin.e
 /* loaded from: classes5.dex */
 public final class v implements ListIterator {
-    public static final v qlN = new v();
+    public static final v qnv = new v();
 
     @Override // java.util.ListIterator
     public /* synthetic */ void add(Object obj) {
@@ -47,14 +47,14 @@ public final class v implements ListIterator {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.ListIterator, java.util.Iterator
-    /* renamed from: eLU */
+    /* renamed from: eMy */
     public Void next() {
         throw new NoSuchElementException();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.ListIterator
-    /* renamed from: eLV */
+    /* renamed from: eMz */
     public Void previous() {
         throw new NoSuchElementException();
     }

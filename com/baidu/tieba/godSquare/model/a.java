@@ -7,19 +7,19 @@ public class a {
     private l<byte[]> jaF;
 
     public a() {
-        bhY();
+        bhZ();
     }
 
-    private void bhY() {
+    private void bhZ() {
         if (this.jaF == null) {
-            this.jaF = com.baidu.tbadk.core.c.a.btS().Bm("tb.god_square");
+            this.jaF = com.baidu.tbadk.core.c.a.btT().Bl("tb.god_square");
         }
     }
 
-    public byte[] Kv(String str) {
+    public byte[] Ku(String str) {
         l.b<byte[]> bVar;
         if (str != null) {
-            bhY();
+            bhZ();
             bVar = this.jaF.by(str);
         } else {
             bVar = null;
@@ -32,7 +32,7 @@ public class a {
 
     public void m(String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            bhY();
+            bhZ();
             this.jaF.set(str, bArr, 604800000L);
         }
     }

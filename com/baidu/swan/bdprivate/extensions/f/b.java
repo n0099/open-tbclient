@@ -3,7 +3,7 @@ package com.baidu.swan.bdprivate.extensions.f;
 public class b {
     private static volatile a dXC;
 
-    public static synchronized a aTx() {
+    public static synchronized a aTy() {
         a aVar;
         synchronized (b.class) {
             if (dXC == null) {

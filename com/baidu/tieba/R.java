@@ -7924,7 +7924,7 @@ public final class R {
     public static final class drawable {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f5607a = 0x7f080087;
+        public static final int f5608a = 0x7f080087;
         public static final int abc_ab_share_pack_mtrl_alpha = 0x7f080088;
         public static final int abc_action_bar_item_background_material = 0x7f080089;
         public static final int abc_btn_borderless_material = 0x7f08008a;
@@ -20291,7 +20291,7 @@ public final class R {
         public static final int commodity_tail_text_mask = 0x7f090b4f;
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f5608common = 0x7f090b50;
+        public static final int f5609common = 0x7f090b50;
         public static final int common_card_view_container = 0x7f090b51;
         public static final int common_forum_title = 0x7f090b52;
         public static final int common_forum_viewpager = 0x7f090b53;
@@ -28434,7 +28434,7 @@ public final class R {
         public static final int turntable_icon = 0x7f092b1c;
 
         /* renamed from: tv  reason: collision with root package name */
-        public static final int f5609tv = 0x7f092b1d;
+        public static final int f5610tv = 0x7f092b1d;
         public static final int tvActiveSubTitle = 0x7f092b1e;
         public static final int tvActiveTitle = 0x7f092b1f;
         public static final int tvAlaImBottomNewMsg = 0x7f092b20;

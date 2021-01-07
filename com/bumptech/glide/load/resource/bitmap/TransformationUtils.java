@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class TransformationUtils {
     private static final Lock BITMAP_DRAWABLE_LOCK;
     private static final Paint CIRCLE_CROP_BITMAP_PAINT;
@@ -316,7 +316,7 @@ public final class TransformationUtils {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static final class NoLock implements Lock {
         NoLock() {
         }

@@ -9,17 +9,17 @@ import java.util.List;
 import java.util.TimeZone;
 /* loaded from: classes8.dex */
 public class a extends BdAsyncTask<Void, Void, List<b>> {
-    private static long nJP = BdKVCache.MILLS_1Hour;
+    private static long nJO = BdKVCache.MILLS_1Hour;
     private Context context;
     private int maxHeight;
     private int maxWidth;
-    private InterfaceC0865a nJQ;
-    private SimpleDateFormat nJS = new SimpleDateFormat("mm:ss");
-    private SimpleDateFormat nJR = new SimpleDateFormat("HH:mm:ss");
+    private InterfaceC0903a nJP;
+    private SimpleDateFormat nJR = new SimpleDateFormat("mm:ss");
+    private SimpleDateFormat nJQ = new SimpleDateFormat("HH:mm:ss");
 
     /* renamed from: com.baidu.tieba.video.localvideo.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0865a {
+    public interface InterfaceC0903a {
         void gb(List<b> list);
     }
 
@@ -28,12 +28,12 @@ public class a extends BdAsyncTask<Void, Void, List<b>> {
         this.maxHeight = context.getResources().getDimensionPixelSize(R.dimen.ds220);
         this.maxWidth = this.maxHeight;
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.nJS.setTimeZone(timeZone);
         this.nJR.setTimeZone(timeZone);
+        this.nJQ.setTimeZone(timeZone);
     }
 
-    public void a(InterfaceC0865a interfaceC0865a) {
-        this.nJQ = interfaceC0865a;
+    public void a(InterfaceC0903a interfaceC0903a) {
+        this.nJP = interfaceC0903a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,8 +54,8 @@ public class a extends BdAsyncTask<Void, Void, List<b>> {
     /* renamed from: B */
     public void onPostExecute(List<b> list) {
         super.onPostExecute(list);
-        if (this.nJQ != null) {
-            this.nJQ.gb(list);
+        if (this.nJP != null) {
+            this.nJP.gb(list);
         }
     }
 }

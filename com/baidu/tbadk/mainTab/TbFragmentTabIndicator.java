@@ -67,7 +67,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void b(String str, a aVar) {
     }
 
-    public a Ei(String str) {
+    public a Eh(String str) {
         return null;
     }
 
@@ -104,7 +104,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setTextColorResId(int i) {
     }
 
-    public void bGu() {
+    public void bGv() {
     }
 
     public void setAnimationResId(int i) {

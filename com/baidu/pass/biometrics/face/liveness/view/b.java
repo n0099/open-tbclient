@@ -10,10 +10,10 @@ import com.baidu.pass.biometrics.face.R;
 public class b extends AppCompatDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private ViewSwitcher f4090a;
+    private ViewSwitcher f4091a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f4091b;
+    private TextView f4092b;
     private TextView c;
     private TextView d;
     private TextView e;
@@ -27,8 +27,8 @@ public class b extends AppCompatDialog {
     private void a() {
         setContentView(R.layout.layout_pass_liveness_dialog_alert);
         setCanceledOnTouchOutside(false);
-        this.f4090a = (ViewSwitcher) findViewById(R.id.view_switcher);
-        this.f4091b = (TextView) findViewById(R.id.title_text);
+        this.f4091a = (ViewSwitcher) findViewById(R.id.view_switcher);
+        this.f4092b = (TextView) findViewById(R.id.title_text);
         this.c = (TextView) findViewById(R.id.msg_text);
         this.d = (TextView) findViewById(R.id.positive_btn);
         this.e = (TextView) findViewById(R.id.negative_btn);
@@ -36,11 +36,11 @@ public class b extends AppCompatDialog {
     }
 
     public void b(String str) {
-        this.f4091b.setText(str);
+        this.f4092b.setText(str);
     }
 
     public void c(int i) {
-        this.f4091b.setVisibility(i);
+        this.f4092b.setVisibility(i);
     }
 
     public void b(int i) {
@@ -64,9 +64,9 @@ public class b extends AppCompatDialog {
             i = 2;
         }
         if (i == 2) {
-            this.f4090a.setDisplayedChild(0);
+            this.f4091a.setDisplayedChild(0);
         } else {
-            this.f4090a.setDisplayedChild(1);
+            this.f4091a.setDisplayedChild(1);
         }
     }
 

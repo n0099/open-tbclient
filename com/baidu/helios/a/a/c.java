@@ -3,18 +3,18 @@ package com.baidu.helios.a.a;
 import android.os.Bundle;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 class c<T> implements com.baidu.helios.c<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile boolean f2441a = false;
+    private volatile boolean f2442a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private final CountDownLatch f2442b = new CountDownLatch(1);
+    private final CountDownLatch f2443b = new CountDownLatch(1);
     private b<T> axl = null;
     private a axm = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes15.dex */
     public static class a {
         public boolean axn;
         public Throwable axo;
@@ -22,7 +22,7 @@ class c<T> implements com.baidu.helios.c<T> {
         public int errorCode;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes15.dex */
     public static class b<T> {
         public Bundle axp;
         public T result;
@@ -34,8 +34,8 @@ class c<T> implements com.baidu.helios.c<T> {
         this.axm.errorCode = i;
         this.axm.axo = th;
         this.axm.axp = bundle;
-        this.f2441a = false;
-        this.f2442b.countDown();
+        this.f2442a = false;
+        this.f2443b.countDown();
     }
 
     @Override // com.baidu.helios.c
@@ -43,13 +43,13 @@ class c<T> implements com.baidu.helios.c<T> {
         this.axl = new b<>();
         this.axl.result = t;
         this.axl.axp = bundle;
-        this.f2441a = true;
-        this.f2442b.countDown();
+        this.f2442a = true;
+        this.f2443b.countDown();
     }
 
     public boolean a(int i) {
         try {
-            this.f2442b.await(i, TimeUnit.MILLISECONDS);
+            this.f2443b.await(i, TimeUnit.MILLISECONDS);
             if (this.axm == null) {
                 this.axm = new a();
                 this.axm.axn = true;
@@ -57,7 +57,7 @@ class c<T> implements com.baidu.helios.c<T> {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return this.f2441a;
+        return this.f2442a;
     }
 
     public b<T> yT() {

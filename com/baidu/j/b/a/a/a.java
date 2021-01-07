@@ -18,7 +18,7 @@ public class a implements com.baidu.j.a.b.a.b {
         this.cgc = cVar;
     }
 
-    public com.baidu.j.a.b.c abY() {
+    public com.baidu.j.a.b.c abZ() {
         return this.cgc;
     }
 
@@ -106,7 +106,7 @@ public class a implements com.baidu.j.a.b.a.b {
         });
     }
 
-    public boolean abZ() {
+    public boolean aca() {
         return this.cgf;
     }
 }

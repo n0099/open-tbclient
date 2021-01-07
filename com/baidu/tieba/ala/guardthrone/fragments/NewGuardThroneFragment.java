@@ -74,8 +74,8 @@ public class NewGuardThroneFragment extends BaseFragment {
                 this.heA.getRootView().setVisibility(8);
                 this.hez.getRootView().setVisibility(0);
             }
-            this.hez.bnO();
-            this.heA.bnO();
+            this.hez.bnP();
+            this.heA.bnP();
         }
     }
 
@@ -93,11 +93,11 @@ public class NewGuardThroneFragment extends BaseFragment {
     public void onDestroy() {
         super.onDestroy();
         if (this.hez != null) {
-            this.hez.bZN();
+            this.hez.bZO();
             this.hez.onDestroy();
         }
         if (this.heA != null) {
-            this.heA.bZN();
+            this.heA.bZO();
             this.heA.onDestroy();
         }
     }

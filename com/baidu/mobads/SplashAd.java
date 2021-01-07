@@ -14,10 +14,10 @@ public class SplashAd {
     private static boolean d;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.mobads.production.g.a f3321a;
+    private com.baidu.mobads.production.g.a f3322a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f3322b;
+    private int f3323b;
     private volatile String c;
     private SplashAdListener e;
     private IOAdEventListener f;
@@ -29,7 +29,7 @@ public class SplashAd {
     }
 
     public SplashAd(Context context, ViewGroup viewGroup, SplashAdListener splashAdListener, String str, boolean z) {
-        this.f3322b = 4;
+        this.f3323b = 4;
         this.c = OneKeyLoginSdkCall.l;
         this.e = new q(this);
         this.f = new r(this);
@@ -79,8 +79,8 @@ public class SplashAd {
     }
 
     public void destroy() {
-        if (this.f3321a != null) {
-            this.f3321a.p();
+        if (this.f3322a != null) {
+            this.f3322a.p();
         }
     }
 

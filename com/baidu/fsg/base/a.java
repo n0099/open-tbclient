@@ -3,10 +3,10 @@ package com.baidu.fsg.base;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f1908a = false;
+    public static final boolean f1909a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1909b = "com.baidu.fsg.base";
+    public static final String f1910b = "com.baidu.fsg.base";
     public static final String c = "release";
     public static final String d = "";
     public static final int e = 1;

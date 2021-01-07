@@ -623,7 +623,7 @@ public class a implements ai {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS, buyYinjiInfo));
             BdUtilHelper.getCustomToast().showToast("购买成功", 0);
             if (xVar.mLiveInfo.live_id == this.currLiveId && gVar != null) {
-                gVar.setSceneFrom(q.XF());
+                gVar.setSceneFrom(q.XG());
                 a(gVar, 1L, xVar, str2);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913098));
                 return;

@@ -11,14 +11,14 @@ import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HybridAD implements HADI {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile boolean f11750a;
+    private volatile boolean f11751a;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile boolean f11751b;
+    private volatile boolean f11752b;
     private volatile boolean c;
     private HADI d;
     private HybridADListener e;
@@ -45,7 +45,7 @@ public class HybridAD implements HADI {
             return;
         }
         this.e = hybridADListener;
-        this.f11751b = true;
+        this.f11752b = true;
         if (!a.a(context)) {
             GDTLogger.e("Required Activity/Service/Permission Not Declared in AndroidManifest.xml");
             return;
@@ -67,7 +67,7 @@ public class HybridAD implements HADI {
                         public void run() {
                             if (pOFactory != null) {
                                 HybridAD.this.d = pOFactory.getHybridAD(hybridADSetting, hybridADListener);
-                                HybridAD.this.f11750a = true;
+                                HybridAD.this.f11751a = true;
                             } else {
                                 GDTLogger.e("poFactory is null");
                                 HybridAD.a(HybridAD.this, 2001);
@@ -98,7 +98,7 @@ public class HybridAD implements HADI {
     @Override // com.qq.e.comm.pi.HADI
     public void loadUrl(final String str) {
         boolean z;
-        if (this.f11751b && this.c) {
+        if (this.f11752b && this.c) {
             z = true;
         } else {
             GDTLogger.e("AD init Params OR Context error, details in logs produced while init HybridAD");
@@ -106,7 +106,7 @@ public class HybridAD implements HADI {
         }
         if (!z) {
             GDTLogger.e("HybridAD loadUrl error");
-        } else if (this.f11750a) {
+        } else if (this.f11751a) {
             this.d.loadUrl(str);
         } else {
             new Thread(new Runnable() { // from class: com.qq.e.ads.hybrid.HybridAD.2
@@ -114,7 +114,7 @@ public class HybridAD implements HADI {
                 public void run() {
                     try {
                         HybridAD.this.f.await(30L, TimeUnit.SECONDS);
-                        if (HybridAD.this.f11750a) {
+                        if (HybridAD.this.f11751a) {
                             HybridAD.this.d.loadUrl(str);
                         } else {
                             GDTLogger.e("delegate init failed ");

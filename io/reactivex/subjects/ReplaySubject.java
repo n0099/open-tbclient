@@ -9,17 +9,17 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class ReplaySubject<T> extends b<T> {
     boolean done;
     final AtomicReference<ReplayDisposable<T>[]> observers;
-    final a<T> qlu;
-    static final ReplayDisposable[] qlv = new ReplayDisposable[0];
-    static final ReplayDisposable[] qlw = new ReplayDisposable[0];
-    private static final Object[] qkR = new Object[0];
+    final a<T> qnc;
+    static final ReplayDisposable[] qnd = new ReplayDisposable[0];
+    static final ReplayDisposable[] qne = new ReplayDisposable[0];
+    private static final Object[] qmz = new Object[0];
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface a<T> {
         void add(T t);
 
@@ -38,7 +38,7 @@ public final class ReplaySubject<T> extends b<T> {
             if (a(replayDisposable) && replayDisposable.cancelled) {
                 b(replayDisposable);
             } else {
-                this.qlu.replay(replayDisposable);
+                this.qnc.replay(replayDisposable);
             }
         }
     }
@@ -54,7 +54,7 @@ public final class ReplaySubject<T> extends b<T> {
     public void onNext(T t) {
         io.reactivex.internal.functions.a.m(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (!this.done) {
-            a<T> aVar = this.qlu;
+            a<T> aVar = this.qnc;
             aVar.add(t);
             for (ReplayDisposable<T> replayDisposable : this.observers.get()) {
                 aVar.replay(replayDisposable);
@@ -71,10 +71,10 @@ public final class ReplaySubject<T> extends b<T> {
         }
         this.done = true;
         Object error = NotificationLite.error(th);
-        a<T> aVar = this.qlu;
+        a<T> aVar = this.qnc;
         aVar.addFinal(error);
-        ReplayDisposable<T>[] bP = bP(error);
-        for (ReplayDisposable<T> replayDisposable : bP) {
+        ReplayDisposable<T>[] bQ = bQ(error);
+        for (ReplayDisposable<T> replayDisposable : bQ) {
             aVar.replay(replayDisposable);
         }
     }
@@ -84,10 +84,10 @@ public final class ReplaySubject<T> extends b<T> {
         if (!this.done) {
             this.done = true;
             Object complete = NotificationLite.complete();
-            a<T> aVar = this.qlu;
+            a<T> aVar = this.qnc;
             aVar.addFinal(complete);
-            ReplayDisposable<T>[] bP = bP(complete);
-            for (ReplayDisposable<T> replayDisposable : bP) {
+            ReplayDisposable<T>[] bQ = bQ(complete);
+            for (ReplayDisposable<T> replayDisposable : bQ) {
                 aVar.replay(replayDisposable);
             }
         }
@@ -98,7 +98,7 @@ public final class ReplaySubject<T> extends b<T> {
         ReplayDisposable<T>[] replayDisposableArr2;
         do {
             replayDisposableArr = this.observers.get();
-            if (replayDisposableArr == qlw) {
+            if (replayDisposableArr == qne) {
                 return false;
             }
             int length = replayDisposableArr.length;
@@ -114,7 +114,7 @@ public final class ReplaySubject<T> extends b<T> {
         ReplayDisposable<T>[] replayDisposableArr2;
         do {
             replayDisposableArr = this.observers.get();
-            if (replayDisposableArr != qlw && replayDisposableArr != qlv) {
+            if (replayDisposableArr != qne && replayDisposableArr != qnd) {
                 int length = replayDisposableArr.length;
                 int i = -1;
                 int i2 = 0;
@@ -130,7 +130,7 @@ public final class ReplaySubject<T> extends b<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        replayDisposableArr2 = qlv;
+                        replayDisposableArr2 = qnd;
                     } else {
                         replayDisposableArr2 = new ReplayDisposable[length - 1];
                         System.arraycopy(replayDisposableArr, 0, replayDisposableArr2, 0, i);
@@ -145,12 +145,12 @@ public final class ReplaySubject<T> extends b<T> {
         } while (!this.observers.compareAndSet(replayDisposableArr, replayDisposableArr2));
     }
 
-    ReplayDisposable<T>[] bP(Object obj) {
-        return this.qlu.compareAndSet(null, obj) ? this.observers.getAndSet(qlw) : qlw;
+    ReplayDisposable<T>[] bQ(Object obj) {
+        return this.qnc.compareAndSet(null, obj) ? this.observers.getAndSet(qne) : qne;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class ReplayDisposable<T> extends AtomicInteger implements io.reactivex.disposables.b {
         private static final long serialVersionUID = 466549804534799122L;
         final u<? super T> actual;
@@ -177,7 +177,7 @@ public final class ReplaySubject<T> extends b<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class UnboundedReplayBuffer<T> extends AtomicReference<Object> implements a<T> {
         private static final long serialVersionUID = -733876083048047795L;
         final List<Object> buffer;
@@ -310,7 +310,7 @@ public final class ReplaySubject<T> extends b<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class Node<T> extends AtomicReference<Node<T>> {
         private static final long serialVersionUID = 6404226426336033100L;
         final T value;
@@ -321,7 +321,7 @@ public final class ReplaySubject<T> extends b<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class TimedNode<T> extends AtomicReference<TimedNode<T>> {
         private static final long serialVersionUID = 6404226426336033100L;
         final long time;
@@ -333,7 +333,7 @@ public final class ReplaySubject<T> extends b<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class SizeBoundReplayBuffer<T> extends AtomicReference<Object> implements a<T> {
         private static final long serialVersionUID = 1107649250281456395L;
         volatile boolean done;
@@ -491,7 +491,7 @@ public final class ReplaySubject<T> extends b<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class SizeAndTimeBoundReplayBuffer<T> extends AtomicReference<Object> implements a<T> {
         private static final long serialVersionUID = -8056260896137901749L;
         volatile boolean done;

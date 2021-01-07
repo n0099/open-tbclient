@@ -7,38 +7,38 @@ import androidx.annotation.RestrictTo;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final PointF f8338a;
+    private final PointF f8339a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final PointF f8339b;
+    private final PointF f8340b;
     private final PointF c;
 
     public a() {
-        this.f8338a = new PointF();
-        this.f8339b = new PointF();
+        this.f8339a = new PointF();
+        this.f8340b = new PointF();
         this.c = new PointF();
     }
 
     public a(PointF pointF, PointF pointF2, PointF pointF3) {
-        this.f8338a = pointF;
-        this.f8339b = pointF2;
+        this.f8339a = pointF;
+        this.f8340b = pointF2;
         this.c = pointF3;
     }
 
     public PointF a() {
-        return this.f8338a;
+        return this.f8339a;
     }
 
     public void a(float f, float f2) {
-        this.f8338a.set(f, f2);
+        this.f8339a.set(f, f2);
     }
 
     public PointF b() {
-        return this.f8339b;
+        return this.f8340b;
     }
 
     public void b(float f, float f2) {
-        this.f8339b.set(f, f2);
+        this.f8340b.set(f, f2);
     }
 
     public PointF c() {

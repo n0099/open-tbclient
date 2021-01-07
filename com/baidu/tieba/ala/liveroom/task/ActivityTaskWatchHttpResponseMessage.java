@@ -20,7 +20,7 @@ public class ActivityTaskWatchHttpResponseMessage extends JsonHttpResponsedMessa
         }
     }
 
-    public a cnq() {
+    public a cnr() {
         return this.hOy;
     }
 }

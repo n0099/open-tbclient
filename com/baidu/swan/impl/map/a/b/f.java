@@ -51,7 +51,7 @@ public class f {
                 }
                 String str = dVar.dkE;
                 if (TextUtils.isEmpty(str)) {
-                    str = ImageRequestBuilder.Rl(R.drawable.pin_red).eBe().eAT().toString();
+                    str = ImageRequestBuilder.RB(R.drawable.pin_red).eBI().eBx().toString();
                 }
                 s.a(str, new s.a() { // from class: com.baidu.swan.impl.map.a.b.f.1
                     @Override // com.baidu.swan.apps.ao.s.a
@@ -60,7 +60,7 @@ public class f {
                             Log.d("MarkerViewCreateHelper", "url=" + str2);
                         }
                         if (bitmap == null) {
-                            bitmap = f.bel();
+                            bitmap = f.bem();
                         }
                         Bitmap a2 = f.a(bitmap, com.baidu.swan.apps.w.a.a.d.this);
                         LatLng latLng = new LatLng(com.baidu.swan.apps.w.a.a.d.this.dke.latitude, com.baidu.swan.apps.w.a.a.d.this.dke.longitude);
@@ -199,7 +199,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static Bitmap bel() {
+    public static Bitmap bem() {
         return BitmapFactory.decodeResource(AppRuntime.getAppContext().getResources(), R.drawable.pin_red);
     }
 }

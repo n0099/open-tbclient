@@ -23,14 +23,14 @@ import org.apache.http.protocol.HTTP;
 public class a extends com.baidu.mobads.openad.c.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3451a = 1024;
+    public static int f3452a = 1024;
     private static final TimeUnit h = TimeUnit.SECONDS;
     private static int i = 5;
     private static BlockingQueue<Runnable> j = new LinkedBlockingQueue();
     private static ThreadPoolExecutor k;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f3452b;
+    private String f3453b;
     private AtomicBoolean d;
     private Boolean e;
     private HttpURLConnection f;
@@ -48,7 +48,7 @@ public class a extends com.baidu.mobads.openad.c.c {
         this.d = new AtomicBoolean(false);
         this.e = false;
         this.g = new AtomicBoolean();
-        this.f3452b = str;
+        this.f3453b = str;
     }
 
     public a() {
@@ -77,11 +77,11 @@ public class a extends com.baidu.mobads.openad.c.c {
     public class RunnableC0273a implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        private c f3454b;
+        private c f3455b;
         private double c;
 
         public RunnableC0273a(c cVar, double d) {
-            this.f3454b = cVar;
+            this.f3455b = cVar;
             this.c = d;
         }
 
@@ -91,37 +91,37 @@ public class a extends com.baidu.mobads.openad.c.c {
             Object[] objArr;
             InputStream inputStream = null;
             try {
-                if (this.f3454b.c > 0) {
-                    Thread.sleep(this.f3454b.c);
+                if (this.f3455b.c > 0) {
+                    Thread.sleep(this.f3455b.c);
                 }
                 a.this.d.set(true);
-                a.this.f = (HttpURLConnection) new URL(this.f3454b.f3456a).openConnection();
+                a.this.f = (HttpURLConnection) new URL(this.f3455b.f3457a).openConnection();
                 a.this.f.setConnectTimeout((int) this.c);
                 a.this.f.setUseCaches(false);
-                if (this.f3454b.f3457b != null && this.f3454b.f3457b.length() > 0) {
-                    a.this.f.setRequestProperty("User-Agent", this.f3454b.f3457b);
+                if (this.f3455b.f3458b != null && this.f3455b.f3458b.length() > 0) {
+                    a.this.f.setRequestProperty("User-Agent", this.f3455b.f3458b);
                 }
-                a.this.f.setRequestProperty("Content-type", this.f3454b.d);
+                a.this.f.setRequestProperty("Content-type", this.f3455b.d);
                 a.this.f.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
                 a.this.f.setRequestProperty(Headers.CACHE_CONTROL, "no-cache");
                 if (Integer.parseInt(Build.VERSION.SDK) < 8) {
                     System.setProperty("http.keepAlive", "false");
                 }
-                if (this.f3454b.e == 1) {
+                if (this.f3455b.e == 1) {
                     a.this.f.setRequestMethod("GET");
                     a.this.f.connect();
                     a.this.f.getHeaderFields();
                     if (!a.this.e.booleanValue()) {
                         inputStream = a.this.f.getInputStream();
-                        a.this.dispatchEvent(new d("URLLoader.Load.Complete", a.b(inputStream), this.f3454b.a()));
+                        a.this.dispatchEvent(new d("URLLoader.Load.Complete", a.b(inputStream), this.f3455b.a()));
                     }
                     a.this.f.getResponseCode();
-                } else if (this.f3454b.e == 0) {
+                } else if (this.f3455b.e == 0) {
                     a.this.f.setRequestMethod("POST");
                     a.this.f.setDoInput(true);
                     a.this.f.setDoOutput(true);
-                    if (this.f3454b.b() != null) {
-                        String encodedQuery = this.f3454b.b().build().getEncodedQuery();
+                    if (this.f3455b.b() != null) {
+                        String encodedQuery = this.f3455b.b().build().getEncodedQuery();
                         OutputStream outputStream = a.this.f.getOutputStream();
                         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
                         bufferedWriter.write(encodedQuery);

@@ -19,7 +19,7 @@ abstract class l<IN, OUT> extends d<IN, OUT> {
         if (list.isEmpty()) {
             return false;
         }
-        return list.get(list.size() + (-1)).f7721a == f.class;
+        return list.get(list.size() + (-1)).f7722a == f.class;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -40,22 +40,22 @@ abstract class l<IN, OUT> extends d<IN, OUT> {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private Map<String, a> f7728a = new HashMap();
+        private Map<String, a> f7729a = new HashMap();
 
         /* renamed from: b  reason: collision with root package name */
-        private com.bytedance.sdk.openadsdk.preload.a.b.a f7729b;
+        private com.bytedance.sdk.openadsdk.preload.a.b.a f7730b;
 
         public a a(String str) {
-            if (this.f7728a.containsKey(str)) {
+            if (this.f7729a.containsKey(str)) {
                 throw new IllegalArgumentException("duplicated branch name");
             }
             a aVar = new a();
-            this.f7728a.put(str, aVar);
+            this.f7729a.put(str, aVar);
             return aVar;
         }
 
         public h a(Class<? extends l> cls) {
-            return h.a.a().a(cls).a(this.f7728a).a(this.f7729b).b();
+            return h.a.a().a(cls).a(this.f7729a).a(this.f7730b).b();
         }
     }
 
@@ -63,15 +63,15 @@ abstract class l<IN, OUT> extends d<IN, OUT> {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        List<h> f7727a = new ArrayList();
+        List<h> f7728a = new ArrayList();
 
         public a a(h hVar) {
-            this.f7727a.add(hVar);
+            this.f7728a.add(hVar);
             return this;
         }
 
         public a a(List<h> list) {
-            this.f7727a.addAll(list);
+            this.f7728a.addAll(list);
             return this;
         }
     }

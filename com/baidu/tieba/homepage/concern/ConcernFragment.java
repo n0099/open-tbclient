@@ -98,7 +98,7 @@ public class ConcernFragment extends BaseFragment implements am {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData) && (postWriteCallBackData = (PostWriteCallBackData) customResponsedMessage.getData()) != null) {
                 final long j = com.baidu.adp.lib.f.b.toLong(postWriteCallBackData.getPostId(), 0L);
                 final long j2 = com.baidu.adp.lib.f.b.toLong(postWriteCallBackData.getThreadId(), 0L);
-                final long j3 = com.baidu.adp.lib.f.b.toLong(com.baidu.tieba.tbadkCore.writeModel.a.dQA().dQE(), 0L);
+                final long j3 = com.baidu.adp.lib.f.b.toLong(com.baidu.tieba.tbadkCore.writeModel.a.dQB().dQF(), 0L);
                 if (j != 0 && j2 != 0 && j3 != 0) {
                     e.mB().postDelayed(new Runnable() { // from class: com.baidu.tieba.homepage.concern.ConcernFragment.4.1
                         @Override // java.lang.Runnable
@@ -106,7 +106,7 @@ public class ConcernFragment extends BaseFragment implements am {
                             int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst());
                             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
                             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-                            int i = au.bwr().bws() ? 2 : 1;
+                            int i = au.bws().bwt() ? 2 : 1;
                             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
                             requestGetMyPostNetMessage.setProZone(postWriteCallBackData.getProZone());
                             requestGetMyPostNetMessage.setParams(j2, j, j3, equipmentWidth, equipmentHeight, f, i);
@@ -179,7 +179,7 @@ public class ConcernFragment extends BaseFragment implements am {
     @SuppressLint({"ValidFragment"})
     public ConcernFragment(Context context) {
         this.jWP = new ConcernPageView(context);
-        this.jWP.cbX();
+        this.jWP.cbY();
         registerListener(this.jgE);
         registerListener(this.jgY);
     }
@@ -194,7 +194,7 @@ public class ConcernFragment extends BaseFragment implements am {
         }
         this.jWP.setPageUniqueId(getUniqueId());
         if (this.jWR) {
-            this.jWP.cbX();
+            this.jWP.cbY();
             this.jWR = false;
         }
         return this.jWP;
@@ -273,14 +273,14 @@ public class ConcernFragment extends BaseFragment implements am {
         if (isPrimary()) {
             if (!this.iXY) {
                 if (this.jWP != null) {
-                    this.jWP.cQB();
+                    this.jWP.cQC();
                 }
                 this.iXY = true;
             }
             this.jWP.setViewForeground();
             return;
         }
-        this.jWP.cQH();
+        this.jWP.cQI();
         completePullRefresh();
     }
 
@@ -303,25 +303,25 @@ public class ConcernFragment extends BaseFragment implements am {
         }
     }
 
-    public void cQA() {
+    public void cQB() {
         if (this.jWP != null) {
-            this.jWP.cQC();
+            this.jWP.cQD();
         }
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void WE() {
+    public void WF() {
         if (this.iXY) {
             this.jWP.reload();
         }
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bUJ() {
+    public void bUK() {
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bUK() {
+    public void bUL() {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
@@ -350,7 +350,7 @@ public class ConcernFragment extends BaseFragment implements am {
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bxO() {
+    public void bxP() {
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
         this.jWP.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -370,8 +370,8 @@ public class ConcernFragment extends BaseFragment implements am {
             if (builder.author != null && getMyPostResIdl.data.user_info != null && builder.author.name.equals(getMyPostResIdl.data.user_info.name)) {
                 builder.author = builder2.build(true);
             }
-            builder.fname = com.baidu.tieba.tbadkCore.writeModel.a.dQA().dQF();
-            builder.fid = Long.valueOf(com.baidu.adp.lib.f.b.toLong(com.baidu.tieba.tbadkCore.writeModel.a.dQA().dQF(), 0L));
+            builder.fname = com.baidu.tieba.tbadkCore.writeModel.a.dQB().dQG();
+            builder.fid = Long.valueOf(com.baidu.adp.lib.f.b.toLong(com.baidu.tieba.tbadkCore.writeModel.a.dQB().dQG(), 0L));
             auVar.a(builder.build(true));
             this.jWP.aB(auVar);
         }

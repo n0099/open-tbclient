@@ -9,7 +9,7 @@ public class a implements com.baidu.adp.lib.stats.b {
     private a() {
     }
 
-    public static synchronized a bvw() {
+    public static synchronized a bvx() {
         a aVar;
         synchronized (a.class) {
             if (fbV == null) {
@@ -22,15 +22,15 @@ public class a implements com.baidu.adp.lib.stats.b {
 
     @Override // com.baidu.adp.lib.stats.b
     public void c(String str, long j) {
-        TbadkSettings.getInst().saveLong(BG(str), j);
+        TbadkSettings.getInst().saveLong(BF(str), j);
     }
 
     @Override // com.baidu.adp.lib.stats.b
     public long bS(String str) {
-        return TbadkSettings.getInst().loadLong(BG(str), 0L);
+        return TbadkSettings.getInst().loadLong(BF(str), 0L);
     }
 
-    private String BG(String str) {
+    private String BF(String str) {
         return SharedPrefConfig.NEW_LOG_UPLOAD_TIME_PREFIX + str;
     }
 }

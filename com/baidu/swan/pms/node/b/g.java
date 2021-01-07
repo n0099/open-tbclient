@@ -7,7 +7,7 @@ public class g {
     private static volatile g eyl;
     private a eyn = new a();
 
-    public static g bhn() {
+    public static g bho() {
         if (eyl == null) {
             synchronized (g.class) {
                 if (eyl == null) {
@@ -29,7 +29,7 @@ public class g {
     public void cW(JSONObject jSONObject) {
         f cX;
         if (jSONObject != null && (cX = f.cX(jSONObject)) != null) {
-            com.baidu.swan.pms.d.bfV().a(cX);
+            com.baidu.swan.pms.d.bfW().a(cX);
         }
     }
 

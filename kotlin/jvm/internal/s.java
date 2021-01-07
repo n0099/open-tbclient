@@ -1,8 +1,8 @@
 package kotlin.jvm.internal;
 /* loaded from: classes5.dex */
 public class s {
-    private static final t qmi;
-    private static final kotlin.reflect.c[] qmj;
+    private static final t qnQ;
+    private static final kotlin.reflect.c[] qnR;
 
     static {
         t tVar;
@@ -20,47 +20,47 @@ public class s {
         if (tVar == null) {
             tVar = new t();
         }
-        qmi = tVar;
-        qmj = new kotlin.reflect.c[0];
+        qnQ = tVar;
+        qnR = new kotlin.reflect.c[0];
     }
 
     public static kotlin.reflect.d k(Class cls, String str) {
-        return qmi.k(cls, str);
+        return qnQ.k(cls, str);
     }
 
     public static kotlin.reflect.c G(Class cls) {
-        return qmi.G(cls);
+        return qnQ.G(cls);
     }
 
     public static String a(Lambda lambda) {
-        return qmi.a(lambda);
+        return qnQ.a(lambda);
     }
 
     public static kotlin.reflect.e a(FunctionReference functionReference) {
-        return qmi.a(functionReference);
+        return qnQ.a(functionReference);
     }
 
     public static kotlin.reflect.k a(PropertyReference0 propertyReference0) {
-        return qmi.a(propertyReference0);
+        return qnQ.a(propertyReference0);
     }
 
     public static kotlin.reflect.g a(MutablePropertyReference0 mutablePropertyReference0) {
-        return qmi.a(mutablePropertyReference0);
+        return qnQ.a(mutablePropertyReference0);
     }
 
     public static kotlin.reflect.l a(PropertyReference1 propertyReference1) {
-        return qmi.a(propertyReference1);
+        return qnQ.a(propertyReference1);
     }
 
     public static kotlin.reflect.h a(MutablePropertyReference1 mutablePropertyReference1) {
-        return qmi.a(mutablePropertyReference1);
+        return qnQ.a(mutablePropertyReference1);
     }
 
     public static kotlin.reflect.m a(PropertyReference2 propertyReference2) {
-        return qmi.a(propertyReference2);
+        return qnQ.a(propertyReference2);
     }
 
     public static kotlin.reflect.i a(MutablePropertyReference2 mutablePropertyReference2) {
-        return qmi.a(mutablePropertyReference2);
+        return qnQ.a(mutablePropertyReference2);
     }
 }

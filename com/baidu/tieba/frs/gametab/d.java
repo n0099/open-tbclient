@@ -32,7 +32,7 @@ public class d {
                     }
                     BdToast b2 = BdToast.b(tbPageContext.getPageActivity(), forbid_info, R.drawable.icon_pure_toast_mistake40_svg, true);
                     b2.setExtraTextLineSpacing(1.25f);
-                    b2.bud();
+                    b2.bue();
                     return false;
                 }
             }
@@ -49,11 +49,11 @@ public class d {
         if (i != 1 && i != 2) {
             BdToast b2 = BdToast.b(tbPageContext.getPageActivity(), string, R.drawable.icon_pure_toast_mistake40_svg, true);
             b2.setExtraTextLineSpacing(1.25f);
-            b2.bud();
+            b2.bue();
             return false;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.Bp(at.getFixedText(string, 50, true));
+        aVar.Bo(at.getFixedText(string, 50, true));
         aVar.b(at.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? tbPageContext.getResources().getString(R.string.group_create_private_isee) : blockPopInfoData.ok_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.gametab.d.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -66,14 +66,14 @@ public class d {
             aVar.a(at.getFixedText(blockPopInfoData.ahead_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.gametab.d.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    be.bwu().b(TbPageContext.this, new String[]{blockPopInfoData.ahead_url});
+                    be.bwv().b(TbPageContext.this, new String[]{blockPopInfoData.ahead_url});
                     if (aVar2 != null) {
                         aVar2.dismiss();
                     }
                 }
             });
         }
-        aVar.b(tbPageContext).btX();
+        aVar.b(tbPageContext).btY();
         return true;
     }
 }

@@ -38,19 +38,19 @@ public class f extends com.baidu.adp.widget.ListView.a<g, CardViewHolder<h>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, g gVar, CardViewHolder<h> cardViewHolder) {
-        if (cardViewHolder.cvG() == null) {
+        if (cardViewHolder.cvH() == null) {
             return null;
         }
-        cardViewHolder.cvG().a(gVar);
-        cardViewHolder.cvG().c(new aa<g>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.f.1
+        cardViewHolder.cvH().a(gVar);
+        cardViewHolder.cvH().c(new aa<g>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view2, g gVar2) {
                 TiebaStatic.log(new aq("c13047").an("obj_locate", 1).dX("fid", f.this.mForumId));
-                be.bwu().a((TbPageContext) j.K(view2.getContext()), new String[]{gVar2.cwz().score_url}, true);
+                be.bwv().a((TbPageContext) j.K(view2.getContext()), new String[]{gVar2.cwA().score_url}, true);
             }
         });
-        cardViewHolder.cvG().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return cardViewHolder.cvG().getView();
+        cardViewHolder.cvH().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return cardViewHolder.cvH().getView();
     }
 }

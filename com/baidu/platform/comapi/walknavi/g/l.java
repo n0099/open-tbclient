@@ -1,13 +1,13 @@
 package com.baidu.platform.comapi.walknavi.g;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 class l implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f4565a;
+    final /* synthetic */ a f4566a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(a aVar) {
-        this.f4565a = aVar;
+        this.f4566a = aVar;
     }
 
     @Override // java.lang.Runnable

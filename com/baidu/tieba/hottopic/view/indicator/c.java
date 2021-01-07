@@ -33,7 +33,7 @@ public class c {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void cVr();
+        void cVs();
     }
 
     public c(ViewGroup viewGroup) {
@@ -109,7 +109,7 @@ public class c {
             public void onAnimationEnd(Animation animation) {
                 c.this.isShow = false;
                 if (c.this.kvc != null) {
-                    c.this.kvc.cVr();
+                    c.this.kvc.cVs();
                 }
                 c.this.kvb.removeView(c.this.rootView);
             }

@@ -17,7 +17,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     public List<Long> bcastIds;
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f5622common;
+    private CommonReq f5623common;
     public long forumId;
     public long lastId;
     public int needCount;
@@ -28,13 +28,13 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f5622common = commonReq;
+        this.f5623common = commonReq;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f14772common = this.f5622common;
+        builder.f14799common = this.f5623common;
         builder.query_type = Integer.valueOf(this.queryType);
         builder.forum_id = Long.valueOf(this.forumId);
         builder.need_cnt = Integer.valueOf(this.needCount);

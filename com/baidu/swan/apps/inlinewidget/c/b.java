@@ -69,18 +69,18 @@ public abstract class b extends aa {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
             }
-            com.baidu.swan.apps.adaptation.b.e ob = f.aDG().ob(optString);
+            com.baidu.swan.apps.adaptation.b.e ob = f.aDH().ob(optString);
             if (!(ob instanceof SwanAppWebViewManager)) {
                 com.baidu.swan.apps.console.c.e("componentFullScreen", "cant get WebView");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            com.baidu.swan.apps.inlinewidget.e.b aqW = ((SwanAppWebViewManager) ob).aqW();
-            if (aqW == null) {
+            com.baidu.swan.apps.inlinewidget.e.b aqX = ((SwanAppWebViewManager) ob).aqX();
+            if (aqX == null) {
                 com.baidu.swan.apps.console.c.e("componentFullScreen", "cant get CustomViewHelper");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!a(unitedSchemeEntity, aqW, arrayList)) {
+            } else if (!a(unitedSchemeEntity, aqX, arrayList)) {
                 com.baidu.swan.apps.console.c.e("componentFullScreen", "custom view handle fail");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;

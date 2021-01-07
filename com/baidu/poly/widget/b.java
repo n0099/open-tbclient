@@ -1,7 +1,7 @@
 package com.baidu.poly.widget;
 
 import android.content.res.ColorStateList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static ColorStateList hm(int i) {

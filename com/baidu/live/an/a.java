@@ -10,15 +10,15 @@ public interface a {
 
     boolean Ty();
 
-    void XH();
+    void XI();
 
-    boolean XI();
-
-    void XJ();
+    boolean XJ();
 
     void XK();
 
     void XL();
+
+    void XM();
 
     void a(FrameLayout frameLayout);
 

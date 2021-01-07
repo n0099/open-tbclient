@@ -16,10 +16,10 @@ import java.util.Map;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f11418a = c.class.getSimpleName();
+    public static final String f11419a = c.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private HashMap<String, String> f11419b;
+    private HashMap<String, String> f11420b;
     private HashMap<String, String> c;
     private HashMap<String, Object> d;
     private HashMap<String, Object> e;
@@ -28,10 +28,10 @@ public class c {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f11420a = null;
+        private Context f11421a = null;
 
         public a a(Context context) {
-            this.f11420a = context;
+            this.f11421a = context;
             return this;
         }
 
@@ -41,15 +41,15 @@ public class c {
     }
 
     private c(a aVar) {
-        this.f11419b = new HashMap<>();
+        this.f11420b = new HashMap<>();
         this.c = new HashMap<>();
         this.d = new HashMap<>();
         this.e = new HashMap<>();
         e();
-        if (aVar.f11420a != null) {
-            a(aVar.f11420a);
+        if (aVar.f11421a != null) {
+            a(aVar.f11421a);
         }
-        com.meizu.cloud.a.a.i(f11418a, "Subject created successfully.");
+        com.meizu.cloud.a.a.i(f11419a, "Subject created successfully.");
     }
 
     private void a(Context context, long j) {
@@ -67,7 +67,7 @@ public class c {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f11419b.put(str, str2);
+        this.f11420b.put(str, str2);
     }
 
     private void b(String str, Object obj) {
@@ -110,7 +110,7 @@ public class c {
     private void e(Context context) {
         Location c = e.c(context);
         if (c == null) {
-            com.meizu.cloud.a.a.e(f11418a, "Location information not available.");
+            com.meizu.cloud.a.a.e(f11419a, "Location information not available.");
             return;
         }
         b(b.B, Double.valueOf(c.getLongitude()));
@@ -119,7 +119,7 @@ public class c {
     }
 
     private void f(Context context) {
-        a(b.f11417b, MzSystemUtils.getDeviceId(context));
+        a(b.f11418b, MzSystemUtils.getDeviceId(context));
         a(b.c, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 0)));
         a(b.d, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 1)));
         a(b.e, MzSystemUtils.getLineNumber(context));
@@ -134,7 +134,7 @@ public class c {
     }
 
     public Map<String, String> a() {
-        return this.f11419b;
+        return this.f11420b;
     }
 
     public void a(int i, int i2) {
@@ -164,11 +164,11 @@ public class c {
                 display.getSize(point);
                 a(point.x, point.y);
             } catch (Exception e) {
-                com.meizu.cloud.a.a.e(f11418a, "Display.getSize isn't available on older devices.");
+                com.meizu.cloud.a.a.e(f11419a, "Display.getSize isn't available on older devices.");
                 if (display != null) {
                     a(display.getWidth(), display.getHeight());
                 } else {
-                    com.meizu.cloud.a.a.e(f11418a, "error get display");
+                    com.meizu.cloud.a.a.e(f11419a, "error get display");
                 }
             }
         } catch (Exception e2) {

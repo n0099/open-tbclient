@@ -29,12 +29,12 @@ import java.util.Random;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final IXAdLogger f3346a = XAdSDKFoundationFacade.getInstance().getAdLogger();
+    protected final IXAdLogger f3347a = XAdSDKFoundationFacade.getInstance().getAdLogger();
     private Context e;
     private static a d = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile String f3345b = "";
+    public static volatile String f3346b = "";
     public static volatile String c = "";
     private static boolean f = false;
 
@@ -70,7 +70,7 @@ public class a {
     public void a(String str) {
         if (!TextUtils.isEmpty(str) && str.contains("temp_for_feed_response_html")) {
             if (!f) {
-                a("temp_for_feed_response_html", TbEnum.SystemMessage.EVENT_ID_DELETE_FRIEND, f3345b + "___" + c);
+                a("temp_for_feed_response_html", TbEnum.SystemMessage.EVENT_ID_DELETE_FRIEND, f3346b + "___" + c);
                 f = true;
                 return;
             }
@@ -118,7 +118,7 @@ public class a {
 
     private void a(Context context, String str, IXAppInfo iXAppInfo) {
         com.baidu.mobads.vo.a.c cVar = new com.baidu.mobads.vo.a.c(context, iXAppInfo);
-        cVar.f3554b = iXAppInfo.getAdId();
+        cVar.f3555b = iXAppInfo.getAdId();
         b(a(context, str, cVar.c()));
     }
 
@@ -189,12 +189,12 @@ public class a {
             }
             sb2.append("mobads,");
             String md5 = commonUtils.getMD5(sb2.toString());
-            this.f3346a.d("ExtraQuery.allValue:" + ((Object) sb2));
+            this.f3347a.d("ExtraQuery.allValue:" + ((Object) sb2));
             sb.append("vd=" + md5 + ETAG.ITEM_SEPARATOR);
-            this.f3346a.d("ExtraQuery.params:" + ((Object) sb));
+            this.f3347a.d("ExtraQuery.params:" + ((Object) sb));
             return "https://mobads-logs.baidu.com/dz.zb?" + sb.toString();
         } catch (Exception e) {
-            this.f3346a.d(e);
+            this.f3347a.d(e);
             return "";
         }
     }

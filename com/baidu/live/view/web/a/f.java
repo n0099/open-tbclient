@@ -20,7 +20,7 @@ public class f extends com.baidu.live.view.web.a {
                     if (!TextUtils.isEmpty(optString)) {
                         String[] split = optString.contains(",") ? optString.split(",") : new String[]{optString};
                         if (split != null) {
-                            com.baidu.live.view.a.Zx().o(split);
+                            com.baidu.live.view.a.Zy().o(split);
                         }
                     }
                 }

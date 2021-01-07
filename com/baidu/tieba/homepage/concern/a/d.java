@@ -15,7 +15,7 @@ public class d implements n {
         return k.izJ;
     }
 
-    public String cQZ() {
+    public String cRa() {
         StringBuilder sb = new StringBuilder();
         for (a aVar : this.jYL) {
             sb.append(aVar.getForumId()).append(',');
@@ -41,20 +41,20 @@ public class d implements n {
             return k.izJ;
         }
 
-        public String cRa() {
+        public String cRb() {
             return this.jAV;
         }
 
-        public a Mm(String str) {
+        public a Ml(String str) {
             this.jAV = str;
             return this;
         }
 
-        public String cRb() {
+        public String cRc() {
             return this.jYM;
         }
 
-        public a Mn(String str) {
+        public a Mm(String str) {
             this.jYM = str;
             return this;
         }
@@ -63,21 +63,21 @@ public class d implements n {
             return this.slogan;
         }
 
-        public a Mo(String str) {
+        public a Mn(String str) {
             this.slogan = str;
             return this;
         }
 
-        public String cRc() {
+        public String cRd() {
             return this.iKX;
         }
 
-        public a Mp(String str) {
+        public a Mo(String str) {
             this.iKX = str;
             return this;
         }
 
-        public int cRd() {
+        public int cRe() {
             return this.jYN;
         }
 
@@ -86,7 +86,7 @@ public class d implements n {
             return this;
         }
 
-        public int cRe() {
+        public int cRf() {
             return this.jYO;
         }
 
@@ -95,7 +95,7 @@ public class d implements n {
             return this;
         }
 
-        public boolean cRf() {
+        public boolean cRg() {
             return this.jYP;
         }
 
@@ -117,7 +117,7 @@ public class d implements n {
             return this;
         }
 
-        public long cxV() {
+        public long cxW() {
             return this.jDS;
         }
 

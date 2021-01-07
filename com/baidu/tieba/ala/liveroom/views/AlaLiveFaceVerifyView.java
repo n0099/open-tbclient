@@ -30,7 +30,7 @@ public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickL
 
     /* loaded from: classes11.dex */
     public interface a {
-        void clr();
+        void cls();
     }
 
     public AlaLiveFaceVerifyView(Context context) {
@@ -64,7 +64,7 @@ public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickL
         this.mHelp.setOnClickListener(this);
     }
 
-    private void cnS() {
+    private void cnT() {
         if (this.hQt <= 0) {
             this.hQt = 0;
         } else if (this.hQt > this.hJQ.aPZ.aQc.size()) {
@@ -108,7 +108,7 @@ public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickL
         this.hJQ = asVar;
         if (this.hJQ != null && this.hJQ.aPZ != null && this.hJQ.aPZ.aQc != null && this.hJQ.aPZ.aQc.size() > 0) {
             this.hQt = 0;
-            cnS();
+            cnT();
         }
     }
 
@@ -121,17 +121,17 @@ public class AlaLiveFaceVerifyView extends LinearLayout implements View.OnClickL
             }
         } else if (view == this.hQo) {
             this.hQt--;
-            cnS();
+            cnT();
         } else if (view == this.hQr) {
             if (this.hQt == this.hJQ.aPZ.aQc.size()) {
                 if (this.hQs != null) {
-                    this.hQs.clr();
+                    this.hQs.cls();
                     return;
                 }
                 return;
             }
             this.hQt++;
-            cnS();
+            cnT();
         }
     }
 

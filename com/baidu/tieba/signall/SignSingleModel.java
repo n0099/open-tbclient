@@ -12,8 +12,8 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
     private String mAuthSid;
     private String mForumId;
     private String mForumName;
-    private b njZ;
-    private a nka;
+    private b njY;
+    private a njZ;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -26,7 +26,7 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         super(signAllForumActivity.getPageContext());
         this.mForumName = null;
         this.mForumId = null;
-        this.njZ = null;
+        this.njY = null;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -39,20 +39,20 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         return false;
     }
 
-    public void dMT() {
-        if (this.njZ != null) {
-            this.njZ.cancel();
-            this.njZ = null;
+    public void dMU() {
+        if (this.njY != null) {
+            this.njY.cancel();
+            this.njY = null;
         }
     }
 
     public void gm(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.njZ == null) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.njY == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.njZ = new b();
-            this.njZ.setPriority(2);
-            this.njZ.execute(new Object[0]);
+            this.njY = new b();
+            this.njY.setPriority(2);
+            this.njY.execute(new Object[0]);
         }
     }
 
@@ -82,10 +82,10 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
                 this.mNetwork.addPostData("kw", SignSingleModel.this.mForumName);
                 this.mNetwork.addPostData("fid", SignSingleModel.this.mForumId);
                 this.mNetwork.addPostData("authsid", SignSingleModel.this.mAuthSid);
-                this.mNetwork.bvQ().bwz().mIsNeedTbs = true;
+                this.mNetwork.bvR().bwA().mIsNeedTbs = true;
                 this.mNetwork.jM(true);
                 String postNetData = this.mNetwork.postNetData();
-                if (!this.mNetwork.isNetSuccess() || !this.mNetwork.bvQ().bwA().isRequestSuccess()) {
+                if (!this.mNetwork.isNetSuccess() || !this.mNetwork.bvR().bwB().isRequestSuccess()) {
                     signData = null;
                 } else {
                     signData = new SignData();
@@ -112,9 +112,9 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
             if (this.mNetwork != null) {
                 this.mNetwork.cancelNetConnect();
             }
-            SignSingleModel.this.njZ = null;
+            SignSingleModel.this.njY = null;
             super.cancel(true);
-            SignSingleModel.this.nka.gl(SignSingleModel.this.mForumId, null);
+            SignSingleModel.this.njZ.gl(SignSingleModel.this.mForumId, null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,18 +122,18 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
         public void onPostExecute(SignData signData) {
-            SignSingleModel.this.njZ = null;
+            SignSingleModel.this.njY = null;
             if (signData != null || this.mNetwork == null) {
-                SignSingleModel.this.nka.c(signData);
+                SignSingleModel.this.njZ.c(signData);
                 return;
             }
             SignSingleModel.this.mErrorCode = this.mNetwork.getServerErrorCode();
             SignSingleModel.this.mErrorString = this.mNetwork.getErrorString();
-            SignSingleModel.this.nka.gl(SignSingleModel.this.mForumId, SignSingleModel.this.mErrorString);
+            SignSingleModel.this.njZ.gl(SignSingleModel.this.mForumId, SignSingleModel.this.mErrorString);
         }
     }
 
     public void a(a aVar) {
-        this.nka = aVar;
+        this.njZ = aVar;
     }
 }

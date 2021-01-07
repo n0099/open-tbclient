@@ -4,13 +4,13 @@ package com.kuaishou.aegon;
 public final /* synthetic */ class j implements Runnable {
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f8414b;
+    private final int f8415b;
     private final int c;
-    private final SignalStrengthListener pQF;
+    private final SignalStrengthListener pSn;
 
     private j(SignalStrengthListener signalStrengthListener, int i, int i2) {
-        this.pQF = signalStrengthListener;
-        this.f8414b = i;
+        this.pSn = signalStrengthListener;
+        this.f8415b = i;
         this.c = i2;
     }
 
@@ -20,6 +20,6 @@ public final /* synthetic */ class j implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.pQF.nativeOnSignalStrengthValueUpdate(this.f8414b, this.c);
+        this.pSn.nativeOnSignalStrengthValueUpdate(this.f8415b, this.c);
     }
 }

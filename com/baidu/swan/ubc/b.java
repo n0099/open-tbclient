@@ -43,19 +43,19 @@ public class b {
             jSONObject.put("eventType", "0");
             if (!TextUtils.isEmpty(iVar.getContent())) {
                 jSONObject.put("content", iVar.getContent());
-            } else if (iVar.biB() != null) {
-                jSONObject.put("content", iVar.biB().toString());
+            } else if (iVar.biC() != null) {
+                jSONObject.put("content", iVar.biC().toString());
             }
-            if (!TextUtils.isEmpty(iVar.biA())) {
-                jSONObject.put("abtest", iVar.biA());
+            if (!TextUtils.isEmpty(iVar.biB())) {
+                jSONObject.put("abtest", iVar.biB());
             }
             if (!TextUtils.isEmpty(iVar.getCategory())) {
                 jSONObject.put("c", iVar.getCategory());
             }
-            if (iVar.biw()) {
+            if (iVar.bix()) {
                 jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
             }
-            jSONObject.put("idtype", d.bij().zu(iVar.getId()));
+            jSONObject.put("idtype", d.bik().zu(iVar.getId()));
         } catch (JSONException e) {
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);

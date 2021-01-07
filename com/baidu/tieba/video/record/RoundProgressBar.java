@@ -15,7 +15,7 @@ public class RoundProgressBar extends View {
     private float mProgress;
     private int mProgressColor;
     private int mWidth;
-    private int nMV;
+    private int nMU;
 
     public RoundProgressBar(Context context) {
         this(context, null);
@@ -32,7 +32,7 @@ public class RoundProgressBar extends View {
     }
 
     public void init() {
-        this.nMV = 4;
+        this.nMU = 4;
         this.mProgressColor = Color.rgb(255, 255, 255);
     }
 
@@ -47,7 +47,7 @@ public class RoundProgressBar extends View {
         }
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.STROKE);
-        this.mPaint.setStrokeWidth(this.nMV);
+        this.mPaint.setStrokeWidth(this.nMU);
         this.mPaint.setColor(this.mProgressColor);
         canvas.drawArc(new RectF(5.0f, 5.0f, this.mWidth - 5, this.mHeight - 5), 270.0f, (360.0f * this.mProgress) / 100.0f, false, this.mPaint);
     }

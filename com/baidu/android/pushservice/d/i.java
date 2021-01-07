@@ -7,10 +7,10 @@ import android.text.TextUtils;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1264a;
+    public String f1265a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1265b;
+    public String f1266b;
     public String c;
     public String d;
     public String e;
@@ -22,8 +22,8 @@ public class i {
     public boolean k;
 
     public i() {
-        this.f1264a = "";
-        this.f1265b = "";
+        this.f1265a = "";
+        this.f1266b = "";
         this.c = "";
         this.d = "";
         this.e = "";
@@ -35,8 +35,8 @@ public class i {
     }
 
     public i(Intent intent) {
-        this.f1264a = "";
-        this.f1265b = "";
+        this.f1265a = "";
+        this.f1266b = "";
         this.c = "";
         this.d = "";
         this.e = "";
@@ -54,8 +54,8 @@ public class i {
         }
         this.c = intent.getStringExtra("access_token");
         this.g = intent.getStringExtra("secret_key");
-        this.f1264a = intent.getStringExtra("method");
-        this.f1265b = intent.getStringExtra("method_type");
+        this.f1265a = intent.getStringExtra("method");
+        this.f1266b = intent.getStringExtra("method_type");
         this.e = intent.getStringExtra("appid");
         this.h = intent.getBooleanExtra("bd_push_extra_is_baidu_app", false);
         this.i = intent.getStringExtra("push_proxy");
@@ -64,6 +64,6 @@ public class i {
     }
 
     public String toString() {
-        return "method=" + this.f1264a + ", accessToken=" + this.c + ", packageName=" + this.d + ", appId=" + this.e + ", userId=" + this.f;
+        return "method=" + this.f1265a + ", accessToken=" + this.c + ", packageName=" + this.d + ", appId=" + this.e + ", userId=" + this.f;
     }
 }

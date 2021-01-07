@@ -123,8 +123,8 @@ public class AlaActiveBannerView extends LinearLayout implements d {
         }
     }
 
-    public boolean HZ(String str) {
-        return this.hpz != null && this.hpz.HZ(str);
+    public boolean HY(String str) {
+        return this.hpz != null && this.hpz.HY(str);
     }
 
     public List<p> getOriginDatas() {
@@ -221,7 +221,7 @@ public class AlaActiveBannerView extends LinearLayout implements d {
         this.hpA.vC(ListUtils.getCount(list));
         this.hpz.setData(list);
         this.hpz.notifyDataSetChanged();
-        this.hpy.ccB();
+        this.hpy.ccC();
     }
 
     public void bO(int i, int i2) {

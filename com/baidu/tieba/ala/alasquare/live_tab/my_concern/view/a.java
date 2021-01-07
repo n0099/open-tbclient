@@ -39,14 +39,14 @@ public class a {
                 this.gEG = i;
                 if (this.gEG != 1) {
                     if (a.this.c(recyclerView)) {
-                        a.this.bUY();
+                        a.this.bUZ();
                         return;
                     } else {
-                        a.this.bUX();
+                        a.this.bUY();
                         return;
                     }
                 }
-                a.this.bUX();
+                a.this.bUY();
             }
         }
     };
@@ -69,7 +69,7 @@ public class a {
     }
 
     private void initView() {
-        bIk();
+        bIl();
         this.mContainer = (RelativeLayout) this.mRootView.findViewById(R.id.ala_live_tab_my_concern_container);
         this.gEA = this.mRootView.findViewById(R.id.divider_shadow);
         this.Yc = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.ala_live_tab_my_concern_recyclerview);
@@ -97,10 +97,10 @@ public class a {
         this.gEz = (BdSwipeRefreshLayout) this.mRootView.findViewById(R.id.ala_live_tab_my_concern_pull_refresh_layout);
         this.gEz.setProgressView(this.mPullView);
         this.gEB = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a(this.mTbPageContext);
-        this.Yc.addAdapters(this.gEB.bUQ());
+        this.Yc.addAdapters(this.gEB.bUR());
     }
 
-    private void bIk() {
+    private void bIl() {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.ala_live_tab_my_concern_navigationbar);
         this.mNavigationBar.setCenterTextTitle(this.mTbPageContext.getResources().getString(R.string.live_tab_my_concern));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.a.3
@@ -117,7 +117,7 @@ public class a {
         return this.mRootView;
     }
 
-    public View bUV() {
+    public View bUW() {
         return this.mContainer;
     }
 
@@ -133,12 +133,12 @@ public class a {
         ao.setBackgroundColor(this.Yc, R.color.CAM_X0201);
     }
 
-    private boolean bUW() {
+    private boolean bUX() {
         return this.gEA.getVisibility() == 0;
     }
 
-    public void bUX() {
-        if (!bUW()) {
+    public void bUY() {
+        if (!bUX()) {
             this.gEA.setVisibility(0);
             if (this.gED == null) {
                 this.gED = new AlphaAnimation(0.0f, 1.0f);
@@ -149,8 +149,8 @@ public class a {
         }
     }
 
-    public void bUY() {
-        if (bUW()) {
+    public void bUZ() {
+        if (bUX()) {
             if (this.gEE == null) {
                 this.gEE = new AlphaAnimation(1.0f, 0.0f);
                 this.gEE.setFillAfter(true);
@@ -189,7 +189,7 @@ public class a {
         this.gEC = interfaceC0633a;
     }
 
-    public RelativeLayout bUZ() {
+    public RelativeLayout bVa() {
         return this.mContainer;
     }
 

@@ -3,12 +3,12 @@ package com.baidu.swan.apps.storage.b;
 import androidx.annotation.NonNull;
 /* loaded from: classes9.dex */
 public interface c {
-    String aPB();
-
     String aPC();
 
+    String aPD();
+
     @NonNull
-    d aPD();
+    d aPE();
 
     boolean ah(String str, boolean z);
 

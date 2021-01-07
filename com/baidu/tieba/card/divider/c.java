@@ -41,12 +41,12 @@ public class c extends com.baidu.tieba.card.b<b> {
             this.ghM.setVisibility(0);
             this.iAI = bVar.iAI;
             this.dividerHeight = bVar.dividerHeight;
-            cvF();
+            cvG();
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void cvF() {
+    private void cvG() {
         ViewGroup.LayoutParams layoutParams = this.ghM.getLayoutParams();
         if (layoutParams != null && layoutParams.height != this.dividerHeight) {
             layoutParams.height = this.dividerHeight;

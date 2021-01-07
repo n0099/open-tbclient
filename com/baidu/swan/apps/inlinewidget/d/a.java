@@ -13,7 +13,7 @@ final class a extends com.baidu.swan.apps.inlinewidget.b<c> {
         super(cVar);
         this.dgG = new c.a() { // from class: com.baidu.swan.apps.inlinewidget.d.a.1
             @Override // com.baidu.swan.apps.inlinewidget.d.c.a
-            public void azL() {
+            public void azM() {
                 if (a.this.dfU != null) {
                     a.this.dfU.onCallback(a.this, "onConfirmBtnClick", null);
                 }

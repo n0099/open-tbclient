@@ -15,7 +15,7 @@ public class e {
     private boolean djI;
     private c djG = new c(this);
     private a djH = new a();
-    private final com.baidu.swan.apps.v.a.a djJ = com.baidu.swan.apps.v.a.c.aDS();
+    private final com.baidu.swan.apps.v.a.a djJ = com.baidu.swan.apps.v.a.c.aDT();
 
     /* loaded from: classes9.dex */
     public interface b {
@@ -48,9 +48,9 @@ public class e {
             Log.d("SwanAppCollectionPolicy", "onScreenStatusChanged isOn: " + z);
         }
         if (z) {
-            aDy();
-        } else {
             aDz();
+        } else {
+            aDA();
         }
     }
 
@@ -58,7 +58,7 @@ public class e {
         this.djH.a(bVar);
     }
 
-    public void aDx() {
+    public void aDy() {
         if (DEBUG) {
             Log.d("SwanAppCollectionPolicy", "startCollectionTimeOut");
         }
@@ -66,20 +66,20 @@ public class e {
         this.djH.startTimer();
     }
 
-    private void aDy() {
-        this.djH.aDB();
-    }
-
     private void aDz() {
         this.djH.aDC();
     }
 
-    public void aDA() {
+    private void aDA() {
+        this.djH.aDD();
+    }
+
+    public void aDB() {
         if (DEBUG) {
             Log.d("SwanAppCollectionPolicy", "stopCollectionTimeOut");
         }
         this.djJ.onResume();
-        this.djH.aoa();
+        this.djH.aob();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -92,26 +92,26 @@ public class e {
 
         public void startTimer() {
             this.mStatus = 1;
-            aDE();
+            aDF();
             cancelTimer();
-            aDD();
+            aDE();
         }
 
-        public void aoa() {
+        public void aob() {
             this.mStatus = 2;
             cancelTimer();
-            aDE();
-        }
-
-        public void aDB() {
-            if (this.mStatus == 4) {
-                this.mStatus = 3;
-                cancelTimer();
-                aDD();
-            }
+            aDF();
         }
 
         public void aDC() {
+            if (this.mStatus == 4) {
+                this.mStatus = 3;
+                cancelTimer();
+                aDE();
+            }
+        }
+
+        public void aDD() {
             if (this.mStatus != 2) {
                 this.mStatus = 4;
                 cancelTimer();
@@ -126,14 +126,14 @@ public class e {
             }
         }
 
-        private void aDD() {
+        private void aDE() {
             this.mTimer = new Timer();
-            this.mTimer.schedule(aDF(), 0L, 10000L);
+            this.mTimer.schedule(aDG(), 0L, 10000L);
         }
 
-        private void aDE() {
-            this.djL = com.baidu.swan.apps.performance.b.d.aIa();
-            if (e.DEBUG && com.baidu.swan.apps.ad.a.a.aIs().getBoolean("swan_5min_back_optimize", false)) {
+        private void aDF() {
+            this.djL = com.baidu.swan.apps.performance.b.d.aIb();
+            if (e.DEBUG && com.baidu.swan.apps.ad.a.a.aIt().getBoolean("swan_5min_back_optimize", false)) {
                 this.djL = 30L;
             }
         }
@@ -142,7 +142,7 @@ public class e {
             this.djK = bVar;
         }
 
-        private TimerTask aDF() {
+        private TimerTask aDG() {
             return new TimerTask() { // from class: com.baidu.swan.apps.v.e.a.1
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
@@ -152,7 +152,7 @@ public class e {
                     a.this.djL -= 10;
                     if (a.this.djL <= 0 && a.this.djK != null) {
                         a.this.djK.jx(1);
-                        a.this.aoa();
+                        a.this.aob();
                     }
                 }
             };

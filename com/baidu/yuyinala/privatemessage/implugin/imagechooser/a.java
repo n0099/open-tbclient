@@ -9,7 +9,7 @@ public class a {
     private static ArrayList<Object> oUg = new ArrayList<>();
     public static int oUh = 9;
 
-    public static void elj() {
+    public static void elk() {
         oUe.clear();
         oUf.clear();
         oUg.clear();

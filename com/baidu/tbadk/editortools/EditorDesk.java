@@ -98,14 +98,14 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bEK() {
+    public void bEL() {
         if (this.fDK != null) {
             this.fDK.hide();
         }
         this.fDK = null;
     }
 
-    public void bEL() {
+    public void bEM() {
         if (this.fDK == null) {
             setVisibility(8);
         }
@@ -114,7 +114,7 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     public void sq(int i) {
         if (su(i)) {
-            if (bEN()) {
+            if (bEO()) {
                 this.fDL = true;
             } else {
                 this.fDL = false;
@@ -141,7 +141,7 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
             }
             if (!this.fDL && (getContext() instanceof Activity)) {
                 if (this.fDN != null) {
-                    this.fDN.bER();
+                    this.fDN.bES();
                 } else {
                     com.baidu.adp.lib.util.l.hideSoftKeyPad(getContext(), ((Activity) getContext()).getCurrentFocus());
                 }
@@ -214,11 +214,11 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
         }
     }
 
-    public boolean bEM() {
-        return getVisibility() == 0 && bEN();
+    public boolean bEN() {
+        return getVisibility() == 0 && bEO();
     }
 
-    private boolean bEN() {
+    private boolean bEO() {
         Iterator<n> it = this.fDJ.iterator();
         while (it.hasNext()) {
             if (((View) it.next()).getVisibility() == 0) {

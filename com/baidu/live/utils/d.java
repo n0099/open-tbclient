@@ -13,7 +13,7 @@ public class d {
     private static boolean bOP = false;
     private static boolean bOQ = false;
 
-    public static int Xv() {
+    public static int Xw() {
         String str;
         String str2;
         String str3;
@@ -64,7 +64,7 @@ public class d {
             return bOQ;
         }
         bOP = true;
-        switch (Xv()) {
+        switch (Xw()) {
             case 2:
                 bOQ = bi(context);
                 break;
@@ -145,9 +145,9 @@ public class d {
         return new Intent("android.intent.action.VIEW", Uri.parse("alipays://platformapi/startApp")).resolveActivity(context.getPackageManager()) != null;
     }
 
-    public static boolean Xw() {
+    public static boolean Xx() {
         String str;
-        if (Xv() == 2) {
+        if (Xw() == 2) {
             String str2 = Build.MODEL;
             if (str2 != null) {
                 str = str2.toLowerCase();

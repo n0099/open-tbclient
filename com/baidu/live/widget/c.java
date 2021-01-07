@@ -30,8 +30,8 @@ public class c implements IAlaBdZan {
             }
         }
     };
-    private com.baidu.j.a.d.a bYd = com.baidu.j.b.a.by(TbadkCoreApplication.getInst().getContext()).abV();
-    private com.baidu.j.a.c.a bYe = com.baidu.j.b.a.by(TbadkCoreApplication.getInst().getContext()).abU();
+    private com.baidu.j.a.d.a bYd = com.baidu.j.b.a.by(TbadkCoreApplication.getInst().getContext()).abW();
+    private com.baidu.j.a.c.a bYe = com.baidu.j.b.a.by(TbadkCoreApplication.getInst().getContext()).abV();
     private com.baidu.j.a.c.b bYh = new com.baidu.j.a.c.b() { // from class: com.baidu.live.widget.c.2
         @Override // com.baidu.j.a.c.b
         public void onResult(int i, long j, long j2) {

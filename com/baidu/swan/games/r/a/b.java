@@ -9,7 +9,7 @@ public class b {
     @V8JavascriptField
     public String value;
 
-    public boolean bbu() {
+    public boolean bbv() {
         try {
             if (this.key != null) {
                 if (this.key.getBytes("UTF-8").length <= 128) {
@@ -23,7 +23,7 @@ public class b {
         }
     }
 
-    public boolean bbv() {
+    public boolean bbw() {
         try {
             if (this.key != null && this.value != null) {
                 if (this.key.getBytes("UTF-8").length + this.value.getBytes("UTF-8").length <= 1024) {

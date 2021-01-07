@@ -9,10 +9,10 @@ import org.json.JSONObject;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private static y f3880a;
+    private static y f3881a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f3881b;
+    private Context f3882b;
     private JSONObject c = new JSONObject();
     private long d = 24;
     private long e = 0;
@@ -30,18 +30,18 @@ public class y {
     private String q = "";
 
     public static y a(Context context) {
-        if (f3880a == null) {
+        if (f3881a == null) {
             synchronized (y.class) {
-                if (f3880a == null) {
-                    f3880a = new y(context);
+                if (f3881a == null) {
+                    f3881a = new y(context);
                 }
             }
         }
-        return f3880a;
+        return f3881a;
     }
 
     private y(Context context) {
-        this.f3881b = context;
+        this.f3882b = context;
         m();
         j();
         k();
@@ -95,7 +95,7 @@ public class y {
 
     public void j() {
         try {
-            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f3881b, ".config2").getBytes())));
+            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f3882b, ".config2").getBytes())));
             if (!TextUtils.isEmpty(str)) {
                 JSONObject jSONObject = new JSONObject(str);
                 try {
@@ -166,7 +166,7 @@ public class y {
 
     public void k() {
         try {
-            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f3881b, ".sign").getBytes())));
+            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f3882b, ".sign").getBytes())));
             if (!TextUtils.isEmpty(str)) {
                 JSONObject jSONObject = new JSONObject(str);
                 try {
@@ -186,12 +186,12 @@ public class y {
     }
 
     public void a(String str) {
-        bo.a(this.f3881b, ".config2", str, false);
+        bo.a(this.f3882b, ".config2", str, false);
         j();
     }
 
     public void b(String str) {
-        bo.a(this.f3881b, ".sign", str, false);
+        bo.a(this.f3882b, ".sign", str, false);
         k();
     }
 

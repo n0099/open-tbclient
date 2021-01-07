@@ -33,7 +33,7 @@ public class a extends BdBaseModel {
                         if (alaGuardThroneResponseMessage.getError() != 0 || !alaGuardThroneResponseMessage.isSuccess()) {
                             a.this.heR.onFail(alaGuardThroneResponseMessage.getError(), alaGuardThroneResponseMessage.getErrorString());
                         } else {
-                            a.this.heR.a(alaGuardThroneResponseMessage.bZB());
+                            a.this.heR.a(alaGuardThroneResponseMessage.bZC());
                         }
                     }
                 }

@@ -8,10 +8,10 @@ import java.util.HashMap;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    private static HashMap<String, Method> f11523b = new HashMap<>();
+    private static HashMap<String, Method> f11524b = new HashMap<>();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11524a = "ReflectMethod";
+    private String f11525a = "ReflectMethod";
     private com.meizu.cloud.pushsdk.base.a.a c;
     private String d;
     private Class<?>[] e;
@@ -95,7 +95,7 @@ public class c {
         d<T> dVar = new d<>();
         try {
             String b2 = b();
-            Method method = f11523b.get(b2);
+            Method method = f11524b.get(b2);
             if (method == null) {
                 if (this.e.length == objArr.length) {
                     method = this.c.a().getMethod(this.d, this.e);
@@ -108,13 +108,13 @@ public class c {
                     }
                     method = a();
                 }
-                f11523b.put(b2, method);
+                f11524b.put(b2, method);
             }
             method.setAccessible(true);
-            dVar.f11526b = (T) method.invoke(obj, objArr);
-            dVar.f11525a = true;
+            dVar.f11527b = (T) method.invoke(obj, objArr);
+            dVar.f11526a = true;
         } catch (Exception e) {
-            h.b().a(this.f11524a, "invoke", e);
+            h.b().a(this.f11525a, "invoke", e);
         }
         return dVar;
     }

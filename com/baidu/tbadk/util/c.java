@@ -24,12 +24,12 @@ public class c {
     private static final Hashtable<String, ArrayList<a<Integer, Integer>>> fOP = new Hashtable<>();
     private static boolean fOQ = true;
 
-    public static void EE(final String str) {
-        rx.d.bW("").c(Schedulers.io()).c(new rx.functions.b<String>() { // from class: com.baidu.tbadk.util.c.1
+    public static void ED(final String str) {
+        rx.d.bX("").c(Schedulers.io()).c(new rx.functions.b<String>() { // from class: com.baidu.tbadk.util.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(String str2) {
-                String string = com.baidu.tbadk.core.sharedPref.b.bvq().getString("old_sniff_url", "");
+                String string = com.baidu.tbadk.core.sharedPref.b.bvr().getString("old_sniff_url", "");
                 if (TextUtils.isEmpty(str) || str.equals(string)) {
                     c.lt(false);
                     return;
@@ -38,8 +38,8 @@ public class c {
                 if (!file.exists()) {
                     file.mkdir();
                 }
-                if (b.bIu().g(new File(file, "sniff.json"), str) > 0) {
-                    com.baidu.tbadk.core.sharedPref.b.bvq().putString("old_sniff_url", "");
+                if (b.bIv().g(new File(file, "sniff.json"), str) > 0) {
+                    com.baidu.tbadk.core.sharedPref.b.bvr().putString("old_sniff_url", "");
                 }
                 c.lt(true);
             }
@@ -48,20 +48,20 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void lt(final boolean z) {
-        rx.d.bW("").c(Schedulers.io()).c(new rx.functions.b<String>() { // from class: com.baidu.tbadk.util.c.2
+        rx.d.bX("").c(Schedulers.io()).c(new rx.functions.b<String>() { // from class: com.baidu.tbadk.util.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(String str) {
                 if (c.fON == null || z) {
-                    c.bIy();
+                    c.bIz();
                 }
-                c.bIx();
+                c.bIy();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bIx() {
+    public static void bIy() {
         JSONArray optJSONArray;
         JSONObject jSONObject = fON;
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("data")) != null) {
@@ -94,12 +94,12 @@ public class c {
         if (i >= 0 && !TextUtils.isEmpty(str) && i2 >= 0 && jSONArray != null && jSONArray.length() != 0) {
             long time = new Date().getTime();
             String str2 = "AD_SNIFF_RESULT_KEY_" + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "TS";
-            long j = com.baidu.tbadk.core.sharedPref.b.bvq().getLong(str2, 0L);
+            long j = com.baidu.tbadk.core.sharedPref.b.bvr().getLong(str2, 0L);
             long millis = TimeUnit.MINUTES.toMillis(i2);
             boolean z2 = j == 0;
             boolean z3 = j > 0 && time - j > millis;
             if (z || z2 || z3) {
-                com.baidu.tbadk.core.sharedPref.b.bvq().putLong(str2, time);
+                com.baidu.tbadk.core.sharedPref.b.bvr().putLong(str2, time);
                 b(i, jSONArray);
             }
         }
@@ -129,14 +129,14 @@ public class c {
                 i2 = i3 + 1;
             } else {
                 tf(i);
-                com.baidu.tbadk.core.sharedPref.b.bvq().putString("AD_SNIFF_RESULT_KEY", bIA());
+                com.baidu.tbadk.core.sharedPref.b.bvr().putString("AD_SNIFF_RESULT_KEY", bIB());
                 return;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bIy() {
+    public static void bIz() {
         File file = new File(BdBaseApplication.getInst().getApp().getApplicationContext().getFilesDir(), "sniff");
         if (file.exists()) {
             File file2 = new File(file, "sniff.json");
@@ -209,14 +209,14 @@ public class c {
         }
     }
 
-    public static String bIz() {
+    public static String bIA() {
         if (fOO.size() > 0) {
-            return bIA();
+            return bIB();
         }
-        return bIB();
+        return bIC();
     }
 
-    private static String bIA() {
+    private static String bIB() {
         ArrayList<Long> arrayList = fOO;
         if (arrayList == null || arrayList.size() == 0) {
             return "";
@@ -229,8 +229,8 @@ public class c {
         return TextUtils.join(",", arrayList2);
     }
 
-    private static String bIB() {
-        String string = com.baidu.tbadk.core.sharedPref.b.bvq().getString("AD_SNIFF_RESULT_KEY", "");
+    private static String bIC() {
+        String string = com.baidu.tbadk.core.sharedPref.b.bvr().getString("AD_SNIFF_RESULT_KEY", "");
         if (!TextUtils.isEmpty(string)) {
             ArrayList<Long> arrayList = new ArrayList<>();
             for (String str : string.split(",")) {

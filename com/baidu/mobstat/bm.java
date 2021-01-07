@@ -15,10 +15,10 @@ public final class bm {
     public static class b {
         public static byte[] a(int i, byte[] bArr) throws Exception {
             int i2 = i - 1;
-            if (i2 < 0 || br.f3810a.length <= i2) {
+            if (i2 < 0 || br.f3811a.length <= i2) {
                 return new byte[0];
             }
-            SecretKeySpec secretKeySpec = new SecretKeySpec(br.f3810a[i2].getBytes(), com.baidu.sapi2.utils.e.q);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(br.f3811a[i2].getBytes(), com.baidu.sapi2.utils.e.q);
             Cipher cipher = Cipher.getInstance(SecureHelper.CIPHER_TRIPLE_AES);
             cipher.init(1, secretKeySpec);
             return cipher.doFinal(bArr);
@@ -26,10 +26,10 @@ public final class bm {
 
         public static byte[] b(int i, byte[] bArr) throws Exception {
             int i2 = i - 1;
-            if (i2 < 0 || br.f3810a.length <= i2) {
+            if (i2 < 0 || br.f3811a.length <= i2) {
                 return new byte[0];
             }
-            SecretKeySpec secretKeySpec = new SecretKeySpec(br.f3810a[i2].getBytes(), com.baidu.sapi2.utils.e.q);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(br.f3811a[i2].getBytes(), com.baidu.sapi2.utils.e.q);
             Cipher cipher = Cipher.getInstance(SecureHelper.CIPHER_TRIPLE_AES);
             cipher.init(2, secretKeySpec);
             return cipher.doFinal(bArr);

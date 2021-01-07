@@ -72,8 +72,8 @@ public class u extends b<ca> implements com.baidu.tieba.a.e {
         this.alk = new View.OnClickListener() { // from class: com.baidu.tieba.card.u.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (u.this.cuC() != null) {
-                    u.this.cuC().a(view, u.this.ixK);
+                if (u.this.cuD() != null) {
+                    u.this.cuD().a(view, u.this.ixK);
                 }
             }
         };
@@ -81,11 +81,11 @@ public class u extends b<ca> implements com.baidu.tieba.a.e {
             @Override // com.baidu.tieba.card.OriginalThreadCardView.a
             public void a(OriginalThreadInfo originalThreadInfo) {
                 if (u.this.ixK != null && u.this.ixK.eMv != null) {
-                    if (u.this.cuC() != null) {
-                        u.this.cuC().a(u.this.ixo, u.this.ixK);
+                    if (u.this.cuD() != null) {
+                        u.this.cuD().a(u.this.ixo, u.this.ixK);
                     }
                     String id = u.this.ixK.eMv.getId();
-                    m.Jo(id);
+                    m.Jn(id);
                     u.this.di(id);
                 }
             }
@@ -130,11 +130,11 @@ public class u extends b<ca> implements com.baidu.tieba.a.e {
         this.hnz.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.u.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (u.this.cuC() != null) {
-                    u.this.cuC().a(view2, u.this.ixK);
+                if (u.this.cuD() != null) {
+                    u.this.cuD().a(view2, u.this.ixK);
                 }
                 if (u.this.ixK != null && u.this.ixK.eMv != null) {
-                    m.Jo(u.this.ixK.eMv.getId());
+                    m.Jn(u.this.ixK.eMv.getId());
                     u.this.di(u.this.ixK.eMv.getId());
                 }
             }
@@ -145,11 +145,11 @@ public class u extends b<ca> implements com.baidu.tieba.a.e {
         this.hol.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.u.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (u.this.cuC() != null) {
-                    u.this.cuC().a(view2, u.this.ixK);
+                if (u.this.cuD() != null) {
+                    u.this.cuD().a(view2, u.this.ixK);
                 }
                 if (view2 != u.this.hol.fmZ && u.this.ixK != null && u.this.ixK.eMv != null) {
-                    m.Jo(u.this.ixK.eMv.getId());
+                    m.Jn(u.this.ixK.eMv.getId());
                     u.this.di(u.this.ixK.eMv.getId());
                 }
             }
@@ -216,7 +216,7 @@ public class u extends b<ca> implements com.baidu.tieba.a.e {
             this.hol.onChangeSkinType();
         }
         if (this.ixK != null && this.ixK.eMv != null) {
-            ao.setBackgroundColor(this.mMaskView, (this.ixK.eMv.bte() || this.ixK.eMv.btf()) ? R.color.CAM_X0201 : R.color.transparent);
+            ao.setBackgroundColor(this.mMaskView, (this.ixK.eMv.btf() || this.ixK.eMv.btg()) ? R.color.CAM_X0201 : R.color.transparent);
         }
         if (this.ivB != null && this.ivB.getHeadView() != null && (this.ivB.getHeadView() instanceof TbImageView)) {
             this.ivB.getHeadView().setPlaceHolder(1);
@@ -250,7 +250,7 @@ public class u extends b<ca> implements com.baidu.tieba.a.e {
                 at atVar = new at();
                 atVar.setTid(bzVar.getTid());
                 atVar.setFid(bzVar.getFid());
-                atVar.setNid(bzVar.bpO());
+                atVar.setNid(bzVar.bpP());
                 atVar.setFeedBackReasonMap(feedBackReasonMap);
                 atVar.eQN = bzVar.eQN;
                 this.hnK.setData(atVar);
@@ -272,7 +272,7 @@ public class u extends b<ca> implements com.baidu.tieba.a.e {
             if (this.hny.getIsSimpleThread()) {
                 this.hny.getHeaderImg().setVisibility(8);
                 this.ivB.setVisibility(8);
-            } else if (bzVar.brq() == null || bzVar.brq().getPendantData() == null || StringUtils.isNull(bzVar.brq().getPendantData().getImgUrl())) {
+            } else if (bzVar.brr() == null || bzVar.brr().getPendantData() == null || StringUtils.isNull(bzVar.brr().getPendantData().getImgUrl())) {
                 this.ivB.setVisibility(8);
                 this.hny.getHeaderImg().setVisibility(0);
                 this.hny.getHeaderImg().setData(bzVar);
@@ -288,9 +288,9 @@ public class u extends b<ca> implements com.baidu.tieba.a.e {
         setPageUniqueId(getTag());
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         di(bzVar.getId());
-        if (this.hnz.isInFrsAllThread() && (com.baidu.tieba.frs.b.cDX().cDR() || com.baidu.tieba.frs.a.cDQ().cDR())) {
+        if (this.hnz.isInFrsAllThread() && (com.baidu.tieba.frs.b.cDY().cDS() || com.baidu.tieba.frs.a.cDR().cDS())) {
             this.mMaskView.setVisibility(0);
-            if (bzVar.bte() || bzVar.btf() || bzVar.btg()) {
+            if (bzVar.btf() || bzVar.btg() || bzVar.bth()) {
                 ao.setBackgroundColor(this.mMaskView, R.color.CAM_X0201);
                 return;
             } else {
@@ -319,10 +319,10 @@ public class u extends b<ca> implements com.baidu.tieba.a.e {
     }
 
     private boolean ac(bz bzVar) {
-        if (bzVar == null || bzVar.brq() == null || StringUtils.isNull(bzVar.brq().getUserId())) {
+        if (bzVar == null || bzVar.brr() == null || StringUtils.isNull(bzVar.brr().getUserId())) {
             return false;
         }
-        return bzVar.brq().getUserId().equals(TbadkCoreApplication.getCurrentAccount());
+        return bzVar.brr().getUserId().equals(TbadkCoreApplication.getCurrentAccount());
     }
 
     public void o(BdUniqueId bdUniqueId) {
@@ -351,15 +351,15 @@ public class u extends b<ca> implements com.baidu.tieba.a.e {
         this.iwc = z;
     }
 
-    private void bCL() {
+    private void bCM() {
         if (this.ixK != null && this.ixK.eMv != null) {
             bz bzVar = this.ixK.eMv;
-            m.Jo(bzVar.getId());
+            m.Jn(bzVar.getId());
             di(bzVar.getId());
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(bzVar, null, this.ixK.stType, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
             createFromThreadCfg.setStartFrom(this.currentPageType);
             createFromThreadCfg.setIsShareThread(true);
-            m.Jo(bzVar.getTid());
+            m.Jn(bzVar.getTid());
             this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }
@@ -368,13 +368,13 @@ public class u extends b<ca> implements com.baidu.tieba.a.e {
     public void di(String str) {
         m.a(this.mTitle, str, R.color.CAM_X0105, R.color.CAM_X0109);
         m.a(this.aia, str, R.color.CAM_X0105, R.color.CAM_X0109);
-        this.ixo.setReadState(m.Jp(str));
+        this.ixo.setReadState(m.Jo(str));
     }
 
     public void b(bz bzVar) {
-        MetaData brq;
-        if (bzVar != null && this.ixJ != null && (brq = bzVar.brq()) != null) {
-            final ThemeCardInUserData themeCard = brq.getThemeCard();
+        MetaData brr;
+        if (bzVar != null && this.ixJ != null && (brr = bzVar.brr()) != null) {
+            final ThemeCardInUserData themeCard = brr.getThemeCard();
             if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid())) {
                 this.ixJ.setVisibility(8);
                 return;
@@ -393,11 +393,11 @@ public class u extends b<ca> implements com.baidu.tieba.a.e {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (cuC() != null) {
-            cuC().a(view, this.ixK);
+        if (cuD() != null) {
+            cuD().a(view, this.ixK);
         }
         if (view == getView() || view.getId() == R.id.thread_content_layout_outter) {
-            bCL();
+            bCM();
         }
     }
 
@@ -408,7 +408,7 @@ public class u extends b<ca> implements com.baidu.tieba.a.e {
         return null;
     }
 
-    public View cuG() {
+    public View cuH() {
         if (this.hny != null) {
             return this.hny.ala;
         }
@@ -442,6 +442,6 @@ public class u extends b<ca> implements com.baidu.tieba.a.e {
     }
 
     public int ux(int i) {
-        return com.baidu.tieba.a.d.bOm().az(this.aji, i);
+        return com.baidu.tieba.a.d.bOn().az(this.aji, i);
     }
 }

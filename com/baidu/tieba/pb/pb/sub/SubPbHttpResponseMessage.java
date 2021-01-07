@@ -40,7 +40,7 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
                 pVar = p.a(pbFloorResIdl.data, context);
                 if (pVar != null) {
-                    pVar.lHx = pbFloorResIdl.error;
+                    pVar.lHw = pbFloorResIdl.error;
                 } else if (pbFloorResIdl.error != null) {
                     if (pbFloorResIdl.error.errorno != null) {
                         setError(pbFloorResIdl.error.errorno.intValue());

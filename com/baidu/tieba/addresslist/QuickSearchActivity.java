@@ -54,7 +54,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     private void initViews() {
         this.gkJ = findViewById(R.id.quick_search_parent);
         adjustResizeForSoftInput();
-        bPh();
+        bPi();
         this.gkN = (ListView) findViewById(R.id.quick_search_result);
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
@@ -85,7 +85,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         });
     }
 
-    private void bPh() {
+    private void bPi() {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.QuickSearchActivity.3
             @Override // android.view.View.OnClickListener
@@ -129,11 +129,11 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FG(String str) {
-        List<com.baidu.tbadk.coreExtra.relationship.a> FT = this.gkI.FT(str);
-        if (FT.size() > 0) {
+    public void FF(String str) {
+        List<com.baidu.tbadk.coreExtra.relationship.a> FS = this.gkI.FS(str);
+        if (FS.size() > 0) {
             md(true);
-            this.gkO.setContacts(FT);
+            this.gkO.setContacts(FS);
             this.gkO.notifyDataSetChanged();
             this.gkN.setSelection(0);
             return;
@@ -171,7 +171,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             if (charSequence.toString().trim().length() != 0) {
-                QuickSearchActivity.this.FG(charSequence.toString());
+                QuickSearchActivity.this.FF(charSequence.toString());
                 return;
             }
             QuickSearchActivity.this.gkM.setVisibility(8);

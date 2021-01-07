@@ -21,7 +21,7 @@ public class d extends BaseAdapter {
         void f(com.baidu.live.challenge.d dVar);
     }
 
-    public a cgm() {
+    public a cgn() {
         return this.hwG;
     }
 
@@ -115,14 +115,14 @@ public class d extends BaseAdapter {
         if (item != null) {
             bVar.hwJ.setCallback(new AlaChallengeTargetItemView.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.d.1
                 @Override // com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeTargetItemView.a
-                public void cgn() {
+                public void cgo() {
                     if (d.this.hwG != null) {
                         d.this.hwG.e(item);
                     }
                 }
 
                 @Override // com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeTargetItemView.a
-                public void cgo() {
+                public void cgp() {
                     if (d.this.hwG != null && d.this.d(item)) {
                         d.this.hwG.f(item);
                     }

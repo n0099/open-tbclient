@@ -42,8 +42,8 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements a, b {
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.a
-    public boolean bFh() {
-        return this.fFQ.bFh();
+    public boolean bFi() {
+        return this.fFQ.bFi();
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.a
@@ -52,13 +52,13 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements a, b {
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.a
-    public void aiZ() {
+    public void aja() {
         super.setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.a
-    public void aja() {
-        this.fFQ.aja();
+    public void ajb() {
+        this.fFQ.ajb();
     }
 
     public void setIgnoreRecommendHeight(boolean z) {

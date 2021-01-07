@@ -15,10 +15,10 @@ import java.util.concurrent.BlockingQueue;
 public class f extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f6321a = r.f6345a;
+    private static final boolean f6322a = r.f6346a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final BlockingQueue<Request<?>> f6322b;
+    private final BlockingQueue<Request<?>> f6323b;
     private final BlockingQueue<Request<?>> c;
     private final com.bytedance.sdk.adnet.e.b ppo;
     private final com.bytedance.sdk.adnet.e.d ppp;
@@ -26,7 +26,7 @@ public class f extends Thread {
     private final a ppq = new a(this);
 
     public f(BlockingQueue<Request<?>> blockingQueue, BlockingQueue<Request<?>> blockingQueue2, com.bytedance.sdk.adnet.e.b bVar, com.bytedance.sdk.adnet.e.d dVar) {
-        this.f6322b = blockingQueue;
+        this.f6323b = blockingQueue;
         this.c = blockingQueue2;
         this.ppo = bVar;
         this.ppp = dVar;
@@ -39,7 +39,7 @@ public class f extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        if (f6321a) {
+        if (f6322a) {
             r.a("start new dispatcher", new Object[0]);
         }
         Process.setThreadPriority(10);
@@ -58,7 +58,7 @@ public class f extends Thread {
     }
 
     private void b() throws InterruptedException {
-        b(this.f6322b.take());
+        b(this.f6323b.take());
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [219=6] */
@@ -71,25 +71,25 @@ public class f extends Thread {
                 request.a("cache-discard-canceled");
                 return;
             }
-            b.a YX = this.ppo.YX(request.getCacheKey());
-            if (YX == null) {
+            b.a YW = this.ppo.YW(request.getCacheKey());
+            if (YW == null) {
                 request.addMarker("cache-miss");
                 if (!this.ppq.d(request)) {
                     this.c.put(request);
                 }
-            } else if (YX.a()) {
+            } else if (YW.a()) {
                 request.addMarker("cache-hit-expired");
-                request.setCacheEntry(YX);
+                request.setCacheEntry(YW);
                 if (!this.ppq.d(request)) {
                     this.c.put(request);
                 }
             } else {
                 request.addMarker("cache-hit");
-                p<?> a2 = request.a(new l(YX.f6361b, YX.h));
+                p<?> a2 = request.a(new l(YW.f6362b, YW.h));
                 request.addMarker("cache-hit-parsed");
-                if (YX.b()) {
+                if (YW.b()) {
                     request.addMarker("cache-hit-refresh-needed");
-                    request.setCacheEntry(YX);
+                    request.setCacheEntry(YW);
                     a2.d = true;
                     if (this.ppq.d(request)) {
                         this.ppp.a(request, a2);
@@ -124,7 +124,7 @@ public class f extends Thread {
     public static class a implements Request.a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Map<String, List<Request<?>>> f6323a = new HashMap();
+        private final Map<String, List<Request<?>>> f6324a = new HashMap();
         private final f ppr;
 
         a(f fVar) {
@@ -140,10 +140,10 @@ public class f extends Thread {
             }
             String cacheKey = request.getCacheKey();
             synchronized (this) {
-                remove = this.f6323a.remove(cacheKey);
+                remove = this.f6324a.remove(cacheKey);
             }
             if (remove != null) {
-                if (r.f6345a) {
+                if (r.f6346a) {
                     r.a("Releasing %d waiting requests for cacheKey=%s.", Integer.valueOf(remove.size()), cacheKey);
                 }
                 for (Request<?> request2 : remove) {
@@ -155,13 +155,13 @@ public class f extends Thread {
         @Override // com.bytedance.sdk.adnet.core.Request.a
         public synchronized void b(Request<?> request) {
             String cacheKey = request.getCacheKey();
-            List<Request<?>> remove = this.f6323a.remove(cacheKey);
+            List<Request<?>> remove = this.f6324a.remove(cacheKey);
             if (remove != null && !remove.isEmpty()) {
-                if (r.f6345a) {
+                if (r.f6346a) {
                     r.a("%d waiting requests for cacheKey=%s; resend to network", Integer.valueOf(remove.size()), cacheKey);
                 }
                 Request<?> remove2 = remove.remove(0);
-                this.f6323a.put(cacheKey, remove);
+                this.f6324a.put(cacheKey, remove);
                 remove2.a(this);
                 try {
                     this.ppr.c.put(remove2);
@@ -178,22 +178,22 @@ public class f extends Thread {
             boolean z = false;
             synchronized (this) {
                 String cacheKey = request.getCacheKey();
-                if (this.f6323a.containsKey(cacheKey)) {
-                    List<Request<?>> list = this.f6323a.get(cacheKey);
+                if (this.f6324a.containsKey(cacheKey)) {
+                    List<Request<?>> list = this.f6324a.get(cacheKey);
                     if (list == null) {
                         list = new ArrayList<>();
                     }
                     request.addMarker("waiting-for-response");
                     list.add(request);
-                    this.f6323a.put(cacheKey, list);
-                    if (r.f6345a) {
+                    this.f6324a.put(cacheKey, list);
+                    if (r.f6346a) {
                         r.b("Request for cacheKey=%s is in flight, putting on hold.", cacheKey);
                     }
                     z = true;
                 } else {
-                    this.f6323a.put(cacheKey, null);
+                    this.f6324a.put(cacheKey, null);
                     request.a(this);
-                    if (r.f6345a) {
+                    if (r.f6346a) {
                         r.b("new request, sending to network %s", cacheKey);
                     }
                 }

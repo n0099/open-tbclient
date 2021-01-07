@@ -1,5 +1,5 @@
 package com.baidu.platform.comjni.bikenavi;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class JNINaviMap {
     public native boolean convertGeoPoint2ScrPt(long j, int[] iArr, int[] iArr2);
 

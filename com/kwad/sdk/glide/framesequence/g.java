@@ -9,10 +9,10 @@ import java.util.List;
 public class g implements com.kwad.sdk.glide.load.f<InputStream, FrameSequence> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Boolean> f10298a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.framesequence.StreamFsDecoder.DisableAnimation", false);
+    public static final com.kwad.sdk.glide.load.d<Boolean> f10299a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.framesequence.StreamFsDecoder.DisableAnimation", false);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Boolean> f10299b = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.framesequence.StreamFsDecoder.DisableWebp", false);
+    public static final com.kwad.sdk.glide.load.d<Boolean> f10300b = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.framesequence.StreamFsDecoder.DisableWebp", false);
     private final List<ImageHeaderParser> c;
     private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b d;
 
@@ -35,14 +35,14 @@ public class g implements com.kwad.sdk.glide.load.f<InputStream, FrameSequence> 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.f
     public boolean a(InputStream inputStream, com.kwad.sdk.glide.load.e eVar) {
-        if (((Boolean) eVar.a(f10298a)).booleanValue()) {
+        if (((Boolean) eVar.a(f10299a)).booleanValue()) {
             return false;
         }
         ImageHeaderParser.ImageType a2 = com.kwad.sdk.glide.load.b.a(this.c, inputStream, this.d);
         if (a2 == ImageHeaderParser.ImageType.GIF) {
             return true;
         }
-        if (((Boolean) eVar.a(f10299b)).booleanValue() || !(a2 == ImageHeaderParser.ImageType.WEBP || a2 == ImageHeaderParser.ImageType.WEBP_A)) {
+        if (((Boolean) eVar.a(f10300b)).booleanValue() || !(a2 == ImageHeaderParser.ImageType.WEBP || a2 == ImageHeaderParser.ImageType.WEBP_A)) {
             return false;
         }
         return WebpHeaderParser.a(WebpHeaderParser.a(inputStream, this.d));

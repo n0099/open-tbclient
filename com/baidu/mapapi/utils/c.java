@@ -6,15 +6,15 @@ import android.util.Log;
 import com.baidu.mapframework.open.aidl.IComOpenClient;
 import com.baidu.mapframework.open.aidl.b;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class c extends b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f3066a;
+    final /* synthetic */ int f3067a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(int i) {
-        this.f3066a = i;
+        this.f3067a = i;
     }
 
     @Override // com.baidu.mapframework.open.aidl.b
@@ -28,7 +28,7 @@ public final class c extends b.a {
             IComOpenClient unused = b.e = null;
         }
         IComOpenClient unused2 = b.e = IComOpenClient.a.a(iBinder);
-        b.a(this.f3066a);
+        b.a(this.f3067a);
         boolean unused3 = b.t = true;
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.pano.platform.c.g;
 import com.baidu.pano.platform.c.h;
 import com.baidu.pano.platform.c.i;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class AppFunctionProcessor {
     public static Object doGetSync(Object obj, String str) {
         if (obj == null) {
@@ -142,6 +142,6 @@ public class AppFunctionProcessor {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return str.contains(i.f3955b) || str.contains(i.f3954a) || str.contains(i.f) || str.contains(i.e) || str.contains(i.d) || str.contains(i.c);
+        return str.contains(i.f3956b) || str.contains(i.f3955a) || str.contains(i.f) || str.contains(i.e) || str.contains(i.d) || str.contains(i.c);
     }
 }

@@ -21,7 +21,7 @@ public final class b extends Handler {
                 this.gcT.a(WheelView.ACTION.FLING);
                 return;
             case 3000:
-                this.gcT.aLe();
+                this.gcT.aLf();
                 return;
             default:
                 return;

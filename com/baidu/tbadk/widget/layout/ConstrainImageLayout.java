@@ -99,10 +99,10 @@ public class ConstrainImageLayout extends ViewGroup {
                 float f7;
                 float f8;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Ef = com.baidu.tbadk.imageManager.c.bGp().Ef(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), ConstrainImageLayout.this.alQ ? 13 : 14));
-                    if (Ef != null) {
-                        int width = Ef.getWidth();
-                        i = Ef.getHeight();
+                    com.baidu.adp.widget.ImageView.a Ee = com.baidu.tbadk.imageManager.c.bGq().Ee(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), ConstrainImageLayout.this.alQ ? 13 : 14));
+                    if (Ee != null) {
+                        int width = Ee.getWidth();
+                        i = Ee.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -220,10 +220,10 @@ public class ConstrainImageLayout extends ViewGroup {
                 float f7;
                 float f8;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Ef = com.baidu.tbadk.imageManager.c.bGp().Ef(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), ConstrainImageLayout.this.alQ ? 13 : 14));
-                    if (Ef != null) {
-                        int width = Ef.getWidth();
-                        i = Ef.getHeight();
+                    com.baidu.adp.widget.ImageView.a Ee = com.baidu.tbadk.imageManager.c.bGq().Ee(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), ConstrainImageLayout.this.alQ ? 13 : 14));
+                    if (Ee != null) {
+                        int width = Ee.getWidth();
+                        i = Ee.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -341,10 +341,10 @@ public class ConstrainImageLayout extends ViewGroup {
                 float f7;
                 float f8;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Ef = com.baidu.tbadk.imageManager.c.bGp().Ef(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), ConstrainImageLayout.this.alQ ? 13 : 14));
-                    if (Ef != null) {
-                        int width = Ef.getWidth();
-                        i2 = Ef.getHeight();
+                    com.baidu.adp.widget.ImageView.a Ee = com.baidu.tbadk.imageManager.c.bGq().Ee(com.baidu.adp.lib.e.d.mx().genCacheKey(tbImageView.getUrl(), ConstrainImageLayout.this.alQ ? 13 : 14));
+                    if (Ee != null) {
+                        int width = Ee.getWidth();
+                        i2 = Ee.getHeight();
                         i22 = width;
                     } else {
                         i2 = 0;
@@ -751,7 +751,7 @@ public class ConstrainImageLayout extends ViewGroup {
     protected void dispatchDraw(Canvas canvas) {
         int childCount;
         super.dispatchDraw(canvas);
-        bKA();
+        bKB();
         if (!StringUtils.isNull(this.fWb) && (childCount = getChildCount()) > 0 && getChildAt(childCount - 1) != null && this.fWb != null) {
             TbImageView tbImageView = null;
             int childCount2 = getChildCount();
@@ -772,7 +772,7 @@ public class ConstrainImageLayout extends ViewGroup {
         }
     }
 
-    private void bKA() {
+    private void bKB() {
         if (this.fVU != null && getChildCount() > 0) {
             View childAt = getChildAt(0);
             int width = childAt.getWidth();
@@ -805,7 +805,7 @@ public class ConstrainImageLayout extends ViewGroup {
                 canvas2.drawARGB(0, 0, 0, 0);
                 RectF rectF2 = new RectF(-fArr[0], 0.0f, i2, i3);
                 int i4 = Integer.MIN_VALUE;
-                if (com.baidu.tbadk.a.d.bmE()) {
+                if (com.baidu.tbadk.a.d.bmF()) {
                     i = ao.getColor(R.color.CAM_X0601);
                     i4 = ao.getColor(R.color.CAM_X0606);
                 } else {
@@ -828,13 +828,13 @@ public class ConstrainImageLayout extends ViewGroup {
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            bKB();
+            bKC();
             this.textPaint.setColor(ao.getColor(R.color.CAM_X0101));
             invalidate();
         }
     }
 
-    private void bKB() {
+    private void bKC() {
         int childCount = getChildCount();
         if (childCount > 0) {
             for (int i = 0; i < childCount; i++) {

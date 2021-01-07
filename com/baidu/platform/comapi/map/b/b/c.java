@@ -4,16 +4,16 @@ import android.util.Pair;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.platform.comapi.map.MapStatus;
 import com.baidu.platform.comapi.map.b.a;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class c extends a {
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f4325b;
+    private boolean f4326b;
     private long c;
 
     public c(MapController mapController) {
         super(mapController);
-        this.f4325b = true;
+        this.f4326b = true;
     }
 
     private void a(double d, MapStatus mapStatus) {
@@ -34,24 +34,24 @@ public class c extends a {
 
     @Override // com.baidu.platform.comapi.map.b.b.a
     public void a(com.baidu.platform.comapi.map.b.a.b bVar, Pair<a.d, a.d> pair) {
-        MapStatus mapStatus = this.f4322a.getMapStatus();
+        MapStatus mapStatus = this.f4323a.getMapStatus();
         if (mapStatus.bOverlookSpringback) {
             if (mapStatus.overlooking > 0) {
                 mapStatus.overlooking = 0;
             } else {
                 mapStatus.overlooking = mapStatus.minOverlooking;
             }
-            this.f4322a.setMapStatusWithAnimation(mapStatus, 200);
+            this.f4323a.setMapStatusWithAnimation(mapStatus, 200);
         }
     }
 
     @Override // com.baidu.platform.comapi.map.b.b.a
     public void b(com.baidu.platform.comapi.map.b.a.b bVar) {
-        a.C0290a c0290a = bVar.f4313b;
+        a.C0290a c0290a = bVar.f4314b;
         a.C0290a c0290a2 = bVar.c;
-        MapStatus mapStatus = this.f4322a.getMapStatus();
-        double d = c0290a2.f4310a.f4315b - c0290a.f4310a.f4315b;
-        double d2 = c0290a2.f4311b.f4315b - c0290a.f4311b.f4315b;
+        MapStatus mapStatus = this.f4323a.getMapStatus();
+        double d = c0290a2.f4311a.f4316b - c0290a.f4311a.f4316b;
+        double d2 = c0290a2.f4312b.f4316b - c0290a.f4312b.f4316b;
         if (d * d2 > 0.0d) {
             a(d, mapStatus);
         } else if (d * d2 == 0.0d) {
@@ -65,10 +65,10 @@ public class c extends a {
         } else {
             a(d2, mapStatus);
         }
-        this.f4322a.setMapStatus(mapStatus);
-        if (this.f4325b) {
-            this.f4325b = false;
-            this.f4322a.getGestureMonitor().d();
+        this.f4323a.setMapStatus(mapStatus);
+        if (this.f4326b) {
+            this.f4326b = false;
+            this.f4323a.getGestureMonitor().d();
         }
     }
 }

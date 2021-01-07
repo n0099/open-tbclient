@@ -16,10 +16,10 @@ import java.util.Observable;
 public class f extends Observable implements IOAdDownloader, Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f3442a;
+    protected Context f3443a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected URL f3443b;
+    protected URL f3444b;
     protected String c;
     protected String d;
     protected int e;
@@ -30,8 +30,8 @@ public class f extends Observable implements IOAdDownloader, Runnable {
 
     public f(Context context, URL url, String str, String str2, boolean z) {
         this.i = false;
-        this.f3442a = context;
-        this.f3443b = url;
+        this.f3443a = context;
+        this.f3444b = url;
         this.c = str;
         this.i = z;
         if (str2 != null && str2.trim().length() > 0) {
@@ -69,7 +69,7 @@ public class f extends Observable implements IOAdDownloader, Runnable {
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
     public String getURL() {
-        return this.f3443b.toString();
+        return this.f3444b.toString();
     }
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
@@ -135,7 +135,7 @@ public class f extends Observable implements IOAdDownloader, Runnable {
         Object[] objArr;
         int read;
         try {
-            HttpURLConnection httpURLConnection2 = (HttpURLConnection) this.f3443b.openConnection();
+            HttpURLConnection httpURLConnection2 = (HttpURLConnection) this.f3444b.openConnection();
             try {
                 httpURLConnection2.setConnectTimeout(10000);
                 httpURLConnection2.setInstanceFollowRedirects(true);

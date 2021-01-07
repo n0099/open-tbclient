@@ -15,11 +15,11 @@ public class d extends g {
         return this;
     }
 
-    public String bgW() {
+    public String bgX() {
         return this.duK;
     }
 
-    public String bgX() {
+    public String bgY() {
         return this.exP;
     }
 }

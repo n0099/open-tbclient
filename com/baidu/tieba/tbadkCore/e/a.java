@@ -18,15 +18,15 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
     private ArrayList<b> iHh = new ArrayList<>();
-    private f ntQ = new f();
+    private f ntP = new f();
 
     public void a(b bVar) {
         if (bVar != null) {
             this.iHh.add(bVar);
         }
-        if (this.ntQ != null && bVar != null && bVar.getClass().getAnnotation(com.baidu.c.a.a.class) != null) {
+        if (this.ntP != null && bVar != null && bVar.getClass().getAnnotation(com.baidu.c.a.a.class) != null) {
             try {
-                this.ntQ.a((com.baidu.tieba.tbadkCore.e.a.a) Class.forName("com.baidu.tieba.h5power." + bVar.getClass().getSimpleName() + com.baidu.tieba.tbadkCore.e.a.a.PROXY_CLASS_NAME_SUFFIX).getConstructor(bVar.getClass()).newInstance(bVar));
+                this.ntP.a((com.baidu.tieba.tbadkCore.e.a.a) Class.forName("com.baidu.tieba.h5power." + bVar.getClass().getSimpleName() + com.baidu.tieba.tbadkCore.e.a.a.PROXY_CLASS_NAME_SUFFIX).getConstructor(bVar.getClass()).newInstance(bVar));
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -39,7 +39,7 @@ public class a {
         }
     }
 
-    public void dPF() {
+    public void dPG() {
         this.iHh.clear();
     }
 
@@ -70,35 +70,35 @@ public class a {
     }
 
     public void a(WebView webView, String str, @Nullable HashMap hashMap) {
-        if (this.ntQ != null) {
-            this.ntQ.a(webView, this.ntQ.f(str, hashMap));
+        if (this.ntP != null) {
+            this.ntP.a(webView, this.ntP.f(str, hashMap));
         }
     }
 
     private void b(WebView webView, String str) {
-        if (this.ntQ != null) {
+        if (this.ntP != null) {
             e eVar = new e();
             com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
+            String Tw = g.Tw(str);
+            eVar.setAction(Tw);
             String Tx = g.Tx(str);
-            eVar.setAction(Tx);
+            eVar.bW(Tx);
             String Ty = g.Ty(str);
-            eVar.bW(Ty);
-            String Tz = g.Tz(str);
-            cVar.Ts(Tz);
-            if (at.isEmpty(Tx) || at.isEmpty(Ty) || at.isEmpty(Tz)) {
+            cVar.Tr(Ty);
+            if (at.isEmpty(Tw) || at.isEmpty(Tx) || at.isEmpty(Ty)) {
                 cVar.KZ(101);
             }
             try {
-                eVar.eK(g.TC(str));
+                eVar.eK(g.TB(str));
             } catch (JSONException e) {
                 eVar.eK(new JSONObject());
                 cVar.KZ(101);
             }
+            eVar.Tu(g.Tz(str));
             eVar.Tv(g.TA(str));
-            eVar.Tw(g.TB(str));
-            com.baidu.tieba.tbadkCore.e.a.c a2 = this.ntQ.a(eVar, cVar);
-            if (a2.dPK()) {
-                this.ntQ.a(webView, a2);
+            com.baidu.tieba.tbadkCore.e.a.c a2 = this.ntP.a(eVar, cVar);
+            if (a2.dPL()) {
+                this.ntP.a(webView, a2);
             }
         }
     }

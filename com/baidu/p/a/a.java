@@ -31,7 +31,7 @@ public class a {
         }
     }
 
-    public static boolean ejW() {
+    public static boolean ejX() {
         return false;
     }
 

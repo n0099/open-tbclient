@@ -22,11 +22,11 @@ public class a implements com.baidu.swan.apps.media.a {
         this.mContext = context;
         this.doZ = cVar;
         this.doY = cVar.dkT;
+        aFt();
         aFs();
-        aFr();
     }
 
-    private void aFr() {
+    private void aFs() {
         if (!TextUtils.isEmpty(this.doY)) {
             com.baidu.swan.apps.media.b.a(this);
         }
@@ -46,7 +46,7 @@ public class a implements com.baidu.swan.apps.media.a {
         this.dpb = bVar;
     }
 
-    public c amP() {
+    public c amQ() {
         return this.doZ;
     }
 
@@ -65,29 +65,29 @@ public class a implements com.baidu.swan.apps.media.a {
     }
 
     public void pause() {
-        if (aFt()) {
-            aFs().pause();
+        if (aFu()) {
+            aFt().pause();
         }
     }
 
     public void resume() {
-        if (aFt() && !isPlaying() && this.mIsForeground && this.doX != null) {
+        if (aFu() && !isPlaying() && this.mIsForeground && this.doX != null) {
             this.doX.resume();
         }
     }
 
     public void seekTo(int i) {
-        if (aFt() && this.doX != null) {
+        if (aFu() && this.doX != null) {
             this.doX.seekTo(i);
         }
     }
 
     public int getDuration() {
-        return aFs().getDuration();
+        return aFt().getDuration();
     }
 
     public int getCurrentPosition() {
-        return aFs().getCurrentPosition();
+        return aFt().getCurrentPosition();
     }
 
     public boolean isPlaying() {
@@ -114,10 +114,10 @@ public class a implements com.baidu.swan.apps.media.a {
         this.dpb = bVar;
     }
 
-    public j aFs() {
+    public j aFt() {
         if (this.doX == null) {
             com.baidu.swan.apps.console.c.i("video", "create player");
-            this.doX = com.baidu.swan.apps.t.a.aAE().a(this.mContext, this.doZ);
+            this.doX = com.baidu.swan.apps.t.a.aAF().a(this.mContext, this.doZ);
             this.doX.a(new j.a() { // from class: com.baidu.swan.apps.media.b.a.1
                 @Override // com.baidu.swan.apps.t.b.j.a
                 public void b(j jVar) {
@@ -169,12 +169,12 @@ public class a implements com.baidu.swan.apps.media.a {
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String azX() {
+    public String azY() {
         return this.doY;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String aDZ() {
+    public String aEa() {
         return this.doZ != null ? this.doZ.dpm : "";
     }
 
@@ -184,7 +184,7 @@ public class a implements com.baidu.swan.apps.media.a {
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public Object aEa() {
+    public Object aEb() {
         return this;
     }
 
@@ -193,13 +193,13 @@ public class a implements com.baidu.swan.apps.media.a {
         this.mIsForeground = z;
         if (z) {
             if (this.dpa) {
-                aFs().resume();
+                aFt().resume();
             }
-            aFs().onForeground();
+            aFt().onForeground();
         } else if (this.doX != null) {
-            this.dpa = aFs().isPlaying();
-            aFs().pause();
-            aFs().onBackground();
+            this.dpa = aFt().isPlaying();
+            aFt().pause();
+            aFt().onBackground();
         }
     }
 
@@ -235,13 +235,13 @@ public class a implements com.baidu.swan.apps.media.a {
         }
     }
 
-    public void aBY() {
+    public void aBZ() {
         if (this.doX != null) {
-            this.doX.aBY();
+            this.doX.aBZ();
         }
     }
 
-    private boolean aFt() {
+    private boolean aFu() {
         return (this.doZ == null || TextUtils.isEmpty(this.doZ.mSrc) || TextUtils.isEmpty(this.doY) || TextUtils.isEmpty(this.doZ.cNO)) ? false : true;
     }
 

@@ -45,8 +45,8 @@ public class a {
                 a(aVar);
             }
             this.mData.clear();
-            cKJ();
             cKK();
+            cKL();
             b(aVar);
         }
     }
@@ -108,7 +108,7 @@ public class a {
         }
     }
 
-    private void cKJ() {
+    private void cKK() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -132,7 +132,7 @@ public class a {
         }
     }
 
-    private void cKK() {
+    private void cKL() {
         if (this.jyR != null && this.jyR.length > 0) {
             for (int i = 0; i < this.jyR.length; i++) {
                 Object obj = this.jyR[i];

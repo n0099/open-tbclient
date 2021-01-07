@@ -21,7 +21,7 @@ public class a {
     private a() {
     }
 
-    public static synchronized a bPi() {
+    public static synchronized a bPj() {
         a aVar;
         synchronized (a.class) {
             if (gld == null) {
@@ -49,19 +49,19 @@ public class a {
         if (this.gle != null) {
             Collections.sort(this.gle, new ContactComparator());
         }
-        bPk();
+        bPl();
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         boolean z;
         boolean z2 = false;
         if (this.gle != null && aVar != null) {
-            String bCA = aVar.bCA();
-            if (TextUtils.isEmpty(bCA)) {
-                bCA = "#";
-                aVar.Dd("#");
+            String bCB = aVar.bCB();
+            if (TextUtils.isEmpty(bCB)) {
+                bCB = "#";
+                aVar.Dc("#");
             }
-            String str = bCA;
+            String str = bCB;
             String userName = aVar.getUserName();
             String str2 = userName == null ? "" : userName;
             Iterator<com.baidu.tbadk.coreExtra.relationship.a> it = this.gle.iterator();
@@ -75,17 +75,17 @@ public class a {
                 if (str2.equals(next.getUserName())) {
                     z3 = true;
                 }
-                z2 = str.equals(next.bCA()) ? true : z;
+                z2 = str.equals(next.bCB()) ? true : z;
             }
             if (!z3) {
                 if (!z) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar2 = new com.baidu.tbadk.coreExtra.relationship.a();
-                    aVar2.Dd(str);
+                    aVar2.Dc(str);
                     this.gle.add(aVar2);
                 }
                 this.gle.add(aVar);
                 Collections.sort(this.gle, new ContactComparator());
-                bPk();
+                bPl();
             }
         }
     }
@@ -100,7 +100,7 @@ public class a {
                 }
                 com.baidu.tbadk.coreExtra.relationship.a next = it.next();
                 if (next.getUserId() == j) {
-                    str = next.bCA();
+                    str = next.bCB();
                     this.gle.remove(next);
                     break;
                 }
@@ -108,7 +108,7 @@ public class a {
             if (str != null) {
                 ArrayList arrayList = new ArrayList();
                 for (com.baidu.tbadk.coreExtra.relationship.a aVar : this.gle) {
-                    if (str.equals(aVar.bCA())) {
+                    if (str.equals(aVar.bCB())) {
                         arrayList.add(aVar);
                     }
                 }
@@ -116,15 +116,15 @@ public class a {
                     this.gle.removeAll(arrayList);
                 }
             }
-            bPk();
+            bPl();
         }
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> bPj() {
+    public List<com.baidu.tbadk.coreExtra.relationship.a> bPk() {
         return this.gle;
     }
 
-    private void bPk() {
+    private void bPl() {
         for (InterfaceC0613a interfaceC0613a : this.mObservers) {
             interfaceC0613a.bZ(this.gle);
         }

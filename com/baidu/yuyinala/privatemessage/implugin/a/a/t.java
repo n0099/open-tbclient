@@ -203,6 +203,6 @@ public class t extends e {
             thumbUrl = remoteUrl;
         }
         com.baidu.yuyinala.privatemessage.implugin.util.b.hE(context);
-        ImageLoader.getInstance().displayImage(thumbUrl, imageView, com.baidu.yuyinala.privatemessage.implugin.util.b.enT());
+        ImageLoader.getInstance().displayImage(thumbUrl, imageView, com.baidu.yuyinala.privatemessage.implugin.util.b.enU());
     }
 }

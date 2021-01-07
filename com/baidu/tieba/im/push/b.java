@@ -11,7 +11,7 @@ public class b {
         this.kHp = new e(1000, 1000, 1000);
     }
 
-    public static b cZk() {
+    public static b cZl() {
         if (kHo == null) {
             synchronized (b.class) {
                 if (kHo == null) {

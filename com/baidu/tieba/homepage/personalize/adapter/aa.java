@@ -42,7 +42,7 @@ public class aa extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
             public void a(View view, com.baidu.adp.widget.ListView.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if (view != null && aVar != null && !at.isEmpty(aVar.giS)) {
                     TiebaStatic.log(new aq("c12885"));
-                    be.bwu().b(aa.this.mPageContext, new String[]{aVar.giS});
+                    be.bwv().b(aa.this.mPageContext, new String[]{aVar.giS});
                 }
             }
         });
@@ -53,12 +53,12 @@ public class aa extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.h hVar, CardViewHolder<a> cardViewHolder) {
-        if (hVar == null || cardViewHolder == null || cardViewHolder.cvG() == null) {
+        if (hVar == null || cardViewHolder == null || cardViewHolder.cvH() == null) {
             return null;
         }
         TiebaStatic.log(new aq("c12884"));
-        cardViewHolder.cvG().a(hVar);
-        return cardViewHolder.cvG().getView();
+        cardViewHolder.cvH().a(hVar);
+        return cardViewHolder.cvH().getView();
     }
 
     /* loaded from: classes2.dex */

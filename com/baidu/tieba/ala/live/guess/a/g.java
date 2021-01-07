@@ -25,7 +25,7 @@ public class g extends b implements View.OnClickListener {
     }
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
-    void caG() {
+    void caH() {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.ala_guess_not_choice, (ViewGroup) null);
     }
 

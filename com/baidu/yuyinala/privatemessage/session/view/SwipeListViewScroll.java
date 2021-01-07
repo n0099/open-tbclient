@@ -152,7 +152,7 @@ public class SwipeListViewScroll extends HorizontalScrollView {
         } else if (this.contentView != null) {
             try {
                 if (this.peB != null) {
-                    this.peB.eoy();
+                    this.peB.eoz();
                 }
             } catch (Exception e) {
                 e.printStackTrace();

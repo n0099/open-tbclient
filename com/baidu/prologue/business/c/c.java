@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.view.View;
 import com.baidu.prologue.b;
 import com.baidu.prologue.image.PrologueImageView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c extends b<com.baidu.prologue.business.b.b> {
     protected PrologueImageView cuD;
     View cuE;
@@ -26,18 +26,18 @@ public class c extends b<com.baidu.prologue.business.b.b> {
     }
 
     @Override // com.baidu.prologue.business.c.a
-    public void abn() {
+    public void abo() {
         this.cuD = (PrologueImageView) this.mRootView.findViewById(b.C0327b.splash_ad_image);
         this.cuE = this.mRootView.findViewById(b.C0327b.image_splash_clickable);
         if (this.cuA) {
-            com.baidu.prologue.image.d.ahm().b(this.cuF, this.cuD);
+            com.baidu.prologue.image.d.ahn().b(this.cuF, this.cuD);
         } else {
             this.cuD.setImageBitmap(this.mBitmap);
         }
     }
 
     @Override // com.baidu.prologue.business.c.a
-    public View agY() {
+    public View agZ() {
         return this.cuE;
     }
 

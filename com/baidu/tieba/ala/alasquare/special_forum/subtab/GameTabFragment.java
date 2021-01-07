@@ -54,32 +54,32 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
             GameTabFragment.this.lU(false);
             GameTabFragment.this.hideLoadingView(GameTabFragment.this.mRootView);
             if (x.isEmpty(list)) {
-                GameTabFragment.this.bUH();
+                GameTabFragment.this.bUI();
                 return;
             }
             GameTabFragment.this.gAY.setData(list);
             if (!GameTabFragment.this.mHasMore) {
-                GameTabFragment.this.Zh();
+                GameTabFragment.this.Zi();
             } else {
-                GameTabFragment.this.Zg();
+                GameTabFragment.this.Zh();
             }
-            GameTabFragment.this.Zi();
+            GameTabFragment.this.Zj();
         }
 
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabGameModel.a
         public void h(int i, String str, boolean z) {
             GameTabFragment.this.hideLoadingView(GameTabFragment.this.mRootView);
-            GameTabFragment.this.bVF();
-            GameTabFragment.this.bUH();
+            GameTabFragment.this.bVG();
+            GameTabFragment.this.bUI();
         }
     };
     private BdListView.e WN = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.GameTabFragment.3
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (!l.isNetOk()) {
-                GameTabFragment.this.bVF();
+                GameTabFragment.this.bVG();
             } else if (GameTabFragment.this.mHasMore) {
-                GameTabFragment.this.gDo.bUp();
+                GameTabFragment.this.gDo.bUq();
             }
         }
     };
@@ -94,7 +94,7 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
         }
     };
 
-    public static GameTabFragment GM(String str) {
+    public static GameTabFragment GL(String str) {
         GameTabFragment gameTabFragment = new GameTabFragment();
         if (!StringUtils.isNull(str)) {
             Bundle bundle = new Bundle();
@@ -166,7 +166,7 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUH() {
+    public void bUI() {
         if (this.mRefreshView == null) {
             this.mRefreshView = new h(getPageContext().getContext(), getNetRefreshListener());
             this.mRefreshView.setTitle(null);
@@ -183,8 +183,8 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment
-    public void bVE() {
-        super.bVE();
+    public void bVF() {
+        super.bVF();
         if (this.gAY != null) {
             this.gAY.smoothScrollToPosition(0);
             this.gAY.startPullRefresh();
@@ -212,7 +212,7 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zi() {
+    public void Zj() {
         if (this.gAY != null && this.mRefreshView != null) {
             this.gJf = false;
             this.gAY.removeHeaderView(this.mRefreshView.getAttachedView());
@@ -220,7 +220,7 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zg() {
+    public void Zh() {
         this.gAY.setNextPage(this.gCf);
         this.gCf.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
         this.gCf.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
@@ -228,7 +228,7 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zh() {
+    public void Zi() {
         this.gAY.setNextPage(this.gCf);
         this.gCf.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
         this.gCf.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
@@ -237,7 +237,7 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVF() {
+    public void bVG() {
         this.gAY.setNextPage(this.gCf);
         this.gCf.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
         this.gCf.hideWithoutEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());

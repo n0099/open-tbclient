@@ -40,9 +40,9 @@ public class b implements View.OnClickListener {
     private ArrayList<TransmitForumData> mForumList;
     private int mPrivateThread;
     private ShareItem mShareItem;
-    private ShareGridLayout nDT;
-    private a nDU;
-    private boolean nDV = false;
+    private ShareGridLayout nDS;
+    private a nDT;
+    private boolean nDU = false;
     private CustomMessageListener lef = new CustomMessageListener(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED) { // from class: com.baidu.tieba.transmitShare.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -58,16 +58,16 @@ public class b implements View.OnClickListener {
         MessageManager.getInstance().registerListener(this.lef);
     }
 
-    public ShareGridLayout dSW() {
-        if (this.nDT == null) {
+    public ShareGridLayout dSX() {
+        if (this.nDS == null) {
             initView();
         }
-        return this.nDT;
+        return this.nDS;
     }
 
     private void initView() {
-        this.nDT = new ShareGridLayout(this.mContext);
-        this.nDT.setItemParams(hIY, hIZ);
+        this.nDS = new ShareGridLayout(this.mContext);
+        this.nDS.setItemParams(hIY, hIZ);
     }
 
     private void b(com.baidu.tbadk.core.util.e.a aVar, int i, int i2) {
@@ -76,7 +76,7 @@ public class b implements View.OnClickListener {
             shareDialogItemView.setItemIcon(aVar, i2);
             shareDialogItemView.setItemName(i);
             shareDialogItemView.setOnClickListener(this);
-            this.nDT.addView(shareDialogItemView.dLc());
+            this.nDS.addView(shareDialogItemView.dLd());
         }
     }
 
@@ -85,16 +85,16 @@ public class b implements View.OnClickListener {
         shareDialogItemView.setItemIcon(i2, ao.getColor(R.color.CAM_X0107), i3);
         shareDialogItemView.setItemName(i);
         shareDialogItemView.setOnClickListener(this);
-        this.nDT.addView(shareDialogItemView.dLc());
+        this.nDS.addView(shareDialogItemView.dLd());
     }
 
     public void a(ShareDialogConfig shareDialogConfig, boolean z) {
         this.mShareItem = shareDialogConfig.shareItem;
         this.mForumList = shareDialogConfig.mForumList;
         this.mPrivateThread = shareDialogConfig.mPrivateThread;
-        this.nDT.removeAllViews();
-        this.nDV = shareDialogConfig.mShowMoreForumShare;
-        if (this.nDV) {
+        this.nDS.removeAllViews();
+        this.nDU = shareDialogConfig.mShowMoreForumShare;
+        if (this.nDU) {
             b(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_wechat40_svg), R.string.share_weixin, 4);
             b(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_circle40_svg), R.string.share_weixin_timeline, 3);
             b(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_qq40_svg), R.string.share_qq_friends, 9);
@@ -117,13 +117,13 @@ public class b implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.nDU = aVar;
+        this.nDT = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.nDU != null) {
-            this.nDU.en(view);
+        if (this.nDT != null) {
+            this.nDT.en(view);
         }
         if (view.getTag() instanceof Integer) {
             Integer num = (Integer) view.getTag();
@@ -168,7 +168,7 @@ public class b implements View.OnClickListener {
                 }
                 return;
             }
-            BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).bud();
+            BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).bue();
         } else if (i == 5) {
             if (z.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                 f("share_to_qzone", new Object[0]);
@@ -182,7 +182,7 @@ public class b implements View.OnClickListener {
                 }
                 return;
             }
-            BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).bud();
+            BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).bue();
         } else if (i == 7) {
             try {
                 if (!WbSdk.isWbInstall(this.mContext)) {
@@ -216,7 +216,7 @@ public class b implements View.OnClickListener {
 
     private void Lz(int i) {
         if (i == 13) {
-            dSX();
+            dSY();
             LB(13);
         }
     }
@@ -225,10 +225,10 @@ public class b implements View.OnClickListener {
         return i == 4 || i == 3 || i == 9 || i == 5 || i == 7 || i == 10;
     }
 
-    private void dSX() {
+    private void dSY() {
         SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.mContext, RequestResponseCode.REQUEST_SELECT_FORUM);
         selectForumActivityConfig.setForumList(this.mForumList);
-        if (this.nDV) {
+        if (this.nDU) {
             selectForumActivityConfig.setFrom(4);
             selectForumActivityConfig.setMoreForumImg(this.mShareItem.imageUrl);
             selectForumActivityConfig.setMoreForumUrl(this.mShareItem.linkUrl);

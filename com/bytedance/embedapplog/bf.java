@@ -44,7 +44,7 @@ final class bf implements bi {
             }
             try {
                 bi.a aVar = new bi.a();
-                aVar.f6100b = a(cursor);
+                aVar.f6101b = a(cursor);
                 if (cursor != null) {
                     cursor.close();
                     return aVar;

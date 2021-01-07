@@ -6,11 +6,11 @@ import androidx.annotation.Nullable;
 class x {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f7452a;
+    private static boolean f7453a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(@Nullable Throwable th) {
-        return "{\"code\":" + (th instanceof r ? ((r) th).f7435a : 0) + "}";
+        return "{\"code\":" + (th instanceof r ? ((r) th).f7436a : 0) + "}";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,7 +19,7 @@ class x {
             return "{\"code\":1}";
         }
         String str2 = "";
-        if (f7452a) {
+        if (f7453a) {
             str2 = str.substring(1, str.length() - 1);
         }
         String str3 = "{\"code\":1,\"__data\":" + str;
@@ -36,6 +36,6 @@ class x {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(boolean z) {
-        f7452a = z;
+        f7453a = z;
     }
 }

@@ -105,7 +105,7 @@ public class FragmentActivity extends g implements a.InterfaceC0560a, c.a {
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        if (!this.ezl.bhE().popBackStackImmediate()) {
+        if (!this.ezl.bhF().popBackStackImmediate()) {
             supportFinishAfterTransition();
         }
     }
@@ -271,14 +271,14 @@ public class FragmentActivity extends g implements a.InterfaceC0560a, c.a {
         }
         Object onRetainCustomNonConfigurationInstance = onRetainCustomNonConfigurationInstance();
         List<Fragment> retainNonConfig = this.ezl.retainNonConfig();
-        com.baidu.swan.support.v4.b.f<String, o> bhF = this.ezl.bhF();
-        if (retainNonConfig == null && bhF == null && onRetainCustomNonConfigurationInstance == null) {
+        com.baidu.swan.support.v4.b.f<String, o> bhG = this.ezl.bhG();
+        if (retainNonConfig == null && bhG == null && onRetainCustomNonConfigurationInstance == null) {
             return null;
         }
         b bVar = new b();
         bVar.custom = onRetainCustomNonConfigurationInstance;
         bVar.ezp = retainNonConfig;
-        bVar.ezq = bhF;
+        bVar.ezq = bhG;
         return bVar;
     }
 
@@ -350,7 +350,7 @@ public class FragmentActivity extends g implements a.InterfaceC0560a, c.a {
         printWriter.print(" mReallyStopped=");
         printWriter.println(this.ezm);
         this.ezl.dumpLoaders(str2, fileDescriptor, printWriter, strArr);
-        this.ezl.bhE().dump(str, fileDescriptor, printWriter, strArr);
+        this.ezl.bhF().dump(str, fileDescriptor, printWriter, strArr);
         printWriter.print(str);
         printWriter.println("View Hierarchy:");
         a(str + "  ", printWriter, getWindow().getDecorView());
@@ -469,11 +469,11 @@ public class FragmentActivity extends g implements a.InterfaceC0560a, c.a {
             this.ezm = true;
             this.mRetaining = z;
             this.mHandler.removeMessages(1);
-            bhD();
+            bhE();
         }
     }
 
-    void bhD() {
+    void bhE() {
         this.ezl.doLoaderStop(this.mRetaining);
         this.ezl.dispatchReallyStop();
     }
@@ -481,8 +481,8 @@ public class FragmentActivity extends g implements a.InterfaceC0560a, c.a {
     public void f(Fragment fragment) {
     }
 
-    public k bhE() {
-        return this.ezl.bhE();
+    public k bhF() {
+        return this.ezl.bhF();
     }
 
     @Override // android.app.Activity

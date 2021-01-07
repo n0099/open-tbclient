@@ -174,8 +174,8 @@ public class SapiStatUtil {
     public static void statShareV2Click(b.c cVar, List<PassNameValuePair> list) {
         HashMap hashMap = new HashMap();
         buildStatExtraMap(hashMap, list);
-        hashMap.put("index", cVar.f5344a + "");
-        hashMap.put(b.c.f, cVar.f5345b);
+        hashMap.put("index", cVar.f5345a + "");
+        hashMap.put(b.c.f, cVar.f5346b);
         hashMap.put(b.c.g, cVar.c);
         k.a("share_account_click", hashMap);
     }
@@ -243,7 +243,7 @@ public class SapiStatUtil {
         hashMap.put("share_result", i + "");
         hashMap.put("fail_reason", str);
         if (com.baidu.sapi2.share.b.l != null) {
-            hashMap.put(b.c.f, cVar.f5345b);
+            hashMap.put(b.c.f, cVar.f5346b);
             hashMap.put(b.c.g, cVar.c);
         }
         hashMap.put("uid", str2);

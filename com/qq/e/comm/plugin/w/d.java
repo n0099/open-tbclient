@@ -10,57 +10,57 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
     @Deprecated
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pattern f12972a = Pattern.compile("^http\\://v\\.gdt\\.qq\\.com/gdt_stats\\.fcg\\?viewid=([^&]*).*");
+    private static final Pattern f12973a = Pattern.compile("^http\\://v\\.gdt\\.qq\\.com/gdt_stats\\.fcg\\?viewid=([^&]*).*");
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Pattern f12973b = Pattern.compile(".*[?&]viewid=([^&]*).*");
+    private static final Pattern f12974b = Pattern.compile(".*[?&]viewid=([^&]*).*");
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f12974a;
+        private int f12975a;
 
         /* renamed from: b  reason: collision with root package name */
-        private Map<String, Object> f12975b;
+        private Map<String, Object> f12976b;
 
         public int a() {
-            return this.f12974a;
+            return this.f12975a;
         }
 
         public void a(int i) {
-            this.f12974a = i;
+            this.f12975a = i;
         }
 
         public void a(Map<String, Object> map) {
-            this.f12975b = map;
+            this.f12976b = map;
         }
 
         public Map<String, Object> b() {
-            return this.f12975b;
+            return this.f12976b;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a();
 
         void a(int i, Exception exc);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static class c implements com.qq.e.comm.plugin.t.b {
 
         /* renamed from: a  reason: collision with root package name */
-        final List<String> f12976a;
+        final List<String> f12977a;
 
         /* renamed from: b  reason: collision with root package name */
-        final String f12977b;
+        final String f12978b;
         final com.qq.e.comm.plugin.ad.e c;
         final String d;
         final m e;
@@ -69,8 +69,8 @@ public class d {
         final b h;
 
         c(List<String> list, String str, com.qq.e.comm.plugin.ad.e eVar, String str2, m mVar, a aVar, long j, b bVar) {
-            this.f12976a = list;
-            this.f12977b = str;
+            this.f12977a = list;
+            this.f12978b = str;
             this.c = eVar;
             this.d = str2;
             this.e = mVar;
@@ -83,12 +83,12 @@ public class d {
         public void a(com.qq.e.comm.plugin.t.b.e eVar, com.qq.e.comm.plugin.t.b.f fVar) {
             int e = fVar == null ? 0 : fVar.e();
             if (e == 200 || e == 204) {
-                d.a(this.f12976a, this.f12977b, "", this.e, (int) (System.currentTimeMillis() - this.f), e, this.g);
+                d.a(this.f12977a, this.f12978b, "", this.e, (int) (System.currentTimeMillis() - this.f), e, this.g);
                 if (this.h != null) {
                     this.h.a();
                 }
             } else {
-                d.a(this.f12976a, this.f12977b, "HttpStatus error", this.e, (int) (System.currentTimeMillis() - this.f), e, this.g);
+                d.a(this.f12977a, this.f12978b, "HttpStatus error", this.e, (int) (System.currentTimeMillis() - this.f), e, this.g);
                 if (this.h != null) {
                     this.h.a(e, null);
                 }
@@ -99,7 +99,7 @@ public class d {
 
         @Override // com.qq.e.comm.plugin.t.b
         public void a(Exception exc) {
-            d.a(this.f12976a, this.f12977b, exc.getMessage(), this.e, (int) (System.currentTimeMillis() - this.f), -1, this.g);
+            d.a(this.f12977a, this.f12978b, exc.getMessage(), this.e, (int) (System.currentTimeMillis() - this.f), -1, this.g);
             if (this.h != null) {
                 this.h.a(0, exc);
             }

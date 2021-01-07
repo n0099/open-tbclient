@@ -79,27 +79,27 @@ public class GiftPanelTabView extends LinearLayout {
 
     private void init() {
         setClickable(true);
-        abj();
-        setOrientation(0);
         abk();
+        setOrientation(0);
         abl();
+        abm();
     }
 
-    private void abj() {
+    private void abk() {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(0);
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.d.sdk_ds26));
         setBackgroundDrawable(gradientDrawable);
     }
 
-    private void abk() {
+    private void abl() {
         this.cbw = -13815746;
         this.cbx = -15987436;
         this.cby = -1;
         this.cbz = -13289398;
     }
 
-    private void abl() {
+    private void abm() {
         int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.sdk_ds20);
         for (int i = 0; i <= 1; i++) {
             addView(U(i, dimensionPixelOffset), new LinearLayout.LayoutParams(-2, -1));

@@ -102,7 +102,7 @@ public class b {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (aVar != null) {
-                        aVar.ajM();
+                        aVar.ajN();
                     }
                     b.this.cancel();
                 }
@@ -130,10 +130,10 @@ public class b {
                         if (b.this.mMaskView != null && (b.this.mMaskView.getParent() instanceof ViewGroup)) {
                             ((ViewGroup) b.this.mMaskView.getParent()).removeView(b.this.mMaskView);
                         }
-                        WindowManager.LayoutParams aLK = b.this.aLK();
+                        WindowManager.LayoutParams aLL = b.this.aLL();
                         b.this.dFT = new FrameLayout(b.this.mContext);
                         b.this.dFT.setClickable(true);
-                        b.this.mWM.addView(b.this.dFT, aLK);
+                        b.this.mWM.addView(b.this.dFT, aLL);
                         b.this.mMaskView = b.this.dFT;
                     }
                     if (b.this.dFP != null && (b.this.dFP.getParent() instanceof ViewGroup)) {
@@ -193,7 +193,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public WindowManager.LayoutParams aLK() {
+    public WindowManager.LayoutParams aLL() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -1;

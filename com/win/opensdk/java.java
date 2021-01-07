@@ -9,11 +9,11 @@ public interface java extends IInterface {
     String java();
 
     /* renamed from: java  reason: collision with other method in class */
-    boolean m71java();
+    boolean m82java();
 
     /* renamed from: com.win.opensdk.java$java  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static abstract class AbstractBinderC1249java extends Binder implements java {
+    public static abstract class AbstractBinderC1290java extends Binder implements java {
         public static java java(IBinder iBinder) {
             if (iBinder == null) {
                 return null;
@@ -22,7 +22,7 @@ public interface java extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof java)) {
                 return (java) queryLocalInterface;
             }
-            return new C1250java(iBinder);
+            return new C1291java(iBinder);
         }
 
         @Override // android.os.Binder
@@ -50,10 +50,10 @@ public interface java extends IInterface {
 
         /* renamed from: com.win.opensdk.java$java$java  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        static class C1250java implements java {
+        static class C1291java implements java {
             private IBinder java;
 
-            C1250java(IBinder iBinder) {
+            C1291java(IBinder iBinder) {
                 this.java = iBinder;
             }
 

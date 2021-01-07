@@ -58,14 +58,14 @@ public class b extends BdBaseModel {
         if (TextUtils.isEmpty(this.uid)) {
             return false;
         }
-        return IR(this.uid);
+        return IQ(this.uid);
     }
 
     public void setCurrentPage(int i) {
         this.bdf = i;
     }
 
-    public boolean IR(String str) {
+    public boolean IQ(String str) {
         this.bdf++;
         if (!TextUtils.isEmpty(str) && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
             HttpMessage httpMessage = new HttpMessage(1021027);

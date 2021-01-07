@@ -9,7 +9,7 @@ public class l implements com.baidu.swan.apps.storage.b.c {
     private com.baidu.swan.apps.storage.b.d dOF;
 
     public l() {
-        n.de(n.getBasePath(), n.baf());
+        n.de(n.getBasePath(), n.bag());
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
@@ -50,12 +50,12 @@ public class l implements com.baidu.swan.apps.storage.b.c {
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String aPB() {
+    public String aPC() {
         return n.xz("bdfile://tmp");
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String aPC() {
+    public String aPD() {
         return n.xy(a.USER_DATA_PATH);
     }
 
@@ -81,7 +81,7 @@ public class l implements com.baidu.swan.apps.storage.b.c {
 
     @Override // com.baidu.swan.apps.storage.b.c
     @NonNull
-    public synchronized com.baidu.swan.apps.storage.b.d aPD() {
+    public synchronized com.baidu.swan.apps.storage.b.d aPE() {
         if (this.dOF == null) {
             this.dOF = new m();
         }

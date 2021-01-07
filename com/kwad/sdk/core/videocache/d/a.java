@@ -13,7 +13,7 @@ import com.kwai.video.player.misc.IMediaFormat;
 class a extends SQLiteOpenHelper implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f9783a = {IMConstants.MSG_ROW_ID, "url", "length", IMediaFormat.KEY_MIME};
+    private static final String[] f9784a = {IMConstants.MSG_ROW_ID, "url", "length", IMediaFormat.KEY_MIME};
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
@@ -23,8 +23,8 @@ class a extends SQLiteOpenHelper implements b {
 
     private ContentValues a(n nVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("url", nVar.f9805a);
-        contentValues.put("length", Long.valueOf(nVar.f9806b));
+        contentValues.put("url", nVar.f9806a);
+        contentValues.put("length", Long.valueOf(nVar.f9807b));
         contentValues.put(IMediaFormat.KEY_MIME, nVar.c);
         return contentValues;
     }
@@ -43,7 +43,7 @@ class a extends SQLiteOpenHelper implements b {
         Cursor cursor = null;
         j.a(str);
         try {
-            Cursor query = getReadableDatabase().query("SourceInfo", f9783a, "url=?", new String[]{str}, null, null, null);
+            Cursor query = getReadableDatabase().query("SourceInfo", f9784a, "url=?", new String[]{str}, null, null, null);
             if (query != null) {
                 try {
                     if (query.moveToFirst()) {

@@ -11,14 +11,14 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SM f12741a = GDTADManager.getInstance().getSM();
+    private static SM f12742a = GDTADManager.getInstance().getSM();
 
     public static int a() {
-        return f12741a.getInteger("rewardVideoCardShowTime", 4);
+        return f12742a.getInteger("rewardVideoCardShowTime", 4);
     }
 
     public static int a(SM sm) {
@@ -33,7 +33,7 @@ public class n {
     }
 
     public static int a(String str) {
-        return f12741a.getIntegerForPlacement("rewardVideoCloseShowTime", str, 30);
+        return f12742a.getIntegerForPlacement("rewardVideoCloseShowTime", str, 30);
     }
 
     public static String a(int i, String str, long j) {
@@ -73,12 +73,12 @@ public class n {
     }
 
     public static boolean a(com.qq.e.comm.plugin.s.a aVar) {
-        int integer = f12741a.getInteger("rvfsClickable", 0);
+        int integer = f12742a.getInteger("rvfsClickable", 0);
         return integer == 1 || (integer != 0 && com.qq.e.comm.plugin.l.a.a().a(aVar.Z(), String.valueOf(integer), 0) == 1);
     }
 
     public static int b() {
-        int integer = f12741a.getInteger("rewardLoadAdCount", 1);
+        int integer = f12742a.getInteger("rewardLoadAdCount", 1);
         if (integer > 2 || integer < 1) {
             return 1;
         }
@@ -86,14 +86,14 @@ public class n {
     }
 
     public static int b(String str) {
-        return f12741a.getIntegerForPlacement("rewardVideoEffectiveTime", str, 30);
+        return f12742a.getIntegerForPlacement("rewardVideoEffectiveTime", str, 30);
     }
 
     public static long c() {
-        return SystemClock.elapsedRealtime() + (f12741a.getInteger("rewardVideoExpireDuration", 1800) * 1000);
+        return SystemClock.elapsedRealtime() + (f12742a.getInteger("rewardVideoExpireDuration", 1800) * 1000);
     }
 
     public static boolean c(String str) {
-        return f12741a.getIntegerForPlacement("showRewardVideoTips", str, 0) == 1;
+        return f12742a.getIntegerForPlacement("showRewardVideoTips", str, 0) == 1;
     }
 }

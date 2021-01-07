@@ -5,15 +5,15 @@ import com.baidu.ar.constants.DebugConstants;
 import com.baidu.webkit.internal.blink.VideoFreeFlowConfigManager;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class u {
     public final int aO;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final u f13847a = new u("TIMESTAMP", 0, 0);
+    public static final u f13848a = new u("TIMESTAMP", 0, 0);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final u f13848b = new u("DEVICE_ID", 1, 1);
+    public static final u f13849b = new u("DEVICE_ID", 1, 1);
     public static final u c = new u("IMEI", 2, 2);
     public static final u d = new u("ANDROID_ID", 3, 3);
     public static final u e = new u("CID", 4, 4);
@@ -106,8 +106,8 @@ public final class u {
     public static final u aN = new u("IOS_RING_VOLUME", 91, DebugConstants.HTTP_ERRCODE_NOT_FIND);
 
     static {
-        u uVar = f13847a;
-        u uVar2 = f13848b;
+        u uVar = f13848a;
+        u uVar2 = f13849b;
         u uVar3 = c;
         u uVar4 = d;
         u uVar5 = e;

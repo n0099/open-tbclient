@@ -24,7 +24,7 @@ public class g extends BdBaseModel<GuardClubMemberListActivity> {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (!(httpResponsedMessage instanceof GuardClubMemberListHttpResponseMessage)) {
                 if (g.this.hcv != null) {
-                    g.this.hcv.bRy();
+                    g.this.hcv.bRz();
                     return;
                 }
                 return;
@@ -32,7 +32,7 @@ public class g extends BdBaseModel<GuardClubMemberListActivity> {
             GuardClubMemberListHttpResponseMessage guardClubMemberListHttpResponseMessage = (GuardClubMemberListHttpResponseMessage) httpResponsedMessage;
             if (guardClubMemberListHttpResponseMessage.getError() != 0) {
                 if (g.this.hcv != null) {
-                    g.this.hcv.bRy();
+                    g.this.hcv.bRz();
                     return;
                 }
                 return;
@@ -50,7 +50,7 @@ public class g extends BdBaseModel<GuardClubMemberListActivity> {
                     g.this.hcv.completePullRefresh();
                 }
                 if (guardClubMemberListHttpResponseMessage.hasMore) {
-                    g.this.hcv.bYQ();
+                    g.this.hcv.bYR();
                 } else {
                     g.this.hcv.no(g.this.hcp == 1);
                 }
@@ -68,7 +68,7 @@ public class g extends BdBaseModel<GuardClubMemberListActivity> {
         this.hcw = j;
         this.hbb = z;
         this.haZ = aVar;
-        bYX();
+        bYY();
         MessageManager.getInstance().registerListener(this.hcx);
     }
 
@@ -86,11 +86,11 @@ public class g extends BdBaseModel<GuardClubMemberListActivity> {
         return false;
     }
 
-    public boolean bYT() {
+    public boolean bYU() {
         return this.hasMore;
     }
 
-    public void bYU() {
+    public void bYV() {
         np(true);
     }
 
@@ -99,18 +99,18 @@ public class g extends BdBaseModel<GuardClubMemberListActivity> {
         if (z) {
             this.hcp = 1;
         }
-        bYZ();
+        bZa();
     }
 
-    public void bYV() {
+    public void bYW() {
         this.geO = false;
         if (this.hcv != null) {
-            this.hcv.bUE();
-            bYZ();
+            this.hcv.bUF();
+            bZa();
         }
     }
 
-    private void bYZ() {
+    private void bZa() {
         if (!BdNetTypeUtil.isNetWorkAvailable() && this.hcv != null) {
             this.hcv.Us();
             return;
@@ -127,7 +127,7 @@ public class g extends BdBaseModel<GuardClubMemberListActivity> {
         MessageManager.getInstance().sendMessage(hVar);
     }
 
-    private void bYX() {
+    private void bYY() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021138, TbConfig.SERVER_HOST + "liveserver/guardClub/memberlist");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);

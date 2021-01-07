@@ -129,8 +129,8 @@ public class e extends com.baidu.adp.widget.ListView.a<g, CardViewHolder<b>> {
             return null;
         }
         if (!this.jmF) {
-            cardViewHolder.cvG().a(gVar, i, this.jmG);
-            cardViewHolder.cvG().mPosition = i;
+            cardViewHolder.cvH().a(gVar, i, this.jmG);
+            cardViewHolder.cvH().mPosition = i;
         }
         return cardViewHolder.getView();
     }

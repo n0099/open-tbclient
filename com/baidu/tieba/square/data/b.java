@@ -44,11 +44,11 @@ public class b extends BaseCardInfo {
         return this.memberCount;
     }
 
-    public int dNl() {
+    public int dNm() {
         return this.threadCount;
     }
 
-    public String boP() {
+    public String boQ() {
         return this.iKV;
     }
 

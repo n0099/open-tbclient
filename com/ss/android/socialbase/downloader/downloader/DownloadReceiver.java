@@ -9,7 +9,7 @@ import com.ss.android.socialbase.downloader.notification.DownloadNotificationSer
 public class DownloadReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13422a = DownloadReceiver.class.getSimpleName();
+    private static final String f13423a = DownloadReceiver.class.getSimpleName();
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
@@ -18,7 +18,7 @@ public class DownloadReceiver extends BroadcastReceiver {
             if (!TextUtils.isEmpty(action)) {
                 if (action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
                     if (com.ss.android.socialbase.downloader.f.a.a()) {
-                        com.ss.android.socialbase.downloader.f.a.a(f13422a, "Received broadcast intent for android.net.conn.CONNECTIVITY_CHANGE");
+                        com.ss.android.socialbase.downloader.f.a.a(f13423a, "Received broadcast intent for android.net.conn.CONNECTIVITY_CHANGE");
                     }
                     a(context, action);
                 } else if (action.equals("android.intent.action.MEDIA_UNMOUNTED") || action.equals("android.intent.action.MEDIA_REMOVED") || action.equals("android.intent.action.MEDIA_BAD_REMOVAL") || action.equals("android.intent.action.MEDIA_EJECT")) {

@@ -26,11 +26,11 @@ public class b {
         return this.bQb == 2;
     }
 
-    public boolean YA() {
+    public boolean YB() {
         return this.bQb == 3 || this.bQb == 4;
     }
 
-    public long YB() {
+    public long YC() {
         return this.bQa;
     }
 
@@ -38,7 +38,7 @@ public class b {
         return this.bQb;
     }
 
-    public long YC() {
+    public long YD() {
         return this.bQc;
     }
 }

@@ -19,11 +19,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static void a(final com.baidu.prologue.a.b.a aVar) {
         final long currentTimeMillis = System.currentTimeMillis();
-        a(aVar, IMTrack.DbBuilder.ACTION_UPDATE, aVar.rc(), currentTimeMillis).ahw().ahv().a(new m() { // from class: com.baidu.prologue.business.a.1
+        a(aVar, IMTrack.DbBuilder.ACTION_UPDATE, aVar.rc(), currentTimeMillis).ahx().ahw().a(new m() { // from class: com.baidu.prologue.business.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.prologue.service.network.j
             /* renamed from: fu */
@@ -48,7 +48,7 @@ public class a {
         final long currentTimeMillis = System.currentTimeMillis();
         Request.a a2 = a(aVar, "query", aVar.rc(), currentTimeMillis);
         a2.ep(true);
-        a2.ahw().ahv().a(new m() { // from class: com.baidu.prologue.business.a.2
+        a2.ahx().ahw().a(new m() { // from class: com.baidu.prologue.business.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.prologue.service.network.j
             /* renamed from: fu */
@@ -77,10 +77,10 @@ public class a {
     }
 
     private static Request.a a(com.baidu.prologue.a.b.a aVar, String str, String str2, long j) {
-        Request.a aVar2 = new Request.a(aVar.age(), com.baidu.prologue.a.a.a.agd() + (TextUtils.equals(str, IMTrack.DbBuilder.ACTION_UPDATE) ? "?action=update" : "?action=query"));
+        Request.a aVar2 = new Request.a(aVar.agf(), com.baidu.prologue.a.a.a.age() + (TextUtils.equals(str, IMTrack.DbBuilder.ACTION_UPDATE) ? "?action=update" : "?action=query"));
         aVar2.bi("ac", "3");
         aVar2.bi("pid", str2);
-        aVar2.bi("product_id ", aVar.agp());
+        aVar2.bi("product_id ", aVar.agq());
         a(aVar2, aVar);
         a(aVar2, str, aVar, j);
         return aVar2;
@@ -94,11 +94,11 @@ public class a {
             jSONObject.put("v", str);
             jSONArray.put(jSONObject);
             JSONObject jSONObject2 = new JSONObject();
-            List<com.baidu.prologue.business.data.e> agR = com.baidu.prologue.business.data.d.agR();
+            List<com.baidu.prologue.business.data.e> agS = com.baidu.prologue.business.data.d.agS();
             ArrayList arrayList = new ArrayList();
             JSONArray jSONArray2 = new JSONArray();
-            if (agR != null && agR.size() > 0) {
-                for (com.baidu.prologue.business.data.e eVar : agR) {
+            if (agS != null && agS.size() > 0) {
+                for (com.baidu.prologue.business.data.e eVar : agS) {
                     JSONObject jSONObject3 = new JSONObject();
                     jSONObject3.put("k", eVar.ctG);
                     if (!TextUtils.isEmpty(eVar.ctG)) {
@@ -113,7 +113,7 @@ public class a {
                 }
             }
             jSONObject2.put("d", jSONArray2);
-            jSONObject2.put("s", f.agW());
+            jSONObject2.put("s", f.agX());
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put("k", Constants.KEYS.AD_INFO);
             jSONObject4.put("v", jSONObject2.toString());
@@ -124,7 +124,7 @@ public class a {
             jSONArray.put(jSONObject5);
             JSONObject jSONObject6 = new JSONObject();
             jSONObject6.put("k", "logid");
-            jSONObject6.put("v", com.baidu.prologue.a.c.f.md5(aVar2.agh() + j));
+            jSONObject6.put("v", com.baidu.prologue.a.c.f.md5(aVar2.agi() + j));
             jSONArray.put(jSONObject6);
             aVar.bi("ext", jSONArray.toString());
         } catch (JSONException e) {
@@ -133,37 +133,37 @@ public class a {
     }
 
     private static void a(Request.a aVar, com.baidu.prologue.a.b.a aVar2) {
-        aVar.bi("ver", aVar2.agf());
+        aVar.bi("ver", aVar2.agg());
         aVar.bi("sv", "1.0.4");
-        aVar.bi("uid", aVar2.agn());
-        aVar.bi("bdid", aVar2.agl());
-        aVar.bi("cuid", aVar2.agh());
-        aVar.bi("mod", aVar2.agi());
-        aVar.bi("ov", aVar2.agg());
-        aVar.bi("imei", aVar2.agj());
-        aVar.bi(j.c, aVar2.agm());
+        aVar.bi("uid", aVar2.ago());
+        aVar.bi("bdid", aVar2.agm());
+        aVar.bi("cuid", aVar2.agi());
+        aVar.bi("mod", aVar2.agj());
+        aVar.bi("ov", aVar2.agh());
+        aVar.bi("imei", aVar2.agk());
+        aVar.bi(j.c, aVar2.agn());
         aVar.bi("fmt", "json");
-        aVar.bi("coot", aVar2.ags());
-        aVar.bi("lgt", aVar2.agt()[0]);
-        aVar.bi("lat", aVar2.agt()[1]);
-        aVar.bi("apna", aVar2.agk());
-        aVar.bi("eid", aVar2.agr());
+        aVar.bi("coot", aVar2.agt());
+        aVar.bi("lgt", aVar2.agu()[0]);
+        aVar.bi("lat", aVar2.agu()[1]);
+        aVar.bi("apna", aVar2.agl());
+        aVar.bi("eid", aVar2.ags());
         aVar.bi("st", "1");
         aVar.bi("ot", "2");
-        aVar.bi("nt", String.valueOf(new com.baidu.prologue.service.network.g(aVar2.age()).aht()));
+        aVar.bi("nt", String.valueOf(new com.baidu.prologue.service.network.g(aVar2.agf()).ahu()));
         aVar.bi(Config.EXCEPTION_CRASH_TYPE, "2");
         aVar.bi("is_https", "1");
         aVar.bi("android_id", aVar2.androidId());
-        aVar.bi("from", aVar2.agu());
-        aVar.bi(BdStatsConstant.StatsKey.CURRENT_CHANNEL, aVar2.agv());
+        aVar.bi("from", aVar2.agv());
+        aVar.bi(BdStatsConstant.StatsKey.CURRENT_CHANNEL, aVar2.agw());
         aVar.bh("User-Agent", aVar2.userAgent());
-        if (!TextUtils.isEmpty(aVar2.agz())) {
-            aVar.bi("oaid", aVar2.agz());
+        if (!TextUtils.isEmpty(aVar2.agA())) {
+            aVar.bi("oaid", aVar2.agA());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(com.baidu.prologue.a.b.a aVar, long j, String str, String str2) {
-        Als.a(com.baidu.prologue.a.c.f.md5(aVar.agh() + j), aVar.rc(), str, System.currentTimeMillis() - j, str2);
+        Als.a(com.baidu.prologue.a.c.f.md5(aVar.agi() + j), aVar.rc(), str, System.currentTimeMillis() - j, str2);
     }
 }

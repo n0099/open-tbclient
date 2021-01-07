@@ -17,11 +17,11 @@ public class a {
 
     /* renamed from: com.baidu.yuyinala.background.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0931a {
+    public interface InterfaceC0969a {
         void zZ(boolean z);
     }
 
-    public static void a(String str, final String str2, final InterfaceC0931a interfaceC0931a) {
+    public static void a(String str, final String str2, final InterfaceC0969a interfaceC0969a) {
         if (TextUtils.isEmpty(str2)) {
             BdLog.w("warning!! download illegal dir");
         } else if (TextUtils.isEmpty(str)) {
@@ -39,7 +39,7 @@ public class a {
             downloadData.setUrl(str);
             downloadData.setType(24);
             downloadData.setPath(str3);
-            if (interfaceC0931a != null) {
+            if (interfaceC0969a != null) {
                 downloadData.setPriority(160);
                 downloadData.setForceDownload(true);
             }
@@ -60,13 +60,13 @@ public class a {
 
                 @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
-                    a.a(str3, iw, str2, interfaceC0931a);
+                    a.a(str3, iw, str2, interfaceC0969a);
                 }
 
                 @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                 public void onFileDownloadFailed(DownloadData downloadData2, int i, String str4) {
-                    if (interfaceC0931a != null) {
-                        interfaceC0931a.zZ(false);
+                    if (interfaceC0969a != null) {
+                        interfaceC0969a.zZ(false);
                     }
                 }
             });
@@ -90,7 +90,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void a(final String str, final String str2, final String str3, final InterfaceC0931a interfaceC0931a) {
+    public static void a(final String str, final String str2, final String str3, final InterfaceC0969a interfaceC0969a) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.yuyinala.background.c.a.3
                 /* JADX DEBUG: Method merged with bridge method */
@@ -109,8 +109,8 @@ public class a {
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 public void onPostExecute(Boolean bool) {
                     super.onPostExecute((AnonymousClass3) bool);
-                    if (interfaceC0931a != null) {
-                        interfaceC0931a.zZ(bool.booleanValue());
+                    if (interfaceC0969a != null) {
+                        interfaceC0969a.zZ(bool.booleanValue());
                     }
                 }
             }.execute(new Void[0]);

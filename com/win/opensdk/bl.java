@@ -7,56 +7,56 @@ import com.bun.miitmdid.interfaces.IIdentifierListener;
 public class bl {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f14026a;
+    public static String f14027a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f14027b;
+    public static String f14028b;
 
     /* renamed from: case  reason: not valid java name */
-    public static String f26case;
+    public static String f27case;
     private static int java;
 
     /* renamed from: java  reason: collision with other field name */
-    public static final String f27java = bl.class.getSimpleName();
-    private static boolean qbE = true;
+    public static final String f28java = bl.class.getSimpleName();
+    private static boolean qdm = true;
 
     public static void iK(Context context) {
         if (!bk.java()) {
-            qbE = false;
+            qdm = false;
             return;
         }
         try {
             int InitSdk = MdidSdkHelper.InitSdk(context, true, new IIdentifierListener() { // from class: com.win.opensdk.bl.1
             });
             if (InitSdk == 1008612) {
-                Ta(InitSdk);
+                Tq(InitSdk);
             } else if (InitSdk == 1008613) {
-                Ta(InitSdk);
+                Tq(InitSdk);
             } else if (InitSdk == 1008611) {
-                Ta(InitSdk);
+                Tq(InitSdk);
             } else if (InitSdk == 1008614) {
-                Ta(InitSdk);
+                Tq(InitSdk);
             } else if (InitSdk == 1008615) {
-                Ta(InitSdk);
+                Tq(InitSdk);
             }
         } catch (Exception e) {
         }
     }
 
-    private static void Ta(int i) {
-        qbE = false;
+    private static void Tq(int i) {
+        qdm = false;
         java = i;
     }
 
     public static String java() {
-        return f26case;
+        return f27case;
     }
 
-    public static String eJS() {
-        return f14026a;
+    public static String eKw() {
+        return f14027a;
     }
 
     public static String a() {
-        return f14027b;
+        return f14028b;
     }
 }

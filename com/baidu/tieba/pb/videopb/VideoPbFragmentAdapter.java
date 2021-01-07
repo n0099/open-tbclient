@@ -14,25 +14,25 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
     private ArrayList<BaseFragment> mFragments;
-    private List<String> mgo;
+    private List<String> mgn;
 
     public VideoPbFragmentAdapter(FragmentManager fragmentManager, VideoPbFragment videoPbFragment) {
         super(fragmentManager);
-        if (this.mgo == null) {
-            this.mgo = new ArrayList();
+        if (this.mgn == null) {
+            this.mgn = new ArrayList();
         }
-        this.mgo.clear();
-        if (com.baidu.tbadk.a.d.bmH()) {
-            this.mgo.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+        this.mgn.clear();
+        if (com.baidu.tbadk.a.d.bmI()) {
+            this.mgn.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         } else {
-            this.mgo.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
-            this.mgo.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+            this.mgn.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
+            this.mgn.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         }
         if (this.mFragments == null) {
             this.mFragments = new ArrayList<>();
         }
         this.mFragments.clear();
-        if (com.baidu.tbadk.a.d.bmH()) {
+        if (com.baidu.tbadk.a.d.bmI()) {
             this.mFragments.add(DetailInfoAndReplyFragment.ac(videoPbFragment));
             return;
         }
@@ -62,13 +62,13 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        if (this.mgo == null || i < 0 || i >= this.mgo.size()) {
+        if (this.mgn == null || i < 0 || i >= this.mgn.size()) {
             return null;
         }
-        return this.mgo.get(i);
+        return this.mgn.get(i);
     }
 
-    public ArrayList<BaseFragment> dvV() {
+    public ArrayList<BaseFragment> dvW() {
         return this.mFragments;
     }
 

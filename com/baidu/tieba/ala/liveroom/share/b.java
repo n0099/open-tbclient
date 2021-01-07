@@ -27,7 +27,7 @@ public class b {
     }
 
     public void dismiss() {
-        if (cnf()) {
+        if (cng()) {
             If();
             this.hNS = null;
         }
@@ -43,7 +43,7 @@ public class b {
         }
     }
 
-    private boolean cnf() {
+    private boolean cng() {
         if (this.mContext == null || this.mContext.getPageActivity() == null) {
             return false;
         }

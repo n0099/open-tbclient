@@ -6,21 +6,21 @@ import java.util.concurrent.FutureTask;
 public class b<V> extends FutureTask<V> implements Comparable<b<V>> {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7620a;
+    private int f7621a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f7621b;
+    private int f7622b;
 
     public b(Callable<V> callable, int i, int i2) {
         super(callable);
-        this.f7620a = i == -1 ? 5 : i;
-        this.f7621b = i2;
+        this.f7621a = i == -1 ? 5 : i;
+        this.f7622b = i2;
     }
 
     public b(Runnable runnable, V v, int i, int i2) {
         super(runnable, v);
-        this.f7620a = i == -1 ? 5 : i;
-        this.f7621b = i2;
+        this.f7621a = i == -1 ? 5 : i;
+        this.f7622b = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,6 +37,6 @@ public class b<V> extends FutureTask<V> implements Comparable<b<V>> {
     }
 
     public int a() {
-        return this.f7620a;
+        return this.f7621a;
     }
 }

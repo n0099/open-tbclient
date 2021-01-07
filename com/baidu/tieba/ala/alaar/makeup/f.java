@@ -15,12 +15,12 @@ public class f extends CustomMessageTask {
                 if (h.isDebug()) {
                     h.d("MakeupDM_TASK", "GetMakeupDataTask run " + customMessage);
                 }
-                g.bSz().a(new a.b() { // from class: com.baidu.tieba.ala.alaar.makeup.f.1.1
+                g.bSA().a(new a.b() { // from class: com.baidu.tieba.ala.alaar.makeup.f.1.1
                     @Override // com.baidu.tieba.ala.alaar.makeup.a.b
                     public void c(a aVar) {
                         com.baidu.live.ar.g gVar = new com.baidu.live.ar.g();
-                        com.baidu.tieba.ala.alaar.makeup.a.c bSB = g.bSz().bSB();
-                        gVar.bh(bSB != null && bSB.CJ());
+                        com.baidu.tieba.ala.alaar.makeup.a.c bSC = g.bSA().bSC();
+                        gVar.bh(bSC != null && bSC.CJ());
                         if (h.isDebug()) {
                             h.d("MakeupDM_TASK", "GetMakeupDataTask done " + gVar.CJ());
                         }

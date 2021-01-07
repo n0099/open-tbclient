@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.a;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -222,7 +221,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
     public static class ClientParams implements Serializable {
         public ClientParams(JSONObject jSONObject) {
             if (jSONObject != null) {
-                a.bME().parse(jSONObject);
+                com.baidu.tieba.a.bMF().parse(jSONObject);
             }
         }
     }

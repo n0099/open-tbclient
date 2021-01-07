@@ -10,7 +10,7 @@ import com.bytedance.sdk.adnet.core.r;
 public class a implements d.b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected LruCache<String, Bitmap> f6290a = new LruCache<String, Bitmap>(Long.valueOf(Runtime.getRuntime().maxMemory()).intValue() / 16) { // from class: com.bytedance.sdk.adnet.b.a.1
+    protected LruCache<String, Bitmap> f6291a = new LruCache<String, Bitmap>(Long.valueOf(Runtime.getRuntime().maxMemory()).intValue() / 16) { // from class: com.bytedance.sdk.adnet.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
@@ -23,7 +23,7 @@ public class a implements d.b {
     @Override // com.bytedance.sdk.adnet.b.d.b
     public Bitmap a(String str) {
         try {
-            return this.f6290a.get(str);
+            return this.f6291a.get(str);
         } catch (Throwable th) {
             r.a(th, "DefaultImageCache get bitmap error", new Object[0]);
             return null;
@@ -34,7 +34,7 @@ public class a implements d.b {
     public void a(String str, Bitmap bitmap) {
         if (!TextUtils.isEmpty(str) && bitmap != null) {
             try {
-                this.f6290a.put(str, bitmap);
+                this.f6291a.put(str, bitmap);
             } catch (Throwable th) {
                 r.a(th, "DefaultImageCache put bitmap error", new Object[0]);
             }

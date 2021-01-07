@@ -90,7 +90,7 @@ public class d extends com.baidu.adp.base.d<RelateTopicForumActivity> {
         }
     }
 
-    public void Zh() {
+    public void Zi() {
         if (this.WV != null && this.gCf != null) {
             this.WV.setNextPage(this.gCf);
             this.gCf.endLoadData();
@@ -98,14 +98,14 @@ public class d extends com.baidu.adp.base.d<RelateTopicForumActivity> {
         }
     }
 
-    public void bVF() {
+    public void bVG() {
         if (this.WV != null && this.gCf != null) {
             this.WV.setNextPage(null);
             this.gCf.hideEmptyView();
         }
     }
 
-    public j cVF() {
+    public j cVG() {
         return this.kuq;
     }
 }

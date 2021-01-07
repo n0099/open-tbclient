@@ -26,14 +26,14 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i implements NUADI {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f12604a;
+    private String f12605a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f12605b;
+    private String f12606b;
     private String c;
     private com.qq.e.comm.plugin.ad.l d;
     private int e;
@@ -58,8 +58,8 @@ public class i implements NUADI {
         this.j = new Handler(Looper.getMainLooper());
         this.m = 0;
         this.n = 0;
-        this.f12604a = str;
-        this.f12605b = str2;
+        this.f12605a = str;
+        this.f12606b = str2;
         this.c = com.qq.e.comm.plugin.util.a.a(str, str2, o.b());
         this.d = lVar;
         this.f = aDListener;
@@ -68,7 +68,7 @@ public class i implements NUADI {
 
     private com.qq.e.comm.plugin.ad.b a(int i, LoadAdParams loadAdParams) {
         com.qq.e.comm.plugin.ad.b bVar = new com.qq.e.comm.plugin.ad.b();
-        bVar.a(this.f12605b);
+        bVar.a(this.f12606b);
         bVar.c(1);
         bVar.d(i);
         bVar.a(this.d);
@@ -117,7 +117,7 @@ public class i implements NUADI {
             return;
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
-        if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject(this.f12605b)) == null) {
+        if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject(this.f12606b)) == null) {
             a(501);
             l.a(false, this.i, 5004);
             return;
@@ -136,7 +136,7 @@ public class i implements NUADI {
         }
         List<NativeUnifiedADData> arrayList = new ArrayList<>();
         boolean z2 = false;
-        for (JSONObject jSONObject2 : com.qq.e.comm.plugin.util.b.a(optJSONArray, new m(this.f12605b, com.qq.e.comm.plugin.ad.e.NATIVEUNIFIEDAD, (com.qq.e.comm.plugin.ad.d) null), this.c)) {
+        for (JSONObject jSONObject2 : com.qq.e.comm.plugin.util.b.a(optJSONArray, new m(this.f12606b, com.qq.e.comm.plugin.ad.e.NATIVEUNIFIEDAD, (com.qq.e.comm.plugin.ad.d) null), this.c)) {
             g gVar = new g(jSONObject2, this);
             if (z2) {
                 z = z2;
@@ -161,11 +161,11 @@ public class i implements NUADI {
     }
 
     public String b() {
-        return this.f12604a;
+        return this.f12605a;
     }
 
     public String c() {
-        return this.f12605b;
+        return this.f12606b;
     }
 
     public String d() {
@@ -207,7 +207,7 @@ public class i implements NUADI {
             i2 = i3;
         }
         final long elapsedRealtime = SystemClock.elapsedRealtime();
-        com.qq.e.comm.plugin.w.e.a(a(i2, loadAdParams), new com.qq.e.comm.plugin.w.b(this.c, com.qq.e.comm.plugin.ad.e.NATIVEUNIFIEDAD, this.f12605b), new e.a() { // from class: com.qq.e.comm.plugin.nativeadunified.i.1
+        com.qq.e.comm.plugin.w.e.a(a(i2, loadAdParams), new com.qq.e.comm.plugin.w.b(this.c, com.qq.e.comm.plugin.ad.e.NATIVEUNIFIEDAD, this.f12606b), new e.a() { // from class: com.qq.e.comm.plugin.nativeadunified.i.1
             @Override // com.qq.e.comm.plugin.w.e.a
             public void a(com.qq.e.comm.plugin.k.a aVar) {
                 GDTLogger.w("load NativeAd failed");
@@ -243,7 +243,7 @@ public class i implements NUADI {
 
     @Override // com.qq.e.comm.pi.ADI
     public void setDownAPPConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy) {
-        GDTADManager.getInstance().getSM().setDEVCodeSetting(Constants.KEYS.DownConfirm, Integer.valueOf(downAPPConfirmPolicy.value()), this.f12605b);
+        GDTADManager.getInstance().getSM().setDEVCodeSetting(Constants.KEYS.DownConfirm, Integer.valueOf(downAPPConfirmPolicy.value()), this.f12606b);
     }
 
     @Override // com.qq.e.comm.pi.NUADI

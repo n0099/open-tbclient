@@ -238,10 +238,10 @@ public class ScrollLabelTabHost extends RelativeLayout {
             public void l(int i, Object obj) {
                 if (obj instanceof com.baidu.tieba.frs.game.strategy.data.a) {
                     ScrollLabelTabHost.this.jwD = ((com.baidu.tieba.frs.game.strategy.data.a) obj).labelId;
-                    FrsGameStrategyItemListView cKt = ScrollLabelTabHost.this.jwV.cKt();
-                    cKt.cz(ScrollLabelTabHost.this.jwC, ScrollLabelTabHost.this.jwD);
+                    FrsGameStrategyItemListView cKu = ScrollLabelTabHost.this.jwV.cKu();
+                    cKu.cz(ScrollLabelTabHost.this.jwC, ScrollLabelTabHost.this.jwD);
                     if (ScrollLabelTabHost.this.jwL != null && !ScrollLabelTabHost.this.jwL.cv(ScrollLabelTabHost.this.jwC, ScrollLabelTabHost.this.jwD)) {
-                        cKt.pullToRefresh();
+                        cKu.pullToRefresh();
                     }
                 }
             }
@@ -306,19 +306,19 @@ public class ScrollLabelTabHost extends RelativeLayout {
 
     public void Be(int i) {
         if (this.jwZ != null && this.jwZ.isShowing()) {
-            this.jwZ.cHv();
+            this.jwZ.cHw();
         }
         this.jwZ = new f(getContext());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.ds60));
         layoutParams.addRule(10);
-        TextView cKC = this.jwZ.cKC();
+        TextView cKD = this.jwZ.cKD();
         if (i == 0) {
-            cKC.setText(getResources().getString(R.string.recommend_frs_refresh_nodata));
+            cKD.setText(getResources().getString(R.string.recommend_frs_refresh_nodata));
         } else {
-            cKC.setText(String.format(getResources().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i)));
+            cKD.setText(String.format(getResources().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i)));
         }
-        addView(cKC, layoutParams);
-        this.jwZ.cKD();
+        addView(cKD, layoutParams);
+        this.jwZ.cKE();
     }
 
     public void o(int i, int i2, String str) {
@@ -342,19 +342,19 @@ public class ScrollLabelTabHost extends RelativeLayout {
 
     public void onDestory() {
         if (this.jwZ != null) {
-            this.jwZ.cHv();
+            this.jwZ.cHw();
         }
         this.jwV.onDestory();
     }
 
     public FrsGameStrategyItemListView getCurrentPageView() {
-        return this.jwV.cKt();
+        return this.jwV.cKu();
     }
 
-    public void bVE() {
-        FrsGameStrategyItemListView cKt = this.jwV.cKt();
-        if (cKt != null) {
-            cKt.pullToRefresh();
+    public void bVF() {
+        FrsGameStrategyItemListView cKu = this.jwV.cKu();
+        if (cKu != null) {
+            cKu.pullToRefresh();
         }
     }
 }

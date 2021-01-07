@@ -8,17 +8,17 @@ import java.util.List;
 final class x implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f5898a;
+    final /* synthetic */ String f5899a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ int f5899b;
+    final /* synthetic */ int f5900b;
     final /* synthetic */ FeedbackEditActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(FeedbackEditActivity feedbackEditActivity, String str, int i) {
         this.c = feedbackEditActivity;
-        this.f5898a = str;
-        this.f5899b = i;
+        this.f5899a = str;
+        this.f5900b = i;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0044: IGET  (r2v0 int A[REMOVE]) = (r3v0 'this' com.baidu.ufosdk.ui.x A[IMMUTABLE_TYPE, THIS]) com.baidu.ufosdk.ui.x.b int)] */
@@ -31,8 +31,8 @@ final class x implements Runnable {
         List list;
         List list2;
         List list3;
-        com.baidu.ufosdk.f.c.c(" --*^o^*-- return : " + this.f5898a);
-        b2 = FeedbackEditActivity.b(BitmapFactory.decodeFile(this.f5898a));
+        com.baidu.ufosdk.f.c.c(" --*^o^*-- return : " + this.f5899a);
+        b2 = FeedbackEditActivity.b(BitmapFactory.decodeFile(this.f5899a));
         if (b2 == null || b2.length == 0) {
             return;
         }
@@ -43,13 +43,13 @@ final class x implements Runnable {
                 list3.add(b2);
             } else {
                 list2 = this.c.q;
-                list2.set(this.f5899b, b2);
+                list2.set(this.f5900b, b2);
             }
         } catch (Exception e) {
             com.baidu.ufosdk.f.c.a("arrayList error in readBitmapFromFile!", e);
         }
         hashMap = this.c.r;
-        hashMap.put(new StringBuilder().append(this.f5899b).toString(), this.f5898a);
+        hashMap.put(new StringBuilder().append(this.f5900b).toString(), this.f5899a);
         StringBuilder sb = new StringBuilder("*^o^*-- picPathMap.size : ");
         hashMap2 = this.c.r;
         com.baidu.ufosdk.f.c.c(sb.append(hashMap2.size()).toString());

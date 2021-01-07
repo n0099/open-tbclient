@@ -26,7 +26,7 @@ public class ah {
         }
     }
 
-    public static boolean bJn() {
+    public static boolean bJo() {
         return fPW;
     }
 
@@ -60,7 +60,7 @@ public class ah {
         return th(i);
     }
 
-    public static boolean bJo() {
+    public static boolean bJp() {
         if (!com.baidu.adp.lib.util.j.isWifiNet() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 1) {
             return com.baidu.adp.lib.util.j.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2;
         }

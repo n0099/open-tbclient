@@ -69,7 +69,7 @@ public class ab extends c implements p<com.baidu.tbadk.core.data.at>, q {
     }
 
     private void e(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar.boU()) {
+        if (aVar.boV()) {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds57);
             int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds60);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
@@ -119,16 +119,16 @@ public class ab extends c implements p<com.baidu.tbadk.core.data.at>, q {
     }
 
     public void g(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.boQ() != null) {
-            if (aVar.boQ().bpN() > 0 || aVar.boO() == null) {
+        if (aVar != null && aVar.boR() != null) {
+            if (aVar.boR().bpO() > 0 || aVar.boP() == null) {
                 if (this.aiE) {
                     tp();
                 } else {
                     e(aVar);
                 }
-            } else if (aVar.boU() || aVar.boV()) {
+            } else if (aVar.boV() || aVar.boW()) {
                 if (aVar.isSupportTop()) {
-                    by((!f(aVar) || com.baidu.tbadk.a.d.bmE()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds60) : getDimens(R.dimen.tbds64));
+                    by((!f(aVar) || com.baidu.tbadk.a.d.bmF()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds60) : getDimens(R.dimen.tbds64));
                 } else if (aVar.isSupportBottom()) {
                     if (this.ahn != null) {
                         this.ahn.a(this);

@@ -34,7 +34,7 @@ public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a
 
     public final void a() {
         c cVar = this.zr;
-        File file = new File(cVar.f1038b, cVar.f1037a);
+        File file = new File(cVar.f1039b, cVar.f1038a);
         if (file.exists() && file.isFile()) {
             file.delete();
         }

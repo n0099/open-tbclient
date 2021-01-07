@@ -56,11 +56,11 @@ public class c {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        Da(str2);
+                        CZ(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        Da(str2);
+                        CZ(str2);
                     }
                 }
             }
@@ -68,7 +68,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bCf() {
+    public void bCg() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
@@ -79,7 +79,7 @@ public class c {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void Da(String str) {
+    public void CZ(String str) {
         String localUrl = getLocalUrl();
         if (!TextUtils.equals(localUrl, str) || !isFileExist(localUrl)) {
             ea(str, localUrl);
@@ -137,7 +137,7 @@ public class c {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new c().bCf();
+                new c().bCg();
             }
         }
     }

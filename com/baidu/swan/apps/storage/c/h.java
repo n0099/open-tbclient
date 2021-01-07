@@ -7,7 +7,7 @@ public final class h {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     static final Map<String, b> dOU = new HashMap();
 
-    public static b aPH() {
+    public static b aPI() {
         return um("searchbox_webapps_sp");
     }
 

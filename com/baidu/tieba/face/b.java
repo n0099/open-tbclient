@@ -44,7 +44,7 @@ public class b {
                         if (selectionStart < 0) {
                             selectionStart = 0;
                         }
-                        b.a(context, editText, new SpannableStringBuilder(uVar.getName()), selectionStart, aVar, uVar.bzW());
+                        b.a(context, editText, new SpannableStringBuilder(uVar.getName()), selectionStart, aVar, uVar.bzX());
                     }
                 }
             }, 0, 0, BdUniqueId.gen(), new Object[0]);
@@ -54,8 +54,8 @@ public class b {
     public static void b(final Context context, u uVar, final EditText editText) {
         if (uVar != null && editText != null && uVar.getName() != null) {
             String name = uVar.getName();
-            final EmotionGroupType bzW = uVar.bzW();
-            if (bzW == EmotionGroupType.LOCAL || bzW == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
+            final EmotionGroupType bzX = uVar.bzX();
+            if (bzX == EmotionGroupType.LOCAL || bzX == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
                 if (name != null) {
                     final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(name);
                     d.mx().a(name, 20, new c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.2
@@ -69,7 +69,7 @@ public class b {
                                 if (selectionStart < 0) {
                                     selectionStart = 0;
                                 }
-                                b.a(context, editText, spannableStringBuilder, selectionStart, aVar, bzW);
+                                b.a(context, editText, spannableStringBuilder, selectionStart, aVar, bzX);
                             }
                         }
                     }, 0, 0, BdUniqueId.gen(), null, name, false, null);
@@ -107,7 +107,7 @@ public class b {
         CustomResponsedMessage runTask;
         if (context != null && !TextUtils.isEmpty(str) && aVar != null) {
             final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            final int[] iArr = {com.baidu.tieba.face.a.JT(str)};
+            final int[] iArr = {com.baidu.tieba.face.a.JS(str)};
             if (iArr[0] <= 0) {
                 if (aVar != null) {
                     aVar.d(spannableStringBuilder);

@@ -22,7 +22,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class a implements Closeable {
     static final Pattern cnY = Pattern.compile("[a-z0-9_-]{1,120}");
     private static final OutputStream cnZ = new b();
@@ -43,7 +43,7 @@ public final class a implements Closeable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.poly.a.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class CallableC0313a implements Callable<Void> {
         CallableC0313a() {
         }
@@ -54,8 +54,8 @@ public final class a implements Closeable {
             synchronized (a.this) {
                 if (a.this.coh != null) {
                     a.this.trimToSize();
-                    if (a.this.afx()) {
-                        a.this.afw();
+                    if (a.this.afy()) {
+                        a.this.afx();
                         a.this.ad = 0;
                     }
                 }
@@ -64,7 +64,7 @@ public final class a implements Closeable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static class b extends OutputStream {
         b() {
         }
@@ -74,17 +74,17 @@ public final class a implements Closeable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class c {
         private final d col;
 
         /* renamed from: com  reason: collision with root package name */
-        private boolean f4780com;
+        private boolean f4781com;
         private boolean coo;
         private final boolean[] written;
 
         /* renamed from: com.baidu.poly.a.f.a$c$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         private class C0314a extends FilterOutputStream {
             /* synthetic */ C0314a(c cVar, OutputStream outputStream, CallableC0313a callableC0313a) {
                 this(outputStream);
@@ -95,7 +95,7 @@ public final class a implements Closeable {
                 try {
                     ((FilterOutputStream) this).out.close();
                 } catch (IOException e) {
-                    c.this.f4780com = true;
+                    c.this.f4781com = true;
                 }
             }
 
@@ -104,7 +104,7 @@ public final class a implements Closeable {
                 try {
                     ((FilterOutputStream) this).out.flush();
                 } catch (IOException e) {
-                    c.this.f4780com = true;
+                    c.this.f4781com = true;
                 }
             }
 
@@ -113,7 +113,7 @@ public final class a implements Closeable {
                 try {
                     ((FilterOutputStream) this).out.write(i);
                 } catch (IOException e) {
-                    c.this.f4780com = true;
+                    c.this.f4781com = true;
                 }
             }
 
@@ -126,7 +126,7 @@ public final class a implements Closeable {
                 try {
                     ((FilterOutputStream) this).out.write(bArr, i, i2);
                 } catch (IOException e) {
-                    c.this.f4780com = true;
+                    c.this.f4781com = true;
                 }
             }
         }
@@ -140,7 +140,7 @@ public final class a implements Closeable {
         }
 
         public void commit() {
-            if (this.f4780com) {
+            if (this.f4781com) {
                 a.this.a(this, false);
                 a.this.remove(this.col.key);
             } else {
@@ -186,7 +186,7 @@ public final class a implements Closeable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class d {
         private final long[] coq;
         private boolean cor;
@@ -241,7 +241,7 @@ public final class a implements Closeable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class e implements Closeable {
         private final long[] coq;
         private final long cot;
@@ -281,7 +281,7 @@ public final class a implements Closeable {
         this.cof = j;
     }
 
-    private void afu() {
+    private void afv() {
         com.baidu.poly.a.f.b bVar = new com.baidu.poly.a.f.b(new FileInputStream(this.cob), com.baidu.poly.a.f.c.US_ASCII);
         try {
             String readLine = bVar.readLine();
@@ -300,7 +300,7 @@ public final class a implements Closeable {
                 } catch (EOFException e2) {
                     this.ad = i - this.coi.size();
                     if (bVar.D()) {
-                        afw();
+                        afx();
                     } else {
                         this.coh = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.cob, true), com.baidu.poly.a.f.c.US_ASCII));
                     }
@@ -314,7 +314,7 @@ public final class a implements Closeable {
         }
     }
 
-    private void afv() {
+    private void afw() {
         c(this.coc);
         Iterator<d> it = this.coi.values().iterator();
         while (it.hasNext()) {
@@ -335,7 +335,7 @@ public final class a implements Closeable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void afw() {
+    public synchronized void afx() {
         Writer writer = this.coh;
         if (writer != null) {
             writer.close();
@@ -367,12 +367,12 @@ public final class a implements Closeable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean afx() {
+    public boolean afy() {
         int i = this.ad;
         return i >= 2000 && i >= this.coi.size();
     }
 
-    private void afy() {
+    private void afz() {
         if (this.coh == null) {
             throw new IllegalStateException("cache is closed");
         }
@@ -452,7 +452,7 @@ public final class a implements Closeable {
     }
 
     public synchronized void flush() {
-        afy();
+        afz();
         trimToSize();
         this.coh.flush();
     }
@@ -460,7 +460,7 @@ public final class a implements Closeable {
     public synchronized e jV(String str) {
         e eVar = null;
         synchronized (this) {
-            afy();
+            afz();
             r(str);
             d dVar = this.coi.get(str);
             if (dVar != null && dVar.cor) {
@@ -476,7 +476,7 @@ public final class a implements Closeable {
                 }
                 this.ad++;
                 this.coh.append((CharSequence) ("READ " + str + '\n'));
-                if (afx()) {
+                if (afy()) {
                     this.coj.submit(this.cok);
                 }
                 eVar = new e(this, str, dVar.cot, inputStreamArr, dVar.coq, null);
@@ -488,7 +488,7 @@ public final class a implements Closeable {
     public synchronized boolean remove(String str) {
         boolean z;
         synchronized (this) {
-            afy();
+            afz();
             r(str);
             d dVar = this.coi.get(str);
             if (dVar == null || dVar.cos != null) {
@@ -506,7 +506,7 @@ public final class a implements Closeable {
                 this.ad++;
                 this.coh.append((CharSequence) ("REMOVE " + str + '\n'));
                 this.coi.remove(str);
-                if (afx()) {
+                if (afy()) {
                     this.coj.submit(this.cok);
                 }
                 z = true;
@@ -561,7 +561,7 @@ public final class a implements Closeable {
                     }
                 }
                 this.coh.flush();
-                if (this.size > this.cof || afx()) {
+                if (this.size > this.cof || afy()) {
                     this.coj.submit(this.cok);
                 }
             } else {
@@ -595,8 +595,8 @@ public final class a implements Closeable {
                 a aVar = new a(file, i, i2, j);
                 if (aVar.cob.exists()) {
                     try {
-                        aVar.afu();
                         aVar.afv();
+                        aVar.afw();
                         return aVar;
                     } catch (IOException e2) {
                         com.baidu.poly.util.d.a("DiskLruCache " + file + " is corrupt: " + e2.getMessage() + ", removing");
@@ -605,7 +605,7 @@ public final class a implements Closeable {
                 }
                 file.mkdirs();
                 a aVar2 = new a(file, i, i2, j);
-                aVar2.afw();
+                aVar2.afx();
                 return aVar2;
             }
             throw new IllegalArgumentException("valueCount <= 0");
@@ -625,7 +625,7 @@ public final class a implements Closeable {
     private synchronized c h(String str, long j) {
         d dVar;
         c cVar;
-        afy();
+        afz();
         r(str);
         d dVar2 = this.coi.get(str);
         if (j == -1 || (dVar2 != null && dVar2.cot == j)) {

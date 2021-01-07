@@ -5,22 +5,22 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class c implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final d f12067a = new d();
+    private final d f12068a = new d();
 
     /* renamed from: b  reason: collision with root package name */
-    private final b f12068b = new b();
+    private final b f12069b = new b();
     private final com.qq.e.comm.plugin.ab.f.c c;
 
     public c(Context context) {
         com.qq.e.comm.plugin.ab.f.c cVar;
         try {
-            cVar = new com.qq.e.comm.plugin.ab.f.c(context, this.f12067a, this.f12068b, null);
+            cVar = new com.qq.e.comm.plugin.ab.f.c(context, this.f12068a, this.f12069b, null);
         } catch (Resources.NotFoundException e) {
-            cVar = (Build.VERSION.SDK_INT < 21 || Build.VERSION.SDK_INT >= 23) ? new com.qq.e.comm.plugin.ab.f.c(context.getApplicationContext(), this.f12067a, this.f12068b, null) : new com.qq.e.comm.plugin.ab.f.c(context.createConfigurationContext(new Configuration()), this.f12067a, this.f12068b, null);
+            cVar = (Build.VERSION.SDK_INT < 21 || Build.VERSION.SDK_INT >= 23) ? new com.qq.e.comm.plugin.ab.f.c(context.getApplicationContext(), this.f12068a, this.f12069b, null) : new com.qq.e.comm.plugin.ab.f.c(context.createConfigurationContext(new Configuration()), this.f12068a, this.f12069b, null);
         }
         this.c = cVar;
     }
@@ -32,8 +32,8 @@ class c implements a {
 
     @Override // com.qq.e.comm.plugin.ab.e.a
     public void a(f fVar) {
-        this.f12067a.a(fVar);
-        this.f12068b.a(fVar);
+        this.f12068a.a(fVar);
+        this.f12069b.a(fVar);
     }
 
     @Override // com.qq.e.comm.plugin.ab.e.a

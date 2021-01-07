@@ -22,13 +22,13 @@ public class b implements ViewTreeObserver.OnGlobalLayoutListener {
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
         if (this.mView != null) {
-            eoa();
+            eob();
         }
     }
 
-    private void eoa() {
+    private void eob() {
         this.mView.getRootView().getWindowVisibleDisplayFrame(this.pbI);
-        int i = a.enY().heightPixels - this.pbI.bottom;
+        int i = a.enZ().heightPixels - this.pbI.bottom;
         if (this.cOr != i && i > this.pbJ) {
             this.cOr = i;
             if (this.pbK != null) {

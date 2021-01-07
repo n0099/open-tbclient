@@ -12,11 +12,11 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Locale;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static String a(byte[] bArr) {
             char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
@@ -86,7 +86,7 @@ class b {
         String[] strArr = new String[b2.length];
         for (int i = 0; i < strArr.length; i++) {
             strArr[i] = b2[i] + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + packageName;
-            if (com.baidu.lbsapi.auth.a.f2532a) {
+            if (com.baidu.lbsapi.auth.a.f2533a) {
                 com.baidu.lbsapi.auth.a.a("mcode" + strArr[i]);
             }
         }

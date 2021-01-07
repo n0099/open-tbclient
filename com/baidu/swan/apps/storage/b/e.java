@@ -11,32 +11,32 @@ public class e implements c {
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String ue(String str) {
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        return aMl == null ? str : com.baidu.swan.apps.storage.b.c(str, aMl);
+        com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
+        return aMm == null ? str : com.baidu.swan.apps.storage.b.c(str, aMm);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String uf(String str) {
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        if (aMl == null) {
+        com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
+        if (aMm == null) {
             return null;
         }
-        return com.baidu.swan.apps.storage.b.a(str, aMl, aMl.getVersion());
+        return com.baidu.swan.apps.storage.b.a(str, aMm, aMm.getVersion());
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String ug(String str) {
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        if (aMl == null) {
+        com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
+        if (aMm == null) {
             return null;
         }
-        return com.baidu.swan.apps.storage.b.cE(str, aMl.id);
+        return com.baidu.swan.apps.storage.b.cE(str, aMm.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String uh(String str) {
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        return aMl == null ? str : com.baidu.swan.apps.storage.b.cG(str, aMl.id);
+        com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
+        return aMm == null ? str : com.baidu.swan.apps.storage.b.cG(str, aMm.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
@@ -47,20 +47,20 @@ public class e implements c {
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String uj(String str) {
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        return aMl == null ? "" : com.baidu.swan.apps.storage.b.ac(aMl.id, str, null);
-    }
-
-    @Override // com.baidu.swan.apps.storage.b.c
-    public String aPB() {
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        return aMl == null ? "" : com.baidu.swan.apps.storage.b.tU(aMl.id);
+        com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
+        return aMm == null ? "" : com.baidu.swan.apps.storage.b.ac(aMm.id, str, null);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String aPC() {
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        return aMl == null ? "" : com.baidu.swan.apps.storage.b.tR(aMl.id);
+        com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
+        return aMm == null ? "" : com.baidu.swan.apps.storage.b.tU(aMm.id);
+    }
+
+    @Override // com.baidu.swan.apps.storage.b.c
+    public String aPD() {
+        com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
+        return aMm == null ? "" : com.baidu.swan.apps.storage.b.tR(aMm.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
@@ -111,7 +111,7 @@ public class e implements c {
 
     @Override // com.baidu.swan.apps.storage.b.c
     @NonNull
-    public synchronized d aPD() {
+    public synchronized d aPE() {
         if (this.dOF == null) {
             this.dOF = new f();
         }

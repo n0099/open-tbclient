@@ -42,11 +42,11 @@ public abstract class MsgCommonItemAdapter<T> extends com.baidu.adp.widget.ListV
         this.kwE = bVar;
     }
 
-    private void cWv() {
+    private void cWw() {
         this.gsJ = System.currentTimeMillis() / 1000;
     }
 
-    public boolean cWw() {
+    public boolean cWx() {
         return this.kwK;
     }
 
@@ -54,7 +54,7 @@ public abstract class MsgCommonItemAdapter<T> extends com.baidu.adp.widget.ListV
         this.kwK = z;
     }
 
-    public boolean cWx() {
+    public boolean cWy() {
         return this.kwL;
     }
 
@@ -71,7 +71,7 @@ public abstract class MsgCommonItemAdapter<T> extends com.baidu.adp.widget.ListV
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        cWv();
+        cWw();
         return view;
     }
 
@@ -84,7 +84,7 @@ public abstract class MsgCommonItemAdapter<T> extends com.baidu.adp.widget.ListV
             this.kwN = t;
         }
 
-        public T cWy() {
+        public T cWz() {
             return this.kwN;
         }
     }

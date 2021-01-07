@@ -26,9 +26,9 @@ public class d implements i {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (d.this.goy != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    d.this.goy.aBW();
-                } else {
                     d.this.goy.aBX();
+                } else {
+                    d.this.goy.aBY();
                 }
             }
         }
@@ -67,9 +67,9 @@ public class d implements i {
                 public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                     if (delegateResult.isOk()) {
                         if (delegateResult.mResult.getBoolean("share_result")) {
-                            aVar.aBW();
-                        } else {
                             aVar.aBX();
+                        } else {
+                            aVar.aBY();
                         }
                     }
                 }

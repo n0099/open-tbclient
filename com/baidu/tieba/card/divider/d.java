@@ -32,10 +32,10 @@ public class d extends com.baidu.adp.widget.ListView.a<e, CardViewHolder<f>> {
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(int i, View view, ViewGroup viewGroup, e eVar, CardViewHolder cardViewHolder) {
-        if (cardViewHolder == null || cardViewHolder.cvG() == null) {
+        if (cardViewHolder == null || cardViewHolder.cvH() == null) {
             return null;
         }
-        cardViewHolder.cvG().a(eVar);
+        cardViewHolder.cvH().a(eVar);
         return cardViewHolder.getView();
     }
 }

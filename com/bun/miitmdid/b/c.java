@@ -7,22 +7,22 @@ import com.bun.miitmdid.utils.d;
 import com.bun.miitmdid.utils.sysParamters;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Map<String, String> f6036a = new HashMap();
+    private Map<String, String> f6037a = new HashMap();
 
     private Map<String, String> a() {
-        if (this.f6036a.isEmpty()) {
-            this.f6036a.put("av", sysParamters.eoM().b());
-            this.f6036a.put("sv", sysParamters.eoM().c());
-            this.f6036a.put(IXAdRequestInfo.TEST_MODE, sysParamters.eoM().d());
-            this.f6036a.put("mf", sysParamters.eoM().e());
-            this.f6036a.put(Config.PACKAGE_NAME, sysParamters.g());
+        if (this.f6037a.isEmpty()) {
+            this.f6037a.put("av", sysParamters.eoN().b());
+            this.f6037a.put("sv", sysParamters.eoN().c());
+            this.f6037a.put(IXAdRequestInfo.TEST_MODE, sysParamters.eoN().d());
+            this.f6037a.put("mf", sysParamters.eoN().e());
+            this.f6037a.put(Config.PACKAGE_NAME, sysParamters.g());
         }
-        this.f6036a.put(IXAdRequestInfo.MAX_TITLE_LENGTH, String.valueOf(System.currentTimeMillis()));
-        return this.f6036a;
+        this.f6037a.put(IXAdRequestInfo.MAX_TITLE_LENGTH, String.valueOf(System.currentTimeMillis()));
+        return this.f6037a;
     }
 
     public boolean b(boolean z, String str, String str2, String str3, String str4) {
@@ -32,12 +32,12 @@ public class c {
             hL.H(a());
             hL.hb("support", String.valueOf(z ? 1 : 0));
             hL.aX(a2);
-            hL.YA("http://sdk.api.bjshcw.com/stat");
+            hL.Yz("http://sdk.api.bjshcw.com/stat");
             hL.a(new b.a() { // from class: com.bun.miitmdid.b.c.1
                 @Override // com.bun.miitmdid.b.b.a
                 public void a(Exception exc, int i, String str5) {
                 }
-            }).eoH();
+            }).eoI();
             return true;
         } catch (Exception e) {
             e.printStackTrace();

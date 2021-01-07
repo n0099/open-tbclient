@@ -29,10 +29,10 @@ public class c {
         } else {
             this.frw = false;
         }
-        this.frv = byX();
+        this.frv = byY();
     }
 
-    private List<n> byX() {
+    private List<n> byY() {
         ArrayList arrayList = new ArrayList();
         if (this.fru != null) {
             if (this.frw) {
@@ -73,14 +73,14 @@ public class c {
         return i;
     }
 
-    public int byY() {
+    public int byZ() {
         if (this.fru == null) {
             return 0;
         }
         return this.fru.size();
     }
 
-    public int byZ() {
+    public int bza() {
         if (this.frw) {
             return this.frz;
         }
@@ -97,7 +97,7 @@ public class c {
         bG(this.fru);
     }
 
-    public List<n> bza() {
+    public List<n> bzb() {
         return this.frv;
     }
 

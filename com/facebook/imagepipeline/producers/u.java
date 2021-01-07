@@ -12,10 +12,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import okhttp3.internal.http.StatusLine;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class u extends c<t> {
     private final ExecutorService mExecutorService;
-    private int pBB;
+    private int pDi;
 
     public u() {
         this(Executors.newFixedThreadPool(3));
@@ -23,7 +23,7 @@ public class u extends c<t> {
 
     public u(int i) {
         this(Executors.newFixedThreadPool(3));
-        this.pBB = i;
+        this.pDi = i;
     }
 
     u(ExecutorService executorService) {
@@ -43,11 +43,11 @@ public class u extends c<t> {
                 u.this.b(tVar, aVar);
             }
         });
-        tVar.eAr().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
+        tVar.eAV().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void eAk() {
+            public void eAO() {
                 if (submit.cancel(false)) {
-                    aVar.etQ();
+                    aVar.etW();
                 }
             }
         });
@@ -126,9 +126,9 @@ public class u extends c<t> {
 
     private HttpURLConnection c(Uri uri, int i) throws IOException {
         HttpURLConnection ae = ae(uri);
-        ae.setConnectTimeout(this.pBB);
+        ae.setConnectTimeout(this.pDi);
         int responseCode = ae.getResponseCode();
-        if (!Rh(responseCode)) {
+        if (!Rx(responseCode)) {
             if (isHttpRedirect(responseCode)) {
                 String headerField = ae.getHeaderField(Headers.LOCATION);
                 ae.disconnect();
@@ -149,7 +149,7 @@ public class u extends c<t> {
         return (HttpURLConnection) com.facebook.common.util.d.M(uri).openConnection();
     }
 
-    private static boolean Rh(int i) {
+    private static boolean Rx(int i) {
         return i >= 200 && i < 300;
     }
 

@@ -45,7 +45,7 @@ public class LivePlayer extends FrameLayout implements f {
         this.bSK = bb;
     }
 
-    private FrameLayout.LayoutParams Zq() {
+    private FrameLayout.LayoutParams Zr() {
         return new FrameLayout.LayoutParams(-1, -1);
     }
 
@@ -55,7 +55,7 @@ public class LivePlayer extends FrameLayout implements f {
         int i2 = 1;
         if (alaLiveInfoData != null) {
             this.brX = alaLiveInfoData;
-            FrameLayout.LayoutParams Zq = Zq();
+            FrameLayout.LayoutParams Zr = Zr();
             bq bqVar = a.SE().bCb;
             if (bqVar != null && bqVar.aRI != null && ((i = bqVar.aRI.aSx) == 1 || i == 2)) {
                 i2 = i;
@@ -63,7 +63,7 @@ public class LivePlayer extends FrameLayout implements f {
             if ("ZTE A0622".equals(Build.MODEL)) {
                 i2 = 2;
             }
-            a(alaLiveInfoData, Zq, i2, alaLiveInfoData.screen_direction != 2 ? 0 : 2);
+            a(alaLiveInfoData, Zr, i2, alaLiveInfoData.screen_direction != 2 ? 0 : 2);
         }
     }
 
@@ -118,7 +118,7 @@ public class LivePlayer extends FrameLayout implements f {
         }
     }
 
-    private void Zr() {
+    private void Zs() {
         if (this.bSK != null && this.bSK.Pp() != null && this.bSK.Pp().getParent() != null) {
             ((ViewGroup) this.bSK.Pp().getParent()).removeView(this.bSK.Pp());
         }
@@ -131,7 +131,7 @@ public class LivePlayer extends FrameLayout implements f {
             BdLog.e("VideoChatLivePlayer stopLivePlayer()");
         }
         if (z) {
-            Zr();
+            Zs();
         }
         this.bSM = "";
         if (this.bSK != null) {

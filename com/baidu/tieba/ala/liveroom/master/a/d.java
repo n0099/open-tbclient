@@ -146,16 +146,16 @@ public class d {
         }
     }
 
-    public boolean clB() {
+    public boolean clC() {
         if (this.hJy != null) {
-            return this.hJy.clB();
+            return this.hJy.clC();
         }
         return false;
     }
 
-    public void clC() {
+    public void clD() {
         if (this.hJy != null) {
-            this.hJy.clC();
+            this.hJy.clD();
         }
     }
 
@@ -201,7 +201,7 @@ public class d {
         }
     }
 
-    public AlaLiveRecorderPerfData clE() {
+    public AlaLiveRecorderPerfData clF() {
         return this.huX.hCm;
     }
 
@@ -224,21 +224,21 @@ public class d {
         }
     }
 
-    public void ckQ() {
+    public void ckR() {
         if (this.hJv != null) {
-            this.hJv.ckQ();
+            this.hJv.ckR();
         }
     }
 
-    public void clc() {
+    public void cld() {
         if (this.hJv != null) {
-            this.hJv.clc();
+            this.hJv.cld();
         }
     }
 
-    public void chu() {
+    public void chv() {
         if (this.hJv != null) {
-            this.hJv.chu();
+            this.hJv.chv();
         }
     }
 
@@ -248,20 +248,20 @@ public class d {
         }
     }
 
-    public com.baidu.tieba.ala.liveroom.data.d clF() {
+    public com.baidu.tieba.ala.liveroom.data.d clG() {
         return this.hHZ;
     }
 
-    public boolean clD() {
+    public boolean clE() {
         if (this.hJy != null) {
-            return this.hJy.clD();
+            return this.hJy.clE();
         }
         return false;
     }
 
-    public int bUl() {
+    public int bUm() {
         if (this.huX != null) {
-            return this.huX.bUl();
+            return this.huX.bUm();
         }
         return 0;
     }
@@ -284,15 +284,9 @@ public class d {
         }
     }
 
-    public void Zr() {
+    public void Zs() {
         if (this.hJw != null) {
-            this.hJw.Zr();
-        }
-    }
-
-    public void chw() {
-        if (this.hJw != null) {
-            this.hJw.chw();
+            this.hJw.Zs();
         }
     }
 
@@ -311,6 +305,12 @@ public class d {
     public void chz() {
         if (this.hJw != null) {
             this.hJw.chz();
+        }
+    }
+
+    public void chA() {
+        if (this.hJw != null) {
+            this.hJw.chA();
         }
     }
 

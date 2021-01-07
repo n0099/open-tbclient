@@ -3,5 +3,5 @@ package com.baidu.live.videochat.e;
 public interface a {
     int DW();
 
-    int Yj();
+    int Yk();
 }

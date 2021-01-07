@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.producers;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public interface am {
     void M(String str, String str2, boolean z);
 
@@ -19,5 +19,5 @@ public interface am {
 
     void c(String str, String str2, @Nullable Map<String, String> map);
 
-    void hm(String str, String str2);
+    void hn(String str, String str2);
 }

@@ -21,7 +21,7 @@ public class a extends k<ICardInfo, LegoItemHolder> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bL */
     public LegoItemHolder e(ViewGroup viewGroup) {
-        e a2 = b.ddl().a(this.mPageContext, this.jCY, 1);
+        e a2 = b.ddm().a(this.mPageContext, this.jCY, 1);
         if (a2 == null) {
             return null;
         }

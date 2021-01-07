@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ExtensionMap<T extends ExtendableMessage<?>> {
     private final Map<Extension<T, ?>, Object> map = new TreeMap();
 

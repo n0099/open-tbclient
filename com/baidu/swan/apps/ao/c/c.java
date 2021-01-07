@@ -16,7 +16,7 @@ public interface c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.swan.apps.ao.c.b
         public void a(a aVar, ClassLoader classLoader, int i, Class<?> cls) {
-            if (com.baidu.swan.apps.performance.b.c.aHW() && classLoader != null && !TextUtils.isEmpty(cls.getName())) {
+            if (com.baidu.swan.apps.performance.b.c.aHX() && classLoader != null && !TextUtils.isEmpty(cls.getName())) {
                 try {
                     Class.forName(cls.getName(), true, classLoader);
                 } catch (Throwable th) {

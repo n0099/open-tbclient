@@ -63,7 +63,7 @@ public class d {
         this.tid = j;
     }
 
-    public String bpO() {
+    public String bpP() {
         return this.nid;
     }
 
@@ -95,19 +95,19 @@ public class d {
         return this.task_id;
     }
 
-    public String bHq() {
+    public String bHr() {
         return this.abTag;
     }
 
-    public void Er(String str) {
+    public void Eq(String str) {
         this.abTag = str;
     }
 
-    public String bHr() {
+    public String bHs() {
         return this.fLi;
     }
 
-    public void Es(String str) {
+    public void Er(String str) {
         this.fLi = str;
     }
 

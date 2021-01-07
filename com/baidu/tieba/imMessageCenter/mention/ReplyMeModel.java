@@ -29,7 +29,7 @@ public class ReplyMeModel extends BdBaseModel {
     public ReplyMeModel(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
-        dbn();
+        dbo();
     }
 
     public void a(long j, int i, String str, String str2, BaijiahaoData baijiahaoData) {
@@ -48,7 +48,7 @@ public class ReplyMeModel extends BdBaseModel {
         sendMessage(checkPostRequestMessage);
     }
 
-    public void dbn() {
+    public void dbo() {
         this.kOD = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CHECK_POST, CmdConfigSocket.CMD_CHECK_POST) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {

@@ -13,7 +13,7 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
-/* loaded from: classes15.dex */
+/* loaded from: classes7.dex */
 public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     private static C0108a acn = new C0108a();
     private MethodChannel channel;
@@ -104,7 +104,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     }
 
     /* renamed from: com.baidu.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes7.dex */
     private static class C0108a implements VoiceManager.b {
         String aco;
         VoiceManager acp;

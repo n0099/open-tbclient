@@ -32,10 +32,10 @@ public class a {
     public static final String p = "achieve_sc_app_data";
 
     /* renamed from: a  reason: collision with root package name */
-    private SapiWebView.InvokeScAppCallback.InvokeScAppResult f5237a;
+    private SapiWebView.InvokeScAppCallback.InvokeScAppResult f5238a;
 
     /* renamed from: b  reason: collision with root package name */
-    private b f5238b;
+    private b f5239b;
 
     public int a(Context context, String str, SapiWebView.InvokeScAppCallback invokeScAppCallback) {
         PackageInfo packageInfo = null;
@@ -56,26 +56,26 @@ public class a {
     }
 
     public void a(Activity activity, String str, String str2, List<PassNameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
-        this.f5237a = invokeScAppResult;
+        this.f5238a = invokeScAppResult;
         a aVar = new a();
         if (!aVar.a((Context) activity, g)) {
-            this.f5237a.setInvokeResult(a(b.f5240b, b.d));
+            this.f5238a.setInvokeResult(a(b.f5241b, b.d));
             return;
         }
         try {
             aVar.a(activity, aVar.a(str, str2, list));
         } catch (Exception e2) {
-            this.f5237a.setInvokeResult(a(b.f5239a, b.c));
+            this.f5238a.setInvokeResult(a(b.f5240a, b.c));
         }
     }
 
     public void a(int i2, int i3, Intent intent) {
-        if (this.f5237a != null) {
+        if (this.f5238a != null) {
             String str = null;
             if (intent != null) {
                 str = intent.getExtras().getString(p);
             }
-            this.f5237a.setInvokeResult(str);
+            this.f5238a.setInvokeResult(str);
         }
     }
 
@@ -111,9 +111,9 @@ public class a {
     }
 
     private String a(int i2, String str) {
-        this.f5238b = new b();
-        this.f5238b.setResultCode(i2);
-        this.f5238b.setResultMsg(str);
-        return this.f5238b.a();
+        this.f5239b = new b();
+        this.f5239b.setResultCode(i2);
+        this.f5239b.setResultMsg(str);
+        return this.f5239b.a();
     }
 }

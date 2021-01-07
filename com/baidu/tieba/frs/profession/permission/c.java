@@ -46,7 +46,7 @@ public class c implements NetModel.b {
         this.jFh.jFc = i;
     }
 
-    public void LD(String str) {
+    public void LC(String str) {
         this.jFh.jFb = 1;
         this.jFh.forum_id = str;
         loadData();
@@ -133,7 +133,7 @@ public class c implements NetModel.b {
                 if (bVar.jFe == 1) {
                     fd(bVar.jFf, str);
                 } else if (bVar.jFe == 3) {
-                    LE(bVar.jFf);
+                    LD(bVar.jFf);
                 }
             }
             if (this.jFi != null) {
@@ -159,7 +159,7 @@ public class c implements NetModel.b {
     private void a(b bVar) {
         if (bVar != null && bVar.errorCode == 0) {
             if (!bVar.jFd && bVar.jFe == 2) {
-                LE(bVar.jFf);
+                LD(bVar.jFf);
             }
             if (this.jFi != null) {
                 this.jFi.qG(bVar.jFd);
@@ -171,7 +171,7 @@ public class c implements NetModel.b {
         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eXu.getPageActivity());
         aVar.jI(false);
         aVar.jH(false);
-        aVar.Bp(str);
+        aVar.Bo(str);
         aVar.a(R.string.comfirm_imediate, new a.b() { // from class: com.baidu.tieba.frs.profession.permission.c.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -188,14 +188,14 @@ public class c implements NetModel.b {
             }
         });
         aVar.b(this.eXu);
-        aVar.btX();
+        aVar.btY();
     }
 
-    public void LE(String str) {
+    public void LD(String str) {
         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eXu.getPageActivity());
         aVar.jI(false);
         aVar.jH(false);
-        aVar.Bp(str);
+        aVar.Bo(str);
         aVar.b(R.string.know, new a.b() { // from class: com.baidu.tieba.frs.profession.permission.c.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -203,6 +203,6 @@ public class c implements NetModel.b {
             }
         });
         aVar.b(this.eXu);
-        aVar.btX();
+        aVar.btY();
     }
 }

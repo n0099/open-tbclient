@@ -61,7 +61,7 @@ public class c {
                             }
                             TiebaStatic.log(new aq("c12542"));
                             if (aVar.eJf && !StringUtils.isNull(alaUserInfoData.sex)) {
-                                BdToast.b(view.getContext(), String.format(view.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex), R.drawable.icon_pure_toast_mistake40_svg, true).bud();
+                                BdToast.b(view.getContext(), String.format(view.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex), R.drawable.icon_pure_toast_mistake40_svg, true).bue();
                                 return;
                             }
                             break;

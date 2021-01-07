@@ -19,25 +19,25 @@ import com.qq.e.comm.plugin.util.ak;
 import com.qq.e.comm.plugin.y.u;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class j extends LinearLayout implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.qq.e.comm.plugin.q.b f12548a;
+    private com.qq.e.comm.plugin.q.b f12549a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.qq.e.comm.plugin.ab.d.a f12549b;
+    private com.qq.e.comm.plugin.ab.d.a f12550b;
     private com.qq.e.comm.plugin.ad.g c;
     private f.a d;
     private com.qq.e.comm.plugin.y.c e;
     private com.qq.e.comm.plugin.y.d f;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnTouchListener {
 
         /* renamed from: b  reason: collision with root package name */
-        private boolean f12553b;
+        private boolean f12554b;
         private boolean c;
         private float d;
         private float e;
@@ -59,10 +59,10 @@ public class j extends LinearLayout implements h {
                     break;
                 case 1:
                     this.c = motionEvent.getRawX() - this.d > ((float) this.f) || motionEvent.getRawY() - this.e > ((float) this.f);
-                    if (!this.f12553b && !this.c) {
+                    if (!this.f12554b && !this.c) {
                         ai.a("LandingPageView", "LandingPageView user click");
                         u.a(1020050, j.this.e);
-                        this.f12553b = true;
+                        this.f12554b = true;
                         if (j.this.d != null) {
                             j.this.d.a(j.this.e(), true);
                         }
@@ -70,7 +70,7 @@ public class j extends LinearLayout implements h {
                     this.c = false;
                     break;
             }
-            return j.this.f12549b.b().onTouchEvent(motionEvent);
+            return j.this.f12550b.b().onTouchEvent(motionEvent);
         }
     }
 
@@ -85,24 +85,24 @@ public class j extends LinearLayout implements h {
 
     private void d() {
         setOrientation(1);
-        this.f12548a = new com.qq.e.comm.plugin.q.b(getContext());
+        this.f12549a = new com.qq.e.comm.plugin.q.b(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, ak.a(getContext(), 45));
         layoutParams.gravity = 48;
-        this.f12548a.setLayoutParams(layoutParams);
-        this.f12548a.setBackgroundColor(-1);
-        this.f12548a.a(new View.OnClickListener() { // from class: com.qq.e.comm.plugin.n.j.1
+        this.f12549a.setLayoutParams(layoutParams);
+        this.f12549a.setBackgroundColor(-1);
+        this.f12549a.a(new View.OnClickListener() { // from class: com.qq.e.comm.plugin.n.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (j.this.f12549b.d()) {
-                    j.this.f12549b.e();
+                if (j.this.f12550b.d()) {
+                    j.this.f12550b.e();
                 } else if (j.this.d != null) {
                     j.this.d.b();
                 }
             }
         });
-        addView(this.f12548a);
-        this.f12549b = new com.qq.e.comm.plugin.ab.d.e(getContext(), null).a();
-        this.f12549b.a(new com.qq.e.comm.plugin.ab.d.f() { // from class: com.qq.e.comm.plugin.n.j.2
+        addView(this.f12549a);
+        this.f12550b = new com.qq.e.comm.plugin.ab.d.e(getContext(), null).a();
+        this.f12550b.a(new com.qq.e.comm.plugin.ab.d.f() { // from class: com.qq.e.comm.plugin.n.j.2
             @Override // com.qq.e.comm.plugin.ab.d.f
             public void a(int i) {
             }
@@ -138,8 +138,8 @@ public class j extends LinearLayout implements h {
 
             @Override // com.qq.e.comm.plugin.ab.d.f
             public void c(String str) {
-                if (j.this.f12548a != null) {
-                    j.this.f12548a.a(str);
+                if (j.this.f12549a != null) {
+                    j.this.f12549a.a(str);
                 }
             }
 
@@ -147,14 +147,14 @@ public class j extends LinearLayout implements h {
             public void d_() {
             }
         });
-        this.f12549b.b().setOnTouchListener(new a());
-        addView(this.f12549b.b(), new RelativeLayout.LayoutParams(-1, -1));
+        this.f12550b.b().setOnTouchListener(new a());
+        addView(this.f12550b.b(), new RelativeLayout.LayoutParams(-1, -1));
         this.c.a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String e() {
-        View b2 = this.f12549b.b();
+        View b2 = this.f12550b.b();
         this.c.a().a(b2.getHeight());
         this.c.a().b(b2.getWidth());
         this.c.b(System.currentTimeMillis());
@@ -189,8 +189,8 @@ public class j extends LinearLayout implements h {
     public void a(String str) {
         if (TextUtils.isEmpty(str)) {
             ai.a("LandingPageView", "load url is null");
-        } else if (this.f12549b != null) {
-            this.f12549b.a(str);
+        } else if (this.f12550b != null) {
+            this.f12550b.a(str);
         }
     }
 
@@ -201,8 +201,8 @@ public class j extends LinearLayout implements h {
 
     @Override // com.qq.e.comm.plugin.n.h
     public void c() {
-        if (this.f12549b != null) {
-            this.f12549b.a();
+        if (this.f12550b != null) {
+            this.f12550b.a();
         }
     }
 }

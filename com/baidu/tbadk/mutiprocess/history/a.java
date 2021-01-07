@@ -11,7 +11,7 @@ public class a implements b<HistoryEvent> {
         if (historyEvent == null || TextUtils.isEmpty(historyEvent.tid)) {
             return false;
         }
-        m.Jo(historyEvent.tid);
+        m.Jn(historyEvent.tid);
         return true;
     }
 }

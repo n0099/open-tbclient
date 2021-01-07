@@ -39,7 +39,7 @@ public class i extends com.baidu.swan.apps.api.a.d {
         if (TextUtils.isEmpty(optString2)) {
             return new com.baidu.swan.apps.api.c.b(202);
         }
-        com.baidu.swan.apps.runtime.d.aMg().aMc().aMw().b(getContext(), "scope_show_sms_panel", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.api.module.k.i.1
+        com.baidu.swan.apps.runtime.d.aMh().aMd().aMx().b(getContext(), "scope_show_sms_panel", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.api.module.k.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
@@ -62,7 +62,7 @@ public class i extends com.baidu.swan.apps.api.a.d {
         intent.setData(Uri.parse("smsto:" + str));
         intent.putExtra("sms_body", str2);
         getContext().startActivity(intent);
-        anM();
+        anN();
     }
 
     private String s(JSONArray jSONArray) {
@@ -84,11 +84,11 @@ public class i extends com.baidu.swan.apps.api.a.d {
         return sb.toString();
     }
 
-    private void anM() {
+    private void anN() {
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.mType = "sms_panel";
         fVar.mValue = String.valueOf(this.cKA);
-        fVar.t("appid", com.baidu.swan.apps.runtime.d.aMg().getAppId());
+        fVar.t("appid", com.baidu.swan.apps.runtime.d.aMh().getAppId());
         com.baidu.swan.apps.statistic.h.a("1639", fVar);
     }
 }

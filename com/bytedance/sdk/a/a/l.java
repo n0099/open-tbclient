@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    static final Logger f6143a = Logger.getLogger(l.class.getName());
+    static final Logger f6144a = Logger.getLogger(l.class.getName());
 
     private l() {
     }
@@ -34,17 +34,17 @@ public final class l {
         return new r() { // from class: com.bytedance.sdk.a.a.l.1
             @Override // com.bytedance.sdk.a.a.r
             public void a(c cVar, long j) throws IOException {
-                u.a(cVar.f6139b, 0L, j);
+                u.a(cVar.f6140b, 0L, j);
                 while (j > 0) {
                     t.this.g();
                     o oVar = cVar.phQ;
-                    int min = (int) Math.min(j, oVar.c - oVar.f6148b);
-                    outputStream.write(oVar.f6147a, oVar.f6148b, min);
-                    oVar.f6148b += min;
+                    int min = (int) Math.min(j, oVar.c - oVar.f6149b);
+                    outputStream.write(oVar.f6148a, oVar.f6149b, min);
+                    oVar.f6149b += min;
                     j -= min;
-                    cVar.f6139b -= min;
-                    if (oVar.f6148b == oVar.c) {
-                        cVar.phQ = oVar.eqi();
+                    cVar.f6140b -= min;
+                    if (oVar.f6149b == oVar.c) {
+                        cVar.phQ = oVar.eqj();
                         p.b(oVar);
                     }
                 }
@@ -61,7 +61,7 @@ public final class l {
             }
 
             @Override // com.bytedance.sdk.a.a.r
-            public t epR() {
+            public t epS() {
                 return t.this;
             }
 
@@ -105,12 +105,12 @@ public final class l {
                 try {
                     t.this.g();
                     o PI = cVar.PI(1);
-                    int read = inputStream.read(PI.f6147a, PI.c, (int) Math.min(j, 8192 - PI.c));
+                    int read = inputStream.read(PI.f6148a, PI.c, (int) Math.min(j, 8192 - PI.c));
                     if (read == -1) {
                         return -1L;
                     }
                     PI.c += read;
-                    cVar.f6139b += read;
+                    cVar.f6140b += read;
                     return read;
                 } catch (AssertionError e) {
                     if (l.a(e)) {
@@ -126,7 +126,7 @@ public final class l {
             }
 
             @Override // com.bytedance.sdk.a.a.s
-            public t epR() {
+            public t epS() {
                 return t.this;
             }
 
@@ -159,17 +159,17 @@ public final class l {
             }
 
             @Override // com.bytedance.sdk.a.a.a
-            protected void epP() {
+            protected void epQ() {
                 try {
                     socket.close();
                 } catch (AssertionError e) {
                     if (l.a(e)) {
-                        l.f6143a.log(Level.WARNING, "Failed to close timed out socket " + socket, (Throwable) e);
+                        l.f6144a.log(Level.WARNING, "Failed to close timed out socket " + socket, (Throwable) e);
                         return;
                     }
                     throw e;
                 } catch (Exception e2) {
-                    l.f6143a.log(Level.WARNING, "Failed to close timed out socket " + socket, (Throwable) e2);
+                    l.f6144a.log(Level.WARNING, "Failed to close timed out socket " + socket, (Throwable) e2);
                 }
             }
         };

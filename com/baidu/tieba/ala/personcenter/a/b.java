@@ -32,17 +32,17 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.e eVar, CardViewHolder<com.baidu.tieba.ala.personcenter.e.a> cardViewHolder) {
-        if (cardViewHolder.cvG() == null) {
+        if (cardViewHolder.cvH() == null) {
             return null;
         }
-        a(eVar, cardViewHolder.cvG());
-        cardViewHolder.cvG().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.b.1
+        a(eVar, cardViewHolder.cvH());
+        cardViewHolder.cvH().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                b.this.adx();
+                b.this.ady();
             }
         });
-        return cardViewHolder.cvG().getView();
+        return cardViewHolder.cvH().getView();
     }
 
     private void a(com.baidu.tieba.ala.personcenter.c.e eVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
@@ -52,7 +52,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adx() {
+    public void ady() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaForbiddenListActivityConfig(this.mPageContext.getPageActivity())));
     }
 }

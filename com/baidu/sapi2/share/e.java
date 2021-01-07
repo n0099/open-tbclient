@@ -36,10 +36,10 @@ import java.util.Map;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f5349a = "share_account";
+    private static final String f5350a = "share_account";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f5350b = "share_fail_reason";
+    private static final String f5351b = "share_fail_reason";
     static final int c = 87;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -61,15 +61,15 @@ public final class e {
     public static class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ SapiContext f5351a;
+        final /* synthetic */ SapiContext f5352a;
 
         b(SapiContext sapiContext) {
-            this.f5351a = sapiContext;
+            this.f5352a = sapiContext;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f5351a.getCurrentAccount() != null) {
+            if (this.f5352a.getCurrentAccount() != null) {
                 SapiContext.getInstance().put(SapiContext.KEY_PRE_LOGIN_TYPE, "slient_share");
                 SapiAccountManager.getSilentShareListener().onSilentShare();
             }
@@ -137,7 +137,7 @@ public final class e {
     public static void c() {
         SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
         Context context = confignation.context;
-        if (SapiUtils.isOnline(context) && !com.baidu.sapi2.utils.enums.a.f5411b.equals(confignation.loginShareDirection())) {
+        if (SapiUtils.isOnline(context) && !com.baidu.sapi2.utils.enums.a.f5412b.equals(confignation.loginShareDirection())) {
             ArrayList arrayList = new ArrayList();
             List<Intent> c2 = c(context);
             if (c2.size() == 0) {
@@ -165,7 +165,7 @@ public final class e {
                 } else if (a2 == null) {
                     i3++;
                 } else {
-                    int i4 = a2.f5332b;
+                    int i4 = a2.f5333b;
                     if (i4 == 0) {
                         i2++;
                     } else if (i4 == 1) {
@@ -360,8 +360,8 @@ public final class e {
                 ComponentName componentName = new ComponentName(str, "com.baidu.sapi2.activity.ShareActivity");
                 Intent intent = new Intent();
                 intent.putExtra("android.intent.extra.TEXT", str2);
-                intent.putExtra(com.baidu.sapi2.share.b.f5341b, str4);
-                intent.putExtra(com.baidu.sapi2.share.b.f5340a, str3);
+                intent.putExtra(com.baidu.sapi2.share.b.f5342b, str4);
+                intent.putExtra(com.baidu.sapi2.share.b.f5341a, str3);
                 intent.putExtra(com.baidu.sapi2.share.b.c, str5);
                 intent.setComponent(componentName);
                 activity.startActivityForResult(intent, 20001);
@@ -376,8 +376,8 @@ public final class e {
                     if (i2 < shareStorageModel.size()) {
                         if (shareStorageModel.get(i2).pkg.equals(str) && shareStorageModel.get(i2).url.equals(str2)) {
                             b.c cVar = com.baidu.sapi2.share.b.l;
-                            cVar.f5344a = i2;
-                            cVar.f5345b = shareStorageModel.get(i2).tpl;
+                            cVar.f5345a = i2;
+                            cVar.f5346b = shareStorageModel.get(i2).tpl;
                             com.baidu.sapi2.share.b.l.c = shareStorageModel.get(i2).app;
                             break;
                         }
@@ -406,7 +406,7 @@ public final class e {
                 String str4 = "";
                 String stringExtra = intent != null ? intent.getStringExtra(com.baidu.sapi2.share.b.c) : "";
                 if (i2 == -1 && intent != null) {
-                    SapiAccount sapiAccount = (SapiAccount) intent.getParcelableExtra(f5349a);
+                    SapiAccount sapiAccount = (SapiAccount) intent.getParcelableExtra(f5350a);
                     if (sapiAccount != null) {
                         if (intent.getIntExtra(com.baidu.sapi2.share.b.g, 0) >= 190) {
                             com.baidu.sapi2.share.a.a().a(sapiAccount, intent.getStringExtra("PKG"));
@@ -444,7 +444,7 @@ public final class e {
                     str4 = str2;
                 } else {
                     if (intent != null) {
-                        str = intent.getStringExtra(f5350b);
+                        str = intent.getStringExtra(f5351b);
                         Toast.makeText(context, str, 0).show();
                     } else {
                         str = "result data is null";

@@ -11,7 +11,7 @@ import java.util.TimeZone;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static double f11692a = -1.0d;
+    private static double f11693a = -1.0d;
 
     public static String a() {
         String str = null;
@@ -81,8 +81,8 @@ public class c {
 
     public static String e(Context context) {
         double d;
-        if (f11692a >= 0.0d) {
-            return Integer.toString((int) f11692a);
+        if (f11693a >= 0.0d) {
+            return Integer.toString((int) f11693a);
         }
         try {
             Class<?> cls = Class.forName("com.android.internal.os.PowerProfile");
@@ -93,7 +93,7 @@ public class c {
         } catch (Throwable th) {
             d = 0.0d;
         }
-        f11692a = d;
+        f11693a = d;
         return Integer.toString((int) d);
     }
 }

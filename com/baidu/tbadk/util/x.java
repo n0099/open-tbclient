@@ -12,14 +12,14 @@ public class x {
     private boolean fPE;
     private final Handler mHandler;
 
-    public void bJb() {
+    public void bJc() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void bJc() {
+    public void bJd() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
@@ -29,7 +29,7 @@ public class x {
     public void le(boolean z) {
         if (this.bcb != null) {
             if (z || this.bcb.getVisibility() != 8) {
-                bJc();
+                bJd();
             }
         }
     }
@@ -37,7 +37,7 @@ public class x {
     public void ld(boolean z) {
         if (this.bcb != null) {
             if (z || this.bcb.getVisibility() != 0) {
-                bJb();
+                bJc();
             }
         }
     }

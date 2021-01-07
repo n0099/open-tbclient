@@ -34,34 +34,34 @@ public class e extends BaseCardInfo {
         this.gAx.a(threadInfo);
     }
 
-    public bz boO() {
+    public bz boP() {
         return this.gAx;
     }
 
     public aq aA(String str, boolean z) {
-        bz boO = boO();
-        if (boO == null) {
+        bz boP = boP();
+        if (boP == null) {
             return null;
         }
         String str2 = "";
-        if (boO.brJ() != null && !StringUtils.isNull(boO.brJ().appId)) {
-            str2 = boO.brJ().appId;
+        if (boP.brK() != null && !StringUtils.isNull(boP.brK().appId)) {
+            str2 = boP.brK().appId;
         }
-        aq dX = new aq(str).w("obj_id", S(boO)).an("obj_type", bUl()).dX("obj_param1", boO.mRecomWeight).dX("obj_source", boO.mRecomSource).an("obj_locate", this.locate).dX("ab_tag", boO.mRecomAbTag).dX(TiebaInitialize.Params.OBJ_PARAM3, str2);
+        aq dX = new aq(str).w("obj_id", S(boP)).an("obj_type", bUm()).dX("obj_param1", boP.mRecomWeight).dX("obj_source", boP.mRecomSource).an("obj_locate", this.locate).dX("ab_tag", boP.mRecomAbTag).dX(TiebaInitialize.Params.OBJ_PARAM3, str2);
         if (z) {
-            dX.dX(TiebaInitialize.Params.OBJ_PARAM2, boO.brE() > 0 ? "0" : "1");
+            dX.dX(TiebaInitialize.Params.OBJ_PARAM2, boP.brF() > 0 ? "0" : "1");
         }
         return dX;
     }
 
     private long S(bz bzVar) {
-        if (bzVar == null || bzVar.brJ() == null) {
+        if (bzVar == null || bzVar.brK() == null) {
             return -1L;
         }
-        return bzVar.brJ().live_id;
+        return bzVar.brK().live_id;
     }
 
-    private int bUl() {
+    private int bUm() {
         return 1;
     }
 }

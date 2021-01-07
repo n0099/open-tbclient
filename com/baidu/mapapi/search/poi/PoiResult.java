@@ -6,15 +6,15 @@ import com.baidu.mapapi.search.core.CityInfo;
 import com.baidu.mapapi.search.core.PoiInfo;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class PoiResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<PoiResult> CREATOR = new f();
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3007a;
+    private int f3008a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f3008b;
+    private int f3009b;
     private int c;
     private int d;
     private List<PoiInfo> e;
@@ -23,8 +23,8 @@ public class PoiResult extends SearchResult implements Parcelable {
     private List<CityInfo> h;
 
     public PoiResult() {
-        this.f3007a = 0;
-        this.f3008b = 0;
+        this.f3008a = 0;
+        this.f3009b = 0;
         this.c = 0;
         this.d = 0;
         this.f = false;
@@ -33,13 +33,13 @@ public class PoiResult extends SearchResult implements Parcelable {
     /* JADX INFO: Access modifiers changed from: protected */
     public PoiResult(Parcel parcel) {
         super(parcel);
-        this.f3007a = 0;
-        this.f3008b = 0;
+        this.f3008a = 0;
+        this.f3009b = 0;
         this.c = 0;
         this.d = 0;
         this.f = false;
-        this.f3007a = parcel.readInt();
-        this.f3008b = parcel.readInt();
+        this.f3008a = parcel.readInt();
+        this.f3009b = parcel.readInt();
         this.c = parcel.readInt();
         this.d = parcel.readInt();
         this.e = parcel.createTypedArrayList(PoiInfo.CREATOR);
@@ -49,8 +49,8 @@ public class PoiResult extends SearchResult implements Parcelable {
 
     public PoiResult(SearchResult.ERRORNO errorno) {
         super(errorno);
-        this.f3007a = 0;
-        this.f3008b = 0;
+        this.f3008a = 0;
+        this.f3009b = 0;
         this.c = 0;
         this.d = 0;
         this.f = false;
@@ -74,7 +74,7 @@ public class PoiResult extends SearchResult implements Parcelable {
     }
 
     public int getCurrentPageNum() {
-        return this.f3007a;
+        return this.f3008a;
     }
 
     public List<CityInfo> getSuggestCityList() {
@@ -82,7 +82,7 @@ public class PoiResult extends SearchResult implements Parcelable {
     }
 
     public int getTotalPageNum() {
-        return this.f3008b;
+        return this.f3009b;
     }
 
     public int getTotalPoiNum() {
@@ -102,7 +102,7 @@ public class PoiResult extends SearchResult implements Parcelable {
     }
 
     public void setCurrentPageNum(int i) {
-        this.f3007a = i;
+        this.f3008a = i;
     }
 
     public void setHasAddrInfo(boolean z) {
@@ -118,7 +118,7 @@ public class PoiResult extends SearchResult implements Parcelable {
     }
 
     public void setTotalPageNum(int i) {
-        this.f3008b = i;
+        this.f3009b = i;
     }
 
     public void setTotalPoiNum(int i) {
@@ -128,8 +128,8 @@ public class PoiResult extends SearchResult implements Parcelable {
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
-        parcel.writeInt(this.f3007a);
-        parcel.writeInt(this.f3008b);
+        parcel.writeInt(this.f3008a);
+        parcel.writeInt(this.f3009b);
         parcel.writeInt(this.c);
         parcel.writeInt(this.d);
         parcel.writeTypedList(this.e);

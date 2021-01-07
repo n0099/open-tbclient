@@ -9,21 +9,21 @@ public class an {
     public Point c = new Point();
 
     /* renamed from: a  reason: collision with root package name */
-    public Rect f11103a = new Rect();
+    public Rect f11104a = new Rect();
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f11104b = new Rect();
+    public Rect f11105b = new Rect();
 
     public an(View view) {
         this.d = view;
     }
 
     public boolean a() {
-        boolean globalVisibleRect = this.d.getGlobalVisibleRect(this.f11103a, this.c);
-        if (this.c.x == 0 && this.c.y == 0 && this.f11103a.height() == this.d.getHeight() && this.f11104b.height() != 0 && Math.abs(this.f11103a.top - this.f11104b.top) > this.d.getHeight() / 2) {
-            this.f11103a.set(this.f11104b);
+        boolean globalVisibleRect = this.d.getGlobalVisibleRect(this.f11104a, this.c);
+        if (this.c.x == 0 && this.c.y == 0 && this.f11104a.height() == this.d.getHeight() && this.f11105b.height() != 0 && Math.abs(this.f11104a.top - this.f11105b.top) > this.d.getHeight() / 2) {
+            this.f11104a.set(this.f11105b);
         }
-        this.f11104b.set(this.f11103a);
+        this.f11105b.set(this.f11104a);
         return globalVisibleRect;
     }
 }

@@ -121,7 +121,7 @@ public class AttentionView extends FrameLayout implements d<String> {
                 W(false, true);
                 return;
             } else {
-                Zi();
+                Zj();
                 it(false);
             }
         }
@@ -134,11 +134,11 @@ public class AttentionView extends FrameLayout implements d<String> {
     }
 
     @Override // com.baidu.tieba.d
-    public void Fd(String str) {
+    public void Fc(String str) {
     }
 
     public void it(boolean z) {
-        if (!cts()) {
+        if (!ctt()) {
             if (this.gLj == null) {
                 this.gLj = new g(getContext());
                 this.gLj.onChangeSkinType();
@@ -154,7 +154,7 @@ public class AttentionView extends FrameLayout implements d<String> {
         }
     }
 
-    public boolean cts() {
+    public boolean ctt() {
         if (this.gLj != null) {
             return this.gLj.isViewAttached();
         }
@@ -162,7 +162,7 @@ public class AttentionView extends FrameLayout implements d<String> {
     }
 
     public void W(boolean z, boolean z2) {
-        if (!ctt()) {
+        if (!ctu()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.attention.AttentionView.3
                     @Override // android.view.View.OnClickListener
@@ -181,12 +181,12 @@ public class AttentionView extends FrameLayout implements d<String> {
                 this.mRefreshView.sP(R.drawable.new_pic_emotion_01);
                 this.mRefreshView.hideRefreshButton();
             }
-            this.mRefreshView.Eh(getContext().getString(R.string.activity_select_forum_empty));
+            this.mRefreshView.Eg(getContext().getString(R.string.activity_select_forum_empty));
             this.mRecyclerView.setVisibility(8);
         }
     }
 
-    public void Zi() {
+    public void Zj() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
@@ -194,7 +194,7 @@ public class AttentionView extends FrameLayout implements d<String> {
         this.mRecyclerView.setVisibility(0);
     }
 
-    public boolean ctt() {
+    public boolean ctu() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }

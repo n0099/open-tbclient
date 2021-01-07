@@ -10,15 +10,15 @@ import org.json.JSONObject;
 public class a implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f6515a;
+    public final String f6516a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final JSONObject f6516b;
+    public final JSONObject f6517b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(String str, JSONObject jSONObject) {
-        this.f6515a = str;
-        this.f6516b = jSONObject;
+        this.f6516a = str;
+        this.f6517b = jSONObject;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -99,13 +99,13 @@ public class a implements i {
     }
 
     public String a() {
-        if (TextUtils.isEmpty(this.f6515a) || this.f6516b == null) {
+        if (TextUtils.isEmpty(this.f6516a) || this.f6517b == null) {
             return null;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("localId", this.f6515a);
-            jSONObject.put("event", this.f6516b);
+            jSONObject.put("localId", this.f6516a);
+            jSONObject.put("event", this.f6517b);
         } catch (Throwable th) {
         }
         return jSONObject.toString();
@@ -113,6 +113,6 @@ public class a implements i {
 
     @Override // com.bytedance.sdk.openadsdk.c.i
     public String b() {
-        return this.f6515a;
+        return this.f6516a;
     }
 }

@@ -15,7 +15,7 @@ public class b {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
     private static volatile b eyy;
 
-    public static b bhq() {
+    public static b bhr() {
         if (eyy == null) {
             synchronized (b.class) {
                 if (eyy == null) {
@@ -131,8 +131,8 @@ public class b {
                 Log.i("SoBundleId", "updateConfig: end parse soNodeHandler=" + cVar);
             }
             if (gVar != null) {
-                if (fVar.bhr() == 0) {
-                    gVar.arc();
+                if (fVar.bhs() == 0) {
+                    gVar.ard();
                 } else {
                     gVar.a(fVar);
                     com.baidu.swan.pms.c.a.a.a(aVar, gVar);
@@ -142,8 +142,8 @@ public class b {
                 Log.i("SoBundleId", "updateConfig: handle core end");
             }
             if (gVar2 != null) {
-                if (fVar2.bhr() == 0) {
-                    gVar2.arc();
+                if (fVar2.bhs() == 0) {
+                    gVar2.ard();
                 } else {
                     gVar2.a(fVar2);
                     com.baidu.swan.pms.c.a.a.a(aVar2, gVar2);
@@ -153,7 +153,7 @@ public class b {
                 Log.i("SoBundleId", "updateConfig: handle game end");
             }
             if (cVar != null) {
-                cVar.axC();
+                cVar.axD();
             }
             if (DEBUG) {
                 Log.i("SoBundleId", "updateConfig: handle so end");

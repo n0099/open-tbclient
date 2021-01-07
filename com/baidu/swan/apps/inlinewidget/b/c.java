@@ -18,6 +18,6 @@ public class c implements ZeusPluginFactory {
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        return new b(com.baidu.swan.apps.t.a.aBf().e(invoker, this.cGy));
+        return new b(com.baidu.swan.apps.t.a.aBg().e(invoker, this.cGy));
     }
 }

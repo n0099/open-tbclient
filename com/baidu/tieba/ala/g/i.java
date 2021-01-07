@@ -46,12 +46,12 @@ public class i extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021168 && (httpResponsedMessage instanceof AlaUpdateWishListResponseMessage)) {
                     AlaUpdateWishListResponseMessage alaUpdateWishListResponseMessage = (AlaUpdateWishListResponseMessage) httpResponsedMessage;
-                    com.baidu.tieba.ala.data.m coK = alaUpdateWishListResponseMessage.coK();
-                    if (i.this.hUf != null && coK != null) {
+                    com.baidu.tieba.ala.data.m coL = alaUpdateWishListResponseMessage.coL();
+                    if (i.this.hUf != null && coL != null) {
                         if (alaUpdateWishListResponseMessage.getError() != 0 || !alaUpdateWishListResponseMessage.isSuccess()) {
                             i.this.hUf.aN(alaUpdateWishListResponseMessage.getError(), alaUpdateWishListResponseMessage.getErrorString());
                         } else {
-                            i.this.hUf.b(coK);
+                            i.this.hUf.b(coL);
                         }
                     }
                 }
@@ -63,12 +63,12 @@ public class i extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021169 && (httpResponsedMessage instanceof AlaUpdateWishListResponseMessage)) {
                     AlaUpdateWishListResponseMessage alaUpdateWishListResponseMessage = (AlaUpdateWishListResponseMessage) httpResponsedMessage;
-                    com.baidu.tieba.ala.data.m coK = alaUpdateWishListResponseMessage.coK();
-                    if (i.this.hUg != null && coK != null) {
+                    com.baidu.tieba.ala.data.m coL = alaUpdateWishListResponseMessage.coL();
+                    if (i.this.hUg != null && coL != null) {
                         if (alaUpdateWishListResponseMessage.getError() != 0 || !alaUpdateWishListResponseMessage.isSuccess()) {
                             i.this.hUg.aM(alaUpdateWishListResponseMessage.getError(), alaUpdateWishListResponseMessage.getErrorString());
                         } else {
-                            i.this.hUg.a(coK);
+                            i.this.hUg.a(coL);
                         }
                     }
                 }
@@ -80,12 +80,12 @@ public class i extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021170 && (httpResponsedMessage instanceof AlaUpdateWishListResponseMessage)) {
                     AlaUpdateWishListResponseMessage alaUpdateWishListResponseMessage = (AlaUpdateWishListResponseMessage) httpResponsedMessage;
-                    com.baidu.tieba.ala.data.m coK = alaUpdateWishListResponseMessage.coK();
-                    if (i.this.hUh != null && coK != null) {
+                    com.baidu.tieba.ala.data.m coL = alaUpdateWishListResponseMessage.coL();
+                    if (i.this.hUh != null && coL != null) {
                         if (alaUpdateWishListResponseMessage.getError() != 0 || !alaUpdateWishListResponseMessage.isSuccess()) {
                             i.this.hUh.aO(alaUpdateWishListResponseMessage.getError(), alaUpdateWishListResponseMessage.getErrorString());
                         } else {
-                            i.this.hUh.c(coK);
+                            i.this.hUh.c(coL);
                         }
                     }
                 }
@@ -110,7 +110,7 @@ public class i extends BdBaseModel {
         sendMessage(httpMessage);
     }
 
-    public void IN(String str) {
+    public void IM(String str) {
         HttpMessage httpMessage = new HttpMessage(1021169);
         httpMessage.addParam("wish_id", str);
         httpMessage.addParam("status", 2);
@@ -138,11 +138,11 @@ public class i extends BdBaseModel {
         MessageManager.getInstance().unRegisterListener(this.hUi);
     }
 
-    public void coR() {
+    public void coS() {
         MessageManager.getInstance().unRegisterListener(this.hUj);
     }
 
-    public void coS() {
+    public void coT() {
         MessageManager.getInstance().unRegisterListener(this.hUk);
     }
 }

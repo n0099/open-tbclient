@@ -12,12 +12,12 @@ public class c {
     private static volatile c i;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f8863a;
+    private Context f8864a;
     private int d;
     private int f;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f8864b = true;
+    private boolean f8865b = true;
     private boolean c = true;
     private int e = -1;
     private volatile boolean g = false;
@@ -41,7 +41,7 @@ public class c {
 
     private boolean a(boolean z, @NonNull AdTemplate adTemplate, int i2) {
         com.kwad.sdk.core.d.a.a("ProfileGuiderManager", "apply mNeedShowSlideUpGuide");
-        if (this.f8864b) {
+        if (this.f8865b) {
             return false;
         }
         com.kwad.sdk.core.d.a.a("ProfileGuiderManager", "apply enablePageSlideLeft=" + z + " mNeedShowSlideLeftGuide=" + this.c);
@@ -58,7 +58,7 @@ public class c {
         if (this.d >= this.f) {
             this.g = true;
         }
-        ae.b(this.f8863a, this.d);
+        ae.b(this.f8864a, this.d);
         com.kwad.sdk.core.d.a.a("ProfileGuiderManager", "realShow mAlreadyShowTimes = " + this.d + " mLastShowPosition=" + this.e);
     }
 
@@ -67,9 +67,9 @@ public class c {
         if (this.h) {
             return;
         }
-        this.f8863a = context;
+        this.f8864a = context;
         this.d = ae.a(context, 0);
-        this.f8864b = ae.c(context);
+        this.f8865b = ae.c(context);
         this.c = ae.a(context);
         com.kwad.sdk.core.d.a.a("ProfileGuiderManager", "init mNeedShowSlideLeftGuide=" + this.c);
         this.h = true;
@@ -89,13 +89,13 @@ public class c {
     }
 
     public void a(boolean z) {
-        this.f8864b = z;
+        this.f8865b = z;
     }
 
     public void b() {
         this.g = true;
         this.d = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        ae.b(this.f8863a, this.d);
+        ae.b(this.f8864a, this.d);
     }
 
     public void b(boolean z) {

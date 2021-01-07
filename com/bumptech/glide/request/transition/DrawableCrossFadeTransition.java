@@ -4,7 +4,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
 import com.bumptech.glide.request.transition.Transition;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DrawableCrossFadeTransition implements Transition<Drawable> {
     private final int duration;
     private final boolean isCrossFadeEnabled;

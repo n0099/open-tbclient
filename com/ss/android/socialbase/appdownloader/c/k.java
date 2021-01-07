@@ -5,11 +5,11 @@ import android.content.DialogInterface;
 public interface k {
     k BI(boolean z);
 
-    k RR(int i);
+    k Sh(int i);
 
-    k aaO(String str);
+    k aaP(String str);
 
-    j eFU();
+    j eGy();
 
     k h(int i, DialogInterface.OnClickListener onClickListener);
 

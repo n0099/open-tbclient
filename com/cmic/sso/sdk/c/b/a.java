@@ -7,10 +7,10 @@ import org.json.JSONObject;
 public class a extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f7997a;
+    private String f7998a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f7998b;
+    private String f7999b;
     private String c;
     private String d;
     private String e;
@@ -53,11 +53,11 @@ public class a extends g {
     }
 
     public void f(String str) {
-        this.f7997a = str;
+        this.f7998a = str;
     }
 
     public void g(String str) {
-        this.f7998b = str;
+        this.f7999b = str;
     }
 
     public void h(String str) {
@@ -93,8 +93,8 @@ public class a extends g {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("version", this.f7997a);
-            jSONObject.put("msgid", this.f7998b);
+            jSONObject.put("version", this.f7998a);
+            jSONObject.put("msgid", this.f7999b);
             jSONObject.put("appid", this.c);
             jSONObject.put("scrip", this.d);
             jSONObject.put("sign", this.e);
@@ -111,19 +111,19 @@ public class a extends g {
         return jSONObject;
     }
 
-    public String Zc(String str) {
-        return dI(this.f7997a + this.c + str + this.d);
+    public String Zb(String str) {
+        return dI(this.f7998a + this.c + str + this.d);
     }
 
     /* renamed from: com.cmic.sso.sdk.c.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C1014a {
+    public static class C1052a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f7999a;
+        private String f8000a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f8000b;
+        private String f8001b;
         private String c;
         private String d;
         private String e;
@@ -135,11 +135,11 @@ public class a extends g {
         private String k;
 
         public void a(String str) {
-            this.f7999a = str;
+            this.f8000a = str;
         }
 
         public void b(String str) {
-            this.f8000b = str;
+            this.f8001b = str;
         }
 
         public void c(String str) {
@@ -181,8 +181,8 @@ public class a extends g {
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("phone_id", this.f7999a);
-                jSONObject.put("os", this.f8000b);
+                jSONObject.put("phone_id", this.f8000a);
+                jSONObject.put("os", this.f8001b);
                 jSONObject.put("dev_model", this.c);
                 jSONObject.put("dev_brand", this.d);
                 jSONObject.put("mnc", this.e);

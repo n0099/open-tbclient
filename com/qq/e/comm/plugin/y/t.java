@@ -8,29 +8,29 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class t<DataType extends n> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f13030a;
+    private final String f13031a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f13031b;
+    private final String f13032b;
     private final String c;
     private int d = 0;
     private i e;
     private a<DataType> f;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a<DataType> {
         DataType b(int i, String str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(String str, a<DataType> aVar) {
-        this.f13030a = str;
-        this.f13031b = "create table " + str + "(id integer primary key autoincrement,content text not null,ts long not null)";
+        this.f13031a = str;
+        this.f13032b = "create table " + str + "(id integer primary key autoincrement,content text not null,ts long not null)";
         this.c = "id not in (select id from " + str + " order by ts desc limit 1000)";
         this.f = aVar;
     }
@@ -52,7 +52,7 @@ public class t<DataType extends n> {
             r9.<init>()
             com.qq.e.comm.plugin.y.i r0 = r11.e     // Catch: java.lang.Throwable -> Ldc
             android.database.sqlite.SQLiteDatabase r0 = r0.getReadableDatabase()     // Catch: java.lang.Throwable -> Ldc
-            java.lang.String r1 = r11.f13030a     // Catch: java.lang.Throwable -> Le1
+            java.lang.String r1 = r11.f13031a     // Catch: java.lang.Throwable -> Le1
             r2 = 2
             java.lang.String[] r2 = new java.lang.String[r2]     // Catch: java.lang.Throwable -> Le1
             r3 = 0
@@ -75,7 +75,7 @@ public class t<DataType extends n> {
             r1.<init>()     // Catch: java.lang.Throwable -> Lac
             java.lang.String r2 = "Read stat 0 from table: "
             java.lang.StringBuilder r1 = r1.append(r2)     // Catch: java.lang.Throwable -> Lac
-            java.lang.String r2 = r11.f13030a     // Catch: java.lang.Throwable -> Lac
+            java.lang.String r2 = r11.f13031a     // Catch: java.lang.Throwable -> Lac
             java.lang.StringBuilder r1 = r1.append(r2)     // Catch: java.lang.Throwable -> Lac
             java.lang.String r1 = r1.toString()     // Catch: java.lang.Throwable -> Lac
             r2 = 0
@@ -96,7 +96,7 @@ public class t<DataType extends n> {
             java.lang.StringBuilder r0 = r0.append(r1)
             java.lang.String r1 = " from table: "
             java.lang.StringBuilder r0 = r0.append(r1)
-            java.lang.String r1 = r11.f13030a
+            java.lang.String r1 = r11.f13031a
             java.lang.StringBuilder r0 = r0.append(r1)
             java.lang.String r0 = r0.toString()
             java.lang.Object[] r1 = new java.lang.Object[r10]
@@ -182,14 +182,14 @@ public class t<DataType extends n> {
     }
 
     public void a(SQLiteDatabase sQLiteDatabase) throws Throwable {
-        sQLiteDatabase.execSQL(this.f13031b);
+        sQLiteDatabase.execSQL(this.f13032b);
         this.d = 0;
     }
 
     public void a(i iVar) {
         this.e = iVar;
         this.d = a().size();
-        ai.a("Stat db init: total " + this.f13030a + " count=" + this.d, new Object[0]);
+        ai.a("Stat db init: total " + this.f13031a + " count=" + this.d, new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -201,7 +201,7 @@ public class t<DataType extends n> {
         try {
             sQLiteDatabase = this.e.getWritableDatabase();
             sQLiteDatabase.beginTransaction();
-            StringBuilder append = new StringBuilder("insert into ").append(this.f13030a).append(" (").append("content").append(", ").append("ts").append(") ");
+            StringBuilder append = new StringBuilder("insert into ").append(this.f13031a).append(" (").append("content").append(", ").append("ts").append(") ");
             DataType datatype = list.get(0);
             append.append("select '").append(datatype.b()).append("', ").append(datatype.c());
             int size = list.size();
@@ -210,9 +210,9 @@ public class t<DataType extends n> {
                 append.append(" union all select '").append(datatype2.b()).append("', ").append(datatype2.c());
             }
             sQLiteDatabase.execSQL(append.toString());
-            int delete = sQLiteDatabase.delete(this.f13030a, this.c, null);
+            int delete = sQLiteDatabase.delete(this.f13031a, this.c, null);
             int size2 = list.size();
-            ai.a("Insert stat:" + list.size() + ", delete stat: " + delete + " from table: " + this.f13030a, new Object[0]);
+            ai.a("Insert stat:" + list.size() + ", delete stat: " + delete + " from table: " + this.f13031a, new Object[0]);
             sQLiteDatabase.setTransactionSuccessful();
             this.d = (size2 - delete) + this.d;
             if (sQLiteDatabase != null) {
@@ -263,8 +263,8 @@ public class t<DataType extends n> {
         sb.append(")");
         try {
             sQLiteDatabase = this.e.getWritableDatabase();
-            int delete = sQLiteDatabase.delete(this.f13030a, "id in " + sb.toString(), null);
-            ai.a("Delete stat count: " + delete + " from table: " + this.f13030a, new Object[0]);
+            int delete = sQLiteDatabase.delete(this.f13031a, "id in " + sb.toString(), null);
+            ai.a("Delete stat count: " + delete + " from table: " + this.f13031a, new Object[0]);
             this.d -= delete;
             if (this.d < 0) {
                 this.d = 0;
@@ -301,7 +301,7 @@ public class t<DataType extends n> {
     }
 
     public void b(SQLiteDatabase sQLiteDatabase) throws Throwable {
-        sQLiteDatabase.execSQL("drop table if exists " + this.f13030a);
+        sQLiteDatabase.execSQL("drop table if exists " + this.f13031a);
         this.d = 0;
     }
 }

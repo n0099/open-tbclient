@@ -27,7 +27,7 @@ public class g extends BdBaseModel {
                         if (alaLootRedPacketResultResponseMessage.getError() != 0 || !alaLootRedPacketResultResponseMessage.isSuccess()) {
                             g.this.grU.v(alaLootRedPacketResultResponseMessage.getError(), alaLootRedPacketResultResponseMessage.getErrorString());
                         } else {
-                            g.this.grU.b(alaLootRedPacketResultResponseMessage.coI());
+                            g.this.grU.b(alaLootRedPacketResultResponseMessage.coJ());
                         }
                     }
                 }

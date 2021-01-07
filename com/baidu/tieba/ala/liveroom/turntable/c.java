@@ -16,8 +16,8 @@ public class c implements a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.turntable.a
-    public void IJ(String str) {
-        cny();
+    public void II(String str) {
+        cnz();
         com.baidu.tieba.ala.liveroom.turntable.lucky.d dVar = new com.baidu.tieba.ala.liveroom.turntable.lucky.d();
         dVar.setLiveId(str);
         MessageManager.getInstance().sendMessage(dVar);
@@ -29,7 +29,7 @@ public class c implements a {
         unRegisterListener();
     }
 
-    private void cny() {
+    private void cnz() {
         if (this.hOR == null) {
             this.hOR = new HttpMessageListener(1021157) { // from class: com.baidu.tieba.ala.liveroom.turntable.c.1
                 /* JADX DEBUG: Method merged with bridge method */

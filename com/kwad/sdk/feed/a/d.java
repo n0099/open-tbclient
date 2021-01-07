@@ -23,10 +23,10 @@ public class d extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
     protected i<g, AdResultData> a() {
         final h.a aVar = new h.a();
         f fVar = new f(this.c);
-        fVar.f9465b = this.c.getPageScene();
+        fVar.f9466b = this.c.getPageScene();
         fVar.c = 100L;
-        aVar.f9560a.add(fVar);
-        aVar.f9561b = new com.kwad.sdk.core.g.a.c();
+        aVar.f9561a.add(fVar);
+        aVar.f9562b = new com.kwad.sdk.core.g.a.c();
         return new i<g, AdResultData>() { // from class: com.kwad.sdk.feed.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */

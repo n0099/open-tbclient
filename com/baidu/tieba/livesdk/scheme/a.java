@@ -25,13 +25,13 @@ public class a implements f {
             sb.append("&page_from=live");
             Activity currentActivity = b.kC().currentActivity();
             if (currentActivity != null) {
-                be.bwu().a((TbPageContext) j.K(currentActivity), new String[]{sb.toString()}, true);
+                be.bwv().a((TbPageContext) j.K(currentActivity), new String[]{sb.toString()}, true);
             }
         }
     }
 
     @Override // com.baidu.tieba.sdk.b.f
-    public void Oh(String str) {
+    public void Og(String str) {
         openScheme(str);
     }
 }

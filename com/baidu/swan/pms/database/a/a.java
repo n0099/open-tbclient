@@ -74,13 +74,13 @@ public class a extends b<PMSAppInfo> {
             if (0 < lastLaunchTime) {
                 contentValues.put("last_launch_time", Long.valueOf(lastLaunchTime));
             }
-            int aRG = pMSAppInfo.aRG();
-            if (aRG > 0) {
-                contentValues.put("launch_count", Integer.valueOf(aRG));
+            int aRH = pMSAppInfo.aRH();
+            if (aRH > 0) {
+                contentValues.put("launch_count", Integer.valueOf(aRH));
             }
-            int auu = pMSAppInfo.auu();
-            if (auu > 0) {
-                contentValues.put("install_src", Integer.valueOf(auu));
+            int auv = pMSAppInfo.auv();
+            if (auv > 0) {
+                contentValues.put("install_src", Integer.valueOf(auv));
             }
             contentValues.put("web_url", pMSAppInfo.webUrl);
             contentValues.put("cs_protocol_version", Integer.valueOf(pMSAppInfo.csProtocolVersion));

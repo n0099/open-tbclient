@@ -7,35 +7,35 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g<K, V> {
-    private final v<V> pzT;
+    private final v<V> pBA;
     @GuardedBy("this")
-    private final LinkedHashMap<K, V> pzU = new LinkedHashMap<>();
+    private final LinkedHashMap<K, V> pBB = new LinkedHashMap<>();
     @GuardedBy("this")
-    private int pzV = 0;
+    private int pBC = 0;
 
     public g(v<V> vVar) {
-        this.pzT = vVar;
+        this.pBA = vVar;
     }
 
     public synchronized int getCount() {
-        return this.pzU.size();
+        return this.pBB.size();
     }
 
     public synchronized int getSizeInBytes() {
-        return this.pzV;
+        return this.pBC;
     }
 
     @Nullable
-    public synchronized K ewH() {
-        return this.pzU.isEmpty() ? null : this.pzU.keySet().iterator().next();
+    public synchronized K exj() {
+        return this.pBB.isEmpty() ? null : this.pBB.keySet().iterator().next();
     }
 
     public synchronized ArrayList<Map.Entry<K, V>> a(@Nullable com.facebook.common.internal.h<K> hVar) {
         ArrayList<Map.Entry<K, V>> arrayList;
-        arrayList = new ArrayList<>(this.pzU.entrySet().size());
-        for (Map.Entry<K, V> entry : this.pzU.entrySet()) {
+        arrayList = new ArrayList<>(this.pBB.entrySet().size());
+        for (Map.Entry<K, V> entry : this.pBB.entrySet()) {
             if (hVar == null || hVar.apply(entry.getKey())) {
                 arrayList.add(entry);
             }
@@ -43,26 +43,30 @@ public class g<K, V> {
         return arrayList;
     }
 
+    public synchronized boolean contains(K k) {
+        return this.pBB.containsKey(k);
+    }
+
     @Nullable
     public synchronized V get(K k) {
-        return this.pzU.get(k);
+        return this.pBB.get(k);
     }
 
     @Nullable
     public synchronized V put(K k, V v) {
         V remove;
-        remove = this.pzU.remove(k);
-        this.pzV -= bs(remove);
-        this.pzU.put(k, v);
-        this.pzV += bs(v);
+        remove = this.pBB.remove(k);
+        this.pBC -= bs(remove);
+        this.pBB.put(k, v);
+        this.pBC += bs(v);
         return remove;
     }
 
     @Nullable
     public synchronized V remove(K k) {
         V remove;
-        remove = this.pzU.remove(k);
-        this.pzV -= bs(remove);
+        remove = this.pBB.remove(k);
+        this.pBC -= bs(remove);
         return remove;
     }
 
@@ -70,6 +74,6 @@ public class g<K, V> {
         if (v == null) {
             return 0;
         }
-        return this.pzT.bq(v);
+        return this.pBA.bq(v);
     }
 }

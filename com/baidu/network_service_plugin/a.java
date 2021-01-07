@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.z;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class a implements b.a {
     private HashMap<String, Object> cmA;
     private Runnable cmC;
@@ -22,7 +22,7 @@ public class a implements b.a {
     private boolean cmE = false;
     private long cmF = 0;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(HashMap<String, String> hashMap, HashMap<String, String> hashMap2, int i, String str, Object obj, String str2);
     }
@@ -37,7 +37,7 @@ public class a implements b.a {
         }
         this.cmB = l.isNetOk();
         if (this.timeout >= 10) {
-            e.mB().postDelayed(aeR(), this.timeout * 1000);
+            e.mB().postDelayed(aeS(), this.timeout * 1000);
         }
         if (!this.cmB) {
             e.mB().post(new Runnable() { // from class: com.baidu.network_service_plugin.a.1
@@ -65,7 +65,7 @@ public class a implements b.a {
         return true;
     }
 
-    public String aeM() {
+    public String aeN() {
         return this.cmz;
     }
 
@@ -73,7 +73,7 @@ public class a implements b.a {
         this.cmz = str;
     }
 
-    public HashMap<String, Object> aeN() {
+    public HashMap<String, Object> aeO() {
         return this.cmA;
     }
 
@@ -82,7 +82,7 @@ public class a implements b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aeO() {
+    public void aeP() {
         this.cmD = null;
     }
 
@@ -90,11 +90,11 @@ public class a implements b.a {
         this.cmE = z;
     }
 
-    public boolean aeP() {
+    public boolean aeQ() {
         return this.cmE;
     }
 
-    public long aeQ() {
+    public long aeR() {
         return this.cmF;
     }
 
@@ -104,7 +104,7 @@ public class a implements b.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.network_service_plugin.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class C0278a extends BdAsyncTask<Object, String, String> {
         private a cmH;
         private com.baidu.tbadk.core.util.b.a cmI;
@@ -122,22 +122,22 @@ public class a implements b.a {
         /* renamed from: l */
         public String doInBackground(Object... objArr) {
             String postNetData;
-            this.cmK = System.currentTimeMillis() - this.cmH.aeQ();
+            this.cmK = System.currentTimeMillis() - this.cmH.aeR();
             this.cmH.isLoading = true;
-            this.cmJ = new z(this.cmH.aeM());
-            HashMap<String, Object> aeN = this.cmH.aeN();
-            if (aeN != null && !aeN.isEmpty()) {
-                for (Map.Entry<String, Object> entry : aeN.entrySet()) {
+            this.cmJ = new z(this.cmH.aeN());
+            HashMap<String, Object> aeO = this.cmH.aeO();
+            if (aeO != null && !aeO.isEmpty()) {
+                for (Map.Entry<String, Object> entry : aeO.entrySet()) {
                     this.cmJ.addPostData(entry.getKey(), String.valueOf(entry.getValue()));
                 }
             }
-            if (this.cmH.aeP() && aeN != null) {
-                this.cmJ.addPostData("debugfile", (byte[]) aeN.get("debugfile"));
+            if (this.cmH.aeQ() && aeO != null) {
+                this.cmJ.addPostData("debugfile", (byte[]) aeO.get("debugfile"));
                 postNetData = this.cmJ.postMultiNetData();
             } else {
                 postNetData = this.cmJ.postNetData();
             }
-            this.cmI = this.cmJ.bvQ();
+            this.cmI = this.cmJ.bvR();
             publishProgress(postNetData);
             return postNetData;
         }
@@ -164,28 +164,28 @@ public class a implements b.a {
                 if (this.cmH.cmC != null) {
                     e.mB().removeCallbacks(this.cmH.cmC);
                 }
-                if (this.cmI != null && this.cmI.bwA() != null && !this.isCancle && this.cmH.cmy != null) {
+                if (this.cmI != null && this.cmI.bwB() != null && !this.isCancle && this.cmH.cmy != null) {
                     HashMap<String, String> hashMap = new HashMap<>();
-                    hashMap.put("server", this.cmH.aeM());
-                    hashMap.put("api", this.cmH.aeM());
-                    hashMap.put("state", this.cmI.bwB().fej.exception);
-                    if (this.cmI.bwC() != null && this.cmH.aeQ() > 0 && this.cmI.bwC().containsKey("startTime")) {
-                        long j = com.baidu.adp.lib.f.b.toLong(this.cmI.bwC().get("startTime"), 0L) - this.cmH.aeQ();
+                    hashMap.put("server", this.cmH.aeN());
+                    hashMap.put("api", this.cmH.aeN());
+                    hashMap.put("state", this.cmI.bwC().fej.exception);
+                    if (this.cmI.bwD() != null && this.cmH.aeR() > 0 && this.cmI.bwD().containsKey("startTime")) {
+                        long j = com.baidu.adp.lib.f.b.toLong(this.cmI.bwD().get("startTime"), 0L) - this.cmH.aeR();
                         if (j > 0) {
-                            this.cmI.bwC().put("taskWaitTime", String.valueOf(j));
+                            this.cmI.bwD().put("taskWaitTime", String.valueOf(j));
                         }
                         if (this.cmK < 20000) {
-                            this.cmI.bwC().put("queneTime", String.valueOf(this.cmK));
+                            this.cmI.bwD().put("queneTime", String.valueOf(this.cmK));
                         }
                     }
-                    this.cmH.cmy.a(hashMap, this.cmI.bwC(), this.cmI.bwA().mServerErrorCode, this.cmI.bwA().mErrorString, strArr[0], this.cmH.identifier);
+                    this.cmH.cmy.a(hashMap, this.cmI.bwD(), this.cmI.bwB().mServerErrorCode, this.cmI.bwB().mErrorString, strArr[0], this.cmH.identifier);
                 }
-                this.cmH.aeO();
+                this.cmH.aeP();
             }
         }
     }
 
-    public Runnable aeR() {
+    public Runnable aeS() {
         if (this.cmC == null) {
             this.cmC = new Runnable() { // from class: com.baidu.network_service_plugin.a.2
                 @Override // java.lang.Runnable

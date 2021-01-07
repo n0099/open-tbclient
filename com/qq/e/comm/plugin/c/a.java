@@ -4,11 +4,11 @@ import com.qq.e.comm.plugin.util.ai;
 import com.qq.e.comm.plugin.util.w;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 abstract class a implements l {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final List<Class<? extends k>> f12219a = new ArrayList();
+    protected final List<Class<? extends k>> f12220a = new ArrayList();
 
     private k a(Class<? extends k> cls) {
         try {
@@ -20,11 +20,11 @@ abstract class a implements l {
 
     @Override // com.qq.e.comm.plugin.c.l
     public void a(f fVar, final com.qq.e.comm.plugin.c.a.a aVar) {
-        if (this.f12219a.size() <= 0) {
+        if (this.f12220a.size() <= 0) {
             return;
         }
         g.a(false, 0, fVar);
-        for (Class<? extends k> cls : this.f12219a) {
+        for (Class<? extends k> cls : this.f12220a) {
             k a2 = a(cls);
             if (a2 == null) {
                 g.a(true, 1, fVar);

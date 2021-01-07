@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.n;
 public class c {
     private static volatile b gpS;
 
-    public static synchronized b bRg() {
+    public static synchronized b bRh() {
         b bVar;
         synchronized (c.class) {
             if (gpS == null) {

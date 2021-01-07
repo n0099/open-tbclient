@@ -34,16 +34,16 @@ public class HomePageAlaFriendRoomAdapter extends com.baidu.adp.widget.ListView.
                         i = 5;
                     } else if (view == HomePageAlaFriendRoomAdapter.this.kfU.its.getCommentContainer()) {
                         HomePageAlaFriendRoomAdapter.this.a(jVar, view);
-                    } else if (HomePageAlaFriendRoomAdapter.this.kfU.cuF() != null && view.getId() == HomePageAlaFriendRoomAdapter.this.kfU.cuF().getId()) {
-                        i = 2;
                     } else if (HomePageAlaFriendRoomAdapter.this.kfU.cuG() != null && view.getId() == HomePageAlaFriendRoomAdapter.this.kfU.cuG().getId()) {
+                        i = 2;
+                    } else if (HomePageAlaFriendRoomAdapter.this.kfU.cuH() != null && view.getId() == HomePageAlaFriendRoomAdapter.this.kfU.cuH().getId()) {
                         i = 2;
                     }
                 } else {
                     i = 1;
                 }
                 if (i != 0) {
-                    com.baidu.tieba.homepage.personalize.a.a.a(jVar.eMv, HomePageAlaFriendRoomAdapter.this.fJu, jVar.cvm(), i);
+                    com.baidu.tieba.homepage.personalize.a.a.a(jVar.eMv, HomePageAlaFriendRoomAdapter.this.fJu, jVar.cvn(), i);
                 }
             }
         };
@@ -75,11 +75,11 @@ public class HomePageAlaFriendRoomAdapter extends com.baidu.adp.widget.ListView.
         homePageAlaLiveThreadViewHolder.kfW.a(jVar);
         homePageAlaLiveThreadViewHolder.kfW.c(this.iKM);
         homePageAlaLiveThreadViewHolder.kfW.b(this.ggi);
-        com.baidu.tieba.homepage.personalize.a.a.a(jVar.eMv, this.fJu, jVar.cvm());
-        if (jVar.boO() != null && jVar.boO().brJ() != null) {
+        com.baidu.tieba.homepage.personalize.a.a.a(jVar.eMv, this.fJu, jVar.cvn());
+        if (jVar.boP() != null && jVar.boP().brK() != null) {
             aq aqVar = new aq("c14007");
             aqVar.an("obj_locate", 1);
-            aqVar.w("obj_param1", jVar.boO().brJ().live_id);
+            aqVar.w("obj_param1", jVar.boP().brK().live_id);
             aqVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
             TiebaStatic.log(aqVar);
         }
@@ -90,9 +90,9 @@ public class HomePageAlaFriendRoomAdapter extends com.baidu.adp.widget.ListView.
     public void a(com.baidu.tieba.card.data.j jVar, View view) {
         String str = "";
         String str2 = "";
-        if (jVar != null && jVar.boO() != null) {
-            str = jVar.boO().getTid();
-            str2 = jVar.boO().bpO();
+        if (jVar != null && jVar.boP() != null) {
+            str = jVar.boP().getTid();
+            str2 = jVar.boP().bpP();
         }
         aq aqVar = new aq("c12942");
         aqVar.an("obj_locate", 1);
@@ -104,8 +104,8 @@ public class HomePageAlaFriendRoomAdapter extends com.baidu.adp.widget.ListView.
         if (bV != null) {
             aqVar.dX("obj_cur_page", bV.getCurrentPageKey());
         }
-        if (com.baidu.tbadk.pageExtra.d.bHm() != null) {
-            aqVar.dX("obj_pre_page", com.baidu.tbadk.pageExtra.d.bHm());
+        if (com.baidu.tbadk.pageExtra.d.bHn() != null) {
+            aqVar.dX("obj_pre_page", com.baidu.tbadk.pageExtra.d.bHn());
         }
         TiebaStatic.log(aqVar);
     }
@@ -125,7 +125,7 @@ public class HomePageAlaFriendRoomAdapter extends com.baidu.adp.widget.ListView.
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 }

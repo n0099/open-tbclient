@@ -50,7 +50,7 @@ public class TTPlayableWebPageActivity extends Activity implements d, am.a {
     private a C;
 
     /* renamed from: b  reason: collision with root package name */
-    private SSWebView f6451b;
+    private SSWebView f6452b;
     private SSWebView c;
     private RelativeLayout f;
     private Context g;
@@ -80,7 +80,7 @@ public class TTPlayableWebPageActivity extends Activity implements d, am.a {
     private boolean D = false;
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.bytedance.sdk.openadsdk.g.d f6450a = new com.bytedance.sdk.openadsdk.g.d() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTPlayableWebPageActivity.1
+    protected com.bytedance.sdk.openadsdk.g.d f6451a = new com.bytedance.sdk.openadsdk.g.d() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTPlayableWebPageActivity.1
         @Override // com.bytedance.sdk.openadsdk.g.d
         public void a() {
             if (!TTPlayableWebPageActivity.this.isFinishing()) {
@@ -130,8 +130,8 @@ public class TTPlayableWebPageActivity extends Activity implements d, am.a {
             b();
             a();
             g();
-            if (this.f6451b != null) {
-                this.f6451b.setWebViewClient(new c(this.g, this.m, this.k, null) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTPlayableWebPageActivity.2
+            if (this.f6452b != null) {
+                this.f6452b.setWebViewClient(new c(this.g, this.m, this.k, null) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTPlayableWebPageActivity.2
                     @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
                     public void onPageFinished(WebView webView, String str) {
                         super.onPageFinished(webView, str);
@@ -197,11 +197,11 @@ public class TTPlayableWebPageActivity extends Activity implements d, am.a {
                         }
                     }
                 });
-                a(this.f6451b);
+                a(this.f6452b);
                 a(this.c);
                 d();
-                this.f6451b.loadUrl(this.p);
-                this.f6451b.setWebChromeClient(new b(this.m, null) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTPlayableWebPageActivity.3
+                this.f6452b.loadUrl(this.p);
+                this.f6452b.setWebChromeClient(new b(this.m, null) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTPlayableWebPageActivity.3
                     @Override // com.bytedance.sdk.openadsdk.core.widget.webview.b, android.webkit.WebChromeClient
                     public void onProgressChanged(WebView webView, int i) {
                         super.onProgressChanged(webView, i);
@@ -309,7 +309,7 @@ public class TTPlayableWebPageActivity extends Activity implements d, am.a {
 
     private void b() {
         this.j = (PlayableLoadingView) findViewById(ac.e(this, "tt_playable_loading"));
-        this.f6451b = (SSWebView) findViewById(ac.e(this, "tt_browser_webview"));
+        this.f6452b = (SSWebView) findViewById(ac.e(this, "tt_browser_webview"));
         this.c = (SSWebView) findViewById(ac.e(this, "tt_browser_webview_loading"));
         this.f = (RelativeLayout) findViewById(ac.e(this, "tt_playable_ad_close_layout"));
         if (this.f != null) {
@@ -359,8 +359,8 @@ public class TTPlayableWebPageActivity extends Activity implements d, am.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        if (!this.x.getAndSet(true) && this.f6451b != null && this.c != null) {
-            ak.a((View) this.f6451b, 0);
+        if (!this.x.getAndSet(true) && this.f6452b != null && this.c != null) {
+            ak.a((View) this.f6452b, 0);
             ak.a((View) this.c, 8);
             int i = p.h().r(String.valueOf(aj.d(this.s.W()))).s;
             if (i >= 0) {
@@ -453,7 +453,7 @@ public class TTPlayableWebPageActivity extends Activity implements d, am.a {
         ArrayList arrayList = new ArrayList();
         arrayList.add(this.s);
         this.m = new x(this);
-        this.m.b(this.f6451b).a(this.s).a(arrayList).a(this.k).b(this.l).a(this.o).a(this).a(this.f6450a).a(this.f6451b).c(aj.h(this.s));
+        this.m.b(this.f6452b).a(this.s).a(arrayList).a(this.k).b(this.l).a(this.o).a(this).a(this.f6451a).a(this.f6452b).c(aj.h(this.s));
         this.n = new x(this);
         this.n.b(this.c).a(this.s).a(this.k).b(this.l).a(this).a(this.o).c(false).a(this.c).c(aj.h(this.s));
     }
@@ -508,9 +508,9 @@ public class TTPlayableWebPageActivity extends Activity implements d, am.a {
             d.a.a(this.B, this.A, this.s);
         }
         com.bytedance.sdk.openadsdk.preload.geckox.c.a().a(this.C);
-        aa.a(this.g, this.f6451b);
-        aa.a(this.f6451b);
-        this.f6451b = null;
+        aa.a(this.g, this.f6452b);
+        aa.a(this.f6452b);
+        this.f6452b = null;
         if (this.m != null) {
             this.m.i();
         }
@@ -556,7 +556,7 @@ public class TTPlayableWebPageActivity extends Activity implements d, am.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
         Bitmap b2;
-        if (this.s != null && this.f6451b != null && this.s.s() && (b2 = ak.b((WebView) this.f6451b)) != null) {
+        if (this.s != null && this.f6452b != null && this.s.s() && (b2 = ak.b((WebView) this.f6452b)) != null) {
             ak.a(p.a(), this.s, this.r, "playable_show_status", b2, false, 1);
         }
     }

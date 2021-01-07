@@ -6,14 +6,14 @@ import android.util.Log;
 class d {
     private com.baidu.p.a.a.c oPt;
     private static String TAG = "UnionIDFactory";
-    private static boolean DEBUG = a.ejW();
+    private static boolean DEBUG = a.ejX();
 
     public d(Context context) {
-        int ejX = b.ejX();
+        int ejY = b.ejY();
         if (DEBUG) {
-            Log.e(TAG, "UnionIDFactory manufacturer:" + ejX);
+            Log.e(TAG, "UnionIDFactory manufacturer:" + ejY);
         }
-        switch (ejX) {
+        switch (ejY) {
             case 10001:
                 this.oPt = new com.baidu.p.a.b.a(context);
                 return;
@@ -29,7 +29,7 @@ class d {
         }
     }
 
-    public com.baidu.p.a.a.c ejY() {
+    public com.baidu.p.a.a.c ejZ() {
         return this.oPt;
     }
 }

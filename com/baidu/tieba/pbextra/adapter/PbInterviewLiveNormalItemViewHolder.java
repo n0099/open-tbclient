@@ -13,34 +13,34 @@ import com.baidu.tieba.pb.view.PbGiftListView;
 import com.baidu.tieba.tbadkCore.FrsPraiseView;
 /* loaded from: classes2.dex */
 public class PbInterviewLiveNormalItemViewHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
-    public TbRichTextView lMb;
-    public TbImageView mkY;
-    public View mkZ;
-    public PbGiftListView mla;
-    public FrsPraiseView mlb;
-    public ImageView mlc;
+    public TbRichTextView lMa;
+    public TbImageView mkX;
+    public View mkY;
+    public PbGiftListView mkZ;
+    public FrsPraiseView mla;
+    public ImageView mlb;
 
     public PbInterviewLiveNormalItemViewHolder(View view, boolean z, boolean z2, int i, boolean z3) {
         super(view);
-        this.mkY = (TbImageView) view.findViewById(R.id.interview_live_post_pic);
-        this.mkY.setSupportNoImage(true);
-        this.mkY.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.mkY.setOnClickListener(this);
-        this.mkY.setInterceptOnClick(true);
-        this.mkY.setDefaultResource(R.drawable.icon_click);
-        this.lMb = (TbRichTextView) view.findViewById(R.id.richText);
-        this.mkZ = view.findViewById(R.id.pb_item_praise_topline);
-        this.mlb = (FrsPraiseView) view.findViewById(R.id.pb_item_praise_view);
-        this.mlc = (ImageView) view.findViewById(R.id.pb_item_praise_bottomline);
-        this.mla = (PbGiftListView) view.findViewById(R.id.gift_list_view);
-        this.lMb.getLayoutStrategy().setSupportNoImage();
-        this.lMb.getLayoutStrategy().lK(true);
-        int min = Math.min(((((l.getEquipmentWidth(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.lMb.getPaddingLeft()) - this.lMb.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds60)), i);
-        this.lMb.getLayoutStrategy().tz(min);
-        this.lMb.getLayoutStrategy().tA((int) (min * 1.618f));
-        this.lMb.setTextSize(TbConfig.getContentSize());
-        this.lMb.setDisplayImage(z2, false);
-        this.lMb.setVoiceViewRes(R.layout.voice_play_btn);
+        this.mkX = (TbImageView) view.findViewById(R.id.interview_live_post_pic);
+        this.mkX.setSupportNoImage(true);
+        this.mkX.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.mkX.setOnClickListener(this);
+        this.mkX.setInterceptOnClick(true);
+        this.mkX.setDefaultResource(R.drawable.icon_click);
+        this.lMa = (TbRichTextView) view.findViewById(R.id.richText);
+        this.mkY = view.findViewById(R.id.pb_item_praise_topline);
+        this.mla = (FrsPraiseView) view.findViewById(R.id.pb_item_praise_view);
+        this.mlb = (ImageView) view.findViewById(R.id.pb_item_praise_bottomline);
+        this.mkZ = (PbGiftListView) view.findViewById(R.id.gift_list_view);
+        this.lMa.getLayoutStrategy().setSupportNoImage();
+        this.lMa.getLayoutStrategy().lK(true);
+        int min = Math.min(((((l.getEquipmentWidth(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.lMa.getPaddingLeft()) - this.lMa.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds60)), i);
+        this.lMa.getLayoutStrategy().tz(min);
+        this.lMa.getLayoutStrategy().tA((int) (min * 1.618f));
+        this.lMa.setTextSize(TbConfig.getContentSize());
+        this.lMa.setDisplayImage(z2, false);
+        this.lMa.setVoiceViewRes(R.layout.voice_play_btn);
     }
 
     @Override // android.view.View.OnClickListener

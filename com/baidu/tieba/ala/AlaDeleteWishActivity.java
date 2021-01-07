@@ -172,7 +172,7 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements i.a {
         this.gqB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaDeleteWishActivity.this.gqD.IN(AlaDeleteWishActivity.this.gqE);
+                AlaDeleteWishActivity.this.gqD.IM(AlaDeleteWishActivity.this.gqE);
             }
         });
         this.gqC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.4
@@ -191,10 +191,10 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements i.a {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Xk();
+        Xl();
     }
 
-    private void Xk() {
+    private void Xl() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -237,7 +237,7 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements i.a {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         if (this.gqD != null) {
-            this.gqD.coR();
+            this.gqD.coS();
         }
         super.onDestroy();
         this.mHandler.removeCallbacksAndMessages(null);

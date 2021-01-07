@@ -28,11 +28,11 @@ public class a implements d.a {
     }
 
     private void a(@NonNull a.a.a.b.b bVar) {
-        if (bVar.f1035b > bVar.f1034a) {
+        if (bVar.f1036b > bVar.f1035a) {
             throw new IllegalArgumentException("thread num must < max thread num");
         }
         this.aoF = bVar;
-        this.mExecutorService = Executors.newFixedThreadPool(this.aoF.f1034a);
+        this.mExecutorService = Executors.newFixedThreadPool(this.aoF.f1035a);
         this.aoG = new h(this.mHandler);
     }
 

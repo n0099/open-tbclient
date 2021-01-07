@@ -33,7 +33,7 @@ import java.io.File;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public final class BdSailorPlatform implements INoProGuard {
     public static final int APP_STATE_BACKGROUND = 0;
     public static final int APP_STATE_FOREGROUND = 1;
@@ -61,7 +61,7 @@ public final class BdSailorPlatform implements INoProGuard {
     private boolean mIsNeedUpdateKernel = true;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes15.dex */
     public class a extends BroadcastReceiver {
         private a() {
         }
@@ -372,9 +372,9 @@ public final class BdSailorPlatform implements INoProGuard {
         long currentTimeMillis = System.currentTimeMillis();
         com.baidu.browser.sailor.webkit.a sY = com.baidu.browser.sailor.webkit.a.sY();
         Context appContext = getAppContext();
-        if (sY.f1652b == null) {
-            sY.f1652b = appContext.getApplicationContext();
-            Log.d(com.baidu.browser.sailor.webkit.a.f1651a, "in BdWebViewSingleton, init");
+        if (sY.f1653b == null) {
+            sY.f1653b = appContext.getApplicationContext();
+            Log.d(com.baidu.browser.sailor.webkit.a.f1652a, "in BdWebViewSingleton, init");
         }
         this.mIsWebkitInited = true;
         Log.d("tangxianding", "[START] BdWebViewSingleton init time = " + (System.currentTimeMillis() - currentTimeMillis));

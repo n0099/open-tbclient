@@ -11,12 +11,12 @@ import android.widget.TextView;
 import com.baidu.poly.b;
 import com.baidu.poly.widget.coupon.a;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends BaseAdapter {
     private Context mContext;
     private List<a.C0325a> mData;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static class a {
         TextView crk;
         ImageView icon;

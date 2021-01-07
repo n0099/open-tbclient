@@ -20,10 +20,10 @@ import java.util.Map;
 public class RealAuthenInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(FaceRecognitionActivityConfig.class, FaceRecognitionActivity.class);
-        dEB();
+        dEC();
     }
 
-    private static void dEB() {
+    private static void dEC() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913222) { // from class: com.baidu.tieba.realauthen.RealAuthenInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener

@@ -57,7 +57,7 @@ public class BigdayActivity extends BaseActivity {
     public void onClick(View view) {
         if (view.getId() == this.khs.getId()) {
             if (!StringUtils.isNULL(this.aJH)) {
-                be.bwu().b(getPageContext(), new String[]{this.aJH});
+                be.bwv().b(getPageContext(), new String[]{this.aJH});
                 TiebaStatic.log(new aq("c13112").w("obj_id", this.eMF).dX(TiebaInitialize.Params.OBJ_TO, this.aJH));
                 finish();
             }
@@ -67,7 +67,7 @@ public class BigdayActivity extends BaseActivity {
             calendar.set(12, 59);
             calendar.set(13, 59);
             calendar.set(14, 0);
-            com.baidu.tbadk.core.sharedPref.b.bvq().putLong("key_bigday_next_showtime_home", calendar.getTimeInMillis());
+            com.baidu.tbadk.core.sharedPref.b.bvr().putLong("key_bigday_next_showtime_home", calendar.getTimeInMillis());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GET_LIVE_IS_BC_CHAT, null));
             finish();
         }

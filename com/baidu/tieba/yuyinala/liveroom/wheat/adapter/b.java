@@ -23,8 +23,8 @@ import java.util.List;
 public class b extends BaseAdapter {
     private Context context;
     private List<com.baidu.live.data.e> mList;
-    private a oxR;
-    private int oxz = -1;
+    private a oxQ;
+    private int oxy = -1;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -41,7 +41,7 @@ public class b extends BaseAdapter {
 
     public void setData(List<com.baidu.live.data.e> list, int i) {
         this.mList = list;
-        this.oxz = i;
+        this.oxy = i;
         notifyDataSetChanged();
     }
 
@@ -68,117 +68,117 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        final C0916b c0916b;
+        final C0954b c0954b;
         if (view == null) {
             view = LayoutInflater.from(this.context).inflate(a.g.yuyin_item_connection_wheat_apply, (ViewGroup) null);
-            C0916b c0916b2 = new C0916b();
-            c0916b2.oxD = (TextView) view.findViewById(a.f.tv_rank_num);
-            c0916b2.oxE = (LinearLayout) view.findViewById(a.f.item_selected_bg);
-            c0916b2.oxF = view.findViewById(a.f.margin_top_height);
-            c0916b2.oxG = (HeadImageView) view.findViewById(a.f.user_avatar);
-            c0916b2.oxI = (ImageView) view.findViewById(a.f.team_fright_flag);
-            c0916b2.oxH = (TextView) view.findViewById(a.f.tv_nickname);
-            c0916b2.oxJ = (TextView) view.findViewById(a.f.tv_temp_nickname);
-            c0916b2.oxK = (ImageView) view.findViewById(a.f.iv_sex);
-            c0916b2.oxL = (TextView) view.findViewById(a.f.tv_level);
-            c0916b2.oxN = (TbImageView) view.findViewById(a.f.iv_level);
-            c0916b2.oxM = (FrameLayout) view.findViewById(a.f.level_container);
-            c0916b2.oxO = (TbImageView) view.findViewById(a.f.iv_badge);
-            c0916b2.oxV = (AlaAcceptAndInviteBtn) view.findViewById(a.f.tv_accept_invite);
-            c0916b2.oxP = (LinearLayout) view.findViewById(a.f.content_container);
-            c0916b2.oxQ = (LinearLayout) view.findViewById(a.f.icon_container);
-            view.setTag(c0916b2);
-            c0916b = c0916b2;
+            C0954b c0954b2 = new C0954b();
+            c0954b2.oxC = (TextView) view.findViewById(a.f.tv_rank_num);
+            c0954b2.oxD = (LinearLayout) view.findViewById(a.f.item_selected_bg);
+            c0954b2.oxE = view.findViewById(a.f.margin_top_height);
+            c0954b2.oxF = (HeadImageView) view.findViewById(a.f.user_avatar);
+            c0954b2.oxH = (ImageView) view.findViewById(a.f.team_fright_flag);
+            c0954b2.oxG = (TextView) view.findViewById(a.f.tv_nickname);
+            c0954b2.oxI = (TextView) view.findViewById(a.f.tv_temp_nickname);
+            c0954b2.oxJ = (ImageView) view.findViewById(a.f.iv_sex);
+            c0954b2.oxK = (TextView) view.findViewById(a.f.tv_level);
+            c0954b2.oxM = (TbImageView) view.findViewById(a.f.iv_level);
+            c0954b2.oxL = (FrameLayout) view.findViewById(a.f.level_container);
+            c0954b2.oxN = (TbImageView) view.findViewById(a.f.iv_badge);
+            c0954b2.oxU = (AlaAcceptAndInviteBtn) view.findViewById(a.f.tv_accept_invite);
+            c0954b2.oxO = (LinearLayout) view.findViewById(a.f.content_container);
+            c0954b2.oxP = (LinearLayout) view.findViewById(a.f.icon_container);
+            view.setTag(c0954b2);
+            c0954b = c0954b2;
         } else {
-            c0916b = (C0916b) view.getTag();
+            c0954b = (C0954b) view.getTag();
         }
         final com.baidu.live.data.e eVar = (com.baidu.live.data.e) ListUtils.getItem(this.mList, i);
         final int c = com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(14.0f, view.getContext()) + (com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(4.0f, view.getContext()) * 2);
         if (eVar != null) {
-            if (!o.eff().efv()) {
-                c0916b.oxD.setTextColor(c0916b.oxD.getResources().getColor(a.c.sdk_color_B8B8B8));
-                c0916b.oxI.setVisibility(8);
-                c0916b.oxD.setTextSize(18.0f);
+            if (!o.efg().efw()) {
+                c0954b.oxC.setTextColor(c0954b.oxC.getResources().getColor(a.c.sdk_color_B8B8B8));
+                c0954b.oxH.setVisibility(8);
+                c0954b.oxC.setTextSize(18.0f);
             } else {
-                c0916b.oxI.setVisibility(0);
-                c0916b.oxD.setTextColor(c0916b.oxD.getResources().getColor(a.c.sdk_white_alpha100));
-                c0916b.oxD.setTextSize(13.0f);
+                c0954b.oxH.setVisibility(0);
+                c0954b.oxC.setTextColor(c0954b.oxC.getResources().getColor(a.c.sdk_white_alpha100));
+                c0954b.oxC.setTextSize(13.0f);
                 if (eVar.isApplyRedTeam()) {
-                    c0916b.oxI.setImageResource(a.e.yuyin_audio_wheat_red_flag);
+                    c0954b.oxH.setImageResource(a.e.yuyin_audio_wheat_red_flag);
                 } else {
-                    c0916b.oxI.setImageResource(a.e.yuyin_audio_wheat_blue_flag);
+                    c0954b.oxH.setImageResource(a.e.yuyin_audio_wheat_blue_flag);
                 }
             }
-            c0916b.oxE.setBackgroundColor(this.oxz == i ? Color.parseColor("#F5F5F5") : Color.parseColor("#FFFFFF"));
-            c0916b.oxV.setSelectedState(eVar.aJj ? 1 : 0);
-            c0916b.oxD.setText(Integer.toString(eVar.mPos));
-            c0916b.oxG.setIsRound(true);
-            c0916b.oxG.setAutoChangeStyle(false);
-            c0916b.oxG.setDefaultResource(a.e.yuyin_sdk_default_avatar);
+            c0954b.oxD.setBackgroundColor(this.oxy == i ? Color.parseColor("#F5F5F5") : Color.parseColor("#FFFFFF"));
+            c0954b.oxU.setSelectedState(eVar.aJj ? 1 : 0);
+            c0954b.oxC.setText(Integer.toString(eVar.mPos));
+            c0954b.oxF.setIsRound(true);
+            c0954b.oxF.setAutoChangeStyle(false);
+            c0954b.oxF.setDefaultResource(a.e.yuyin_sdk_default_avatar);
             if (eVar != null && !TextUtils.isEmpty(eVar.mPortrait)) {
-                c0916b.oxG.setScaleType(ImageView.ScaleType.FIT_XY);
-                c0916b.oxG.setUrl(eVar.mPortrait);
-                c0916b.oxG.startLoad(eVar.mPortrait, 12, false);
+                c0954b.oxF.setScaleType(ImageView.ScaleType.FIT_XY);
+                c0954b.oxF.setUrl(eVar.mPortrait);
+                c0954b.oxF.startLoad(eVar.mPortrait, 12, false);
             }
-            c0916b.oxH.setText(eVar.mUserName);
-            c0916b.oxJ.setText(eVar.mUserName);
+            c0954b.oxG.setText(eVar.mUserName);
+            c0954b.oxI.setText(eVar.mUserName);
             if (eVar.mSex == 0) {
-                c0916b.oxK.setVisibility(8);
+                c0954b.oxJ.setVisibility(8);
             } else {
-                c0916b.oxK.setVisibility(0);
-                c0916b.oxK.setImageResource(eVar.mSex == 1 ? a.e.yuyin_sdk_icon_mine_boy : a.e.yuyin_sdk_icon_mine_girl);
+                c0954b.oxJ.setVisibility(0);
+                c0954b.oxJ.setImageResource(eVar.mSex == 1 ? a.e.yuyin_sdk_icon_mine_boy : a.e.yuyin_sdk_icon_mine_girl);
             }
             int i2 = eVar.mSex == 0 ? 3 : 2;
-            c0916b.oxM.setVisibility(8);
-            c0916b.oxO.setVisibility(8);
+            c0954b.oxL.setVisibility(8);
+            c0954b.oxN.setVisibility(8);
             if (eVar.mLiveMarkInfo != null) {
                 for (int i3 = 0; i3 < eVar.mLiveMarkInfo.size() && i3 < i2; i3++) {
                     switch (eVar.mLiveMarkInfo.get(i3).type) {
                         case 1:
-                            c0916b.oxM.setVisibility(0);
-                            c0916b.oxN.startLoad(eVar.mLiveMarkInfo.get(i3).mark_pic, 10, false);
-                            c0916b.oxL.setText(Integer.toString(eVar.level));
+                            c0954b.oxL.setVisibility(0);
+                            c0954b.oxM.startLoad(eVar.mLiveMarkInfo.get(i3).mark_pic, 10, false);
+                            c0954b.oxK.setText(Integer.toString(eVar.level));
                             c += com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(13.0f, view.getContext()) + com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(4.0f, view.getContext());
                             break;
                         case 105:
-                            c0916b.oxO.setVisibility(0);
-                            c0916b.oxO.startLoad(eVar.mLiveMarkInfo.get(i3).mark_pic, 10, false);
-                            c += com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(42.0f, c0916b.oxO.getContext()) + com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(4.0f, view.getContext());
+                            c0954b.oxN.setVisibility(0);
+                            c0954b.oxN.startLoad(eVar.mLiveMarkInfo.get(i3).mark_pic, 10, false);
+                            c += com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(42.0f, c0954b.oxN.getContext()) + com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(4.0f, view.getContext());
                             break;
                     }
                 }
             }
         }
-        c0916b.oxG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.1
+        c0954b.oxF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (b.this.oxR != null && view2.getTag() != null && (view2.getTag() instanceof com.baidu.live.data.e)) {
-                    b.this.oxR.a((com.baidu.live.data.e) view2.getTag());
+                if (b.this.oxQ != null && view2.getTag() != null && (view2.getTag() instanceof com.baidu.live.data.e)) {
+                    b.this.oxQ.a((com.baidu.live.data.e) view2.getTag());
                 }
             }
         });
-        c0916b.oxH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.2
+        c0954b.oxG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (b.this.oxR != null && view2.getTag() != null && (view2.getTag() instanceof com.baidu.live.data.e)) {
-                    b.this.oxR.a((com.baidu.live.data.e) view2.getTag());
+                if (b.this.oxQ != null && view2.getTag() != null && (view2.getTag() instanceof com.baidu.live.data.e)) {
+                    b.this.oxQ.a((com.baidu.live.data.e) view2.getTag());
                 }
             }
         });
-        c0916b.oxG.setTag(eVar);
-        c0916b.oxH.setTag(eVar);
-        c0916b.oxV.setTag(eVar);
-        c0916b.oxV.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
-        c0916b.oxV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.3
+        c0954b.oxF.setTag(eVar);
+        c0954b.oxG.setTag(eVar);
+        c0954b.oxU.setTag(eVar);
+        c0954b.oxU.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
+        c0954b.oxU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (eVar.aJj || b.this.context == null) {
-                    if (b.this.oxR != null) {
+                    if (b.this.oxQ != null) {
                         if (view2.getTag() == null || !(view2.getTag() instanceof com.baidu.live.data.e)) {
-                            b.this.oxR.b(null);
+                            b.this.oxQ.b(null);
                             return;
                         } else {
-                            b.this.oxR.b((com.baidu.live.data.e) view2.getTag());
+                            b.this.oxQ.b((com.baidu.live.data.e) view2.getTag());
                             return;
                         }
                     }
@@ -187,53 +187,53 @@ public class b extends BaseAdapter {
                 BdToast.makeText(b.this.context, b.this.context.getText(a.h.yuyin_ala_apply_unable_text)).show();
             }
         });
-        c0916b.oxH.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.4
+        c0954b.oxG.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.4
             @Override // java.lang.Runnable
             public void run() {
-                if (c0916b.oxJ.getMeasuredWidth() + c > c0916b.oxP.getMeasuredWidth()) {
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) c0916b.oxH.getLayoutParams();
+                if (c0954b.oxI.getMeasuredWidth() + c > c0954b.oxO.getMeasuredWidth()) {
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) c0954b.oxG.getLayoutParams();
                     layoutParams.weight = 1.0f;
-                    c0916b.oxH.setLayoutParams(layoutParams);
+                    c0954b.oxG.setLayoutParams(layoutParams);
                     return;
                 }
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) c0916b.oxH.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) c0954b.oxG.getLayoutParams();
                 layoutParams2.weight = 0.0f;
                 layoutParams2.width = -2;
-                c0916b.oxH.setLayoutParams(layoutParams2);
+                c0954b.oxG.setLayoutParams(layoutParams2);
             }
         });
-        c0916b.oxF.setVisibility(i != 0 ? 8 : 0);
+        c0954b.oxE.setVisibility(i != 0 ? 8 : 0);
         return view;
     }
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    private class C0916b {
-        private TextView oxD;
-        private LinearLayout oxE;
-        private View oxF;
-        private HeadImageView oxG;
-        private TextView oxH;
-        private ImageView oxI;
-        private TextView oxJ;
-        private ImageView oxK;
-        private TextView oxL;
-        private FrameLayout oxM;
+    private class C0954b {
+        private TextView oxC;
+        private LinearLayout oxD;
+        private View oxE;
+        private HeadImageView oxF;
+        private TextView oxG;
+        private ImageView oxH;
+        private TextView oxI;
+        private ImageView oxJ;
+        private TextView oxK;
+        private FrameLayout oxL;
+        private TbImageView oxM;
         private TbImageView oxN;
-        private TbImageView oxO;
+        private LinearLayout oxO;
         private LinearLayout oxP;
-        private LinearLayout oxQ;
-        private AlaAcceptAndInviteBtn oxV;
+        private AlaAcceptAndInviteBtn oxU;
 
-        private C0916b() {
+        private C0954b() {
         }
     }
 
     public void setOnItemClickLister(a aVar) {
-        this.oxR = aVar;
+        this.oxQ = aVar;
     }
 
-    public void Wc(String str) {
+    public void Wb(String str) {
         if (!ListUtils.isEmpty(this.mList)) {
             int i = 0;
             while (true) {

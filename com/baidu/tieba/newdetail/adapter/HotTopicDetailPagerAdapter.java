@@ -72,7 +72,7 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
             d dVar = (d) x.getItem(this.mHotTopicDataList, this.abC);
             if (hotTopicDetailFeedView2 != null && dVar != null) {
                 if (x.isEmpty(dVar.list)) {
-                    this.pageContext.getOrignalPage().Gg(djN());
+                    this.pageContext.getOrignalPage().Gg(djO());
                 } else {
                     hotTopicDetailFeedView2.resume();
                 }
@@ -110,37 +110,37 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
     }
 
     public void resume() {
-        HotTopicDetailFeedView djS = djS();
-        if (djS != null) {
-            djS.resume();
+        HotTopicDetailFeedView djT = djT();
+        if (djT != null) {
+            djT.resume();
         }
     }
 
     public void pause() {
-        HotTopicDetailFeedView djS = djS();
-        if (djS != null) {
-            djS.pause();
+        HotTopicDetailFeedView djT = djT();
+        if (djT != null) {
+            djT.pause();
         }
     }
 
     private void DA(int i) {
         HotTopicDetailFeedView hotTopicDetailFeedView;
         if (this.kpa != null && Gp(i) < this.kpa.size() && (hotTopicDetailFeedView = this.kpa.get(Gp(i))) != null) {
-            hotTopicDetailFeedView.Zg();
+            hotTopicDetailFeedView.Zh();
         }
     }
 
     private void DB(int i) {
         HotTopicDetailFeedView hotTopicDetailFeedView;
         if (this.kpa != null && Gp(i) < this.kpa.size() && (hotTopicDetailFeedView = this.kpa.get(Gp(i))) != null) {
-            hotTopicDetailFeedView.Zh();
+            hotTopicDetailFeedView.Zi();
         }
     }
 
     private void DC(int i) {
         HotTopicDetailFeedView hotTopicDetailFeedView;
         if (this.kpa != null && Gp(i) < this.kpa.size() && (hotTopicDetailFeedView = this.kpa.get(Gp(i))) != null) {
-            hotTopicDetailFeedView.bVF();
+            hotTopicDetailFeedView.bVG();
         }
     }
 
@@ -184,7 +184,7 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
     public void Gk(int i) {
         HotTopicDetailFeedView hotTopicDetailFeedView;
         if (this.kpa != null && Gp(i) < this.kpa.size() && (hotTopicDetailFeedView = this.kpa.get(Gp(i))) != null) {
-            hotTopicDetailFeedView.Zi();
+            hotTopicDetailFeedView.Zj();
         }
     }
 
@@ -201,7 +201,7 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
             }
             dVar2.pageData = dVar.pageData;
             dVar2.lastId = dVar.lastId;
-            if ((dVar2.pageData == null || dVar2.pageData.bqf() == 0) ? false : true) {
+            if ((dVar2.pageData == null || dVar2.pageData.bqg() == 0) ? false : true) {
                 DA(i);
             } else {
                 DC(i);
@@ -215,11 +215,11 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
         return (d) x.getItem(this.mHotTopicDataList, Gp(i) % luO);
     }
 
-    private HotTopicDetailFeedView djS() {
+    private HotTopicDetailFeedView djT() {
         return (HotTopicDetailFeedView) x.getItem(this.kpa, this.abC % luO);
     }
 
-    public int djN() {
+    public int djO() {
         return this.abC == 1 ? 0 : 1;
     }
 
@@ -227,7 +227,7 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
         return i == 1 ? 0 : 1;
     }
 
-    public void djO() {
+    public void djP() {
         this.hasInit = true;
     }
 

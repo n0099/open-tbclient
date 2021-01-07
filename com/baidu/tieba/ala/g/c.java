@@ -72,7 +72,7 @@ public class c extends BdBaseModel {
             if (HW.aKu != null) {
                 str3 = String.valueOf(HW.aKu.userId);
                 str = str2;
-                com.baidu.live.message.f fVar = new com.baidu.live.message.f(q.XF(), str, str3, "choose", "choose");
+                com.baidu.live.message.f fVar = new com.baidu.live.message.f(q.XG(), str, str3, "choose", "choose");
                 address = BdLocationMananger.getInstance().getAddress(false);
                 if (address == null) {
                     fVar.b(address.getLongitude(), address.getLatitude());
@@ -83,7 +83,7 @@ public class c extends BdBaseModel {
             }
         }
         str = str2;
-        com.baidu.live.message.f fVar2 = new com.baidu.live.message.f(q.XF(), str, str3, "choose", "choose");
+        com.baidu.live.message.f fVar2 = new com.baidu.live.message.f(q.XG(), str, str3, "choose", "choose");
         address = BdLocationMananger.getInstance().getAddress(false);
         if (address == null) {
         }

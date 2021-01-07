@@ -14,7 +14,7 @@ public class b {
     private b() {
     }
 
-    public static b bbS() {
+    public static b bbT() {
         if (enJ == null) {
             synchronized (b.class) {
                 if (enJ == null) {
@@ -35,7 +35,7 @@ public class b {
         }
     }
 
-    public synchronized JSONObject bbT() {
+    public synchronized JSONObject bbU() {
         JSONObject jSONObject;
         int size = this.enK.size();
         if (size == 0) {

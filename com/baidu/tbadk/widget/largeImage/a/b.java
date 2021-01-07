@@ -59,7 +59,7 @@ public class b {
         return new Point[]{point, point2};
     }
 
-    public a bKv() {
+    public a bKw() {
         return new a(this.mBlockSize);
     }
 
@@ -108,7 +108,7 @@ public class b {
         }
     }
 
-    public a bKw() {
+    public a bKx() {
         return this.fVx;
     }
 

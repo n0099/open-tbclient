@@ -20,7 +20,7 @@ public class e {
     private e() {
     }
 
-    public static e bHs() {
+    public static e bHt() {
         if (fLk == null) {
             synchronized (e.class) {
                 if (fLk == null) {
@@ -85,8 +85,8 @@ public class e {
                 if (dVar.getTid() > 0) {
                     aqVar2.dX("tid", String.valueOf(dVar.getTid()));
                 }
-                if (!StringUtils.isNull(dVar.bpO())) {
-                    aqVar2.dX(IntentConfig.NID, dVar.bpO());
+                if (!StringUtils.isNull(dVar.bpP())) {
+                    aqVar2.dX(IntentConfig.NID, dVar.bpP());
                 }
                 if (dVar.getPid() > 0) {
                     aqVar2.dX("pid", String.valueOf(dVar.getPid()));
@@ -106,10 +106,10 @@ public class e {
                 if (!at.isEmpty(dVar.getTaskId())) {
                     aqVar2.dX("task_id", String.valueOf(dVar.getTaskId()));
                 }
-                if (!at.isEmpty(dVar.bHq())) {
-                    aqVar2.dX("ab_tag", dVar.bHq());
+                if (!at.isEmpty(dVar.bHr())) {
+                    aqVar2.dX("ab_tag", dVar.bHr());
                 }
-                if (bHt()) {
+                if (bHu()) {
                     if (!StringUtils.isNull(dVar.objID)) {
                         aqVar2.dX("obj_id", dVar.objID);
                     }
@@ -118,8 +118,8 @@ public class e {
                     }
                     aqVar2.dX("obj_source", PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
                 }
-                if (!StringUtils.isNull(dVar.bHr())) {
-                    aqVar2.dX("obj_location", dVar.bHr());
+                if (!StringUtils.isNull(dVar.bHs())) {
+                    aqVar2.dX("obj_location", dVar.bHs());
                 }
                 f.a(context, aqVar2, dVar);
                 TiebaStatic.log(aqVar2);
@@ -127,7 +127,7 @@ public class e {
         }
     }
 
-    public boolean bHt() {
+    public boolean bHu() {
         return this.fLl;
     }
 
@@ -144,11 +144,11 @@ public class e {
     }
 
     public int getMaxCostFromServer() {
-        return !TbadkCoreApplication.getInst().isMainProcess(true) ? com.baidu.tbadk.core.sharedPref.b.bvq().getInt(SharedPrefConfig.PAGE_STY_MAX_COST, 0) : this.maxCost;
+        return !TbadkCoreApplication.getInst().isMainProcess(true) ? com.baidu.tbadk.core.sharedPref.b.bvr().getInt(SharedPrefConfig.PAGE_STY_MAX_COST, 0) : this.maxCost;
     }
 
     public void setMaxCostFromServer(int i) {
         this.maxCost = i;
-        com.baidu.tbadk.core.sharedPref.b.bvq().putInt(SharedPrefConfig.PAGE_STY_MAX_COST, this.maxCost);
+        com.baidu.tbadk.core.sharedPref.b.bvr().putInt(SharedPrefConfig.PAGE_STY_MAX_COST, this.maxCost);
     }
 }

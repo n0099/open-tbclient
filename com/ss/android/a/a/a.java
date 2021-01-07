@@ -25,5 +25,5 @@ public interface a {
 
     a a(com.ss.android.socialbase.downloader.downloader.g gVar);
 
-    a aaf(String str);
+    a aag(String str);
 }

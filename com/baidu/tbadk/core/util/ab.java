@@ -13,7 +13,7 @@ public class ab {
         fcE = TbadkCoreApplication.getInst().getNetWorkCoreType();
     }
 
-    public static synchronized ab bvU() {
+    public static synchronized ab bvV() {
         ab abVar;
         synchronized (ab.class) {
             if (fcB == null) {

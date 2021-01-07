@@ -6,18 +6,18 @@ import java.util.ArrayList;
 public class e {
     private static ArrayList<MediaModel> dnL;
 
-    public static ArrayList<MediaModel> aEO() {
+    public static ArrayList<MediaModel> aEP() {
         return dnL;
     }
 
-    public static int aEP() {
+    public static int aEQ() {
         if (dnL == null) {
             return 0;
         }
         return dnL.size();
     }
 
-    public static String aEQ() {
+    public static String aER() {
         if (dnL == null || dnL.size() == 0 || dnL.get(0) == null) {
             return null;
         }

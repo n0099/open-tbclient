@@ -129,14 +129,14 @@ public class RankListViewController {
         this.ioP.setOnSrollToBottomListener(eVar);
     }
 
-    public void Zg() {
+    public void Zh() {
         this.gCf.setTopExtraViewGone();
         this.gCf.startLoadData();
         this.gCf.setText(this.ioP.getContext().getString(R.string.list_loading));
         this.gCf.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
     }
 
-    public void JM(String str) {
+    public void JL(String str) {
         String string;
         this.gCf.rd(l.getDimens(this.ioP.getContext(), R.dimen.tbds96));
         if (!TextUtils.isEmpty(str)) {
@@ -322,7 +322,7 @@ public class RankListViewController {
             this.iJU = i;
         }
 
-        public void czb() {
+        public void czc() {
             this.iJQ.setVisibility(8);
             this.iJT.setVisibility(8);
         }

@@ -22,7 +22,7 @@ public class a {
             this.bSx.ag(view);
         }
         if (this.bSy != null) {
-            this.bSy.m(Zo());
+            this.bSy.m(Zp());
         }
     }
 
@@ -35,7 +35,7 @@ public class a {
         }
     }
 
-    public void Zn() {
+    public void Zo() {
         if (this.bSx != null) {
             this.bSx.release();
         }
@@ -70,9 +70,9 @@ public class a {
         }
     }
 
-    public FrameLayout Zo() {
+    public FrameLayout Zp() {
         if (this.bSx != null) {
-            return this.bSx.Zo();
+            return this.bSx.Zp();
         }
         return null;
     }

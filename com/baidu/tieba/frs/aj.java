@@ -26,7 +26,7 @@ public class aj {
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> cED() {
+    public List<com.baidu.tbadk.mainTab.b> cEE() {
         return this.jeu;
     }
 

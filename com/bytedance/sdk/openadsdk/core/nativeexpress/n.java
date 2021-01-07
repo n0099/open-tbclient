@@ -11,21 +11,21 @@ public class n extends k {
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.k
     public void a(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, AdSlot adSlot) {
-        this.f6945a = new NativeExpressVideoView(context, lVar, adSlot, "embeded_ad");
-        a(this.f6945a, this.c);
+        this.f6946a = new NativeExpressVideoView(context, lVar, adSlot, "embeded_ad");
+        a(this.f6946a, this.c);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public void setVideoAdListener(TTNativeExpressAd.ExpressVideoAdListener expressVideoAdListener) {
-        if (this.f6945a != null) {
-            this.f6945a.setVideoAdListener(expressVideoAdListener);
+        if (this.f6946a != null) {
+            this.f6946a.setVideoAdListener(expressVideoAdListener);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public com.bytedance.sdk.openadsdk.multipro.b.a getVideoModel() {
-        if (this.f6945a != null) {
-            return ((NativeExpressVideoView) this.f6945a).getVideoModel();
+        if (this.f6946a != null) {
+            return ((NativeExpressVideoView) this.f6946a).getVideoModel();
         }
         return null;
     }

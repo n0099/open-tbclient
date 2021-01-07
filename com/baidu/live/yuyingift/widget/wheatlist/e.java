@@ -32,12 +32,12 @@ public class e extends b {
     }
 
     @Override // com.baidu.live.yuyingift.widget.wheatlist.b
-    protected int abm() {
+    protected int abn() {
         return a.g.yuyin_ala_gift_microphone_onlyone_footerview;
     }
 
     @Override // com.baidu.live.yuyingift.widget.wheatlist.b
-    void abn() {
+    void abo() {
         this.cbK = (HeadImageView) this.contentView.findViewById(a.f.yuyin_ala_gift_onlyone_microphone_header);
         this.cbL = (TextView) this.contentView.findViewById(a.f.yuyin_ala_gift_onlyone_microphone_number);
         this.ccg = (TextView) this.contentView.findViewById(a.f.yuyin_ala_gift_onlyone_microphone_name);
@@ -45,7 +45,7 @@ public class e extends b {
     }
 
     @Override // com.baidu.live.yuyingift.widget.wheatlist.b
-    void abo() {
+    void abp() {
         this.cch = (AlaLoadingButton) this.cbF.findViewById(a.f.yuyin_ala_gift_microphone_person_attention);
         this.cci = (AlaGiftMicrophoneOpBtn) this.cbF.findViewById(a.f.yuyin_ala_gift_microphone_person_info);
         this.cch.setSelected(true);

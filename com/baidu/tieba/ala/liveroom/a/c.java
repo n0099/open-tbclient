@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.liveroom.a;
 /* loaded from: classes11.dex */
 public interface c {
-    void HV(String str);
+    void HU(String str);
 
     void aI(String str, int i);
 

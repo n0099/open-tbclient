@@ -78,7 +78,7 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_KV_CACHE_SUCC));
     }
 
-    public static a btS() {
+    public static a btT() {
         if (eWY == null) {
             eWY = new a();
         }
@@ -90,11 +90,11 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().registerListenerFromBackground(this);
     }
 
-    public l<byte[]> Bm(String str) {
+    public l<byte[]> Bl(String str) {
         return dL(str, null);
     }
 
-    public l<String> Bn(String str) {
+    public l<String> Bm(String str) {
         return dM(str, null);
     }
 

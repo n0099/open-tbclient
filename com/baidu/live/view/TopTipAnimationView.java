@@ -19,7 +19,7 @@ public class TopTipAnimationView extends TextView {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void ZP();
+        void ZQ();
     }
 
     public TopTipAnimationView(Context context) {
@@ -86,7 +86,7 @@ public class TopTipAnimationView extends TextView {
                     viewGroup.removeView(TopTipAnimationView.this);
                 }
                 if (TopTipAnimationView.this.bVr != null) {
-                    TopTipAnimationView.this.bVr.ZP();
+                    TopTipAnimationView.this.bVr.ZQ();
                 }
             }
 

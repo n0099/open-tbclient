@@ -8,19 +8,19 @@ import androidx.annotation.Nullable;
 public class k extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f9720a = 1;
+    public static int f9721a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f9721b;
+    private String f9722b;
 
     public k(@Nullable Context context, int i) {
         super(context, "ksadrep.db", (SQLiteDatabase.CursorFactory) null, i);
-        this.f9721b = "CREATE TABLE IF NOT EXISTS ksad_actions (actionId varchar(60) primary key, aLog TEXT)";
+        this.f9722b = "CREATE TABLE IF NOT EXISTS ksad_actions (actionId varchar(60) primary key, aLog TEXT)";
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        sQLiteDatabase.execSQL(this.f9721b);
+        sQLiteDatabase.execSQL(this.f9722b);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper

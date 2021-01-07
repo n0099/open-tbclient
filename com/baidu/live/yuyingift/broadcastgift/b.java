@@ -98,8 +98,8 @@ public class b implements ab {
         @Override // android.view.View.OnClickListener
         public void onClick(final View view) {
             try {
-                boolean jm = com.baidu.live.aq.a.aam().jm(ExtraParamsManager.getEncryptionUserId(String.valueOf(TbadkCoreApplication.getCurrentAccountId())));
-                boolean isApplying = com.baidu.live.aq.a.aam().isApplying();
+                boolean jm = com.baidu.live.aq.a.aan().jm(ExtraParamsManager.getEncryptionUserId(String.valueOf(TbadkCoreApplication.getCurrentAccountId())));
+                boolean isApplying = com.baidu.live.aq.a.aan().isApplying();
                 if (jm) {
                     a aVar = new a(b.this.mContext);
                     aVar.a(new a.InterfaceC0242a() { // from class: com.baidu.live.yuyingift.broadcastgift.b.4.1
@@ -109,7 +109,7 @@ public class b implements ab {
 
                         @Override // com.baidu.live.yuyingift.broadcastgift.a.InterfaceC0242a
                         public void onConfirm() {
-                            com.baidu.live.aq.a.aam().aau();
+                            com.baidu.live.aq.a.aan().aav();
                             b.this.ao(view);
                         }
                     });
@@ -126,7 +126,7 @@ public class b implements ab {
 
                         @Override // com.baidu.live.yuyingift.broadcastgift.a.InterfaceC0242a
                         public void onConfirm() {
-                            com.baidu.live.aq.a.aam().aav();
+                            com.baidu.live.aq.a.aan().aaw();
                             b.this.ao(view);
                         }
                     });

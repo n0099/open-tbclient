@@ -8,10 +8,10 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f13308a = "";
+    public static String f13309a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f13309b = "";
+    public static String f13310b = "";
 
     public static a a(Context context, String str, JSONObject jSONObject, com.ss.android.socialbase.downloader.g.c cVar) {
         if (cVar == null || context == null || jSONObject == null) {
@@ -22,18 +22,18 @@ public class d {
             return null;
         }
         File file = new File(k);
-        f13308a = com.ss.android.socialbase.downloader.b.e.f13372b + "1";
-        f13309b = com.ss.android.socialbase.downloader.b.e.f13372b + "2";
+        f13309a = com.ss.android.socialbase.downloader.b.e.f13373b + "1";
+        f13310b = com.ss.android.socialbase.downloader.b.e.f13373b + "2";
         if (str.equals("vivo1")) {
             return new h(context, cVar.n());
         }
         if (str.equals("vivo2")) {
             return new i(context, file.getAbsolutePath());
         }
-        if (str.equals(f13308a)) {
+        if (str.equals(f13309a)) {
             return new f(context, file.getAbsolutePath());
         }
-        if (str.equals(f13309b)) {
+        if (str.equals(f13310b)) {
             return new g(context, file.getAbsolutePath());
         }
         if (str.equals("custom")) {
@@ -51,15 +51,15 @@ public class d {
         if (TextUtils.isEmpty(b2) || TextUtils.isEmpty(str)) {
             return false;
         }
-        f13308a = com.ss.android.socialbase.downloader.b.e.f13372b + "1";
-        f13309b = com.ss.android.socialbase.downloader.b.e.f13372b + "2";
+        f13309a = com.ss.android.socialbase.downloader.b.e.f13373b + "1";
+        f13310b = com.ss.android.socialbase.downloader.b.e.f13373b + "2";
         if (str.equals("vivo1")) {
             aVar = new h(context, b2);
         } else if (str.equals("vivo2")) {
             aVar = new i(context, b2);
-        } else if (str.equals(f13308a)) {
+        } else if (str.equals(f13309a)) {
             aVar = new f(context, b2);
-        } else if (str.equals(f13309b)) {
+        } else if (str.equals(f13310b)) {
             aVar = new g(context, b2);
         } else if (str.equals("custom")) {
             aVar = new c(context, b2, jSONObject);

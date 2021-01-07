@@ -29,12 +29,12 @@ public class c {
         @Override // java.lang.Runnable
         public void run() {
             Log.i("TaskHelper", "@@ reportRunnable haokan=" + c.hOD + ", currLiveId=" + c.this.currLiveId + ", duration=" + c.this.duration);
-            c.this.axJ();
+            c.this.axK();
             c.this.stopRecord();
         }
     };
 
-    public static c cns() {
+    public static c cnt() {
         if (hOE == null) {
             synchronized (c.class) {
                 if (hOE == null) {
@@ -47,7 +47,7 @@ public class c {
 
     public void fF(long j) {
         Log.i("TaskHelper", "@@ startRecord watchCount=" + hOD + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
-        if (cnt()) {
+        if (cnu()) {
             this.currLiveId = j;
             this.duration = 0L;
             this.now = System.currentTimeMillis();
@@ -83,14 +83,14 @@ public class c {
         this.handler.removeCallbacks(this.hOF);
     }
 
-    private boolean cnt() {
+    private boolean cnu() {
         return hOD < 30;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void axJ() {
-        Log.i("TaskHelper", "@@ report watchCount=" + hOD + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration + ", isNeed=" + cnt());
-        if (cnt()) {
+    public void axK() {
+        Log.i("TaskHelper", "@@ report watchCount=" + hOD + ", currLiveId=" + this.currLiveId + ", duration=" + this.duration + ", isNeed=" + cnu());
+        if (cnu()) {
             HttpMessage httpMessage = new HttpMessage(1021127);
             httpMessage.addParam("live_id", this.currLiveId);
             httpMessage.addParam("client_ip", "");

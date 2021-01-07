@@ -55,13 +55,13 @@ public class CustomPushPremissionDialogView extends LinearLayout {
         this.fhY = findViewById(R.id.custom_push_permission_dialog_animation_floor_view);
         if (TbadkCoreApplication.getInst().getSkinType() == 0) {
             this.fhZ = findViewById(R.id.animation_layout);
-            com.baidu.tbadk.core.util.f.a.bwT().qB(1).qD(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26)).qC(273).x(R.color.CAM_X0804, 0, 0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds22)).bz(this.fhZ);
+            com.baidu.tbadk.core.util.f.a.bwU().qB(1).qD(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26)).qC(273).x(R.color.CAM_X0804, 0, 0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds22)).bz(this.fhZ);
             ViewGroup.LayoutParams layoutParams2 = this.fhY.getLayoutParams();
             layoutParams2.width = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds774);
             this.fhY.setLayoutParams(layoutParams2);
-            com.baidu.tbadk.core.util.f.a.bwU().qq(0).b("TOP_BOTTOM", ao.qc(R.color.common_color_10262), ao.qc(R.color.CAM_X0205)).bz(this.fhY);
+            com.baidu.tbadk.core.util.f.a.bwV().qq(0).b("TOP_BOTTOM", ao.qc(R.color.common_color_10262), ao.qc(R.color.CAM_X0205)).bz(this.fhY);
         } else {
-            com.baidu.tbadk.core.util.f.a.bwU().qq(0).ae(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26)).b("TOP_BOTTOM", ao.qc(R.color.CAM_X0205), ao.qc(R.color.CAM_X0205), ao.qc(R.color.CAM_X0205), ao.qc(R.color.CAM_X0205), ao.qc(R.color.CAM_X0211)).bz(this.fhY);
+            com.baidu.tbadk.core.util.f.a.bwV().qq(0).ae(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds26)).b("TOP_BOTTOM", ao.qc(R.color.CAM_X0205), ao.qc(R.color.CAM_X0205), ao.qc(R.color.CAM_X0205), ao.qc(R.color.CAM_X0205), ao.qc(R.color.CAM_X0211)).bz(this.fhY);
         }
         this.fia = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_cancel_button);
         this.fia.setTextSize(R.dimen.tbds34);
@@ -69,7 +69,7 @@ public class CustomPushPremissionDialogView extends LinearLayout {
         com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
         cVar.ru(R.color.CAM_X0105);
         this.fia.setConfig(cVar);
-        this.fia.bxO();
+        this.fia.bxP();
         this.fib = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_confirm_button);
         this.fib.setTextSize(R.dimen.tbds34);
         this.fib.setText(context.getString(R.string.push_permission_dialog_confirm_button_text));

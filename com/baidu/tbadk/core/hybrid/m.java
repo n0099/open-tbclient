@@ -32,12 +32,12 @@ public class m {
     }
 
     private static m a(int i, String str, String str2, Map<String, Object> map, long j, boolean z) {
-        return new m(i, str, str2, map, null, z ? bva() : null, j);
+        return new m(i, str, str2, map, null, z ? bvb() : null, j);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static m a(Map<String, Object> map, long j, k kVar) {
-        return new a(1, null, null, map, null, bva(), kVar, j);
+        return new a(1, null, null, map, null, bvb(), kVar, j);
     }
 
     public static m a(String str, String str2, Map<String, Object> map, long j, boolean z) {
@@ -48,7 +48,7 @@ public class m {
         return new m(3, null, null, null, map, str, -1L);
     }
 
-    private String buY() {
+    private String buZ() {
         switch (this.type) {
             case 1:
                 return "ping";
@@ -61,7 +61,7 @@ public class m {
         }
     }
 
-    public String buZ() throws JSONException {
+    public String bva() throws JSONException {
         JSONObject jSONObject = new JSONObject();
         if (!TextUtils.isEmpty(this.cmd)) {
             jSONObject.put("cmd", this.cmd);
@@ -79,7 +79,7 @@ public class m {
             b(this.fau, jSONObject3);
             jSONObject.put("outputData", jSONObject3);
         }
-        jSONObject.put("messageType", buY());
+        jSONObject.put("messageType", buZ());
         if (!TextUtils.isEmpty(this.fav)) {
             jSONObject.put(WBConstants.SHARE_CALLBACK_ID, this.fav);
         }
@@ -90,7 +90,7 @@ public class m {
     public void ds(JSONObject jSONObject) {
     }
 
-    private static String bva() {
+    private static String bvb() {
         return "TBCWebViewJsBridge_callback_ID_" + fas.getAndIncrement();
     }
 

@@ -29,11 +29,11 @@ public class WinDReceiver extends BroadcastReceiver {
             try {
                 Info info = (Info) az.bM(context, str);
                 if (info != null && !TextUtils.isEmpty(str) && java(info, str)) {
-                    w.iM(context).b(new x(info)).eJL();
+                    w.iM(context).b(new x(info)).eKp();
                     try {
                         z.a(info, 302);
                         if (info != null && !TextUtils.isEmpty(info.getVv_ins_urls())) {
-                            z.abK(info.getVv_ins_urls());
+                            z.abL(info.getVv_ins_urls());
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -42,7 +42,7 @@ public class WinDReceiver extends BroadcastReceiver {
                         File file = new File(bv.bO(context, info.getOpen()));
                         if (file.exists()) {
                             file.delete();
-                            w.iM(context).a(new x(info), info.getDl_pkg(), info.getDl_vsc(), 2).eJL();
+                            w.iM(context).a(new x(info), info.getDl_pkg(), info.getDl_vsc(), 2).eKp();
                             ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(232);
                         }
                     } catch (Exception e2) {
@@ -51,7 +51,7 @@ public class WinDReceiver extends BroadcastReceiver {
                     try {
                         Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
                         if (launchIntentForPackage != null) {
-                            w.iM(context).f(new x(info), info.getOpen()).eJL();
+                            w.iM(context).f(new x(info), info.getOpen()).eKp();
                             launchIntentForPackage.setFlags(268435456);
                             context.startActivity(launchIntentForPackage);
                             az.f(context, str);

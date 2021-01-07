@@ -21,7 +21,7 @@ public class b {
         return (this.mFlags & 1) == 1;
     }
 
-    public int aSS() {
+    public int aST() {
         return this.dVF;
     }
 
@@ -29,7 +29,7 @@ public class b {
         this.dVF = i;
     }
 
-    public int aST() {
+    public int aSU() {
         return this.dVG;
     }
 

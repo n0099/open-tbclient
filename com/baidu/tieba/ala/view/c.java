@@ -56,7 +56,7 @@ public class c {
         public void run() {
             if (c.this.iij) {
                 if (c.this.mRootView == null || c.this.mRootView.getParent() != null) {
-                    c.this.csb();
+                    c.this.csc();
                 }
             }
         }
@@ -113,15 +113,15 @@ public class c {
                 if (oVar != null) {
                     this.ihY.startLoad(oVar.iconUrl, 10, false);
                     this.ihZ.setText(oVar.msg);
-                    crZ();
+                    csa();
                     return;
                 }
-                crY();
-                csa();
+                crZ();
+                csb();
                 return;
             }
-            crY();
-            csa();
+            crZ();
+            csb();
             this.iij = TextUtils.isEmpty(this.ewK) ? false : true;
             if (this.iij) {
                 this.mHandler.removeCallbacks(this.iil);
@@ -134,13 +134,13 @@ public class c {
         return this.aLT != null && xVar.mLiveInfo != null && this.liveId == xVar.mLiveInfo.live_id && this.aLT.aLM == xVar.aKW.aLT.aLM && TextUtils.equals(this.aLT.division, xVar.aKW.aLT.division) && TextUtils.equals(this.ewK, xVar.aKW.msg) && this.aLT.maxStar == xVar.aKW.aLT.maxStar && this.iik == xVar.aKW.EK();
     }
 
-    private void crY() {
+    private void crZ() {
         this.ihX.setVisibility(8);
         this.ihT.setVisibility(0);
         this.ihU.setVisibility(0);
     }
 
-    private void crZ() {
+    private void csa() {
         this.ihX.setVisibility(0);
         this.ihT.setVisibility(4);
         this.ihV.setVisibility(4);
@@ -168,7 +168,7 @@ public class c {
         this.aJH = com.baidu.live.utils.b.a(1, xVar.aKW.aJH, xVar.isHost, ExtraParamsManager.getEncryptionUserId(String.valueOf(j6)), ExtraParamsManager.getEncryptionUserId(String.valueOf(j3)), String.valueOf(j2), String.valueOf(j), hashMap);
     }
 
-    private void csa() {
+    private void csb() {
         if (this.aLT != null && !TextUtils.isEmpty(this.aLT.division) && this.aLT.aLM > 0 && this.aLT.maxStar > 0) {
             int i = this.aLT.maxStar - this.aLT.aLM;
             this.ihT.startLoad(this.aLT.iconUrl, 10, false);
@@ -215,13 +215,13 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csb() {
+    public void csc() {
         this.iii = true;
-        csh();
         csi();
-        csg();
+        csj();
+        csh();
+        csf();
         cse();
-        csd();
         this.iig = new AnimatorSet();
         this.iig.play(this.iid).before(this.iie);
         this.iig.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.4
@@ -230,14 +230,14 @@ public class c {
                 super.onAnimationEnd(animator);
                 c.this.iig.removeAllListeners();
                 c.this.iig.cancel();
-                c.this.csc();
+                c.this.csd();
             }
         });
         this.iig.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csc() {
+    public void csd() {
         this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.view.c.5
             @Override // java.lang.Runnable
             public void run() {
@@ -248,7 +248,7 @@ public class c {
         }, 300L);
     }
 
-    private void csd() {
+    private void cse() {
         if (this.iic == null) {
             this.iic = cH(this.ihU);
             this.iic.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.6
@@ -270,7 +270,7 @@ public class c {
         }
     }
 
-    private void cse() {
+    private void csf() {
         if (this.ihV != null && this.iib == null) {
             this.iib = cG(this.ihV);
             this.iib.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.7
@@ -279,20 +279,20 @@ public class c {
                     super.onAnimationEnd(animator);
                     c.this.ihV.setVisibility(4);
                     c.this.ihW.setTranslationX(0.0f);
-                    c.this.csf();
+                    c.this.csg();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csf() {
+    public void csg() {
         if (this.iii && this.iic != null) {
             this.iic.start();
         }
     }
 
-    private void csg() {
+    private void csh() {
         if (this.ihV != null) {
             this.iia = this.ihV.getWidth();
             this.iif = ObjectAnimator.ofFloat(this.ihW, "translationX", 0.0f, -(this.iih - this.iia));
@@ -301,19 +301,19 @@ public class c {
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     super.onAnimationEnd(animator);
-                    c.this.csj();
+                    c.this.csk();
                 }
             });
         }
     }
 
-    private void csh() {
+    private void csi() {
         if (this.iid == null) {
             this.iid = cG(this.ihU);
         }
     }
 
-    private void csi() {
+    private void csj() {
         if (this.iie == null) {
             this.iie = cH(this.ihV);
             this.iie.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.9
@@ -327,7 +327,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csj() {
+    public void csk() {
         if (this.iii) {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.view.c.10
                 @Override // java.lang.Runnable

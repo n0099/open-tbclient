@@ -95,7 +95,7 @@ public class f {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                f.this.bxO();
+                f.this.bxP();
             }
         }
     };
@@ -152,7 +152,7 @@ public class f {
         this.ggn.setDefaultReasonArray(strArr);
     }
 
-    public void bNI() {
+    public void bNJ() {
         if (this.mPopupWindow != null) {
             this.mPopupWindow.dismiss();
             this.mPopupWindow = null;
@@ -170,7 +170,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bxO() {
+    public void bxP() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             ao.setBackgroundColor(this.mContentView, R.color.CAM_X0205);
@@ -226,20 +226,20 @@ public class f {
                 this.ggE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.f.5
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        JSONObject bNN = f.this.bNN();
+                        JSONObject bNO = f.this.bNO();
                         if (f.this.mFrom == "3" || f.this.mFrom == "4" || f.this.mFrom == "1") {
-                            f.this.bNI();
-                        } else if (bNN != null) {
+                            f.this.bNJ();
+                        } else if (bNO != null) {
                             f.this.showLoadingView();
                             CustomMessage customMessage = new CustomMessage(2016489, f.this.mPageContext.getUniqueId());
-                            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2016489, bNN);
+                            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2016489, bNO);
                             customResponsedMessage.setOrginalMessage(customMessage);
                             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                         }
                     }
                 });
             }
-            bxO();
+            bxP();
         }
         return this.mContentView;
     }
@@ -257,20 +257,20 @@ public class f {
         this.fOA.setDialogVisiable(true);
     }
 
-    public void bNM() {
+    public void bNN() {
         if (this.fOA != null) {
             this.fOA.setDialogVisiable(false);
         }
     }
 
-    public void Fh(String str) {
+    public void Fg(String str) {
         if (this.mContext != null) {
             this.mFrom = str;
             View view = getView();
             if (view != null && view.getParent() != null) {
                 ((ViewGroup) view.getParent()).removeView(view);
             }
-            bxO();
+            bxP();
             this.mWindowHeight = getWindowMeasuredHeight() - l.getDimens(this.mContext, R.dimen.ds12);
             this.mPopupWindow = new PopupWindow(view, this.mWindowWidth, this.mWindowHeight);
             this.mPopupWindow.setFocusable(true);
@@ -293,7 +293,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject bNN() {
+    public JSONObject bNO() {
         int i;
         JSONObject jSONObject = new JSONObject();
         if (this.ggc == null) {
@@ -318,8 +318,8 @@ public class f {
         }
         try {
             jSONObject.put(TiebaInitialize.LogFields.REASON, jSONArray);
-            jSONObject.put("thread_ids", this.ggc.bpM());
-            jSONObject.put("type", this.ggc.bpL());
+            jSONObject.put("thread_ids", this.ggc.bpN());
+            jSONObject.put("type", this.ggc.bpM());
             jSONObject.put("forum_id", this.ggc.getFid());
         } catch (Exception e) {
             e.printStackTrace();

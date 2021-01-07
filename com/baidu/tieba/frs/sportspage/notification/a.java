@@ -27,11 +27,11 @@ public class a {
                     String optString2 = jSONObject.optString("gameName");
                     String optString3 = jSONObject.optString("gameTime");
                     String optString4 = jSONObject.optString("gameType");
-                    String string = b.bvq().getString("key_match_id_list_" + optString4, "");
+                    String string = b.bvr().getString("key_match_id_list_" + optString4, "");
                     String str = "match_id_" + optString4 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + optString;
                     String str2 = TextUtils.isEmpty(string) ? str : "," + str;
                     if (TextUtils.isEmpty(string) || !string.contains(str)) {
-                        b.bvq().putString("key_match_id_list_" + optString4, string + str2);
+                        b.bvr().putString("key_match_id_list_" + optString4, string + str2);
                     }
                     Intent intent = new Intent(a.this.eXu.getPageActivity(), AlarmReceiver.class);
                     intent.putExtra("KEY_MATCH_NAME", optString2);

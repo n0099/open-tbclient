@@ -35,10 +35,10 @@ public abstract class a extends Dialog {
     private void JK() {
         setCancelable(true);
         setCanceledOnTouchOutside(true);
-        ciI();
+        ciJ();
     }
 
-    public void ciI() {
+    public void ciJ() {
         show();
         Window window = getWindow();
         if (window != null) {
@@ -60,7 +60,7 @@ public abstract class a extends Dialog {
         this.hEL = interfaceC0686a;
     }
 
-    public String ciJ() {
+    public String ciK() {
         return this.hEM;
     }
 }

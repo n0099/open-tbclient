@@ -39,7 +39,7 @@ public class SignStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SupplementSignActivityConfig.class, SupplementSignActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
-        bNZ();
+        bOa();
         registerTask();
     }
 
@@ -72,11 +72,11 @@ public class SignStatic {
                         zVar.addPostData("activity_id", TbSingleton.getInstance().getActivityId());
                     }
                     SignStatic.a(zVar);
-                    zVar.bvQ().bwz().mIsNeedTbs = true;
+                    zVar.bvR().bwA().mIsNeedTbs = true;
                     zVar.jM(true);
                     String postNetData = zVar.postNetData();
                     if (zVar.isNetSuccess()) {
-                        if (zVar.bvQ().bwA().isRequestSuccess()) {
+                        if (zVar.bvR().bwB().isRequestSuccess()) {
                             signData = new SignData();
                             signData.parserJson(postNetData);
                             signData.forumId = id;
@@ -125,8 +125,8 @@ public class SignStatic {
         }
     }
 
-    private static void bNZ() {
-        be.bwu().a(new be.a() { // from class: com.baidu.tieba.SignStatic.2
+    private static void bOa() {
+        be.bwv().a(new be.a() { // from class: com.baidu.tieba.SignStatic.2
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {

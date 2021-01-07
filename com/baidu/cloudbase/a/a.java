@@ -16,7 +16,7 @@ public class a {
     public AudioTrack aoy;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f1737b = true;
+    public volatile boolean f1738b = true;
     public volatile boolean c = true;
     public volatile boolean d = false;
     public Thread aoz = null;
@@ -44,11 +44,11 @@ public class a {
         public MediaCodec.BufferInfo aoC;
 
         /* renamed from: b  reason: collision with root package name */
-        public ByteBuffer f1738b;
+        public ByteBuffer f1739b;
 
         public b(a aVar, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
             this.aoC = bufferInfo;
-            this.f1738b = byteBuffer;
+            this.f1739b = byteBuffer;
         }
     }
 
@@ -59,7 +59,7 @@ public class a {
             try {
                 try {
                     b take = this.aoA.take();
-                    if (take.f1738b == null) {
+                    if (take.f1739b == null) {
                         if (this.aoB != null) {
                             this.aoB.onFilteredFrameUpdate(null, take.aoC);
                             return;
@@ -72,9 +72,9 @@ public class a {
                     int i4 = 0;
                     while (i4 < this.h) {
                         i4++;
-                        i3 = Math.min(this.g.get(i4).f1031b, i3);
+                        i3 = Math.min(this.g.get(i4).f1032b, i3);
                     }
-                    ByteBuffer byteBuffer = take.f1738b;
+                    ByteBuffer byteBuffer = take.f1739b;
                     byte[] bArr2 = new byte[bufferInfo.size];
                     byteBuffer.get(bArr2);
                     int min = Math.min(i2, i3);
@@ -111,7 +111,7 @@ public class a {
                     } else {
                         bArr = null;
                     }
-                    if (this.f1737b) {
+                    if (this.f1738b) {
                         bArr = bArr2;
                     } else if (this.h <= 0) {
                         bArr = null;
@@ -162,7 +162,7 @@ public class a {
     }
 
     public void aO(boolean z) {
-        this.f1737b = z;
+        this.f1738b = z;
     }
 
     public void aP(boolean z) {
@@ -184,7 +184,7 @@ public class a {
             this.aoy = new AudioTrack(i, 44100, 12, 2, minBufferSize, 1);
         }
         this.aoy.play();
-        this.f1737b = z;
+        this.f1738b = z;
         this.d = true;
         this.aoz = new Thread(new RunnableC0096a());
         this.aoz.start();

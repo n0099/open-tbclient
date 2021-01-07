@@ -19,24 +19,24 @@ public interface c<T extends d> extends ao, e<T> {
 
     boolean a(com.baidu.swan.apps.scheme.actions.m.d dVar);
 
-    boolean ami();
+    boolean amj();
 
-    PullToRefreshBaseWebView amj();
+    PullToRefreshBaseWebView amk();
 
-    f amk();
+    f aml();
 
-    boolean aml();
+    boolean amm();
 
-    void amm();
+    void amn();
 
     @Nullable
-    com.baidu.swan.apps.component.c.a amn();
+    com.baidu.swan.apps.component.c.a amo();
 
-    boolean amo();
+    boolean amp();
 
-    com.baidu.swan.apps.adaptation.b.a.d amp();
+    com.baidu.swan.apps.adaptation.b.a.d amq();
 
-    String amq();
+    String amr();
 
     void b(ViewGroup viewGroup, View view);
 

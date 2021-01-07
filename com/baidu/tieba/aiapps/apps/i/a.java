@@ -6,8 +6,8 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes9.dex */
 public class a {
-    public static boolean alD() {
-        return com.baidu.swan.apps.t.a.aAN().alD();
+    public static boolean alE() {
+        return com.baidu.swan.apps.t.a.aAO().alE();
     }
 
     public static void mh(boolean z) {
@@ -16,9 +16,9 @@ public class a {
         LocalBroadcastManager.getInstance(AppRuntime.getAppContext()).sendBroadcast(intent);
     }
 
-    public static void bQW() {
+    public static void bQX() {
         int defaultNightMode = AppCompatDelegate.getDefaultNightMode();
-        int i = alD() ? 2 : 1;
+        int i = alE() ? 2 : 1;
         if (defaultNightMode != i) {
             AppCompatDelegate.setDefaultNightMode(i);
         }

@@ -8,10 +8,10 @@ import java.io.InputStream;
 public class a implements Closeable {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f10788a;
+    static final /* synthetic */ boolean f10789a;
 
     /* renamed from: b  reason: collision with root package name */
-    private InputStream f10789b;
+    private InputStream f10790b;
     private byte[] c;
     private int d;
     private int e;
@@ -20,7 +20,7 @@ public class a implements Closeable {
     private long h;
 
     static {
-        f10788a = !a.class.desiredAssertionStatus();
+        f10789a = !a.class.desiredAssertionStatus();
     }
 
     public a(InputStream inputStream) {
@@ -31,7 +31,7 @@ public class a implements Closeable {
         this.f = false;
         this.g = true;
         this.h = 0L;
-        this.f10789b = inputStream;
+        this.f10790b = inputStream;
         this.c = new byte[i < 1 ? 16384 : i];
     }
 
@@ -54,7 +54,7 @@ public class a implements Closeable {
         if (a2 > 0) {
             this.e += a2;
             this.d -= a2;
-            if (!f10788a && this.d < 0) {
+            if (!f10789a && this.d < 0) {
                 throw new AssertionError();
             }
         }
@@ -74,7 +74,7 @@ public class a implements Closeable {
         }
         try {
             this.e = 0;
-            this.d = this.f10789b.read(this.c);
+            this.d = this.f10790b.read(this.c);
             if (this.d == 0) {
                 com.kwad.sdk.core.d.a.a(new PngjException("This should not happen: stream.read(buf) returned 0"));
             } else if (this.d < 0) {
@@ -100,7 +100,7 @@ public class a implements Closeable {
             }
             i2 -= a2;
         }
-        if (f10788a || i2 == 0) {
+        if (f10789a || i2 == 0) {
             return i;
         }
         throw new AssertionError();
@@ -112,12 +112,12 @@ public class a implements Closeable {
         this.c = null;
         this.d = 0;
         this.e = 0;
-        if (this.f10789b != null && this.g) {
+        if (this.f10790b != null && this.g) {
             try {
-                this.f10789b.close();
+                this.f10790b.close();
             } catch (Exception e) {
             }
         }
-        this.f10789b = null;
+        this.f10790b = null;
     }
 }

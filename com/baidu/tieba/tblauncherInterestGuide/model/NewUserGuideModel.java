@@ -17,10 +17,10 @@ import java.lang.ref.WeakReference;
 public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     public static final int LIMIT = 100;
     public static final int OFFSET = 0;
-    private static final String nzX = TbConfig.SERVER_ADDRESS + Config.INTERESTS_FRS_URL;
-    private a nAa;
-    private boolean nzY;
-    private InterestFrsData nzZ;
+    private static final String nzW = TbConfig.SERVER_ADDRESS + Config.INTERESTS_FRS_URL;
+    private boolean nzX;
+    private InterestFrsData nzY;
+    private a nzZ;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -33,30 +33,30 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         super(baseFragmentActivity.getPageContext());
     }
 
-    public boolean dSk() {
-        return this.nzY;
+    public boolean dSl() {
+        return this.nzX;
     }
 
     public void yB(boolean z) {
-        this.nzY = z;
+        this.nzX = z;
     }
 
-    public InterestFrsData dSl() {
-        return this.nzZ;
+    public InterestFrsData dSm() {
+        return this.nzY;
     }
 
     public void e(InterestFrsData interestFrsData) {
-        this.nzZ = interestFrsData;
+        this.nzY = interestFrsData;
     }
 
     public void a(int i, int i2, int i3, b bVar) {
-        this.nAa = new a(i, i2, i3, bVar);
-        this.nAa.execute(new Void[0]);
+        this.nzZ = new a(i, i2, i3, bVar);
+        this.nzZ.execute(new Void[0]);
     }
 
-    public void dSm() {
-        if (this.nAa != null) {
-            this.nAa.cancel();
+    public void dSn() {
+        if (this.nzZ != null) {
+            this.nzZ.cancel();
         }
     }
 
@@ -73,7 +73,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a extends BdAsyncTask<Void, Void, InterestFrsData> {
-        private WeakReference<b> lEl;
+        private WeakReference<b> lEk;
         private int limit;
         private int offset;
         private int userType;
@@ -82,21 +82,21 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
             this.userType = i;
             this.offset = i2;
             this.limit = i3;
-            this.lEl = new WeakReference<>(bVar);
+            this.lEk = new WeakReference<>(bVar);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: p */
+        /* renamed from: o */
         public InterestFrsData doInBackground(Void... voidArr) {
-            z zVar = new z(NewUserGuideModel.nzX);
+            z zVar = new z(NewUserGuideModel.nzW);
             zVar.addPostData("user_type", String.valueOf(this.userType));
             zVar.addPostData("offset", String.valueOf(this.offset));
             zVar.addPostData(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(this.limit));
             String postNetData = zVar.postNetData();
-            if (zVar.bvQ().bwA().isRequestSuccess()) {
+            if (zVar.bvR().bwB().isRequestSuccess()) {
                 try {
                     return (InterestFrsData) OrmObject.objectWithJsonStr(postNetData, InterestFrsData.class);
                 } catch (Exception e) {
@@ -119,7 +119,7 @@ public class NewUserGuideModel extends BdBaseModel<BaseFragmentActivity> {
         /* renamed from: f */
         public void onPostExecute(InterestFrsData interestFrsData) {
             super.onPostExecute(interestFrsData);
-            b bVar = this.lEl.get();
+            b bVar = this.lEk.get();
             if (bVar != null) {
                 if (interestFrsData.getErrno() == 0) {
                     bVar.a(interestFrsData);

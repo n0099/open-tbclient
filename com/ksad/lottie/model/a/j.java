@@ -11,7 +11,7 @@ public class j extends n<com.ksad.lottie.model.b, com.ksad.lottie.model.b> {
     @Override // com.ksad.lottie.model.a.m
     /* renamed from: b */
     public com.ksad.lottie.a.b.n a() {
-        return new com.ksad.lottie.a.b.n(this.f8347a);
+        return new com.ksad.lottie.a.b.n(this.f8348a);
     }
 
     @Override // com.ksad.lottie.model.a.n

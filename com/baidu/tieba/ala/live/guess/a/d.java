@@ -18,9 +18,9 @@ public class d extends b implements View.OnClickListener {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void aqY();
+        void aqZ();
 
-        void caz();
+        void caA();
     }
 
     public void a(a aVar) {
@@ -38,7 +38,7 @@ public class d extends b implements View.OnClickListener {
     }
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
-    void caG() {
+    void caH() {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.ala_guess_follow_dialog, (ViewGroup) null);
     }
 
@@ -58,11 +58,11 @@ public class d extends b implements View.OnClickListener {
     public void onClick(View view) {
         if (view == this.hiP) {
             if (this.hiR != null) {
-                this.hiR.aqY();
+                this.hiR.aqZ();
                 dismiss();
             }
         } else if (view == this.hiQ) {
-            this.hiR.caz();
+            this.hiR.caA();
             dismiss();
         }
     }

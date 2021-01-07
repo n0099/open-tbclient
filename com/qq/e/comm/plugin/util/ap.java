@@ -2,7 +2,7 @@ package com.qq.e.comm.plugin.util;
 
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ap {
     public static ShapeDrawable a(float f, int i, int i2) {
         float[] fArr = new float[8];

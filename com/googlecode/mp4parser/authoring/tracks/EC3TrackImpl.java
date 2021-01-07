@@ -23,7 +23,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class EC3TrackImpl extends AbstractTrack {
     private static final long MAX_FRAMES_PER_MMAP = 20;
     private int bitrate;
@@ -374,7 +374,7 @@ public class EC3TrackImpl extends AbstractTrack {
         return arrayList;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class BitStreamInfo extends EC3SpecificBox.Entry {
         public int bitrate;
         public int chanmap;

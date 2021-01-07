@@ -17,7 +17,7 @@ public class a implements Thread.UncaughtExceptionHandler {
     private static a ppX;
 
     /* renamed from: b  reason: collision with root package name */
-    private Thread.UncaughtExceptionHandler f7930b;
+    private Thread.UncaughtExceptionHandler f7931b;
     private HashSet<Thread.UncaughtExceptionHandler> c = new HashSet<>();
     private long e = -1;
     private b ppY;
@@ -47,7 +47,7 @@ public class a implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    public static a esx() {
+    public static a esy() {
         if (ppX == null) {
             ppX = new a();
         }
@@ -63,8 +63,8 @@ public class a implements Thread.UncaughtExceptionHandler {
         Thread.UncaughtExceptionHandler defaultUncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
         if (defaultUncaughtExceptionHandler != this) {
             Thread.setDefaultUncaughtExceptionHandler(this);
-            if (this.f7930b == null) {
-                this.f7930b = defaultUncaughtExceptionHandler;
+            if (this.f7931b == null) {
+                this.f7931b = defaultUncaughtExceptionHandler;
             } else {
                 this.c.add(defaultUncaughtExceptionHandler);
             }
@@ -97,10 +97,10 @@ public class a implements Thread.UncaughtExceptionHandler {
     }
 
     private boolean c(Thread thread, Throwable th) {
-        f esv = h.esF().esv();
-        if (esv != null) {
+        f esw = h.esG().esw();
+        if (esw != null) {
             try {
-                return esv.a(th, thread);
+                return esw.a(th, thread);
             } catch (Throwable th2) {
                 return true;
             }
@@ -109,7 +109,7 @@ public class a implements Thread.UncaughtExceptionHandler {
     }
 
     private void d(Thread thread, Throwable th) {
-        List<e> b2 = h.esF().b();
+        List<e> b2 = h.esG().b();
         com.bytedance.tea.crash.c cVar = com.bytedance.tea.crash.c.JAVA;
         for (e eVar : b2) {
             try {
@@ -129,7 +129,7 @@ public class a implements Thread.UncaughtExceptionHandler {
                 } catch (Throwable th2) {
                 }
             }
-            this.f7930b.uncaughtException(thread, th);
+            this.f7931b.uncaughtException(thread, th);
         } catch (Throwable th3) {
         }
     }

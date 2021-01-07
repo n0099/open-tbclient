@@ -12,18 +12,18 @@ import com.baidu.mapapi.VersionInfo;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObservable;
 import com.baidu.mapsdkplatform.comapi.util.h;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a implements PermissionCheck.c {
     private static a f;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f3118b;
+    private Context f3119b;
     private Handler c;
     private f d;
     private int e;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3117a = a.class.getSimpleName();
+    private static final String f3118a = a.class.getSimpleName();
     private static int g = -100;
 
     static {
@@ -53,14 +53,14 @@ public class a implements PermissionCheck.c {
                 intent2.putExtra("error_message", (String) message.obj);
                 intent = intent2;
             }
-            this.f3118b.sendBroadcast(intent);
+            this.f3119b.sendBroadcast(intent);
             return;
         }
         if (message.arg2 == 3) {
-            this.f3118b.sendBroadcast(new Intent(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR));
+            this.f3119b.sendBroadcast(new Intent(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR));
         }
         if (message.arg2 == 2 || message.arg2 == 404 || message.arg2 == 5 || message.arg2 == 8) {
-            this.f3118b.sendBroadcast(new Intent(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR));
+            this.f3119b.sendBroadcast(new Intent(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR));
         }
     }
 
@@ -68,21 +68,21 @@ public class a implements PermissionCheck.c {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
         intentFilter.addAction(McastConfig.ACTION_WIFI_STATE_CHANGED);
-        if (this.f3118b == null || this.d == null) {
+        if (this.f3119b == null || this.d == null) {
             return;
         }
-        this.f3118b.registerReceiver(this.d, intentFilter);
+        this.f3119b.registerReceiver(this.d, intentFilter);
     }
 
     private void g() {
-        if (this.d == null || this.f3118b == null) {
+        if (this.d == null || this.f3119b == null) {
             return;
         }
-        this.f3118b.unregisterReceiver(this.d);
+        this.f3119b.unregisterReceiver(this.d);
     }
 
     public void a(Context context) {
-        this.f3118b = context;
+        this.f3119b = context;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.util.PermissionCheck.c
@@ -90,47 +90,47 @@ public class a implements PermissionCheck.c {
         if (bVar == null) {
             return;
         }
-        if (bVar.f3208a == 0) {
+        if (bVar.f3209a == 0) {
             h.d = bVar.e;
-            h.a(bVar.f3209b, bVar.c);
+            h.a(bVar.f3210b, bVar.c);
         } else {
             Log.e("baidumapsdk", "Authentication Error\n" + bVar.toString());
         }
-        if (bVar.f3208a != PermissionCheck.f3207b && bVar.f3208a != PermissionCheck.f3206a && bVar.f3208a != PermissionCheck.c) {
+        if (bVar.f3209a != PermissionCheck.f3208b && bVar.f3209a != PermissionCheck.f3207a && bVar.f3209a != PermissionCheck.c) {
             com.baidu.mapsdkplatform.comapi.util.c.a().a(bVar.f);
         }
-        if (this.c == null || bVar.f3208a == g) {
+        if (this.c == null || bVar.f3209a == g) {
             return;
         }
-        g = bVar.f3208a;
+        g = bVar.f3209a;
         Message obtainMessage = this.c.obtainMessage();
         obtainMessage.what = 2012;
-        obtainMessage.arg1 = bVar.f3208a;
+        obtainMessage.arg1 = bVar.f3209a;
         obtainMessage.obj = bVar.d;
         this.c.sendMessage(obtainMessage);
     }
 
     public void b() {
         if (this.e == 0) {
-            if (this.f3118b == null) {
+            if (this.f3119b == null) {
                 throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
             }
             this.d = new f();
             f();
-            SysUpdateObservable.getInstance().updateNetworkInfo(this.f3118b);
+            SysUpdateObservable.getInstance().updateNetworkInfo(this.f3119b);
         }
         this.e++;
     }
 
     public boolean c() {
-        if (this.f3118b == null) {
+        if (this.f3119b == null) {
             throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
         }
         this.c = new b(this);
-        h.b(this.f3118b);
-        com.baidu.mapsdkplatform.comapi.util.c.a().a(this.f3118b);
+        h.b(this.f3119b);
+        com.baidu.mapsdkplatform.comapi.util.c.a().a(this.f3119b);
         h.g();
-        PermissionCheck.init(this.f3118b);
+        PermissionCheck.init(this.f3119b);
         PermissionCheck.setPermissionCheckResultListener(this);
         PermissionCheck.permissionCheck();
         return true;
@@ -145,9 +145,9 @@ public class a implements PermissionCheck.c {
     }
 
     public Context e() {
-        if (this.f3118b == null) {
+        if (this.f3119b == null) {
             throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
         }
-        return this.f3118b;
+        return this.f3119b;
     }
 }

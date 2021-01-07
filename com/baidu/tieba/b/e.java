@@ -56,13 +56,13 @@ public final class e {
         return this;
     }
 
-    public float ctr() {
+    public float cts() {
         return (float) this.inX;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean C(float f, float f2) {
-        return ((double) Math.abs(f2)) < this.inT && ((double) Math.abs(f - ctr())) < this.inS;
+        return ((double) Math.abs(f2)) < this.inT && ((double) Math.abs(f - cts())) < this.inS;
     }
 
     private void init() {

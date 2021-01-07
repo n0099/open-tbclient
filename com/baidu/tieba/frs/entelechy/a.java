@@ -11,7 +11,7 @@ public class a implements com.baidu.tieba.frs.entelechy.a.a {
     private com.baidu.tieba.frs.view.b joJ;
 
     @Override // com.baidu.tieba.frs.entelechy.a.a
-    public com.baidu.tieba.frs.entelechy.a.b cIw() {
+    public com.baidu.tieba.frs.entelechy.a.b cIx() {
         return new c();
     }
 
@@ -21,7 +21,7 @@ public class a implements com.baidu.tieba.frs.entelechy.a.a {
             return null;
         }
         this.joJ = new b(frsFragment, null, null, i);
-        this.joJ.c(frsFragment.cER());
+        this.joJ.c(frsFragment.cES());
         return this.joJ;
     }
 
@@ -32,7 +32,7 @@ public class a implements com.baidu.tieba.frs.entelechy.a.a {
 
     @Override // com.baidu.tieba.frs.entelechy.a.a
     public d a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
-        if (frsFragment.cFH()) {
+        if (frsFragment.cFI()) {
             return null;
         }
         return new d(frsFragment, noPressedRelativeLayout);

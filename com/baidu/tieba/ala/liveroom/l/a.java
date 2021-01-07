@@ -47,14 +47,14 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
             this.bRX = pendantParentView;
             if (this.hEa != null && (VH = this.hEa.VH()) != null && pendantParentView.indexOfChild(VH) < 0) {
                 if (layoutParams == null) {
-                    layoutParams = cik();
+                    layoutParams = cil();
                 }
                 pendantParentView.a(VH, layoutParams);
             }
         }
     }
 
-    private LinearLayout.LayoutParams cik() {
+    private LinearLayout.LayoutParams cil() {
         return new LinearLayout.LayoutParams(-2, -2);
     }
 
@@ -89,7 +89,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
 
     public void L(x xVar) {
         if (!TbadkCoreApplication.isLogin()) {
-            cil();
+            cim();
         }
         if (this.hEa != null && this.hEa.VH() != null && xVar != null) {
             this.hEa.j(xVar);
@@ -102,7 +102,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    public void cil() {
+    public void cim() {
         if (this.hEa != null && this.hEa.VH() != null) {
             this.hEa.VH().setVisibility(8);
         }

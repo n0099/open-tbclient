@@ -42,7 +42,7 @@ public class a {
         }
     }
 
-    public Download aWO() {
+    public Download aWP() {
         Download download = new Download();
         download.setUrl(this.mUrl);
         download.setKeyByUser(this.mPackageName);
@@ -76,7 +76,7 @@ public class a {
         return this;
     }
 
-    public String aWP() {
+    public String aWQ() {
         return this.edX;
     }
 

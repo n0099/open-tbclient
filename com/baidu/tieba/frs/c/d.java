@@ -9,9 +9,9 @@ import java.util.Map;
 public class d {
     private static d jHF;
     private LruCache<String, String> jHD = new LruCache<>(10);
-    private l<String> jHE = com.baidu.tbadk.core.c.a.btS().Bn("tb.recently_vistited_forum_animation");
+    private l<String> jHE = com.baidu.tbadk.core.c.a.btT().Bm("tb.recently_vistited_forum_animation");
 
-    public static d cMV() {
+    public static d cMW() {
         if (jHF == null) {
             synchronized (d.class) {
                 if (jHF == null) {
@@ -59,7 +59,7 @@ public class d {
         this.jHD.put(str, eVar.toString());
     }
 
-    public e LF(String str) {
+    public e LE(String str) {
         return str == null ? new e(null) : new e(this.jHD.get(str));
     }
 }

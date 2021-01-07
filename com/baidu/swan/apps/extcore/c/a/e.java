@@ -29,8 +29,8 @@ public class e extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        if (com.baidu.swan.apps.runtime.d.aMg().ajk() == 0) {
-            eVar.aMw().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.e.1
+        if (com.baidu.swan.apps.runtime.d.aMh().ajl() == 0) {
+            eVar.aMx().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
@@ -65,10 +65,10 @@ public class e extends aa {
                         d.C0436d.oc(d.C0436d.iF(optJSONObject.optInt("emitReplaceV8Core")));
                     }
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    com.baidu.swan.apps.ad.a.a.arX();
+                    com.baidu.swan.apps.ad.a.a.arY();
                 }
             });
-        } else if (com.baidu.swan.apps.runtime.d.aMg().ajk() == 1) {
+        } else if (com.baidu.swan.apps.runtime.d.aMh().ajl() == 1) {
             if (!DEBUG) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
                 return false;
@@ -87,7 +87,7 @@ public class e extends aa {
                     com.baidu.swan.apps.ad.a.a.rK(optJSONObject.optString("debugEnvData"));
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                com.baidu.swan.apps.ad.a.a.arX();
+                com.baidu.swan.apps.ad.a.a.arY();
             }
         } else {
             com.baidu.swan.apps.console.c.e("setDebugConfig", "frame type error");

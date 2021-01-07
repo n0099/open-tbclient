@@ -112,11 +112,11 @@ public class b {
             this.gfQ = new LinearLayout(this.mPageContext.getPageActivity());
             this.gfQ.setOrientation(1);
         }
-        List<List<a>> bNE = bNE();
-        if (x.isEmpty(bNE)) {
+        List<List<a>> bNF = bNF();
+        if (x.isEmpty(bNF)) {
             return null;
         }
-        int size = bNE.size();
+        int size = bNF.size();
         if (this.gfT == null) {
             this.gfT = new HashMap<>();
         } else {
@@ -124,7 +124,7 @@ public class b {
         }
         int i = 0;
         while (i < size) {
-            View a2 = a(bNE.get(i), i == size + (-1), this.gfQ.getChildAt(i));
+            View a2 = a(bNF.get(i), i == size + (-1), this.gfQ.getChildAt(i));
             if (a2 != null && a2.getParent() == null) {
                 this.gfQ.addView(a2);
             }
@@ -136,12 +136,12 @@ public class b {
         return this.gfQ;
     }
 
-    private List<List<a>> bNE() {
+    private List<List<a>> bNF() {
         int i;
         int i2;
         int i3 = -1;
         if (this.gfN == null || this.gfN.size() == 0) {
-            return bNF();
+            return bNG();
         }
         int size = this.gfN.size();
         int i4 = this.gfM ? 0 : -1;
@@ -178,7 +178,7 @@ public class b {
         return arrayList;
     }
 
-    private List<List<a>> bNF() {
+    private List<List<a>> bNG() {
         if (this.gfP == null || this.gfP.length <= 0) {
             return null;
         }
@@ -210,8 +210,8 @@ public class b {
         }
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.left_reason);
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.right_reason);
-        nEGFeedBackReasonCheckBox.bxO();
-        nEGFeedBackReasonCheckBox2.bxO();
+        nEGFeedBackReasonCheckBox.bxP();
+        nEGFeedBackReasonCheckBox2.bxP();
         nEGFeedBackReasonCheckBox.setChecked(false);
         nEGFeedBackReasonCheckBox2.setChecked(false);
         this.gfT.put(nEGFeedBackReasonCheckBox, false);
@@ -273,8 +273,8 @@ public class b {
         }
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.left_reason);
         NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.right_reason);
-        nEGFeedBackReasonCheckBox.bxO();
-        nEGFeedBackReasonCheckBox2.bxO();
+        nEGFeedBackReasonCheckBox.bxP();
+        nEGFeedBackReasonCheckBox2.bxP();
         nEGFeedBackReasonCheckBox.setChecked(false);
         nEGFeedBackReasonCheckBox2.setChecked(false);
         this.gfT.put(nEGFeedBackReasonCheckBox, false);
@@ -313,11 +313,11 @@ public class b {
             this.gfQ = new LinearLayout(this.mPageContext.getPageActivity());
             this.gfQ.setOrientation(1);
         }
-        List<List<a>> bNH = bNH();
-        if (x.isEmpty(bNH)) {
+        List<List<a>> bNI = bNI();
+        if (x.isEmpty(bNI)) {
             return null;
         }
-        int size = bNH.size();
+        int size = bNI.size();
         if (this.gfT == null) {
             this.gfT = new HashMap<>();
         } else {
@@ -325,7 +325,7 @@ public class b {
         }
         int i = 0;
         while (i < size) {
-            View b2 = b(bNH.get(i), i == size + (-1), this.gfQ.getChildAt(i));
+            View b2 = b(bNI.get(i), i == size + (-1), this.gfQ.getChildAt(i));
             if (b2 != null && b2.getParent() == null) {
                 this.gfQ.addView(b2);
             }
@@ -337,7 +337,7 @@ public class b {
         return this.gfQ;
     }
 
-    private List<List<a>> bNG() {
+    private List<List<a>> bNH() {
         if (this.gfP == null || this.gfP.length <= 0) {
             return null;
         }
@@ -357,9 +357,9 @@ public class b {
         return arrayList;
     }
 
-    private List<List<a>> bNH() {
+    private List<List<a>> bNI() {
         if (this.gfN == null || this.gfN.size() == 0) {
-            return bNG();
+            return bNH();
         }
         int size = this.gfN.size();
         ArrayList arrayList = new ArrayList();

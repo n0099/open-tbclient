@@ -21,7 +21,7 @@ public class a {
     public class C0097a extends com.baidu.cloudbase.download.a.a {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f1739b;
+        public final /* synthetic */ String f1740b;
         public final /* synthetic */ File c;
         public final /* synthetic */ File d;
         public final /* synthetic */ String e;
@@ -29,7 +29,7 @@ public class a {
 
         public C0097a(c cVar, String str, File file, File file2, String str2) {
             this.zy = cVar;
-            this.f1739b = str;
+            this.f1740b = str;
             this.c = file;
             this.d = file2;
             this.e = str2;
@@ -39,7 +39,7 @@ public class a {
         public void c(DownloadException downloadException) {
             downloadException.printStackTrace();
             com.baidu.cloudbase.d.a.deleteFile(this.c.getAbsolutePath());
-            a.this.a(this.zy, this.f1739b, downloadException.getErrorCode(), downloadException.getErrorMessage());
+            a.this.a(this.zy, this.f1740b, downloadException.getErrorCode(), downloadException.getErrorMessage());
         }
 
         @Override // com.baidu.cloudbase.download.a.a
@@ -49,25 +49,25 @@ public class a {
                 Log.e("RtcDownSo", "unzip:" + this.d + "---" + this.e);
                 com.baidu.cloudbase.d.a.unzipFile(this.d, this.e);
                 com.baidu.cloudbase.d.a.deleteFile(this.d.getAbsolutePath());
-                a.this.a(this.zy, this.f1739b, this.e);
+                a.this.a(this.zy, this.f1740b, this.e);
             } catch (Exception e) {
                 e.printStackTrace();
                 com.baidu.cloudbase.d.a.deleteFile(this.d.getAbsolutePath());
                 if (com.baidu.cloudbase.d.a.isExists(this.e)) {
                     com.baidu.cloudbase.d.a.deleteDir(new File(this.e));
                 }
-                a.this.a(this.zy, this.f1739b, 108, "unzip exception");
+                a.this.a(this.zy, this.f1740b, 108, "unzip exception");
             }
         }
 
         @Override // com.baidu.cloudbase.download.a.a
         public void onProgress(long j, long j2, int i) {
-            a.this.a(this.zy, this.f1739b, i);
+            a.this.a(this.zy, this.f1740b, i);
         }
 
         @Override // com.baidu.cloudbase.download.a.a
         public void onStarted() {
-            a.this.a(this.zy, this.f1739b);
+            a.this.a(this.zy, this.f1740b);
         }
     }
 

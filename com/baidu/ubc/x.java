@@ -26,8 +26,8 @@ public class x {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean ejk() {
-        return this.oNJ.ejk();
+    public boolean ejl() {
+        return this.oNJ.ejl();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -51,8 +51,8 @@ public class x {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bhS() {
-        this.oNJ.bhS();
+    public void bhT() {
+        this.oNJ.bhT();
     }
 
     public void a(f fVar) {
@@ -65,13 +65,13 @@ public class x {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k Xy(String str) {
-        return this.oNJ.Xy(str);
+    public k Xx(String str) {
+        return this.oNJ.Xx(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean Xz(String str) {
-        return this.oNJ.Xz(str);
+    public boolean Xy(String str) {
+        return this.oNJ.Xy(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -95,8 +95,8 @@ public class x {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int ejl() {
-        return this.oNJ.ejl();
+    public int ejm() {
+        return this.oNJ.ejm();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -110,8 +110,8 @@ public class x {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o XA(String str) {
-        return this.oNJ.XA(str);
+    public o Xz(String str) {
+        return this.oNJ.Xz(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -120,8 +120,8 @@ public class x {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bhT() {
-        this.oNJ.bhT();
+    public void bhU() {
+        this.oNJ.bhU();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -135,7 +135,7 @@ public class x {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bhU() {
-        this.oNJ.bhU();
+    public void bhV() {
+        this.oNJ.bhV();
     }
 }

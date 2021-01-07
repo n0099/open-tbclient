@@ -46,8 +46,8 @@ public class d {
 
     public void a(com.baidu.tieba.hottopic.data.e eVar) {
         ArrayList<com.baidu.adp.widget.ListView.n> arrayList;
-        if (eVar.cVg() != null) {
-            arrayList = eVar.cVg();
+        if (eVar.cVh() != null) {
+            arrayList = eVar.cVh();
         } else {
             arrayList = new ArrayList<>();
         }

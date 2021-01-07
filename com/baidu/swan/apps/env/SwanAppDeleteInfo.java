@@ -66,7 +66,7 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
         return this;
     }
 
-    public int awZ() {
+    public int axa() {
         return this.mPurgerScenes;
     }
 }

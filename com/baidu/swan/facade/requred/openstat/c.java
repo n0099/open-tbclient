@@ -3,7 +3,7 @@ package com.baidu.swan.facade.requred.openstat;
 public class c {
     private static volatile b dYy;
 
-    public static synchronized b aUb() {
+    public static synchronized b aUc() {
         b bVar;
         synchronized (c.class) {
             if (dYy == null) {

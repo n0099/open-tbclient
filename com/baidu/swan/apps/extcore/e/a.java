@@ -18,26 +18,26 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
         super(t);
     }
 
-    public long ayf() {
-        return h.aPH().getLong(this.ddH.aya(), 0L);
+    public long ayg() {
+        return h.aPI().getLong(this.ddH.ayb(), 0L);
     }
 
     public void ce(long j) {
-        h.aPH().putLong(this.ddH.aya(), j);
+        h.aPI().putLong(this.ddH.ayb(), j);
     }
 
     @Override // com.baidu.swan.apps.extcore.b.a
-    public File axP() {
-        return new File(super.axP(), "remote");
+    public File axQ() {
+        return new File(super.axQ(), "remote");
     }
 
     @NonNull
-    public ExtensionCore ayg() {
+    public ExtensionCore ayh() {
         ExtensionCore extensionCore = new ExtensionCore();
-        long ayf = ayf();
-        extensionCore.extensionCoreVersionCode = ayf;
-        extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.f.a.cf(ayf);
-        extensionCore.extensionCorePath = cd(ayf).getPath();
+        long ayg = ayg();
+        extensionCore.extensionCoreVersionCode = ayg;
+        extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.f.a.cf(ayg);
+        extensionCore.extensionCorePath = cd(ayg).getPath();
         extensionCore.extensionCoreType = 1;
         return extensionCore;
     }
@@ -79,12 +79,12 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
         if (!d.unzipFile(str2, cd(oM).getPath())) {
             return C0444a.oL("unzip bundle failed.");
         }
-        com.baidu.swan.apps.extcore.f.a.a(axP(), ayf(), oM);
+        com.baidu.swan.apps.extcore.f.a.a(axQ(), ayg(), oM);
         ce(oM);
         if (DEBUG) {
             Log.d("ExtCore-RemoteControl", "doRemoteUpdate end. version = " + oM);
         }
-        return C0444a.ayh();
+        return C0444a.ayi();
     }
 
     private void oK(String str) {
@@ -103,7 +103,7 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
             return this.statusCode == 0;
         }
 
-        public static C0444a ayh() {
+        public static C0444a ayi() {
             return al(0, "");
         }
 

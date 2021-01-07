@@ -18,11 +18,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile Boolean f12875a = null;
+    private static volatile Boolean f12876a = null;
 
     public static Pair<JSONArray, Pair<Integer, Integer>> a(JSONObject jSONObject, String str) {
         if (jSONObject.optInt(Constants.KEYS.RET) != 0) {
@@ -222,7 +222,7 @@ public class b {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0036, code lost:
-        com.qq.e.comm.plugin.util.b.f12875a = true;
+        com.qq.e.comm.plugin.util.b.f12876a = true;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -232,11 +232,11 @@ public class b {
         if (context == null) {
             return false;
         }
-        if (f12875a == null) {
+        if (f12876a == null) {
             synchronized (b.class) {
                 try {
-                    if (f12875a == null) {
-                        f12875a = false;
+                    if (f12876a == null) {
+                        f12876a = false;
                         try {
                             String[] strArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 4096).requestedPermissions;
                             if (strArr != null) {
@@ -259,7 +259,7 @@ public class b {
                 }
             }
         }
-        return f12875a.booleanValue();
+        return f12876a.booleanValue();
     }
 
     public static boolean c(com.qq.e.comm.plugin.s.a aVar) {

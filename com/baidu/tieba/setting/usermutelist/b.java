@@ -19,12 +19,14 @@ public class b extends d<UserMuteListActivity> {
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private View mRoot;
-    private a nex;
+
+    /* renamed from: new  reason: not valid java name */
+    private a f6new;
 
     public b(BaseActivity<UserMuteListActivity> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
         this.mActivity = baseActivity;
-        this.nex = aVar;
+        this.f6new = aVar;
         initUI();
     }
 
@@ -41,10 +43,10 @@ public class b extends d<UserMuteListActivity> {
         this.mNavigationBar.setTitleText(R.string.user_mute_list_text);
         this.WV = (BdListView) this.mRoot.findViewById(R.id.mute_user_list);
         this.mNoDataView = NoDataViewFactory.a(this.mActivity.getPageContext().getContext(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.fOZ), NoDataViewFactory.d.ra(R.string.user_mute_list_no_data_text), null);
-        bxO();
+        bxP();
     }
 
-    private void bxO() {
+    private void bxP() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         this.mActivity.getLayoutMode().setNightMode(skinType == 1);
         this.mActivity.getLayoutMode().onModeChanged(this.mRoot);
@@ -53,13 +55,13 @@ public class b extends d<UserMuteListActivity> {
         this.gzT.onChangeSkinType(this.mActivity.getPageContext(), skinType);
     }
 
-    public void cLK() {
+    public void cLL() {
         this.WV.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.ra(R.string.user_mute_list_no_data_text));
     }
 
-    public void dKu() {
+    public void dKv() {
         this.WV.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.ra(R.string.refresh_view_title_text));

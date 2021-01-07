@@ -10,8 +10,8 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes11.dex */
 public class d extends BdBaseModel<YuyinALaAudiencesActivity> {
     private HttpMessageListener gQE;
-    private b ojU;
-    private a ojV;
+    private b ojT;
+    private a ojU;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -32,21 +32,21 @@ public class d extends BdBaseModel<YuyinALaAudiencesActivity> {
                     b bVar = null;
                     if (httpResponsedMessage instanceof OnlineListHttpResponseMessage) {
                         OnlineListHttpResponseMessage onlineListHttpResponseMessage = (OnlineListHttpResponseMessage) httpResponsedMessage;
-                        j = onlineListHttpResponseMessage.bWX();
-                        bVar = onlineListHttpResponseMessage.ebK();
+                        j = onlineListHttpResponseMessage.bWY();
+                        bVar = onlineListHttpResponseMessage.ebL();
                     }
                     if (error == 0) {
-                        d.this.ojU = bVar;
-                        if (d.this.ojV != null) {
-                            d.this.ojV.a(j, d.this.ojU);
+                        d.this.ojT = bVar;
+                        if (d.this.ojU != null) {
+                            d.this.ojU.a(j, d.this.ojT);
                         }
-                    } else if (d.this.ojV != null) {
-                        d.this.ojV.v(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    } else if (d.this.ojU != null) {
+                        d.this.ojU.v(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     }
                 }
             }
         };
-        this.ojV = aVar;
+        this.ojU = aVar;
         MessageManager.getInstance().registerListener(this.gQE);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031031, com.baidu.live.a.aAH + "ala/audio/live/getAudienceInfo");
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -57,7 +57,7 @@ public class d extends BdBaseModel<YuyinALaAudiencesActivity> {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void VH(String str) {
+    public void VG(String str) {
         HttpMessage httpMessage = new HttpMessage(1031031);
         httpMessage.addParam("live_id", str);
         MessageManager.getInstance().sendMessage(httpMessage);

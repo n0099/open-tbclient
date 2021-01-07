@@ -15,20 +15,20 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class CommonImageLayout extends ViewGroup {
-    private static float[] nog = {306.0f, 144.0f, 204.0f, 101.0f, 97.0f};
-    private static float[] noh = {138.0f, 144.0f, 204.0f, 101.0f, 97.0f};
-    private static int noi = 2;
-    private static int noj = 4;
-    private static int nok = 0;
+    private static float[] nof = {306.0f, 144.0f, 204.0f, 101.0f, 97.0f};
+    private static float[] nog = {138.0f, 144.0f, 204.0f, 101.0f, 97.0f};
+    private static int noh = 2;
+    private static int noi = 4;
+    private static int noj = 0;
     public static float sRatio = -1.0f;
     private final Context mContext;
     private boolean mIsFromCDN;
     private int mPadding;
+    public TbImageView nok;
     public TbImageView nol;
     public TbImageView nom;
-    public TbImageView non;
-    private MediaData[] noo;
-    private boolean nop;
+    private MediaData[] non;
+    private boolean noo;
 
     public CommonImageLayout(Context context) {
         this(context, null);
@@ -37,83 +37,83 @@ public class CommonImageLayout extends ViewGroup {
     private void initData() {
         if (sRatio < 0.0f) {
             sRatio = l.getEquipmentWidth(this.mContext) / 320.0f;
-            for (int i = 0; i < nog.length; i++) {
-                float[] fArr = nog;
+            for (int i = 0; i < nof.length; i++) {
+                float[] fArr = nof;
                 fArr[i] = fArr[i] * sRatio;
-                float[] fArr2 = noh;
+                float[] fArr2 = nog;
                 fArr2[i] = fArr2[i] * sRatio;
             }
+            noh = (int) (noh * sRatio);
             noi = (int) (noi * sRatio);
-            noj = (int) (noj * sRatio);
         }
     }
 
     public CommonImageLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mPadding = 7;
-        this.nop = false;
+        this.noo = false;
         this.mIsFromCDN = false;
         this.mContext = context;
         initData();
         TbadkCoreApplication.getInst().getSkinType();
         Drawable drawable = ao.getDrawable(R.color.common_color_10220);
+        this.nok = new TbImageView(context);
         this.nol = new TbImageView(context);
         this.nom = new TbImageView(context);
-        this.non = new TbImageView(context);
+        this.nok.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.nol.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.nom.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.non.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.nok.setDefaultBg(drawable);
         this.nol.setDefaultBg(drawable);
         this.nom.setDefaultBg(drawable);
-        this.non.setDefaultBg(drawable);
+        addView(this.nok);
         addView(this.nol);
         addView(this.nom);
-        addView(this.non);
         this.mPadding = (int) (this.mPadding * sRatio);
     }
 
     public void setShowBig(boolean z) {
-        this.nop = z;
+        this.noo = z;
     }
 
     public void setData(MediaData[] mediaDataArr) {
-        this.noo = mediaDataArr;
-        if (this.noo == null || this.noo.length <= 0) {
+        this.non = mediaDataArr;
+        if (this.non == null || this.non.length <= 0) {
+            if (this.nok != null) {
+                this.nok.setTag(null);
+            }
             if (this.nol != null) {
                 this.nol.setTag(null);
             }
             if (this.nom != null) {
                 this.nom.setTag(null);
             }
-            if (this.non != null) {
-                this.non.setTag(null);
-            }
             requestLayout();
             invalidate();
             return;
         }
-        int length = this.noo.length;
+        int length = this.non.length;
         if (length == 1) {
-            a(this.nol, this.noo[0]);
+            a(this.nok, this.non[0]);
+            if (this.nol != null) {
+                this.nol.setTag(null);
+                this.nol.setClickable(false);
+            }
             if (this.nom != null) {
                 this.nom.setTag(null);
                 this.nom.setClickable(false);
             }
-            if (this.non != null) {
-                this.non.setTag(null);
-                this.non.setClickable(false);
-            }
         } else if (length == 2) {
-            a(this.nol, this.noo[0]);
-            a(this.nom, this.noo[1]);
-            if (this.non != null) {
-                this.non.setTag(null);
-                this.non.setClickable(false);
+            a(this.nok, this.non[0]);
+            a(this.nol, this.non[1]);
+            if (this.nom != null) {
+                this.nom.setTag(null);
+                this.nom.setClickable(false);
             }
         } else if (length == 3) {
-            a(this.nol, this.noo[0]);
-            a(this.nom, this.noo[1]);
-            a(this.non, this.noo[2]);
+            a(this.nok, this.non[0]);
+            a(this.nol, this.non[1]);
+            a(this.nom, this.non[2]);
         }
         requestLayout();
         invalidate();
@@ -124,54 +124,54 @@ public class CommonImageLayout extends ViewGroup {
         int i3;
         int i4;
         int i5 = 1073741823 & i;
-        if (nok == 0) {
-            nok = i5;
+        if (noj == 0) {
+            noj = i5;
         }
-        if (this.noo == null || this.noo.length == 0) {
+        if (this.non == null || this.non.length == 0) {
             setMeasuredDimension(0, 0);
             return;
         }
-        if (this.nop) {
-            setMeasuredDimension(nok, (int) (noh[this.noo.length - 1] + 0.5f));
+        if (this.noo) {
+            setMeasuredDimension(noj, (int) (nog[this.non.length - 1] + 0.5f));
         } else {
-            setMeasuredDimension(nok, (int) (noh[4] + 0.5f));
+            setMeasuredDimension(noj, (int) (nog[4] + 0.5f));
         }
-        switch (this.noo.length) {
+        switch (this.non.length) {
             case 1:
-                if (this.nop) {
-                    measureChild(this.nol, nok + 1073741824, ((int) (noh[0] + 0.5f)) + 1073741824);
+                if (this.noo) {
+                    measureChild(this.nok, noj + 1073741824, ((int) (nog[0] + 0.5f)) + 1073741824);
                 } else {
-                    measureChild(this.nol, ((int) (nog[4] + 0.5f)) + 1073741824, ((int) (noh[4] + 0.5f)) + 1073741824);
+                    measureChild(this.nok, ((int) (nof[4] + 0.5f)) + 1073741824, ((int) (nog[4] + 0.5f)) + 1073741824);
                 }
+                measureChild(this.nol, 0, 0);
                 measureChild(this.nom, 0, 0);
-                measureChild(this.non, 0, 0);
                 return;
             case 2:
-                if (this.nop) {
-                    i3 = ((int) (nog[1] + 0.5f)) + 1073741824;
-                    i4 = ((int) (noh[1] + 0.5f)) + 1073741824;
+                if (this.noo) {
+                    i3 = ((int) (nof[1] + 0.5f)) + 1073741824;
+                    i4 = ((int) (nog[1] + 0.5f)) + 1073741824;
                 } else {
-                    i3 = ((int) (nog[4] + 0.5f)) + 1073741824;
-                    i4 = ((int) (noh[4] + 0.5f)) + 1073741824;
+                    i3 = ((int) (nof[4] + 0.5f)) + 1073741824;
+                    i4 = ((int) (nog[4] + 0.5f)) + 1073741824;
                 }
+                measureChild(this.nok, i3, i4);
                 measureChild(this.nol, i3, i4);
-                measureChild(this.nom, i3, i4);
-                measureChild(this.non, 0, 0);
+                measureChild(this.nom, 0, 0);
                 return;
             case 3:
-                if (this.nop) {
-                    int i6 = ((int) (nog[3] + 0.5f)) + 1073741824;
-                    int i7 = ((int) (noh[3] + 0.5f)) + 1073741824;
-                    measureChild(this.nol, ((int) (nog[2] + 0.5f)) + 1073741824, ((int) (noh[2] + 0.5f)) + 1073741824);
+                if (this.noo) {
+                    int i6 = ((int) (nof[3] + 0.5f)) + 1073741824;
+                    int i7 = ((int) (nog[3] + 0.5f)) + 1073741824;
+                    measureChild(this.nok, ((int) (nof[2] + 0.5f)) + 1073741824, ((int) (nog[2] + 0.5f)) + 1073741824);
+                    measureChild(this.nol, i6, i7);
                     measureChild(this.nom, i6, i7);
-                    measureChild(this.non, i6, i7);
                     return;
                 }
-                int i8 = ((int) (nog[4] + 0.5f)) + 1073741824;
-                int i9 = ((int) (noh[4] + 0.5f)) + 1073741824;
+                int i8 = ((int) (nof[4] + 0.5f)) + 1073741824;
+                int i9 = ((int) (nog[4] + 0.5f)) + 1073741824;
+                measureChild(this.nok, i8, i9);
                 measureChild(this.nol, i8, i9);
                 measureChild(this.nom, i8, i9);
-                measureChild(this.non, i8, i9);
                 return;
             default:
                 return;
@@ -180,43 +180,43 @@ public class CommonImageLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.noo != null && this.noo.length != 0) {
-            switch (this.noo.length) {
+        if (this.non != null && this.non.length != 0) {
+            switch (this.non.length) {
                 case 1:
-                    if (this.nop) {
-                        int i5 = (int) (nog[0] + 0.5f);
-                        this.nol.layout(0, 0, i3, i4 - i2);
+                    if (this.noo) {
+                        int i5 = (int) (nof[0] + 0.5f);
+                        this.nok.layout(0, 0, i3, i4 - i2);
                     } else {
-                        this.nol.layout(this.mPadding, 0, ((int) (nog[4] + 0.5f)) + this.mPadding, i4 - i2);
+                        this.nok.layout(this.mPadding, 0, ((int) (nof[4] + 0.5f)) + this.mPadding, i4 - i2);
                     }
+                    this.nol.layout(0, 0, 0, 0);
                     this.nom.layout(0, 0, 0, 0);
-                    this.non.layout(0, 0, 0, 0);
                     return;
                 case 2:
-                    if (this.nop) {
-                        int i6 = (int) (nog[1] + 0.5f);
-                        this.nol.layout(this.mPadding, 0, this.mPadding + i6, i4 - i2);
-                        this.nom.layout(i6 + this.mPadding + noj, 0, (i3 - this.mPadding) - i, i4 - i2);
+                    if (this.noo) {
+                        int i6 = (int) (nof[1] + 0.5f);
+                        this.nok.layout(this.mPadding, 0, this.mPadding + i6, i4 - i2);
+                        this.nol.layout(i6 + this.mPadding + noi, 0, (i3 - this.mPadding) - i, i4 - i2);
                     } else {
-                        int i7 = (int) (nog[4] + 0.5f);
-                        this.nol.layout(this.mPadding, 0, this.mPadding + i7, i4 - i2);
-                        this.nom.layout(this.mPadding + i7 + noi, 0, (i7 * 2) + this.mPadding + noi, i4 - i2);
+                        int i7 = (int) (nof[4] + 0.5f);
+                        this.nok.layout(this.mPadding, 0, this.mPadding + i7, i4 - i2);
+                        this.nol.layout(this.mPadding + i7 + noh, 0, (i7 * 2) + this.mPadding + noh, i4 - i2);
                     }
-                    this.non.layout(0, 0, 0, 0);
+                    this.nom.layout(0, 0, 0, 0);
                     return;
                 case 3:
-                    if (this.nop) {
-                        int i8 = (int) (nog[2] + 0.5f);
-                        int i9 = (int) (nog[3] + 0.5f);
-                        this.nol.layout(0, 0, i8, i4 - i2);
-                        this.nom.layout(noi + i8, 0, i3, i9);
-                        this.non.layout(i8 + noi, i9 + noi, i3, i4 - i2);
+                    if (this.noo) {
+                        int i8 = (int) (nof[2] + 0.5f);
+                        int i9 = (int) (nof[3] + 0.5f);
+                        this.nok.layout(0, 0, i8, i4 - i2);
+                        this.nol.layout(noh + i8, 0, i3, i9);
+                        this.nom.layout(i8 + noh, i9 + noh, i3, i4 - i2);
                         return;
                     }
-                    int i10 = (int) (nog[4] + 0.5f);
-                    this.nol.layout(this.mPadding, 0, this.mPadding + i10, i4 - i2);
-                    this.nom.layout(this.mPadding + i10 + noi, 0, (i10 * 2) + this.mPadding + noi, i4 - i2);
-                    this.non.layout((i10 * 2) + this.mPadding + (noi * 2), 0, (i3 - this.mPadding) - i, i4 - i2);
+                    int i10 = (int) (nof[4] + 0.5f);
+                    this.nok.layout(this.mPadding, 0, this.mPadding + i10, i4 - i2);
+                    this.nol.layout(this.mPadding + i10 + noh, 0, (i10 * 2) + this.mPadding + noh, i4 - i2);
+                    this.nom.layout((i10 * 2) + this.mPadding + (noh * 2), 0, (i3 - this.mPadding) - i, i4 - i2);
                     return;
                 default:
                     return;
@@ -226,20 +226,20 @@ public class CommonImageLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.noo != null && this.noo.length != 0) {
+        if (this.non != null && this.non.length != 0) {
             long drawingTime = getDrawingTime();
-            switch (this.noo.length) {
+            switch (this.non.length) {
                 case 1:
-                    drawChild(canvas, this.nol, drawingTime);
+                    drawChild(canvas, this.nok, drawingTime);
                     return;
                 case 2:
+                    drawChild(canvas, this.nok, drawingTime);
                     drawChild(canvas, this.nol, drawingTime);
-                    drawChild(canvas, this.nom, drawingTime);
                     return;
                 case 3:
+                    drawChild(canvas, this.nok, drawingTime);
                     drawChild(canvas, this.nol, drawingTime);
                     drawChild(canvas, this.nom, drawingTime);
-                    drawChild(canvas, this.non, drawingTime);
                     return;
                 default:
                     return;

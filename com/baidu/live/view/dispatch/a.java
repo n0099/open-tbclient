@@ -3,7 +3,7 @@ package com.baidu.live.view.dispatch;
 import android.view.View;
 /* loaded from: classes11.dex */
 public interface a {
-    void ZV();
+    void ZW();
 
     boolean ai(View view);
 

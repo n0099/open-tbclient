@@ -77,7 +77,7 @@ public class d extends com.baidu.card.a<com.baidu.tbadk.core.data.a> {
     /* renamed from: b */
     public void D(com.baidu.tbadk.core.data.a aVar) {
         this.ahi = aVar;
-        this.aho.setData(aVar.boO());
+        this.aho.setData(aVar.boP());
     }
 
     public void aC(boolean z) {

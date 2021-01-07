@@ -19,14 +19,14 @@ import com.qq.e.comm.plugin.util.ao;
 import com.qq.e.comm.plugin.y.u;
 import com.qq.e.comm.util.GDTLogger;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f extends RelativeLayout implements View.OnClickListener, h {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.qq.e.comm.plugin.ab.d.a f12543a;
+    private com.qq.e.comm.plugin.ab.d.a f12544a;
 
     /* renamed from: b  reason: collision with root package name */
-    private k f12544b;
+    private k f12545b;
     private ImageView c;
     private com.qq.e.comm.plugin.s.e d;
     private a e;
@@ -38,7 +38,7 @@ public class f extends RelativeLayout implements View.OnClickListener, h {
     private String k;
     private int l;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(String str, boolean z);
 
@@ -55,11 +55,11 @@ public class f extends RelativeLayout implements View.OnClickListener, h {
         this.d = eVar;
         this.i = new com.qq.e.comm.plugin.y.d();
         this.j = cVar;
-        this.f12543a = new com.qq.e.comm.plugin.ab.d.e(context, null).a();
-        this.f12543a.a(new com.qq.e.comm.plugin.ab.d.f() { // from class: com.qq.e.comm.plugin.n.f.1
+        this.f12544a = new com.qq.e.comm.plugin.ab.d.e(context, null).a();
+        this.f12544a.a(new com.qq.e.comm.plugin.ab.d.f() { // from class: com.qq.e.comm.plugin.n.f.1
 
             /* renamed from: a  reason: collision with root package name */
-            long f12545a;
+            long f12546a;
 
             @Override // com.qq.e.comm.plugin.ab.d.f
             public void a(int i2) {
@@ -74,15 +74,15 @@ public class f extends RelativeLayout implements View.OnClickListener, h {
                 }
                 f.this.g = true;
                 if (!f.this.h) {
-                    if (f.this.f12543a != null) {
-                        f.this.f12543a.a(str3);
+                    if (f.this.f12544a != null) {
+                        f.this.f12544a.a(str3);
                     }
                     f.this.h = true;
                 }
-                if (f.this.f12544b != null) {
-                    f.this.f12544b.a();
+                if (f.this.f12545b != null) {
+                    f.this.f12545b.a();
                 }
-                com.qq.e.comm.plugin.intersitial2.fullscreen.a.a(f.this.k, "EndCard", f.this.l, System.currentTimeMillis() - this.f12545a, str3, str2, f.this.j);
+                com.qq.e.comm.plugin.intersitial2.fullscreen.a.a(f.this.k, "EndCard", f.this.l, System.currentTimeMillis() - this.f12546a, str3, str2, f.this.j);
                 if (f.this.k.equals("Interstitial")) {
                     f.this.i.a("wu", str3);
                     u.a(1030019, 0, f.this.j, f.this.i);
@@ -105,22 +105,22 @@ public class f extends RelativeLayout implements View.OnClickListener, h {
                 if (f.this.g) {
                     return;
                 }
-                com.qq.e.comm.plugin.intersitial2.fullscreen.a.a(f.this.k, "EndCard", f.this.l, System.currentTimeMillis() - this.f12545a, str2, (String) null, f.this.j);
+                com.qq.e.comm.plugin.intersitial2.fullscreen.a.a(f.this.k, "EndCard", f.this.l, System.currentTimeMillis() - this.f12546a, str2, (String) null, f.this.j);
                 if (f.this.k.equals("Interstitial")) {
                     f.this.i.a("wu", str2);
                     u.a(1030018, 0, f.this.j, f.this.i);
                 } else if (f.this.k.equals("Reward")) {
                     u.a(1020030, f.this.j);
                 }
-                if (f.this.f12544b != null) {
-                    f.this.f12544b.a();
+                if (f.this.f12545b != null) {
+                    f.this.f12545b.a();
                 }
             }
 
             @Override // com.qq.e.comm.plugin.ab.d.f
             public void a(String str2, Bitmap bitmap) {
                 GDTLogger.d("EndCardView onPageStarted");
-                this.f12545a = System.currentTimeMillis();
+                this.f12546a = System.currentTimeMillis();
             }
 
             @Override // com.qq.e.comm.plugin.ab.d.f
@@ -144,7 +144,7 @@ public class f extends RelativeLayout implements View.OnClickListener, h {
                 GDTLogger.d("EndCardView onLeftApplication");
             }
         });
-        addView(this.f12543a.b(), new RelativeLayout.LayoutParams(-1, -1));
+        addView(this.f12544a.b(), new RelativeLayout.LayoutParams(-1, -1));
         this.c = new ImageView(context);
         this.c.setScaleType(ImageView.ScaleType.FIT_CENTER);
         this.c.setImageBitmap(ao.a("iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAbFBMVEUAAAAAAAD////p6eknJyf/\n//8MDAz///////8REREbGxs9PT11dXWlpaX39/f///////////////9qamoZGRksLCxQUFBkZGSL\ni4u/v7/Z2dny8vL///////////////////////////////8d9apUAAAAI3RSTlOAAE3qikd6JQV3\nc2hbVE5AKx4RoYZtY15YUVBORD48MhoKNpZmpn4AAAHhSURBVFjDpZfbloIwDEXPVFsoFwW830H/\n/x+HRMYRIQIr54EHl2eTNiVN8CMoLIPb5WyNsefLLShD6X/9gCJbmg8ts2IsIAwad4cRhIMAslsj\nyhLiOyB/2Q/JduMd4PxmmxxeiPwroLoa1iKNHVpycbowrGslAwr7tCcOPXLJE2ELCZAb1t5DkN8b\nVt4PyAwpjfBFUWpIWR/gbkg7DGhnSPcugN9/ijGo+NSKAe/rP0YYoejI+9AGFOz3GCXPhOIdUFmK\nP8JIRbQKW70B+PzEGK2YT9Q/IBf2fyAX+R8gtJR/TFJKiwgbQEC4CJMUkScgQBPAHhO1b0LAM4CF\nx0T5BYXAAKo/CVpardHReoWWEqpRBCgoANf2P2ZzfGg+e7QJjkIoakDWTcF6RoRP/2zdTURWA5Y9\nZ2hOBPGHRjGvASHlw0EiyH44coYoqX4CEkH2A1RpSwScA5kg+zkPAW71cwuZIPuxra03XOrnBjJB\n9mNTWy84108PmSD74WvrGZaTIBNkP6fBgnIByATZD/aqAeolqDdRnUb1QVIfZfXHpP6ctQVFXdLU\nRVVb1tUXi/pq016u6utd22BoWxx1k6Vt87SNprbVVTfb+nZfP3DoRx790KUf+/SDp3701Q/f6vH/\nFzOPJ4ULw0zxAAAAAElFTkSuQmCC\n"));
@@ -158,11 +158,11 @@ public class f extends RelativeLayout implements View.OnClickListener, h {
         if (GDTADManager.getInstance().getSM().getInteger("interstitialFullScreenEndcardSoft", 0) == 1) {
             setLayerType(1, null);
         } else {
-            this.f12543a.b().setBackgroundColor(0);
+            this.f12544a.b().setBackgroundColor(0);
         }
         if (this.l == 1) {
-            this.f12544b = new k(getContext());
-            addView(this.f12544b);
+            this.f12545b = new k(getContext());
+            addView(this.f12545b);
         }
     }
 
@@ -190,7 +190,7 @@ public class f extends RelativeLayout implements View.OnClickListener, h {
     @Override // com.qq.e.comm.plugin.n.h
     public void a(a aVar) {
         this.e = aVar;
-        this.f12543a.c().a("videoService", new e(this.d, this.e));
+        this.f12544a.c().a("videoService", new e(this.d, this.e));
     }
 
     /* JADX WARN: Type inference failed for: r0v5, types: [com.qq.e.comm.plugin.n.f$2] */
@@ -198,15 +198,15 @@ public class f extends RelativeLayout implements View.OnClickListener, h {
     public void a(String str) {
         if (TextUtils.isEmpty(str)) {
             GDTLogger.d("EndCardView loadUrl url is null");
-        } else if (this.f12543a != null) {
-            this.f12543a.a(str);
-            if (this.f12544b != null) {
-                this.f12544b.setVisibility(0);
+        } else if (this.f12544a != null) {
+            this.f12544a.a(str);
+            if (this.f12545b != null) {
+                this.f12545b.setVisibility(0);
                 this.f = new CountDownTimer(IMConnection.RETRY_DELAY_TIMES, IMConnection.RETRY_DELAY_TIMES) { // from class: com.qq.e.comm.plugin.n.f.2
                     @Override // android.os.CountDownTimer
                     public void onFinish() {
-                        if (f.this.f12544b != null) {
-                            f.this.f12544b.a();
+                        if (f.this.f12545b != null) {
+                            f.this.f12545b.a();
                         }
                     }
 
@@ -237,8 +237,8 @@ public class f extends RelativeLayout implements View.OnClickListener, h {
 
     @Override // com.qq.e.comm.plugin.n.h
     public void c() {
-        if (this.f12543a != null) {
-            this.f12543a.a();
+        if (this.f12544a != null) {
+            this.f12544a.a();
         }
         if (this.f != null) {
             this.f.cancel();

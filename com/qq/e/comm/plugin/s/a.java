@@ -17,7 +17,7 @@ import com.qq.e.comm.plugin.util.q;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     protected boolean A;
     protected String B;
@@ -47,12 +47,12 @@ public class a {
     private boolean Z;
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f12742a;
+    protected String f12743a;
     private String aa;
     private e ab;
 
     /* renamed from: b  reason: collision with root package name */
-    protected String f12743b;
+    protected String f12744b;
     protected String c;
     protected String d;
     protected String e;
@@ -105,7 +105,7 @@ public class a {
         String optString = jSONObject.optString("mp");
         if (!TextUtils.isEmpty(optString)) {
             try {
-                i = Integer.valueOf(new String(aq.b(Base64.decode(optString, 0)), com.qq.e.comm.plugin.f.a.f12289a)).intValue();
+                i = Integer.valueOf(new String(aq.b(Base64.decode(optString, 0)), com.qq.e.comm.plugin.f.a.f12290a)).intValue();
             } catch (aq.b e) {
                 e.printStackTrace();
             }
@@ -341,7 +341,7 @@ public class a {
     }
 
     public void b(String str) {
-        this.f12742a = str;
+        this.f12743a = str;
     }
 
     public void b(List<g> list) {
@@ -363,7 +363,7 @@ public class a {
     }
 
     public void c(String str) {
-        this.f12743b = str;
+        this.f12744b = str;
     }
 
     public void c(List<String> list) {
@@ -438,7 +438,7 @@ public class a {
         String optString2 = jSONObject.optString("mp");
         if (!TextUtils.isEmpty(optString2)) {
             try {
-                i = Integer.valueOf(new String(aq.b(Base64.decode(optString2, 0)), com.qq.e.comm.plugin.f.a.f12289a)).intValue();
+                i = Integer.valueOf(new String(aq.b(Base64.decode(optString2, 0)), com.qq.e.comm.plugin.f.a.f12290a)).intValue();
             } catch (aq.b e) {
                 e.printStackTrace();
             }
@@ -510,7 +510,7 @@ public class a {
     }
 
     public String m() {
-        return this.f12742a;
+        return this.f12743a;
     }
 
     public void m(String str) {
@@ -518,7 +518,7 @@ public class a {
     }
 
     public String n() {
-        return this.f12743b;
+        return this.f12744b;
     }
 
     public void n(String str) {
@@ -574,7 +574,7 @@ public class a {
     }
 
     public String toString() {
-        return "BaseAdInfo{cl='" + this.f12742a + "', txt='" + this.f12743b + "', desc='" + this.c + "', img='" + this.d + "', apurl='" + this.f + "', customizedpingurl='" + this.i + "', negative_feedback_url='" + this.k + "', isAppAd=" + this.n + ", appInfo=" + (this.q != null ? this.q.toString() : "") + ", duration=" + this.s + ", background_url='" + this.t + "', leftPadding=" + this.u + ", topPadding=" + this.v + ", widthRatio=" + this.w + ", heightRatio=" + this.x + ", hideDescVertical=" + this.A + ", appId=" + this.y + ", posId=" + this.B + ", adThreadId=" + this.z + ", adJson=" + this.H + ", adType=" + this.G + ", sspExt=" + (this.F != null ? this.F.toString() : "") + '}';
+        return "BaseAdInfo{cl='" + this.f12743a + "', txt='" + this.f12744b + "', desc='" + this.c + "', img='" + this.d + "', apurl='" + this.f + "', customizedpingurl='" + this.i + "', negative_feedback_url='" + this.k + "', isAppAd=" + this.n + ", appInfo=" + (this.q != null ? this.q.toString() : "") + ", duration=" + this.s + ", background_url='" + this.t + "', leftPadding=" + this.u + ", topPadding=" + this.v + ", widthRatio=" + this.w + ", heightRatio=" + this.x + ", hideDescVertical=" + this.A + ", appId=" + this.y + ", posId=" + this.B + ", adThreadId=" + this.z + ", adJson=" + this.H + ", adType=" + this.G + ", sspExt=" + (this.F != null ? this.F.toString() : "") + '}';
     }
 
     public String u() {

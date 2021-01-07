@@ -12,7 +12,7 @@ import com.kwad.sdk.utils.ao;
 public class f extends com.kwad.sdk.contentalliance.profile.home.b.a implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    private ViewGroup f9092b;
+    private ViewGroup f9093b;
     private View c;
     private TextView d;
     private com.kwad.sdk.contentalliance.profile.home.a.a e = new com.kwad.sdk.contentalliance.profile.home.a.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.f.1
@@ -26,10 +26,10 @@ public class f extends com.kwad.sdk.contentalliance.profile.home.b.a implements 
         Activity m = m();
         if (m != null && com.kwad.sdk.utils.d.a(m)) {
             int a2 = ao.a(o());
-            ViewGroup.LayoutParams layoutParams = this.f9092b.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f9093b.getLayoutParams();
             layoutParams.height += a2;
-            this.f9092b.setLayoutParams(layoutParams);
-            this.f9092b.setPadding(this.f9092b.getPaddingLeft(), a2, this.f9092b.getPaddingRight(), this.f9092b.getPaddingBottom());
+            this.f9093b.setLayoutParams(layoutParams);
+            this.f9093b.setPadding(this.f9093b.getPaddingLeft(), a2, this.f9093b.getPaddingRight(), this.f9093b.getPaddingBottom());
         }
     }
 
@@ -39,21 +39,21 @@ public class f extends com.kwad.sdk.contentalliance.profile.home.b.a implements 
         super.a();
         this.c.setOnClickListener(this);
         e();
-        this.f9077a.f.add(this.e);
+        this.f9078a.f.add(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f9077a.f.remove(this.e);
+        this.f9078a.f.remove(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f9092b = (ViewGroup) b(R.id.ksad_profile_title_bar);
+        this.f9093b = (ViewGroup) b(R.id.ksad_profile_title_bar);
         this.c = b(R.id.ksad_profile_left_back);
         this.d = (TextView) b(R.id.ksad_profile_title);
     }

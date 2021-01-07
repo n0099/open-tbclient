@@ -13,7 +13,7 @@ public class e {
     private e() {
     }
 
-    public static e azC() {
+    public static e azD() {
         if (dgz == null) {
             synchronized (e.class) {
                 if (dgz == null) {

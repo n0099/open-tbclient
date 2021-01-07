@@ -49,13 +49,13 @@ public class g extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
             public void a(View view, com.baidu.adp.widget.ListView.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if (nVar instanceof by) {
                     if (((by) nVar).eMv.getType() == bz.eTC) {
-                        BdToast.b(g.this.mPageContext.getContext(), g.this.mPageContext.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).bud();
+                        BdToast.b(g.this.mPageContext.getContext(), g.this.mPageContext.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).bue();
                         return;
                     }
                     by byVar = (by) nVar;
-                    if (byVar.eMv != null && byVar.eSD && byVar.eMv.btx() != null) {
+                    if (byVar.eMv != null && byVar.eSD && byVar.eMv.bty() != null) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("itemID", String.valueOf(byVar.eMv.btx().item_id));
+                        hashMap.put("itemID", String.valueOf(byVar.eMv.bty().item_id));
                         hashMap.put("source", 3);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new com.baidu.tieba.tbadkCore.data.m(TbadkApplication.getInst().getApplicationContext(), "GameItemDetailsPage", hashMap)));
                         return;

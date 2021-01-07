@@ -6,7 +6,7 @@ import android.content.Context;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f8542a = "kssdk_api_pref";
+    private static String f8543a = "kssdk_api_pref";
 
     public static String a(Context context, String str) {
         return b(context, str, "");
@@ -14,12 +14,12 @@ public class q {
 
     @SuppressLint({"ApplySharedPref"})
     public static void a(Context context, String str, long j) {
-        context.getSharedPreferences(f8542a, 0).edit().putLong(str, j).commit();
+        context.getSharedPreferences(f8543a, 0).edit().putLong(str, j).commit();
     }
 
     @SuppressLint({"ApplySharedPref"})
     public static void a(Context context, String str, String str2) {
-        context.getSharedPreferences(f8542a, 0).edit().putString(str, str2).commit();
+        context.getSharedPreferences(f8543a, 0).edit().putString(str, str2).commit();
     }
 
     public static long b(Context context, String str) {
@@ -27,10 +27,10 @@ public class q {
     }
 
     public static long b(Context context, String str, long j) {
-        return context.getSharedPreferences(f8542a, 0).getLong(str, j);
+        return context.getSharedPreferences(f8543a, 0).getLong(str, j);
     }
 
     public static String b(Context context, String str, String str2) {
-        return context.getSharedPreferences(f8542a, 0).getString(str, str2);
+        return context.getSharedPreferences(f8543a, 0).getString(str, str2);
     }
 }

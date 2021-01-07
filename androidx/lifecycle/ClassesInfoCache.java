@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class ClassesInfoCache {
     private static final int CALL_TYPE_NO_ARG = 0;
     private static final int CALL_TYPE_PROVIDER = 1;
@@ -123,7 +123,7 @@ class ClassesInfoCache {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CallbackInfo {
         final Map<Lifecycle.Event, List<MethodReference>> mEventToHandlers = new HashMap();
         final Map<MethodReference, Lifecycle.Event> mHandlerToEvent;
@@ -157,7 +157,7 @@ class ClassesInfoCache {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class MethodReference {
         final int mCallType;
         final Method mMethod;

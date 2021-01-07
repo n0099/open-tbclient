@@ -33,7 +33,7 @@ public class b {
         }
     }
 
-    public void setClickListener(a.InterfaceC0740a interfaceC0740a) {
-        this.jzP.setClickListener(interfaceC0740a);
+    public void setClickListener(a.InterfaceC0747a interfaceC0747a) {
+        this.jzP.setClickListener(interfaceC0747a);
     }
 }

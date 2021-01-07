@@ -14,10 +14,10 @@ import com.ss.android.downloadlib.f.i;
 public class ClipImageView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f13290a;
+    private boolean f13291a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Path f13291b;
+    private Path f13292b;
     private RectF c;
     private Paint d;
     private float[] e;
@@ -38,7 +38,7 @@ public class ClipImageView extends ImageView {
     }
 
     protected void a(Context context) {
-        this.f13291b = new Path();
+        this.f13292b = new Path();
         this.c = new RectF();
         this.d = new Paint(1);
         this.d.setStrokeWidth(i.a(context, 0.5f));
@@ -53,14 +53,14 @@ public class ClipImageView extends ImageView {
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.f13290a) {
-            this.f13291b.reset();
+        if (this.f13291a) {
+            this.f13292b.reset();
             this.c.set(0.0f, 0.0f, getWidth(), getHeight());
             if (this.e != null) {
-                this.f13291b.addRoundRect(this.c, this.e, Path.Direction.CW);
+                this.f13292b.addRoundRect(this.c, this.e, Path.Direction.CW);
             }
             canvas.setDrawFilter(new PaintFlagsDrawFilter(0, 3));
-            canvas.clipPath(this.f13291b);
+            canvas.clipPath(this.f13292b);
         }
         super.onDraw(canvas);
     }
@@ -72,6 +72,6 @@ public class ClipImageView extends ImageView {
     }
 
     public void setClip(boolean z) {
-        this.f13290a = z;
+        this.f13291a = z;
     }
 }

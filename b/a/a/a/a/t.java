@@ -7,7 +7,7 @@ import android.os.Message;
 import android.util.SparseArray;
 import com.tencent.map.geoloclite.tsa.TencentLiteLocationListener;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class t extends Handler {
     private /* synthetic */ p AT;
 
@@ -35,7 +35,7 @@ public final class t extends Handler {
         int i3;
         SparseArray sparseArray2;
         int i4;
-        bArr = this.AT.f1070b;
+        bArr = this.AT.f1071b;
         synchronized (bArr) {
             tencentLiteLocationListener = this.AT.Aw;
         }

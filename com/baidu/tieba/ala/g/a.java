@@ -47,7 +47,7 @@ public class a extends BdBaseModel {
     }
 
     public void a(InterfaceC0648a interfaceC0648a) {
-        coP();
+        coQ();
         b(interfaceC0648a);
     }
 
@@ -62,15 +62,15 @@ public class a extends BdBaseModel {
                         interfaceC0648a.bo(acceptPkResponseMessage.getError(), acceptPkResponseMessage.getErrorString());
                         return;
                     }
-                    interfaceC0648a.fI(acceptPkResponseMessage.coL());
+                    interfaceC0648a.fI(acceptPkResponseMessage.coM());
                     AlaStatsItem alaStatsItem = new AlaStatsItem();
-                    alaStatsItem.addValue("pkId", Long.valueOf(acceptPkResponseMessage.coL()));
+                    alaStatsItem.addValue("pkId", Long.valueOf(acceptPkResponseMessage.coM()));
                     alaStatsItem.addValue("lodId", Long.valueOf(acceptPkResponseMessage.getLogId()));
                     alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(acceptPkResponseMessage.getError()));
                     AlaStatManager.getInstance().debug("pk_competition_accept_pk", alaStatsItem);
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.putOpt("pkId", Long.valueOf(acceptPkResponseMessage.coL()));
+                        jSONObject.putOpt("pkId", Long.valueOf(acceptPkResponseMessage.coM()));
                         jSONObject.putOpt("lodId", Long.valueOf(acceptPkResponseMessage.getLogId()));
                         jSONObject.putOpt(BaseJsonData.TAG_ERRNO, Integer.valueOf(acceptPkResponseMessage.getError()));
                     } catch (JSONException e) {
@@ -83,7 +83,7 @@ public class a extends BdBaseModel {
         registerListener(this.messageListener);
     }
 
-    private void coP() {
+    private void coQ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021211, TbConfig.SERVER_ADDRESS + "ala/pksolo/acceptPk");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -93,7 +93,7 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void coQ() {
+    public void coR() {
         MessageManager.getInstance().unRegisterListener(this.messageListener);
         MessageManager.getInstance().unRegisterTask(1021211);
     }

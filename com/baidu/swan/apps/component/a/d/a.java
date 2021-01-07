@@ -92,11 +92,11 @@ public abstract class a<V extends View, M extends b> extends com.baidu.swan.apps
             if (DEBUG) {
                 Log.d("Component-View", "renderAlpha");
             }
-            if (aos()) {
+            if (aot()) {
                 if (DEBUG) {
                     Log.d("Component-View", "renderAlpha with animation");
                 }
-                if (!aou()) {
+                if (!aov()) {
                     c.w("Component-View", "performAlphaUpdateAnimation fail");
                 }
             } else if (m.bem >= 0.0f && m.bem <= 1.0f) {
@@ -107,27 +107,27 @@ public abstract class a<V extends View, M extends b> extends com.baidu.swan.apps
         }
     }
 
-    public final boolean aos() {
-        if (hV(4) && aoD()) {
-            b bVar = (b) aoz();
+    public final boolean aot() {
+        if (hV(4) && aoE()) {
+            b bVar = (b) aoA();
             return (bVar.cNC == null || TextUtils.isEmpty(bVar.cNC.optString("duration"))) ? false : true;
         }
         return false;
     }
 
-    public final boolean aot() {
+    public final boolean aou() {
         return eV(true);
     }
 
-    private boolean aou() {
+    private boolean aov() {
         return eV(false);
     }
 
     private boolean eV(boolean z) {
-        SwanAppComponentContainerView aoB = aoB();
-        b bVar = (b) aoC();
-        b bVar2 = (b) aoz();
-        if (aoB == null || bVar == null) {
+        SwanAppComponentContainerView aoC = aoC();
+        b bVar = (b) aoD();
+        b bVar2 = (b) aoA();
+        if (aoC == null || bVar == null) {
             return false;
         }
         if (bVar2.cNC == null || TextUtils.isEmpty(bVar2.cNC.optString("duration"))) {
@@ -135,10 +135,10 @@ public abstract class a<V extends View, M extends b> extends com.baidu.swan.apps
         }
         ArrayList arrayList = new ArrayList();
         if (z) {
-            arrayList.add(a(aoB, bVar, bVar2, false));
-            arrayList.add(a(aoB, bVar, bVar2, true));
+            arrayList.add(a(aoC, bVar, bVar2, false));
+            arrayList.add(a(aoC, bVar, bVar2, true));
         } else {
-            arrayList.add(a(aoB, bVar, bVar2));
+            arrayList.add(a(aoC, bVar, bVar2));
         }
         AnimatorSet a2 = a(bVar2.duration, mE(bVar2.cND), arrayList);
         if (a2 != null) {
@@ -152,8 +152,8 @@ public abstract class a<V extends View, M extends b> extends com.baidu.swan.apps
         if (bVar.cNS == null || bVar2.cNS == null) {
             return null;
         }
-        int left = z ? bVar.cNS.getLeft() : bVar.cNS.aFZ();
-        int left2 = z ? bVar2.cNS.getLeft() : bVar2.cNS.aFZ();
+        int left = z ? bVar.cNS.getLeft() : bVar.cNS.aGa();
+        int left2 = z ? bVar2.cNS.getLeft() : bVar2.cNS.aGa();
         if (left != left2) {
             ValueAnimator ofInt = ValueAnimator.ofInt(left, left2);
             ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.component.a.d.a.1

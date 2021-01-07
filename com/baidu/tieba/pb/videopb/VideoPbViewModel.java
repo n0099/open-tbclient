@@ -11,27 +11,27 @@ import com.baidu.tieba.pb.data.f;
 import com.baidu.tieba.pb.pb.main.PbModel;
 /* loaded from: classes2.dex */
 public class VideoPbViewModel extends ViewModel {
-    private PbModel lIY;
-    private d mgD = new d();
-    private int mgE = 0;
+    private PbModel lIX;
+    private d mgC = new d();
+    private int mgD = 0;
 
     public void init(Intent intent) {
-        this.mgD.h((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
-        this.mgD.wd(intent.getBooleanExtra("key_jump_to_comment_area", false));
+        this.mgC.h((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
+        this.mgC.wd(intent.getBooleanExtra("key_jump_to_comment_area", false));
     }
 
     public void i(PbModel pbModel) {
-        this.lIY = pbModel;
+        this.lIX = pbModel;
     }
 
     public void b(f fVar, int i) {
         boolean z = true;
-        if (i >= this.mgE) {
-            this.mgE = i;
-            this.mgD.O(fVar);
+        if (i >= this.mgD) {
+            this.mgD = i;
+            this.mgC.O(fVar);
             if (fVar != null) {
-                d dVar = this.mgD;
-                if (fVar.getIsNewUrl() != 1 && !fVar.dnh()) {
+                d dVar = this.mgC;
+                if (fVar.getIsNewUrl() != 1 && !fVar.dni()) {
                     z = false;
                 }
                 dVar.setFromCDN(z);
@@ -39,111 +39,111 @@ public class VideoPbViewModel extends ViewModel {
         }
     }
 
-    public f dvW() {
-        return this.mgD.dvW();
+    public f dvX() {
+        return this.mgC.dvX();
     }
 
     public boolean isFromCDN() {
-        return this.mgD.isFromCDN();
+        return this.mgC.isFromCDN();
     }
 
-    public f dvX() {
-        return this.mgD.dvX();
+    public f dvY() {
+        return this.mgC.dvY();
     }
 
     public void c(f fVar, int i) {
         if (i == 3) {
-            this.mgD.setData(fVar);
+            this.mgC.setData(fVar);
         }
     }
 
-    public MutableLiveData<bz> dvY() {
-        return this.mgD.dvY();
+    public MutableLiveData<bz> dvZ() {
+        return this.mgC.dvZ();
     }
 
-    public Rect dvZ() {
-        if (this.mgD.dvZ() == null || this.mgD.dvZ().isEmpty()) {
+    public Rect dwa() {
+        if (this.mgC.dwa() == null || this.mgC.dwa().isEmpty()) {
             return null;
         }
-        return this.mgD.dvZ();
+        return this.mgC.dwa();
     }
 
     public void wg(boolean z) {
-        if (this.mgD.dwd().getValue() != null) {
-            f aL = this.lIY.aL(this.mgD.dwd().getValue());
+        if (this.mgC.dwe().getValue() != null) {
+            f aL = this.lIX.aL(this.mgC.dwe().getValue());
             if (aL != null) {
-                this.mgD.dwb().addLast(this.mgD.dvX());
-                this.mgD.setData(aL);
-                this.mgD.aT(!x.isEmpty(aL.dng()) ? aL.dng().get(0) : null);
-                this.mgD.aS(this.mgD.dwb().getLast() != null ? this.mgD.dwb().getLast().dmE() : null);
-                this.lIY.Hj(z ? 21 : 22);
-                this.lIY.j(aL);
-                this.mgD.setIsLoading(true);
+                this.mgC.dwc().addLast(this.mgC.dvY());
+                this.mgC.setData(aL);
+                this.mgC.aT(!x.isEmpty(aL.dnh()) ? aL.dnh().get(0) : null);
+                this.mgC.aS(this.mgC.dwc().getLast() != null ? this.mgC.dwc().getLast().dmF() : null);
+                this.lIX.Hj(z ? 21 : 22);
+                this.lIX.j(aL);
+                this.mgC.setIsLoading(true);
             }
         }
     }
 
     public void aU(bz bzVar) {
         f aL;
-        if (bzVar != null && (aL = this.lIY.aL(bzVar)) != null) {
-            this.mgD.dwb().addLast(this.mgD.dvX());
-            this.mgD.setData(aL);
-            this.mgD.aT(!x.isEmpty(aL.dng()) ? aL.dng().get(0) : null);
-            this.mgD.aS(this.mgD.dwb().getLast() != null ? this.mgD.dwb().getLast().dmE() : null);
-            this.lIY.Hj(20);
-            this.lIY.j(aL);
-            this.mgD.setIsLoading(true);
+        if (bzVar != null && (aL = this.lIX.aL(bzVar)) != null) {
+            this.mgC.dwc().addLast(this.mgC.dvY());
+            this.mgC.setData(aL);
+            this.mgC.aT(!x.isEmpty(aL.dnh()) ? aL.dnh().get(0) : null);
+            this.mgC.aS(this.mgC.dwc().getLast() != null ? this.mgC.dwc().getLast().dmF() : null);
+            this.lIX.Hj(20);
+            this.lIX.j(aL);
+            this.mgC.setIsLoading(true);
         }
     }
 
-    public void dwi() {
-        f pollLast = this.mgD.dwb().pollLast();
+    public void dwj() {
+        f pollLast = this.mgC.dwc().pollLast();
         if (pollLast != null) {
-            this.mgD.setData(pollLast);
-            this.mgD.aT(!x.isEmpty(pollLast.dng()) ? pollLast.dng().get(0) : null);
-            this.mgD.aS(this.mgD.dwb().peekLast() != null ? this.mgD.dwb().peekLast().dmE() : null);
-            this.lIY.j(pollLast);
-            this.mgD.setIsLoading(true);
+            this.mgC.setData(pollLast);
+            this.mgC.aT(!x.isEmpty(pollLast.dnh()) ? pollLast.dnh().get(0) : null);
+            this.mgC.aS(this.mgC.dwc().peekLast() != null ? this.mgC.dwc().peekLast().dmF() : null);
+            this.lIX.j(pollLast);
+            this.mgC.setIsLoading(true);
         }
-    }
-
-    public MutableLiveData<bz> dwc() {
-        return this.mgD.dwc();
     }
 
     public MutableLiveData<bz> dwd() {
-        return this.mgD.dwd();
+        return this.mgC.dwd();
     }
 
-    public MutableLiveData<Boolean> dwe() {
-        return this.mgD.dwe();
-    }
-
-    public void we(boolean z) {
-        this.mgD.we(z);
+    public MutableLiveData<bz> dwe() {
+        return this.mgC.dwe();
     }
 
     public MutableLiveData<Boolean> dwf() {
-        return this.mgD.dwf();
+        return this.mgC.dwf();
     }
 
-    public void wf(boolean z) {
-        this.mgD.wf(z);
-    }
-
-    public void setIsLoading(boolean z) {
-        this.mgD.setIsLoading(z);
+    public void we(boolean z) {
+        this.mgC.we(z);
     }
 
     public MutableLiveData<Boolean> dwg() {
-        return this.mgD.dwg();
+        return this.mgC.dwg();
     }
 
-    public boolean dwa() {
-        return this.mgD.dwa();
+    public void wf(boolean z) {
+        this.mgC.wf(z);
     }
 
-    public MutableLiveData<Integer> dwh() {
-        return this.mgD.dwh();
+    public void setIsLoading(boolean z) {
+        this.mgC.setIsLoading(z);
+    }
+
+    public MutableLiveData<Boolean> dwh() {
+        return this.mgC.dwh();
+    }
+
+    public boolean dwb() {
+        return this.mgC.dwb();
+    }
+
+    public MutableLiveData<Integer> dwi() {
+        return this.mgC.dwi();
     }
 }

@@ -32,7 +32,7 @@ public class h extends a {
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.runtime.e eVar) {
         final String str;
-        com.baidu.swan.apps.core.d.e asU;
+        com.baidu.swan.apps.core.d.e asV;
         final com.baidu.swan.apps.canvas.b.f c = c(unitedSchemeEntity);
         if (c == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath action parse model is null");
@@ -46,13 +46,13 @@ public class h extends a {
             return false;
         }
         String str2 = tU + File.separator + Calendar.getInstance().getTimeInMillis();
-        if (c.aoo()) {
+        if (c.aop()) {
             str = str2 + ".jpg";
         } else {
             str = str2 + ".png";
         }
-        if (TextUtils.isEmpty(c.cNP) && (asU = com.baidu.swan.apps.v.f.aDG().asU()) != null) {
-            c.cNP = asU.asD();
+        if (TextUtils.isEmpty(c.cNP) && (asV = com.baidu.swan.apps.v.f.aDH().asV()) != null) {
+            c.cNP = asV.asE();
         }
         if (TextUtils.isEmpty(c.cNP) || TextUtils.isEmpty(c.cNO)) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath slave id = " + c.cNP + " ; canvas id = " + c.cNO);

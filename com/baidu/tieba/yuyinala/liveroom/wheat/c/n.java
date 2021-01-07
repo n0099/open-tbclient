@@ -20,7 +20,7 @@ public class n {
 
     public void a(FrameLayout frameLayout, TextView textView, String str, BdPageContext bdPageContext) {
         JSONObject optJSONObject;
-        if (o.eff().eev() || o.eff().jo(o.eff().aar())) {
+        if (o.efg().eew() || o.efg().jo(o.efg().aas())) {
             if (!TextUtils.isEmpty(str)) {
                 if (TextUtils.equals("hide_dot", str)) {
                     hide();
@@ -32,7 +32,7 @@ public class n {
                     JSONObject jSONObject = new JSONObject(str);
                     String optString = jSONObject.optString("user_name");
                     String optString2 = jSONObject.optString("room_id");
-                    if (com.baidu.live.aq.a.aam().aas() != null && com.baidu.live.aq.a.aam().aas().aLl != null && TextUtils.equals(optString2, com.baidu.live.aq.a.aam().aas().aLl.aVu) && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                    if (com.baidu.live.aq.a.aan().aat() != null && com.baidu.live.aq.a.aan().aat().aLl != null && TextUtils.equals(optString2, com.baidu.live.aq.a.aan().aat().aLl.aVu) && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
                         String optString3 = optJSONObject.optString("msg");
                         int optInt = optJSONObject.optInt("count");
                         if (optInt > 0) {

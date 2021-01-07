@@ -20,34 +20,34 @@ public class d extends BaseAdapter {
     private View.OnClickListener lsI;
     private View.OnClickListener lsb;
     private int mPageType;
-    private PersonFriendActivity mtZ;
+    private PersonFriendActivity mtY;
     private ArrayList<UserData> eYq = null;
     private boolean mHasMore = false;
-    private boolean mua = false;
+    private boolean mtZ = false;
     private boolean hlg = false;
-    private ArrayList<ProgressBar> mub = new ArrayList<>();
+    private ArrayList<ProgressBar> mua = new ArrayList<>();
 
-    public void dzF() {
-        if (this.mub != null) {
+    public void dzG() {
+        if (this.mua != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.mub.size()) {
+                if (i2 < this.mua.size()) {
                     try {
-                        this.mub.get(i2).setVisibility(8);
+                        this.mua.get(i2).setVisibility(8);
                     } catch (Exception e) {
                         BdLog.e(e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
-                    this.mub.clear();
+                    this.mua.clear();
                     return;
                 }
             }
         }
     }
 
-    public void cbi() {
+    public void cbj() {
         this.hlg = false;
         if (this.eYq != null && this.eYq.size() == 0) {
             this.hlg = true;
@@ -59,16 +59,16 @@ public class d extends BaseAdapter {
     }
 
     public void wz(boolean z) {
-        this.mua = z;
+        this.mtZ = z;
     }
 
     public d(PersonFriendActivity personFriendActivity, boolean z, int i, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.mtZ = null;
+        this.mtY = null;
         this.hli = true;
         this.mPageType = 0;
         this.lsI = null;
         this.lsb = null;
-        this.mtZ = personFriendActivity;
+        this.mtY = personFriendActivity;
         this.hli = z;
         this.mPageType = i;
         this.lsI = onClickListener;
@@ -118,7 +118,7 @@ public class d extends BaseAdapter {
             if (view == null) {
                 a aVar2 = new a();
                 if (getItemViewType(i) == 0) {
-                    View inflate = LayoutInflater.from(this.mtZ.getPageContext().getPageActivity()).inflate(R.layout.person_list_item_friend, (ViewGroup) null);
+                    View inflate = LayoutInflater.from(this.mtY.getPageContext().getPageActivity()).inflate(R.layout.person_list_item_friend, (ViewGroup) null);
                     aVar2.kwz = (HeadImageView) inflate.findViewById(R.id.photo);
                     aVar2.kwz.setIsRound(false);
                     aVar2.kwz.setAutoChangeStyle(true);
@@ -126,16 +126,16 @@ public class d extends BaseAdapter {
                     aVar2.mName = (TextView) inflate.findViewById(R.id.name);
                     aVar2.hlk = (TextView) inflate.findViewById(R.id.at_list_nodata);
                     aVar2.gRm = (TextView) inflate.findViewById(R.id.intro);
-                    aVar2.muc = (ImageView) inflate.findViewById(R.id.chat);
+                    aVar2.mub = (ImageView) inflate.findViewById(R.id.chat);
                     aVar2.kGQ = (ImageView) inflate.findViewById(R.id.diver_buttom_px);
-                    aVar2.muc.setOnClickListener(this.lsI);
+                    aVar2.mub.setOnClickListener(this.lsI);
                     view2 = inflate;
                 } else {
-                    View inflate2 = LayoutInflater.from(this.mtZ.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+                    View inflate2 = LayoutInflater.from(this.mtY.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
                     aVar2.mName = (TextView) inflate2.findViewById(R.id.pb_more_text);
                     inflate2.setOnClickListener(this.lsb);
                     aVar2.mProgress = (ProgressBar) inflate2.findViewById(R.id.progress);
-                    this.mub.add(aVar2.mProgress);
+                    this.mua.add(aVar2.mProgress);
                     view2 = inflate2;
                 }
                 view2.setTag(aVar2);
@@ -147,14 +147,14 @@ public class d extends BaseAdapter {
             if (getItemViewType(i) == 0) {
                 if (this.hlg) {
                     aVar.hmk.setVisibility(8);
-                    aVar.muc.setVisibility(8);
+                    aVar.mub.setVisibility(8);
                     aVar.hlk.setVisibility(8);
                     aVar.kGQ.setVisibility(8);
                 } else {
                     if (!this.hli && this.mPageType == 0) {
-                        aVar.muc.setVisibility(8);
+                        aVar.mub.setVisibility(8);
                     } else {
-                        aVar.muc.setVisibility(0);
+                        aVar.mub.setVisibility(0);
                     }
                     aVar.hmk.setVisibility(0);
                     aVar.hmk.setTag(Integer.valueOf(i));
@@ -165,10 +165,10 @@ public class d extends BaseAdapter {
                     aVar.kwz.startLoad(portrait, 12, false);
                     aVar.mName.setText(this.eYq.get(i).getName_show());
                     aVar.gRm.setText(this.eYq.get(i).getIntro());
-                    aVar.muc.setTag(Integer.valueOf(i));
+                    aVar.mub.setTag(Integer.valueOf(i));
                 }
             } else {
-                aVar.mName.setText(this.mtZ.getPageContext().getString(R.string.loading));
+                aVar.mName.setText(this.mtY.getPageContext().getString(R.string.loading));
                 aVar.mProgress.setVisibility(0);
             }
             df(view);
@@ -177,8 +177,8 @@ public class d extends BaseAdapter {
     }
 
     private void df(View view) {
-        this.mtZ.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.mtZ.getLayoutMode().onModeChanged(view);
+        this.mtY.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.mtY.getLayoutMode().onModeChanged(view);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -211,7 +211,7 @@ public class d extends BaseAdapter {
         HeadImageView kwz;
         TextView mName;
         ProgressBar mProgress;
-        ImageView muc;
+        ImageView mub;
 
         private a() {
         }

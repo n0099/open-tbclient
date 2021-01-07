@@ -40,7 +40,7 @@ public class c extends com.baidu.adp.widget.ListView.a<s, VideoPbEnterForumViewH
         if (sVar != null) {
             videoPbEnterForumViewHolder.setData(sVar.eMv);
         }
-        videoPbEnterForumViewHolder.bxO();
+        videoPbEnterForumViewHolder.bxP();
         return view;
     }
 }

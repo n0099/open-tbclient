@@ -14,10 +14,10 @@ import java.util.Map;
 public class d extends ExtractorProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.cyberplayer.sdk.remote.a f1816a;
+    private com.baidu.cyberplayer.sdk.remote.a f1817a;
 
     public d(com.baidu.cyberplayer.sdk.remote.a aVar) {
-        this.f1816a = aVar;
+        this.f1817a = aVar;
     }
 
     public static ExtractorProvider a() {
@@ -29,11 +29,11 @@ public class d extends ExtractorProvider {
     }
 
     private void a(Uri uri, Map<String, String> map) {
-        if (this.f1816a == null) {
+        if (this.f1817a == null) {
             return;
         }
         try {
-            this.f1816a.a(new e(uri, map));
+            this.f1817a.a(new e(uri, map));
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -41,11 +41,11 @@ public class d extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public Bundle getMediaMeta() {
-        if (this.f1816a == null) {
+        if (this.f1817a == null) {
             return null;
         }
         try {
-            return this.f1816a.a();
+            return this.f1817a.a();
         } catch (RemoteException e) {
             e.printStackTrace();
             return null;
@@ -59,12 +59,12 @@ public class d extends ExtractorProvider {
         } catch (RemoteException e) {
             e.printStackTrace();
         } finally {
-            this.f1816a = null;
+            this.f1817a = null;
         }
-        if (this.f1816a == null) {
+        if (this.f1817a == null) {
             return;
         }
-        this.f1816a.b();
+        this.f1817a.b();
     }
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
@@ -88,11 +88,11 @@ public class d extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setOption(int i, String str, long j) {
-        if (this.f1816a == null) {
+        if (this.f1817a == null) {
             return;
         }
         try {
-            this.f1816a.a(i, str, j);
+            this.f1817a.a(i, str, j);
         } catch (RemoteException e) {
             e.printStackTrace();
         }

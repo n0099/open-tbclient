@@ -24,7 +24,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.square.da
             @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.square.data.b bVar) {
                 if (bVar != null && (b.this.mPageContext.getPageActivity() instanceof ForumSquareActivity)) {
-                    String className = ((ForumSquareActivity) b.this.mPageContext.getPageActivity()).dMU().getClassName();
+                    String className = ((ForumSquareActivity) b.this.mPageContext.getPageActivity()).dMV().getClassName();
                     if (!"推荐".equals(className)) {
                         aq aqVar = new aq("c13652");
                         aqVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -58,13 +58,13 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.square.da
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.square.data.b bVar, CardViewHolder<c> cardViewHolder) {
-        if (bVar == null || cardViewHolder == null || cardViewHolder.cvG() == null) {
+        if (bVar == null || cardViewHolder == null || cardViewHolder.cvH() == null) {
             return null;
         }
-        cardViewHolder.cvG().a(bVar);
-        cardViewHolder.cvG().c(this.hnl);
+        cardViewHolder.cvH().a(bVar);
+        cardViewHolder.cvH().c(this.hnl);
         if (this.mPageContext.getPageActivity() instanceof ForumSquareActivity) {
-            String className = ((ForumSquareActivity) this.mPageContext.getPageActivity()).dMU().getClassName();
+            String className = ((ForumSquareActivity) this.mPageContext.getPageActivity()).dMV().getClassName();
             if (!"推荐".equals(className)) {
                 aq aqVar = new aq("c13651");
                 aqVar.w("uid", TbadkCoreApplication.getCurrentAccountId());

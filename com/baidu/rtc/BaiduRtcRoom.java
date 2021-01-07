@@ -102,9 +102,9 @@ public abstract class BaiduRtcRoom {
 
     public abstract boolean a(String str, boolean z, boolean z2, String str2, RtcLiveTransferMode rtcLiveTransferMode);
 
-    public abstract c[] ahY();
+    public abstract c[] ahZ();
 
-    public abstract d[] ahZ();
+    public abstract d[] aia();
 
     public abstract void bK(long j);
 

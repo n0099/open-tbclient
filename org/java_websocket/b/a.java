@@ -14,34 +14,34 @@ public class a implements b {
     }
 
     @Override // org.java_websocket.b.b
-    public boolean act(String str) {
-        return true;
-    }
-
-    @Override // org.java_websocket.b.b
     public boolean acu(String str) {
         return true;
     }
 
     @Override // org.java_websocket.b.b
+    public boolean acv(String str) {
+        return true;
+    }
+
+    @Override // org.java_websocket.b.b
     public void e(Framedata framedata) throws InvalidDataException {
-        if (framedata.eNg() || framedata.eNh() || framedata.eNi()) {
-            throw new InvalidFrameException("bad rsv RSV1: " + framedata.eNg() + " RSV2: " + framedata.eNh() + " RSV3: " + framedata.eNi());
+        if (framedata.eNK() || framedata.eNL() || framedata.eNM()) {
+            throw new InvalidFrameException("bad rsv RSV1: " + framedata.eNK() + " RSV2: " + framedata.eNL() + " RSV3: " + framedata.eNM());
         }
     }
 
     @Override // org.java_websocket.b.b
-    public String eNa() {
+    public String eNE() {
         return "";
     }
 
     @Override // org.java_websocket.b.b
-    public String eNb() {
+    public String eNF() {
         return "";
     }
 
     @Override // org.java_websocket.b.b
-    public b eNc() {
+    public b eNG() {
         return new a();
     }
 

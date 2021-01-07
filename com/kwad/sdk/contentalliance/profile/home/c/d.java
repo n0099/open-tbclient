@@ -5,7 +5,7 @@ import com.kwad.sdk.internal.api.SceneImpl;
 public class d extends com.kwad.sdk.contentalliance.profile.home.b.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f9088b;
+    private boolean f9089b;
     private long c;
     private String d;
     private SceneImpl e;
@@ -21,10 +21,10 @@ public class d extends com.kwad.sdk.contentalliance.profile.home.b.a {
 
         @Override // com.kwad.sdk.core.i.c
         public void c_() {
-            if (d.this.f9088b) {
+            if (d.this.f9089b) {
                 com.kwad.sdk.core.report.e.c(d.this.e);
             } else {
-                d.this.f9088b = true;
+                d.this.f9089b = true;
                 com.kwad.sdk.core.report.e.b(d.this.e);
             }
             d.this.c = System.currentTimeMillis();
@@ -35,13 +35,13 @@ public class d extends com.kwad.sdk.contentalliance.profile.home.b.a {
     @Override // com.kwad.sdk.contentalliance.profile.home.b.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f = this.f9077a.e;
+        this.f = this.f9078a.e;
         if (this.f == null) {
             return;
         }
         this.f.a(this.g);
-        this.e = this.f9077a.f9079b;
-        this.d = String.valueOf(this.f9077a.f9078a.hashCode());
+        this.e = this.f9078a.f9080b;
+        this.d = String.valueOf(this.f9078a.f9079a.hashCode());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -37,7 +37,7 @@ public class a {
         a(motionEvent, str);
     }
 
-    public String aSM() {
+    public String aSN() {
         return this.dUX;
     }
 
@@ -138,14 +138,14 @@ public class a {
         return c0498a;
     }
 
-    public JSONObject aSN() {
+    public JSONObject aSO() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
             if (!this.dUY.isEmpty()) {
                 for (C0498a c0498a : this.dUY) {
                     if (c0498a != null) {
-                        jSONArray.put(c0498a.aSO());
+                        jSONArray.put(c0498a.aSP());
                     }
                 }
             }
@@ -153,7 +153,7 @@ public class a {
             if (!this.dUZ.isEmpty()) {
                 for (C0498a c0498a2 : this.dUZ) {
                     if (c0498a2 != null) {
-                        jSONArray2.put(c0498a2.aSO());
+                        jSONArray2.put(c0498a2.aSP());
                     }
                 }
             }
@@ -182,7 +182,7 @@ public class a {
         private C0498a() {
         }
 
-        JSONObject aSO() {
+        JSONObject aSP() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("x", ah.px2dpFloat(this.x));

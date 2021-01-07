@@ -21,7 +21,7 @@ import com.baidu.poly.widget.PolyFrameLayout;
 import com.baidu.poly.widget.c;
 import com.baidu.poly.widget.coupon.a;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class l extends FrameLayout {
     private boolean G;
     private View crp;
@@ -36,7 +36,7 @@ public class l extends FrameLayout {
     private Runnable cry;
     private List<a.C0325a> mData;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class a implements Runnable {
         a() {
         }
@@ -51,7 +51,7 @@ public class l extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         b() {
         }
@@ -64,7 +64,7 @@ public class l extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class c implements Runnable {
         c() {
         }
@@ -75,7 +75,7 @@ public class l extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class d implements AdapterView.OnItemClickListener {
         d() {
         }
@@ -91,11 +91,11 @@ public class l extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements com.baidu.poly.a.k.a {
         final /* synthetic */ a.C0325a cro;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         class a implements View.OnClickListener {
             final /* synthetic */ com.baidu.poly.widget.c crm;
 
@@ -109,7 +109,7 @@ public class l extends FrameLayout {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         class b implements c.b {
             b() {
             }
@@ -158,7 +158,7 @@ public class l extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class f implements Animator.AnimatorListener {
         f() {
         }
@@ -181,7 +181,7 @@ public class l extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class g implements Animator.AnimatorListener {
         g() {
         }
@@ -205,7 +205,7 @@ public class l extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface h {
         void a(a.C0325a c0325a, com.baidu.poly.a.k.a aVar);
 
@@ -220,7 +220,7 @@ public class l extends FrameLayout {
         this(context, null);
     }
 
-    private void afP() {
+    private void afQ() {
         if (!this.G) {
             this.G = true;
             if (!(getContext() instanceof Activity)) {
@@ -335,7 +335,7 @@ public class l extends FrameLayout {
 
     public void a(int i) {
         this.crr.getLayoutParams().height = i;
-        afP();
+        afQ();
     }
 
     public void a(View view) {

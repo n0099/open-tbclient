@@ -52,7 +52,7 @@ public abstract class b {
         @Override // java.lang.Runnable
         public void run() {
             if (b.this.cFR != null) {
-                b.this.aUL();
+                b.this.aUM();
                 int currentPosition = b.this.cFR.getCurrentPosition();
                 b.this.r(b.this.mDuration, currentPosition);
                 int min = Math.min(currentPosition + 1000, b.this.mDuration);
@@ -93,15 +93,15 @@ public abstract class b {
             }
         }
     };
-    public int ctq = com.baidu.swan.games.view.a.c.bcX();
-    public int cts = com.baidu.swan.games.view.a.c.bcY();
-    private boolean dZL = f.aWc();
+    public int ctq = com.baidu.swan.games.view.a.c.bcY();
+    public int cts = com.baidu.swan.games.view.a.c.bcZ();
+    private boolean dZL = f.aWd();
 
     public abstract void a(RelativeLayout relativeLayout, AdElementInfo adElementInfo);
 
-    public abstract View aUH();
+    public abstract View aUI();
 
-    public abstract String aUI();
+    public abstract String aUJ();
 
     public b(Context context, AdElementInfo adElementInfo, com.baidu.swan.game.ad.jsbridge.a aVar) {
         this.mContext = context;
@@ -113,7 +113,7 @@ public abstract class b {
     }
 
     private void initView() {
-        this.mConvertView = aUH();
+        this.mConvertView = aUI();
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.ctq, this.cts);
         this.mConvertView.setLayoutParams(layoutParams);
         this.dZx = (RelativeLayout) this.mConvertView.findViewById(c.e.reward_relative);
@@ -129,11 +129,11 @@ public abstract class b {
         this.dZC = (TextView) this.mConvertView.findViewById(c.e.close_ad_header);
         this.dZD = this.mConvertView.findViewById(c.e.close_ad_middle);
         this.dZE = (RelativeLayout) this.mConvertView.findViewById(c.e.banner);
-        if (!TextUtils.isEmpty(this.dZe.aVx())) {
+        if (!TextUtils.isEmpty(this.dZe.aVy())) {
             this.dZH = new RewardLoadWebView(this.mContext);
             this.dZE.addView(this.dZH, new RelativeLayout.LayoutParams(-1, -1));
             a(this.dZE, this.dZe);
-            this.dZH.a(aUI(), this.dZe, this.dZK);
+            this.dZH.a(aUJ(), this.dZe, this.dZK);
         } else {
             View inflate = LayoutInflater.from(this.mContext).inflate(c.f.ng_game_reward_banner, (ViewGroup) null);
             this.dZE.addView(inflate);
@@ -151,10 +151,10 @@ public abstract class b {
             button.setOnClickListener(this.dZu);
         }
         this.cFR = this.dZy.getPlayer();
-        aUA();
+        aUB();
     }
 
-    private void aUA() {
+    private void aUB() {
         this.dZx.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.swan.game.ad.b.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -193,21 +193,21 @@ public abstract class b {
         }
     }
 
-    private void aoa() {
+    private void aob() {
         if (this.mProgressBar != null) {
             this.dZF.removeCallbacksAndMessages(null);
         }
     }
 
-    public void aUB() {
+    public void aUC() {
         startTimer();
         if (this.mProgressBar != null && this.cFR != null) {
             this.mProgressBar.setMax(this.cFR.getDuration() / 1000);
             this.mProgressBar.setVisibility(4);
         }
         if (this.dZC != null && this.cFR != null && this.dZe != null) {
-            this.dZC.setText(String.format(this.mContext.getResources().getString(c.g.swangame_game_ad_video_reward_time_surplus), Integer.valueOf(Math.max(this.dZe.aVs(), Math.min(this.dZe.aVr(), this.cFR.getDuration())) / 1000)));
-            if (this.dZe.aVs() >= 0) {
+            this.dZC.setText(String.format(this.mContext.getResources().getString(c.g.swangame_game_ad_video_reward_time_surplus), Integer.valueOf(Math.max(this.dZe.aVt(), Math.min(this.dZe.aVs(), this.cFR.getDuration())) / 1000)));
+            if (this.dZe.aVt() >= 0) {
                 this.dZB.setVisibility(8);
                 this.dZD.setVisibility(8);
             }
@@ -230,16 +230,16 @@ public abstract class b {
         }
     }
 
-    public void aUC() {
-        aoa();
-    }
-
     public void aUD() {
-        startTimer();
+        aob();
     }
 
     public void aUE() {
-        aoa();
+        startTimer();
+    }
+
+    public void aUF() {
+        aob();
         if (this.dZH != null) {
             this.dZH.destroy();
             this.dZH = null;
@@ -254,28 +254,28 @@ public abstract class b {
         }
     }
 
-    public void aUF() {
-        aUJ();
-        aoa();
-    }
-
     public void aUG() {
-        aUJ();
-        aoa();
+        aUK();
+        aob();
     }
 
-    private void aUJ() {
+    public void aUH() {
+        aUK();
+        aob();
+    }
+
+    private void aUK() {
         if (this.dZx != null) {
             this.dZN = true;
             this.dZz.setVisibility(4);
             this.dZE.setVisibility(4);
             this.dZB.setVisibility(4);
-            if (!TextUtils.isEmpty(this.dZe.aVt())) {
+            if (!TextUtils.isEmpty(this.dZe.aVu())) {
                 this.dZJ = new InteractiveEndFrameView(this.mContext);
                 this.dZJ.a(this.dZe, this.dZx);
                 this.dZx.addView(this.dZJ, new RelativeLayout.LayoutParams(-1, -1));
                 com.baidu.swan.game.ad.c.c.b(this.dZe, this.dZM);
-            } else if (!TextUtils.isEmpty(this.dZe.aVz())) {
+            } else if (!TextUtils.isEmpty(this.dZe.aVA())) {
                 this.dZI = new RewardLoadWebView(this.mContext);
                 this.dZI.a("reward_end_frame_html", this.dZe, this.dZK);
                 this.dZx.addView(this.dZI, new RelativeLayout.LayoutParams(-1, -1));
@@ -296,11 +296,11 @@ public abstract class b {
                 inflate.findViewById(c.e.content_des).setOnClickListener(this.dZu);
                 button.setOnClickListener(this.dZu);
             }
-            aUK();
+            aUL();
         }
     }
 
-    private void aUK() {
+    private void aUL() {
         TextView textView = new TextView(this.mContext);
         textView.setBackground(this.mResources.getDrawable(c.d.ng_game_bg_close_ad));
         textView.setTextColor(this.mResources.getColor(c.b.close_ad_text_color));
@@ -317,11 +317,11 @@ public abstract class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aUL() {
+    public void aUM() {
         if (this.dZe != null && this.cFR != null) {
             this.mDuration = this.cFR.getDuration();
-            int min = Math.min(this.dZe.aVr(), this.mDuration / 1000);
-            int aVs = this.dZe.aVs();
+            int min = Math.min(this.dZe.aVs(), this.mDuration / 1000);
+            int aVt = this.dZe.aVt();
             int currentPosition = this.cFR.getCurrentPosition() / 1000;
             String string = this.mContext.getResources().getString(c.g.swangame_game_ad_video_reward_time_surplus);
             String string2 = this.mContext.getResources().getString(c.g.swangame_game_ad_video_time_surplus);
@@ -330,7 +330,7 @@ public abstract class b {
             } else {
                 this.dZC.setText(String.format(string2, Integer.valueOf((this.mDuration / 1000) - currentPosition)));
             }
-            if (currentPosition <= aVs) {
+            if (currentPosition <= aVt) {
                 this.dZB.setVisibility(8);
                 this.dZD.setVisibility(8);
                 return;
@@ -375,7 +375,7 @@ public abstract class b {
         }
     }
 
-    public boolean aUM() {
+    public boolean aUN() {
         return this.dZN;
     }
 }

@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.poly.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c extends FrameLayout {
     private ImageView cpm;
     private TextView cpn;
@@ -21,7 +21,7 @@ public class c extends FrameLayout {
         this(context, null);
     }
 
-    private void afG() {
+    private void afH() {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams == null) {
             setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
@@ -44,7 +44,7 @@ public class c extends FrameLayout {
     }
 
     public void setLoading(boolean z) {
-        afG();
+        afH();
         this.cpp = z;
         if (z) {
             setVisibility(0);

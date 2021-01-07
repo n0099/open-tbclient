@@ -175,7 +175,7 @@ public class b {
 
     private d c(Context context, LayoutInflater layoutInflater, ChatMsg chatMsg, View view) {
         new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg);
-        switch (r1.eog()) {
+        switch (r1.eoh()) {
             case VIDEOSHARE:
                 return r.m(context, layoutInflater, chatMsg, view);
             case PRIVATEINVITE:
@@ -187,7 +187,7 @@ public class b {
 
     private e d(Context context, LayoutInflater layoutInflater, ChatMsg chatMsg, View view) {
         new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg);
-        switch (r1.eog()) {
+        switch (r1.eoh()) {
             case VIDEOSHARE:
                 return x.s(context, layoutInflater, chatMsg, view);
             case PRIVATEINVITE:

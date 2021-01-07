@@ -20,43 +20,43 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13222a = a.class.getSimpleName();
-    private static a pTA;
+    private static final String f13223a = a.class.getSimpleName();
+    private static a pVi;
     private String e;
     private boolean d = false;
-    private b pTC = new b();
+    private b pVk = new b();
     @NonNull
-    private CopyOnWriteArrayList<com.ss.android.downloadlib.a.b.a> pTB = this.pTC.hr("sp_ad_install_back_dialog", "key_uninstalled_list");
+    private CopyOnWriteArrayList<com.ss.android.downloadlib.a.b.a> pVj = this.pVk.hs("sp_ad_install_back_dialog", "key_uninstalled_list");
 
     /* renamed from: com.ss.android.downloadlib.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1192a {
+    public interface InterfaceC1233a {
         void a();
     }
 
     private a() {
     }
 
-    public static a eFm() {
-        if (pTA == null) {
-            pTA = new a();
+    public static a eFQ() {
+        if (pVi == null) {
+            pVi = new a();
         }
-        return pTA;
+        return pVi;
     }
 
-    public boolean a(Context context, boolean z, InterfaceC1192a interfaceC1192a) {
+    public boolean a(Context context, boolean z, InterfaceC1233a interfaceC1233a) {
         long j;
         boolean z2;
-        h.i(f13222a, "tryShowInstallDialog canBackRefresh:" + z, null);
+        h.i(f13223a, "tryShowInstallDialog canBackRefresh:" + z, null);
         if (j.i().optInt("disable_install_app_dialog") == 1 || this.d) {
             return false;
         }
         com.ss.android.socialbase.downloader.g.c iv = iv(context);
-        if (iv == null && this.pTB.isEmpty()) {
+        if (iv == null && this.pVj.isEmpty()) {
             return false;
         }
-        if (iv != null && this.pTB.isEmpty()) {
-            a(context, new com.ss.android.downloadlib.a.b.a(iv.g(), 0L, 0L, iv.D(), iv.i(), null, iv.n()), z, interfaceC1192a);
+        if (iv != null && this.pVj.isEmpty()) {
+            a(context, new com.ss.android.downloadlib.a.b.a(iv.g(), 0L, 0L, iv.D(), iv.i(), null, iv.n()), z, interfaceC1233a);
             return true;
         }
         if (iv == null) {
@@ -64,7 +64,7 @@ public class a {
         } else {
             j = new File(iv.n()).lastModified();
         }
-        ListIterator<com.ss.android.downloadlib.a.b.a> listIterator = this.pTB.listIterator(this.pTB.size());
+        ListIterator<com.ss.android.downloadlib.a.b.a> listIterator = this.pVj.listIterator(this.pVj.size());
         while (true) {
             if (!listIterator.hasPrevious()) {
                 z2 = false;
@@ -73,25 +73,25 @@ public class a {
             com.ss.android.downloadlib.a.b.a previous = listIterator.previous();
             if (previous != null && !i.d(context, previous.d) && i.a(previous.g)) {
                 if (new File(previous.g).lastModified() >= j) {
-                    a(context, previous, z, interfaceC1192a);
+                    a(context, previous, z, interfaceC1233a);
                     z2 = true;
                 } else {
-                    a(context, new com.ss.android.downloadlib.a.b.a(iv.g(), 0L, 0L, iv.D(), iv.i(), null, iv.n()), z, interfaceC1192a);
+                    a(context, new com.ss.android.downloadlib.a.b.a(iv.g(), 0L, 0L, iv.D(), iv.i(), null, iv.n()), z, interfaceC1233a);
                     z2 = true;
                 }
             }
         }
-        h.i(f13222a, "tryShowInstallDialog isShow:" + z2, null);
+        h.i(f13223a, "tryShowInstallDialog isShow:" + z2, null);
         return z2;
     }
 
-    public void a(Context context, com.ss.android.downloadlib.a.b.a aVar, boolean z, InterfaceC1192a interfaceC1192a) {
-        this.pTB.clear();
-        a(context, aVar, interfaceC1192a, z);
+    public void a(Context context, com.ss.android.downloadlib.a.b.a aVar, boolean z, InterfaceC1233a interfaceC1233a) {
+        this.pVj.clear();
+        a(context, aVar, interfaceC1233a, z);
         this.d = true;
         com.ss.android.downloadlib.i.iz(context).c();
-        this.pTC.b("sp_ad_install_back_dialog", "key_uninstalled_list");
-        h.i(f13222a, "tryShowInstallDialog isShow:true", null);
+        this.pVk.b("sp_ad_install_back_dialog", "key_uninstalled_list");
+        h.i(f13223a, "tryShowInstallDialog isShow:true", null);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:28:0x0086, code lost:
@@ -137,46 +137,46 @@ public class a {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.pTB.size()) {
-                com.ss.android.downloadlib.a.b.a aVar = this.pTB.get(i2);
-                if (aVar == null || aVar.f13229b != j2) {
+            if (i2 < this.pVj.size()) {
+                com.ss.android.downloadlib.a.b.a aVar = this.pVj.get(i2);
+                if (aVar == null || aVar.f13230b != j2) {
                     i = i2 + 1;
                 } else {
-                    this.pTB.set(i2, new com.ss.android.downloadlib.a.b.a(j, j2, j3, str, str2, str3, str4));
-                    this.pTC.a("sp_ad_install_back_dialog", "key_uninstalled_list", this.pTB);
+                    this.pVj.set(i2, new com.ss.android.downloadlib.a.b.a(j, j2, j3, str, str2, str3, str4));
+                    this.pVk.a("sp_ad_install_back_dialog", "key_uninstalled_list", this.pVj);
                     return;
                 }
             } else {
-                this.pTB.add(new com.ss.android.downloadlib.a.b.a(j, j2, j3, str, str2, str3, str4));
-                this.pTC.a("sp_ad_install_back_dialog", "key_uninstalled_list", this.pTB);
+                this.pVj.add(new com.ss.android.downloadlib.a.b.a(j, j2, j3, str, str2, str3, str4));
+                this.pVk.a("sp_ad_install_back_dialog", "key_uninstalled_list", this.pVj);
                 return;
             }
         }
     }
 
-    private void a(final Context context, final com.ss.android.downloadlib.a.b.a aVar, final InterfaceC1192a interfaceC1192a, boolean z) {
-        final com.ss.android.b.a.b.a iY = com.ss.android.downloadlib.a.b.d.eFp().iY(aVar.f13229b);
-        if (iY == null) {
+    private void a(final Context context, final com.ss.android.downloadlib.a.b.a aVar, final InterfaceC1233a interfaceC1233a, boolean z) {
+        final com.ss.android.b.a.b.a jb = com.ss.android.downloadlib.a.b.d.eFT().jb(aVar.f13230b);
+        if (jb == null) {
             i.b();
             return;
         }
-        k eFB = j.eFB();
-        c.a aak = new c.a(context).aak(z ? "应用安装确认" : "退出确认");
+        k eGf = j.eGf();
+        c.a aal = new c.a(context).aal(z ? "应用安装确认" : "退出确认");
         Object[] objArr = new Object[1];
         objArr[0] = TextUtils.isEmpty(aVar.e) ? "刚刚下载的应用" : aVar.e;
-        eFB.b(aak.aal(String.format("%1$s下载完成，是否立即安装？", objArr)).aam("立即安装").aan(z ? "暂不安装" : String.format("退出%1$s", context.getResources().getString(context.getApplicationContext().getApplicationInfo().labelRes))).Bt(false).I(i.a(context, aVar.g)).a(new c.b() { // from class: com.ss.android.downloadlib.a.a.a.1
+        eGf.b(aal.aam(String.format("%1$s下载完成，是否立即安装？", objArr)).aan("立即安装").aao(z ? "暂不安装" : String.format("退出%1$s", context.getResources().getString(context.getApplicationContext().getApplicationInfo().labelRes))).Bt(false).I(i.a(context, aVar.g)).a(new c.b() { // from class: com.ss.android.downloadlib.a.a.a.1
             @Override // com.ss.android.a.a.d.c.b
             public void a(DialogInterface dialogInterface) {
-                com.ss.android.downloadlib.e.a.eFX().a("backdialog_install", iY);
-                com.ss.android.socialbase.appdownloader.d.a(context, (int) aVar.f13228a);
+                com.ss.android.downloadlib.e.a.eGB().a("backdialog_install", jb);
+                com.ss.android.socialbase.appdownloader.d.a(context, (int) aVar.f13229a);
                 dialogInterface.dismiss();
             }
 
             @Override // com.ss.android.a.a.d.c.b
             public void b(DialogInterface dialogInterface) {
-                com.ss.android.downloadlib.e.a.eFX().a("backdialog_exit", iY);
-                if (interfaceC1192a != null) {
-                    interfaceC1192a.a();
+                com.ss.android.downloadlib.e.a.eGB().a("backdialog_exit", jb);
+                if (interfaceC1233a != null) {
+                    interfaceC1233a.a();
                 }
                 a.this.b("");
                 dialogInterface.dismiss();
@@ -186,8 +186,8 @@ public class a {
             public void c(DialogInterface dialogInterface) {
                 a.this.b("");
             }
-        }).RH(1).eEY());
-        com.ss.android.downloadlib.e.a.eFX().a("backdialog_show", iY);
+        }).RX(1).eFC());
+        com.ss.android.downloadlib.e.a.eGB().a("backdialog_show", jb);
         this.e = aVar.d;
     }
 

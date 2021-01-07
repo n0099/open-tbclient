@@ -8,10 +8,10 @@ import java.util.Map;
 public class k implements com.kwai.sodler.lib.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwai.sodler.lib.a.d f11321a;
+    private final com.kwai.sodler.lib.a.d f11322a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.kwai.sodler.lib.a.g f11322b;
+    private final com.kwai.sodler.lib.a.g f11323b;
     private final com.kwai.sodler.lib.a.c c;
     private final com.kwai.sodler.lib.a.b d;
     private final com.kwai.sodler.lib.ext.c e;
@@ -21,19 +21,19 @@ public class k implements com.kwai.sodler.lib.a.e {
     public static abstract class a {
 
         /* renamed from: a  reason: collision with root package name */
-        final com.kwai.sodler.lib.a.e f11323a;
+        final com.kwai.sodler.lib.a.e f11324a;
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.kwai.sodler.lib.k$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C1136a extends a {
-            public C1136a(com.kwai.sodler.lib.a.e eVar) {
+        public static class C1177a extends a {
+            public C1177a(com.kwai.sodler.lib.a.e eVar) {
                 super(eVar);
             }
 
             @Override // com.kwai.sodler.lib.k.a
             public void a(com.kwai.sodler.lib.a.f fVar) {
-                this.f11323a.f().a(fVar);
+                this.f11324a.f().a(fVar);
             }
         }
 
@@ -46,7 +46,7 @@ public class k implements com.kwai.sodler.lib.a.e {
 
             @Override // com.kwai.sodler.lib.k.a
             public void a(com.kwai.sodler.lib.a.f fVar) {
-                this.f11323a.c().a(fVar);
+                this.f11324a.c().a(fVar);
             }
         }
 
@@ -59,12 +59,12 @@ public class k implements com.kwai.sodler.lib.a.e {
 
             @Override // com.kwai.sodler.lib.k.a
             public void a(com.kwai.sodler.lib.a.f fVar) {
-                this.f11323a.d().a(fVar);
+                this.f11324a.d().a(fVar);
             }
         }
 
         public a(com.kwai.sodler.lib.a.e eVar) {
-            this.f11323a = eVar;
+            this.f11324a = eVar;
         }
 
         public static a a(com.kwai.sodler.lib.a.e eVar, int i) {
@@ -72,7 +72,7 @@ public class k implements com.kwai.sodler.lib.a.e {
                 case 1:
                     return new c(eVar);
                 case 256:
-                    return new C1136a(eVar);
+                    return new C1177a(eVar);
                 default:
                     return new b(eVar);
             }
@@ -82,8 +82,8 @@ public class k implements com.kwai.sodler.lib.a.e {
     }
 
     public k(com.kwai.sodler.lib.a.d dVar, com.kwai.sodler.lib.a.g gVar, com.kwai.sodler.lib.a.c cVar, com.kwai.sodler.lib.a.b bVar, com.kwai.sodler.lib.ext.c cVar2, com.kwai.sodler.lib.ext.a aVar) {
-        this.f11321a = dVar;
-        this.f11322b = gVar;
+        this.f11322a = dVar;
+        this.f11323b = gVar;
         this.c = cVar;
         this.e = cVar2;
         this.f = aVar;
@@ -111,12 +111,12 @@ public class k implements com.kwai.sodler.lib.a.e {
 
     @Override // com.kwai.sodler.lib.a.e
     public com.kwai.sodler.lib.a.d c() {
-        return this.f11321a;
+        return this.f11322a;
     }
 
     @Override // com.kwai.sodler.lib.a.e
     public com.kwai.sodler.lib.a.g d() {
-        return this.f11322b;
+        return this.f11323b;
     }
 
     @Override // com.kwai.sodler.lib.a.e

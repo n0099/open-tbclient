@@ -7,7 +7,7 @@ import android.telephony.TelephonyManager;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public final class NetWorkUtils implements INoProGuard {
     private static final int CELL_2G = 2;
     private static final int CELL_3G = 3;

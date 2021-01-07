@@ -25,7 +25,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         this.jlE = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.topic.topicdetail.adapter.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cHK */
+            /* renamed from: cHL */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(a.this.mPageContext.getPageActivity());
             }
@@ -54,7 +54,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         this.jlF = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.homepage.topic.topicdetail.adapter.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: byk */
+            /* renamed from: byl */
             public TbImageView makeObject() {
                 TbImageView tbImageView = new TbImageView(a.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
@@ -92,8 +92,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
                 d dVar;
-                if ((view.getTag() instanceof CardViewHolder) && (dVar = (d) ((CardViewHolder) view.getTag()).cvG()) != null) {
-                    dVar.bCL();
+                if ((view.getTag() instanceof CardViewHolder) && (dVar = (d) ((CardViewHolder) view.getTag()).cvH()) != null) {
+                    dVar.bCM();
                 }
             }
         });
@@ -115,10 +115,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.topic.topicdetail.a.c cVar, CardViewHolder<d> cardViewHolder) {
-        if (cVar == null || cardViewHolder == null || cardViewHolder.cvG() == null) {
+        if (cVar == null || cardViewHolder == null || cardViewHolder.cvH() == null) {
             return null;
         }
-        cardViewHolder.cvG().a(cVar);
+        cardViewHolder.cvH().a(cVar);
         return cardViewHolder.getView();
     }
 }

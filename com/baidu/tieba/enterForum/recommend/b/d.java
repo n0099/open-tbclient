@@ -26,7 +26,7 @@ public class d extends BaseCardInfo {
         this.title = str;
     }
 
-    public int czq() {
+    public int czr() {
         return this.iLe;
     }
 
@@ -42,7 +42,7 @@ public class d extends BaseCardInfo {
         this.forumList = list;
     }
 
-    public List<c> czr() {
+    public List<c> czs() {
         return this.iLg;
     }
 
@@ -50,45 +50,45 @@ public class d extends BaseCardInfo {
         this.iLg = list;
     }
 
-    public List<c> czs() {
+    public List<c> czt() {
         if (getForumList().size() <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         if (this.iLe == 2) {
-            if (czt() != null) {
-                arrayList.add(czt());
+            if (czu() != null) {
+                arrayList.add(czu());
             }
         } else {
-            c czt = czt();
-            c czt2 = czt();
-            if (czt != null) {
-                arrayList.add(czt);
+            c czu = czu();
+            c czu2 = czu();
+            if (czu != null) {
+                arrayList.add(czu);
             }
-            if (czt2 != null) {
-                arrayList.add(czt2);
+            if (czu2 != null) {
+                arrayList.add(czu2);
             }
         }
         cY(arrayList);
         return arrayList;
     }
 
-    private c czt() {
+    private c czu() {
         if (getForumList().size() <= 0) {
             return null;
         }
-        b czu = czu();
-        b czu2 = czu();
-        if (czu == null && czu2 == null) {
+        b czv = czv();
+        b czv2 = czv();
+        if (czv == null && czv2 == null) {
             return null;
         }
         c cVar = new c();
-        cVar.b(czu);
-        cVar.a(czu2);
+        cVar.b(czv);
+        cVar.a(czv2);
         return cVar;
     }
 
-    private b czu() {
+    private b czv() {
         b bVar;
         if (this.iLf < getForumList().size()) {
             bVar = getForumList().get(this.iLf);

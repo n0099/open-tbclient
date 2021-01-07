@@ -26,10 +26,10 @@ public class b extends File {
     private static DexClassLoader f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private e f3363a;
+    private e f3364a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Class<?> f3364b;
+    private Class<?> f3365b;
     private Context c;
     private PublicKey d;
     private IXAdLogger e;
@@ -40,11 +40,11 @@ public class b extends File {
 
     public b(String str, Context context, e eVar) {
         super(str);
-        this.f3364b = null;
+        this.f3365b = null;
         this.c = null;
         this.e = XAdSDKFoundationFacade.getInstance().getAdLogger();
         this.c = context;
-        this.f3363a = eVar;
+        this.f3364a = eVar;
         if (eVar != null) {
             try {
                 this.d = c("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBcp8gg3O7bjdnz+pSxg+JH/mbcKfm7dEjcRqVNAFwG7bTpLwDQh40bZJzrcBKQWbD6kArR6TPuQUCMQ09/y55Vk1P2Kq7vJGGisFpjlqv2qlg8drLdhXkLQUt/SeZVJgT+CNxVbuzxAF61EEf8M0MHi1I2dm6n6lOA6fomiCD9wIDAQAB");
@@ -56,9 +56,9 @@ public class b extends File {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a() {
-        if (this.f3363a != null) {
+        if (this.f3364a != null) {
             String a2 = a(new File(getAbsolutePath()));
-            String b2 = b(this.f3363a.d());
+            String b2 = b(this.f3364a.d());
             if (!b2.equalsIgnoreCase(a2)) {
                 throw new g.a("doCheckApkIntegrity failed, md5sum: " + a2 + ", checksum in json info: " + b2);
             }
@@ -69,15 +69,15 @@ public class b extends File {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Class<?> b() {
-        if (this.f3364b == null) {
+        if (this.f3365b == null) {
             File file = new File(getAbsolutePath());
             try {
-                this.f3364b = b(file);
+                this.f3365b = b(file);
             } catch (Exception e) {
                 file.delete();
             }
         }
-        return this.f3364b;
+        return this.f3365b;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -87,10 +87,10 @@ public class b extends File {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public double c() {
-        if (this.f3363a == null) {
+        if (this.f3364a == null) {
             return 0.0d;
         }
-        return this.f3363a.b();
+        return this.f3364a.b();
     }
 
     private String b(String str) {

@@ -18,7 +18,7 @@ public class a extends g {
         this.geJ = false;
     }
 
-    public p bMW() {
+    public p bMX() {
         return this.geH;
     }
 
@@ -26,7 +26,7 @@ public class a extends g {
         this.geH = pVar;
     }
 
-    public Object bMX() {
+    public Object bMY() {
         return this.geI;
     }
 

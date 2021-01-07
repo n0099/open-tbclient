@@ -17,7 +17,7 @@ public class d extends b {
     }
 
     @Override // com.baidu.swan.game.ad.b
-    public View aUH() {
+    public View aUI() {
         return LayoutInflater.from(this.mContext).inflate(c.f.ng_game_land_play, (ViewGroup) null);
     }
 
@@ -25,8 +25,8 @@ public class d extends b {
     public void a(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
         int videoWidth = adElementInfo.getVideoWidth();
         int videoHeight = adElementInfo.getVideoHeight();
-        this.ctq = com.baidu.swan.games.view.a.c.bcX();
-        this.cts = com.baidu.swan.games.view.a.c.bcY();
+        this.ctq = com.baidu.swan.games.view.a.c.bcY();
+        this.cts = com.baidu.swan.games.view.a.c.bcZ();
         if (videoWidth < videoHeight) {
             this.dZX = true;
             int i = (int) (((this.ctq - videoWidth) / 2) * 0.8d);
@@ -43,7 +43,7 @@ public class d extends b {
     }
 
     @Override // com.baidu.swan.game.ad.b
-    public String aUI() {
+    public String aUJ() {
         return this.dZX ? "reward_banner_land_html" : "reward_banner_html";
     }
 }

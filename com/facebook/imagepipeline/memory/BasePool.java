@@ -7,91 +7,91 @@ import androidx.appcompat.widget.ActivityChooserView;
 import java.util.Set;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.NotThreadSafe;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class BasePool<V> implements com.facebook.common.memory.e<V> {
-    private static b pCY;
-    final com.facebook.common.memory.c pBp;
-    final r pCZ;
-    final Set<V> pDb;
-    private boolean pDc;
+    private static b pEF;
+    final com.facebook.common.memory.c pCW;
+    final r pEG;
+    final Set<V> pEI;
+    private boolean pEJ;
     @GuardedBy("this")
-    final a pDd;
+    final a pEK;
     @GuardedBy("this")
-    final a pDe;
-    private final s pDf;
-    private final Class<?> prQ = getClass();
-    final SparseArray<d<V>> pDa = new SparseArray<>();
+    final a pEL;
+    private final s pEM;
+    private final Class<?> prR = getClass();
+    final SparseArray<d<V>> pEH = new SparseArray<>();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void onFailed();
     }
 
-    protected abstract V QK(int i);
+    protected abstract V Rb(int i);
 
-    protected abstract int QL(int i);
+    protected abstract int Rc(int i);
 
-    protected abstract int QM(int i);
+    protected abstract int Rd(int i);
 
-    protected abstract void bv(V v);
+    protected abstract void bw(V v);
 
-    protected abstract int bw(V v);
+    protected abstract int bx(V v);
 
     public BasePool(com.facebook.common.memory.c cVar, r rVar, s sVar) {
-        this.pBp = (com.facebook.common.memory.c) com.facebook.common.internal.g.checkNotNull(cVar);
-        this.pCZ = (r) com.facebook.common.internal.g.checkNotNull(rVar);
-        this.pDf = (s) com.facebook.common.internal.g.checkNotNull(sVar);
-        if (this.pCZ.pDN) {
-            ezs();
+        this.pCW = (com.facebook.common.memory.c) com.facebook.common.internal.g.checkNotNull(cVar);
+        this.pEG = (r) com.facebook.common.internal.g.checkNotNull(rVar);
+        this.pEM = (s) com.facebook.common.internal.g.checkNotNull(sVar);
+        if (this.pEG.pFu) {
+            ezW();
         } else {
             a(new SparseIntArray(0));
         }
-        this.pDb = com.facebook.common.internal.i.etU();
-        this.pDe = new a();
-        this.pDd = new a();
+        this.pEI = com.facebook.common.internal.i.eua();
+        this.pEL = new a();
+        this.pEK = new a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void initialize() {
-        this.pBp.a(this);
-        this.pDf.a(this);
+        this.pCW.a(this);
+        this.pEM.a(this);
     }
 
     @Override // com.facebook.common.memory.e
     public V get(int i) {
         V n;
-        ezr();
-        int QL = QL(i);
+        ezV();
+        int Rc = Rc(i);
         synchronized (this) {
-            d<V> QO = QO(QL);
-            if (QO != null && (n = QO.get()) != null) {
-                com.facebook.common.internal.g.checkState(this.pDb.add(n));
-                int bw = bw(n);
-                int QM = QM(bw);
-                this.pDd.QR(QM);
-                this.pDe.QS(QM);
-                this.pDf.QZ(QM);
-                ewZ();
+            d<V> Rf = Rf(Rc);
+            if (Rf != null && (n = Rf.get()) != null) {
+                com.facebook.common.internal.g.checkState(this.pEI.add(n));
+                int bx = bx(n);
+                int Rd = Rd(bx);
+                this.pEK.Ri(Rd);
+                this.pEL.Rj(Rd);
+                this.pEM.Rp(Rd);
+                exB();
                 if (com.facebook.common.c.a.isLoggable(2)) {
-                    com.facebook.common.c.a.a(this.prQ, "get (reuse) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(n)), Integer.valueOf(bw));
+                    com.facebook.common.c.a.a(this.prR, "get (reuse) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(n)), Integer.valueOf(bx));
                 }
             } else {
-                int QM2 = QM(QL);
-                if (!QQ(QM2)) {
-                    throw new PoolSizeViolationException(this.pCZ.pDI, this.pDd.pDg, this.pDe.pDg, QM2);
+                int Rd2 = Rd(Rc);
+                if (!Rh(Rd2)) {
+                    throw new PoolSizeViolationException(this.pEG.pFp, this.pEK.pEN, this.pEL.pEN, Rd2);
                 }
-                this.pDd.QR(QM2);
-                if (QO != null) {
-                    QO.ezA();
+                this.pEK.Ri(Rd2);
+                if (Rf != null) {
+                    Rf.eAe();
                 }
-                n = n(QM2, QL, true);
+                n = n(Rd2, Rc, true);
                 synchronized (this) {
-                    com.facebook.common.internal.g.checkState(this.pDb.add(n));
-                    ezt();
-                    this.pDf.Ra(QM2);
-                    ewZ();
+                    com.facebook.common.internal.g.checkState(this.pEI.add(n));
+                    ezX();
+                    this.pEM.Rq(Rd2);
+                    exB();
                     if (com.facebook.common.c.a.isLoggable(2)) {
-                        com.facebook.common.c.a.a(this.prQ, "get (alloc) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(n)), Integer.valueOf(QL));
+                        com.facebook.common.c.a.a(this.prR, "get (alloc) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(n)), Integer.valueOf(Rc));
                     }
                 }
             }
@@ -101,34 +101,34 @@ public abstract class BasePool<V> implements com.facebook.common.memory.e<V> {
 
     private V n(int i, int i2, boolean z) {
         try {
-            V QK = QK(i2);
+            V Rb = Rb(i2);
             if (com.facebook.common.c.a.isLoggable(3)) {
-                com.facebook.common.c.a.g(this.prQ, "alloc success!!");
-                return QK;
+                com.facebook.common.c.a.g(this.prR, "alloc success!!");
+                return Rb;
             }
-            return QK;
+            return Rb;
         } catch (Throwable th) {
             if (com.facebook.common.c.a.isLoggable(3)) {
-                com.facebook.common.c.a.g(this.prQ, "alloc fail!!");
+                com.facebook.common.c.a.g(this.prR, "alloc fail!!");
             }
-            if (!z || pCY == null) {
+            if (!z || pEF == null) {
                 if (com.facebook.common.c.a.isLoggable(3)) {
-                    com.facebook.common.c.a.g(this.prQ, "retryOnce won't work." + (z ? "retry = true" : "retry = false") + (pCY == null ? ",mOnFailedListener is null" : ",mOnFailedListener is not null"));
+                    com.facebook.common.c.a.g(this.prR, "retryOnce won't work." + (z ? "retry = true" : "retry = false") + (pEF == null ? ",mOnFailedListener is null" : ",mOnFailedListener is not null"));
                 }
                 synchronized (this) {
-                    this.pDd.QS(i);
-                    d<V> QO = QO(i2);
-                    if (QO != null) {
-                        QO.ezB();
+                    this.pEK.Rj(i);
+                    d<V> Rf = Rf(i2);
+                    if (Rf != null) {
+                        Rf.eAf();
                     }
                     com.facebook.common.internal.l.s(th);
                     return null;
                 }
             }
             if (com.facebook.common.c.a.isLoggable(3)) {
-                com.facebook.common.c.a.g(this.prQ, "retryOnce will work." + (z ? "retry = true" : "retry = false") + (pCY == null ? ",mOnFailedListener is null" : ",mOnFailedListener is not null"));
+                com.facebook.common.c.a.g(this.prR, "retryOnce will work." + (z ? "retry = true" : "retry = false") + (pEF == null ? ",mOnFailedListener is null" : ",mOnFailedListener is not null"));
             }
-            pCY.onFailed();
+            pEF.onFailed();
             return n(i, i2, false);
         }
     }
@@ -136,156 +136,156 @@ public abstract class BasePool<V> implements com.facebook.common.memory.e<V> {
     @Override // com.facebook.common.memory.e, com.facebook.common.references.c
     public void release(V v) {
         com.facebook.common.internal.g.checkNotNull(v);
-        int bw = bw(v);
-        int QM = QM(bw);
+        int bx = bx(v);
+        int Rd = Rd(bx);
         synchronized (this) {
-            d<V> QN = QN(bw);
-            if (!this.pDb.remove(v)) {
-                com.facebook.common.c.a.d(this.prQ, "release (free, value unrecognized) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(v)), Integer.valueOf(bw));
-                bv(v);
-                this.pDf.Rb(QM);
-            } else if (QN == null || QN.ezy() || ezu() || !bx(v)) {
-                if (QN != null) {
-                    QN.ezB();
+            d<V> Re = Re(bx);
+            if (!this.pEI.remove(v)) {
+                com.facebook.common.c.a.d(this.prR, "release (free, value unrecognized) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(v)), Integer.valueOf(bx));
+                bw(v);
+                this.pEM.Rr(Rd);
+            } else if (Re == null || Re.eAc() || ezY() || !by(v)) {
+                if (Re != null) {
+                    Re.eAf();
                 }
                 if (com.facebook.common.c.a.isLoggable(2)) {
-                    com.facebook.common.c.a.a(this.prQ, "release (free) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(v)), Integer.valueOf(bw));
+                    com.facebook.common.c.a.a(this.prR, "release (free) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(v)), Integer.valueOf(bx));
                 }
-                bv(v);
-                this.pDd.QS(QM);
-                this.pDf.Rb(QM);
+                bw(v);
+                this.pEK.Rj(Rd);
+                this.pEM.Rr(Rd);
             } else {
-                QN.release(v);
-                this.pDe.QR(QM);
-                this.pDd.QS(QM);
-                this.pDf.Rc(QM);
+                Re.release(v);
+                this.pEL.Ri(Rd);
+                this.pEK.Rj(Rd);
+                this.pEM.Rs(Rd);
                 if (com.facebook.common.c.a.isLoggable(2)) {
-                    com.facebook.common.c.a.a(this.prQ, "release (reuse) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(v)), Integer.valueOf(bw));
+                    com.facebook.common.c.a.a(this.prR, "release (reuse) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(v)), Integer.valueOf(bx));
                 }
             }
-            ewZ();
+            exB();
         }
     }
 
-    protected boolean bx(V v) {
+    protected boolean by(V v) {
         com.facebook.common.internal.g.checkNotNull(v);
         return true;
     }
 
-    private synchronized void ezr() {
-        com.facebook.common.internal.g.checkState(!ezu() || this.pDe.pDg == 0);
+    private synchronized void ezV() {
+        com.facebook.common.internal.g.checkState(!ezY() || this.pEL.pEN == 0);
     }
 
     private synchronized void a(SparseIntArray sparseIntArray) {
         synchronized (this) {
             com.facebook.common.internal.g.checkNotNull(sparseIntArray);
-            this.pDa.clear();
-            SparseIntArray sparseIntArray2 = this.pCZ.pDK;
+            this.pEH.clear();
+            SparseIntArray sparseIntArray2 = this.pEG.pFr;
             if (sparseIntArray2 != null) {
                 for (int i = 0; i < sparseIntArray2.size(); i++) {
                     int keyAt = sparseIntArray2.keyAt(i);
-                    this.pDa.put(keyAt, new d<>(QM(keyAt), sparseIntArray2.valueAt(i), sparseIntArray.get(keyAt, 0), this.pCZ.pDN));
+                    this.pEH.put(keyAt, new d<>(Rd(keyAt), sparseIntArray2.valueAt(i), sparseIntArray.get(keyAt, 0), this.pEG.pFu));
                 }
-                this.pDc = false;
+                this.pEJ = false;
             } else {
-                this.pDc = true;
+                this.pEJ = true;
             }
         }
     }
 
-    private synchronized void ezs() {
-        SparseIntArray sparseIntArray = this.pCZ.pDK;
+    private synchronized void ezW() {
+        SparseIntArray sparseIntArray = this.pEG.pFr;
         if (sparseIntArray != null) {
             b(sparseIntArray);
-            this.pDc = false;
+            this.pEJ = false;
         } else {
-            this.pDc = true;
+            this.pEJ = true;
         }
     }
 
     private void b(SparseIntArray sparseIntArray) {
-        this.pDa.clear();
+        this.pEH.clear();
         for (int i = 0; i < sparseIntArray.size(); i++) {
             int keyAt = sparseIntArray.keyAt(i);
-            this.pDa.put(keyAt, new d<>(QM(keyAt), sparseIntArray.valueAt(i), 0, this.pCZ.pDN));
+            this.pEH.put(keyAt, new d<>(Rd(keyAt), sparseIntArray.valueAt(i), 0, this.pEG.pFu));
         }
     }
 
-    synchronized void ezt() {
-        if (ezu()) {
-            trimToSize(this.pCZ.pDJ);
+    synchronized void ezX() {
+        if (ezY()) {
+            trimToSize(this.pEG.pFq);
         }
     }
 
     synchronized void trimToSize(int i) {
-        int min = Math.min((this.pDd.pDg + this.pDe.pDg) - i, this.pDe.pDg);
+        int min = Math.min((this.pEK.pEN + this.pEL.pEN) - i, this.pEL.pEN);
         if (min > 0) {
             if (com.facebook.common.c.a.isLoggable(2)) {
-                com.facebook.common.c.a.a(this.prQ, "trimToSize: TargetSize = %d; Initial Size = %d; Bytes to free = %d", Integer.valueOf(i), Integer.valueOf(this.pDd.pDg + this.pDe.pDg), Integer.valueOf(min));
+                com.facebook.common.c.a.a(this.prR, "trimToSize: TargetSize = %d; Initial Size = %d; Bytes to free = %d", Integer.valueOf(i), Integer.valueOf(this.pEK.pEN + this.pEL.pEN), Integer.valueOf(min));
             }
-            ewZ();
-            for (int i2 = 0; i2 < this.pDa.size() && min > 0; i2++) {
-                d<V> valueAt = this.pDa.valueAt(i2);
+            exB();
+            for (int i2 = 0; i2 < this.pEH.size() && min > 0; i2++) {
+                d<V> valueAt = this.pEH.valueAt(i2);
                 while (min > 0) {
                     V pop = valueAt.pop();
                     if (pop == null) {
                         break;
                     }
-                    bv(pop);
+                    bw(pop);
                     min -= valueAt.mItemSize;
-                    this.pDe.QS(valueAt.mItemSize);
+                    this.pEL.Rj(valueAt.mItemSize);
                 }
             }
-            ewZ();
+            exB();
             if (com.facebook.common.c.a.isLoggable(2)) {
-                com.facebook.common.c.a.a(this.prQ, "trimToSize: TargetSize = %d; Final Size = %d", Integer.valueOf(i), Integer.valueOf(this.pDd.pDg + this.pDe.pDg));
+                com.facebook.common.c.a.a(this.prR, "trimToSize: TargetSize = %d; Final Size = %d", Integer.valueOf(i), Integer.valueOf(this.pEK.pEN + this.pEL.pEN));
             }
         }
     }
 
-    private synchronized d<V> QN(int i) {
-        return this.pDa.get(i);
+    private synchronized d<V> Re(int i) {
+        return this.pEH.get(i);
     }
 
-    synchronized d<V> QO(int i) {
+    synchronized d<V> Rf(int i) {
         d<V> dVar;
-        dVar = this.pDa.get(i);
-        if (dVar == null && this.pDc) {
+        dVar = this.pEH.get(i);
+        if (dVar == null && this.pEJ) {
             if (com.facebook.common.c.a.isLoggable(2)) {
-                com.facebook.common.c.a.c(this.prQ, "creating new bucket %s", Integer.valueOf(i));
+                com.facebook.common.c.a.c(this.prR, "creating new bucket %s", Integer.valueOf(i));
             }
-            dVar = QP(i);
-            this.pDa.put(i, dVar);
+            dVar = Rg(i);
+            this.pEH.put(i, dVar);
         }
         return dVar;
     }
 
-    d<V> QP(int i) {
-        return new d<>(QM(i), ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, this.pCZ.pDN);
+    d<V> Rg(int i) {
+        return new d<>(Rd(i), ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, this.pEG.pFu);
     }
 
-    synchronized boolean ezu() {
+    synchronized boolean ezY() {
         boolean z;
-        z = this.pDd.pDg + this.pDe.pDg > this.pCZ.pDJ;
+        z = this.pEK.pEN + this.pEL.pEN > this.pEG.pFq;
         if (z) {
-            this.pDf.ezI();
+            this.pEM.eAm();
         }
         return z;
     }
 
-    synchronized boolean QQ(int i) {
+    synchronized boolean Rh(int i) {
         boolean z = false;
         synchronized (this) {
-            int i2 = this.pCZ.pDI;
-            if (i > i2 - this.pDd.pDg) {
-                this.pDf.ezJ();
+            int i2 = this.pEG.pFp;
+            if (i > i2 - this.pEK.pEN) {
+                this.pEM.eAn();
             } else {
-                int i3 = this.pCZ.pDJ;
-                if (i > i3 - (this.pDd.pDg + this.pDe.pDg)) {
+                int i3 = this.pEG.pFq;
+                if (i > i3 - (this.pEK.pEN + this.pEL.pEN)) {
                     trimToSize(i3 - i);
                 }
-                if (i > i2 - (this.pDd.pDg + this.pDe.pDg)) {
-                    this.pDf.ezJ();
+                if (i > i2 - (this.pEK.pEN + this.pEL.pEN)) {
+                    this.pEM.eAn();
                 } else {
                     z = true;
                 }
@@ -295,59 +295,59 @@ public abstract class BasePool<V> implements com.facebook.common.memory.e<V> {
     }
 
     @SuppressLint({"InvalidAccessToGuardedField"})
-    private void ewZ() {
+    private void exB() {
         if (com.facebook.common.c.a.isLoggable(2)) {
-            com.facebook.common.c.a.a(this.prQ, "Used = (%d, %d); Free = (%d, %d)", Integer.valueOf(this.pDd.mCount), Integer.valueOf(this.pDd.pDg), Integer.valueOf(this.pDe.mCount), Integer.valueOf(this.pDe.pDg));
+            com.facebook.common.c.a.a(this.prR, "Used = (%d, %d); Free = (%d, %d)", Integer.valueOf(this.pEK.mCount), Integer.valueOf(this.pEK.pEN), Integer.valueOf(this.pEL.mCount), Integer.valueOf(this.pEL.pEN));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @NotThreadSafe
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         int mCount;
-        int pDg;
+        int pEN;
 
         a() {
         }
 
-        public void QR(int i) {
+        public void Ri(int i) {
             this.mCount++;
-            this.pDg += i;
+            this.pEN += i;
         }
 
-        public void QS(int i) {
-            if (this.pDg >= i && this.mCount > 0) {
+        public void Rj(int i) {
+            if (this.pEN >= i && this.mCount > 0) {
                 this.mCount--;
-                this.pDg -= i;
+                this.pEN -= i;
                 return;
             }
-            com.facebook.common.c.a.h("com.facebook.imagepipeline.memory.BasePool.Counter", "Unexpected decrement of %d. Current numBytes = %d, count = %d", Integer.valueOf(i), Integer.valueOf(this.pDg), Integer.valueOf(this.mCount));
+            com.facebook.common.c.a.h("com.facebook.imagepipeline.memory.BasePool.Counter", "Unexpected decrement of %d. Current numBytes = %d, count = %d", Integer.valueOf(i), Integer.valueOf(this.pEN), Integer.valueOf(this.mCount));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class InvalidValueException extends RuntimeException {
         public InvalidValueException(Object obj) {
             super("Invalid value: " + obj.toString());
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class InvalidSizeException extends RuntimeException {
         public InvalidSizeException(Object obj) {
             super("Invalid size: " + obj.toString());
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class SizeTooLargeException extends InvalidSizeException {
         public SizeTooLargeException(Object obj) {
             super(obj);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class PoolSizeViolationException extends RuntimeException {
         public PoolSizeViolationException(int i, int i2, int i3, int i4) {
             super("Pool hard cap violation? Hard cap = " + i + " Used size = " + i2 + " Free size = " + i3 + " Request size = " + i4);

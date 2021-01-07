@@ -60,18 +60,18 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getTag() instanceof Integer) {
-            cPi();
+            cPj();
         } else if (view == this.jOs) {
-            if (this.mPageContext != null && getParent() != null && this.jOt.cPh() >= 0) {
-                boolean z = com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("key_frs_move_area_tip", true);
-                List<FrsTabInfo> cDT = com.baidu.tieba.frs.a.cDQ().cDT();
-                FrsTabInfo frsTabInfo = (FrsTabInfo) x.getItem(cDT, this.jOt.cPg());
-                FrsTabInfo frsTabInfo2 = (FrsTabInfo) x.getItem(cDT, this.jOt.cPh());
+            if (this.mPageContext != null && getParent() != null && this.jOt.cPi() >= 0) {
+                boolean z = com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("key_frs_move_area_tip", true);
+                List<FrsTabInfo> cDU = com.baidu.tieba.frs.a.cDR().cDU();
+                FrsTabInfo frsTabInfo = (FrsTabInfo) x.getItem(cDU, this.jOt.cPh());
+                FrsTabInfo frsTabInfo2 = (FrsTabInfo) x.getItem(cDU, this.jOt.cPi());
                 if (frsTabInfo != null && frsTabInfo2 != null) {
                     if (z) {
                         new c().a(this.mPageContext, frsTabInfo, frsTabInfo2);
                     } else {
-                        com.baidu.tieba.frs.a.cDQ().cn(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
+                        com.baidu.tieba.frs.a.cDR().cn(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
                     }
                     if (this.jOv != null) {
                         view.setTag("choose_done");
@@ -90,13 +90,13 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         com.baidu.tbadk.core.elementsMaven.c.bv(this.jOq).pK(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
         ao.setViewTextColor(this.jOr, R.color.CAM_X0108);
         ao.setViewTextColor(this.jOs, R.color.CAM_X0304);
-        cPi();
+        cPj();
         ao.setBackgroundColor(this.mRecyclerView, R.color.CAM_X0204);
         ao.n(this.jOu, R.color.CAM_X0107);
     }
 
-    private void cPi() {
-        if (this.jOt.cPh() >= 0) {
+    private void cPj() {
+        if (this.jOt.cPi() >= 0) {
             this.jOs.setAlpha(1.0f);
         } else {
             this.jOs.setAlpha(0.5f);

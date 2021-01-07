@@ -7,32 +7,32 @@ import com.baidu.swan.apps.adaptation.a.r;
 /* loaded from: classes9.dex */
 public abstract class a implements r {
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String alL() {
+    public String alM() {
         return String.format("%s/pms", "https://ossapi.baidu.com");
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String alc() {
-        return com.baidu.swan.apps.t.a.aBd().getHostName();
+    public String ald() {
+        return com.baidu.swan.apps.t.a.aBe().getHostName();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public int alN() {
+    public int alO() {
         return 2;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String alO() {
+    public String alP() {
         return String.format("%s/ma/landingpage?t=service_agreement_m", "https://ossapi.baidu.com");
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String alP() {
+    public String alQ() {
         return com.baidu.swan.apps.i.c.processCommonParams(String.format("%s/ma/navigate", BaseUrlManager.ONLINE_URL));
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public boolean akL() {
+    public boolean akM() {
         return isDebug();
     }
 
@@ -42,11 +42,11 @@ public abstract class a implements r {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public void alI() {
+    public void alJ() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public void alJ() {
+    public void alK() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
@@ -55,17 +55,12 @@ public abstract class a implements r {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String alK() {
+    public String alL() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public String akO() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.r
-    public String akZ() {
+    public String akP() {
         return null;
     }
 
@@ -80,18 +75,18 @@ public abstract class a implements r {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public boolean alM() {
+    public String alc() {
+        return null;
+    }
+
+    @Override // com.baidu.swan.apps.adaptation.a.r
+    public boolean alN() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
     @Nullable
-    public String ald() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.r
-    public String alQ() {
+    public String ale() {
         return null;
     }
 
@@ -102,6 +97,11 @@ public abstract class a implements r {
 
     @Override // com.baidu.swan.apps.adaptation.a.r
     public String alS() {
+        return null;
+    }
+
+    @Override // com.baidu.swan.apps.adaptation.a.r
+    public String alT() {
         return null;
     }
 

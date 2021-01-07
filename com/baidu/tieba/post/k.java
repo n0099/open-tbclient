@@ -13,9 +13,9 @@ import org.json.JSONObject;
 public class k {
     private String mUuid;
     private boolean isSuccess = true;
-    private int mHL = 0;
-    private boolean mGW = false;
-    private List<com.baidu.tieba.n.b> mHM = new ArrayList();
+    private int mHK = 0;
+    private boolean mGV = false;
+    private List<com.baidu.tieba.n.b> mHL = new ArrayList();
 
     static {
         if (com.baidu.adp.lib.util.f.checkSD()) {
@@ -24,9 +24,9 @@ public class k {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    com.baidu.tieba.l.d.OP(f.a.lqO);
-                    com.baidu.tieba.l.d.OP(f.a.lqV);
-                    com.baidu.tieba.l.d.OP(f.a.lqW);
+                    com.baidu.tieba.l.d.OO(f.a.lqO);
+                    com.baidu.tieba.l.d.OO(f.a.lqV);
+                    com.baidu.tieba.l.d.OO(f.a.lqW);
                     return null;
                 }
             }.execute(new Void[0]);
@@ -37,35 +37,35 @@ public class k {
         this.mUuid = str;
     }
 
-    public void dCT() {
+    public void dCU() {
         this.isSuccess = false;
     }
 
-    public void dCU() {
+    public void dCV() {
         this.isSuccess = true;
     }
 
-    public void dCV() {
-        this.mHL++;
+    public void dCW() {
+        this.mHK++;
     }
 
-    public boolean dCW() {
-        return this.mHL > 0;
+    public boolean dCX() {
+        return this.mHK > 0;
     }
 
-    public void dCX() {
-        this.mGW = true;
+    public void dCY() {
+        this.mGV = true;
     }
 
-    public boolean dCY() {
-        return this.mGW;
+    public boolean dCZ() {
+        return this.mGV;
     }
 
     public void a(com.baidu.tieba.n.b bVar) {
-        this.mHM.add(bVar);
-        dDa();
+        this.mHL.add(bVar);
+        dDb();
         b(bVar);
-        dCZ();
+        dDa();
     }
 
     private void b(com.baidu.tieba.n.b bVar) {
@@ -79,7 +79,7 @@ public class k {
                     if (lVarArr != null && lVarArr.length == 1 && lVarArr[0] != null) {
                         l lVar = lVarArr[0];
                         synchronized ("debug") {
-                            com.baidu.tieba.l.d.a(new File(f.a.lqX + f.a.lqN + lVar.uuid + f.a.lqN + "debug"), lVar.mHP.dCA().toString() + "\n", true);
+                            com.baidu.tieba.l.d.a(new File(f.a.lqX + f.a.lqN + lVar.uuid + f.a.lqN + "debug"), lVar.mHO.dCB().toString() + "\n", true);
                         }
                     }
                     return null;
@@ -88,7 +88,7 @@ public class k {
         }
     }
 
-    private void dCZ() {
+    private void dDa() {
         if (com.baidu.adp.lib.util.f.checkSD()) {
             new BdAsyncTask<e, Void, Void>() { // from class: com.baidu.tieba.post.k.3
                 /* JADX DEBUG: Method merged with bridge method */
@@ -99,16 +99,16 @@ public class k {
                     if (eVarArr != null && eVarArr.length == 1 && eVarArr[0] != null) {
                         e eVar = eVarArr[0];
                         synchronized ("kpi") {
-                            com.baidu.tieba.l.d.a(new File(f.a.lqX + f.a.lqN + eVar.uuid + f.a.lqN + "kpi"), k.d(eVar.isSuccess, eVar.mGV, eVar.mGW).toString(), false);
+                            com.baidu.tieba.l.d.a(new File(f.a.lqX + f.a.lqN + eVar.uuid + f.a.lqN + "kpi"), k.d(eVar.isSuccess, eVar.mGU, eVar.mGV).toString(), false);
                         }
                     }
                     return null;
                 }
-            }.execute(new e(this.isSuccess, this.mHL, this.mGW, this.mUuid));
+            }.execute(new e(this.isSuccess, this.mHK, this.mGV, this.mUuid));
         }
     }
 
-    private void dDa() {
+    private void dDb() {
         if (com.baidu.adp.lib.util.f.checkSD()) {
             File file = new File(f.a.lqX + f.a.lqN + this.mUuid + f.a.lqN);
             if (!file.exists()) {
@@ -117,8 +117,8 @@ public class k {
         }
     }
 
-    public JSONObject diG() {
-        return d(this.isSuccess, this.mHL, this.mGW);
+    public JSONObject diH() {
+        return d(this.isSuccess, this.mHK, this.mGV);
     }
 
     public static final JSONObject d(boolean z, int i, boolean z2) {
@@ -133,14 +133,14 @@ public class k {
         return jSONObject;
     }
 
-    public JSONObject diI() {
+    public JSONObject diJ() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
-            if (!x.isEmpty(this.mHM)) {
-                int size = this.mHM.size();
+            if (!x.isEmpty(this.mHL)) {
+                int size = this.mHL.size();
                 for (int i = 0; i < size; i++) {
-                    jSONArray.put(this.mHM.get(i).dCA());
+                    jSONArray.put(this.mHL.get(i).dCB());
                 }
             }
             jSONObject.put("running", jSONArray);

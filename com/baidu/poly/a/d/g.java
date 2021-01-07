@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.widget.ImageView;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g implements Runnable {
     private ImageView cnQ;
     private Handler cnR;
@@ -45,7 +45,7 @@ public class g implements Runnable {
             e = e2;
         }
         if (bitmap2 != null) {
-            a.afs().e(str, bitmap2);
+            a.aft().e(str, bitmap2);
             return bitmap2;
         }
         a.bL(this.context).d(str);

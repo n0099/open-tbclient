@@ -71,13 +71,13 @@ public class EntryTyp4View extends a {
     @Override // com.kwad.sdk.entry.view.a, com.kwad.sdk.widget.b
     public void a() {
         super.a();
-        e.b(this.g, this.f10100a.e);
+        e.b(this.g, this.f10101a.e);
     }
 
     @Override // com.kwad.sdk.entry.view.a
     protected boolean b() {
         this.i.clear();
-        Iterator<AdTemplate> it = this.f10100a.k.iterator();
+        Iterator<AdTemplate> it = this.f10101a.k.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -97,14 +97,14 @@ public class EntryTyp4View extends a {
         if (this.g == null) {
             return false;
         }
-        if (this.f10100a.h != 1 || TextUtils.isEmpty(this.h.baseInfo.videoDesc)) {
+        if (this.f10101a.h != 1 || TextUtils.isEmpty(this.h.baseInfo.videoDesc)) {
             this.c.setVisibility(8);
         } else {
             this.c.setText(this.h.baseInfo.videoDesc);
             this.c.setVisibility(0);
         }
         String a2 = ai.a(this.h.videoInfo.duration);
-        if (this.f10100a.h == 1) {
+        if (this.f10101a.h == 1) {
             this.f.setText(a2);
             this.f.setVisibility(0);
         } else {
@@ -127,15 +127,15 @@ public class EntryTyp4View extends a {
 
     @Override // com.kwad.sdk.entry.view.a
     public String getEntrySourceDesc() {
-        if (TextUtils.isEmpty(this.f10100a.f9730b)) {
-            this.f10100a.f9730b = "快手推荐";
+        if (TextUtils.isEmpty(this.f10101a.f9731b)) {
+            this.f10101a.f9731b = "快手推荐";
         }
         StringBuilder sb = new StringBuilder();
-        if (this.f10100a.c != 0) {
-            sb.append(this.f10100a.f9730b);
+        if (this.f10101a.c != 0) {
+            sb.append(this.f10101a.f9731b);
             sb.append("   ");
         }
-        if (this.f10100a.j != 0) {
+        if (this.f10101a.j != 0) {
             sb.append(ag.a(this.h.baseInfo.commentCount, "0")).append(" 评论");
         }
         return sb.toString();
@@ -144,7 +144,7 @@ public class EntryTyp4View extends a {
     @Override // com.kwad.sdk.entry.view.a
     public int getEntrySourcePos() {
         int entrySourcePos = super.getEntrySourcePos();
-        return entrySourcePos == 0 ? this.f10100a.j : entrySourcePos;
+        return entrySourcePos == 0 ? this.f10101a.j : entrySourcePos;
     }
 
     @Override // com.kwad.sdk.entry.view.a

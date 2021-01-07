@@ -8,10 +8,10 @@ import org.json.JSONObject;
 public class b implements IXAdProdInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    private d f3557a;
+    private d f3558a;
 
     /* renamed from: b  reason: collision with root package name */
-    private IXAdConstants4PDK.SlotType f3558b;
+    private IXAdConstants4PDK.SlotType f3559b;
     private JSONObject c;
     private boolean d = false;
 
@@ -26,7 +26,7 @@ public class b implements IXAdProdInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
     public int getApt() {
-        return this.f3557a.getApt();
+        return this.f3558a.getApt();
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
@@ -35,33 +35,33 @@ public class b implements IXAdProdInfo {
     }
 
     public b(d dVar, IXAdConstants4PDK.SlotType slotType) {
-        this.f3557a = dVar;
-        this.f3558b = slotType;
+        this.f3558a = dVar;
+        this.f3559b = slotType;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
     public int getRequestAdWidth() {
-        return this.f3557a.getW();
+        return this.f3558a.getW();
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
     public int getRequestAdHeight() {
-        return this.f3557a.getH();
+        return this.f3558a.getH();
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
     public String getAdPlacementId() {
-        return this.f3557a.getApid();
+        return this.f3558a.getApid();
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
     public String getProdType() {
-        return this.f3557a.getProd();
+        return this.f3558a.getProd();
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
     public IXAdConstants4PDK.SlotType getType() {
-        return this.f3558b;
+        return this.f3559b;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
@@ -80,6 +80,6 @@ public class b implements IXAdProdInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
     public String getAdRequestURL() {
-        return this.f3557a.b();
+        return this.f3558a.b();
     }
 }

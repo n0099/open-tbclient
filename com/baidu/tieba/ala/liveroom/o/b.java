@@ -75,9 +75,9 @@ public class b {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() instanceof String) {
-                b.this.HC((String) customResponsedMessage.getData());
+                b.this.HB((String) customResponsedMessage.getData());
             } else {
-                b.this.cjv();
+                b.this.cjw();
             }
         }
     };
@@ -162,15 +162,15 @@ public class b {
     public void op(boolean z) {
         if (TbadkCoreApplication.sAlaLiveSwitchData == null || (!TbadkCoreApplication.sAlaLiveSwitchData.isFollowBtnUnabled() && !TbadkCoreApplication.sAlaLiveSwitchData.isGuardFansUnabled())) {
             if (!z || this.bkK) {
-                cjk();
+                cjl();
             } else {
                 if (this.hrb != null) {
                     this.hrb.onClick();
                 }
-                cjl();
+                cjm();
             }
         } else if (TbadkCoreApplication.sAlaLiveSwitchData != null && !TbadkCoreApplication.sAlaLiveSwitchData.isFollowBtnUnabled() && TbadkCoreApplication.sAlaLiveSwitchData.isGuardFansUnabled()) {
-            cje();
+            cjf();
         }
         if (!this.isHost && this.hFF != null && this.hFF.mLiveInfo != null && this.hFF.aKu != null) {
             long j = this.hFF.aKu.userId;
@@ -181,7 +181,7 @@ public class b {
         }
     }
 
-    private void cjk() {
+    private void cjl() {
         this.hFw.setVisibility(8);
         this.hFz.setAlpha(1.0f);
         this.hFz.setScaleX(1.0f);
@@ -193,33 +193,33 @@ public class b {
         this.hFC.setVisibility(0);
     }
 
-    public void cje() {
+    public void cjf() {
         this.hFD.setVisibility(4);
     }
 
-    private void cjl() {
+    private void cjm() {
         if (!this.hFH && this.hFz.getVisibility() != 0) {
             this.hFH = true;
-            this.hFS = cju();
-            this.hFR = cjt();
+            this.hFS = cjv();
+            this.hFR = cju();
             this.hFQ = new AnimatorSet();
             this.hFQ.play(this.hFR).after(this.hFS);
             this.hFP = c(this.hFQ);
-            ValueAnimator cjr = cjr();
-            ObjectAnimator cjs = cjs();
+            ValueAnimator cjs = cjs();
+            ObjectAnimator cjt = cjt();
             this.hFO = new AnimatorSet();
             this.hFO.setStartDelay(IMConnection.RETRY_DELAY_TIMES);
-            this.hFO.play(cjs).with(cjr);
+            this.hFO.play(cjt).with(cjs);
+            ObjectAnimator cjr = cjr();
             ObjectAnimator cjq = cjq();
-            ObjectAnimator cjp = cjp();
             this.hFN = new AnimatorSet();
             this.hFN.setStartDelay(958L);
-            this.hFN.play(cjp).with(cjq);
-            this.hFM = cjo();
-            AnimatorSet cjn = cjn();
+            this.hFN.play(cjq).with(cjr);
+            this.hFM = cjp();
+            AnimatorSet cjo = cjo();
             AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.play(cjn).after(this.hFM);
-            this.hFL = cjm();
+            animatorSet.play(cjo).after(this.hFM);
+            this.hFL = cjn();
             AnimatorSet a2 = a(animatorSet);
             this.hFK = new AnimatorSet();
             this.hFK.play(a2).after(this.hFL);
@@ -245,7 +245,7 @@ public class b {
         return animatorSet2;
     }
 
-    private AnimatorSet cjm() {
+    private AnimatorSet cjn() {
         ObjectAnimator duration = ObjectAnimator.ofFloat(this.hFw, "scaleX", 1.0f, 1.15f).setDuration(42L);
         ObjectAnimator duration2 = ObjectAnimator.ofFloat(this.hFw, "scaleY", 1.0f, 1.15f).setDuration(42L);
         AnimatorSet animatorSet = new AnimatorSet();
@@ -261,7 +261,7 @@ public class b {
         return animatorSet;
     }
 
-    private AnimatorSet cjn() {
+    private AnimatorSet cjo() {
         ObjectAnimator duration = ObjectAnimator.ofFloat(this.hFB, "scaleX", 1.15f, 1.0f).setDuration(42L);
         ObjectAnimator duration2 = ObjectAnimator.ofFloat(this.hFB, "scaleY", 1.15f, 1.0f).setDuration(42L);
         AnimatorSet animatorSet = new AnimatorSet();
@@ -276,7 +276,7 @@ public class b {
         return animatorSet;
     }
 
-    private AnimatorSet cjo() {
+    private AnimatorSet cjp() {
         ObjectAnimator duration = ObjectAnimator.ofFloat(this.hFB, "scaleX", 0.0f, 1.15f).setDuration(210L);
         ObjectAnimator duration2 = ObjectAnimator.ofFloat(this.hFB, "scaleY", 0.0f, 1.15f).setDuration(210L);
         AnimatorSet animatorSet = new AnimatorSet();
@@ -298,7 +298,7 @@ public class b {
         return animatorSet;
     }
 
-    private ObjectAnimator cjp() {
+    private ObjectAnimator cjq() {
         this.hFT = this.hFC.getTranslationX();
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.hFC, "translationX", this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds180) + this.hFT, this.hFT);
         ofFloat.setDuration(375L);
@@ -320,7 +320,7 @@ public class b {
         return ofFloat;
     }
 
-    private ObjectAnimator cjq() {
+    private ObjectAnimator cjr() {
         ObjectAnimator duration = ObjectAnimator.ofFloat(this.hFE, "alpha", 0.0f, 1.0f).setDuration(210L);
         duration.setStartDelay(165L);
         duration.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.liveroom.o.b.12
@@ -333,7 +333,7 @@ public class b {
         return duration;
     }
 
-    private ValueAnimator cjr() {
+    private ValueAnimator cjs() {
         ValueAnimator ofInt = ValueAnimator.ofInt(this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds180), this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds88));
         ofInt.setInterpolator(new FastOutLinearInInterpolator());
         ofInt.setDuration(542L);
@@ -361,7 +361,7 @@ public class b {
         }
     }
 
-    private ObjectAnimator cjs() {
+    private ObjectAnimator cjt() {
         ObjectAnimator duration = ObjectAnimator.ofFloat(this.hFE, "alpha", 1.0f, 0.0f).setDuration(210L);
         duration.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.liveroom.o.b.2
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -382,7 +382,7 @@ public class b {
         return animatorSet2;
     }
 
-    private AnimatorSet cjt() {
+    private AnimatorSet cju() {
         ObjectAnimator duration = ObjectAnimator.ofFloat(this.hFz, "scaleX", 1.15f, 1.0f).setDuration(84L);
         ObjectAnimator duration2 = ObjectAnimator.ofFloat(this.hFz, "scaleY", 1.15f, 1.0f).setDuration(84L);
         AnimatorSet animatorSet = new AnimatorSet();
@@ -400,7 +400,7 @@ public class b {
         return animatorSet;
     }
 
-    private AnimatorSet cju() {
+    private AnimatorSet cjv() {
         ObjectAnimator duration = ObjectAnimator.ofFloat(this.hFz, "scaleX", 0.0f, 1.15f).setDuration(292L);
         ObjectAnimator duration2 = ObjectAnimator.ofFloat(this.hFz, "scaleY", 0.0f, 1.15f).setDuration(292L);
         AnimatorSet animatorSet = new AnimatorSet();
@@ -422,7 +422,7 @@ public class b {
         return animatorSet;
     }
 
-    public void cjd() {
+    public void cje() {
         if (this.hFH) {
             this.hFH = false;
             cancelAnimation();
@@ -468,7 +468,7 @@ public class b {
             this.hFC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.o.b.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.cjv();
+                    b.this.cjw();
                     if (!z && b.this.hFF != null && b.this.hFF.mLiveInfo != null) {
                         LogManager.getGuardClubLogger().doClickLiveGuardButtonLog(b.this.hFF.mLiveInfo.live_id + "", b.this.hFF.mLiveInfo.room_id + "", b.this.hFF.mLiveInfo.feed_id, str);
                     }
@@ -478,12 +478,12 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjv() {
-        HC(null);
+    public void cjw() {
+        HB(null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HC(String str) {
+    public void HB(String str) {
         if (this.mContext != null && this.hFF != null && this.hFF.aKu != null && this.hFF.mLiveInfo != null) {
             long j = this.hFF.aKu.userId;
             long j2 = this.hFF.mLiveInfo.live_id;
@@ -500,10 +500,10 @@ public class b {
         }
     }
 
-    public void cjh() {
+    public void cji() {
         cancelAnimation();
         if (this.hFH) {
-            cjk();
+            cjl();
             this.hFH = false;
         }
         setLevel(0);
@@ -577,7 +577,7 @@ public class b {
         }
     }
 
-    public HeadImageView cjw() {
+    public HeadImageView cjx() {
         return this.hFv;
     }
 }

@@ -20,10 +20,10 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f7961a = null;
+    private static String f7962a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f7962b = null;
+    private static String f7963b = null;
     private static Class<?> c = null;
     private static Field pql = null;
     private static Field pqm = null;
@@ -99,21 +99,21 @@ public final class a {
 
     public static boolean c(Context context) {
         String d = d(context);
-        if (f7962b == null) {
+        if (f7963b == null) {
             try {
-                f7962b = context.getPackageManager().getServiceInfo(new ComponentName(context, CrashUploadService.class), 65536).processName;
-                f7962b = f7962b.substring(f7962b.lastIndexOf(":"));
+                f7963b = context.getPackageManager().getServiceInfo(new ComponentName(context, CrashUploadService.class), 65536).processName;
+                f7963b = f7963b.substring(f7963b.lastIndexOf(":"));
             } catch (Throwable th) {
                 th.printStackTrace();
-                f7962b = ":npth";
+                f7963b = ":npth";
             }
         }
-        return d != null && d.endsWith(f7962b);
+        return d != null && d.endsWith(f7963b);
     }
 
     @Nullable
     public static String d(Context context) {
-        String str = f7961a;
+        String str = f7962a;
         if (TextUtils.isEmpty(str)) {
             try {
                 int myPid = Process.myPid();
@@ -121,19 +121,19 @@ public final class a {
                 if (activityManager != null) {
                     for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : activityManager.getRunningAppProcesses()) {
                         if (runningAppProcessInfo.pid == myPid) {
-                            f7961a = runningAppProcessInfo.processName;
-                            return f7961a;
+                            f7962a = runningAppProcessInfo.processName;
+                            return f7962a;
                         }
                     }
                 }
             } catch (Throwable th) {
                 j.b(th);
             }
-            f7961a = a();
-            if (f7961a == null) {
+            f7962a = a();
+            if (f7962a == null) {
                 return "";
             }
-            return f7961a;
+            return f7962a;
         }
         return str;
     }

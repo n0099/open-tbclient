@@ -52,7 +52,7 @@ public class EntryLinearView extends a {
     @Override // com.kwad.sdk.entry.view.a
     protected boolean b() {
         this.c.clear();
-        this.f = this.f10100a.k;
+        this.f = this.f10101a.k;
         for (AdTemplate adTemplate : this.f) {
             if (!adTemplate.needHide) {
                 this.c.add(adTemplate);
@@ -65,13 +65,13 @@ public class EntryLinearView extends a {
             setVisibility(8);
             return false;
         }
-        this.d.a(0, this.f10100a.e);
-        this.d.a(this.c.get(0), this.f10100a);
-        this.d.setLikeViewPos(this.f10100a.d);
+        this.d.a(0, this.f10101a.e);
+        this.d.a(this.c.get(0), this.f10101a);
+        this.d.setLikeViewPos(this.f10101a.d);
         this.d.setAdShowStyle(1);
-        this.e.a(1, this.f10100a.e);
-        this.e.a(this.c.get(1), this.f10100a);
-        this.e.setLikeViewPos(this.f10100a.d);
+        this.e.a(1, this.f10101a.e);
+        this.e.a(this.c.get(1), this.f10101a);
+        this.e.setLikeViewPos(this.f10101a.d);
         this.e.setAdShowStyle(1);
         setVisibility(0);
         return true;

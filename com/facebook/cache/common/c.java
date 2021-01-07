@@ -3,7 +3,7 @@ package com.facebook.cache.common;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class c {
     public static List<String> a(b bVar) {
         try {
@@ -32,6 +32,6 @@ public final class c {
     }
 
     private static String c(b bVar) throws UnsupportedEncodingException {
-        return com.facebook.common.util.b.an(bVar.etj().getBytes("UTF-8"));
+        return com.facebook.common.util.b.an(bVar.etn().getBytes("UTF-8"));
     }
 }

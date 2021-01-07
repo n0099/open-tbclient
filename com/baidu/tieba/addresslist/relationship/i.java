@@ -15,8 +15,8 @@ public class i extends BdAsyncTask<Void, Void, Void> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Void... voidArr) {
-        if (!f.bPD().a(this.gmr)) {
-            com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), true);
+        if (!f.bPE().a(this.gmr)) {
+            com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), true);
             return null;
         }
         return null;

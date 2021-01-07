@@ -9,11 +9,11 @@ public class a {
         this.oPa = str;
     }
 
-    public EncryptAlgorithm ejT() {
+    public EncryptAlgorithm ejU() {
         return this.oOZ;
     }
 
-    public String ejU() {
+    public String ejV() {
         return this.oPa;
     }
 }

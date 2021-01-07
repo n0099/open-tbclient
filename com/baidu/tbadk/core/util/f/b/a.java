@@ -42,7 +42,7 @@ public class a extends Drawable {
         this.bjn.setAntiAlias(true);
     }
 
-    public static a bxe() {
+    public static a bxf() {
         return new a();
     }
 

@@ -16,7 +16,7 @@ public class c {
     private com.baidu.adp.lib.d.b<com.baidu.tbadk.widget.largeImage.a.a> fIx;
     private com.baidu.tbadk.widget.largeImage.b.b fIy;
 
-    public static c bGp() {
+    public static c bGq() {
         return fIt;
     }
 
@@ -167,11 +167,11 @@ public class c {
         this.fIv.remove(str);
     }
 
-    public com.baidu.adp.widget.ImageView.a Ee(String str) {
+    public com.baidu.adp.widget.ImageView.a Ed(String str) {
         return this.fIu.get(str);
     }
 
-    public com.baidu.adp.widget.ImageView.a Ef(String str) {
+    public com.baidu.adp.widget.ImageView.a Ee(String str) {
         return this.fIv.get(str);
     }
 

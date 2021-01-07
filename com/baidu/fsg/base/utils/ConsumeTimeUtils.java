@@ -5,25 +5,25 @@ import android.os.SystemClock;
 public class ConsumeTimeUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    TimeResult f2017a;
+    TimeResult f2018a;
 
     /* renamed from: b  reason: collision with root package name */
-    String f2018b = "ConsumeTime";
+    String f2019b = "ConsumeTime";
     private String c;
 
     public ConsumeTimeUtils start() {
-        this.f2017a = new TimeResult();
-        this.f2017a.f2019a = SystemClock.uptimeMillis();
+        this.f2018a = new TimeResult();
+        this.f2018a.f2020a = SystemClock.uptimeMillis();
         return this;
     }
 
     public TimeResult finish() {
-        this.f2017a.f2020b = SystemClock.uptimeMillis();
-        return this.f2017a;
+        this.f2018a.f2021b = SystemClock.uptimeMillis();
+        return this.f2018a;
     }
 
     public void setTAGString(String str) {
-        this.f2018b = str;
+        this.f2019b = str;
     }
 
     public void setPrefix(String str) {
@@ -34,10 +34,10 @@ public class ConsumeTimeUtils {
     public final class TimeResult {
 
         /* renamed from: a  reason: collision with root package name */
-        long f2019a = 0;
+        long f2020a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        long f2020b = 0;
+        long f2021b = 0;
         long c = 0;
         int d = 0;
 
@@ -45,15 +45,15 @@ public class ConsumeTimeUtils {
         }
 
         public long getStartTime() {
-            return this.f2019a;
+            return this.f2020a;
         }
 
         public long getEndTime() {
-            return this.f2020b;
+            return this.f2021b;
         }
 
         public long getDurationMesc() {
-            return this.f2020b - this.f2019a;
+            return this.f2021b - this.f2020a;
         }
 
         public int getDurationSecond() {
@@ -62,7 +62,7 @@ public class ConsumeTimeUtils {
 
         public String toString() {
             String buildLog = buildLog();
-            LogUtil.v(ConsumeTimeUtils.this.f2018b, buildLog);
+            LogUtil.v(ConsumeTimeUtils.this.f2019b, buildLog);
             return buildLog;
         }
 
@@ -76,23 +76,23 @@ public class ConsumeTimeUtils {
         }
 
         public void logv() {
-            LogUtil.v(ConsumeTimeUtils.this.f2018b, buildLog());
+            LogUtil.v(ConsumeTimeUtils.this.f2019b, buildLog());
         }
 
         public void logd() {
-            LogUtil.d(ConsumeTimeUtils.this.f2018b, buildLog());
+            LogUtil.d(ConsumeTimeUtils.this.f2019b, buildLog());
         }
 
         public void logi() {
-            LogUtil.i(ConsumeTimeUtils.this.f2018b, buildLog());
+            LogUtil.i(ConsumeTimeUtils.this.f2019b, buildLog());
         }
 
         public void logw() {
-            LogUtil.w(ConsumeTimeUtils.this.f2018b, buildLog());
+            LogUtil.w(ConsumeTimeUtils.this.f2019b, buildLog());
         }
 
         public void loge() {
-            LogUtil.e(ConsumeTimeUtils.this.f2018b, buildLog(), new Throwable());
+            LogUtil.e(ConsumeTimeUtils.this.f2019b, buildLog(), new Throwable());
         }
     }
 }

@@ -23,10 +23,10 @@ import java.util.List;
 public class LandingDislikeDialog extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f7311a;
+    private View f7312a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f7312b;
+    private TextView f7313b;
     private TTDislikeListView c;
     private b d;
     private l e;
@@ -73,12 +73,12 @@ public class LandingDislikeDialog extends FrameLayout {
             }
         });
         setBackgroundColor(Color.parseColor("#80000000"));
-        this.f7311a = LayoutInflater.from(context).inflate(ac.f(context, "tt_dislike_dialog_layout2"), (ViewGroup) this, false);
+        this.f7312a = LayoutInflater.from(context).inflate(ac.f(context, "tt_dislike_dialog_layout2"), (ViewGroup) this, false);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
         layoutParams.width = ak.c(getContext(), 345.0f);
-        this.f7311a.setLayoutParams(layoutParams);
-        this.f7311a.setClickable(true);
+        this.f7312a.setLayoutParams(layoutParams);
+        this.f7312a.setClickable(true);
         c();
         b();
     }
@@ -92,8 +92,8 @@ public class LandingDislikeDialog extends FrameLayout {
     }
 
     private void c() {
-        this.f7312b = (TextView) this.f7311a.findViewById(ac.e(getContext(), "tt_edit_suggestion"));
-        this.f7312b.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.LandingDislikeDialog.2
+        this.f7313b = (TextView) this.f7312a.findViewById(ac.e(getContext(), "tt_edit_suggestion"));
+        this.f7313b.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.LandingDislikeDialog.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (LandingDislikeDialog.this.f != null) {
@@ -102,7 +102,7 @@ public class LandingDislikeDialog extends FrameLayout {
                 }
             }
         });
-        this.c = (TTDislikeListView) this.f7311a.findViewById(ac.e(getContext(), "tt_filer_words_lv"));
+        this.c = (TTDislikeListView) this.f7312a.findViewById(ac.e(getContext(), "tt_filer_words_lv"));
         this.c.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.LandingDislikeDialog.3
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
@@ -118,8 +118,8 @@ public class LandingDislikeDialog extends FrameLayout {
     }
 
     public void a() {
-        if (this.f7311a.getParent() == null) {
-            addView(this.f7311a);
+        if (this.f7312a.getParent() == null) {
+            addView(this.f7312a);
         }
         d();
         setVisibility(0);
@@ -151,7 +151,7 @@ public class LandingDislikeDialog extends FrameLayout {
     public class b extends BaseAdapter {
 
         /* renamed from: b  reason: collision with root package name */
-        private boolean f7317b = true;
+        private boolean f7318b = true;
         private final List<FilterWord> c;
         private final LayoutInflater d;
 
@@ -184,36 +184,36 @@ public class LandingDislikeDialog extends FrameLayout {
             if (view == null) {
                 a aVar2 = new a();
                 view = this.d.inflate(ac.f(this.d.getContext(), "tt_dialog_listview_item"), viewGroup, false);
-                aVar2.f7318a = (TextView) view.findViewById(ac.e(this.d.getContext(), "tt_item_tv"));
-                aVar2.f7319b = (FlowLayout) view.findViewById(ac.e(this.d.getContext(), "tt_item_tv_son"));
+                aVar2.f7319a = (TextView) view.findViewById(ac.e(this.d.getContext(), "tt_item_tv"));
+                aVar2.f7320b = (FlowLayout) view.findViewById(ac.e(this.d.getContext(), "tt_item_tv_son"));
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
             FilterWord filterWord = this.c.get(i);
-            aVar.f7318a.setText(filterWord.getName());
+            aVar.f7319a.setText(filterWord.getName());
             if (!filterWord.hasSecondOptions()) {
                 if (i != this.c.size() - 1) {
-                    aVar.f7318a.setBackgroundResource(ac.d(this.d.getContext(), "tt_dislike_middle_seletor"));
+                    aVar.f7319a.setBackgroundResource(ac.d(this.d.getContext(), "tt_dislike_middle_seletor"));
                 } else {
-                    aVar.f7318a.setBackgroundResource(ac.d(this.d.getContext(), "tt_dislike_bottom_seletor"));
+                    aVar.f7319a.setBackgroundResource(ac.d(this.d.getContext(), "tt_dislike_bottom_seletor"));
                 }
             }
-            if (this.f7317b && i == 0) {
-                aVar.f7318a.setBackgroundResource(ac.d(this.d.getContext(), "tt_dislike_top_seletor"));
+            if (this.f7318b && i == 0) {
+                aVar.f7319a.setBackgroundResource(ac.d(this.d.getContext(), "tt_dislike_top_seletor"));
             }
             if (filterWord.hasSecondOptions()) {
-                aVar.f7319b.removeAllViews();
+                aVar.f7320b.removeAllViews();
                 for (int i2 = 0; i2 < filterWord.getOptions().size(); i2++) {
-                    TextView textView = (TextView) this.d.inflate(ac.f(this.d.getContext(), "tt_dislike_flowlayout_tv"), (ViewGroup) aVar.f7319b, false);
+                    TextView textView = (TextView) this.d.inflate(ac.f(this.d.getContext(), "tt_dislike_flowlayout_tv"), (ViewGroup) aVar.f7320b, false);
                     textView.setText(filterWord.getOptions().get(i2).getName());
                     textView.setOnClickListener(new c(filterWord.getOptions().get(i2), i2));
-                    aVar.f7319b.addView(textView);
+                    aVar.f7320b.addView(textView);
                 }
-                aVar.f7319b.setVisibility(0);
+                aVar.f7320b.setVisibility(0);
             } else {
-                aVar.f7319b.setVisibility(8);
+                aVar.f7320b.setVisibility(8);
             }
             return view;
         }
@@ -222,10 +222,10 @@ public class LandingDislikeDialog extends FrameLayout {
         private class a {
 
             /* renamed from: a  reason: collision with root package name */
-            TextView f7318a;
+            TextView f7319a;
 
             /* renamed from: b  reason: collision with root package name */
-            FlowLayout f7319b;
+            FlowLayout f7320b;
 
             private a() {
             }
@@ -236,19 +236,19 @@ public class LandingDislikeDialog extends FrameLayout {
     private class c implements View.OnClickListener {
 
         /* renamed from: b  reason: collision with root package name */
-        private FilterWord f7321b;
+        private FilterWord f7322b;
         private int c;
 
         public c(FilterWord filterWord, int i) {
-            this.f7321b = filterWord;
+            this.f7322b = filterWord;
             this.c = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            LandingDislikeDialog.this.f.a(this.c, this.f7321b);
+            LandingDislikeDialog.this.f.a(this.c, this.f7322b);
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f7321b);
+            arrayList.add(this.f7322b);
             com.bytedance.sdk.openadsdk.c.d.a(LandingDislikeDialog.this.e, arrayList);
             LandingDislikeDialog.this.a(true);
         }

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccountManager;
 /* loaded from: classes11.dex */
 public class a {
-    private static String mvl = "";
+    private static String mvk = "";
     private static String oUs = "";
     private static String oUt = "";
     private static String mDisplayName = "";
@@ -13,7 +13,7 @@ public class a {
         return SapiAccountManager.getInstance().getSession("bduss");
     }
 
-    public static String elk() {
+    public static String ell() {
         return SapiAccountManager.getInstance().getSession("uid");
     }
 

@@ -3,8 +3,8 @@ package com.baidu.sofire.i;
 public final class t {
 
     /* renamed from: a  reason: collision with root package name */
-    String f5563a;
+    String f5564a;
 
     /* renamed from: b  reason: collision with root package name */
-    long f5564b;
+    long f5565b;
 }

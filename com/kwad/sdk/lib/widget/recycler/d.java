@@ -15,10 +15,10 @@ import java.util.Set;
 public class d extends RecyclerView.Adapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private final a f10753a;
+    private final a f10754a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final a f10754b;
+    private final a f10755b;
     private RecyclerView.Adapter c;
     private final RecyclerView.AdapterDataObserver d;
     private RecyclerView.AdapterDataObserver e;
@@ -38,64 +38,64 @@ public class d extends RecyclerView.Adapter {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final SparseArray<View> f10759a;
+        public final SparseArray<View> f10760a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f10760b;
+        public int f10761b;
 
         a() {
             this(null);
         }
 
         a(List<View> list) {
-            this.f10759a = new SparseArray<>();
-            this.f10760b = 0;
+            this.f10760a = new SparseArray<>();
+            this.f10761b = 0;
             if (list != null) {
                 for (View view : list) {
-                    SparseArray<View> sparseArray = this.f10759a;
-                    int i = this.f10760b;
-                    this.f10760b = i + 1;
+                    SparseArray<View> sparseArray = this.f10760a;
+                    int i = this.f10761b;
+                    this.f10761b = i + 1;
                     sparseArray.put(i, view);
                 }
             }
         }
 
         int a() {
-            return this.f10759a.size();
+            return this.f10760a.size();
         }
 
         View a(int i) {
-            return this.f10759a.get(i);
+            return this.f10760a.get(i);
         }
 
         boolean a(View view) {
-            return this.f10759a.indexOfValue(view) >= 0;
+            return this.f10760a.indexOfValue(view) >= 0;
         }
 
         int b(int i) {
-            if (i < 0 || i >= this.f10759a.size()) {
+            if (i < 0 || i >= this.f10760a.size()) {
                 return -1;
             }
-            return this.f10759a.keyAt(i);
+            return this.f10760a.keyAt(i);
         }
 
         boolean b(View view) {
             if (a(view)) {
                 return false;
             }
-            SparseArray<View> sparseArray = this.f10759a;
-            int i = this.f10760b;
-            this.f10760b = i + 1;
+            SparseArray<View> sparseArray = this.f10760a;
+            int i = this.f10761b;
+            this.f10761b = i + 1;
             sparseArray.put(i, view);
             return true;
         }
 
         boolean c(View view) {
-            int indexOfValue = this.f10759a.indexOfValue(view);
+            int indexOfValue = this.f10760a.indexOfValue(view);
             if (indexOfValue < 0) {
                 return false;
             }
-            this.f10759a.removeAt(indexOfValue);
+            this.f10760a.removeAt(indexOfValue);
             return true;
         }
     }
@@ -112,8 +112,8 @@ public class d extends RecyclerView.Adapter {
         this.n = true;
         this.o = new HashSet();
         this.c = adapter;
-        this.f10753a = new a(list);
-        this.f10754b = new a(list2);
+        this.f10754a = new a(list);
+        this.f10755b = new a(list2);
         this.d = new RecyclerView.AdapterDataObserver() { // from class: com.kwad.sdk.lib.widget.recycler.d.1
             private void a(int i) {
                 try {
@@ -242,7 +242,7 @@ public class d extends RecyclerView.Adapter {
     }
 
     public int a() {
-        return this.g != null ? this.g.getItemCount() : this.f10753a.a();
+        return this.g != null ? this.g.getItemCount() : this.f10754a.a();
     }
 
     public void a(View view, @Nullable ViewGroup.LayoutParams layoutParams) {
@@ -252,7 +252,7 @@ public class d extends RecyclerView.Adapter {
         if (layoutParams != null) {
             view.setLayoutParams(layoutParams);
         }
-        if (this.f10753a.b(view)) {
+        if (this.f10754a.b(view)) {
             e();
         }
         d();
@@ -288,7 +288,7 @@ public class d extends RecyclerView.Adapter {
     }
 
     public boolean a(View view) {
-        boolean c = this.f10754b.c(view);
+        boolean c = this.f10755b.c(view);
         if (c) {
             e();
         }
@@ -296,7 +296,7 @@ public class d extends RecyclerView.Adapter {
     }
 
     public int b() {
-        return this.h != null ? this.h.getItemCount() : this.f10754b.a();
+        return this.h != null ? this.h.getItemCount() : this.f10755b.a();
     }
 
     public void b(View view) {
@@ -307,13 +307,13 @@ public class d extends RecyclerView.Adapter {
         if (view == null) {
             throw new IllegalArgumentException("the view to add must not be null!");
         }
-        if ((view.getParent() instanceof ViewGroup) && view.getParent() != this.f10754b) {
+        if ((view.getParent() instanceof ViewGroup) && view.getParent() != this.f10755b) {
             ((ViewGroup) view.getParent()).removeView(view);
         }
         if (layoutParams != null) {
             view.setLayoutParams(layoutParams);
         }
-        if (this.f10754b.b(view)) {
+        if (this.f10755b.b(view)) {
             e();
         }
     }
@@ -339,7 +339,7 @@ public class d extends RecyclerView.Adapter {
     }
 
     public boolean d(View view) {
-        return this.f10754b.a(view);
+        return this.f10755b.a(view);
     }
 
     public int e(int i) {
@@ -347,7 +347,7 @@ public class d extends RecyclerView.Adapter {
     }
 
     public boolean e(View view) {
-        return this.f10753a.a(view);
+        return this.f10754a.a(view);
     }
 
     public int f(int i) {
@@ -367,12 +367,12 @@ public class d extends RecyclerView.Adapter {
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
         if (a(i)) {
-            int itemViewType = (this.g != null ? this.g.getItemViewType(i) : this.f10753a.b(i)) - 1024;
+            int itemViewType = (this.g != null ? this.g.getItemViewType(i) : this.f10754a.b(i)) - 1024;
             this.j = Math.max(itemViewType, this.j);
             return itemViewType;
         } else if (b(i)) {
             int itemCount = (i - this.c.getItemCount()) - a();
-            int itemViewType2 = (this.h != null ? this.h.getItemViewType(itemCount) : this.f10754b.b(itemCount)) - 2048;
+            int itemViewType2 = (this.h != null ? this.h.getItemViewType(itemCount) : this.f10755b.b(itemCount)) - 2048;
             this.i = Math.max(itemViewType2, this.i);
             return itemViewType2;
         } else {
@@ -430,10 +430,10 @@ public class d extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         if (c(i)) {
             int f = f(i);
-            return this.g == null ? f(this.f10753a.a(f)) : this.g.onCreateViewHolder(viewGroup, f);
+            return this.g == null ? f(this.f10754a.a(f)) : this.g.onCreateViewHolder(viewGroup, f);
         } else if (d(i)) {
             int e = e(i);
-            return this.h == null ? f(this.f10754b.a(e)) : this.h.onCreateViewHolder(viewGroup, e);
+            return this.h == null ? f(this.f10755b.a(e)) : this.h.onCreateViewHolder(viewGroup, e);
         } else {
             return this.c.onCreateViewHolder(viewGroup, i);
         }

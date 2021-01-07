@@ -12,44 +12,44 @@ import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class b implements com.baidu.tieba.c.b, com.baidu.tieba.video.editvideo.b, b.a {
-    private SelectMusicModel nGM;
-    private com.baidu.tieba.video.editvideo.b.a nGO;
-    private BaseActivity nJm;
-    private com.baidu.tieba.video.b nJn;
-    private String nJo;
+    private SelectMusicModel nGL;
+    private com.baidu.tieba.video.editvideo.b.a nGN;
+    private BaseActivity nJl;
+    private com.baidu.tieba.video.b nJm;
+    private String nJn;
 
     public b(com.baidu.tieba.video.b bVar) {
-        this.nJn = bVar;
-        this.nJm = this.nJn.activity;
+        this.nJm = bVar;
+        this.nJl = this.nJm.activity;
     }
 
     @Override // com.baidu.tieba.c.b
     public void start() {
-        dUT();
+        dUU();
     }
 
     @Override // com.baidu.tieba.c.b
     public void cancel() {
-        if (this.nJn != null) {
-            this.nJn.yF(true);
+        if (this.nJm != null) {
+            this.nJm.yF(true);
         }
-        if (this.nGO != null && this.nGO.dUf()) {
-            this.nGO.dUg();
+        if (this.nGN != null && this.nGN.dUg()) {
+            this.nGN.dUh();
         }
     }
 
-    public void dUT() {
-        if (this.nJn != null) {
-            if (this.nJn.isCancel()) {
-                this.nJn.onCancel();
-                this.nJn = null;
-            } else if (!StringUtils.isNull(this.nJn.musicPath) || this.nJn.isMute) {
-                if (this.nGM == null) {
-                    this.nGM = new SelectMusicModel(this.nJm.getPageContext(), this);
+    public void dUU() {
+        if (this.nJm != null) {
+            if (this.nJm.isCancel()) {
+                this.nJm.onCancel();
+                this.nJm = null;
+            } else if (!StringUtils.isNull(this.nJm.musicPath) || this.nJm.isMute) {
+                if (this.nGL == null) {
+                    this.nGL = new SelectMusicModel(this.nJl.getPageContext(), this);
                 }
-                this.nGM.k(this.nJn.originPath, this.nJn.musicPath, com.baidu.tieba.video.c.nFh + "video_" + System.currentTimeMillis() + ".mp4", !this.nJn.isMute);
+                this.nGL.k(this.nJm.originPath, this.nJm.musicPath, com.baidu.tieba.video.c.nFg + "video_" + System.currentTimeMillis() + ".mp4", !this.nJm.isMute);
             } else {
-                u(this.nJn.originPath, -4399, "");
+                u(this.nJm.originPath, -4399, "");
             }
         }
     }
@@ -60,72 +60,72 @@ public class b implements com.baidu.tieba.c.b, com.baidu.tieba.video.editvideo.b
 
     @Override // com.baidu.tieba.video.editvideo.b
     public void u(String str, int i, String str2) {
-        if (this.nJn != null && this.nJn.isCancel()) {
-            this.nJn.onCancel();
-            this.nJn = null;
+        if (this.nJm != null && this.nJm.isCancel()) {
+            this.nJm.onCancel();
+            this.nJm = null;
         } else if (TextUtils.isEmpty(str)) {
-            this.nJm.showToast(R.string.mixing_fail);
-            if (this.nJn != null) {
-                this.nJn.bT(i, str2);
+            this.nJl.showToast(R.string.mixing_fail);
+            if (this.nJm != null) {
+                this.nJm.bT(i, str2);
             }
         } else {
-            if (this.nJn != null) {
-                this.nJn.dTv();
+            if (this.nJm != null) {
+                this.nJm.dTw();
             }
-            if (!StringUtils.isNull(this.nJn.filterName)) {
-                if (!at.equals(str, this.nJn.originPath)) {
-                    this.nJn.nFe = str;
+            if (!StringUtils.isNull(this.nJm.filterName)) {
+                if (!at.equals(str, this.nJm.originPath)) {
+                    this.nJm.nFd = str;
                 }
-                if (this.nGO == null) {
-                    this.nGO = new com.baidu.tieba.video.editvideo.b.a(this.nJm.getActivity());
-                    this.nGO.a(this);
+                if (this.nGN == null) {
+                    this.nGN = new com.baidu.tieba.video.editvideo.b.a(this.nJl.getActivity());
+                    this.nGN.a(this);
                 }
-                this.nGO.gz(str, this.nJn.filterName);
+                this.nGN.gz(str, this.nJm.filterName);
                 return;
             }
-            if (this.nJn != null) {
-                this.nJn.dTw();
+            if (this.nJm != null) {
+                this.nJm.dTx();
             }
-            UA(str);
+            Uz(str);
         }
     }
 
-    private void UA(String str) {
-        if (this.nJn != null) {
-            if (this.nJn.isCancel()) {
-                this.nJn.onCancel();
-                this.nJn = null;
+    private void Uz(String str) {
+        if (this.nJm != null) {
+            if (this.nJm.isCancel()) {
+                this.nJm.onCancel();
+                this.nJm = null;
                 return;
             }
-            this.nJo = str;
+            this.nJn = str;
             VideoInfo videoInfo = new VideoInfo();
-            videoInfo.setVideoPath(this.nJo);
-            videoInfo.setThumbPath(this.nJn.coverPath);
-            if (this.nJn != null) {
-                this.nJn.a(videoInfo);
+            videoInfo.setVideoPath(this.nJn);
+            videoInfo.setThumbPath(this.nJm.coverPath);
+            if (this.nJm != null) {
+                this.nJm.a(videoInfo);
             }
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
-    public void Us(String str) {
-        if (this.nJn != null) {
-            this.nJn.dTw();
+    public void Ur(String str) {
+        if (this.nJm != null) {
+            this.nJm.dTx();
         }
-        UA(str);
+        Uz(str);
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
     public void bV(int i, String str) {
-        if (this.nJn != null) {
-            this.nJn.bU(i, str);
+        if (this.nJm != null) {
+            this.nJm.bU(i, str);
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
     public void bW(int i, String str) {
-        if (this.nJn != null) {
-            this.nJn.bU(i, str);
+        if (this.nJm != null) {
+            this.nJm.bU(i, str);
         }
     }
 }

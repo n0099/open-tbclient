@@ -23,10 +23,10 @@ public class e {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void emR();
+        void emS();
     }
 
-    public static e emQ() {
+    public static e emR() {
         return new e();
     }
 
@@ -49,7 +49,7 @@ public class e {
             this.oYu.hideLoading();
         }
         this.oYu = new b(context);
-        this.oYu.Yw(str);
+        this.oYu.Yv(str);
     }
 
     public void bx(Context context, String str) {
@@ -57,7 +57,7 @@ public class e {
             this.oYu.hideLoading();
         }
         this.oYu = new b(context);
-        this.oYu.Yx(str);
+        this.oYu.Yw(str);
     }
 
     public void hideLoading() {
@@ -116,7 +116,7 @@ public class e {
                     Log.e("ToastDialog", e.getMessage());
                 }
                 if (e.this.oYv != null) {
-                    e.this.oYv.emR();
+                    e.this.oYv.emS();
                 }
                 e.this.oYv = null;
                 this.mHandler.removeCallbacks(this.mRunnable);
@@ -135,7 +135,7 @@ public class e {
             show();
         }
 
-        public void Yw(String str) {
+        public void Yv(String str) {
             this.oYw.setVisibility(8);
             this.oYx.setVisibility(8);
             setView(this.mView);
@@ -147,7 +147,7 @@ public class e {
             show();
         }
 
-        public void Yx(String str) {
+        public void Yw(String str) {
             this.oYw.setVisibility(8);
             this.mView.setMinimumHeight(f.dip2px(this.mContext, 104.0f));
             this.mView.setPadding(f.dip2px(this.mContext, 26.0f), 0, f.dip2px(this.mContext, 26.0f), 0);

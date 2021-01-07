@@ -3,15 +3,15 @@ package com.qq.e.comm.plugin.y;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.setting.SM;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final SM f13000a = GDTADManager.getInstance().getSM();
+    private static final SM f13001a = GDTADManager.getInstance().getSM();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int f13001b = new Random(System.currentTimeMillis()).nextInt(10000);
-    private static final int c = f13000a.getInteger("maxSingleSize", 1024);
+    private static final int f13002b = new Random(System.currentTimeMillis()).nextInt(10000);
+    private static final int c = f13001a.getInteger("maxSingleSize", 1024);
     private static final boolean d;
     private static final boolean e;
     private static final boolean f;
@@ -25,17 +25,17 @@ class h {
     private static final int n;
 
     static {
-        d = f13001b < f13000a.getInteger("perfRate", 0);
-        e = f13001b < f13000a.getInteger("eventRate", 0);
-        f = f13000a.getInteger("eventInstant", 0) == 1;
-        g = f13000a.getInteger("maxCount", 30);
-        h = f13000a.getInteger("perfInstant", 0) == 1;
-        i = f13000a.getInteger("perfPeriod", 600);
-        j = f13000a.getInteger("eventPeriod", 600);
-        k = f13000a.getInteger("perfBatchCount", 30);
-        l = f13000a.getInteger("eventBatchCount", 30);
-        m = f13000a.getInteger("perfNetPer", 30);
-        n = f13000a.getInteger("eventNetPer", 30);
+        d = f13002b < f13001a.getInteger("perfRate", 0);
+        e = f13002b < f13001a.getInteger("eventRate", 0);
+        f = f13001a.getInteger("eventInstant", 0) == 1;
+        g = f13001a.getInteger("maxCount", 30);
+        h = f13001a.getInteger("perfInstant", 0) == 1;
+        i = f13001a.getInteger("perfPeriod", 600);
+        j = f13001a.getInteger("eventPeriod", 600);
+        k = f13001a.getInteger("perfBatchCount", 30);
+        l = f13001a.getInteger("eventBatchCount", 30);
+        m = f13001a.getInteger("perfNetPer", 30);
+        n = f13001a.getInteger("eventNetPer", 30);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

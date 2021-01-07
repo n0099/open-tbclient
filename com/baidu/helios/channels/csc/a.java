@@ -1,25 +1,25 @@
 package com.baidu.helios.channels.csc;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static final byte[][] awV = {new byte[]{0, 0}, new byte[]{0, 1}, new byte[]{0, 2}, new byte[]{1, 0}, new byte[]{1, 1}, new byte[]{1, 2}, new byte[]{2, 0}, new byte[]{2, 1}};
 
     /* renamed from: com.baidu.helios.channels.csc.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class C0140a {
 
         /* renamed from: a  reason: collision with root package name */
-        private byte[] f2479a;
+        private byte[] f2480a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f2480b;
+        private int f2481b;
 
         public C0140a(byte[] bArr, int i) {
-            this.f2479a = bArr;
-            this.f2480b = i;
+            this.f2480a = bArr;
+            this.f2481b = i;
         }
 
         public byte[] a() {
-            return this.f2479a;
+            return this.f2480a;
         }
     }
 

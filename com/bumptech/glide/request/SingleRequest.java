@@ -22,7 +22,7 @@ import com.bumptech.glide.util.Util;
 import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class SingleRequest<R> implements Request, ResourceCallback, SizeReadyCallback, FactoryPools.Poolable {
     private static final String GLIDE_TAG = "Glide";
     private TransitionFactory<? super R> animationFactory;
@@ -67,7 +67,7 @@ public final class SingleRequest<R> implements Request, ResourceCallback, SizeRe
     private static final boolean IS_VERBOSE_LOGGABLE = Log.isLoggable(TAG, 2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum Status {
         PENDING,
         RUNNING,

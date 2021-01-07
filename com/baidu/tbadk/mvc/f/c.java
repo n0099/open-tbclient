@@ -93,7 +93,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
         return this.dataList.size();
     }
 
-    public int bHf() {
+    public int bHg() {
         if (this.dataList == null) {
             return 0;
         }
@@ -178,7 +178,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bHg() {
+    public void bHh() {
         if (this.fKP != null && this.fKO != null) {
             this.fKP.removeView(this.fKO);
             this.fKO = null;
@@ -186,7 +186,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View bHh() {
+    public View bHi() {
         if (this.fKP == null) {
             this.fKP = new FrameLayout(this.fKL.getPageActivity());
         }

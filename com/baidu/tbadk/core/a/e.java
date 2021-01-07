@@ -23,9 +23,9 @@ public class e {
     public static void a(PersonPrivateData personPrivateData) {
         if (personPrivateData != null) {
             String str = TbadkCoreApplication.getCurrentAccount() + "@2";
-            int bEc = personPrivateData.bEc();
+            int bEd = personPrivateData.bEd();
             if (!eMo.containsKey(str)) {
-                eMo.put(str, Integer.valueOf(bEc));
+                eMo.put(str, Integer.valueOf(bEd));
             }
         }
     }

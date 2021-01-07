@@ -25,7 +25,7 @@ public class b extends d {
     public void a() {
         super.a();
         final View b2 = b(R.id.ksad_play_detail_top_toolbar);
-        this.f10949a.o.add(new com.kwad.sdk.reward.a.d() { // from class: com.kwad.sdk.reward.b.b.b.1
+        this.f10950a.o.add(new com.kwad.sdk.reward.a.d() { // from class: com.kwad.sdk.reward.b.b.b.1
             @Override // com.kwad.sdk.reward.a.d
             public void a() {
                 b2.setVisibility(0);

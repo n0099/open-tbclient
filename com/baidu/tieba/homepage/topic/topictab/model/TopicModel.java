@@ -26,7 +26,7 @@ public class TopicModel extends BdBaseModel {
         registerListener(this.kfy);
     }
 
-    public void cUj() {
+    public void cUk() {
         if (!j.isNetworkAvailableForImmediately()) {
             if (this.kmC != null) {
                 this.kmC.o(-1, null);

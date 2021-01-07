@@ -33,7 +33,7 @@ public class SelectLocationActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected void bIm() {
+    protected void bIn() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -10,9 +10,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class j {
-    public static final boolean DEBUG = com.baidu.prologue.a.b.a.ctd.get().ago();
+    public static final boolean DEBUG = com.baidu.prologue.a.b.a.ctd.get().agp();
 
     public static boolean U(@NonNull Context context, @NonNull String str) {
         ResolveInfo next;

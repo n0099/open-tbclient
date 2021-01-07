@@ -34,7 +34,7 @@ public class m extends a<com.baidu.tbadk.core.data.a> {
     public void D(com.baidu.tbadk.core.data.a aVar) {
         if (this.ahs != null && aVar != null) {
             this.ahi = aVar;
-            this.ahs.setData(aVar.boO());
+            this.ahs.setData(aVar.boP());
         }
     }
 

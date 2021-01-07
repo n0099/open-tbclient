@@ -217,13 +217,13 @@ public class h {
         if (this.gGV.liveInfo.audienceCount <= 0) {
             this.gGS.setVisibility(8);
             if (this.gGT.getVisibility() == 0) {
-                bVi();
+                bVj();
             }
         } else {
             String dV = at.dV(this.gGV.liveInfo.audienceCount);
             this.gGS.setVisibility(0);
             this.gGS.setText(dV);
-            bVj();
+            bVk();
         }
         if (103 == this.tabType) {
             if (!StringUtils.isNull(this.gGV.title)) {
@@ -330,7 +330,7 @@ public class h {
         }
     }
 
-    private void bVi() {
+    private void bVj() {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.rightMargin = this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.M_W_X004);
         layoutParams.bottomMargin = 0;
@@ -338,7 +338,7 @@ public class h {
         this.gGT.setLayoutParams(layoutParams);
     }
 
-    private void bVj() {
+    private void bVk() {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.rightMargin = this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.M_W_X004);
         layoutParams.bottomMargin = this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.M_H_X002);

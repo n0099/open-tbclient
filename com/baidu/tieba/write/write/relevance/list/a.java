@@ -21,37 +21,37 @@ import java.util.List;
 public class a {
     private BdUniqueId ahE;
     private final String mCategory;
-    private InterfaceC0881a ohM;
-    private List<String> ohN;
+    private InterfaceC0919a ohL;
+    private List<String> ohM;
     private int mPageNum = 1;
     private HttpMessageListener mHttpMessageListener = new HttpMessageListener(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH) { // from class: com.baidu.tieba.write.write.relevance.list.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && a.this.ohM != null) {
+            if (httpResponsedMessage != null && a.this.ohL != null) {
                 if (httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == a.this.ahE) {
                     RelevanceItemSearchData responseData = httpResponsedMessage instanceof RelevanceItemSearchResponse ? ((RelevanceItemSearchResponse) httpResponsedMessage).getResponseData() : null;
                     if (responseData != null && responseData.getData() != null) {
-                        if (!x.equalList(a.this.ohN, responseData.getData().getTab_option())) {
-                            a.this.ohN = responseData.getData().getTab_option();
-                            MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(a.this.ohN));
+                        if (!x.equalList(a.this.ohM, responseData.getData().getTab_option())) {
+                            a.this.ohM = responseData.getData().getTab_option();
+                            MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(a.this.ohM));
                         }
                         if (httpResponsedMessage.getError() != 0) {
-                            a.this.ohM.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
-                            a.this.ebp();
+                            a.this.ohL.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                            a.this.ebq();
                             return;
                         } else if (x.isEmpty(responseData.getData().getItem_list())) {
                             if (a.this.mPageNum == 1) {
-                                a.this.ohM.ebm();
+                                a.this.ohL.ebn();
                                 return;
                             } else {
-                                a.this.ohM.ebn();
+                                a.this.ohL.ebo();
                                 return;
                             }
                         } else if (responseData != null) {
-                            a.this.ohM.a(responseData);
+                            a.this.ohL.a(responseData);
                             if (a.this.mPageNum == 1 && responseData.getData().getItem_list().size() < 20) {
-                                a.this.ohM.ebn();
+                                a.this.ohL.ebo();
                             }
                             a.e(a.this);
                             return;
@@ -60,8 +60,8 @@ public class a {
                         }
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(null));
-                    a.this.ohM.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
-                    a.this.ebp();
+                    a.this.ohL.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                    a.this.ebq();
                 }
             }
         }
@@ -69,12 +69,12 @@ public class a {
 
     /* renamed from: com.baidu.tieba.write.write.relevance.list.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0881a {
+    public interface InterfaceC0919a {
         void a(RelevanceItemSearchData relevanceItemSearchData);
 
-        void ebm();
-
         void ebn();
+
+        void ebo();
 
         void onError(int i, String str);
     }
@@ -89,11 +89,11 @@ public class a {
         this.ahE = bdUniqueId;
         this.mCategory = str;
         this.mHttpMessageListener.setTag(this.ahE);
-        buG();
+        buH();
         MessageManager.getInstance().registerListener(this.mHttpMessageListener);
     }
 
-    public void ebo() {
+    public void ebp() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
         httpMessage.addParam("tab_name", this.mCategory);
         httpMessage.addParam(Config.PACKAGE_NAME, this.mPageNum);
@@ -102,7 +102,7 @@ public class a {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private void buG() {
+    private void buH() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH, TbConfig.SERVER_ADDRESS + TbConfig.RELEVANCE_ITEM_SEARCH_URL);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RelevanceItemSearchResponse.class);
@@ -110,16 +110,16 @@ public class a {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void a(InterfaceC0881a interfaceC0881a) {
-        this.ohM = interfaceC0881a;
+    public void a(InterfaceC0919a interfaceC0919a) {
+        this.ohL = interfaceC0919a;
     }
 
-    public void VB(String str) {
-        ebp();
-        VC(str);
+    public void VA(String str) {
+        ebq();
+        VB(str);
     }
 
-    private void VC(String str) {
+    private void VB(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
         httpMessage.addParam("tab_name", this.mCategory);
         httpMessage.addParam("keyword", str);
@@ -134,7 +134,7 @@ public class a {
         MessageManager.getInstance().unRegisterListener(this.ahE);
     }
 
-    public void ebp() {
+    public void ebq() {
         this.mPageNum = 1;
     }
 }

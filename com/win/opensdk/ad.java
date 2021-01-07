@@ -11,117 +11,117 @@ import com.win.opensdk.w;
 public class ad {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f14017a;
+    private int f14018a;
 
     /* renamed from: case  reason: not valid java name */
-    private int f10case;
+    private int f11case;
 
     /* renamed from: case  reason: not valid java name and collision with other field name */
-    private String f11case;
-    private Context qbB;
-    public ae<Info> qcH;
-    private al.a qcI;
-    private boolean qce;
+    private String f12case;
+    private boolean qdM;
+    private Context qdj;
+    public ae<Info> qep;
+    private al.a qeq;
 
     /* renamed from: java  reason: collision with other field name */
-    private static final String f9java = ad.class.getSimpleName();
+    private static final String f10java = ad.class.getSimpleName();
     private static int java = 100101;
-    private boolean qbE = false;
-    private Handler qcJ = new Handler(Looper.getMainLooper()) { // from class: com.win.opensdk.ad.1
+    private boolean qdm = false;
+    private Handler qer = new Handler(Looper.getMainLooper()) { // from class: com.win.opensdk.ad.1
         @Override // android.os.Handler
         public final void handleMessage(Message message) {
             super.handleMessage(message);
             if (message.what == ad.java) {
-                ad.this.qcJ.removeMessages(ad.java);
-                int iS = az.iS(ad.this.qbB) * 1000;
-                w.a iM = w.iM(ad.this.qbB);
+                ad.this.qer.removeMessages(ad.java);
+                int iS = az.iS(ad.this.qdj) * 1000;
+                w.a iM = w.iM(ad.this.qdj);
                 x xVar = new x(null);
-                xVar.java = ad.this.f11case;
-                iM.a(xVar, iS, 2002, 0).eJL();
+                xVar.java = ad.this.f12case;
+                iM.a(xVar, iS, 2002, 0).eKp();
                 ad.this.a(PBError.TIMEOUT);
             }
         }
     };
-    private ac qcG = new ac();
+    private ac qeo = new ac();
 
     public ad(Context context, String str, int i) {
-        this.f14017a = 5;
-        this.qbB = context;
-        this.f11case = str;
-        this.f10case = i;
-        this.f14017a = az.iS(context);
+        this.f14018a = 5;
+        this.qdj = context;
+        this.f12case = str;
+        this.f11case = i;
+        this.f14018a = az.iS(context);
     }
 
-    public final void eJL() {
+    public final void eKp() {
         b();
-        this.qce = false;
-        if (!ax.bK(this.qbB, this.f11case)) {
-            w.iM(this.qbB).abP(this.f11case).eJL();
+        this.qdM = false;
+        if (!ax.bK(this.qdj, this.f12case)) {
+            w.iM(this.qdj).abQ(this.f12case).eKp();
             a(PBError.PID_INVALID);
             return;
         }
-        Info eJW = this.qcG.eJW();
-        if (eJW == null) {
+        Info eKA = this.qeo.eKA();
+        if (eKA == null) {
             a();
         } else {
-            a(eJW);
+            a(eKA);
         }
     }
 
-    public final void eJM() {
+    public final void eKq() {
         try {
-            if (this.qcI != null) {
-                this.qcI.a(null);
+            if (this.qeq != null) {
+                this.qeq.a(null);
             }
-            if (this.qcJ != null) {
-                this.qcJ.removeCallbacksAndMessages(null);
+            if (this.qer != null) {
+                this.qer.removeCallbacksAndMessages(null);
             }
-            if (this.qcG != null) {
-                this.qcG.eJL();
+            if (this.qeo != null) {
+                this.qeo.eKp();
             }
-            if (this.qcH != null) {
-                this.qcH = null;
+            if (this.qep != null) {
+                this.qep = null;
             }
         } catch (Exception e) {
         }
     }
 
     private void a() {
-        if (this.qbE) {
+        if (this.qdm) {
             a(PBError.LOAD_TOO_FREQUENTLY);
             return;
         }
-        this.qbE = true;
-        al.a aVar = new al.a(this.qbB);
-        aVar.java = this.f11case;
-        this.qcI = aVar.a(new r<bh>() { // from class: com.win.opensdk.ad.2
-            private long qbX = 0;
+        this.qdm = true;
+        al.a aVar = new al.a(this.qdj);
+        aVar.java = this.f12case;
+        this.qeq = aVar.a(new r<bh>() { // from class: com.win.opensdk.ad.2
+            private long qdF = 0;
 
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
             @Override // com.win.opensdk.r
-            public final /* synthetic */ void bG(bh bhVar) {
+            public final /* synthetic */ void bH(bh bhVar) {
                 Info info;
                 bh bhVar2 = bhVar;
-                ad.this.qcJ.removeMessages(ad.java);
-                ad.this.qbE = false;
-                int size = bhVar2.qcF.size();
-                long currentTimeMillis = System.currentTimeMillis() - this.qbX;
+                ad.this.qer.removeMessages(ad.java);
+                ad.this.qdm = false;
+                int size = bhVar2.qen.size();
+                long currentTimeMillis = System.currentTimeMillis() - this.qdF;
                 if (size <= 0) {
                     info = null;
                 } else {
-                    info = bhVar2.qcF.get(0);
+                    info = bhVar2.qen.get(0);
                 }
-                w.a iM = w.iM(ad.this.qbB);
+                w.a iM = w.iM(ad.this.qdj);
                 x xVar = new x(info);
-                xVar.java = ad.this.f11case;
-                iM.a(xVar, currentTimeMillis, 200, size).eJL();
+                xVar.java = ad.this.f12case;
+                iM.a(xVar, currentTimeMillis, 200, size).eKp();
                 ad.a(ad.this, bhVar2);
-                if (ad.this.qcG == null || ad.this.qcG.java()) {
+                if (ad.this.qeo == null || ad.this.qeo.java()) {
                     ad.this.a(PBError.NO_FILL);
-                } else if (!ad.this.qce) {
-                    Info eJW = ad.this.qcG.eJW();
-                    if (eJW != null) {
-                        ad.this.a(eJW);
+                } else if (!ad.this.qdM) {
+                    Info eKA = ad.this.qeo.eKA();
+                    if (eKA != null) {
+                        ad.this.a(eKA);
                     } else {
                         ad.this.a(PBError.NO_FILL);
                     }
@@ -129,45 +129,45 @@ public class ad {
             }
 
             @Override // com.win.opensdk.r
-            public final void eJL() {
-                this.qbX = System.currentTimeMillis();
-                ad.this.qcJ.sendEmptyMessageDelayed(ad.java, ad.this.f14017a * 1000);
+            public final void eKp() {
+                this.qdF = System.currentTimeMillis();
+                ad.this.qer.sendEmptyMessageDelayed(ad.java, ad.this.f14018a * 1000);
             }
 
             @Override // com.win.opensdk.r
             public final void cc(int i, String str) {
-                long currentTimeMillis = System.currentTimeMillis() - this.qbX;
-                w.a iM = w.iM(ad.this.qbB);
+                long currentTimeMillis = System.currentTimeMillis() - this.qdF;
+                w.a iM = w.iM(ad.this.qdj);
                 x xVar = new x(null);
-                xVar.java = ad.this.f11case;
-                iM.a(xVar, currentTimeMillis, i, 0).eJL();
-                ad.this.qcJ.removeMessages(ad.java);
-                ad.this.qbE = false;
-                ad.this.a(ad.SZ(i));
+                xVar.java = ad.this.f12case;
+                iM.a(xVar, currentTimeMillis, i, 0).eKp();
+                ad.this.qer.removeMessages(ad.java);
+                ad.this.qdm = false;
+                ad.this.a(ad.Tp(i));
             }
         });
-        if (this.f10case == e.java) {
-            this.qcI.eJM();
-        } else if (this.f10case == e.f54case) {
-            this.qcI.a();
-        } else if (this.f10case == e.f14044a) {
-            this.qcI.eJL();
-        } else if (this.f10case == e.f14045b) {
-            this.qcI.b();
-        } else if (this.f10case == e.c) {
-            this.qcI.c();
+        if (this.f11case == e.java) {
+            this.qeq.eKq();
+        } else if (this.f11case == e.f55case) {
+            this.qeq.a();
+        } else if (this.f11case == e.f14045a) {
+            this.qeq.eKp();
+        } else if (this.f11case == e.f14046b) {
+            this.qeq.b();
+        } else if (this.f11case == e.c) {
+            this.qeq.c();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final PBError pBError) {
-        if (!this.qce) {
-            this.qce = true;
+        if (!this.qdM) {
+            this.qdM = true;
             bb.D(new Runnable() { // from class: com.win.opensdk.ad.3
                 @Override // java.lang.Runnable
                 public final void run() {
-                    if (ad.this.qcH != null) {
-                        ad.this.qcH.b(pBError);
+                    if (ad.this.qep != null) {
+                        ad.this.qep.b(pBError);
                     }
                 }
             });
@@ -176,13 +176,13 @@ public class ad {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Info info) {
-        if (!this.qce) {
-            this.qce = true;
+        if (!this.qdM) {
+            this.qdM = true;
             bb.D(new Runnable() { // from class: com.win.opensdk.ad.4
                 @Override // java.lang.Runnable
                 public final void run() {
-                    if (ad.this.qcH != null) {
-                        ad.this.qcH.bG(info);
+                    if (ad.this.qep != null) {
+                        ad.this.qep.bH(info);
                     }
                 }
             });
@@ -193,8 +193,8 @@ public class ad {
         bb.D(new Runnable() { // from class: com.win.opensdk.ad.5
             @Override // java.lang.Runnable
             public final void run() {
-                if (ad.this.qcH != null) {
-                    ae unused = ad.this.qcH;
+                if (ad.this.qep != null) {
+                    ae unused = ad.this.qep;
                 }
             }
         });
@@ -203,15 +203,15 @@ public class ad {
     static /* synthetic */ void a(ad adVar, bh bhVar) {
         if (bhVar != null) {
             try {
-                if (bhVar.qcF != null && bhVar.qcF.size() > 0) {
-                    adVar.qcG.hf(bhVar.qcF);
+                if (bhVar.qen != null && bhVar.qen.size() > 0) {
+                    adVar.qeo.hg(bhVar.qen);
                 }
             } catch (Exception e) {
             }
         }
     }
 
-    static /* synthetic */ PBError SZ(int i) {
+    static /* synthetic */ PBError Tp(int i) {
         switch (i) {
             case 100:
             case 101:

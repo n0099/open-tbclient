@@ -55,7 +55,7 @@ public class d implements com.baidu.live.liveroom.d.d {
         if (this.hXd == null) {
             return null;
         }
-        return this.hXd.cpx();
+        return this.hXd.cpy();
     }
 
     @Override // com.baidu.live.liveroom.d.d

@@ -35,7 +35,7 @@ public class b extends com.baidu.adp.base.d<IMBlackListActivity> {
         this.mProgress.setVisibility(0);
     }
 
-    public void daq() {
+    public void dar() {
         this.mProgress.setVisibility(8);
     }
 
@@ -86,10 +86,10 @@ public class b extends com.baidu.adp.base.d<IMBlackListActivity> {
         this.mProgress = (ProgressBar) this.mRoot.findViewById(R.id.progress);
         this.kLq = new a(this.kLm);
         this.WV.setAdapter((ListAdapter) this.kLq);
-        bxO();
+        bxP();
     }
 
-    private void bxO() {
+    private void bxP() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         this.kLm.getLayoutMode().setNightMode(skinType == 1);
         this.kLm.getLayoutMode().onModeChanged(this.mRoot);

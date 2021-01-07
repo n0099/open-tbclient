@@ -14,14 +14,14 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     private ProtoAdapter<Object> adapter;
     private final Field messageField;
     public final String name;
-    public final WireField.Label pSV;
-    private final String pSW;
-    private final String pSX;
-    public final boolean pSY;
-    private final Field pSZ;
-    private final Method pTa;
-    private ProtoAdapter<?> pTb;
-    private ProtoAdapter<?> pTc;
+    public final WireField.Label pUD;
+    private final String pUE;
+    private final String pUF;
+    public final boolean pUG;
+    private final Field pUH;
+    private final Method pUI;
+    private ProtoAdapter<?> pUJ;
+    private ProtoAdapter<?> pUK;
     public final int tag;
 
     private static Field j(Class<?> cls, String str) {
@@ -42,40 +42,40 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(WireField wireField, Field field, Class<B> cls) {
-        this.pSV = wireField.eEL();
+        this.pUD = wireField.eFp();
         this.name = field.getName();
         this.tag = wireField.tag();
-        this.pSW = wireField.eEJ();
-        this.pSX = wireField.eEK();
-        this.pSY = wireField.eEM();
+        this.pUE = wireField.eFn();
+        this.pUF = wireField.eFo();
+        this.pUG = wireField.eFq();
         this.messageField = field;
-        this.pSZ = j(cls, this.name);
-        this.pTa = a(cls, this.name, field.getType());
+        this.pUH = j(cls, this.name);
+        this.pUI = a(cls, this.name, field.getType());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean eEz() {
-        return !this.pSW.isEmpty();
+    public boolean eFd() {
+        return !this.pUE.isEmpty();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ProtoAdapter<?> eEA() {
-        ProtoAdapter<?> protoAdapter = this.pTb;
+    public ProtoAdapter<?> eFe() {
+        ProtoAdapter<?> protoAdapter = this.pUJ;
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pSX);
-        this.pTb = protoAdapter2;
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pUF);
+        this.pUJ = protoAdapter2;
         return protoAdapter2;
     }
 
-    ProtoAdapter<?> eEB() {
-        ProtoAdapter<?> protoAdapter = this.pTc;
+    ProtoAdapter<?> eFf() {
+        ProtoAdapter<?> protoAdapter = this.pUK;
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pSW);
-        this.pTc = protoAdapter2;
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pUE);
+        this.pUK = protoAdapter2;
         return protoAdapter2;
     }
 
@@ -83,12 +83,12 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     public ProtoAdapter<Object> adapter() {
         ProtoAdapter<Object> protoAdapter = this.adapter;
         if (protoAdapter == null) {
-            if (eEz()) {
-                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(eEB(), eEA());
+            if (eFd()) {
+                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(eFf(), eFe());
                 this.adapter = newMapAdapter;
                 return newMapAdapter;
             }
-            ProtoAdapter<?> withLabel = eEA().withLabel(this.pSV);
+            ProtoAdapter<?> withLabel = eFe().withLabel(this.pUD);
             this.adapter = withLabel;
             return withLabel;
         }
@@ -97,9 +97,9 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(B b2, Object obj) {
-        if (this.pSV.isRepeated()) {
+        if (this.pUD.isRepeated()) {
             ((List) a((a<M, B>) b2)).add(obj);
-        } else if (!this.pSW.isEmpty()) {
+        } else if (!this.pUE.isEmpty()) {
             ((Map) a((a<M, B>) b2)).putAll((Map) obj);
         } else {
             b(b2, obj);
@@ -109,10 +109,10 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(B b2, Object obj) {
         try {
-            if (this.pSV.isOneOf()) {
-                this.pTa.invoke(b2, obj);
+            if (this.pUD.isOneOf()) {
+                this.pUI.invoke(b2, obj);
             } else {
-                this.pSZ.set(b2, obj);
+                this.pUH.set(b2, obj);
             }
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw new AssertionError(e);
@@ -131,7 +131,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Object a(B b2) {
         try {
-            return this.pSZ.get(b2);
+            return this.pUH.get(b2);
         } catch (IllegalAccessException e) {
             throw new AssertionError(e);
         }

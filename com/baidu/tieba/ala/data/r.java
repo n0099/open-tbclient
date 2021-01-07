@@ -53,7 +53,7 @@ public class r {
         this.aJC = z;
     }
 
-    public boolean bXN() {
+    public boolean bXO() {
         return this.aJC;
     }
 

@@ -5,7 +5,7 @@ import com.github.anrwatchdog.ANRError$$;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ANRError extends Error {
     private static final long serialVersionUID = 1;
     public final long duration;

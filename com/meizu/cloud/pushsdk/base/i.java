@@ -3,21 +3,21 @@ package com.meizu.cloud.pushsdk.base;
 public class i<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected T f11541a;
+    protected T f11542a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected T f11542b;
+    protected T f11543b;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public i(T t) {
         if (t == null) {
             throw new RuntimeException("proxy must be has a default implementation");
         }
-        this.f11542b = t;
+        this.f11543b = t;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public T c() {
-        return this.f11541a != null ? this.f11541a : this.f11542b;
+        return this.f11542a != null ? this.f11542a : this.f11543b;
     }
 }

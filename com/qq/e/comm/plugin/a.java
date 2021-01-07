@@ -3,28 +3,28 @@ package com.qq.e.comm.plugin;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.setting.GlobalSetting;
 import com.qq.e.comm.managers.status.SDKStatus;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile a f11884a;
+    private static volatile a f11885a;
 
     private a() {
     }
 
     public static a a() {
-        if (f11884a == null) {
+        if (f11885a == null) {
             synchronized (a.class) {
                 try {
-                    if (f11884a == null) {
-                        f11884a = new a();
+                    if (f11885a == null) {
+                        f11885a = new a();
                     }
                 } catch (Throwable th) {
                     throw th;
                 }
             }
         }
-        return f11884a;
+        return f11885a;
     }
 
     public String b() {

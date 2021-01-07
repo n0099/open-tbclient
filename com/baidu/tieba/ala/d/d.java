@@ -16,14 +16,14 @@ public class d implements com.baidu.live.u.b {
 
     public d(Context context) {
         this.mContext = context;
-        bXg();
+        bXh();
         an anVar = com.baidu.live.af.a.SE().bwi;
         if (anVar != null && anVar.aPn != null) {
             this.gSI = anVar.aPn.aSw;
         }
     }
 
-    private void bXg() {
+    private void bXh() {
         if (this.gSH == null) {
             this.gSH = new com.baidu.tieba.ala.view.c(this.mContext);
             this.gSH.setId(a.f.ala_rank_level_entry);

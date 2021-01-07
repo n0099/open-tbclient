@@ -13,7 +13,7 @@ import javax.net.ssl.SSLContext;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f11691a = false;
+    private static boolean f11692a = false;
 
     public static String a(String str, byte[] bArr) {
         URL url;
@@ -30,7 +30,7 @@ public class a {
         try {
             if (!"https".equals(url.getProtocol().toLowerCase())) {
                 httpURLConnection = (HttpURLConnection) url.openConnection();
-            } else if (f11691a) {
+            } else if (f11692a) {
                 HttpsURLConnection.setDefaultSSLSocketFactory(SSLContext.getInstance("TLS").getSocketFactory());
                 httpURLConnection = (HttpURLConnection) url.openConnection(Proxy.NO_PROXY);
             } else {

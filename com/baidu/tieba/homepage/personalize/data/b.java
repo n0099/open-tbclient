@@ -14,9 +14,9 @@ public class b extends com.baidu.tieba.card.data.i implements p {
             this.khK = cardForum;
             this.mGroupTitle = cardForum.card_title;
             if (cardForum.position != null) {
-                setYuelaouLocate(cvy() + cardForum.position.intValue());
+                setYuelaouLocate(cvz() + cardForum.position.intValue());
             } else {
-                setYuelaouLocate(cvy() + 0);
+                setYuelaouLocate(cvz() + 0);
             }
             if (x.getCount(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
@@ -42,7 +42,7 @@ public class b extends com.baidu.tieba.card.data.i implements p {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean cvw() {
+    public boolean cvx() {
         return true;
     }
 
@@ -56,7 +56,7 @@ public class b extends com.baidu.tieba.card.data.i implements p {
         this.showBottomDivider = z;
     }
 
-    public boolean bPM() {
+    public boolean bPN() {
         if (x.getCount(getDataList()) > 0) {
             return true;
         }

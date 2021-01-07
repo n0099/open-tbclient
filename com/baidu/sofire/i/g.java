@@ -10,14 +10,14 @@ import java.util.concurrent.locks.ReentrantLock;
 public final class g {
 
     /* renamed from: b  reason: collision with root package name */
-    private static Lock f5538b = new ReentrantLock();
+    private static Lock f5539b = new ReentrantLock();
     private static g c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.sofire.h.a f5539a;
+    public com.baidu.sofire.h.a f5540a;
 
     private g(Context context) {
-        this.f5539a = new com.baidu.sofire.h.a(context);
+        this.f5540a = new com.baidu.sofire.h.a(context);
     }
 
     public static g a(Context context) {
@@ -25,25 +25,25 @@ public final class g {
             return c;
         }
         try {
-            f5538b.lock();
+            f5539b.lock();
             if (c == null) {
                 c = new g(context);
             }
             return c;
         } finally {
-            f5538b.unlock();
+            f5539b.unlock();
         }
     }
 
     public final void a() {
-        com.baidu.sofire.h.a aVar = this.f5539a;
+        com.baidu.sofire.h.a aVar = this.f5540a;
         if (!"tvshield".equals("sofire")) {
             if (aVar.c == null) {
                 aVar.c = new Receiver();
             }
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.b.r.p");
-            aVar.f5533b.getApplicationContext().registerReceiver(aVar.c, intentFilter, aVar.f5533b.getPackageName() + ".permission.sofire.RECEIVE", null);
+            aVar.f5534b.getApplicationContext().registerReceiver(aVar.c, intentFilter, aVar.f5534b.getPackageName() + ".permission.sofire.RECEIVE", null);
         }
         Message message = new Message();
         message.what = 5;
@@ -51,7 +51,7 @@ public final class g {
     }
 
     public final void b() {
-        com.baidu.sofire.h.a aVar = this.f5539a;
+        com.baidu.sofire.h.a aVar = this.f5540a;
         Message message = new Message();
         message.what = 7;
         aVar.a(message);
@@ -60,6 +60,6 @@ public final class g {
     public final void c() {
         Message message = new Message();
         message.what = 2;
-        this.f5539a.a(message);
+        this.f5540a.a(message);
     }
 }

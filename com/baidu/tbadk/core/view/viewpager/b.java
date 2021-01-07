@@ -40,7 +40,7 @@ public abstract class b<T extends n, V extends BdBaseViewPagerAdapter.a> {
         this.frt = aVar;
     }
 
-    public a<T, V> byW() {
+    public a<T, V> byX() {
         return this.frt;
     }
 }

@@ -56,7 +56,7 @@ public class ItemInfoView extends LinearLayout {
             PbContent pbContent = list.get(i);
             if (pbContent != null) {
                 if (pbContent.type.intValue() == 2) {
-                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(bVar.DH(pbContent.text));
+                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(bVar.DG(pbContent.text));
                     if (cashBitmap != null) {
                         BitmapDrawable bitmapDrawable = new BitmapDrawable(cashBitmap);
                         bitmapDrawable.setBounds(0, 0, cashBitmap.getWidth(), cashBitmap.getHeight());

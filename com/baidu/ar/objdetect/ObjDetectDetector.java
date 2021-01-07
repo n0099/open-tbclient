@@ -47,7 +47,7 @@ public class ObjDetectDetector extends com.baidu.ar.b.a.a {
                 if (strArr == null || strArr.length == 0) {
                     return -1;
                 }
-                return aVar.f1486tv ? ARMdlInterfaceJNI.initObjDetectFromAsset(strArr[0], strArr[1]) : ARMdlInterfaceJNI.initObjDetect(strArr[0], strArr[1]);
+                return aVar.f1487tv ? ARMdlInterfaceJNI.initObjDetectFromAsset(strArr[0], strArr[1]) : ARMdlInterfaceJNI.initObjDetect(strArr[0], strArr[1]);
             }
 
             @Override // com.baidu.ar.c.a

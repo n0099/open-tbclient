@@ -3,7 +3,7 @@ package com.baidu.prologue.a.c;
 import android.content.Context;
 import android.provider.Settings;
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     private static String _ANDROID_ID = "";
 

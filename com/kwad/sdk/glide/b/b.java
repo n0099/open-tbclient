@@ -5,10 +5,10 @@ import androidx.annotation.ColorInt;
 class b {
 
     /* renamed from: a  reason: collision with root package name */
-    int f10235a;
+    int f10236a;
 
     /* renamed from: b  reason: collision with root package name */
-    int f10236b;
+    int f10237b;
     int c;
     int d;
     boolean e;

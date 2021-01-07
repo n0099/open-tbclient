@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.z;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class a {
-    private static final String lEj = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    private static final String lEi = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -22,16 +22,16 @@ public class a {
     }
 
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
-        new C0809a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
+        new C0842a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
     }
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0809a extends BdAsyncTask<String, Object, ForbidResultData> {
+    private static class C0842a extends BdAsyncTask<String, Object, ForbidResultData> {
         private String fwL;
         private String fwP;
-        private String lEk;
-        private WeakReference<b> lEl;
+        private String lEj;
+        private WeakReference<b> lEk;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -39,17 +39,17 @@ public class a {
         private String mThreadId;
         private String mUserName;
 
-        public C0809a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
+        public C0842a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
             this.mForumId = str;
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.lEk = str6;
+            this.lEj = str6;
             this.fwP = str8;
             this.fwL = str9;
             this.mReason = str7;
             this.mPostId = str5;
-            this.lEl = new WeakReference<>(bVar);
+            this.lEk = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -58,8 +58,8 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: W */
         public ForbidResultData doInBackground(String... strArr) {
-            z zVar = new z(a.lEj);
-            zVar.addPostData(Config.TRACE_VISIT_RECENT_DAY, this.lEk);
+            z zVar = new z(a.lEi);
+            zVar.addPostData(Config.TRACE_VISIT_RECENT_DAY, this.lEj);
             zVar.addPostData("un", this.mUserName);
             zVar.addPostData("fid", this.mForumId);
             zVar.addPostData("word", this.mForumName);
@@ -69,9 +69,9 @@ public class a {
             zVar.addPostData("post_id", this.mPostId);
             zVar.addPostData("nick_name", this.fwP);
             zVar.addPostData("portrait", this.fwL);
-            zVar.bvQ().bwz().mIsNeedTbs = true;
+            zVar.bvR().bwA().mIsNeedTbs = true;
             String postNetData = zVar.postNetData();
-            if (zVar.bvQ().bwA().isRequestSuccess()) {
+            if (zVar.bvR().bwB().isRequestSuccess()) {
                 try {
                     return (ForbidResultData) OrmObject.objectWithJsonStr(postNetData, ForbidResultData.class);
                 } catch (Exception e) {
@@ -93,7 +93,7 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.lEl.get();
+            b bVar = this.lEk.get();
             if (bVar != null) {
                 if (forbidResultData.error_code == 0 && at.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);

@@ -50,14 +50,14 @@ public class a implements com.baidu.live.liveroom.d.d {
                 a.this.gPo.dM(true);
                 return;
             }
-            a.this.gPo.Zi();
+            a.this.gPo.Zj();
             a.this.gPo.a(aLaCharmDataList.data, a.this.pn == 0, aLaCharmDataList.userTotalPrice);
             a.this.pn = aLaCharmDataList.pn + 1;
             a.this.mHasMore = aLaCharmDataList.hasMore;
             if (a.this.mHasMore) {
-                a.this.gPo.Zg();
+                a.this.gPo.Zh();
             } else {
-                a.this.gPo.Hm(a.this.gPq.getPageContext().getResources().getString(a.h.charm_no_more));
+                a.this.gPo.Hl(a.this.gPq.getPageContext().getResources().getString(a.h.charm_no_more));
             }
             if (aLaCharmDataList.data == null || aLaCharmDataList.data.size() <= 0) {
                 a.this.gPo.dM(true);
@@ -120,7 +120,7 @@ public class a implements com.baidu.live.liveroom.d.d {
         return this.gPo.getRootView();
     }
 
-    public com.baidu.tieba.ala.charm.view.b bWL() {
+    public com.baidu.tieba.ala.charm.view.b bWM() {
         return this.gPo;
     }
 
@@ -153,7 +153,7 @@ public class a implements com.baidu.live.liveroom.d.d {
         return this.gPq.getResources().getString(a.h.audience_list_title);
     }
 
-    public int bWM() {
+    public int bWN() {
         return this.gPr;
     }
 
@@ -183,22 +183,22 @@ public class a implements com.baidu.live.liveroom.d.d {
         MessageManager.getInstance().unRegisterListener(this.gPs);
     }
 
-    public a GR(String str) {
+    public a GQ(String str) {
         this.mUserId = str;
         return this;
     }
 
-    public a GS(String str) {
+    public a GR(String str) {
         this.mUserName = str;
         return this;
     }
 
-    public a GT(String str) {
+    public a GS(String str) {
         this.mGroupId = str;
         return this;
     }
 
-    public a GU(String str) {
+    public a GT(String str) {
         this.mLiveId = str;
         return this;
     }
@@ -208,32 +208,32 @@ public class a implements com.baidu.live.liveroom.d.d {
         return this;
     }
 
-    public a GV(String str) {
+    public a GU(String str) {
         this.aGB = str;
         return this;
     }
 
-    public a GW(String str) {
+    public a GV(String str) {
         this.gPk = str;
         return this;
     }
 
-    public a GX(String str) {
+    public a GW(String str) {
         this.gPl = str;
         return this;
     }
 
-    public a GY(String str) {
+    public a GX(String str) {
         this.gPm = str;
         return this;
     }
 
-    public a GZ(String str) {
+    public a GY(String str) {
         this.gPn = str;
         return this;
     }
 
-    public a Ha(String str) {
+    public a GZ(String str) {
         this.mOtherParams = str;
         return this;
     }

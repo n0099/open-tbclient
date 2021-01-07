@@ -25,12 +25,12 @@ import org.json.JSONObject;
 class u {
 
     /* renamed from: b  reason: collision with root package name */
-    private final LruCache<String, c> f7441b;
+    private final LruCache<String, c> f7442b;
     private final k.a c;
     private final String d;
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<String, List<b>> f7440a = new ConcurrentHashMap();
+    private final Map<String, List<b>> f7441a = new ConcurrentHashMap();
     private volatile boolean e = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -38,10 +38,10 @@ class u {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        w f7446a = w.PUBLIC;
+        w f7447a = w.PUBLIC;
 
         /* renamed from: b  reason: collision with root package name */
-        Set<String> f7447b = new HashSet();
+        Set<String> f7448b = new HashSet();
         Set<String> c = new HashSet();
 
         c() {
@@ -53,13 +53,13 @@ class u {
     public u(@NonNull String str, int i, @NonNull k.a aVar, @NonNull final Executor executor, @Nullable JSONObject jSONObject) {
         this.d = str;
         if (i <= 0) {
-            this.f7441b = new LruCache<>(16);
+            this.f7442b = new LruCache<>(16);
         } else {
-            this.f7441b = new LruCache<>(i);
+            this.f7442b = new LruCache<>(i);
         }
         this.c = aVar;
         if (jSONObject == null) {
-            aVar.a(d(str), new k.a.InterfaceC0993a() { // from class: com.bytedance.sdk.openadsdk.f.a.u.1
+            aVar.a(d(str), new k.a.InterfaceC1031a() { // from class: com.bytedance.sdk.openadsdk.f.a.u.1
             });
         } else {
             a(jSONObject);
@@ -85,18 +85,18 @@ class u {
         String builder = new Uri.Builder().scheme(scheme).authority(authority).path(parse.getPath()).toString();
         c cVar = new c();
         if (authority == null || authority.isEmpty()) {
-            cVar.f7446a = w.PUBLIC;
+            cVar.f7447a = w.PUBLIC;
             return cVar;
         }
         for (String str2 : set) {
             if (authority.equals(str2) || authority.endsWith("." + str2)) {
-                cVar.f7446a = w.PRIVATE;
+                cVar.f7447a = w.PRIVATE;
                 return cVar;
             }
             while (r4.hasNext()) {
             }
         }
-        c cVar2 = this.f7441b.get(builder);
+        c cVar2 = this.f7442b.get(builder);
         if (cVar2 == null) {
             return a(builder);
         }
@@ -105,7 +105,7 @@ class u {
 
     @WorkerThread
     private void b(JSONObject jSONObject) {
-        this.f7440a.clear();
+        this.f7441a.clear();
         try {
             JSONObject jSONObject2 = jSONObject.getJSONObject("content");
             Iterator<String> keys = jSONObject2.keys();
@@ -113,7 +113,7 @@ class u {
                 String next = keys.next();
                 JSONArray jSONArray = jSONObject2.getJSONArray(next);
                 LinkedList linkedList = new LinkedList();
-                this.f7440a.put(next, linkedList);
+                this.f7441a.put(next, linkedList);
                 for (int i = 0; i < jSONArray.length(); i++) {
                     linkedList.add(c(jSONArray.getJSONObject(i)));
                 }
@@ -132,7 +132,7 @@ class u {
         String authority = parse.getAuthority();
         String b2 = b(authority);
         if (TextUtils.isEmpty(scheme) || TextUtils.isEmpty(authority) || b2 == null) {
-            cVar.f7446a = w.PUBLIC;
+            cVar.f7447a = w.PUBLIC;
             return cVar;
         }
         List<b> c2 = c(b2);
@@ -140,15 +140,15 @@ class u {
             return cVar;
         }
         for (b bVar : c2) {
-            if (bVar.f7444a.matcher(str).find()) {
-                if (bVar.f7445b.compareTo(cVar.f7446a) >= 0) {
-                    cVar.f7446a = bVar.f7445b;
+            if (bVar.f7445a.matcher(str).find()) {
+                if (bVar.f7446b.compareTo(cVar.f7447a) >= 0) {
+                    cVar.f7447a = bVar.f7446b;
                 }
-                cVar.f7447b.addAll(bVar.c);
+                cVar.f7448b.addAll(bVar.c);
                 cVar.c.addAll(bVar.d);
             }
         }
-        this.f7441b.put(str, cVar);
+        this.f7442b.put(str, cVar);
         return cVar;
     }
 
@@ -173,14 +173,14 @@ class u {
         if (!this.e) {
             throw new a("Permission config is outdated!");
         }
-        return this.f7440a.get(str);
+        return this.f7441a.get(str);
     }
 
     @WorkerThread
     private static b c(JSONObject jSONObject) throws JSONException {
         b bVar = new b();
-        bVar.f7444a = Pattern.compile(jSONObject.getString("pattern"));
-        bVar.f7445b = w.a(jSONObject.getString(TbEnum.ParamKey.GROUP));
+        bVar.f7445a = Pattern.compile(jSONObject.getString("pattern"));
+        bVar.f7446b = w.a(jSONObject.getString(TbEnum.ParamKey.GROUP));
         bVar.c = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("included_methods");
         if (optJSONArray != null) {
@@ -207,10 +207,10 @@ class u {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        Pattern f7444a;
+        Pattern f7445a;
 
         /* renamed from: b  reason: collision with root package name */
-        w f7445b;
+        w f7446b;
         List<String> c;
         List<String> d;
 

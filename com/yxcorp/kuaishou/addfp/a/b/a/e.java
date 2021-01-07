@@ -10,22 +10,22 @@ import java.util.concurrent.TimeUnit;
 public final class e {
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f14641b;
+    private Context f14642b;
     private CountDownLatch d = new CountDownLatch(1);
     private ServiceConnection pgf = new f(this);
-    public b qep;
-    private com.yxcorp.kuaishou.addfp.a.b.b qeq;
+    public b qfX;
+    private com.yxcorp.kuaishou.addfp.a.b.b qfY;
 
     public e(Context context) {
-        this.f14641b = context;
+        this.f14642b = context;
     }
 
     private void a(boolean z) {
         try {
             if (z) {
-                this.qeq.a(this.qep);
+                this.qfY.a(this.qfX);
             } else {
-                this.qeq.e();
+                this.qfY.e();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -33,22 +33,22 @@ public final class e {
     }
 
     public final void a() {
-        if (this.pgf == null || this.f14641b == null) {
+        if (this.pgf == null || this.f14642b == null) {
             return;
         }
-        this.f14641b.unbindService(this.pgf);
+        this.f14642b.unbindService(this.pgf);
     }
 
     public final void a(com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         try {
-            this.qeq = bVar;
+            this.qfY = bVar;
             Intent intent = new Intent("com.asus.msa.action.ACCESS_DID");
             ComponentName componentName = new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService");
             Intent intent2 = new Intent(intent);
             intent2.setComponent(componentName);
-            if (this.f14641b.bindService(intent2, this.pgf, 1)) {
+            if (this.f14642b.bindService(intent2, this.pgf, 1)) {
                 this.d.await(2000L, TimeUnit.MILLISECONDS);
-                if (this.qep != null) {
+                if (this.qfX != null) {
                     a(true);
                 } else {
                     a(false);

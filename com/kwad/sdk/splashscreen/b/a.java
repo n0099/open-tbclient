@@ -21,10 +21,10 @@ import java.util.List;
 public class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11041a;
+    private String f11042a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.kwad.sdk.contentalliance.detail.video.a f11042b;
+    private com.kwad.sdk.contentalliance.detail.video.a f11043b;
     private KsVideoPlayConfig c;
     private long d;
     private VideoPlayerStatus e;
@@ -59,18 +59,18 @@ public class a implements c {
         this.e = adTemplate.mVideoPlayerStatus;
         File b2 = com.kwad.sdk.core.diskcache.b.a.a().b(H);
         if (b2 != null && b2.exists()) {
-            this.f11041a = b2.getAbsolutePath();
+            this.f11042a = b2.getAbsolutePath();
         }
-        this.f11042b = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
+        this.f11043b = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
         this.d = com.kwad.sdk.core.response.b.a.k(com.kwad.sdk.core.response.b.c.j(adTemplate));
         this.j = adTemplate.mKsPlayerClickTimeParam;
-        this.f11042b.a(new c.e() { // from class: com.kwad.sdk.splashscreen.b.a.2
+        this.f11043b.a(new c.e() { // from class: com.kwad.sdk.splashscreen.b.a.2
             @Override // com.kwad.sdk.core.video.a.c.e
             public void a(com.kwad.sdk.core.video.a.c cVar) {
                 boolean a2 = ao.a((View) detailVideoView, 50, true);
                 com.kwad.sdk.core.d.a.a("SplashPlayModule", " onPrepared" + a2);
                 if (a2) {
-                    a.this.f11042b.f();
+                    a.this.f11043b.f();
                 }
             }
         });
@@ -78,11 +78,11 @@ public class a implements c {
     }
 
     private void h() {
-        this.f11042b.a(new d.a().a(this.e).a(this.f11041a).a(new com.kwad.sdk.contentalliance.detail.video.c(this.d, this.j)).a());
+        this.f11043b.a(new d.a().a(this.e).a(this.f11042a).a(new com.kwad.sdk.contentalliance.detail.video.c(this.d, this.j)).a());
         if (this.c != null) {
             a(this.c.isVideoSoundEnable(), false);
         }
-        this.f11042b.e();
+        this.f11043b.e();
     }
 
     @MainThread
@@ -90,7 +90,7 @@ public class a implements c {
         if (eVar == null) {
             return;
         }
-        this.f11042b.a(eVar);
+        this.f11043b.a(eVar);
     }
 
     public void a(g.a aVar) {
@@ -104,10 +104,10 @@ public class a implements c {
     public void a(boolean z, boolean z2) {
         this.f = z;
         if (!z) {
-            this.f11042b.a(0.0f, 0.0f);
+            this.f11043b.a(0.0f, 0.0f);
             return;
         }
-        this.f11042b.a(1.0f, 1.0f);
+        this.f11043b.a(1.0f, 1.0f);
         if (z2) {
             b.a().a(true);
         }
@@ -123,7 +123,7 @@ public class a implements c {
         if (eVar == null) {
             return;
         }
-        this.f11042b.b(eVar);
+        this.f11043b.b(eVar);
     }
 
     public void b(g.a aVar) {
@@ -131,7 +131,7 @@ public class a implements c {
     }
 
     public long c() {
-        return this.f11042b.o();
+        return this.f11043b.o();
     }
 
     @Override // com.kwad.sdk.core.i.c
@@ -140,7 +140,7 @@ public class a implements c {
     }
 
     public void d() {
-        this.f11042b.h();
+        this.f11043b.h();
         if (this.f && this.g) {
             b.a().a(false);
             if (b.a().b()) {
@@ -151,22 +151,22 @@ public class a implements c {
     }
 
     public void e() {
-        this.f11042b.j();
+        this.f11043b.j();
     }
 
     @MainThread
     public void f() {
-        if (this.f11042b != null) {
-            this.f11042b.p();
-            this.f11042b.k();
+        if (this.f11043b != null) {
+            this.f11043b.p();
+            this.f11043b.k();
         }
         b.a().b(this.i);
     }
 
     public void g() {
-        if (this.f11042b.a() == null) {
+        if (this.f11043b.a() == null) {
             h();
         }
-        this.f11042b.f();
+        this.f11043b.f();
     }
 }

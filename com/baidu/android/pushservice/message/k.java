@@ -5,10 +5,10 @@ import java.io.Serializable;
 public class k implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1470a;
+    private String f1471a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f1471b;
+    private String f1472b;
     private long c;
     private int d;
     private byte[] e;
@@ -29,7 +29,7 @@ public class k implements Serializable {
     }
 
     public void a(String str) {
-        this.f1470a = str;
+        this.f1471a = str;
     }
 
     public void a(boolean z) {
@@ -41,7 +41,7 @@ public class k implements Serializable {
     }
 
     public String b() {
-        return this.f1470a;
+        return this.f1471a;
     }
 
     public void b(long j) {
@@ -49,7 +49,7 @@ public class k implements Serializable {
     }
 
     public void b(String str) {
-        this.f1471b = str;
+        this.f1472b = str;
     }
 
     public void b(byte[] bArr) {
@@ -57,7 +57,7 @@ public class k implements Serializable {
     }
 
     public String c() {
-        return this.f1471b;
+        return this.f1472b;
     }
 
     public long d() {
@@ -81,6 +81,6 @@ public class k implements Serializable {
     }
 
     public String toString() {
-        return "type:" + this.d + " appid:" + this.f1470a + " msgId:" + this.c + " isAlarm:  " + this.h + " pkgName:  " + this.f1471b;
+        return "type:" + this.d + " appid:" + this.f1471a + " msgId:" + this.c + " isAlarm:  " + this.h + " pkgName:  " + this.f1472b;
     }
 }

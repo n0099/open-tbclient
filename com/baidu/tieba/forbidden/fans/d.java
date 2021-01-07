@@ -21,7 +21,7 @@ public class d {
     public interface a {
         void a(int i, String str, boolean z, int i2, long j);
 
-        void cDd();
+        void cDe();
     }
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -47,30 +47,30 @@ public class d {
     }
 
     public void removeAll() {
-        bof();
+        bog();
     }
 
     public void gi(long j) {
         this.jak.dL(j);
     }
 
-    private void bof() {
+    private void bog() {
         if (this.eKt == null) {
             this.jam = new com.baidu.tieba.view.a(this.eXu.getContext());
             this.jam.setTitleText(this.eXu.getString(R.string.confirm_remove_all_forbidden_fans));
             ArrayList arrayList = new ArrayList();
-            a.C0871a c0871a = new a.C0871a(this.eXu.getString(R.string.confirm), this.jam);
-            c0871a.a(new a.c() { // from class: com.baidu.tieba.forbidden.fans.d.3
+            a.C0909a c0909a = new a.C0909a(this.eXu.getString(R.string.confirm), this.jam);
+            c0909a.a(new a.c() { // from class: com.baidu.tieba.forbidden.fans.d.3
                 @Override // com.baidu.tieba.view.a.c
                 public void onClick() {
                     d.this.eKt.dismiss();
                     if (d.this.jan != null) {
-                        d.this.jan.cDd();
+                        d.this.jan.cDe();
                     }
-                    d.this.jal.cDh();
+                    d.this.jal.cDi();
                 }
             });
-            arrayList.add(c0871a);
+            arrayList.add(c0909a);
             this.jam.a(new a.b() { // from class: com.baidu.tieba.forbidden.fans.d.4
                 @Override // com.baidu.tieba.view.a.b
                 public void onClick() {
@@ -80,7 +80,7 @@ public class d {
                 }
             });
             this.jam.bB(arrayList);
-            this.eKt = new e(this.eXu.getPageActivity(), this.jam.bur());
+            this.eKt = new e(this.eXu.getPageActivity(), this.jam.bus());
             this.eKt.ab(0.7f);
         }
         this.eKt.show();

@@ -18,7 +18,7 @@ import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
     private com.baidu.cesium.c.d.d aop;
     private List<b> g;
@@ -89,7 +89,7 @@ public class c {
                                 byte[] a2 = com.baidu.cesium.d.a.a(string.getBytes("utf-8"));
                                 JSONObject jSONObject = new JSONObject(new String(a2));
                                 b bVar = new b();
-                                bVar.f1668b = jSONObject.getInt("priority");
+                                bVar.f1669b = jSONObject.getInt("priority");
                                 bVar.aeJ = resolveInfo.activityInfo.applicationInfo;
                                 if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
                                     bVar.d = true;
@@ -124,7 +124,7 @@ public class c {
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(b bVar2, b bVar3) {
-                int i2 = bVar3.f1668b - bVar2.f1668b;
+                int i2 = bVar3.f1669b - bVar2.f1669b;
                 if (i2 == 0) {
                     if (bVar2.d && bVar3.d) {
                         return 0;

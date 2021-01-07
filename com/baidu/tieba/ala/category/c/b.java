@@ -31,11 +31,11 @@ public class b extends BdBaseModel {
     public interface a {
         void aU(int i, String str);
 
-        void bWr();
-
         void bWs();
 
         void bWt();
+
+        void bWu();
     }
 
     public b(TbPageContext tbPageContext, String str, String str2) {
@@ -55,7 +55,7 @@ public class b extends BdBaseModel {
                     }
                     b.this.gOJ = alaTagResponseMessage.getTagList();
                     if (b.this.gPa != null) {
-                        b.this.gPa.bWr();
+                        b.this.gPa.bWs();
                     }
                 }
             }
@@ -66,10 +66,10 @@ public class b extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || !httpResponsedMessage.isSuccess() || httpResponsedMessage.getError() != 0) {
                     if (b.this.gPa != null) {
-                        b.this.gPa.bWt();
+                        b.this.gPa.bWu();
                     }
                 } else if (b.this.gPa != null) {
-                    b.this.gPa.bWs();
+                    b.this.gPa.bWt();
                 }
             }
         };
@@ -80,11 +80,11 @@ public class b extends BdBaseModel {
     }
 
     private void registerTask() {
-        bWH();
         bWI();
+        bWJ();
     }
 
-    private void bWH() {
+    private void bWI() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021191, TbConfig.SERVER_ADDRESS + "ala/tag/getAnchorTags");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -93,7 +93,7 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void bWI() {
+    private void bWJ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021192, TbConfig.SERVER_ADDRESS + "ala/tag/addAnchorTags");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -111,7 +111,7 @@ public class b extends BdBaseModel {
         return this.gOJ;
     }
 
-    public void bWJ() {
+    public void bWK() {
         HttpMessage httpMessage = new HttpMessage(1021191);
         httpMessage.addParam("anchor_id", this.bvS);
         sendMessage(httpMessage);

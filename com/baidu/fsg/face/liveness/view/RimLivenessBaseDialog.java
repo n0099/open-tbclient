@@ -13,10 +13,10 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class RimLivenessBaseDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f2430a;
+    private TextView f2431a;
 
     /* renamed from: b  reason: collision with root package name */
-    private LinearLayout f2431b;
+    private LinearLayout f2432b;
     private Button c;
     private Button d;
 
@@ -32,8 +32,8 @@ public class RimLivenessBaseDialog extends Dialog {
 
     private void a() {
         setContentView(R.layout.rim_liveness_alert_dialog_base);
-        this.f2430a = (TextView) findViewById(R.id.dialog_title);
-        this.f2431b = (LinearLayout) findViewById(R.id.dialog_content);
+        this.f2431a = (TextView) findViewById(R.id.dialog_title);
+        this.f2432b = (LinearLayout) findViewById(R.id.dialog_content);
         this.c = (Button) findViewById(R.id.positive_btn);
         this.d = (Button) findViewById(R.id.negative_btn);
         setCancelable(false);
@@ -41,11 +41,11 @@ public class RimLivenessBaseDialog extends Dialog {
 
     @Override // android.app.Dialog
     public void setTitle(CharSequence charSequence) {
-        this.f2430a.setText(charSequence);
+        this.f2431a.setText(charSequence);
     }
 
     public void addContentView(int i) {
-        LayoutInflater.from(getContext()).inflate(i, (ViewGroup) this.f2431b, true);
+        LayoutInflater.from(getContext()).inflate(i, (ViewGroup) this.f2432b, true);
     }
 
     public void setTextViewContent(CharSequence charSequence) {
@@ -58,7 +58,7 @@ public class RimLivenessBaseDialog extends Dialog {
         int dimension = (int) getContext().getResources().getDimension(R.dimen.rim_dimen_20dp);
         textView.setPadding(dimension, dimension, dimension, dimension);
         textView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        this.f2431b.addView(textView);
+        this.f2432b.addView(textView);
     }
 
     public void setPositiveBtnClickListener(CharSequence charSequence, View.OnClickListener onClickListener) {

@@ -67,18 +67,18 @@ public class VideoTabFragment extends BaseFragment implements am {
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void WE() {
+    public void WF() {
         if (this.knN != null) {
-            this.knN.WE();
+            this.knN.WF();
         }
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bUJ() {
+    public void bUK() {
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bUK() {
+    public void bUL() {
     }
 
     @Override // com.baidu.tieba.frs.am
@@ -90,7 +90,7 @@ public class VideoTabFragment extends BaseFragment implements am {
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bxO() {
+    public void bxP() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -98,7 +98,7 @@ public class VideoTabFragment extends BaseFragment implements am {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.knN != null) {
-            this.knN.bxO();
+            this.knN.bxP();
         }
     }
 

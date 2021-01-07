@@ -18,7 +18,7 @@ public class v extends aa {
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
         int i = 0;
-        b(dVar.f10800a / 3);
+        b(dVar.f10801a / 3);
         int i2 = 0;
         while (true) {
             int i3 = i;

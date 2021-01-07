@@ -10,10 +10,10 @@ import java.util.Arrays;
 public final class c implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String[] f13168a;
+    private String[] f13169a;
 
     /* renamed from: b  reason: collision with root package name */
-    private b f13169b;
+    private b f13170b;
     private String[] c;
     private Context d;
 
@@ -22,8 +22,8 @@ public final class c implements a {
     }
 
     private void b() {
-        if (this.f13169b != null) {
-            Arrays.asList(this.f13168a);
+        if (this.f13170b != null) {
+            Arrays.asList(this.f13169a);
         }
     }
 
@@ -31,7 +31,7 @@ public final class c implements a {
     public final void a() {
         if (Build.VERSION.SDK_INT >= 23) {
             Context context = this.d;
-            String[] strArr = this.f13168a;
+            String[] strArr = this.f13169a;
             ArrayList arrayList = new ArrayList(1);
             for (String str : strArr) {
                 if (context.checkSelfPermission(str) != 0) {
@@ -52,11 +52,11 @@ public final class c implements a {
     }
 
     public final void a(b bVar) {
-        this.f13169b = bVar;
+        this.f13170b = bVar;
     }
 
     public final void a(String... strArr) {
-        this.f13168a = strArr;
+        this.f13169a = strArr;
     }
 
     @Override // com.sdk.base.module.permission.a

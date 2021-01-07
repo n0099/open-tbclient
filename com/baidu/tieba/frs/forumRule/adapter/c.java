@@ -43,23 +43,23 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forum
     public View a(final int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.forumRule.b.c cVar, ForumRuleDetailItemVH forumRuleDetailItemVH) {
         boolean z;
         if (cVar != null && this.mContext != null) {
-            forumRuleDetailItemVH.rb(cVar.cJM());
-            if (!StringUtils.isNull(cVar.cJK())) {
+            forumRuleDetailItemVH.rb(cVar.cJN());
+            if (!StringUtils.isNull(cVar.cJL())) {
                 z = true;
                 forumRuleDetailItemVH.jtR.setVisibility(0);
-                forumRuleDetailItemVH.jtR.setText(cVar.cJK());
+                forumRuleDetailItemVH.jtR.setText(cVar.cJL());
             } else {
                 forumRuleDetailItemVH.jtR.setVisibility(8);
                 z = false;
             }
-            if (cVar.cJL() != null && !StringUtils.isNull(cVar.cJL().toString())) {
+            if (cVar.cJM() != null && !StringUtils.isNull(cVar.cJM().toString())) {
                 forumRuleDetailItemVH.jtS.setVisibility(0);
                 if (!z) {
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) forumRuleDetailItemVH.jtS.getLayoutParams();
                     layoutParams.topMargin = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds0);
                     forumRuleDetailItemVH.jtS.setLayoutParams(layoutParams);
                 }
-                this.jtP = TbRichTextView.a(this.mContext, cVar.cJL(), false);
+                this.jtP = TbRichTextView.a(this.mContext, cVar.cJM(), false);
                 forumRuleDetailItemVH.jtS.setText(this.jtP);
             } else {
                 forumRuleDetailItemVH.jtS.setVisibility(8);
@@ -70,7 +70,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forum
                     if (c.this.mData != null) {
                         n nVar = (n) c.this.mData.get(i);
                         if (nVar instanceof com.baidu.tieba.frs.forumRule.b.c) {
-                            TbRichText a2 = TbRichTextView.a(c.this.mContext, ((com.baidu.tieba.frs.forumRule.b.c) nVar).cJL(), false);
+                            TbRichText a2 = TbRichTextView.a(c.this.mContext, ((com.baidu.tieba.frs.forumRule.b.c) nVar).cJM(), false);
                             ClipboardManager clipboardManager = (ClipboardManager) c.this.mContext.getSystemService("clipboard");
                             clipboardManager.setText(a2.toString());
                             if (clipboardManager.getText() != null) {

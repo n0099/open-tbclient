@@ -5,14 +5,14 @@ import tbclient.ManagerElection;
 /* loaded from: classes2.dex */
 public class k {
     private boolean ipA;
+    private int lGR;
     private int lGS;
-    private int lGT;
+    private List<String> lGT;
     private List<String> lGU;
     private List<String> lGV;
-    private List<String> lGW;
-    private String lGX;
-    private boolean lGY;
-    private int lGZ;
+    private String lGW;
+    private boolean lGX;
+    private int lGY;
     private int status;
 
     public static k b(ManagerElection managerElection) {
@@ -20,16 +20,16 @@ public class k {
             return null;
         }
         k kVar = new k();
-        kVar.lGT = managerElection.begin_vote_time.intValue();
+        kVar.lGS = managerElection.begin_vote_time.intValue();
         kVar.ipA = managerElection.can_vote.intValue() == 1;
-        kVar.lGS = managerElection.vote_num.intValue();
-        kVar.lGY = managerElection.is_show_distribute.intValue() == 1;
-        kVar.lGZ = managerElection.remainder_time.intValue();
+        kVar.lGR = managerElection.vote_num.intValue();
+        kVar.lGX = managerElection.is_show_distribute.intValue() == 1;
+        kVar.lGY = managerElection.remainder_time.intValue();
         kVar.status = managerElection.status.intValue();
-        kVar.lGX = managerElection.tail_text;
-        kVar.lGU = managerElection.vote_condition_pic;
-        kVar.lGV = managerElection.vote_condition_title;
-        kVar.lGW = managerElection.vote_condition;
+        kVar.lGW = managerElection.tail_text;
+        kVar.lGT = managerElection.vote_condition_pic;
+        kVar.lGU = managerElection.vote_condition_title;
+        kVar.lGV = managerElection.vote_condition;
         return kVar;
     }
 
@@ -37,31 +37,31 @@ public class k {
         return this.status;
     }
 
-    public boolean dnp() {
-        return this.lGY;
-    }
-
-    public int dnq() {
-        return this.lGZ;
-    }
-
-    public int dnr() {
-        return this.lGS;
-    }
-
-    public List<String> dnt() {
-        return this.lGV;
-    }
-
-    public List<String> dnu() {
-        return this.lGW;
-    }
-
-    public String dnv() {
+    public boolean dnq() {
         return this.lGX;
     }
 
-    public boolean ctS() {
+    public int dnr() {
+        return this.lGY;
+    }
+
+    public int dnt() {
+        return this.lGR;
+    }
+
+    public List<String> dnu() {
+        return this.lGU;
+    }
+
+    public List<String> dnv() {
+        return this.lGV;
+    }
+
+    public String dnw() {
+        return this.lGW;
+    }
+
+    public boolean ctT() {
         return this.ipA;
     }
 
@@ -74,6 +74,6 @@ public class k {
     }
 
     public void GI(int i) {
-        this.lGS = i;
+        this.lGR = i;
     }
 }

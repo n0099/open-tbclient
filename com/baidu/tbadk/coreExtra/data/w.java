@@ -12,10 +12,10 @@ public class w {
         this.ftw = new ArrayList();
         try {
             if (jSONArray == null) {
-                com.baidu.tbadk.core.sharedPref.b.bvq().putString("key_index_tab_info_list", "[]");
+                com.baidu.tbadk.core.sharedPref.b.bvr().putString("key_index_tab_info_list", "[]");
                 return;
             }
-            JSONArray jSONArray2 = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bvq().getString("key_index_tab_info_list", "[]"));
+            JSONArray jSONArray2 = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bvr().getString("key_index_tab_info_list", "[]"));
             for (int i = 0; i < jSONArray.length(); i++) {
                 x xVar = new x();
                 x xVar2 = new x();
@@ -30,7 +30,7 @@ public class w {
                     this.ftw.add(xVar);
                 }
             }
-            com.baidu.tbadk.core.sharedPref.b.bvq().putString("key_index_tab_info_list", jSONArray.toString());
+            com.baidu.tbadk.core.sharedPref.b.bvr().putString("key_index_tab_info_list", jSONArray.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

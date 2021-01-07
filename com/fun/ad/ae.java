@@ -10,7 +10,7 @@ public class ae extends ab {
     }
 
     @Override // com.fun.ad.ab
-    public AdSlot eBo() {
-        return new AdSlot.Builder().setCodeId(this.f8063a.f8059a).setSupportDeepLink(true).setImageAcceptedSize(1080, WBConstants.SDK_NEW_PAY_VERSION).setExpressViewAcceptedSize(360.0f, 640.0f).build();
+    public AdSlot eBS() {
+        return new AdSlot.Builder().setCodeId(this.f8064a.f8060a).setSupportDeepLink(true).setImageAcceptedSize(1080, WBConstants.SDK_NEW_PAY_VERSION).setExpressViewAcceptedSize(360.0f, 640.0f).build();
     }
 }

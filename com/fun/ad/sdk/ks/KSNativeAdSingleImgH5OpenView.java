@@ -21,10 +21,10 @@ import java.util.ArrayList;
 public class KSNativeAdSingleImgH5OpenView extends o1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f8130a;
+    public TextView f8131a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f8131b;
+    public ImageView f8132b;
     public ImageView c;
     public TextView d;
     public Button e;
@@ -55,11 +55,11 @@ public class KSNativeAdSingleImgH5OpenView extends o1 {
             if (ksImage != null && ksImage.isValid()) {
                 this.f = (ksImage.getWidth() * 1.0f) / (ksImage.getHeight() * 1.0f);
                 m.a("KSNativeAd Single img width: " + ksImage.getWidth() + ", height: " + ksImage.getHeight());
-                ap.a.pId.a(this, ksImage.getImageUrl(), this.f8131b);
+                ap.a.pJL.a(this, ksImage.getImageUrl(), this.f8132b);
             }
         }
         this.c.setImageBitmap(ksNativeAd.getSdkLogo());
-        this.f8130a.setText(ksNativeAd.getAdDescription());
+        this.f8131a.setText(ksNativeAd.getAdDescription());
         this.d.setText(ksNativeAd.getAdSource());
         this.e.setText(ksNativeAd.getActionDescription());
         ksNativeAd.setDownloadListener(new ai(ksNativeAd, this.e, str, FunAdType.KS_NATIVE, str2));
@@ -68,8 +68,8 @@ public class KSNativeAdSingleImgH5OpenView extends o1 {
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f8130a = (TextView) findViewById(R.id.ad_description);
-        this.f8131b = (ImageView) findViewById(R.id.ad_img);
+        this.f8131a = (TextView) findViewById(R.id.ad_description);
+        this.f8132b = (ImageView) findViewById(R.id.ad_img);
         this.c = (ImageView) findViewById(R.id.ad_logo);
         this.d = (TextView) findViewById(R.id.ad_h5_description);
         this.e = (Button) findViewById(R.id.ad_h5_open);
@@ -79,11 +79,11 @@ public class KSNativeAdSingleImgH5OpenView extends o1 {
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         m.a("KSNativeAd onSizeChanged w: " + i + ", h: " + i2 + ", oldw: " + i3 + ", oldh: " + i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f8131b.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f8132b.getLayoutParams();
         int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
         layoutParams.width = i5;
         layoutParams.height = (int) (i5 / this.f);
         m.a("KSNativeAd onSizeChanged adView width: " + layoutParams.width + ", height: " + layoutParams.height);
-        this.f8131b.setLayoutParams(layoutParams);
+        this.f8132b.setLayoutParams(layoutParams);
     }
 }

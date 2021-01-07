@@ -49,17 +49,17 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void KU(String str) {
+    public void KT(String str) {
         if (str == null || str.isEmpty() || str.equals("null")) {
             this.jtO.setVisibility(8);
             this.jtL.setVisibility(8);
             return;
         }
-        this.jtO.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), KV(str)));
-        this.jtL.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), KV(str)));
+        this.jtO.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), KU(str)));
+        this.jtL.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), KU(str)));
     }
 
-    public String KV(String str) {
+    public String KU(String str) {
         return new SimpleDateFormat("yyyy-MM-dd").format(new Date(Long.valueOf(str + "000").longValue()));
     }
 

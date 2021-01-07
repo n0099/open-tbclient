@@ -30,7 +30,7 @@ public class b {
         this.bduss = str;
     }
 
-    public String abM() {
+    public String abN() {
         return this.ceW;
     }
 

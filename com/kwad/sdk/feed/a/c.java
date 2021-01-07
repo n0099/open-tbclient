@@ -55,7 +55,7 @@ public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
     /* renamed from: a */
     public RecyclerView.ItemDecoration b(AdResultData adResultData) {
         RecyclerView.ItemDecoration aVar;
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f10714b.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f10715b.getLayoutParams();
         switch (adResultData.pageInfo.pageType) {
             case 2:
                 int a2 = ao.a(getContext(), R.dimen.ksad_content_feed_item_single_small_horizontal_padding);
@@ -81,7 +81,7 @@ public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
                 marginLayoutParams.rightMargin = a6;
                 break;
         }
-        this.f10714b.setLayoutParams(marginLayoutParams);
+        this.f10715b.setLayoutParams(marginLayoutParams);
         return aVar;
     }
 
@@ -117,16 +117,16 @@ public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
 
     @Override // com.kwad.sdk.lib.a.c
     protected com.kwad.sdk.lib.widget.recycler.c<AdTemplate, ?> d() {
-        return new b(this, this.f10714b, this.d);
+        return new b(this, this.f10715b, this.d);
     }
 
     @Override // com.kwad.sdk.lib.a.c
     protected com.kwad.sdk.lib.a.a.b<AdResultData, AdTemplate> f() {
         this.d = new com.kwad.sdk.feed.a.b.b();
-        this.d.f10134a = this.e;
-        this.f = new com.kwad.sdk.core.i.a(this, this.f10713a, 70);
+        this.d.f10135a = this.e;
+        this.f = new com.kwad.sdk.core.i.a(this, this.f10714a, 70);
         this.f.a();
-        this.d.f10135b = this.f;
+        this.d.f10136b = this.f;
         return this.d;
     }
 

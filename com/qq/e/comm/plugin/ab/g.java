@@ -9,26 +9,26 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class g implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    private d f12113a;
+    private d f12114a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.qq.e.comm.plugin.ab.b.a f12114b = new com.qq.e.comm.plugin.ab.b.a(this);
+    private com.qq.e.comm.plugin.ab.b.a f12115b = new com.qq.e.comm.plugin.ab.b.a(this);
     private a c;
 
     public g(Context context, c cVar) {
-        this.f12113a = new d(context, cVar);
-        this.f12113a.a(this.f12114b);
+        this.f12114a = new d(context, cVar);
+        this.f12114a.a(this.f12115b);
         this.c = new a();
     }
 
     @SuppressLint({"NewApi"})
     private boolean d(String str) {
         if (Build.VERSION.SDK_INT >= 19) {
-            this.f12113a.evaluateJavascript(str, null);
+            this.f12114a.evaluateJavascript(str, null);
             return true;
         }
         return false;
@@ -36,42 +36,42 @@ class g implements h {
 
     @Override // com.qq.e.comm.plugin.ab.h
     public View a() {
-        return this.f12113a;
+        return this.f12114a;
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
     public void a(int i) {
-        this.f12113a.setVisibility(i);
+        this.f12114a.setVisibility(i);
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
     public void a(com.qq.e.comm.plugin.ab.a.a aVar) {
-        this.f12113a.a(aVar);
+        this.f12114a.a(aVar);
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
     public void a(com.qq.e.comm.plugin.ab.a.b bVar) {
-        this.f12113a.a(bVar);
+        this.f12114a.a(bVar);
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
     public void a(h.a aVar) {
-        this.f12113a.a(aVar);
+        this.f12114a.a(aVar);
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
     public void a(String str) {
-        this.f12113a.loadUrl(str);
+        this.f12114a.loadUrl(str);
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
     public void a(String str, String str2, String str3, String str4, String str5) {
-        this.f12113a.loadDataWithBaseURL(str, str2, str3, str4, str5);
+        this.f12114a.loadDataWithBaseURL(str, str2, str3, str4, str5);
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
     public void a(Collection<com.qq.e.comm.plugin.ab.c.e> collection) {
-        this.f12113a.a(collection);
+        this.f12114a.a(collection);
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
@@ -86,41 +86,41 @@ class g implements h {
 
     @Override // com.qq.e.comm.plugin.ab.h
     public void a(boolean z) {
-        this.f12113a.setVerticalScrollBarEnabled(z);
+        this.f12114a.setVerticalScrollBarEnabled(z);
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
     public com.qq.e.comm.plugin.ab.b.a b() {
-        return this.f12113a.a();
+        return this.f12114a.a();
     }
 
     @Override // com.qq.e.comm.plugin.ab.k
     public void b(String str) {
-        if (this.f12113a.g()) {
+        if (this.f12114a.g()) {
             return;
         }
         try {
             if (d(str)) {
                 return;
             }
-            this.f12113a.loadUrl("javascript:" + str);
+            this.f12114a.loadUrl("javascript:" + str);
         } catch (Exception e) {
         }
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
     public void b(boolean z) {
-        this.f12113a.setHorizontalScrollBarEnabled(z);
+        this.f12114a.setHorizontalScrollBarEnabled(z);
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
     public void c() {
-        this.f12113a.f();
+        this.f12114a.f();
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
     public void c(boolean z) {
-        this.f12113a.setClickable(z);
+        this.f12114a.setClickable(z);
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
@@ -130,37 +130,37 @@ class g implements h {
 
     @Override // com.qq.e.comm.plugin.ab.h
     public List<com.qq.e.comm.plugin.ab.a.b> d() {
-        return this.f12113a.c();
+        return this.f12114a.c();
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
     public void d(boolean z) {
-        this.f12113a.setFocusable(z);
+        this.f12114a.setFocusable(z);
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
     public c e() {
-        return this.f12113a.d();
+        return this.f12114a.d();
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
     public void e(boolean z) {
-        this.f12113a.setFocusableInTouchMode(z);
+        this.f12114a.setFocusableInTouchMode(z);
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
     public int f() {
-        return this.f12113a.getWidth();
+        return this.f12114a.getWidth();
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
     public int f(boolean z) {
-        return this.f12113a.a(z);
+        return this.f12114a.a(z);
     }
 
     @Override // com.qq.e.comm.plugin.ab.h
     public int g() {
-        return this.f12113a.getHeight();
+        return this.f12114a.getHeight();
     }
 
     @Override // com.qq.e.comm.plugin.ab.h

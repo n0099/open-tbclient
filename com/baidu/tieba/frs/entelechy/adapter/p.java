@@ -45,7 +45,7 @@ public class p extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> imple
         a(new com.baidu.adp.widget.ListView.w() { // from class: com.baidu.tieba.frs.entelechy.adapter.p.1
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, com.baidu.adp.widget.ListView.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                BdToast.b(p.this.mContext, p.this.mContext.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).bud();
+                BdToast.b(p.this.mContext, p.this.mContext.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).bue();
             }
         });
         threadCardViewHolder.aL(false);
@@ -73,7 +73,7 @@ public class p extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> imple
         }
         threadCardViewHolder.b((ThreadCardViewHolder<bz>) byVar.eMv);
         threadCardViewHolder.ty().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        byVar.eMv.bsE();
+        byVar.eMv.bsF();
         return threadCardViewHolder.getView();
     }
 
@@ -87,7 +87,7 @@ public class p extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> imple
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 

@@ -6,5 +6,5 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public interface y {
     @Nullable
-    List<ContentValues> ali();
+    List<ContentValues> alj();
 }

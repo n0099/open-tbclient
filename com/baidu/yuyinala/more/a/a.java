@@ -46,39 +46,39 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        final C0937a c0937a;
+        final C0975a c0975a;
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.item_audio_more_function, viewGroup, false);
-            c0937a = new C0937a();
-            c0937a.mRootView = view.findViewById(a.f.func_item_layout);
-            c0937a.gOO = (TextView) view.findViewById(a.f.func_name_tv);
-            c0937a.mIconIv = (TbImageView) view.findViewById(a.f.func_icon_iv);
-            c0937a.oRq = view.findViewById(a.f.func_red_dot_iv);
-            ViewGroup.LayoutParams layoutParams = c0937a.mRootView.getLayoutParams();
+            c0975a = new C0975a();
+            c0975a.mRootView = view.findViewById(a.f.func_item_layout);
+            c0975a.gOO = (TextView) view.findViewById(a.f.func_name_tv);
+            c0975a.mIconIv = (TbImageView) view.findViewById(a.f.func_icon_iv);
+            c0975a.oRq = view.findViewById(a.f.func_red_dot_iv);
+            ViewGroup.LayoutParams layoutParams = c0975a.mRootView.getLayoutParams();
             layoutParams.width = (int) ((ScreenHelper.getScreenWidth(this.mPageContext.getPageActivity()) - this.mPageContext.getPageActivity().getResources().getDimension(a.d.sdk_ds48)) / 4.5d);
-            c0937a.mRootView.setLayoutParams(layoutParams);
-            view.setTag(c0937a);
+            c0975a.mRootView.setLayoutParams(layoutParams);
+            view.setTag(c0975a);
         } else {
-            c0937a = (C0937a) view.getTag();
+            c0975a = (C0975a) view.getTag();
         }
         final com.baidu.yuyinala.more.b.a aVar = (com.baidu.yuyinala.more.b.a) ListUtils.getItem(this.oRl, i);
         if (aVar != null) {
-            c0937a.mRootView.setVisibility(0);
-            c0937a.gOO.setText(aVar.getName());
-            c0937a.mIconIv.startLoad(aVar.getIconUrl(), 10, false);
-            c0937a.oRq.setVisibility(aVar.ekW() ? 0 : 8);
+            c0975a.mRootView.setVisibility(0);
+            c0975a.gOO.setText(aVar.getName());
+            c0975a.mIconIv.startLoad(aVar.getIconUrl(), 10, false);
+            c0975a.oRq.setVisibility(aVar.ekX() ? 0 : 8);
         } else {
-            c0937a.mRootView.setVisibility(8);
+            c0975a.mRootView.setVisibility(8);
         }
-        c0937a.mRootView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.yuyinala.more.a.a.1
+        c0975a.mRootView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.yuyinala.more.a.a.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view2, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case 0:
-                        c0937a.mRootView.setAlpha(0.5f);
+                        c0975a.mRootView.setAlpha(0.5f);
                         return true;
                     case 1:
-                        c0937a.mRootView.setAlpha(1.0f);
+                        c0975a.mRootView.setAlpha(1.0f);
                         a.this.a(aVar);
                         return true;
                     case 2:
@@ -86,7 +86,7 @@ public class a extends BaseAdapter {
                         return true;
                     case 3:
                     case 4:
-                        c0937a.mRootView.setAlpha(1.0f);
+                        c0975a.mRootView.setAlpha(1.0f);
                         return true;
                 }
             }
@@ -106,24 +106,24 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.yuyinala.more.b.a aVar) {
         if (aVar != null) {
-            boolean ekW = aVar.ekW();
+            boolean ekX = aVar.ekX();
             aVar.At(false);
             notifyDataSetChanged();
             if (this.oRm != null) {
-                this.oRm.a(aVar, ekW);
+                this.oRm.a(aVar, ekX);
             }
         }
     }
 
     /* renamed from: com.baidu.yuyinala.more.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    private class C0937a {
+    private class C0975a {
         private TextView gOO;
         private TbImageView mIconIv;
         private View mRootView;
         private View oRq;
 
-        private C0937a() {
+        private C0975a() {
         }
     }
 }

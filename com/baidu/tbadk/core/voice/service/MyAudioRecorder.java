@@ -48,7 +48,7 @@ public class MyAudioRecorder implements d {
                 while (true) {
                     myAudioRecorder = new MyAudioRecorder(true, 1, frX[i], 2, 2);
                     int i2 = i - 1;
-                    if (!(myAudioRecorder.bzk() != State.INITIALIZING) || !(i2 >= 0)) {
+                    if (!(myAudioRecorder.bzl() != State.INITIALIZING) || !(i2 >= 0)) {
                         break;
                     }
                     i = i2;
@@ -60,7 +60,7 @@ public class MyAudioRecorder implements d {
         return myAudioRecorder;
     }
 
-    public State bzk() {
+    public State bzl() {
         return this.fsc;
     }
 
@@ -116,7 +116,7 @@ public class MyAudioRecorder implements d {
         }
     }
 
-    public boolean CL(String str) {
+    public boolean CK(String str) {
         try {
             if (this.fsc == State.INITIALIZING) {
                 this.filePath = str;
@@ -248,21 +248,21 @@ public class MyAudioRecorder implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean CJ(String str) {
-        if (CL(str)) {
+    public boolean CI(String str) {
+        if (CK(str)) {
             return prepare();
         }
         return false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean bzg() {
+    public boolean bzh() {
         synchronized (mLock) {
             if (this.writeThread == null || !this.writeThread.isAlive()) {
                 this.writeThread = new Thread(new Runnable() { // from class: com.baidu.tbadk.core.voice.service.MyAudioRecorder.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        MyAudioRecorder.this.bzf();
+                        MyAudioRecorder.this.bzg();
                     }
                 });
                 this.writeThread.start();
@@ -272,21 +272,21 @@ public class MyAudioRecorder implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public void bzh() {
+    public void bzi() {
         this.fsc = State.STOPPED;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean bzi() {
+    public boolean bzj() {
         return this.fsc == State.RECORDING;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bzf() {
+    public void bzg() {
         if (frZ != null) {
             try {
                 start();
-                while (bzi()) {
+                while (bzj()) {
                     frZ.read(this.buffer, 0, this.buffer.length);
                     try {
                         System.out.println(this.buffer);

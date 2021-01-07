@@ -69,14 +69,14 @@ public class b {
         }
     }
 
-    public List<d> cpQ() {
+    public List<d> cpR() {
         if (this.ibE == null) {
             this.ibE = new ArrayList();
         }
         return this.ibE;
     }
 
-    public boolean cpR() {
+    public boolean cpS() {
         return this.ibx == 1;
     }
 
@@ -84,27 +84,27 @@ public class b {
         this.ibx = i;
     }
 
-    public String cpP() {
+    public String cpQ() {
         return this.ibv;
     }
 
-    public void IV(String str) {
+    public void IU(String str) {
         this.ibv = str;
     }
 
-    public int cpS() {
+    public int cpT() {
         return this.iby;
     }
 
-    public String cpT() {
+    public String cpU() {
         return this.mark_name;
     }
 
-    public String cpU() {
+    public String cpV() {
         return this.mark_pic;
     }
 
-    public int cpV() {
+    public int cpW() {
         return this.ibA;
     }
 
@@ -116,23 +116,23 @@ public class b {
         return this.description;
     }
 
-    public String cpW() {
+    public String cpX() {
         return this.ibC;
     }
 
-    public int cpX() {
+    public int cpY() {
         return this.ibz;
     }
 
-    public String cpY() {
+    public String cpZ() {
         return this.ibD;
     }
 
-    public boolean cpZ() {
+    public boolean cqa() {
         return this.type == 10;
     }
 
-    public boolean cqa() {
+    public boolean cqb() {
         return this.type == 9;
     }
 }

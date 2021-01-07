@@ -34,15 +34,15 @@ public class b {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.live.tieba.yuyinala.b.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.bOo.Xt() != null) {
+            if (b.this.bOo.Xu() != null) {
                 if (b.this.bOi == null) {
                     if (b.this.bOj != null) {
-                        b.this.bOj.D(b.this.mRoomId, b.this.bOo.Xt().Xm(), b.this.bNV);
+                        b.this.bOj.D(b.this.mRoomId, b.this.bOo.Xu().Xn(), b.this.bNV);
                         return;
                     }
                     return;
                 }
-                b.this.bOi.aP(b.this.mRoomId, b.this.bOo.Xt().Xm());
+                b.this.bOi.aP(b.this.mRoomId, b.this.bOo.Xu().Xn());
             }
         }
     };
@@ -50,7 +50,7 @@ public class b {
         @Override // com.baidu.live.tieba.yuyinala.d.a.InterfaceC0227a
         public void ai(List<com.baidu.live.tieba.yuyinala.c.a> list) {
             if (ListUtils.isEmpty(list)) {
-                list = b.this.bOn.Xr();
+                list = b.this.bOn.Xs();
             }
             if (!ListUtils.isEmpty(list)) {
                 b.this.bOo.setData(list);
@@ -59,9 +59,9 @@ public class b {
 
         @Override // com.baidu.live.tieba.yuyinala.d.a.InterfaceC0227a
         public void onFail(int i, String str) {
-            List<com.baidu.live.tieba.yuyinala.c.a> Xr = b.this.bOn.Xr();
-            if (!ListUtils.isEmpty(Xr)) {
-                b.this.bOo.setData(Xr);
+            List<com.baidu.live.tieba.yuyinala.c.a> Xs = b.this.bOn.Xs();
+            if (!ListUtils.isEmpty(Xs)) {
+                b.this.bOo.setData(Xs);
             }
         }
     };
@@ -74,7 +74,7 @@ public class b {
         this.bOn.aO(this.mLiveId, this.mRoomId);
         this.bOo = new com.baidu.live.tieba.yuyinala.e.b(this.mTbPageContext, this.mOnClickListener);
         this.bOo.aO(this.mLiveId, this.mRoomId);
-        this.bOn.Xq();
+        this.bOn.Xr();
         this.bOi = new c(this.mTbPageContext.getPageActivity());
         this.bOi.a(this.bOk);
     }
@@ -88,7 +88,7 @@ public class b {
         this.bOn.aO(this.mLiveId, this.mRoomId);
         this.bOo = new com.baidu.live.tieba.yuyinala.e.b(this.mTbPageContext, this.mOnClickListener);
         this.bOo.E(this.mLiveId, this.mRoomId, this.bNV);
-        this.bOn.Xq();
+        this.bOn.Xr();
         this.bOj = new com.baidu.live.tieba.yuyinala.d.b(this.mTbPageContext.getPageActivity());
         this.bOj.a(this.bOk);
     }

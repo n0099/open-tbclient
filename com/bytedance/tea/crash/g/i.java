@@ -11,9 +11,9 @@ public final class i {
         return a(ib(context));
     }
 
-    public static String a(b.EnumC1009b enumC1009b) {
+    public static String a(b.EnumC1047b enumC1047b) {
         try {
-            switch (enumC1009b) {
+            switch (enumC1047b) {
                 case WIFI:
                     return "wifi";
                 case MOBILE_2G:
@@ -32,20 +32,20 @@ public final class i {
         }
     }
 
-    private static b.EnumC1009b ib(Context context) {
-        b.EnumC1009b enumC1009b;
+    private static b.EnumC1047b ib(Context context) {
+        b.EnumC1047b enumC1047b;
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager == null) {
-                enumC1009b = b.EnumC1009b.NONE;
+                enumC1047b = b.EnumC1047b.NONE;
             } else {
                 NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
                 if (activeNetworkInfo == null || !activeNetworkInfo.isAvailable()) {
-                    enumC1009b = b.EnumC1009b.NONE;
+                    enumC1047b = b.EnumC1047b.NONE;
                 } else {
                     int type = activeNetworkInfo.getType();
                     if (1 == type) {
-                        enumC1009b = b.EnumC1009b.WIFI;
+                        enumC1047b = b.EnumC1047b.WIFI;
                     } else if (type == 0) {
                         switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
                             case 3:
@@ -57,26 +57,26 @@ public final class i {
                             case 12:
                             case 14:
                             case 15:
-                                enumC1009b = b.EnumC1009b.MOBILE_3G;
+                                enumC1047b = b.EnumC1047b.MOBILE_3G;
                                 break;
                             case 4:
                             case 7:
                             case 11:
                             default:
-                                enumC1009b = b.EnumC1009b.MOBILE;
+                                enumC1047b = b.EnumC1047b.MOBILE;
                                 break;
                             case 13:
-                                enumC1009b = b.EnumC1009b.MOBILE_4G;
+                                enumC1047b = b.EnumC1047b.MOBILE_4G;
                                 break;
                         }
                     } else {
-                        enumC1009b = b.EnumC1009b.MOBILE;
+                        enumC1047b = b.EnumC1047b.MOBILE;
                     }
                 }
             }
-            return enumC1009b;
+            return enumC1047b;
         } catch (Throwable th) {
-            return b.EnumC1009b.MOBILE;
+            return b.EnumC1047b.MOBILE;
         }
     }
 

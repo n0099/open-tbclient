@@ -153,7 +153,7 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
         if (!isFinishing()) {
             parserIntent();
             this.grj = new j(getPageContext(), this.grq);
-            this.grj.IM(this.bvS);
+            this.grj.IL(this.bvS);
             MessageManager.getInstance().registerListener(this.aYs);
             MessageManager.getInstance().registerListener(this.aYr);
             MessageManager.getInstance().registerListener(this.gsM);
@@ -161,11 +161,11 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
             initView();
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
             this.bco = false;
-            bRT();
+            bRU();
         }
     }
 
-    private void bRT() {
+    private void bRU() {
         this.mTimer = new Timer();
         this.mTimer.schedule(new TimerTask() { // from class: com.baidu.tieba.ala.AlaWishListActivity.9
             @Override // java.util.TimerTask, java.lang.Runnable
@@ -269,17 +269,17 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
             } else {
                 this.mRootView.setBackgroundResource(a.e.ala_wish_list_bg);
             }
-            Xk();
+            Xl();
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Xk();
+        Xl();
     }
 
-    private void Xk() {
+    private void Xl() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -347,7 +347,7 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
             this.grj.onDestroy();
         }
         if (this.gsK != null) {
-            this.gsK.coF();
+            this.gsK.coG();
         }
         if (this.mTimer != null) {
             this.mTimer.cancel();

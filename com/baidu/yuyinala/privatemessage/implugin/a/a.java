@@ -76,7 +76,7 @@ public class a extends BaseAdapter implements b.a {
     private LayoutInflater mInflater;
     private ArrayList<ChatMsg> mMsgList;
     private c oRA;
-    private InterfaceC0939a oRB;
+    private InterfaceC0977a oRB;
     private ActivityChat.c oRC;
     private d oRD;
     private e oRF;
@@ -89,12 +89,12 @@ public class a extends BaseAdapter implements b.a {
     private b oRz;
     private List<String> oRy = new ArrayList();
     private Set<ChatMsg> oRE = new HashSet();
-    private final int nSl = 120;
+    private final int nSk = 120;
     private long oRI = 0;
 
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0939a {
+    public interface InterfaceC0977a {
         void OM(int i);
     }
 
@@ -117,7 +117,7 @@ public class a extends BaseAdapter implements b.a {
 
     /* loaded from: classes11.dex */
     public interface f {
-        void elc();
+        void eld();
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.b.a
@@ -140,12 +140,12 @@ public class a extends BaseAdapter implements b.a {
         });
     }
 
-    public a(ActivityChat activityChat, ArrayList<ChatMsg> arrayList, b bVar, c cVar, InterfaceC0939a interfaceC0939a, d dVar, ActivityChat.c cVar2, String str) {
+    public a(ActivityChat activityChat, ArrayList<ChatMsg> arrayList, b bVar, c cVar, InterfaceC0977a interfaceC0977a, d dVar, ActivityChat.c cVar2, String str) {
         this.oRx = activityChat;
         this.mMsgList = arrayList;
         this.oRz = bVar;
         this.oRA = cVar;
-        this.oRB = interfaceC0939a;
+        this.oRB = interfaceC0977a;
         this.oRD = dVar;
         this.oRJ = str;
         this.oRF = new e(activityChat);
@@ -270,9 +270,9 @@ public class a extends BaseAdapter implements b.a {
                                 }
                                 new JSONObject();
                                 if (!ChatInfo.oTS) {
-                                    a.this.gY(com.baidu.yuyinala.privatemessage.implugin.d.a.elk(), "ugc");
+                                    a.this.gY(com.baidu.yuyinala.privatemessage.implugin.d.a.ell(), "ugc");
                                 } else {
-                                    com.baidu.yuyinala.privatemessage.implugin.d.b.ell().a(true, "", "", "", "", "", "", "");
+                                    com.baidu.yuyinala.privatemessage.implugin.d.b.elm().a(true, "", "", "", "", "", "", "");
                                 }
                             }
                         });
@@ -292,11 +292,11 @@ public class a extends BaseAdapter implements b.a {
                         switch (ChatInfo.oTH) {
                             case DUZHAN:
                                 com.baidu.yuyinala.privatemessage.implugin.util.b.hE(this.oRx);
-                                ImageLoader.getInstance().displayImage(ChatInfo.mPainfo.getAvatar(), imageView3, com.baidu.yuyinala.privatemessage.implugin.util.b.enR());
+                                ImageLoader.getInstance().displayImage(ChatInfo.mPainfo.getAvatar(), imageView3, com.baidu.yuyinala.privatemessage.implugin.util.b.enS());
                                 break;
                             case B2C:
                                 com.baidu.yuyinala.privatemessage.implugin.util.b.hE(this.oRx);
-                                ImageLoader.getInstance().displayImage(ChatInfo.oTL, imageView3, com.baidu.yuyinala.privatemessage.implugin.util.b.enR());
+                                ImageLoader.getInstance().displayImage(ChatInfo.oTL, imageView3, com.baidu.yuyinala.privatemessage.implugin.util.b.enS());
                                 break;
                             case C2C:
                                 c(ChatInfo.oTL, imageView3);
@@ -333,15 +333,15 @@ public class a extends BaseAdapter implements b.a {
                                                 c(optString2, imageView3);
                                                 int optInt = jSONObject.optInt("sex", 1);
                                                 int optInt2 = jSONObject.optInt("isVip", 0);
-                                                b2.mtx.setVisibility(8);
-                                                b2.mtx.setText("");
+                                                b2.mtw.setVisibility(8);
+                                                b2.mtw.setText("");
                                                 b2.oSo.setText("");
                                                 b2.oSo.setVisibility(8);
                                                 JSONArray jSONArray = jSONObject.getJSONArray(CommandMessage.TYPE_TAGS);
                                                 for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                                                     if (i3 == 0) {
-                                                        b2.mtx.setVisibility(0);
-                                                        b2.mtx.setText(jSONArray.getString(i3));
+                                                        b2.mtw.setVisibility(0);
+                                                        b2.mtw.setText(jSONArray.getString(i3));
                                                     }
                                                     if (i3 == 1) {
                                                         b2.oSo.setVisibility(0);
@@ -349,12 +349,12 @@ public class a extends BaseAdapter implements b.a {
                                                     }
                                                     if (optInt == 1) {
                                                         b2.oSo.setBackgroundResource(ThemeManager.U(this.oRx, a.e.bd_im_star_boy));
-                                                        b2.mtx.setBackgroundResource(ThemeManager.U(this.oRx, a.e.bd_im_star_boy));
+                                                        b2.mtw.setBackgroundResource(ThemeManager.U(this.oRx, a.e.bd_im_star_boy));
                                                     } else {
-                                                        b2.mtx.setBackgroundResource(ThemeManager.U(this.oRx, a.e.bd_im_star_girl));
+                                                        b2.mtw.setBackgroundResource(ThemeManager.U(this.oRx, a.e.bd_im_star_girl));
                                                         b2.oSo.setBackgroundResource(ThemeManager.U(this.oRx, a.e.bd_im_star_girl));
                                                     }
-                                                    b2.mtx.setTextColor(ThemeManager.U(this.oRx, a.c.bd_im_white));
+                                                    b2.mtw.setTextColor(ThemeManager.U(this.oRx, a.c.bd_im_white));
                                                     b2.oSo.setTextColor(ThemeManager.U(this.oRx, a.c.bd_im_white));
                                                 }
                                                 if (b2.oSp != null) {
@@ -389,8 +389,8 @@ public class a extends BaseAdapter implements b.a {
                                                 String optString4 = jSONObject2.optString("portrait");
                                                 com.baidu.yuyinala.privatemessage.implugin.util.c.d("ChatAdapter", " group member portrait is " + optString4);
                                                 c(optString4, imageView3);
-                                                b2.mtx.setVisibility(8);
-                                                b2.mtx.setText("");
+                                                b2.mtw.setVisibility(8);
+                                                b2.mtw.setText("");
                                                 b2.oSo.setText("");
                                                 b2.oSo.setVisibility(8);
                                             }
@@ -398,7 +398,7 @@ public class a extends BaseAdapter implements b.a {
                                             z = false;
                                         }
                                         if (!z) {
-                                            com.baidu.yuyinala.privatemessage.implugin.d.b.ell().a(this.oRx.getApplicationContext(), String.valueOf(ChatInfo.mContacter), arrayList, new b.a<ArrayList<GroupMember>>() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.16
+                                            com.baidu.yuyinala.privatemessage.implugin.d.b.elm().a(this.oRx.getApplicationContext(), String.valueOf(ChatInfo.mContacter), arrayList, new b.a<ArrayList<GroupMember>>() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.16
                                                 /* JADX DEBUG: Method merged with bridge method */
                                                 @Override // com.baidu.android.imsdk.group.BIMValueCallBack
                                                 public void onResult(int i4, String str, final ArrayList<GroupMember> arrayList2) {
@@ -459,7 +459,7 @@ public class a extends BaseAdapter implements b.a {
             long contacter = chatMsg.getContacter();
             h hT = k.hB(this.oRx).hT(contacter);
             if (hT != null && hT.getId() == contacter) {
-                this.mMsgList.get(i).setNotifyCmd(hT.elo());
+                this.mMsgList.get(i).setNotifyCmd(hT.elp());
                 this.oRx.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.18
                     @Override // java.lang.Runnable
                     public void run() {
@@ -473,10 +473,10 @@ public class a extends BaseAdapter implements b.a {
                 public void d(int i2, String str, long j) {
                     h hVar = new h();
                     hVar.setPaid(j);
-                    hVar.Yl(str);
+                    hVar.Yk(str);
                     if (hVar.isDataValid()) {
                         k.hB(a.this.oRx).a(j, hVar);
-                        ((ChatMsg) a.this.mMsgList.get(i)).setNotifyCmd(hVar.elo());
+                        ((ChatMsg) a.this.mMsgList.get(i)).setNotifyCmd(hVar.elp());
                         a.this.oRx.runOnUiThread(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.19.1
                             @Override // java.lang.Runnable
                             public void run() {
@@ -491,7 +491,7 @@ public class a extends BaseAdapter implements b.a {
 
     private boolean isNotice(ChatMsg chatMsg) {
         if (chatMsg.getMsgType() == 0) {
-            if (new com.baidu.yuyinala.privatemessage.model.message.b((TextMsg) chatMsg).eoh()) {
+            if (new com.baidu.yuyinala.privatemessage.model.message.b((TextMsg) chatMsg).eoi()) {
                 return true;
             }
         } else if (2 == chatMsg.getCategory() || chatMsg.getMsgType() == -1) {
@@ -509,7 +509,7 @@ public class a extends BaseAdapter implements b.a {
         URLSpan[] uRLSpanArr;
         Spanned spanned = null;
         fVar.getContentView().setVisibility(0);
-        if (TextUtils.isEmpty(com.baidu.yuyinala.privatemessage.implugin.d.b.ell().getUserId(this.oRx.getApplicationContext()))) {
+        if (TextUtils.isEmpty(com.baidu.yuyinala.privatemessage.implugin.d.b.elm().getUserId(this.oRx.getApplicationContext()))) {
         }
         TextView textView = fVar.getTextView();
         if (chatMsg.getMsgType() == 22) {
@@ -545,7 +545,7 @@ public class a extends BaseAdapter implements b.a {
                         f subViewLongClickListener;
                         View contentView = fVar.getContentView();
                         if ((contentView instanceof EventDispatchRelativeLayout) && (subViewLongClickListener = ((EventDispatchRelativeLayout) contentView).getSubViewLongClickListener()) != null) {
-                            subViewLongClickListener.elc();
+                            subViewLongClickListener.eld();
                             return true;
                         }
                         return true;
@@ -559,7 +559,7 @@ public class a extends BaseAdapter implements b.a {
         if (chatMsg.getMsgType() == 2001) {
             a("", textView, "invite_link");
         } else if (chatMsg.getMsgType() == 0) {
-            if (new com.baidu.yuyinala.privatemessage.model.message.b((TextMsg) chatMsg).eoh()) {
+            if (new com.baidu.yuyinala.privatemessage.model.message.b((TextMsg) chatMsg).eoi()) {
                 if (chatMsg instanceof TextMsg) {
                     com.baidu.yuyinala.privatemessage.implugin.util.c.d("NotifyTxtItem", "Schema: " + ((TextMsg) chatMsg).getText());
                     try {
@@ -589,7 +589,7 @@ public class a extends BaseAdapter implements b.a {
     }
 
     private void a(ArrayList<String> arrayList, final String str, final TextView textView) {
-        com.baidu.yuyinala.privatemessage.implugin.d.b.ell().a(this.oRx.getApplicationContext(), String.valueOf(ChatInfo.mContacter), arrayList, new b.a<ArrayList<GroupMember>>() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.22
+        com.baidu.yuyinala.privatemessage.implugin.d.b.elm().a(this.oRx.getApplicationContext(), String.valueOf(ChatInfo.mContacter), arrayList, new b.a<ArrayList<GroupMember>>() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.22
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.android.imsdk.group.BIMValueCallBack
             public void onResult(int i, String str2, final ArrayList<GroupMember> arrayList2) {
@@ -631,19 +631,19 @@ public class a extends BaseAdapter implements b.a {
             thumbUrl = remoteUrl;
         }
         com.baidu.yuyinala.privatemessage.implugin.util.b.hE(this.oRx);
-        ImageLoader.getInstance().displayImage(thumbUrl, imageView, com.baidu.yuyinala.privatemessage.implugin.util.b.enT(), new ImageLoadingListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.2
+        ImageLoader.getInstance().displayImage(thumbUrl, imageView, com.baidu.yuyinala.privatemessage.implugin.util.b.enU(), new ImageLoadingListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.2
             @Override // com.baidu.sumeru.universalimageloader.core.assist.ImageLoadingListener
             public void onLoadingStarted(String str, View view) {
                 if (!a.this.oRy.contains(str)) {
-                    nVar.elg();
-                    nVar.ele();
+                    nVar.elh();
+                    nVar.elf();
                 }
             }
 
             @Override // com.baidu.sumeru.universalimageloader.core.assist.ImageLoadingListener
             public void onLoadingFailed(String str, View view, FailReason failReason) {
-                nVar.elh();
-                nVar.elf();
+                nVar.eli();
+                nVar.elg();
                 a.this.oRy.add(str);
             }
 
@@ -656,20 +656,20 @@ public class a extends BaseAdapter implements b.a {
                     layoutParams.height = d2[1];
                     imageView.setLayoutParams(layoutParams);
                 }
-                nVar.elh();
-                nVar.elf();
+                nVar.eli();
+                nVar.elg();
             }
 
             @Override // com.baidu.sumeru.universalimageloader.core.assist.ImageLoadingListener
             public void onLoadingCancelled(String str, View view) {
-                nVar.elh();
-                nVar.elf();
+                nVar.eli();
+                nVar.elg();
             }
         }, new ImageLoadingProgressListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.3
             @Override // com.baidu.sumeru.universalimageloader.core.assist.ImageLoadingProgressListener
             public void onProgressUpdate(String str, View view, int i, int i2) {
-                nVar.elg();
-                nVar.ele();
+                nVar.elh();
+                nVar.elf();
             }
         });
     }
@@ -721,7 +721,7 @@ public class a extends BaseAdapter implements b.a {
     }
 
     public void aV(Object obj) {
-        this.oRK.enW();
+        this.oRK.enX();
         Object tag = ((View) obj).getTag();
         if (tag != null) {
             if (tag instanceof m) {
@@ -735,7 +735,7 @@ public class a extends BaseAdapter implements b.a {
     public void c(String str, ImageView imageView) {
         if (str != null && imageView != null) {
             com.baidu.yuyinala.privatemessage.implugin.util.b.hE(this.oRx.getApplicationContext());
-            ImageLoader.getInstance().displayImage(str, imageView, com.baidu.yuyinala.privatemessage.implugin.util.b.enS());
+            ImageLoader.getInstance().displayImage(str, imageView, com.baidu.yuyinala.privatemessage.implugin.util.b.enT());
         }
     }
 
@@ -744,7 +744,7 @@ public class a extends BaseAdapter implements b.a {
             if ((i2 == 0 || i2 == 18 || i2 == 10000 || i2 == 16 || i2 == 8) && (view instanceof EventDispatchRelativeLayout)) {
                 ((EventDispatchRelativeLayout) view).setSubviewLongClickListener(new f() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.4
                     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.f
-                    public void elc() {
+                    public void eld() {
                         a.this.l(i, view);
                     }
                 });
@@ -783,7 +783,7 @@ public class a extends BaseAdapter implements b.a {
             });
         }
         if (this.oRH != null) {
-            this.oRH.emL();
+            this.oRH.emM();
         }
     }
 
@@ -797,7 +797,7 @@ public class a extends BaseAdapter implements b.a {
         if (chatMsg.getMsgType() != 100 && chatMsg.getMsgType() != 21) {
             if (chatMsg.getMsgType() == 0 || 8 == chatMsg.getMsgType() || 16 == chatMsg.getMsgType()) {
                 if (chatMsg instanceof SignleGraphicTextMsg) {
-                    if (new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg).eog() == SingleGraphicTextMsgExt.SingleGraphicTextType.VIDEOSHARE) {
+                    if (new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg).eoh() == SingleGraphicTextMsgExt.SingleGraphicTextType.VIDEOSHARE) {
                         a(view, chatMsg, i);
                         return;
                     }
@@ -939,22 +939,22 @@ public class a extends BaseAdapter implements b.a {
         String str4 = "";
         if (str2 == "invite_link") {
             str3 = "恭喜你已创建粉丝群，";
-            str4 = com.baidu.yuyinala.privatemessage.implugin.ui.common.b.elV();
+            str4 = com.baidu.yuyinala.privatemessage.implugin.ui.common.b.elW();
         } else if (str2 == "greet_link") {
             str3 = "您已加入群聊，";
-            str4 = com.baidu.yuyinala.privatemessage.implugin.ui.common.b.elR();
+            str4 = com.baidu.yuyinala.privatemessage.implugin.ui.common.b.elS();
         } else if (str2 == "welcom_link") {
             this.oRx.a(str, new com.baidu.yuyinala.privatemessage.implugin.ui.activity.b() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.13
                 @Override // com.baidu.yuyinala.privatemessage.implugin.ui.activity.b
-                public void Yg(String str5) {
+                public void Yf(String str5) {
                     if (TextUtils.isEmpty(str5)) {
                         str5 = str;
                     }
                     SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
                     String str6 = str5 + "已加入群聊，";
-                    String elS = com.baidu.yuyinala.privatemessage.implugin.ui.common.b.elS();
+                    String elT = com.baidu.yuyinala.privatemessage.implugin.ui.common.b.elT();
                     spannableStringBuilder2.append((CharSequence) str6);
-                    spannableStringBuilder2.append((CharSequence) elS);
+                    spannableStringBuilder2.append((CharSequence) elT);
                     spannableStringBuilder2.setSpan(new ClickableSpan() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.13.1
                         @Override // android.text.style.ClickableSpan
                         public void onClick(@NonNull View view) {
@@ -973,7 +973,7 @@ public class a extends BaseAdapter implements b.a {
                         @Override // android.text.style.ClickableSpan
                         public void onClick(@NonNull View view) {
                             if (a.this.oRL != null) {
-                                a.this.oRL.Yo(str2);
+                                a.this.oRL.Yn(str2);
                             }
                         }
 
@@ -984,7 +984,7 @@ public class a extends BaseAdapter implements b.a {
                             textPaint.setUnderlineText(false);
                             textPaint.clearShadowLayer();
                         }
-                    }, str6.length(), str6.length() + elS.length(), 33);
+                    }, str6.length(), str6.length() + elT.length(), 33);
                     textView.setMovementMethod(LinkMovementMethod.getInstance());
                     textView.setText(spannableStringBuilder2);
                     textView.setFocusableInTouchMode(true);

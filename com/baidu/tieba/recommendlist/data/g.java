@@ -4,7 +4,7 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 /* loaded from: classes11.dex */
 public class g implements IAdapterData {
-    public static BdUniqueId mWe = BdUniqueId.gen();
+    public static BdUniqueId mWd = BdUniqueId.gen();
     public String title;
     public int type;
 
@@ -14,6 +14,6 @@ public class g implements IAdapterData {
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return mWe;
+        return mWd;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.swan.facade.a;
 public class f {
     private static volatile e dYh;
 
-    public static synchronized e aTM() {
+    public static synchronized e aTN() {
         e eVar;
         synchronized (f.class) {
             if (dYh == null) {

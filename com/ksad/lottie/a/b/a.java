@@ -10,19 +10,19 @@ public abstract class a<K, A> {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    protected com.ksad.lottie.e.c<A> f8257b;
+    protected com.ksad.lottie.e.c<A> f8258b;
     private final List<? extends com.ksad.lottie.e.a<K>> d;
     @Nullable
     private com.ksad.lottie.e.a<K> f;
 
     /* renamed from: a  reason: collision with root package name */
-    final List<InterfaceC1037a> f8256a = new ArrayList();
+    final List<InterfaceC1078a> f8257a = new ArrayList();
     private boolean c = false;
     private float e = 0.0f;
 
     /* renamed from: com.ksad.lottie.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1037a {
+    public interface InterfaceC1078a {
         void a();
     }
 
@@ -83,18 +83,18 @@ public abstract class a<K, A> {
         b();
     }
 
-    public void a(InterfaceC1037a interfaceC1037a) {
-        this.f8256a.add(interfaceC1037a);
+    public void a(InterfaceC1078a interfaceC1078a) {
+        this.f8257a.add(interfaceC1078a);
     }
 
     public void b() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.f8256a.size()) {
+            if (i2 >= this.f8257a.size()) {
                 return;
             }
-            this.f8256a.get(i2).a();
+            this.f8257a.get(i2).a();
             i = i2 + 1;
         }
     }

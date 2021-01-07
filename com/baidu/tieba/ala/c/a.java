@@ -41,18 +41,18 @@ public class a extends d {
     }
 
     @Override // com.baidu.tieba.ala.c.d
-    protected int bXd() {
+    protected int bXe() {
         return a.g.ala_choose_num_and_date;
     }
 
     @Override // com.baidu.tieba.ala.c.d
     protected void initView() {
-        bXe();
+        bXf();
         this.gRN = (RelativeLayout) this.mRootView.findViewById(a.f.choose_bottom_layout);
         this.gRN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.c.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.bRv();
+                a.this.bRw();
             }
         });
         this.gRO = (TextView) this.mRootView.findViewById(a.f.choose_bottom_tip);
@@ -142,7 +142,7 @@ public class a extends d {
         super.onKeyboardVisibilityChanged(z);
     }
 
-    private void bXe() {
+    private void bXf() {
         if (this.gRS == null) {
             this.gRS = new ArrayList();
         }

@@ -30,7 +30,7 @@ public class AlaGiftInitialize {
         Go();
         Gp();
         Gq();
-        aaA();
+        aaB();
         Gg();
         Gh();
         Gi();
@@ -38,10 +38,10 @@ public class AlaGiftInitialize {
         TbadkCoreApplication.getInst().RegisterIntent(ad.class, AlaGiftLuckyStarActivity.class);
         Gu();
         Gv();
-        com.baidu.live.yuyingift.b.b.aaZ();
+        com.baidu.live.yuyingift.b.b.aba();
     }
 
-    private static void aaA() {
+    private static void aaB() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031088, com.baidu.live.a.aAH + "/ala/audio/gift/placeOrderEnd");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

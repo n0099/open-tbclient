@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes8.dex */
 public class b {
-    public static boolean dDI() {
+    public static boolean dDJ() {
         String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
         return !StringUtils.isNull(systemProperty) && com.baidu.adp.lib.f.b.toInt(systemProperty.replace("V", ""), 0) >= 9;
     }
 
-    public static boolean dDJ() {
+    public static boolean dDK() {
         PackageManager packageManager = TbadkCoreApplication.getInst().getPackageManager();
         try {
             if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.ScreenLockedActionControlActivity"), 0) != null) {

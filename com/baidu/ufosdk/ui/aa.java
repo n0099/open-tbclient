@@ -13,17 +13,17 @@ import java.util.Map;
 public final class aa implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditText f5704a;
+    final /* synthetic */ EditText f5705a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ String f5705b;
+    final /* synthetic */ String f5706b;
     final /* synthetic */ FeedbackEditActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(FeedbackEditActivity feedbackEditActivity, EditText editText, String str) {
         this.c = feedbackEditActivity;
-        this.f5704a = editText;
-        this.f5705b = str;
+        this.f5705a = editText;
+        this.f5706b = str;
     }
 
     @Override // android.text.TextWatcher
@@ -40,11 +40,11 @@ public final class aa implements TextWatcher {
         Button button2;
         List list4;
         Button button3;
-        this.c.ad = this.f5704a.getText().toString();
+        this.c.ad = this.f5705a.getText().toString();
         str = this.c.ad;
         Log.d("editcontent", str);
-        Map map = this.c.f5688a;
-        String str5 = this.f5705b;
+        Map map = this.c.f5689a;
+        String str5 = this.f5706b;
         str2 = this.c.ad;
         map.put(str5, str2);
         str3 = this.c.ad;

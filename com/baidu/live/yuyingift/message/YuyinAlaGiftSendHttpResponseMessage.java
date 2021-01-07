@@ -27,7 +27,7 @@ public class YuyinAlaGiftSendHttpResponseMessage extends JsonHttpResponsedMessag
         return this.mLogId;
     }
 
-    public com.baidu.live.yuyingift.a.a aba() {
+    public com.baidu.live.yuyingift.a.a abb() {
         return this.caI;
     }
 

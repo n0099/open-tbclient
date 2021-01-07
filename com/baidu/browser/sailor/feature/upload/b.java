@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import com.baidu.n.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public final class b implements a.InterfaceC0277a {
     final /* synthetic */ BdUploadHandler agT;
 

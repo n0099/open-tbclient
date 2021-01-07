@@ -113,8 +113,8 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
                 this.iMA.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_forum_default_introduce));
             }
             pS(bVar.eSj);
-            com.baidu.tbadk.core.util.f.a.b.bwV().ag(l.getDimens(getContext(), R.dimen.tbds10)).af(l.getDimens(getContext(), R.dimen.tbds10)).qr(R.color.CAM_X0901).bz(this.iMu);
-            com.baidu.tbadk.core.util.f.a.bwT().qI(R.color.CAM_X0901).qD(l.getDimens(getContext(), R.dimen.tbds10)).qE(R.color.CAM_X0804).qC(4353).qF(l.getDimens(getContext(), R.dimen.tbds10)).qG(0).qH(l.getDimens(getContext(), R.dimen.tbds5)).bz(this.iMv);
+            com.baidu.tbadk.core.util.f.a.b.bwW().ag(l.getDimens(getContext(), R.dimen.tbds10)).af(l.getDimens(getContext(), R.dimen.tbds10)).qr(R.color.CAM_X0901).bz(this.iMu);
+            com.baidu.tbadk.core.util.f.a.bwU().qI(R.color.CAM_X0901).qD(l.getDimens(getContext(), R.dimen.tbds10)).qE(R.color.CAM_X0804).qC(4353).qF(l.getDimens(getContext(), R.dimen.tbds10)).qG(0).qH(l.getDimens(getContext(), R.dimen.tbds5)).bz(this.iMv);
             g(bVar);
         }
     }

@@ -1,7 +1,7 @@
 package com.baidu.mapapi.search.sug;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class SuggestionSearchOption {
     public String mCity = null;
     public String mKeyword = null;

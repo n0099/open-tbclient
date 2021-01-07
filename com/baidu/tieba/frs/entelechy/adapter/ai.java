@@ -48,14 +48,14 @@ public class ai extends com.baidu.tieba.frs.k<com.baidu.tieba.tbadkCore.q, FrsVi
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 TiebaStatic.log(new aq("c12587").dX("fid", ai.this.mForumId));
-                com.baidu.tbadk.core.sharedPref.b.bvq().putLong(SharedPrefConfig.FRS_VIDEO_ACTIVITY_TIP + ai.this.mForumId, System.currentTimeMillis());
+                com.baidu.tbadk.core.sharedPref.b.bvr().putLong(SharedPrefConfig.FRS_VIDEO_ACTIVITY_TIP + ai.this.mForumId, System.currentTimeMillis());
                 if (qVar != null && !StringUtils.isNull(qVar.url)) {
                     com.baidu.tbadk.browser.a.startInternalWebActivity(ai.this.mContext, qVar.url);
                 }
             }
         });
         frsVideoActivityViewHolder.mTitleTv.setText(qVar != null ? qVar.text : "");
-        if (go(com.baidu.tbadk.core.sharedPref.b.bvq().getLong(SharedPrefConfig.FRS_VIDEO_ACTIVITY_TIP + this.mForumId, 0L))) {
+        if (go(com.baidu.tbadk.core.sharedPref.b.bvr().getLong(SharedPrefConfig.FRS_VIDEO_ACTIVITY_TIP + this.mForumId, 0L))) {
             frsVideoActivityViewHolder.jqV.setVisibility(0);
         } else {
             frsVideoActivityViewHolder.jqV.setVisibility(8);

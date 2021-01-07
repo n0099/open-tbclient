@@ -12,10 +12,10 @@ import com.kwad.sdk.utils.ao;
 public class RadiusPvFrameLayout extends com.kwad.sdk.widget.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private float f11145a;
+    private float f11146a;
 
     /* renamed from: b  reason: collision with root package name */
-    private RectF f11146b;
+    private RectF f11147b;
     private Path c;
     private a d;
 
@@ -34,7 +34,7 @@ public class RadiusPvFrameLayout extends com.kwad.sdk.widget.a {
     }
 
     private void c() {
-        this.f11145a = ao.a(getContext(), 4.0f);
+        this.f11146a = ao.a(getContext(), 4.0f);
         setLayerType(1, null);
     }
 
@@ -57,36 +57,36 @@ public class RadiusPvFrameLayout extends com.kwad.sdk.widget.a {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.f11145a == 0.0f) {
+        if (this.f11146a == 0.0f) {
             super.dispatchDraw(canvas);
             return;
         }
         int save = canvas.save();
-        if (this.f11146b == null) {
+        if (this.f11147b == null) {
             this.c = new Path();
-            this.f11146b = new RectF(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
+            this.f11147b = new RectF(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
         } else {
-            this.f11146b.right = canvas.getWidth();
-            this.f11146b.bottom = canvas.getHeight();
+            this.f11147b.right = canvas.getWidth();
+            this.f11147b.bottom = canvas.getHeight();
             this.c.reset();
         }
         float[] fArr = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
-        fArr[0] = this.f11145a;
-        fArr[1] = this.f11145a;
-        fArr[2] = this.f11145a;
-        fArr[3] = this.f11145a;
-        fArr[4] = this.f11145a;
-        fArr[5] = this.f11145a;
-        fArr[6] = this.f11145a;
-        fArr[7] = this.f11145a;
-        this.c.addRoundRect(this.f11146b, fArr, Path.Direction.CW);
+        fArr[0] = this.f11146a;
+        fArr[1] = this.f11146a;
+        fArr[2] = this.f11146a;
+        fArr[3] = this.f11146a;
+        fArr[4] = this.f11146a;
+        fArr[5] = this.f11146a;
+        fArr[6] = this.f11146a;
+        fArr[7] = this.f11146a;
+        this.c.addRoundRect(this.f11147b, fArr, Path.Direction.CW);
         canvas.clipPath(this.c);
         super.dispatchDraw(canvas);
         canvas.restoreToCount(save);
     }
 
     public void setRadius(float f) {
-        this.f11145a = f;
+        this.f11146a = f;
         invalidate();
     }
 }

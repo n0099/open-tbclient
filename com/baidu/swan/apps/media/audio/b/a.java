@@ -49,7 +49,7 @@ public class a {
         }
     }
 
-    public boolean aEp() {
+    public boolean aEq() {
         return UnitedSchemeUtility.isInvokedFromSwanGame(this.det);
     }
 }

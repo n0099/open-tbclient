@@ -54,7 +54,7 @@ public class i extends Dialog {
         this.eXW = fVar;
         this.context = fVar.getPageActivity();
         this.eXY = kVar;
-        this.mContentView = kVar.bur();
+        this.mContentView = kVar.bus();
     }
 
     public i(com.baidu.adp.base.f fVar) {
@@ -82,7 +82,7 @@ public class i extends Dialog {
 
     public void a(k kVar) {
         this.eXY = kVar;
-        this.mContentView = kVar.bur();
+        this.mContentView = kVar.bus();
     }
 
     @Override // android.app.Dialog
@@ -102,7 +102,7 @@ public class i extends Dialog {
         this.eXY.bB(arrayList);
         this.eXY.a(cVar);
         setCanceledOnTouchOutside(true);
-        this.mContentView = this.eXY.bur();
+        this.mContentView = this.eXY.bus();
     }
 
     @Override // android.app.Dialog

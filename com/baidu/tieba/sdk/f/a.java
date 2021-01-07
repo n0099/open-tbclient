@@ -80,18 +80,18 @@ public class a implements ILiveScheme {
         }
         if (TextUtils.equals(str, "1")) {
             if (!TextUtils.isEmpty(str2)) {
-                com.baidu.tieba.sdk.a.dGX().c(context != null ? context : TbadkCoreApplication.getInst(), str2, "1".equals(str5), str9, jSONObject);
+                com.baidu.tieba.sdk.a.dGY().c(context != null ? context : TbadkCoreApplication.getInst(), str2, "1".equals(str5), str9, jSONObject);
             } else if (!TextUtils.isEmpty(str3)) {
-                com.baidu.tieba.sdk.a.dGX().b(context != null ? context : TbadkCoreApplication.getInst(), Long.parseLong(str3), "1".equals(str5), str9, jSONObject);
+                com.baidu.tieba.sdk.a.dGY().b(context != null ? context : TbadkCoreApplication.getInst(), Long.parseLong(str3), "1".equals(str5), str9, jSONObject);
             } else if (!TextUtils.isEmpty(str4)) {
-                com.baidu.tieba.sdk.a.dGX().d(context != null ? context : TbadkCoreApplication.getInst(), str4, "1".equals(str5), str9, jSONObject);
+                com.baidu.tieba.sdk.a.dGY().d(context != null ? context : TbadkCoreApplication.getInst(), str4, "1".equals(str5), str9, jSONObject);
             }
         } else if (!TextUtils.isEmpty(str2)) {
-            com.baidu.tieba.sdk.a.dGX().a(context != null ? context : TbadkCoreApplication.getInst(), str2, "1".equals(str5), str9, jSONObject);
+            com.baidu.tieba.sdk.a.dGY().a(context != null ? context : TbadkCoreApplication.getInst(), str2, "1".equals(str5), str9, jSONObject);
         } else if (!TextUtils.isEmpty(str3)) {
-            com.baidu.tieba.sdk.a.dGX().a(context != null ? context : TbadkCoreApplication.getInst(), Long.parseLong(str3), "1".equals(str5), str9, jSONObject);
+            com.baidu.tieba.sdk.a.dGY().a(context != null ? context : TbadkCoreApplication.getInst(), Long.parseLong(str3), "1".equals(str5), str9, jSONObject);
         } else if (!TextUtils.isEmpty(str4)) {
-            com.baidu.tieba.sdk.a.dGX().b(context != null ? context : TbadkCoreApplication.getInst(), str4, "1".equals(str5), str9, jSONObject);
+            com.baidu.tieba.sdk.a.dGY().b(context != null ? context : TbadkCoreApplication.getInst(), str4, "1".equals(str5), str9, jSONObject);
         }
     }
 }

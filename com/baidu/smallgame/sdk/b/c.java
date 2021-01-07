@@ -1,7 +1,7 @@
 package com.baidu.smallgame.sdk.b;
 
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class c {
     protected long cCV = 2000;
     protected a cCW;

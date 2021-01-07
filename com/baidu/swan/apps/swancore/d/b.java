@@ -25,7 +25,7 @@ public class b {
         private c dPi = null;
         private String dPj = "";
 
-        public static a aPW() {
+        public static a aPX() {
             return new a();
         }
 
@@ -39,7 +39,7 @@ public class b {
             return this;
         }
 
-        public b aPX() {
+        public b aPY() {
             b bVar = new b();
             bVar.dPg = this.dPg;
             bVar.dPh = this.dPh;

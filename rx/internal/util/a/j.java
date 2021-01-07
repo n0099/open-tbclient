@@ -2,7 +2,7 @@ package rx.internal.util.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes15.dex */
 public abstract class j<E> extends l<E> {
-    protected static final long qwi = ae.m(j.class, "consumerIndex");
+    protected static final long qxQ = ae.m(j.class, "consumerIndex");
     private volatile long consumerIndex;
 
     public j(int i) {
@@ -10,12 +10,12 @@ public abstract class j<E> extends l<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final long eLr() {
+    public final long eLV() {
         return this.consumerIndex;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean X(long j, long j2) {
-        return ae.qwp.a(this, qwi, j, j2);
+    public final boolean Y(long j, long j2) {
+        return ae.qxX.a(this, qxQ, j, j2);
     }
 }

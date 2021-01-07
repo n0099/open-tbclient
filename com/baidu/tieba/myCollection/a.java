@@ -46,11 +46,11 @@ public class a {
         }
     };
 
-    public int djc() {
+    public int djd() {
         return this.lsV;
     }
 
-    public Fragment djd() {
+    public Fragment dje() {
         return this.lsW;
     }
 
@@ -71,7 +71,7 @@ public class a {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public TextView dje() {
+    public TextView djf() {
         return this.lsT;
     }
 
@@ -80,10 +80,10 @@ public class a {
         int i = -1;
         if (this.lsW instanceof CollectFragment) {
             CollectFragment collectFragment = (CollectFragment) this.lsW;
-            if (!collectFragment.boq()) {
+            if (!collectFragment.bor()) {
                 z = false;
             }
-            tU(collectFragment.boq());
+            tU(collectFragment.bor());
             i = collectFragment.getType();
         }
         this.lsZ = z;
@@ -99,7 +99,7 @@ public class a {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ACTION, bundle));
     }
 
-    public boolean djf() {
+    public boolean djg() {
         return this.lsZ;
     }
 

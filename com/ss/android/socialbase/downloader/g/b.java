@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class b implements Parcelable {
 
     /* renamed from: b  reason: collision with root package name */
-    private int f13449b;
+    private int f13450b;
     private long c;
     private AtomicLong d;
     private long e;
@@ -31,7 +31,7 @@ public class b implements Parcelable {
     private com.ss.android.socialbase.downloader.l.b o;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13448a = b.class.getSimpleName();
+    private static final String f13449a = b.class.getSimpleName();
     public static final Parcelable.Creator<b> CREATOR = new Parcelable.Creator<b>() { // from class: com.ss.android.socialbase.downloader.g.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -42,7 +42,7 @@ public class b implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Sw */
+        /* renamed from: SM */
         public b[] newArray(int i) {
             return new b[i];
         }
@@ -52,21 +52,21 @@ public class b implements Parcelable {
         if (aVar == null) {
             return;
         }
-        this.f13449b = aVar.f13450a;
-        this.c = aVar.f13451b;
+        this.f13450b = aVar.f13451a;
+        this.c = aVar.f13452b;
         this.d = new AtomicLong(aVar.c);
         this.e = aVar.d;
         this.f = aVar.e;
         this.g = aVar.f;
         this.i = aVar.g;
         this.h = new AtomicInteger(-1);
-        a(aVar.pYF);
+        a(aVar.qan);
         this.n = new AtomicBoolean(false);
     }
 
     public b(Cursor cursor) {
         if (cursor != null) {
-            this.f13449b = cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_ROW_ID));
+            this.f13450b = cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_ROW_ID));
             this.g = cursor.getInt(cursor.getColumnIndex("chunkIndex"));
             this.c = cursor.getLong(cursor.getColumnIndex("startOffset"));
             int columnIndex = cursor.getColumnIndex("curOffset");
@@ -91,7 +91,7 @@ public class b implements Parcelable {
     }
 
     protected b(Parcel parcel) {
-        this.f13449b = parcel.readInt();
+        this.f13450b = parcel.readInt();
         this.c = parcel.readLong();
         this.d = new AtomicLong(parcel.readLong());
         this.e = parcel.readLong();
@@ -102,7 +102,7 @@ public class b implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f13449b);
+        parcel.writeInt(this.f13450b);
         parcel.writeLong(this.c);
         long j = 0;
         if (this.d != null) {
@@ -124,9 +124,9 @@ public class b implements Parcelable {
         return 0;
     }
 
-    public ContentValues eHG() {
+    public ContentValues eIk() {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(IMConstants.MSG_ROW_ID, Integer.valueOf(this.f13449b));
+        contentValues.put(IMConstants.MSG_ROW_ID, Integer.valueOf(this.f13450b));
         contentValues.put("chunkIndex", Integer.valueOf(this.g));
         contentValues.put("startOffset", Long.valueOf(this.c));
         contentValues.put("curOffset", Long.valueOf(n()));
@@ -142,7 +142,7 @@ public class b implements Parcelable {
             sQLiteStatement.clearBindings();
             int i = this.l + 1;
             this.l = i;
-            sQLiteStatement.bindLong(i, this.f13449b);
+            sQLiteStatement.bindLong(i, this.f13450b);
             int i2 = this.l + 1;
             this.l = i2;
             sQLiteStatement.bindLong(i2, this.g);
@@ -211,7 +211,7 @@ public class b implements Parcelable {
         return b() == -1;
     }
 
-    public b eHH() {
+    public b eIl() {
         if (!d()) {
             this = this.k;
         }
@@ -288,7 +288,7 @@ public class b implements Parcelable {
     }
 
     public void b(int i) {
-        this.f13449b = i;
+        this.f13450b = i;
     }
 
     public void c(int i) {
@@ -300,7 +300,7 @@ public class b implements Parcelable {
     }
 
     public int k() {
-        return this.f13449b;
+        return this.f13450b;
     }
 
     public long l() {
@@ -405,7 +405,7 @@ public class b implements Parcelable {
         long m = m();
         long BX = BX(true);
         long j5 = BX / i;
-        com.ss.android.socialbase.downloader.f.a.b(f13448a, "retainLen:" + BX + " divideChunkForReuse chunkSize:" + j5 + " current host downloadChunk index:" + this.g);
+        com.ss.android.socialbase.downloader.f.a.b(f13449a, "retainLen:" + BX + " divideChunkForReuse chunkSize:" + j5 + " current host downloadChunk index:" + this.g);
         int i2 = 0;
         while (true) {
             int i3 = i2;
@@ -430,9 +430,9 @@ public class b implements Parcelable {
                 j3 = m;
                 j4 = j5;
             }
-            b eHI = new a(this.f13449b).Sx((-i3) - 1).jc(j3).jd(m).jg(m).je(j2).jf(j4).c(this).eHI();
-            com.ss.android.socialbase.downloader.f.a.b(f13448a, "divide sub chunk : " + i3 + " startOffset:" + j3 + " curOffset:" + m + " endOffset:" + j2 + " contentLen:" + j4);
-            arrayList.add(eHI);
+            b eIm = new a(this.f13450b).SN((-i3) - 1).jf(j3).jg(m).jj(m).jh(j2).ji(j4).c(this).eIm();
+            com.ss.android.socialbase.downloader.f.a.b(f13449a, "divide sub chunk : " + i3 + " startOffset:" + j3 + " curOffset:" + m + " endOffset:" + j2 + " contentLen:" + j4);
+            arrayList.add(eIm);
             m += j5;
             i2 = i3 + 1;
         }
@@ -443,7 +443,7 @@ public class b implements Parcelable {
             size--;
             j6 = bVar != null ? bVar.q() + j6 : j6;
         }
-        com.ss.android.socialbase.downloader.f.a.b(f13448a, "reuseChunkContentLen:" + j6);
+        com.ss.android.socialbase.downloader.f.a.b(f13449a, "reuseChunkContentLen:" + j6);
         b bVar2 = arrayList.get(0);
         if (bVar2 != null) {
             if (p() == 0) {
@@ -469,57 +469,57 @@ public class b implements Parcelable {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f13450a;
+        private int f13451a;
 
         /* renamed from: b  reason: collision with root package name */
-        private long f13451b;
+        private long f13452b;
         private long c;
         private long d;
         private long e;
         private int f;
         private long g;
-        private b pYF;
+        private b qan;
 
         public a(int i) {
-            this.f13450a = i;
+            this.f13451a = i;
         }
 
-        public a jc(long j) {
-            this.f13451b = j;
+        public a jf(long j) {
+            this.f13452b = j;
             return this;
         }
 
-        public a jd(long j) {
+        public a jg(long j) {
             this.c = j;
             return this;
         }
 
-        public a je(long j) {
+        public a jh(long j) {
             this.d = j;
             return this;
         }
 
-        public a jf(long j) {
+        public a ji(long j) {
             this.e = j;
             return this;
         }
 
-        public a Sx(int i) {
+        public a SN(int i) {
             this.f = i;
             return this;
         }
 
         public a c(b bVar) {
-            this.pYF = bVar;
+            this.qan = bVar;
             return this;
         }
 
-        public a jg(long j) {
+        public a jj(long j) {
             this.g = j;
             return this;
         }
 
-        public b eHI() {
+        public b eIm() {
             return new b(this);
         }
     }

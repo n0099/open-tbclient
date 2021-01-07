@@ -3,7 +3,7 @@ package com.baidu.swan.game.ad.downloader.c;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 /* loaded from: classes3.dex */
 public interface a {
-    void aVk();
+    void aVl();
 
     void m(DownloadInfo downloadInfo);
 

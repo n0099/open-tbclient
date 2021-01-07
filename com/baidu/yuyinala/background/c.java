@@ -43,9 +43,9 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
 
         void a(com.baidu.yuyinala.background.b.a aVar, String str);
 
-        void ekh();
-
         void eki();
+
+        void ekj();
 
         String getCustomRoomId();
 
@@ -75,7 +75,7 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
         this.oPP = alaAudioBackgroundDialogData;
         if (z) {
             if (this.oPP == null || ListUtils.isEmpty(alaAudioBackgroundDialogData.getBgList())) {
-                eko();
+                ekp();
             } else {
                 a(alaAudioBackgroundDialogData.getBgList(), aVar);
             }
@@ -105,17 +105,17 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.oPK) {
-            ekn();
+            eko();
             if (this.bFr != null) {
                 this.bFr.dismiss();
             }
         } else if (view == this.oPL) {
             this.oPQ = true;
-            ekh();
+            eki();
             if (this.bFr != null) {
                 this.bFr.dismiss();
             }
-            ekm();
+            ekn();
         }
     }
 
@@ -148,7 +148,7 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "background_clk").setContentExt(jSONObject));
     }
 
-    private void ekm() {
+    private void ekn() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "background");
@@ -212,21 +212,21 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
     }
 
     private void d(final com.baidu.yuyinala.background.b.a aVar) {
-        if (!StringUtils.isNull(aVar.ekv()) && aVar != this.oPR) {
+        if (!StringUtils.isNull(aVar.ekw()) && aVar != this.oPR) {
             if (this.oPR != null) {
                 this.oPR.setLoading(false);
             }
             this.oPR = aVar;
             this.oPR.setLoading(true);
             this.oPN.notifyDataSetChanged();
-            com.baidu.yuyinala.background.c.b.b(this.oPR.ekv(), this.oPR.getMd5(), new a.InterfaceC0931a() { // from class: com.baidu.yuyinala.background.c.2
-                @Override // com.baidu.yuyinala.background.c.a.InterfaceC0931a
+            com.baidu.yuyinala.background.c.b.b(this.oPR.ekw(), this.oPR.getMd5(), new a.InterfaceC0969a() { // from class: com.baidu.yuyinala.background.c.2
+                @Override // com.baidu.yuyinala.background.c.a.InterfaceC0969a
                 public void zZ(boolean z) {
                     if (!z) {
                         c.this.e(aVar);
                         return;
                     }
-                    c.this.oPO.a(aVar, com.baidu.yuyinala.background.c.b.WI(com.baidu.live.ah.b.iw(c.this.oPR.getMd5())));
+                    c.this.oPO.a(aVar, com.baidu.yuyinala.background.c.b.WH(com.baidu.live.ah.b.iw(c.this.oPR.getMd5())));
                     if (c.this.oPR != null) {
                         c.this.oPR.setLoading(false);
                     }
@@ -247,15 +247,15 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
         }
     }
 
-    private void ekh() {
+    private void eki() {
         if (this.oPO != null) {
-            this.oPO.ekh();
+            this.oPO.eki();
         }
     }
 
-    private void ekn() {
+    private void eko() {
         if (this.oPO != null) {
-            this.oPO.eki();
+            this.oPO.ekj();
         }
         this.oPN.notifyDataSetChanged();
     }
@@ -267,7 +267,7 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
         OF(ListUtils.getPosition(list, aVar));
     }
 
-    private void eko() {
+    private void ekp() {
         this.bxT.reset();
         this.bxT.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.yuyinala.background.c.3
             @Override // android.view.View.OnClickListener
@@ -290,7 +290,7 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
         if (this.oPQ) {
             this.oPQ = false;
         } else {
-            ekn();
+            eko();
         }
         if (this.oPR != null) {
             BdResourceLoader.getInstance().cancelLoad(this.oPR.getOriginalUrl(), 10, null);

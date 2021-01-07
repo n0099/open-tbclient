@@ -53,11 +53,11 @@ public abstract class b extends aa {
             return false;
         }
         String optString2 = parseString.optString("slaveId");
-        String aDL = com.baidu.swan.apps.v.f.aDG().aDL();
-        if (TextUtils.equals(optString2, com.baidu.swan.apps.v.f.aDG().asD()) && (TextUtils.equals(aDL, "pages/swan-news-showcase/index") || TextUtils.equals(aDL, "pages/swan-operate-news/index"))) {
+        String aDM = com.baidu.swan.apps.v.f.aDH().aDM();
+        if (TextUtils.equals(optString2, com.baidu.swan.apps.v.f.aDH().asE()) && (TextUtils.equals(aDM, "pages/swan-news-showcase/index") || TextUtils.equals(aDM, "pages/swan-operate-news/index"))) {
             b(eVar, unitedSchemeEntity, callbackHandler, optString);
         } else {
-            eVar.aMw().b(context, this.dJC ? "scope_favorite_button" : "mapp_favorite", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.1
+            eVar.aMx().b(context, this.dJC ? "scope_favorite_button" : "mapp_favorite", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */

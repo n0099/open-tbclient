@@ -46,19 +46,19 @@ public class u extends c implements p<bz>, q {
     public void tn() {
         int i = 4;
         if (this.aim != null) {
-            this.aii.setVisibility((this.aim.bte() || this.aim.btf() || !this.aio) ? 0 : 4);
+            this.aii.setVisibility((this.aim.btf() || this.aim.btg() || !this.aio) ? 0 : 4);
             if (this.ain) {
                 this.aij.setVisibility(0);
                 this.aig.setVisibility(0);
                 if (this.aio) {
                     this.aik.setVisibility(0);
                     this.ail.setVisibility(0);
-                    if (this.aim.bte() || this.aim.btf()) {
+                    if (this.aim.btf() || this.aim.btg()) {
                         WebPManager.a(this.aik, R.drawable.icon_pure_frs_chosen_22, R.color.CAM_X0304, null);
                     } else {
                         WebPManager.a(this.aik, R.drawable.icon_pure_frs_select_22, R.color.CAM_X0107, null);
                     }
-                    com.baidu.tbadk.core.util.ao.setViewTextColor(this.ail, (this.aim.bte() || this.aim.btf()) ? R.color.CAM_X0304 : R.drawable.selector_comment_and_prise_item_text_color);
+                    com.baidu.tbadk.core.util.ao.setViewTextColor(this.ail, (this.aim.btf() || this.aim.btg()) ? R.color.CAM_X0304 : R.drawable.selector_comment_and_prise_item_text_color);
                     return;
                 }
                 this.aik.setVisibility(8);
@@ -67,7 +67,7 @@ public class u extends c implements p<bz>, q {
             }
             this.aig.setVisibility(8);
             View view = this.aij;
-            if (this.aim.bte() || this.aim.btf()) {
+            if (this.aim.btf() || this.aim.btg()) {
                 i = 0;
             }
             view.setVisibility(i);
@@ -91,17 +91,17 @@ public class u extends c implements p<bz>, q {
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.u.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (u.this.aik != null && u.this.aim != null && u.this.ail != null && !u.this.aim.btg() && u.this.aio) {
-                    if (u.this.aim.bte() || !com.baidu.tieba.frs.b.cDX().cDR()) {
-                        if (u.this.aim.btf() || !com.baidu.tieba.frs.a.cDQ().cDR()) {
-                            com.baidu.tieba.frs.b.cDX().am(u.this.aim);
+                if (u.this.aik != null && u.this.aim != null && u.this.ail != null && !u.this.aim.bth() && u.this.aio) {
+                    if (u.this.aim.btf() || !com.baidu.tieba.frs.b.cDY().cDS()) {
+                        if (u.this.aim.btg() || !com.baidu.tieba.frs.a.cDR().cDS()) {
+                            com.baidu.tieba.frs.b.cDY().am(u.this.aim);
                             u.this.aim.jC(false);
-                            com.baidu.tieba.frs.a.cDQ().am(u.this.aim);
+                            com.baidu.tieba.frs.a.cDR().am(u.this.aim);
                             u.this.aim.jD(false);
-                        } else if (com.baidu.tieba.frs.a.cDQ().al(u.this.aim)) {
+                        } else if (com.baidu.tieba.frs.a.cDR().al(u.this.aim)) {
                             u.this.aim.jD(true);
                         }
-                    } else if (com.baidu.tieba.frs.b.cDX().al(u.this.aim)) {
+                    } else if (com.baidu.tieba.frs.b.cDY().al(u.this.aim)) {
                         u.this.aim.jC(true);
                     }
                     u.this.tn();
@@ -119,7 +119,7 @@ public class u extends c implements p<bz>, q {
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.aim.bte() || this.aim.btf()) {
+        if (this.aim.btf() || this.aim.btg()) {
             WebPManager.a(this.aik, R.drawable.icon_pure_frs_chosen_22, R.color.CAM_X0304, null);
         } else {
             WebPManager.a(this.aik, R.drawable.icon_pure_frs_select_22, R.color.CAM_X0107, null);
@@ -127,7 +127,7 @@ public class u extends c implements p<bz>, q {
         com.baidu.tbadk.core.elementsMaven.c.bv(this.aii).pK(R.string.J_X06).pJ(this.ain ? 2 : 1).setBackGroundColor(R.color.CAM_X0201);
         com.baidu.tbadk.core.elementsMaven.c.bv(this.aij).pK(R.string.J_X06).pJ(2).setBackGroundColor(R.color.CAM_X0201);
         com.baidu.tbadk.core.elementsMaven.c.bv(this.ail).pE(R.string.F_X01);
-        com.baidu.tbadk.core.util.ao.setViewTextColor(this.ail, (this.aim.bte() || this.aim.btf()) ? R.color.CAM_X0302 : R.drawable.selector_comment_and_prise_item_text_color);
+        com.baidu.tbadk.core.util.ao.setViewTextColor(this.ail, (this.aim.btf() || this.aim.btg()) ? R.color.CAM_X0302 : R.drawable.selector_comment_and_prise_item_text_color);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -146,7 +146,7 @@ public class u extends c implements p<bz>, q {
     public void D(bz bzVar) {
         this.aim = bzVar;
         this.aio = this.aim.getType() != bz.eTC;
-        if (com.baidu.tieba.frs.b.cDX().cDR() || com.baidu.tieba.frs.a.cDQ().cDR()) {
+        if (com.baidu.tieba.frs.b.cDY().cDS() || com.baidu.tieba.frs.a.cDR().cDS()) {
             this.mRootView.setVisibility(0);
             this.ahn.b(new a.C0090a(4, false));
             tn();

@@ -68,7 +68,7 @@ public class d {
         this.mListContainer.setLayoutParams(layoutParams);
     }
 
-    public boolean beJ() {
+    public boolean beK() {
         return this.esV;
     }
 }

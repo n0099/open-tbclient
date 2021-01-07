@@ -35,31 +35,31 @@ public class c {
     }
 
     public static String processCommonParams(String str) {
-        return addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "uid", aoW()), j.c, aoX()), "ut", aoV()), "osbranch", aoZ()), "pkgname", getPkgName()), "network", aoY()), "appname", getAppName()), "hostname", getAppName()), "swan_sdk_version", apd()), "mnpunion", String.valueOf(f.cGI.amZ() ? 2 : 0));
-    }
-
-    public static String aoV() {
-        return getEncodeValue(getDeviceInfo());
+        return addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str, "uid", aoX()), j.c, aoY()), "ut", aoW()), "osbranch", apa()), "pkgname", getPkgName()), "network", aoZ()), "appname", getAppName()), "hostname", getAppName()), "swan_sdk_version", ape()), "mnpunion", String.valueOf(f.cGI.ana() ? 2 : 0));
     }
 
     public static String aoW() {
-        return getEncodeValue(getUid());
+        return getEncodeValue(getDeviceInfo());
     }
 
     public static String aoX() {
-        return getEncodeValue(getUA());
+        return getEncodeValue(getUid());
     }
 
     public static String aoY() {
-        return apf() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ape();
+        return getEncodeValue(getUA());
     }
 
     public static String aoZ() {
+        return apg() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + apf();
+    }
+
+    public static String apa() {
         return "a0";
     }
 
     public static String getUid() {
-        return com.baidu.swan.apps.t.a.aAw().cd(AppRuntime.getAppContext());
+        return com.baidu.swan.apps.t.a.aAx().cd(AppRuntime.getAppContext());
     }
 
     public static String getUA() {
@@ -67,13 +67,13 @@ public class c {
         int displayWidth = ah.getDisplayWidth(appContext);
         int displayHeight = ah.getDisplayHeight(appContext);
         int densityDpi = ah.getDensityDpi(appContext);
-        String apa = apa();
+        String apb = apb();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(displayWidth);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(displayHeight);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-        stringBuffer.append(apa);
+        stringBuffer.append(apb);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(ak.getVersionName());
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
@@ -81,7 +81,7 @@ public class c {
         return stringBuffer.toString();
     }
 
-    public static String apa() {
+    public static String apb() {
         return HttpConstants.OS_TYPE_VALUE;
     }
 
@@ -91,12 +91,12 @@ public class c {
 
     public static String getDeviceInfo() {
         String deviceModel = getDeviceModel();
-        String apc = apc();
+        String apd = apd();
         int i = Build.VERSION.SDK_INT;
-        return deviceModel + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + apc + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + apb();
+        return deviceModel + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + apd + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + apc();
     }
 
-    public static String apb() {
+    public static String apc() {
         String str = Build.MANUFACTURER;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -104,7 +104,7 @@ public class c {
         return str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static String apc() {
+    public static String apd() {
         String str = Build.VERSION.RELEASE;
         if (TextUtils.isEmpty(str)) {
             return "0.0";
@@ -176,27 +176,27 @@ public class c {
         }
     }
 
-    private static String apd() {
+    private static String ape() {
         return com.baidu.swan.apps.c.getVersion();
     }
 
     private static String getAppName() {
-        return com.baidu.swan.apps.t.a.aBd().getHostName();
+        return com.baidu.swan.apps.t.a.aBe().getHostName();
     }
 
-    private static int ape() {
-        NetworkInfo activeNetworkInfo = SwanAppNetworkUtils.getActiveNetworkInfo(com.baidu.swan.apps.t.a.aAr());
+    private static int apf() {
+        NetworkInfo activeNetworkInfo = SwanAppNetworkUtils.getActiveNetworkInfo(com.baidu.swan.apps.t.a.aAs());
         if (activeNetworkInfo == null) {
             return 0;
         }
         return activeNetworkInfo.getSubtype();
     }
 
-    private static int apf() {
+    private static int apg() {
         NetworkInfo networkInfo;
         String str = null;
         try {
-            networkInfo = ((ConnectivityManager) com.baidu.swan.apps.t.a.aAr().getSystemService("connectivity")).getActiveNetworkInfo();
+            networkInfo = ((ConnectivityManager) com.baidu.swan.apps.t.a.aAs().getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (NullPointerException e) {
             networkInfo = null;
         }

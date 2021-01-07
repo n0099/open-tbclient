@@ -26,14 +26,14 @@ public class ag extends h {
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void D(com.baidu.tbadk.core.data.a aVar) {
-        if (c(aVar) || aVar == null || aVar.boO() == null || d(aVar) || ((com.baidu.tbadk.core.util.x.isEmpty(aVar.boO().btA()) && com.baidu.tbadk.core.util.x.getCount(aVar.boO().btB()) != 1) || ((com.baidu.tbadk.core.util.x.isEmpty(aVar.boO().btB()) && com.baidu.tbadk.core.util.x.getCount(aVar.boO().btA()) != 1) || com.baidu.tbadk.core.util.x.getCount(aVar.boO().btA()) + com.baidu.tbadk.core.util.x.getCount(aVar.boO().btB()) != 1))) {
+        if (c(aVar) || aVar == null || aVar.boP() == null || d(aVar) || ((com.baidu.tbadk.core.util.x.isEmpty(aVar.boP().btB()) && com.baidu.tbadk.core.util.x.getCount(aVar.boP().btC()) != 1) || ((com.baidu.tbadk.core.util.x.isEmpty(aVar.boP().btC()) && com.baidu.tbadk.core.util.x.getCount(aVar.boP().btB()) != 1) || com.baidu.tbadk.core.util.x.getCount(aVar.boP().btB()) + com.baidu.tbadk.core.util.x.getCount(aVar.boP().btC()) != 1))) {
             this.aiQ.setVisibility(8);
             return;
         }
-        if (aVar.boO().btA().size() >= 1) {
-            this.aiQ.a((com.baidu.tieba.card.data.c) com.baidu.tbadk.core.util.x.getItem(aVar.boO().btA(), 0));
-        } else if (aVar.boO().btB().size() >= 1) {
-            this.aiQ.a((com.baidu.tieba.card.data.c) com.baidu.tbadk.core.util.x.getItem(aVar.boO().btB(), 0));
+        if (aVar.boP().btB().size() >= 1) {
+            this.aiQ.a((com.baidu.tieba.card.data.c) com.baidu.tbadk.core.util.x.getItem(aVar.boP().btB(), 0));
+        } else if (aVar.boP().btC().size() >= 1) {
+            this.aiQ.a((com.baidu.tieba.card.data.c) com.baidu.tbadk.core.util.x.getItem(aVar.boP().btC(), 0));
         }
         this.aiQ.setVisibility(0);
     }
@@ -44,10 +44,10 @@ public class ag extends h {
     }
 
     private boolean c(com.baidu.tbadk.core.data.a aVar) {
-        return (aVar == null || aVar.boO() == null || aVar.boO().btz() == null || aVar.boO().btz().getOptions() == null || aVar.boO().btz().getOptions().size() <= 0) ? false : true;
+        return (aVar == null || aVar.boP() == null || aVar.boP().btA() == null || aVar.boP().btA().getOptions() == null || aVar.boP().btA().getOptions().size() <= 0) ? false : true;
     }
 
     private boolean d(com.baidu.tbadk.core.data.a aVar) {
-        return (aVar == null || aVar.boO() == null || !aVar.boO().bpV() || aVar.boO().brH() == null) ? false : true;
+        return (aVar == null || aVar.boP() == null || !aVar.boP().bpW() || aVar.boP().brI() == null) ? false : true;
     }
 }

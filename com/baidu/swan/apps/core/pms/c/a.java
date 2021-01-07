@@ -10,7 +10,7 @@ public class a extends f {
     /* renamed from: com.baidu.swan.apps.core.pms.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
     public interface InterfaceC0429a {
-        void aux();
+        void auy();
 
         void onError();
 
@@ -23,13 +23,13 @@ public class a extends f {
     }
 
     @Override // com.baidu.swan.apps.core.pms.j
-    protected int auc() {
+    protected int aud() {
         return 1;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void arc() {
-        super.arc();
+    public void ard() {
+        super.ard();
         iA(0);
     }
 
@@ -40,9 +40,9 @@ public class a extends f {
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected void aug() {
-        super.aug();
-        if (auo() == null) {
+    protected void auh() {
+        super.auh();
+        if (aup() == null) {
             iA(1);
             bD("page_route_download", "0");
             return;
@@ -51,7 +51,7 @@ public class a extends f {
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected PMSDownloadType auh() {
+    protected PMSDownloadType aui() {
         return null;
     }
 
@@ -70,7 +70,7 @@ public class a extends f {
                             a.this.cXY.onError();
                             return;
                         case 0:
-                            a.this.cXY.aux();
+                            a.this.cXY.auy();
                             return;
                         case 1:
                             a.this.cXY.onSuccess();

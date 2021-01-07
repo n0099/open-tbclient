@@ -47,8 +47,8 @@ public class AlaRankListActivity extends BaseActivity<AlaRankListActivity> imple
     private View mRootView;
     private int mScreenWidth;
     private String mUserName;
-    private String ojm;
-    private AlaRankListFragmentAdapter ojn;
+    private String ojl;
+    private AlaRankListFragmentAdapter ojm;
     private String otherParams;
     private Handler mHandler = new Handler();
     private boolean aYb = false;
@@ -98,7 +98,7 @@ public class AlaRankListActivity extends BaseActivity<AlaRankListActivity> imple
             this.beS = getIntent().getStringExtra("feed_id");
             this.grz = getIntent().getLongExtra("live_id", -1L);
             this.otherParams = getIntent().getStringExtra(IntentConfig.OTHER_PARAMS);
-            this.ojm = getIntent().getStringExtra(YuyinAlaCharmRankActivityConfig.C_ROOM_ID);
+            this.ojl = getIntent().getStringExtra(YuyinAlaCharmRankActivityConfig.C_ROOM_ID);
             this.mRoomId = getIntent().getStringExtra("room_id");
             initView();
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
@@ -191,12 +191,12 @@ public class AlaRankListActivity extends BaseActivity<AlaRankListActivity> imple
         this.grD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.AlaRankListActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                final e ehj = new e.a(AlaRankListActivity.this.grD).bo(9.0f).bp(4.0f).bm(200.0f).bn(190.0f).x("按今日的魅力收益进行排名").NR(16).bq(10.0f).br(14.0f).bs(8.0f).Ac(true).Ad(true).ehj();
-                ehj.show();
+                final e ehk = new e.a(AlaRankListActivity.this.grD).bo(9.0f).bp(4.0f).bm(200.0f).bn(190.0f).x("按今日的魅力收益进行排名").NR(16).bq(10.0f).br(14.0f).bs(8.0f).Ac(true).Ad(true).ehk();
+                ehk.show();
                 AlaRankListActivity.this.grD.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.AlaRankListActivity.3.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        ehj.dismiss();
+                        ehk.dismiss();
                     }
                 }, IMConnection.RETRY_DELAY_TIMES);
             }
@@ -213,10 +213,10 @@ public class AlaRankListActivity extends BaseActivity<AlaRankListActivity> imple
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Xk();
+        Xl();
     }
 
-    private void Xk() {
+    private void Xl() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -266,11 +266,11 @@ public class AlaRankListActivity extends BaseActivity<AlaRankListActivity> imple
     }
 
     private void initTabSpec() {
-        this.ojn = new AlaRankListFragmentAdapter(this, this.ojm);
+        this.ojm = new AlaRankListFragmentAdapter(this, this.ojl);
         this.aHr = (AlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_charm_tab_host);
         this.aHr.setTabWidgetBg(a.e.yuyin_ala_rank_list_title_corner_bg);
         this.aHr.setViewPagerBg(a.e.yuyin_ala_rank_white_bg);
-        this.aHr.setData(this.ojn.getDataList());
+        this.aHr.setData(this.ojm.getDataList());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -282,7 +282,7 @@ public class AlaRankListActivity extends BaseActivity<AlaRankListActivity> imple
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        Iterator<d> it = this.ojn.getDataList().iterator();
+        Iterator<d> it = this.ojm.getDataList().iterator();
         while (it.hasNext()) {
             it.next().onDestroy();
         }

@@ -17,21 +17,21 @@ import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class HeatMap {
     public static final Gradient DEFAULT_GRADIENT;
     public static final double DEFAULT_OPACITY = 0.6d;
     public static final int DEFAULT_RADIUS = 12;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f2820b = HeatMap.class.getSimpleName();
+    private static final String f2821b = HeatMap.class.getSimpleName();
     private static final SparseIntArray c = new SparseIntArray();
     private static final int[] d;
     private static final float[] e;
     private static int r;
 
     /* renamed from: a  reason: collision with root package name */
-    BaiduMap f2821a;
+    BaiduMap f2822a;
     private t<WeightedLatLng> f;
     private Collection<WeightedLatLng> g;
     private int h;
@@ -45,19 +45,19 @@ public class HeatMap {
     private ExecutorService p;
     private HashSet<String> q;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private Collection<WeightedLatLng> f2822a;
+        private Collection<WeightedLatLng> f2823a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f2823b = 12;
+        private int f2824b = 12;
         private Gradient c = HeatMap.DEFAULT_GRADIENT;
         private double d = 0.6d;
 
         public HeatMap build() {
-            if (this.f2822a == null) {
+            if (this.f2823a == null) {
                 throw new IllegalStateException("BDMapSDKException: No input data: you must use either .data or .weightedData before building");
             }
             return new HeatMap(this, null);
@@ -90,8 +90,8 @@ public class HeatMap {
         }
 
         public Builder radius(int i) {
-            this.f2823b = i;
-            if (this.f2823b < 10 || this.f2823b > 50) {
+            this.f2824b = i;
+            if (this.f2824b < 10 || this.f2824b > 50) {
                 throw new IllegalArgumentException("BDMapSDKException: Radius not within bounds.");
             }
             return this;
@@ -112,7 +112,7 @@ public class HeatMap {
                 }
             }
             collection.removeAll(arrayList);
-            this.f2822a = collection;
+            this.f2823a = collection;
             return this;
         }
     }
@@ -146,8 +146,8 @@ public class HeatMap {
         this.o = new HashMap<>();
         this.p = Executors.newFixedThreadPool(1);
         this.q = new HashSet<>();
-        this.g = builder.f2822a;
-        this.h = builder.f2823b;
+        this.g = builder.f2823a;
+        this.h = builder.f2824b;
         this.i = builder.c;
         this.j = builder.d;
         this.m = a(this.h, this.h / 3.0d);
@@ -161,9 +161,9 @@ public class HeatMap {
 
     private static double a(Collection<WeightedLatLng> collection, l lVar, int i, int i2) {
         LongSparseArray longSparseArray;
-        double d2 = lVar.f2920a;
+        double d2 = lVar.f2921a;
         double d3 = lVar.c;
-        double d4 = lVar.f2921b;
+        double d4 = lVar.f2922b;
         double d5 = lVar.d;
         double d6 = ((int) ((i2 / (i * 2)) + 0.5d)) / (d3 - d2 > d5 - d4 ? d3 - d2 : d5 - d4);
         LongSparseArray longSparseArray2 = new LongSparseArray();
@@ -308,7 +308,7 @@ public class HeatMap {
         double d5 = (i * d2) - d3;
         double d6 = (d2 * (i2 + 1)) + d3;
         l lVar = new l(d5, ((i + 1) * d2) + d3, (i2 * d2) - d3, d6);
-        if (lVar.a(new l(this.k.f2920a - d3, this.k.c + d3, this.k.f2921b - d3, d3 + this.k.d))) {
+        if (lVar.a(new l(this.k.f2921a - d3, this.k.c + d3, this.k.f2922b - d3, d3 + this.k.d))) {
             Collection<WeightedLatLng> a2 = this.f.a(lVar);
             if (a2.isEmpty()) {
                 return;
@@ -334,8 +334,8 @@ public class HeatMap {
             if (this.o.size() > r) {
                 a();
             }
-            if (this.f2821a != null) {
-                this.f2821a.a();
+            if (this.f2822a != null) {
+                this.f2822a.a();
             }
         }
     }
@@ -416,9 +416,9 @@ public class HeatMap {
             return c2;
         }
         if (!a(str)) {
-            if (this.f2821a != null && r == 0) {
-                MapStatus mapStatus = this.f2821a.getMapStatus();
-                r = (((mapStatus.f2838a.j.bottom - mapStatus.f2838a.j.top) / 256) + 2) * (((mapStatus.f2838a.j.right - mapStatus.f2838a.j.left) / 256) + 2) * 4;
+            if (this.f2822a != null && r == 0) {
+                MapStatus mapStatus = this.f2822a.getMapStatus();
+                r = (((mapStatus.f2839a.j.bottom - mapStatus.f2839a.j.top) / 256) + 2) * (((mapStatus.f2839a.j.right - mapStatus.f2839a.j.left) / 256) + 2) * 4;
             }
             if (this.o.size() > r) {
                 a();
@@ -451,8 +451,8 @@ public class HeatMap {
     }
 
     public void removeHeatMap() {
-        if (this.f2821a != null) {
-            this.f2821a.a(this);
+        if (this.f2822a != null) {
+            this.f2822a.a(this);
         }
     }
 }

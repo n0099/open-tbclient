@@ -8,20 +8,20 @@ import com.kwad.sdk.utils.ao;
 public class e extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    private com.kwad.sdk.contentalliance.detail.photo.g.a.a f8811b;
+    private com.kwad.sdk.contentalliance.detail.photo.g.a.a f8812b;
     private boolean d;
     private long c = 0;
     private int e = 2;
     private com.kwad.sdk.contentalliance.trends.view.c f = new com.kwad.sdk.contentalliance.trends.view.d() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.e.1
         @Override // com.kwad.sdk.contentalliance.trends.view.d, com.kwad.sdk.contentalliance.trends.view.c
         public void a() {
-            e.this.f8811b.setVisibility(4);
+            e.this.f8812b.setVisibility(4);
         }
 
         @Override // com.kwad.sdk.contentalliance.trends.view.d, com.kwad.sdk.contentalliance.trends.view.c
         public void b() {
             if (e.this.d) {
-                e.this.f8811b.setVisibility(0);
+                e.this.f8812b.setVisibility(0);
             }
         }
     };
@@ -34,30 +34,30 @@ public class e extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        PhotoInfo k = com.kwad.sdk.core.response.b.c.k(this.f8692a.j);
+        PhotoInfo k = com.kwad.sdk.core.response.b.c.k(this.f8693a.j);
         this.d = com.kwad.sdk.core.response.b.d.v(k);
         if (!this.d) {
-            this.f8811b.setVisibility(4);
+            this.f8812b.setVisibility(4);
             return;
         }
         this.e = com.kwad.sdk.core.response.b.d.w(k);
         this.c = com.kwad.sdk.core.response.b.d.o(k);
-        this.f8811b.setAuthorId(this.c);
-        this.f8811b.setAlignment(c(this.e) ? 1 : 0);
+        this.f8812b.setAuthorId(this.c);
+        this.f8812b.setAlignment(c(this.e) ? 1 : 0);
         a(this.e);
-        this.f8811b.setVisibility(0);
-        if (com.kwad.sdk.core.response.b.c.B(this.f8692a.j)) {
-            this.f8692a.a(this.f);
-            if (this.f8692a.f8701a.l) {
-                this.f8811b.setVisibility(4);
+        this.f8812b.setVisibility(0);
+        if (com.kwad.sdk.core.response.b.c.B(this.f8693a.j)) {
+            this.f8693a.a(this.f);
+            if (this.f8693a.f8702a.l) {
+                this.f8812b.setVisibility(4);
             } else {
-                this.f8811b.setVisibility(0);
+                this.f8812b.setVisibility(0);
             }
         }
     }
 
     public void a(int i) {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f8811b.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f8812b.getLayoutParams();
         if (i == 2) {
             layoutParams.gravity = 3;
             layoutParams.leftMargin = ao.a(o(), 12.0f);
@@ -65,25 +65,25 @@ public class e extends com.kwad.sdk.contentalliance.detail.b {
             layoutParams.gravity = 5;
             layoutParams.rightMargin = ao.a(o(), 12.0f);
         }
-        if (this.f8692a.j.mIsTubeEpisodeList) {
+        if (this.f8693a.j.mIsTubeEpisodeList) {
             layoutParams.topMargin = ao.a(o(), 95.0f);
-        } else if (com.kwad.sdk.core.response.b.c.B(this.f8692a.j)) {
+        } else if (com.kwad.sdk.core.response.b.c.B(this.f8693a.j)) {
             layoutParams.topMargin = ao.a(o(), 105.0f);
         }
-        this.f8811b.setLayoutParams(layoutParams);
+        this.f8812b.setLayoutParams(layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8692a.b(this.f);
+        this.f8693a.b(this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f8811b = (com.kwad.sdk.contentalliance.detail.photo.g.a.a) b(R.id.ksad_video_water_mark);
+        this.f8812b = (com.kwad.sdk.contentalliance.detail.photo.g.a.a) b(R.id.ksad_video_water_mark);
     }
 }

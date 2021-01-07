@@ -109,10 +109,10 @@ public class e {
                 this.fwr = z(jSONObject, "ubs_abtest_config");
                 this.fws = jSONObject.optJSONArray("windowStrategyList");
                 this.fwv.parserJson(y(jSONObject, "ad_density"));
-                com.baidu.tbadk.core.business.b.boI().O(this.fws);
+                com.baidu.tbadk.core.business.b.boJ().O(this.fws);
                 this.mProfileData.parseJson(jSONObject.optJSONObject("profile_icon"));
                 TbSingleton.getInstance().setNewUser(jSONObject.optInt("recommend_userstatus", 0) == 1);
-                com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("key_live_forum_enter_switch", jSONObject.optInt("ala_channel_white", 0) == 1);
+                com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean("key_live_forum_enter_switch", jSONObject.optInt("ala_channel_white", 0) == 1);
                 TbSingleton.getInstance().setPcdnConfigData(jSONObject.optJSONObject("pcdn_config"));
                 String optString2 = jSONObject.optString("proxy_ip");
                 String optString3 = jSONObject.optString("proxy_port");
@@ -142,35 +142,35 @@ public class e {
         }
     }
 
-    public s bCh() {
+    public s bCi() {
         return this.fwe;
     }
 
-    public String bCi() {
+    public String bCj() {
         return this.mConfigVersion;
     }
 
-    public CombineDownload bCj() {
+    public CombineDownload bCk() {
         return this.fwf;
     }
 
-    public VersionData bCk() {
+    public VersionData bCl() {
         return this.fwc;
     }
 
-    public r bCl() {
+    public r bCm() {
         return this.fwd;
     }
 
-    public aj bCm() {
+    public aj bCn() {
         return this.fwh;
     }
 
-    public NewGodData bCn() {
+    public NewGodData bCo() {
         return this.fwt;
     }
 
-    public com.baidu.tbadk.coreExtra.data.f bCo() {
+    public com.baidu.tbadk.coreExtra.data.f bCp() {
         return this.fwi;
     }
 
@@ -178,15 +178,15 @@ public class e {
         return this.mAdAdSense;
     }
 
-    public int bCp() {
+    public int bCq() {
         return this.fwk;
     }
 
-    public boolean bCq() {
+    public boolean bCr() {
         return this.fwl == 1;
     }
 
-    public int bCr() {
+    public int bCs() {
         return this.fwm;
     }
 
@@ -198,19 +198,19 @@ public class e {
         return this.mProfileData;
     }
 
-    public com.baidu.tbadk.coreExtra.data.a bCs() {
+    public com.baidu.tbadk.coreExtra.data.a bCt() {
         return this.fwo;
     }
 
-    public ABTestExtraData bCt() {
+    public ABTestExtraData bCu() {
         return this.fwp;
     }
 
-    public JSONArray bCu() {
+    public JSONArray bCv() {
         return this.fwq;
     }
 
-    public JSONArray bCv() {
+    public JSONArray bCw() {
         return this.fwr;
     }
 }

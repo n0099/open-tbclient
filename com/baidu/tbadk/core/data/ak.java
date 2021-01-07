@@ -9,11 +9,11 @@ public class ak {
     private String class_name = null;
     private int eQy = 0;
 
-    public String bpC() {
+    public String bpD() {
         return this.class_name;
     }
 
-    public int bpD() {
+    public int bpE() {
         return this.eQy;
     }
 

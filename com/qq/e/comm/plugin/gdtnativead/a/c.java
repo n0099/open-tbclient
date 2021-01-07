@@ -17,7 +17,7 @@ import com.qq.e.comm.plugin.aa.b.g;
 import com.qq.e.comm.plugin.ac.h;
 import com.qq.e.comm.plugin.util.ak;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c extends FrameLayout implements com.qq.e.comm.plugin.aa.b.b, c.a {
     private View A;
     private View.OnClickListener B;
@@ -28,10 +28,10 @@ public class c extends FrameLayout implements com.qq.e.comm.plugin.aa.b.b, c.a {
     private final Handler G;
 
     /* renamed from: a  reason: collision with root package name */
-    private e f12303a;
+    private e f12304a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.qq.e.comm.plugin.aa.b.c f12304b;
+    private com.qq.e.comm.plugin.aa.b.c f12305b;
     private boolean c;
     private boolean d;
     private int e;
@@ -57,30 +57,30 @@ public class c extends FrameLayout implements com.qq.e.comm.plugin.aa.b.b, c.a {
     private boolean y;
     private boolean z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a extends d.a {
         void b(boolean z);
 
         void j_();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static class b extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<c> f12312a;
+        private WeakReference<c> f12313a;
 
         public b(c cVar) {
-            this.f12312a = new WeakReference<>(cVar);
+            this.f12313a = new WeakReference<>(cVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            c cVar = this.f12312a.get();
+            c cVar = this.f12313a.get();
             if (cVar != null) {
                 switch (message.what) {
                     case 10001:
-                        if (cVar.f12303a != null && cVar.f12303a.c()) {
+                        if (cVar.f12304a != null && cVar.f12304a.c()) {
                             cVar.d();
                             return;
                         }
@@ -90,7 +90,7 @@ public class c extends FrameLayout implements com.qq.e.comm.plugin.aa.b.b, c.a {
                         return;
                     case 10002:
                         cVar.t();
-                        if (cVar.f12303a == null || !cVar.f12303a.c()) {
+                        if (cVar.f12304a == null || !cVar.f12304a.c()) {
                             return;
                         }
                         sendMessageDelayed(obtainMessage(10002), 500L);
@@ -140,8 +140,8 @@ public class c extends FrameLayout implements com.qq.e.comm.plugin.aa.b.b, c.a {
         this.E = new View.OnClickListener() { // from class: com.qq.e.comm.plugin.gdtnativead.a.c.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.f != null && c.this.f12303a != null) {
-                    c.this.f.b(c.this.f12303a.c());
+                if (c.this.f != null && c.this.f12304a != null) {
+                    c.this.f.b(c.this.f12304a.c());
                 }
                 if (c.this.d) {
                     return;
@@ -247,12 +247,12 @@ public class c extends FrameLayout implements com.qq.e.comm.plugin.aa.b.b, c.a {
     }
 
     private void n() {
-        this.f12304b = new com.qq.e.comm.plugin.aa.b.c(getContext());
-        this.f12304b.setBackgroundColor(0);
-        addView(this.f12304b, 0);
-        this.f12304b.a(this);
+        this.f12305b = new com.qq.e.comm.plugin.aa.b.c(getContext());
+        this.f12305b.setBackgroundColor(0);
+        addView(this.f12305b, 0);
+        this.f12305b.a(this);
         this.g = new FrameLayout(getContext());
-        this.f12304b.addView(this.g, new FrameLayout.LayoutParams(-1, -1));
+        this.f12305b.addView(this.g, new FrameLayout.LayoutParams(-1, -1));
         o();
         p();
     }
@@ -332,11 +332,11 @@ public class c extends FrameLayout implements com.qq.e.comm.plugin.aa.b.b, c.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
-        if (this.f12303a != null) {
-            if (this.f12303a.d()) {
-                this.f12303a.i();
+        if (this.f12304a != null) {
+            if (this.f12304a.d()) {
+                this.f12304a.i();
             } else {
-                this.f12303a.h();
+                this.f12304a.h();
             }
         }
         e();
@@ -344,11 +344,11 @@ public class c extends FrameLayout implements com.qq.e.comm.plugin.aa.b.b, c.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r() {
-        if (this.f12303a != null) {
-            if (this.f12303a.c()) {
-                this.f12303a.a();
+        if (this.f12304a != null) {
+            if (this.f12304a.c()) {
+                this.f12304a.a();
             } else {
-                this.f12303a.b();
+                this.f12304a.b();
             }
         }
         this.G.sendEmptyMessageDelayed(10004, 100L);
@@ -356,10 +356,10 @@ public class c extends FrameLayout implements com.qq.e.comm.plugin.aa.b.b, c.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
-        if (this.l == null || this.f12303a == null) {
+        if (this.l == null || this.f12304a == null) {
             return;
         }
-        if (this.f12303a.c()) {
+        if (this.f12304a.c()) {
             this.l.setImageBitmap(g.k(this.n));
         } else {
             this.l.setImageBitmap(g.j(this.n));
@@ -368,11 +368,11 @@ public class c extends FrameLayout implements com.qq.e.comm.plugin.aa.b.b, c.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int t() {
-        if (this.f12303a == null) {
+        if (this.f12304a == null) {
             return 0;
         }
-        int f = this.f12303a.f();
-        int e = this.f12303a.e();
+        int f = this.f12304a.f();
+        int e = this.f12304a.e();
         if (this.m == null || e <= 0) {
             return f;
         }
@@ -489,8 +489,8 @@ public class c extends FrameLayout implements com.qq.e.comm.plugin.aa.b.b, c.a {
 
     @Override // com.qq.e.comm.plugin.aa.b.b
     public void a(e eVar) {
-        this.f12303a = eVar;
-        this.f12303a.a(this.F);
+        this.f12304a = eVar;
+        this.f12304a.a(this.F);
         s();
     }
 
@@ -506,11 +506,11 @@ public class c extends FrameLayout implements com.qq.e.comm.plugin.aa.b.b, c.a {
         if (this.o == null || !z2) {
             return;
         }
-        if (!z || this.f12303a == null) {
+        if (!z || this.f12304a == null) {
             this.o.setVisibility(4);
             return;
         }
-        f.d g = this.f12303a.g();
+        f.d g = this.f12304a.g();
         if (g == f.d.END || g == f.d.STOP) {
             this.o.setVisibility(0);
         }
@@ -537,7 +537,7 @@ public class c extends FrameLayout implements com.qq.e.comm.plugin.aa.b.b, c.a {
 
     @Override // com.qq.e.comm.plugin.aa.b.b
     public void c() {
-        if (this.f12303a == null || this.f12303a.g() == f.d.ERROR || this.f12303a.g() == f.d.UNINITIALIZED) {
+        if (this.f12304a == null || this.f12304a.g() == f.d.ERROR || this.f12304a.g() == f.d.UNINITIALIZED) {
             return;
         }
         a(3000, this.y);
@@ -568,7 +568,7 @@ public class c extends FrameLayout implements com.qq.e.comm.plugin.aa.b.b, c.a {
     }
 
     public void d(boolean z) {
-        if (this.f12303a == null || this.f12303a.g() == f.d.ERROR || this.f12303a.g() == f.d.UNINITIALIZED) {
+        if (this.f12304a == null || this.f12304a.g() == f.d.ERROR || this.f12304a.g() == f.d.UNINITIALIZED) {
             return;
         }
         a(3000, z);
@@ -576,10 +576,10 @@ public class c extends FrameLayout implements com.qq.e.comm.plugin.aa.b.b, c.a {
 
     @Override // com.qq.e.comm.plugin.aa.b.b
     public void e() {
-        if (this.j == null || this.f12303a == null) {
+        if (this.j == null || this.f12304a == null) {
             return;
         }
-        if (this.f12303a.d()) {
+        if (this.f12304a.d()) {
             this.j.setImageBitmap(g.h(this.n));
         } else {
             this.j.setImageBitmap(g.g(this.n));
@@ -648,18 +648,18 @@ public class c extends FrameLayout implements com.qq.e.comm.plugin.aa.b.b, c.a {
     }
 
     public boolean j() {
-        if (this.f12303a != null) {
-            return this.f12303a.d();
+        if (this.f12304a != null) {
+            return this.f12304a.d();
         }
         return true;
     }
 
     public void k() {
-        if (this.f12303a != null) {
-            if (this.f12303a.d()) {
-                this.f12303a.i();
+        if (this.f12304a != null) {
+            if (this.f12304a.d()) {
+                this.f12304a.i();
             } else {
-                this.f12303a.h();
+                this.f12304a.h();
             }
         }
     }

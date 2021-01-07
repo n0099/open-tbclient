@@ -11,21 +11,21 @@ import org.json.JSONObject;
 public class g implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.core.webview.a f9871a;
+    private final com.kwad.sdk.core.webview.a f9872a;
     private com.kwad.sdk.core.download.b.b c;
     private a d = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    private AdTemplate f9872b = new AdTemplate();
+    private AdTemplate f9873b = new AdTemplate();
 
     /* loaded from: classes5.dex */
     public static final class a extends com.kwad.sdk.core.response.a.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f9874a;
+        public int f9875a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f9875b;
+        public String f9876b;
         public String c;
         public String d;
         public int e;
@@ -44,9 +44,9 @@ public class g implements com.kwad.sdk.core.webview.a.a {
     }
 
     public g(com.kwad.sdk.core.webview.a aVar) {
-        this.f9871a = aVar;
+        this.f9872a = aVar;
         try {
-            this.f9872b.parseJson(new JSONObject(this.f9871a.f9836b.mOriginJString));
+            this.f9873b.parseJson(new JSONObject(this.f9872a.f9837b.mOriginJString));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -56,9 +56,9 @@ public class g implements com.kwad.sdk.core.webview.a.a {
         AdInfo.AdConversionInfo adConversionInfo = adInfo.adConversionInfo;
         adConversionInfo.deeplinkUrl = aVar.i;
         adConversionInfo.marketUrl = aVar.m;
-        adInfo.adBaseInfo.adOperationType = aVar.f9874a;
+        adInfo.adBaseInfo.adOperationType = aVar.f9875a;
         adInfo.adBaseInfo.appPackageName = aVar.c;
-        adInfo.adBaseInfo.appName = aVar.f9875b;
+        adInfo.adBaseInfo.appName = aVar.f9876b;
         adInfo.adBaseInfo.appVersion = aVar.d;
         adInfo.adBaseInfo.packageSize = aVar.f;
         adInfo.adBaseInfo.appIconUrl = aVar.j;
@@ -81,13 +81,13 @@ public class g implements com.kwad.sdk.core.webview.a.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         try {
             this.d.parseJson(new JSONObject(str));
-            a(com.kwad.sdk.core.response.b.c.j(this.f9872b), this.d);
+            a(com.kwad.sdk.core.response.b.c.j(this.f9873b), this.d);
             if (this.c == null) {
-                this.c = new com.kwad.sdk.core.download.b.b(this.f9872b);
+                this.c = new com.kwad.sdk.core.download.b.b(this.f9873b);
                 this.c.a(1);
             }
-            com.kwad.sdk.core.download.b.a.a(this.f9871a.e.getContext(), this.f9872b, new a.InterfaceC1064a() { // from class: com.kwad.sdk.core.webview.jshandler.g.1
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1064a
+            com.kwad.sdk.core.download.b.a.a(this.f9872a.e.getContext(), this.f9873b, new a.InterfaceC1105a() { // from class: com.kwad.sdk.core.webview.jshandler.g.1
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
                 public void a() {
                 }
             }, this.c);

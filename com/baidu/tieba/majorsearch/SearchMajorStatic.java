@@ -9,10 +9,10 @@ import com.baidu.tieba.majorsearch.message.SearchMajorHttpResponsedMessage;
 public class SearchMajorStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(SearchMajorActivityConfig.class, SearchMajorActivity.class);
-        dgE();
+        dgF();
     }
 
-    private static void dgE() {
+    private static void dgF() {
         com.baidu.tieba.tbadkCore.a.a.c(CmdConfigHttp.CMD_SEARCH_MAJOR, TbConfig.URL_SEARCH_MAJOR, SearchMajorHttpResponsedMessage.class, false, false, true, false);
     }
 }

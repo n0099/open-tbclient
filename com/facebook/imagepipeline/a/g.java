@@ -1,15 +1,15 @@
 package com.facebook.imagepipeline.a;
 
 import android.graphics.Bitmap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g implements com.facebook.common.references.c<Bitmap> {
-    private static g pzA;
+    private static g pBh;
 
-    public static g ewB() {
-        if (pzA == null) {
-            pzA = new g();
+    public static g exe() {
+        if (pBh == null) {
+            pBh = new g();
         }
-        return pzA;
+        return pBh;
     }
 
     private g() {

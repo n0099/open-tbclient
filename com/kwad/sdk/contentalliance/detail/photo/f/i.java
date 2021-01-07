@@ -16,10 +16,10 @@ import com.kwad.sdk.utils.ag;
 public class i extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f8821a;
+    private int f8822a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f8822b;
+    private ImageView f8823b;
     private TextView c;
     private LottieAnimationView d;
 
@@ -29,8 +29,8 @@ public class i extends FrameLayout {
 
     public i(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f8821a = 1;
-        this.f8822b = null;
+        this.f8822a = 1;
+        this.f8823b = null;
         this.c = null;
         c();
     }
@@ -42,13 +42,13 @@ public class i extends FrameLayout {
         this.d.a(true);
         this.d.setAnimation(z ? R.raw.ksad_detail_right_button_like_anim_2 : R.raw.ksad_detail_right_button_unlike_anim_2);
         this.d.setVisibility(0);
-        this.f8822b.setVisibility(8);
+        this.f8823b.setVisibility(8);
         this.d.a(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.contentalliance.detail.photo.f.i.1
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 super.onAnimationCancel(animator);
                 i.this.setImageView(i);
-                i.this.f8822b.setVisibility(0);
+                i.this.f8823b.setVisibility(0);
                 i.this.d.setVisibility(8);
             }
 
@@ -56,7 +56,7 @@ public class i extends FrameLayout {
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 i.this.setImageView(i);
-                i.this.f8822b.setVisibility(0);
+                i.this.f8823b.setVisibility(0);
                 i.this.d.setVisibility(8);
             }
 
@@ -64,11 +64,11 @@ public class i extends FrameLayout {
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
                 if (z) {
-                    i.this.f8822b.setVisibility(8);
+                    i.this.f8823b.setVisibility(8);
                     return;
                 }
                 i.this.setImageView(i);
-                i.this.f8822b.setVisibility(0);
+                i.this.f8823b.setVisibility(0);
             }
         });
         this.d.b();
@@ -76,14 +76,14 @@ public class i extends FrameLayout {
 
     private void c() {
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_content_alliance_photo_like_button_2, (ViewGroup) this, true);
-        this.f8822b = (ImageView) findViewById(R.id.ksad_photo_like_button_image);
+        this.f8823b = (ImageView) findViewById(R.id.ksad_photo_like_button_image);
         this.c = (TextView) findViewById(R.id.ksad_photo_like_count_text);
         this.d = (LottieAnimationView) findViewById(R.id.ksad_photo_like_animation_view);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setImageView(int i) {
-        this.f8822b.setImageResource(i == 1 ? R.drawable.ksad_photo_like_button_2_normal : R.drawable.ksad_photo_like_button_2_selected);
+        this.f8823b.setImageResource(i == 1 ? R.drawable.ksad_photo_like_button_2_normal : R.drawable.ksad_photo_like_button_2_selected);
     }
 
     private void setImageViewWithAnimator(int i) {
@@ -92,13 +92,13 @@ public class i extends FrameLayout {
     }
 
     public void a(int i, long j) {
-        this.f8821a = i;
+        this.f8822a = i;
         setImageView(i);
         setLikeCount(j);
     }
 
     public boolean a() {
-        return this.f8821a == 2;
+        return this.f8822a == 2;
     }
 
     public void b() {
@@ -108,7 +108,7 @@ public class i extends FrameLayout {
     }
 
     public int getLikeState() {
-        return this.f8821a;
+        return this.f8822a;
     }
 
     public void setLikeCount(long j) {
@@ -116,7 +116,7 @@ public class i extends FrameLayout {
     }
 
     public void setLikeState(int i) {
-        this.f8821a = i;
+        this.f8822a = i;
         setImageViewWithAnimator(i);
     }
 }

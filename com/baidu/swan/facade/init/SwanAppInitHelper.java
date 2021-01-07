@@ -50,18 +50,18 @@ public class SwanAppInitHelper {
     }
 
     private static void initStatisticsModule(Application application) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.ahD()) {
-            r.biR();
+        if (com.baidu.pyramid.runtime.multiprocess.a.ahE()) {
+            r.biS();
             initConfig();
         }
     }
 
     private static void initSwanAppModule(Application application) {
-        if (!c.euL()) {
+        if (!c.euS()) {
             c.initialize(application);
         }
         if (ProcessUtils.isMainProcess()) {
-            a.ev(application).aTN();
+            a.ev(application).aTO();
         }
         initWebView(application);
         if (ProcessUtils.isMainProcess()) {
@@ -103,8 +103,8 @@ public class SwanAppInitHelper {
     }
 
     private static void initWebView(Context context) {
-        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), com.baidu.swan.apps.t.a.aBe().amd(), false);
-        if (com.baidu.swan.apps.t.a.aBe().ame()) {
+        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), com.baidu.swan.apps.t.a.aBf().ame(), false);
+        if (com.baidu.swan.apps.t.a.aBf().amf()) {
             doWebViewInit(context);
         }
     }
@@ -113,8 +113,8 @@ public class SwanAppInitHelper {
         if (ProcessUtils.isMainProcess()) {
             com.baidu.swan.apps.core.k.b.cM(context).a(new b.a() { // from class: com.baidu.swan.facade.init.SwanAppInitHelper.2
                 @Override // com.baidu.swan.apps.core.k.b.a
-                public void ajU() {
-                    com.baidu.swan.apps.env.e.axa().q(null);
+                public void ajV() {
+                    com.baidu.swan.apps.env.e.axb().q(null);
                 }
             });
         }
@@ -134,8 +134,8 @@ public class SwanAppInitHelper {
     }
 
     private static void uploadLastData() {
-        com.baidu.swan.ubc.p biK = com.baidu.swan.ubc.p.biK();
-        biK.upload();
-        biK.biL();
+        com.baidu.swan.ubc.p biL = com.baidu.swan.ubc.p.biL();
+        biL.upload();
+        biL.biM();
     }
 }

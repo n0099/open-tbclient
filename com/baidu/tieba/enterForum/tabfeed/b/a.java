@@ -23,7 +23,7 @@ public class a {
             for (ThreadInfo threadInfo : dataRes.thread_list) {
                 bz bzVar = new bz();
                 bzVar.a(threadInfo);
-                bzVar.bqS();
+                bzVar.bqT();
                 this.iNF.add(bzVar);
             }
             this.iNG = new ArrayList<>();
@@ -46,28 +46,28 @@ public class a {
         }
     }
 
-    public ArrayList<n> czG() {
+    public ArrayList<n> czH() {
         return this.iNF;
     }
 
-    public ArrayList<bt> czH() {
+    public ArrayList<bt> czI() {
         return this.iNG;
     }
 
-    public bm czI() {
+    public bm czJ() {
         return this.iNH;
     }
 
-    public c czJ() {
+    public c czK() {
         return this.iNI;
     }
 
-    public boolean czK() {
+    public boolean czL() {
         return this.iNJ;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: czL */
+    /* renamed from: czM */
     public a clone() {
         a aVar = new a();
         aVar.iNF = this.iNF;

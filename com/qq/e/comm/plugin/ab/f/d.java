@@ -9,24 +9,24 @@ import android.webkit.WebViewClient;
 import androidx.annotation.Nullable;
 import com.qq.e.comm.plugin.util.az;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d extends WebViewClient {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f12090a;
+    private boolean f12091a;
 
     /* renamed from: b  reason: collision with root package name */
-    private g f12091b = new g();
+    private g f12092b = new g();
 
     public void a() {
-        this.f12090a = true;
+        this.f12091a = true;
     }
 
     @Override // android.webkit.WebViewClient
     @Nullable
     @TargetApi(21)
     public WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
-        Pair<? extends InputStream, az.a> a2 = this.f12091b.a(this.f12090a, webResourceRequest.getUrl());
+        Pair<? extends InputStream, az.a> a2 = this.f12092b.a(this.f12091a, webResourceRequest.getUrl());
         if (a2 == null) {
             return super.shouldInterceptRequest(webView, webResourceRequest);
         }
@@ -36,6 +36,6 @@ public class d extends WebViewClient {
 
     @Override // android.webkit.WebViewClient
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        return this.f12091b.a(str);
+        return this.f12092b.a(str);
     }
 }

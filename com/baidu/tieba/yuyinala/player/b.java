@@ -108,7 +108,6 @@ public class b extends BdBaseView<TbPageContext> {
     private long bvY;
     private String bvZ;
     private boolean bzP;
-    private CustomMessageListener hGC;
     private ViewGroup hGN;
     private LayerRootView hGO;
     private long hGS;
@@ -176,9 +175,9 @@ public class b extends BdBaseView<TbPageContext> {
     private String oHx;
     private com.baidu.tieba.yuyinala.endliveroom.a oHy;
     private com.baidu.tieba.yuyinala.liveroom.c.b oHz;
-    private a.InterfaceC0901a orq;
+    private a.InterfaceC0939a orp;
     private String otherParams;
-    private AlaLiveView oxi;
+    private AlaLiveView oxh;
     private String uk;
 
     public b(TbPageContext tbPageContext, a aVar) {
@@ -198,7 +197,7 @@ public class b extends BdBaseView<TbPageContext> {
         this.ieq = -1L;
         this.otherParams = "";
         this.ies = false;
-        this.oHA = com.baidu.tieba.yuyinala.liveroom.task.b.edq();
+        this.oHA = com.baidu.tieba.yuyinala.liveroom.task.b.edr();
         this.iev = false;
         this.iez = false;
         this.ieB = false;
@@ -207,22 +206,22 @@ public class b extends BdBaseView<TbPageContext> {
         this.hKe = new Runnable() { // from class: com.baidu.tieba.yuyinala.player.b.1
             @Override // java.lang.Runnable
             public void run() {
-                b.this.clS();
+                b.this.clT();
             }
         };
         this.ieJ = new Runnable() { // from class: com.baidu.tieba.yuyinala.player.b.12
             @Override // java.lang.Runnable
             public void run() {
-                b.this.cqJ();
+                b.this.cqK();
             }
         };
-        this.ieK = new Runnable() { // from class: com.baidu.tieba.yuyinala.player.b.16
+        this.ieK = new Runnable() { // from class: com.baidu.tieba.yuyinala.player.b.15
             @Override // java.lang.Runnable
             public void run() {
-                b.this.oHr.cmo();
+                b.this.oHr.cmp();
             }
         };
-        this.oHF = new Runnable() { // from class: com.baidu.tieba.yuyinala.player.b.17
+        this.oHF = new Runnable() { // from class: com.baidu.tieba.yuyinala.player.b.16
             @Override // java.lang.Runnable
             public void run() {
                 if (b.this.oHr.HR() != null) {
@@ -234,17 +233,7 @@ public class b extends BdBaseView<TbPageContext> {
         this.oHJ = "";
         this.oHK = "";
         this.oHL = "";
-        this.hGC = new CustomMessageListener(2913084, true) { // from class: com.baidu.tieba.yuyinala.player.b.19
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                boolean booleanValue;
-                if ((customResponsedMessage.getData() instanceof Boolean) && (booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue())) {
-                    b.this.onKeyboardVisibilityChanged(booleanValue);
-                }
-            }
-        };
-        this.oHM = new CustomMessageListener(2501082) { // from class: com.baidu.tieba.yuyinala.player.b.20
+        this.oHM = new CustomMessageListener(2501082) { // from class: com.baidu.tieba.yuyinala.player.b.18
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -253,7 +242,7 @@ public class b extends BdBaseView<TbPageContext> {
                 }
             }
         };
-        this.bih = new CustomMessageListener(2501058) { // from class: com.baidu.tieba.yuyinala.player.b.21
+        this.bih = new CustomMessageListener(2501058) { // from class: com.baidu.tieba.yuyinala.player.b.19
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -262,7 +251,7 @@ public class b extends BdBaseView<TbPageContext> {
                 }
             }
         };
-        this.ieL = new Runnable() { // from class: com.baidu.tieba.yuyinala.player.b.22
+        this.ieL = new Runnable() { // from class: com.baidu.tieba.yuyinala.player.b.20
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject jSONObject = new JSONObject();
@@ -274,33 +263,33 @@ public class b extends BdBaseView<TbPageContext> {
                 UbcStatisticManager.getInstance().liveRoomFlowBegin(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_FLOW, "notice", UbcStatConstant.Page.VOICE_ROOM, LogConfig.VALUE_STAYTIME).setContentExt(jSONObject));
             }
         };
-        this.ieX = new com.baidu.live.liveroom.a.c() { // from class: com.baidu.tieba.yuyinala.player.b.3
+        this.ieX = new com.baidu.live.liveroom.a.c() { // from class: com.baidu.tieba.yuyinala.player.b.2
             @Override // com.baidu.live.liveroom.a.c
             public void cx(final boolean z) {
-                if (!k.eeW().isShowing()) {
-                    h.eeU().zO(false);
-                    boolean aH = k.eeW().aH(b.this.mTbPageContext.getPageActivity());
-                    k.eeW().a(new k.a() { // from class: com.baidu.tieba.yuyinala.player.b.3.1
-                        @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.k.a
-                        public void eeY() {
-                        }
-
+                if (!k.eeX().isShowing()) {
+                    h.eeV().zO(false);
+                    boolean aH = k.eeX().aH(b.this.mTbPageContext.getPageActivity());
+                    k.eeX().a(new k.a() { // from class: com.baidu.tieba.yuyinala.player.b.2.1
                         @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.k.a
                         public void eeZ() {
-                            if (z || b.this.oHz == null || b.this.oHz.ceN()) {
-                                b.this.oZ(true);
-                                b.this.cbN();
-                            }
                         }
 
                         @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.k.a
                         public void efa() {
+                            if (z || b.this.oHz == null || b.this.oHz.ceO()) {
+                                b.this.oZ(true);
+                                b.this.cbO();
+                            }
+                        }
+
+                        @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.k.a
+                        public void efb() {
                         }
                     });
                     if (aH) {
-                        if (z || b.this.oHz == null || b.this.oHz.ceN()) {
+                        if (z || b.this.oHz == null || b.this.oHz.ceO()) {
                             b.this.oZ(true);
-                            b.this.cbN();
+                            b.this.cbO();
                         }
                     }
                 }
@@ -330,7 +319,7 @@ public class b extends BdBaseView<TbPageContext> {
             public void cz(boolean z) {
             }
         };
-        this.ieY = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.yuyinala.player.b.6
+        this.ieY = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.yuyinala.player.b.5
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
             }
@@ -338,7 +327,7 @@ public class b extends BdBaseView<TbPageContext> {
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
                 int i2;
-                if (b.this.mTbPageContext != null && b.this.mTbPageContext.getPageActivity() != null && !b.this.mTbPageContext.getPageActivity().isFinishing() && b.this.oxi != null && b.this.oHr != null) {
+                if (b.this.mTbPageContext != null && b.this.mTbPageContext.getPageActivity() != null && !b.this.mTbPageContext.getPageActivity().isFinishing() && b.this.oxh != null && b.this.oHr != null) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
                         b.this.mTbPageContext.showToast(a.h.sdk_neterror);
                         b.this.oHt.setCurrentItem(b.this.mSelectedPosition);
@@ -365,14 +354,14 @@ public class b extends BdBaseView<TbPageContext> {
                         BdLog.e(e);
                     }
                     UbcStatisticManager.getInstance().liveRoomFlowEnd(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_PLAY_FLOW, "notice", UbcStatConstant.Page.VOICE_ROOM, "playtime").setContentExt(jSONObject));
-                    if (b.this.bzP || b.this.oHr.cmn() == null || ListUtils.getCount(b.this.oHr.cmn()) > 1) {
-                        if (b.this.oHr.cms() && i - b.this.mSelectedPosition == 0) {
+                    if (b.this.bzP || b.this.oHr.cmo() == null || ListUtils.getCount(b.this.oHr.cmo()) > 1) {
+                        if (b.this.oHr.cmt() && i - b.this.mSelectedPosition == 0) {
                             i2 = -1;
                         } else {
                             i2 = (i - b.this.mSelectedPosition == 2 || i - b.this.mSelectedPosition == -1) ? -1 : 1;
                         }
-                        if (b.this.oHr == null || !b.this.oHr.cms() || i2 >= 0) {
-                            if (b.this.oHr != null && b.this.oHr.cmt() && i2 > 0) {
+                        if (b.this.oHr == null || !b.this.oHr.cmt() || i2 >= 0) {
+                            if (b.this.oHr != null && b.this.oHr.cmu() && i2 > 0) {
                                 b.this.mTbPageContext.showToast(a.h.ala_live_no_next_liveroom_tip);
                                 b.this.oHt.setCurrentItem(b.this.mSelectedPosition);
                                 return;
@@ -385,18 +374,18 @@ public class b extends BdBaseView<TbPageContext> {
                             }
                             b.this.mHandler.removeCallbacksAndMessages(null);
                             b.this.nN(true);
-                            b.this.oHs.cnV();
-                            b.this.oHs.Zr();
                             b.this.oHs.cnW();
-                            b.this.cqU();
+                            b.this.oHs.Zs();
+                            b.this.oHs.cnX();
+                            b.this.cqV();
                             if (b.this.ieQ != null) {
                                 b.this.ieQ.release();
                             }
                             b.this.mSelectedPosition = i;
                             b.this.oHs = b.this.oHu.Nl(b.this.mSelectedPosition);
-                            b.this.oHs.cnX();
+                            b.this.oHs.cnY();
                             b.this.xT(i2);
-                            b.this.ehf();
+                            b.this.ehg();
                             b.this.NQ(i2);
                             return;
                         }
@@ -406,7 +395,7 @@ public class b extends BdBaseView<TbPageContext> {
                     }
                     b.this.mTbPageContext.showToast(a.h.ala_live_room_no_more_list);
                     b.this.oHt.setCurrentItem(b.this.mSelectedPosition);
-                    b.this.oHr.g(b.this.oHr.cmx());
+                    b.this.oHr.g(b.this.oHr.cmy());
                 }
             }
 
@@ -417,17 +406,17 @@ public class b extends BdBaseView<TbPageContext> {
                 }
             }
         };
-        this.orq = new a.InterfaceC0901a() { // from class: com.baidu.tieba.yuyinala.player.b.7
-            @Override // com.baidu.tieba.yuyinala.liveroom.k.a.InterfaceC0901a
+        this.orp = new a.InterfaceC0939a() { // from class: com.baidu.tieba.yuyinala.player.b.6
+            @Override // com.baidu.tieba.yuyinala.liveroom.k.a.InterfaceC0939a
             public void a(int i, String str, int i2, Object obj) {
                 if (i2 == 1) {
                     b.this.P(b.this.oHr.HR());
                 } else if (i2 == 2) {
-                    b.this.f(b.this.oHr.bWY());
+                    b.this.f(b.this.oHr.bWZ());
                 } else if (i2 == 3) {
                     b.this.br(i, str);
                 } else if (i2 == 12) {
-                    b.this.c(b.this.oHr.edg());
+                    b.this.c(b.this.oHr.edh());
                 } else if (i2 == 11) {
                     JSONObject jSONObject = new JSONObject();
                     try {
@@ -440,20 +429,20 @@ public class b extends BdBaseView<TbPageContext> {
                 } else if (i2 == 4) {
                     b.this.aI(obj);
                 } else if (i2 == 5) {
-                    b.this.cqI();
+                    b.this.cqJ();
                 }
             }
         };
-        this.oHN = new CustomMessageListener(2913169) { // from class: com.baidu.tieba.yuyinala.player.b.9
+        this.oHN = new CustomMessageListener(2913169) { // from class: com.baidu.tieba.yuyinala.player.b.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean) && !((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    o.eff().setMaskBg(false);
+                    o.efg().setMaskBg(false);
                 }
             }
         };
-        this.ifc = new CustomMessageListener(2913117) { // from class: com.baidu.tieba.yuyinala.player.b.10
+        this.ifc = new CustomMessageListener(2913117) { // from class: com.baidu.tieba.yuyinala.player.b.9
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -470,7 +459,7 @@ public class b extends BdBaseView<TbPageContext> {
                 }
             }
         };
-        this.oHO = new CustomMessageListener(2501019) { // from class: com.baidu.tieba.yuyinala.player.b.11
+        this.oHO = new CustomMessageListener(2501019) { // from class: com.baidu.tieba.yuyinala.player.b.10
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -480,14 +469,14 @@ public class b extends BdBaseView<TbPageContext> {
                         bitmap = (Bitmap) customResponsedMessage.getData();
                     }
                     if (bitmap == null || bitmap.isRecycled()) {
-                        b.this.ehi();
+                        b.this.ehj();
                     } else {
                         b.this.X((Bitmap) customResponsedMessage.getData());
                     }
                 }
             }
         };
-        this.oHP = new CustomMessageListener(2501078) { // from class: com.baidu.tieba.yuyinala.player.b.13
+        this.oHP = new CustomMessageListener(2501078) { // from class: com.baidu.tieba.yuyinala.player.b.11
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -497,44 +486,44 @@ public class b extends BdBaseView<TbPageContext> {
                         str = (String) customResponsedMessage.getData();
                     }
                     if (!TextUtils.isEmpty(str)) {
-                        b.this.WS(str);
+                        b.this.WR(str);
                     }
                 }
             }
         };
-        this.oHQ = new CustomMessageListener(2501073) { // from class: com.baidu.tieba.yuyinala.player.b.14
+        this.oHQ = new CustomMessageListener(2501073) { // from class: com.baidu.tieba.yuyinala.player.b.13
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                b.this.clS();
+                b.this.clT();
             }
         };
-        this.oHR = new CustomMessageListener(2501080) { // from class: com.baidu.tieba.yuyinala.player.b.15
+        this.oHR = new CustomMessageListener(2501080) { // from class: com.baidu.tieba.yuyinala.player.b.14
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501080 && (customResponsedMessage.getData() instanceof YuyinAlaLiveRoomActivityConfig)) {
                     final YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = (YuyinAlaLiveRoomActivityConfig) customResponsedMessage.getData();
-                    if (!k.eeW().isShowing()) {
-                        h.eeU().zO(false);
-                        if (k.eeW().aH(b.this.mTbPageContext.getPageActivity())) {
+                    if (!k.eeX().isShowing()) {
+                        h.eeV().zO(false);
+                        if (k.eeX().aH(b.this.mTbPageContext.getPageActivity())) {
                             b.this.oZ(true);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2501018, yuyinAlaLiveRoomActivityConfig));
                             return;
                         }
-                        k.eeW().a(new k.a() { // from class: com.baidu.tieba.yuyinala.player.b.15.1
+                        k.eeX().a(new k.a() { // from class: com.baidu.tieba.yuyinala.player.b.14.1
                             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.k.a
-                            public void eeY() {
+                            public void eeZ() {
                             }
 
                             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.k.a
-                            public void eeZ() {
+                            public void efa() {
                                 b.this.oZ(true);
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2501018, yuyinAlaLiveRoomActivityConfig));
                             }
 
                             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.k.a
-                            public void efa() {
+                            public void efb() {
                             }
                         });
                     }
@@ -551,7 +540,7 @@ public class b extends BdBaseView<TbPageContext> {
             this.ieQ = (c) runTask.getData();
         }
         this.oHr = new com.baidu.tieba.yuyinala.liveroom.k.a(getPageContext());
-        this.oHr.a(this.orq);
+        this.oHr.a(this.orp);
         this.oHy = new com.baidu.tieba.yuyinala.endliveroom.a(this.mTbPageContext);
         MessageManager.getInstance().registerListener(this.oHN);
         MessageManager.getInstance().registerListener(this.ifc);
@@ -561,13 +550,12 @@ public class b extends BdBaseView<TbPageContext> {
         MessageManager.getInstance().registerListener(this.oHQ);
         MessageManager.getInstance().registerListener(this.oHR);
         MessageManager.getInstance().registerListener(this.oHM);
-        MessageManager.getInstance().registerListener(this.hGC);
         this.ifk = new g(tbPageContext.getPageActivity());
-        this.ifk.setIPlayerAudioFocusCallBack(new com.baidu.live.v.a() { // from class: com.baidu.tieba.yuyinala.player.b.18
+        this.ifk.setIPlayerAudioFocusCallBack(new com.baidu.live.v.a() { // from class: com.baidu.tieba.yuyinala.player.b.17
             @Override // com.baidu.live.v.a
             public void cG(boolean z) {
-                if (com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eeq() != null) {
-                    com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eeq().muteOrUnmuteAudio(!z);
+                if (com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer() != null) {
+                    com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().muteOrUnmuteAudio(!z);
                 }
             }
         });
@@ -638,7 +626,7 @@ public class b extends BdBaseView<TbPageContext> {
         this.ieD = this.ieC == null || !this.ieC.aRP;
         this.oHy.setOtherParams(this.otherParams);
         this.iek = intent.getBooleanExtra("live_forbid_vertical_change_liveroom", false);
-        ehc();
+        ehd();
         Ab(true);
         this.mHandler.removeCallbacks(this.ieL);
         this.mHandler.postDelayed(this.ieL, 1000L);
@@ -684,7 +672,7 @@ public class b extends BdBaseView<TbPageContext> {
                         JSONObject jSONObject = new JSONObject(optString6);
                         String optString7 = jSONObject.optString("live_active_params");
                         if (!TextUtils.isEmpty(optString7) && this.oHr != null) {
-                            this.oHr.Ia(optString7);
+                            this.oHr.HZ(optString7);
                         }
                         AlaLiveSwitchData.liveActivityType = jSONObject.optString(HttpRequest.SDK_LIVE_LIVE_ACTIVITY_TYPE);
                         this.hoR = jSONObject.optString("live_back_scheme");
@@ -760,8 +748,8 @@ public class b extends BdBaseView<TbPageContext> {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        UbcStatisticManager.getInstance().updateLiveRoom(String.valueOf(this.bvY), String.valueOf(this.iep), null, cqC());
-        UbcAudioFlowStatisticManager.getInstance().updateLiveRoom(String.valueOf(this.bvY), String.valueOf(this.iep), cqC());
+        UbcStatisticManager.getInstance().updateLiveRoom(String.valueOf(this.bvY), String.valueOf(this.iep), null, cqD());
+        UbcAudioFlowStatisticManager.getInstance().updateLiveRoom(String.valueOf(this.bvY), String.valueOf(this.iep), cqD());
         JSONObject jSONObject2 = new JSONObject();
         try {
             jSONObject2.put(UbcStatConstant.KEY_IS_INIT, "1");
@@ -790,9 +778,9 @@ public class b extends BdBaseView<TbPageContext> {
     public void Ab(boolean z) {
         boolean z2 = false;
         if (this.oHr.HR() != null && this.oHr.HR().mLiveInfo != null && this.oHr.HR().mLiveInfo.room_id > 0) {
-            this.oHr.VS(this.oHr.HR().mLiveInfo.room_id + "");
+            this.oHr.VR(this.oHr.HR().mLiveInfo.room_id + "");
         } else if (!TextUtils.isEmpty(this.iep)) {
-            this.oHr.VS(this.iep);
+            this.oHr.VR(this.iep);
         }
         if (!TextUtils.isEmpty(this.uk)) {
             this.oHr.aw(this.uk, this.bvZ, this.mForumName);
@@ -816,7 +804,7 @@ public class b extends BdBaseView<TbPageContext> {
             this.oHr.aw(this.uk, this.bvZ, this.mForumName);
             z2 = true;
         } else if (!TextUtils.isEmpty(this.iep)) {
-            this.oHr.IF(this.iep);
+            this.oHr.IE(this.iep);
             z2 = true;
         } else if (this.bvY > 0) {
             this.oHr.a(this.bvY, false, this.bvZ, "");
@@ -826,7 +814,7 @@ public class b extends BdBaseView<TbPageContext> {
             oZ(false);
         }
         if (z2) {
-            ehf();
+            ehg();
             if (z) {
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -840,10 +828,10 @@ public class b extends BdBaseView<TbPageContext> {
         }
     }
 
-    private void ehc() {
+    private void ehd() {
         this.bzP = true;
         this.ieh = false;
-        ehd();
+        ehe();
         Rect visibilityRegion = ViewCommonUtil.getVisibilityRegion(this.mTbPageContext.getPageActivity());
         l(visibilityRegion);
         c(visibilityRegion);
@@ -869,15 +857,15 @@ public class b extends BdBaseView<TbPageContext> {
             xVar.aLq = new AlaWheatInfoDataWrapper("{\n            \"host\": [\n                {}\n            ],\n            \"anchor\": [\n                {},\n                {},\n                {},\n                {},\n                {},\n                {},\n                {},\n                {}\n            ]\n        }");
             xVar.bw(true);
             this.oHr.setLiveShowData(xVar);
-            cqq();
-            cqn();
+            cqr();
+            cqo();
             this.oHz.a(xVar, this.oHJ, this.oHL);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void ehd() {
+    private void ehe() {
         View inflate = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.yuyinala_liveroom_main_layout, (ViewGroup) null);
         this.oHt = (AlaLoopViewPager) inflate.findViewById(a.f.ala_loop_view_pager);
         this.oHt.setOnPageChangeListener(this.ieY);
@@ -885,7 +873,7 @@ public class b extends BdBaseView<TbPageContext> {
         this.oHt.setBackgroundResource(a.e.yuyin_sdk_defalut_bg);
         this.mTbPageContext.getPageActivity().addContentView(inflate, new LinearLayout.LayoutParams(-1, -1));
         this.oHu = new AlaLoopViewPagerAdapter(this.mTbPageContext);
-        this.oHu.cjB();
+        this.oHu.cjC();
         this.oHs = this.oHu.Nk(this.mSelectedPosition);
         try {
             if (!TextUtils.isEmpty(this.oHK)) {
@@ -905,7 +893,7 @@ public class b extends BdBaseView<TbPageContext> {
         this.oHt.setIsScrollable(this.ieD);
         this.hGN = (ViewGroup) inflate.findViewById(a.f.func_view);
         this.hGO = (LayerRootView) inflate.findViewById(a.f.layer_root_view);
-        this.oHt.setListener(new AlaLoopViewPager.a() { // from class: com.baidu.tieba.yuyinala.player.b.2
+        this.oHt.setListener(new AlaLoopViewPager.a() { // from class: com.baidu.tieba.yuyinala.player.b.21
             @Override // com.baidu.tieba.yuyinala.liveroom.livepager.AlaLoopViewPager.a
             public boolean a(AlaVerticalViewPagerNew alaVerticalViewPagerNew, MotionEvent motionEvent) {
                 x HR;
@@ -921,13 +909,13 @@ public class b extends BdBaseView<TbPageContext> {
                     }
                     float rawY = motionEvent.getRawY() - b.this.mLastY;
                     if (Math.abs(rawY) >= screenHeight / 14) {
-                        if (b.this.oHr == null || !b.this.oHr.cms() || rawY <= 0.0f) {
-                            if (b.this.oHr == null || !b.this.oHr.cmt() || rawY >= 0.0f) {
-                                if (k.eeW().isShowing()) {
+                        if (b.this.oHr == null || !b.this.oHr.cmt() || rawY <= 0.0f) {
+                            if (b.this.oHr == null || !b.this.oHr.cmu() || rawY >= 0.0f) {
+                                if (k.eeX().isShowing()) {
                                     return motionEvent.getAction() == 1 || motionEvent.getAction() == 3;
                                 }
-                                h.eeU().zO(false);
-                                k.eeW().aH(b.this.mTbPageContext.getPageActivity());
+                                h.eeV().zO(false);
+                                k.eeX().aH(b.this.mTbPageContext.getPageActivity());
                                 return true;
                             }
                             return true;
@@ -943,16 +931,16 @@ public class b extends BdBaseView<TbPageContext> {
             public boolean Nj(int i) {
                 x HR;
                 if (b.this.oHr == null || (HR = b.this.oHr.HR()) == null || HR.mLiveInfo == null || HR.mLiveInfo.live_status != 2) {
-                    k.eeW().a(new k.a() { // from class: com.baidu.tieba.yuyinala.player.b.2.1
+                    k.eeX().a(new k.a() { // from class: com.baidu.tieba.yuyinala.player.b.21.1
                         @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.k.a
-                        public void eeY() {
+                        public void eeZ() {
                         }
 
                         @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.k.a
-                        public void eeZ() {
+                        public void efa() {
                             if (b.this.oHt != null) {
-                                if (b.this.oHr == null || !b.this.oHr.cms() || !b.this.oHI) {
-                                    if (b.this.oHr == null || !b.this.oHr.cmt() || b.this.oHI) {
+                                if (b.this.oHr == null || !b.this.oHr.cmt() || !b.this.oHI) {
+                                    if (b.this.oHr == null || !b.this.oHr.cmu() || b.this.oHI) {
                                         int currentItem = b.this.oHt.getCurrentItem();
                                         if (b.this.oHI) {
                                             if (currentItem == 0) {
@@ -975,18 +963,18 @@ public class b extends BdBaseView<TbPageContext> {
                         }
 
                         @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.k.a
-                        public void efa() {
+                        public void efb() {
                         }
                     });
-                    if (b.this.oHr != null && b.this.oHr.cms() && b.this.oHI) {
+                    if (b.this.oHr != null && b.this.oHr.cmt() && b.this.oHI) {
                         return true;
                     }
-                    if (b.this.oHr == null || !b.this.oHr.cmt() || b.this.oHI) {
-                        if (k.eeW().isShowing()) {
+                    if (b.this.oHr == null || !b.this.oHr.cmu() || b.this.oHI) {
+                        if (k.eeX().isShowing()) {
                             return false;
                         }
-                        h.eeU().zO(false);
-                        return k.eeW().aH(b.this.mTbPageContext.getPageActivity());
+                        h.eeV().zO(false);
+                        return k.eeX().aH(b.this.mTbPageContext.getPageActivity());
                     }
                     return true;
                 }
@@ -996,26 +984,26 @@ public class b extends BdBaseView<TbPageContext> {
     }
 
     private void l(Rect rect) {
-        o eff = o.eff();
-        eff.a(this.mTbPageContext, this.oHs, rect);
-        eff.a(this);
+        o efg = o.efg();
+        efg.a(this.mTbPageContext, this.oHs, rect);
+        efg.a(this);
     }
 
-    private void cqn() {
+    private void cqo() {
         this.oHv = new com.baidu.tieba.yuyinala.liveroom.d.a(this.mTbPageContext, this.hGN);
     }
 
     private void c(Rect rect) {
-        this.oxi = (AlaLiveView) View.inflate(this.mTbPageContext.getPageActivity(), a.g.yuyinala_liveroom_player_layout, null);
-        this.oxi.setSwipeClearEnable(false);
-        this.oxi.hRu = true;
+        this.oxh = (AlaLiveView) View.inflate(this.mTbPageContext.getPageActivity(), a.g.yuyinala_liveroom_player_layout, null);
+        this.oxh.setSwipeClearEnable(false);
+        this.oxh.hRu = true;
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         layoutParams.height = rect.height();
         layoutParams.width = rect.width();
-        this.oHs.a(this.oxi, layoutParams);
+        this.oHs.a(this.oxh, layoutParams);
     }
 
-    private void cqq() {
+    private void cqr() {
         if (this.oHr != null && this.oHr.HR() != null) {
             this.aGe = this.oHr.HR();
             if (this.aGe.mLiveInfo != null) {
@@ -1025,15 +1013,15 @@ public class b extends BdBaseView<TbPageContext> {
                         BdLog.e("AlaLivePlayer tryStartPlayAtInit" + this.iei);
                     }
                     if (this.oHz != null) {
-                        this.oHz.a(this.mTbPageContext, this.oxi, null, this.oHs, this.oHr, this.bvZ, this.iek, this.hGS, this.iel, this.ieC);
-                        ehh();
+                        this.oHz.a(this.mTbPageContext, this.oxh, null, this.oHs, this.oHr, this.bvZ, this.iek, this.hGS, this.iel, this.ieC);
+                        ehi();
                     }
                 }
             }
         }
     }
 
-    private void cqy() {
+    private void cqz() {
         if (this.mTbPageContext.getPageActivity() != null) {
             if (this.iek || !this.ieD) {
                 this.oHt.setIsScrollable(false);
@@ -1045,20 +1033,20 @@ public class b extends BdBaseView<TbPageContext> {
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && !com.baidu.live.core.layer.b.En().onBackPressed() && ((this.oHz == null || !this.oHz.onKeyDown(i, keyEvent)) && (this.oHz == null || !this.oHz.ceM()))) {
+        if (i == 4 && !com.baidu.live.core.layer.b.En().onBackPressed() && ((this.oHz == null || !this.oHz.onKeyDown(i, keyEvent)) && (this.oHz == null || !this.oHz.ceN()))) {
             if (UtilHelper.getRealScreenOrientation(this.mTbPageContext.getPageActivity()) == 2) {
-                cqy();
-            } else if (!k.eeW().aH(this.mTbPageContext.getPageActivity())) {
-                h.eeU().zO(false);
-            } else if (this.oHz == null || this.oHz.ceN()) {
+                cqz();
+            } else if (!k.eeX().aH(this.mTbPageContext.getPageActivity())) {
+                h.eeV().zO(false);
+            } else if (this.oHz == null || this.oHz.ceO()) {
                 oZ(true);
-                cbN();
+                cbO();
             }
         }
         return true;
     }
 
-    public void cbN() {
+    public void cbO() {
         if (!TextUtils.isEmpty(this.hoR)) {
             if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isMobileBaidu()) {
                 BrowserHelper.startInternalWebActivity(getPageContext().getPageActivity(), this.hoR);
@@ -1075,10 +1063,10 @@ public class b extends BdBaseView<TbPageContext> {
         nN(!z);
         com.baidu.live.core.layer.b.En().onDestroy();
         this.mHandler.removeCallbacksAndMessages(null);
-        cqA();
+        cqB();
         long j = -1;
-        if (this.oHr != null && this.oHr.cmx() != null) {
-            j = this.oHr.cmx().room_id;
+        if (this.oHr != null && this.oHr.cmy() != null) {
+            j = this.oHr.cmy().room_id;
         }
         this.oHq.b(z, z2, j);
         JSONObject jSONObject = new JSONObject();
@@ -1098,7 +1086,7 @@ public class b extends BdBaseView<TbPageContext> {
             al.Ig().If();
         }
         com.baidu.live.core.layer.b.En().Eo();
-        com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.efJ().dh(this.oxi);
+        com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.efK().dh(this.oxh);
         if (this.ieQ != null) {
             this.ieQ.release();
         }
@@ -1110,15 +1098,15 @@ public class b extends BdBaseView<TbPageContext> {
         BdUtilHelper.hideSoftKeyPad(this.mContext.getPageActivity(), this.oHt);
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         if (this.oHr != null) {
-            this.oHr.Ia(null);
-            AlaLiveInfoData cmx = this.oHr.cmx();
-            if (cmx != null) {
-                this.oHr.fD(cmx.live_id);
+            this.oHr.HZ(null);
+            AlaLiveInfoData cmy = this.oHr.cmy();
+            if (cmy != null) {
+                this.oHr.fD(cmy.live_id);
             }
         }
         this.oHA.stopRecord();
         LiveTimerManager.getInstance().stop();
-        cqz();
+        cqA();
         if (this.oHz != null) {
             this.oHz.nN(z);
         }
@@ -1128,37 +1116,37 @@ public class b extends BdBaseView<TbPageContext> {
         if (com.baidu.live.liveroom.a.b.OR().bsC != null) {
             com.baidu.live.liveroom.a.b.OR().bsC.b(this.aGe.mLiveInfo);
         }
-        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eeq() != null) {
-            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eeq().aEe();
+        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer() != null) {
+            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().aEf();
         }
         aj.hd("");
-        if (this.oHq != null && this.oHq.cqi()) {
+        if (this.oHq != null && this.oHq.cqj()) {
             am.Ih().HE();
         }
     }
 
-    private void cqz() {
+    private void cqA() {
         MessageManager.getInstance().sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER));
     }
 
-    private void cqA() {
+    private void cqB() {
         MessageManager.getInstance().sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501049));
     }
 
     private void a(x xVar) {
         if (xVar != null) {
-            if (this.oxi.findViewById(a.f.ala_live_header_view).getMeasuredWidth() == 0) {
+            if (this.oxh.findViewById(a.f.ala_live_header_view).getMeasuredWidth() == 0) {
                 if (xVar.mLiveInfo != null && xVar.mLiveInfo.live_id > 0) {
                     this.oHr.fD(xVar.mLiveInfo.live_id);
-                    cqD();
+                    cqE();
                     this.oHr.a(xVar.mLiveInfo.live_id, false, this.bvZ, "");
                     return;
                 }
                 return;
             }
-            if (xVar.aLl != null && this.oHr.orz) {
+            if (xVar.aLl != null && this.oHr.ory) {
                 aK(xVar);
             }
             aL(xVar);
@@ -1171,8 +1159,8 @@ public class b extends BdBaseView<TbPageContext> {
 
     private void aK(x xVar) {
         if (xVar.aLl.aVz) {
-            if (com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.efJ().WE(xVar.aLl.aVy)) {
-                WS(com.baidu.live.ah.b.iw(xVar.aLl.aVy));
+            if (com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.efK().WD(xVar.aLl.aVy)) {
+                WR(com.baidu.live.ah.b.iw(xVar.aLl.aVy));
                 return;
             } else {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501079, new String[]{xVar.aLl.aVx, xVar.aLl.aVy}));
@@ -1180,7 +1168,7 @@ public class b extends BdBaseView<TbPageContext> {
             }
         }
         this.oHs.setBgImageUrl(xVar.aLl.bg_cover, null);
-        this.oHs.edQ();
+        this.oHs.edR();
     }
 
     private void aL(final x xVar) {
@@ -1196,10 +1184,10 @@ public class b extends BdBaseView<TbPageContext> {
                         if (this.oHp == null) {
                             this.oHp = new d(getPageContext().getPageActivity());
                         }
-                        final boolean z = (!ehe() || StringUtils.isNull(aVar.aUV, true) || StringUtils.isNull(aVar.aUX, true)) ? false : true;
+                        final boolean z = (!ehf() || StringUtils.isNull(aVar.aUV, true) || StringUtils.isNull(aVar.aUX, true)) ? false : true;
                         if (currentTimeMillis >= 25) {
                             if (!this.oHp.isShowing()) {
-                                this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.player.b.4
+                                this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.player.b.3
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         b.this.oHp.a(z, aVar.aUT, aVar.aUV, aVar.aUX, xVar.aLl.aVu, xVar.aLl.live_id, xVar.aLl.croom_id, aVar.aUU, aVar.aUW, xVar.aLm.aUO + "", xVar.aLl.is_followed);
@@ -1207,7 +1195,7 @@ public class b extends BdBaseView<TbPageContext> {
                                 }, z ? (currentTimeMillis - 25) * 1000 : (currentTimeMillis - 15) * 1000);
                             }
                         } else if (currentTimeMillis < 25 && currentTimeMillis > 3 && !this.oHp.isShowing()) {
-                            this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.player.b.5
+                            this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.player.b.4
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     b.this.oHp.a(false, aVar.aUT, aVar.aUV, aVar.aUX, xVar.aLl.aVu, xVar.aLl.live_id, xVar.aLl.croom_id, aVar.aUU, aVar.aUW, xVar.aLm.aUO + "", xVar.aLl.is_followed);
@@ -1222,11 +1210,11 @@ public class b extends BdBaseView<TbPageContext> {
         }
     }
 
-    private boolean ehe() {
+    private boolean ehf() {
         if (com.baidu.live.af.a.SE().bwi == null || com.baidu.live.af.a.SE().bwi.aPq == null || com.baidu.live.af.a.SE().bwi.aPq.aSS == null) {
             return false;
         }
-        return com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.efJ().a(com.baidu.live.af.a.SE().bwi.aPq.aSS.Fm(), true);
+        return com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.efK().a(com.baidu.live.af.a.SE().bwi.aPq.aSS.Fm(), true);
     }
 
     private void c(r rVar) {
@@ -1239,7 +1227,7 @@ public class b extends BdBaseView<TbPageContext> {
         this.aGe = xVar;
     }
 
-    private void cqB() {
+    private void cqC() {
         if (TbadkCoreApplication.sAlaLiveSwitchData != null && TbadkCoreApplication.sAlaLiveSwitchData.isLiveSwitchUnabled()) {
             this.oHt.setIsScrollable(false);
             this.ieD = false;
@@ -1249,9 +1237,9 @@ public class b extends BdBaseView<TbPageContext> {
             if (BdLog.isDebugMode()) {
                 BdLog.e("AlaLivePlayer->addPlayerView used By updateLiveRoomViewAfterEnterLive");
             }
-            this.oHs.a(this.oxi, null);
+            this.oHs.a(this.oxh, null);
             a(this.oHs, this.aGe.mLiveInfo, this.bzP);
-            UbcStatisticManager.getInstance().updateLiveRoom(String.valueOf(this.aGe.mLiveInfo.live_id), String.valueOf(this.aGe.mLiveInfo.room_id), String.valueOf(this.aGe.mLiveInfo.feed_id), cqC());
+            UbcStatisticManager.getInstance().updateLiveRoom(String.valueOf(this.aGe.mLiveInfo.live_id), String.valueOf(this.aGe.mLiveInfo.room_id), String.valueOf(this.aGe.mLiveInfo.feed_id), cqD());
             if (com.baidu.live.liveroom.a.b.OR().bsC != null) {
                 com.baidu.live.liveroom.a.b.OR().bsC.a(this.aGe.mLiveInfo);
             }
@@ -1275,7 +1263,7 @@ public class b extends BdBaseView<TbPageContext> {
         }
     }
 
-    private String cqC() {
+    private String cqD() {
         if (this.ier == null) {
             return null;
         }
@@ -1293,34 +1281,34 @@ public class b extends BdBaseView<TbPageContext> {
     }
 
     public void a(AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout, AlaLiveInfoData alaLiveInfoData, boolean z) {
-        o eff = o.eff();
-        ViewGroup efh = eff.efh();
-        if (efh != null && efh.getParent() != null) {
+        o efg = o.efg();
+        ViewGroup efi = efg.efi();
+        if (efi != null && efi.getParent() != null) {
             if (alaLiveInfoData != null) {
                 if (!z) {
-                    if (!alaLiveRoomBlurPageLayout.cD(efh)) {
-                        ((ViewGroup) efh.getParent()).removeView(efh);
-                        alaLiveRoomBlurPageLayout.f(efh, null);
-                        eff.efg();
-                    } else if (eff != null) {
-                        eff.efg();
+                    if (!alaLiveRoomBlurPageLayout.cD(efi)) {
+                        ((ViewGroup) efi.getParent()).removeView(efi);
+                        alaLiveRoomBlurPageLayout.f(efi, null);
+                        efg.efh();
+                    } else if (efg != null) {
+                        efg.efh();
                     }
-                } else if (eff != null) {
-                    eff.efg();
+                } else if (efg != null) {
+                    efg.efh();
                 }
-            } else if (eff != null) {
-                eff.efg();
+            } else if (efg != null) {
+                efg.efh();
             }
-        } else if (efh != null && efh.getParent() == null) {
-            alaLiveRoomBlurPageLayout.f(efh, null);
+        } else if (efi != null && efi.getParent() == null) {
+            alaLiveRoomBlurPageLayout.f(efi, null);
         }
     }
 
     public void a(int[] iArr, boolean z, int i, int i2, int i3) {
         FrameLayout.LayoutParams b2 = b(iArr, z, i, i2, i3);
-        ViewGroup efh = o.eff().efh();
-        if (efh != null) {
-            efh.setLayoutParams(b2);
+        ViewGroup efi = o.efg().efi();
+        if (efi != null) {
+            efi.setLayoutParams(b2);
         }
     }
 
@@ -1351,11 +1339,11 @@ public class b extends BdBaseView<TbPageContext> {
         return layoutParams;
     }
 
-    public void cqD() {
+    public void cqE() {
         this.bzP = true;
     }
 
-    public boolean cqE() {
+    public boolean cqF() {
         return this.bzP;
     }
 
@@ -1385,18 +1373,18 @@ public class b extends BdBaseView<TbPageContext> {
             screenFullSize[0] = screenFullSize[1];
             screenFullSize[1] = i;
         }
-        ViewGroup efh = o.eff().efh();
-        if (efh != null) {
-            int i2 = efh.getLayoutParams().width;
-            int i3 = efh.getLayoutParams().height;
-            int i4 = efh.getLayoutParams() instanceof FrameLayout.LayoutParams ? ((FrameLayout.LayoutParams) efh.getLayoutParams()).topMargin : 0;
+        ViewGroup efi = o.efg().efi();
+        if (efi != null) {
+            int i2 = efi.getLayoutParams().width;
+            int i3 = efi.getLayoutParams().height;
+            int i4 = efi.getLayoutParams() instanceof FrameLayout.LayoutParams ? ((FrameLayout.LayoutParams) efi.getLayoutParams()).topMargin : 0;
             FrameLayout.LayoutParams b2 = b(screenFullSize, z2, statusBarHeight, realScreenOrientation, dip2px);
             if (b2.width != i2 || b2.height != i3 || b2.topMargin != i4) {
                 a(screenFullSize, z2, statusBarHeight, realScreenOrientation, dip2px);
             }
             FrameLayout.LayoutParams c = c(screenFullSize, z2, statusBarHeight, realScreenOrientation, dip2px);
-            if (this.oxi != null) {
-                this.oxi.setLayoutParams(c);
+            if (this.oxh != null) {
+                this.oxh.setLayoutParams(c);
             }
             if (this.oHs != null) {
                 this.oHs.C(screenFullSize[0], screenFullSize[1]);
@@ -1461,7 +1449,7 @@ public class b extends BdBaseView<TbPageContext> {
     private void i(AlaLiveInfoData alaLiveInfoData) {
         if (alaLiveInfoData != null) {
             if (alaLiveInfoData.room_id > 0) {
-                this.oHr.VS(alaLiveInfoData.room_id + "");
+                this.oHr.VR(alaLiveInfoData.room_id + "");
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -1494,42 +1482,42 @@ public class b extends BdBaseView<TbPageContext> {
 
     public void xT(int i) {
         if (i < 0) {
-            this.oHr.xu(this.oHr.cmu() - 1);
+            this.oHr.xu(this.oHr.cmv() - 1);
         } else if (i > 0) {
-            this.oHr.xu(this.oHr.cmu() + 1);
+            this.oHr.xu(this.oHr.cmv() + 1);
         }
         if (this.oHz != null) {
             this.oHz.a(this.oHs);
         }
-        this.oHu.a(this.mSelectedPosition, cqG(), this.aGe);
-        this.oHu.b(this.mSelectedPosition, cqH(), this.aGe);
+        this.oHu.a(this.mSelectedPosition, cqH(), this.aGe);
+        this.oHu.b(this.mSelectedPosition, cqI(), this.aGe);
         if (this.oHr != null) {
-            AlaLiveInfoData cmx = this.oHr.cmx();
-            if (cmx != null) {
-                cmx.hasRead = true;
+            AlaLiveInfoData cmy = this.oHr.cmy();
+            if (cmy != null) {
+                cmy.hasRead = true;
                 if (BdLog.isDebugMode()) {
                     BdLog.e("AlaLivePlayer->addPlayerView used By onPageChanged()");
                 }
-                j(cmx);
-                a(this.oHs, cmx, this.bzP);
+                j(cmy);
+                a(this.oHs, cmy, this.bzP);
                 this.bzP = false;
                 if (this.oHz != null) {
-                    this.oHz.a(this.mTbPageContext, this.oxi, null, this.oHs, this.oHr, this.bvZ, this.iek, this.hGS, null, this.ieC);
-                    ehh();
+                    this.oHz.a(this.mTbPageContext, this.oxh, null, this.oHs, this.oHr, this.bvZ, this.iek, this.hGS, null, this.ieC);
+                    ehi();
                 }
-                a(cmx, false);
+                a(cmy, false);
             }
-            i(cmx);
+            i(cmy);
             if (this.oHz != null) {
-                this.oHz.ceK();
+                this.oHz.ceL();
             }
-            this.oHr.g(cmx);
+            this.oHr.g(cmy);
         }
     }
 
     private void j(AlaLiveInfoData alaLiveInfoData) {
-        RelativeLayout relativeLayout = (RelativeLayout) this.oxi.findViewById(a.f.ala_live_header_view);
-        RelativeLayout relativeLayout2 = (RelativeLayout) this.oxi.findViewById(a.f.ala_live_footer_view);
+        RelativeLayout relativeLayout = (RelativeLayout) this.oxh.findViewById(a.f.ala_live_header_view);
+        RelativeLayout relativeLayout2 = (RelativeLayout) this.oxh.findViewById(a.f.ala_live_footer_view);
         if (relativeLayout != null) {
             relativeLayout.removeAllViews();
         }
@@ -1571,40 +1559,40 @@ public class b extends BdBaseView<TbPageContext> {
             if (this.oHz != null) {
                 this.oHz.a(xVar, str, str2);
             }
-            UbcAudioFlowStatisticManager.getInstance().updateLiveRoom(String.valueOf(xVar.mLiveInfo.live_id), String.valueOf(xVar.aLl.aVu), cqC());
+            UbcAudioFlowStatisticManager.getInstance().updateLiveRoom(String.valueOf(xVar.mLiveInfo.live_id), String.valueOf(xVar.aLl.aVu), cqD());
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.oHs.a(this.oxi, null);
+        this.oHs.a(this.oxh, null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ehf() {
-        com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.a.efS().bgN();
-    }
-
-    private AlaLiveInfoData cqG() {
-        List<AlaLiveInfoData> cmn = this.oHr.cmn();
-        if (cmn == null || cmn.size() == 0) {
-            if (this.aGe == null) {
-                return null;
-            }
-            return this.aGe.mLiveInfo;
-        }
-        int cmu = this.oHr.cmu();
-        int size = cmn.size();
-        return cmn.get(((cmu + size) - 1) % size);
+    public void ehg() {
+        com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.a.efT().bgO();
     }
 
     private AlaLiveInfoData cqH() {
-        List<AlaLiveInfoData> cmn = this.oHr.cmn();
-        if (cmn == null || cmn.size() == 0) {
+        List<AlaLiveInfoData> cmo = this.oHr.cmo();
+        if (cmo == null || cmo.size() == 0) {
             if (this.aGe == null) {
                 return null;
             }
             return this.aGe.mLiveInfo;
         }
-        return cmn.get((this.oHr.cmu() + 1) % cmn.size());
+        int cmv = this.oHr.cmv();
+        int size = cmo.size();
+        return cmo.get(((cmv + size) - 1) % size);
+    }
+
+    private AlaLiveInfoData cqI() {
+        List<AlaLiveInfoData> cmo = this.oHr.cmo();
+        if (cmo == null || cmo.size() == 0) {
+            if (this.aGe == null) {
+                return null;
+            }
+            return this.aGe.mLiveInfo;
+        }
+        return cmo.get((this.oHr.cmv() + 1) % cmo.size());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1613,7 +1601,7 @@ public class b extends BdBaseView<TbPageContext> {
             if (!this.ieh) {
                 a(dVar);
             }
-            if (this.oHr.orA) {
+            if (this.oHr.orz) {
                 this.mHandler.removeCallbacks(this.oHF);
                 this.mHandler.postDelayed(this.oHF, 1000L);
             }
@@ -1648,17 +1636,17 @@ public class b extends BdBaseView<TbPageContext> {
         if (HR != null && HR.aLl != null) {
             aK(HR);
         }
-        ehg();
-        this.oHr.cmo();
+        ehh();
+        this.oHr.cmp();
         if (this.bzP) {
             this.oHr.oA(false);
         }
         this.hGS = System.currentTimeMillis() / 1000;
         if (this.oHz != null) {
-            this.oHz.a(this.mTbPageContext, this.oxi, null, this.oHs, this.oHr, this.bvZ, this.iek, this.hGS, this.iel, this.ieC);
-            ehh();
+            this.oHz.a(this.mTbPageContext, this.oxh, null, this.oHs, this.oHr, this.bvZ, this.iek, this.hGS, this.iel, this.ieC);
+            ehi();
         }
-        cqB();
+        cqC();
         if (HR != null && HR.mLiveInfo != null && HR.mLiveInfo.live_status == 2) {
             this.oHu.a(this.mSelectedPosition, this.oHr.HR());
             e(HR, false);
@@ -1669,11 +1657,11 @@ public class b extends BdBaseView<TbPageContext> {
         com.baidu.live.ah.a.b.Tq().cR(com.baidu.live.af.a.SE().bwi != null && com.baidu.live.af.a.SE().bwi.aPs && HR != null && HR.aLp);
         aj.e(HR);
         if (z) {
-            if (!this.iez || !TextUtils.equals(t.XG(), this.ieA)) {
-                aj.b(getPageContext(), false, this.oHq.cqi());
+            if (!this.iez || !TextUtils.equals(t.XH(), this.ieA)) {
+                aj.b(getPageContext(), false, this.oHq.cqj());
                 e.ST().SU();
                 this.iez = true;
-                this.ieA = t.XG();
+                this.ieA = t.XH();
             }
             aj.HY();
         }
@@ -1699,7 +1687,7 @@ public class b extends BdBaseView<TbPageContext> {
             BdLog.e(e);
         }
         UbcAudioFlowStatisticManager.getInstance().endFlow(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_ENTER_AUDIO_ROOM_PERF_FLOW, "auidolivechatflow", UbcStatConstant.Page.AUDIO_LIVE_ROOM, "").setContentExt(jSONObject));
-        this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.player.b.8
+        this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.player.b.7
             @Override // java.lang.Runnable
             public void run() {
                 if (b.this.mTbPageContext != null && b.this.oHr.HR() != null && b.this.oHr.HR().mLiveInfo != null) {
@@ -1741,7 +1729,7 @@ public class b extends BdBaseView<TbPageContext> {
         }
     }
 
-    private void ehg() {
+    private void ehh() {
         try {
             if (this.oHr != null && this.oHr.HR() != null) {
                 JSONObject jSONObject = new JSONObject();
@@ -1756,9 +1744,9 @@ public class b extends BdBaseView<TbPageContext> {
                 if (this.bzP) {
                     LogManager.getYuyinLiveLogger().doAccessPlayYuyinLiveGuestLog(this.oHr.HR().aLl.aVu, this.otherParams, this.mSelectedPosition + 1, this.bzP, this.oHr.HR().mLiveInfo.feed_id);
                 }
-                if (!this.oHr.cmn().get(this.mSelectedPosition).hasLogShow) {
+                if (!this.oHr.cmo().get(this.mSelectedPosition).hasLogShow) {
                     LogManager.getYuyinLiveLogger().doShowYuyinLiveGuestLog(this.oHr.HR().aLl.aVu, this.otherParams, this.mSelectedPosition + 1, this.bzP, this.oHr.HR().mLiveInfo.feed_id);
-                    this.oHr.cmn().get(this.mSelectedPosition).hasLogShow = true;
+                    this.oHr.cmo().get(this.mSelectedPosition).hasLogShow = true;
                 }
                 LogManager.getYuyinLiveLogger().doClickYuyinLiveGuestLog(this.oHr.HR().aLl.aVu, this.otherParams, this.mSelectedPosition + 1, this.bzP, this.oHr.HR().mLiveInfo.feed_id);
                 LogManager.getYuyinLiveLogger().doStartPlayYuyinLiveGuestLog(this.oHr.HR().aLl.aVu, this.otherParams, this.mSelectedPosition + 1, this.bzP, this.oHr.HR().mLiveInfo.feed_id);
@@ -1773,14 +1761,14 @@ public class b extends BdBaseView<TbPageContext> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cqI() {
+    public void cqJ() {
         if (this.ieg) {
-            this.oHu.a(this.mSelectedPosition, cqG(), this.aGe);
-            this.oHu.b(this.mSelectedPosition, cqH(), this.aGe);
+            this.oHu.a(this.mSelectedPosition, cqH(), this.aGe);
+            this.oHu.b(this.mSelectedPosition, cqI(), this.aGe);
             this.ieg = false;
         }
-        if (this.oHy != null && cqS()) {
-            this.oHy.ad(this.oHr.cmp());
+        if (this.oHy != null && cqT()) {
+            this.oHy.ad(this.oHr.cmq());
         }
     }
 
@@ -1818,7 +1806,7 @@ public class b extends BdBaseView<TbPageContext> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cqJ() {
+    public void cqK() {
         if (this.oHr.HR() != null && this.oHr.HR().mLiveInfo != null) {
             this.oHr.hH(this.oHr.HR().mLiveInfo.live_id);
         }
@@ -1844,7 +1832,7 @@ public class b extends BdBaseView<TbPageContext> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void clS() {
+    public void clT() {
         if (this.mTbPageContext != null && this.oHr.HR() != null && this.oHr.HR().mLiveInfo != null) {
             this.oHr.a(this.oHr.HR().mLiveInfo.live_id, this.bvZ, this.hGS);
         }
@@ -1854,33 +1842,33 @@ public class b extends BdBaseView<TbPageContext> {
     public void e(x xVar, boolean z) {
         View view = null;
         nN(true);
-        if (!cqS()) {
+        if (!cqT()) {
             this.oHr.cancelLoadData();
             this.mHandler.removeCallbacksAndMessages(null);
             if (this.oHs != null) {
-                this.oHs.Zr();
-                this.oHs.cnV();
+                this.oHs.Zs();
+                this.oHs.cnW();
             }
             if (xVar != null && xVar.mLiveInfo != null) {
                 this.ieq = xVar.mLiveInfo.live_id;
             }
-            cqy();
-            cqK();
+            cqz();
             cqL();
+            cqM();
             if (xVar != null) {
-                if (this.oHz != null && this.oHz.ceQ() != null) {
-                    view = this.oHz.ceQ().a(this.oHz.ecj().pageContext.getPageActivity(), xVar, z);
+                if (this.oHz != null && this.oHz.ceR() != null) {
+                    view = this.oHz.ceR().a(this.oHz.eck().pageContext.getPageActivity(), xVar, z);
                 }
                 if (this.oHs != null) {
-                    this.oHy.a(this.oHs, view, xVar, z, this.oHr.cmp());
+                    this.oHy.a(this.oHs, view, xVar, z, this.oHr.cmq());
                 }
                 if (this.oHz != null) {
                     this.oHz.nN(false);
-                    this.oHz.ceL();
+                    this.oHz.ceM();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913129));
                 }
                 if (this.oHs != null) {
-                    this.oHs.cnX();
+                    this.oHs.cnY();
                 }
                 long j = xVar.mLiveInfo.live_id;
                 long j2 = xVar.mLiveInfo.room_id;
@@ -1888,28 +1876,28 @@ public class b extends BdBaseView<TbPageContext> {
                 long j3 = xVar.aKu.userId;
                 String str2 = xVar.aKu.userName;
             }
-            cqU();
+            cqV();
             if (this.oHv != null) {
                 this.oHv.a(this.aGe, this.oHw);
             }
         }
     }
 
-    private void cqK() {
+    private void cqL() {
     }
 
-    private void cqL() {
+    private void cqM() {
         InputMethodManager inputMethodManager;
         if (this.mTbPageContext != null && this.mTbPageContext.getPageActivity() != null && (inputMethodManager = (InputMethodManager) this.mTbPageContext.getPageActivity().getSystemService("input_method")) != null && inputMethodManager.isActive()) {
             BdUtilHelper.hideSoftKeyPad(this.mContext.getPageActivity(), this.oHt);
         }
     }
 
-    public void cqM() {
+    public void cqN() {
         if (UtilHelper.getRealScreenOrientation(this.mTbPageContext.getPageActivity()) == 2) {
-            cqN();
-        } else {
             cqO();
+        } else {
+            cqP();
         }
         AlaLiveInfoData alaLiveInfoData = null;
         if (this.oHr != null && this.oHr.HR() != null) {
@@ -1920,32 +1908,32 @@ public class b extends BdBaseView<TbPageContext> {
 
     public void onKeyboardVisibilityChanged(boolean z) {
         if (UtilHelper.getRealScreenOrientation(this.mTbPageContext.getPageActivity()) == 2) {
-            cqN();
-        } else {
             cqO();
+        } else {
+            cqP();
         }
         this.oHt.setIsScrollable(!z && this.ieD);
         if (this.oHz != null) {
             this.oHz.onKeyboardVisibilityChanged(z);
         }
-        if (this.oxi != null) {
-            this.oxi.onKeyboardVisibilityChanged(z);
+        if (this.oxh != null) {
+            this.oxh.onKeyboardVisibilityChanged(z);
         }
         if (z) {
-            o.eff().setMaskBg(z);
+            o.efg().setMaskBg(z);
         }
     }
 
     public void dU(int i) {
     }
 
-    public void cqN() {
+    public void cqO() {
         if (this.oHt != null) {
             i.ae(this.oHt);
         }
     }
 
-    public void cqO() {
+    public void cqP() {
         if (this.oHt != null) {
             i.af(this.oHt);
         }
@@ -1953,7 +1941,7 @@ public class b extends BdBaseView<TbPageContext> {
 
     public void onResume() {
         if (this.oHr != null) {
-            this.oHr.clZ();
+            this.oHr.cma();
         }
         if (this.oHz != null) {
             this.oHz.enterForeground();
@@ -1967,8 +1955,8 @@ public class b extends BdBaseView<TbPageContext> {
         if (this.ifk != null && !this.ifk.hasFocus()) {
             this.ifk.requestAudioFocus();
         }
-        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eeq() != null) {
-            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eeq().muteOrUnmuteAudio(false);
+        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer() != null) {
+            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().muteOrUnmuteAudio(false);
         }
         com.baidu.live.core.layer.b.En().onResume();
     }
@@ -1977,21 +1965,21 @@ public class b extends BdBaseView<TbPageContext> {
         if (!this.ieB) {
             if (this.iei) {
                 this.iei = false;
-                cqR();
+                cqS();
             }
             UbcStatisticManager.getInstance().liveRoomActivityBackgroundSwitch(false);
         }
     }
 
-    public void cqR() {
-        clS();
-        cqJ();
-        this.oHr.cmo();
+    public void cqS() {
+        clT();
+        cqK();
+        this.oHr.cmp();
         if (this.oHs != null) {
-            this.oHs.edS();
+            this.oHs.edT();
         }
         if (this.oHz != null) {
-            this.oHz.ceP();
+            this.oHz.ceQ();
         }
         if (this.oHr != null && this.oHr.HR() != null && this.oHr.HR().mLiveInfo != null) {
             this.oHA.fG(this.oHr.HR().mLiveInfo.live_id);
@@ -2002,7 +1990,7 @@ public class b extends BdBaseView<TbPageContext> {
 
     public void onPause() {
         if (this.oHr != null) {
-            this.oHr.cma();
+            this.oHr.cmb();
         }
         if (this.oHz != null) {
             this.oHz.enterBackground();
@@ -2022,10 +2010,10 @@ public class b extends BdBaseView<TbPageContext> {
         this.mHandler.removeCallbacks(this.ieJ);
         this.mHandler.removeCallbacks(this.ieK);
         if (this.oHs != null) {
-            this.oHs.edR();
+            this.oHs.edS();
         }
         if (this.oHz != null) {
-            this.oHz.ceO();
+            this.oHz.ceP();
         }
         this.oHA.pauseRecord();
         LiveTimerManager.getInstance().pause();
@@ -2043,8 +2031,8 @@ public class b extends BdBaseView<TbPageContext> {
         }
     }
 
-    public boolean cqS() {
-        return this.oHy != null && this.oHy.bXQ();
+    public boolean cqT() {
+        return this.oHy != null && this.oHy.bXR();
     }
 
     @Override // com.baidu.live.adp.base.BdBaseView
@@ -2059,14 +2047,13 @@ public class b extends BdBaseView<TbPageContext> {
         MessageManager.getInstance().unRegisterListener(this.oHQ);
         MessageManager.getInstance().unRegisterListener(this.oHR);
         MessageManager.getInstance().unRegisterListener(this.oHM);
-        MessageManager.getInstance().unRegisterListener(this.hGC);
         if (this.ieQ != null) {
             this.ieQ.release();
         }
         if (this.oHv != null) {
             this.oHv.onDestory();
         }
-        o.eff().cNu();
+        o.efg().cNv();
         if (this.oHw != null) {
             this.oHw.reset();
         }
@@ -2076,7 +2063,7 @@ public class b extends BdBaseView<TbPageContext> {
         if (this.oHu != null) {
             this.oHu.onDestroy();
         }
-        this.oHs.Zr();
+        this.oHs.Zs();
         if (this.oHs != null) {
             this.oHs.release();
             this.oHs = null;
@@ -2106,9 +2093,9 @@ public class b extends BdBaseView<TbPageContext> {
             BdLog.e(e);
         }
         UbcStatisticManager.getInstance().liveRoomFlowEnd(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_PLAY_FLOW, "notice", UbcStatConstant.Page.VOICE_ROOM, "playtime").setContentExt(jSONObject));
-        if (this.oxi != null) {
-            this.oxi.cod();
-            this.oxi = null;
+        if (this.oxh != null) {
+            this.oxh.coe();
+            this.oxh = null;
         }
         if (this.oHr != null) {
             this.oHr.destory();
@@ -2124,17 +2111,17 @@ public class b extends BdBaseView<TbPageContext> {
             BdLog.e(e2);
         }
         UbcStatisticManager.getInstance().liveRoomFlowEnd(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_FLOW, "notice", UbcStatConstant.Page.VOICE_ROOM, LogConfig.VALUE_STAYTIME).setContentExt(jSONObject2));
-        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().onDestroy();
+        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().onDestroy();
         TbadkCoreApplication.getInst().setIsYuyinRoom(false);
-        com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.a.efS().release();
-        k.eeW().a((k.a) null);
+        com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.a.efT().release();
+        k.eeX().a((k.a) null);
     }
 
     public void pb(boolean z) {
         this.ieB = z;
     }
 
-    public void cqT() {
+    public void cqU() {
         if (this.ier != null) {
             this.otherParams = this.ier.toString();
             if (this.oHr != null) {
@@ -2150,7 +2137,7 @@ public class b extends BdBaseView<TbPageContext> {
         }
     }
 
-    public void cqU() {
+    public void cqV() {
         if (this.ier != null) {
             String optString = this.ier.optString("source");
             if (!TbadkCoreApplication.getInst().isHaokan() || (!TextUtils.isEmpty(optString) && optString.startsWith("push"))) {
@@ -2168,20 +2155,20 @@ public class b extends BdBaseView<TbPageContext> {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                cqT();
+                cqU();
             }
         }
     }
 
-    public void cqV() {
+    public void cqW() {
         aj.Ib();
     }
 
-    private void ehh() {
+    private void ehi() {
         if (TbadkCoreApplication.getInst().isOther()) {
             this.oHz.e((short) 2);
         } else {
-            this.oHz.eck();
+            this.oHz.ecl();
         }
     }
 
@@ -2194,14 +2181,14 @@ public class b extends BdBaseView<TbPageContext> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void WS(String str) {
+    public void WR(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.oHs.setBgVideo(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ehi() {
+    public void ehj() {
         if (this.oHH != null) {
             if (!this.oHH.isRecycled()) {
                 this.oHH.recycle();
@@ -2211,7 +2198,7 @@ public class b extends BdBaseView<TbPageContext> {
         aK(this.aGe);
     }
 
-    public boolean efn() {
+    public boolean efo() {
         return this.ieB;
     }
 }

@@ -86,16 +86,16 @@ public class f {
     }
 
     public static void c(final c cVar) {
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        if (aMl == null) {
+        com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
+        if (aMm == null) {
             cVar.a(null);
             return;
         }
-        com.baidu.swan.apps.process.messaging.client.a aMb = aMl.aMb();
-        if (aMb == null) {
+        com.baidu.swan.apps.process.messaging.client.a aMc = aMm.aMc();
+        if (aMc == null) {
             cVar.a(null);
         } else {
-            aMb.b(null, b.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.bdprivate.extensions.quicklogin.f.2
+            aMc.b(null, b.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.bdprivate.extensions.quicklogin.f.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.process.a.b.c.a
                 public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {
@@ -128,7 +128,7 @@ public class f {
         SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new OneKeyLoginCallback() { // from class: com.baidu.swan.bdprivate.extensions.quicklogin.f.3
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
             public void available(OneKeyLoginResult oneKeyLoginResult) {
-                v.aSU().a(activity, oneKeyLoginResult.sign, eVar);
+                v.aSV().a(activity, oneKeyLoginResult.sign, eVar);
             }
 
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback

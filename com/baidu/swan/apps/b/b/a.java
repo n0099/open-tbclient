@@ -52,10 +52,10 @@ public class a extends d {
                 return new com.baidu.swan.apps.api.c.b(202, "cb is invalid");
             }
             if (!SwanAppNetworkUtils.isNetworkConnected(getContext())) {
-                com.baidu.swan.apps.res.widget.b.d.u(getContext(), a.h.aiapps_net_error).aLS();
+                com.baidu.swan.apps.res.widget.b.d.u(getContext(), a.h.aiapps_net_error).aLT();
                 return new com.baidu.swan.apps.api.c.b(1001, "network is not connected");
-            } else if (ajK()) {
-                ajL();
+            } else if (ajL()) {
+                ajM();
                 return new com.baidu.swan.apps.api.c.b(10003, c.hR(10003));
             } else {
                 a(optJSONArray, optString, optString2);
@@ -66,14 +66,14 @@ public class a extends d {
     }
 
     private void a(final JSONArray jSONArray, final String str, final String str2) {
-        com.baidu.swan.apps.runtime.d.aMg().aMc().aMw().b(getContext(), "scope_insert_bookshelf", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.b.b.a.1
+        com.baidu.swan.apps.runtime.d.aMh().aMd().aMx().b(getContext(), "scope_insert_bookshelf", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.b.b.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
             public void L(h<b.d> hVar) {
                 if (c.b(hVar)) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put("appKey", e.aMm());
+                    hashMap.put("appKey", e.aMn());
                     hashMap.put("contentIds", jSONArray);
                     hashMap.put("category", str);
                     a.this.a("INSERT", hashMap, new com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.api.c.b>() { // from class: com.baidu.swan.apps.b.b.a.1.1
@@ -87,12 +87,12 @@ public class a extends d {
                     return;
                 }
                 a.this.a(str2, new com.baidu.swan.apps.api.c.b(hVar.getErrorCode(), c.hR(hVar.getErrorCode())));
-                com.baidu.swan.apps.res.widget.b.d.u(a.this.getContext(), a.h.swan_bookshelf_authorize_fail).aLS();
+                com.baidu.swan.apps.res.widget.b.d.u(a.this.getContext(), a.h.swan_bookshelf_authorize_fail).aLT();
             }
         });
     }
 
-    private boolean ajK() {
+    private boolean ajL() {
         com.baidu.swan.apps.setting.oauth.e eVar = com.baidu.swan.apps.network.c.b.a.gs(true).get("scope_insert_bookshelf");
         return eVar == null || (eVar.dLO < 0 && !eVar.forbidden);
     }
@@ -113,11 +113,11 @@ public class a extends d {
             if (!SwanAppNetworkUtils.isNetworkConnected(getContext())) {
                 return new com.baidu.swan.apps.api.c.b(1001, "network is not connected");
             }
-            if (!com.baidu.swan.apps.runtime.d.aMg().aMc().aMx().isLogin(getContext())) {
+            if (!com.baidu.swan.apps.runtime.d.aMh().aMd().aMy().isLogin(getContext())) {
                 return new com.baidu.swan.apps.api.c.b(1001, "user is not login");
             }
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("appKey", e.aMm());
+            hashMap.put("appKey", e.aMn());
             hashMap.put("contentIds", optJSONArray);
             a("QUERY", hashMap, new com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.api.c.b>() { // from class: com.baidu.swan.apps.b.b.a.2
                 /* JADX DEBUG: Method merged with bridge method */
@@ -152,11 +152,11 @@ public class a extends d {
             if (!SwanAppNetworkUtils.isNetworkConnected(getContext())) {
                 return new com.baidu.swan.apps.api.c.b(1001, "network is not connected");
             }
-            if (!com.baidu.swan.apps.runtime.d.aMg().aMc().aMx().isLogin(getContext())) {
+            if (!com.baidu.swan.apps.runtime.d.aMh().aMd().aMy().isLogin(getContext())) {
                 return new com.baidu.swan.apps.api.c.b(1001, "user is not login");
             }
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("appKey", e.aMm());
+            hashMap.put("appKey", e.aMn());
             hashMap.put("contentId", optString);
             hashMap.put("category", optString2);
             a("UPDATE_READ_TIME", hashMap, new com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.api.c.b>() { // from class: com.baidu.swan.apps.b.b.a.3
@@ -181,7 +181,7 @@ public class a extends d {
             if (TextUtils.isEmpty(optString)) {
                 return new com.baidu.swan.apps.api.c.b(202, "cb is invalid");
             }
-            if (!com.baidu.swan.apps.runtime.d.aMg().aMc().aMx().isLogin(getContext())) {
+            if (!com.baidu.swan.apps.runtime.d.aMh().aMd().aMy().isLogin(getContext())) {
                 kK(optString);
                 return new com.baidu.swan.apps.api.c.b(0);
             }
@@ -192,8 +192,8 @@ public class a extends d {
     }
 
     private void kK(final String str) {
-        e aMc = com.baidu.swan.apps.runtime.d.aMg().aMc();
-        aMc.aMx().a(aMc.aMe(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.b.b.a.4
+        e aMd = com.baidu.swan.apps.runtime.d.aMh().aMd();
+        aMd.aMy().a(aMd.aMf(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.b.b.a.4
             @Override // com.baidu.swan.apps.a.a
             public void onResult(int i) {
                 if (i == 0) {
@@ -220,7 +220,7 @@ public class a extends d {
         });
     }
 
-    private void ajL() {
+    private void ajM() {
         final String string = getContext().getString(a.h.swan_bookshelf_setting_dialog_title);
         final String string2 = getContext().getString(a.h.swan_bookshelf_setting_dialog_content);
         final String string3 = getContext().getString(a.h.swan_bookshelf_setting_dialog_positive);
@@ -229,17 +229,17 @@ public class a extends d {
             @Override // java.lang.Runnable
             public void run() {
                 g.a aVar = new g.a(a.this.getContext());
-                aVar.f(string).sp(string2).aLt().a(new com.baidu.swan.apps.view.c.a()).gV(false).a(string3, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.b.b.a.6.2
+                aVar.f(string).sp(string2).aLu().a(new com.baidu.swan.apps.view.c.a()).gV(false).a(string3, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.b.b.a.6.2
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        com.baidu.swan.apps.runtime.d.aMg().aMc().aMw().aNS();
+                        com.baidu.swan.apps.runtime.d.aMh().aMd().aMx().aNT();
                     }
                 }).b(string4, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.b.b.a.6.1
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                     }
                 });
-                aVar.aLx();
+                aVar.aLy();
             }
         });
     }
@@ -267,11 +267,11 @@ public class a extends d {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.b.b.a.7
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.apps.res.widget.b.d.u(a.this.getContext(), a.h.swan_bookshelf_insert_async).kM(10).he(false).aLW();
+                    com.baidu.swan.apps.res.widget.b.d.u(a.this.getContext(), a.h.swan_bookshelf_insert_async).kM(10).he(false).aLX();
                 }
             });
         }
-        ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) com.baidu.swan.a.c.a.bfE().postRequest().requestBody(create).url(kM)).cookieManager(com.baidu.swan.apps.t.a.aAQ().alT())).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.apps.b.b.a.8
+        ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) com.baidu.swan.a.c.a.bfF().postRequest().requestBody(create).url(kM)).cookieManager(com.baidu.swan.apps.t.a.aAR().alU())).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.apps.b.b.a.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: a */
@@ -296,7 +296,7 @@ public class a extends d {
                 int optInt = jSONObject2.optInt(BaseJsonData.TAG_ERRNO, -1);
                 if (optInt != 0) {
                     if (equals) {
-                        com.baidu.swan.apps.res.widget.b.d.u(com.baidu.swan.apps.t.a.aAr(), a.h.swan_bookshelf_insert_failed).aLS();
+                        com.baidu.swan.apps.res.widget.b.d.u(com.baidu.swan.apps.t.a.aAs(), a.h.swan_bookshelf_insert_failed).aLT();
                     }
                     a.this.a((com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.api.c.b>) bVar, optInt, jSONObject2.optString(BaseJsonData.TAG_ERRMSG), false);
                     return;
@@ -343,11 +343,11 @@ public class a extends d {
         }
         switch (c) {
             case 0:
-                return com.baidu.swan.apps.t.a.aAD().alQ();
+                return com.baidu.swan.apps.t.a.aAE().alR();
             case 1:
-                return com.baidu.swan.apps.t.a.aAD().alR();
+                return com.baidu.swan.apps.t.a.aAE().alS();
             case 2:
-                return com.baidu.swan.apps.t.a.aAD().alS();
+                return com.baidu.swan.apps.t.a.aAE().alT();
             default:
                 return null;
         }
@@ -359,7 +359,7 @@ public class a extends d {
             bVar.N(new com.baidu.swan.apps.api.c.b(i, str));
         }
         if (z) {
-            com.baidu.swan.apps.res.widget.b.d.a(com.baidu.swan.apps.t.a.aAr(), str).aLS();
+            com.baidu.swan.apps.res.widget.b.d.a(com.baidu.swan.apps.t.a.aAs(), str).aLT();
         }
     }
 
@@ -371,10 +371,10 @@ public class a extends d {
         if (z) {
             com.baidu.swan.apps.res.widget.b.d.a(getContext(), getContext().getString(a.h.swan_bookshelf_insert_success)).kI(1).kM(3).b(new d.a() { // from class: com.baidu.swan.apps.b.b.a.9
                 @Override // com.baidu.swan.apps.res.widget.b.d.a
-                public void ajM() {
+                public void ajN() {
                     ak.d(null);
                 }
-            }).aLX();
+            }).aLY();
         }
     }
 

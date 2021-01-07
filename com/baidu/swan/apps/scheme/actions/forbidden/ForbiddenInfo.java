@@ -74,17 +74,17 @@ public class ForbiddenInfo implements Parcelable {
         if (bVar != null) {
             this.appId = bVar.getAppId();
             this.appKey = bVar.getAppKey();
-            this.appTitle = bVar.awx();
+            this.appTitle = bVar.awy();
             this.launchPath = bVar.getPage();
-            this.launchSource = bVar.aCv();
+            this.launchSource = bVar.aCw();
         }
     }
 
-    public boolean asw() {
+    public boolean asx() {
         return this.enableSlidingFlag == 0;
     }
 
     public String toString() {
-        return "ForbiddenInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', forbiddenReason='" + this.forbiddenReason + "', forbiddenDetail='" + this.forbiddenDetail + "', appTitle='" + this.appTitle + "', launchPath='" + this.launchPath + "', launchSource='" + this.launchSource + "', enableSlidingFlag='" + asw() + "'}";
+        return "ForbiddenInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', forbiddenReason='" + this.forbiddenReason + "', forbiddenDetail='" + this.forbiddenDetail + "', appTitle='" + this.appTitle + "', launchPath='" + this.launchPath + "', launchSource='" + this.launchSource + "', enableSlidingFlag='" + asx() + "'}";
     }
 }

@@ -5,15 +5,15 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class r implements SensorEventListener {
     private static r d;
 
     /* renamed from: a  reason: collision with root package name */
-    private float[] f2657a;
+    private float[] f2658a;
 
     /* renamed from: b  reason: collision with root package name */
-    private float[] f2658b;
+    private float[] f2659b;
     private SensorManager c;
     private float e;
     private boolean f = false;
@@ -84,17 +84,17 @@ public class r implements SensorEventListener {
     public void onSensorChanged(SensorEvent sensorEvent) {
         switch (sensorEvent.sensor.getType()) {
             case 2:
-                this.f2658b = (float[]) sensorEvent.values.clone();
-                Math.sqrt((this.f2658b[0] * this.f2658b[0]) + (this.f2658b[1] * this.f2658b[1]) + (this.f2658b[2] * this.f2658b[2]));
-                if (this.f2658b != null) {
+                this.f2659b = (float[]) sensorEvent.values.clone();
+                Math.sqrt((this.f2659b[0] * this.f2659b[0]) + (this.f2659b[1] * this.f2659b[1]) + (this.f2659b[2] * this.f2659b[2]));
+                if (this.f2659b != null) {
                 }
                 return;
             case 11:
-                this.f2657a = (float[]) sensorEvent.values.clone();
-                if (this.f2657a != null) {
+                this.f2658a = (float[]) sensorEvent.values.clone();
+                if (this.f2658a != null) {
                     float[] fArr = new float[9];
                     try {
-                        SensorManager.getRotationMatrixFromVector(fArr, this.f2657a);
+                        SensorManager.getRotationMatrixFromVector(fArr, this.f2658a);
                         float[] fArr2 = new float[3];
                         SensorManager.getOrientation(fArr, fArr2);
                         this.e = (float) Math.toDegrees(fArr2[0]);

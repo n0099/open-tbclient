@@ -28,7 +28,7 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        bxO();
+        bxP();
     }
 
     public TbCheckBox(Context context) {
@@ -58,18 +58,18 @@ public class TbCheckBox extends ImageView {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.TbCheckBox.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TbCheckBox.this.setChecked(!TbCheckBox.this.bxP());
+                TbCheckBox.this.setChecked(!TbCheckBox.this.bxQ());
             }
         });
-        bxO();
+        bxP();
     }
 
     public void setStatedChangedListener(a aVar) {
         this.flP = aVar;
     }
 
-    public void bxO() {
-        if (bxP()) {
+    public void bxP() {
+        if (bxQ()) {
             if (this.flO) {
                 setImageDrawable(WebPManager.a(this.flM, ao.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
             } else {
@@ -87,11 +87,11 @@ public class TbCheckBox extends ImageView {
     }
 
     public boolean isChecked() {
-        return bxP();
+        return bxQ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bxP() {
+    public boolean bxQ() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -104,7 +104,7 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        bxO();
+        bxP();
         if (this.flP != null) {
             this.flP.a(this, z, getTag());
         }

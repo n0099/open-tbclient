@@ -27,7 +27,7 @@ public class a {
         SkinManager.setBackgroundColor(this.ajW, a.c.sdk_cp_bg_line_e);
     }
 
-    public FrameLayout bcS() {
+    public FrameLayout bcT() {
         return this.ajW;
     }
 }

@@ -37,11 +37,11 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
         this.mPageContext = tbPageContext;
         this.mContentView = linearLayout;
         this.mNavigationBar = navigationBar;
-        bIk();
-        abn();
+        bIl();
+        abo();
     }
 
-    private void bIk() {
+    private void bIl() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getResources().getString(R.string.select_position_title));
         this.ghj = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ghj.getLayoutParams();
@@ -51,7 +51,7 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
         this.ghj.setOnClickListener(this);
     }
 
-    private void abn() {
+    private void abo() {
         LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.select_location_activity, (ViewGroup) this.mContentView, true);
         this.WV = (BdListView) this.mContentView.findViewById(R.id.select_position_list);
         this.leV = new b(this.mPageContext);
@@ -95,13 +95,13 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bIg() {
+    public boolean bIh() {
         View childAt;
         return this.WV != null && this.WV.getFirstVisiblePosition() == 0 && (childAt = this.WV.getChildAt(0)) != null && childAt.getTop() == 0;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bIh() {
+    public boolean bIi() {
         return true;
     }
 
@@ -112,7 +112,7 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public Intent bIi() {
+    public Intent bIj() {
         return this.ghm;
     }
 }

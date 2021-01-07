@@ -72,12 +72,12 @@ public class ConcernUnreadTipView extends RelativeLayout {
 
     public void setData(e eVar) {
         if (eVar != null) {
-            if (!eVar.cTt()) {
+            if (!eVar.cTu()) {
                 setVisibility(8);
                 return;
             }
             if (eVar.khO > 0) {
-                com.baidu.tbadk.core.sharedPref.b.bvq().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_UNREAD_TIP_NEXT_SHOW_TIME), System.currentTimeMillis() + eVar.khO);
+                com.baidu.tbadk.core.sharedPref.b.bvr().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_UNREAD_TIP_NEXT_SHOW_TIME), System.currentTimeMillis() + eVar.khO);
             }
             if (this.iUe != null && !StringUtils.isNull(eVar.khP)) {
                 this.iUe.setText(eVar.khP);
@@ -113,6 +113,6 @@ public class ConcernUnreadTipView extends RelativeLayout {
         ao.setImageResource(this.kiB, R.drawable.icon_home_card_delete);
         ao.setViewTextColor(this.iUe, R.color.CAM_X0105);
         ao.setViewTextColor(this.kiD, R.color.CAM_X0109);
-        SvgManager.bwq().a(this.kiE, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.bwr().a(this.kiE, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
     }
 }

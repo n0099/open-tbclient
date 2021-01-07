@@ -174,12 +174,12 @@ public class OfficialBarFeedMsglistView extends com.baidu.adp.base.d<OfficialBar
             for (int i = 0; i < 10 && i < list2.size(); i++) {
                 com.baidu.tieba.im.db.pojo.a aVar = list2.get(i);
                 OfficialBarFeedMsglistAdapter.a aVar2 = new OfficialBarFeedMsglistAdapter.a();
-                aVar2.MM(aVar.cXK());
-                aVar2.MN(aVar.getForumName());
+                aVar2.ML(aVar.cXL());
+                aVar2.MM(aVar.getForumName());
                 aVar2.setUnReadCount(aVar.getUnReadCount());
                 aVar2.setUserType(aVar.getUserType());
                 aVar2.setGroupId(Long.parseLong(aVar.getGid()));
-                aVar2.gK(aVar.cWL());
+                aVar2.gK(aVar.cWM());
                 arrayList.add(aVar2);
             }
             this.kzc.setData(arrayList);
@@ -204,13 +204,13 @@ public class OfficialBarFeedMsglistView extends com.baidu.adp.base.d<OfficialBar
         ao.setViewTextColor(this.kzi, R.color.CAM_X0105);
         ao.setBackgroundColor(this.kzj, R.color.CAM_X0204);
         if (this.kze != null) {
-            com.baidu.tbadk.core.util.f.a.bwT().qI(R.color.CAM_X0205).qD(l.getDimens(this.kab.getPageActivity(), R.dimen.tbds31)).qE(R.color.CAM_X0804).qC(4369).qF(l.getDimens(this.kab.getPageActivity(), R.dimen.tbds10)).qG(0).qH(l.getDimens(this.kab.getPageActivity(), R.dimen.tbds5)).bz(this.kze);
+            com.baidu.tbadk.core.util.f.a.bwU().qI(R.color.CAM_X0205).qD(l.getDimens(this.kab.getPageActivity(), R.dimen.tbds31)).qE(R.color.CAM_X0804).qC(4369).qF(l.getDimens(this.kab.getPageActivity(), R.dimen.tbds10)).qG(0).qH(l.getDimens(this.kab.getPageActivity(), R.dimen.tbds5)).bz(this.kze);
         }
         if (this.fKO != null) {
             this.fKO.onChangeSkinType(this.kab, i);
         }
         if (this.kzb != null) {
-            SvgManager.bwq().a(this.kzb, R.drawable.icon_pure_more_administration44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bwr().a(this.kzb, R.drawable.icon_pure_more_administration44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
         if (this.kzg != null) {
             this.kzg.notifyDataSetChanged();
@@ -234,56 +234,56 @@ public class OfficialBarFeedMsglistView extends com.baidu.adp.base.d<OfficialBar
     }
 
     public void showTipToast(boolean z, String str) {
-        new BdTopToast(this.mActivity).yW(z).UY(str).aR(this.kzf);
+        new BdTopToast(this.mActivity).yW(z).UX(str).aR(this.kzf);
     }
 
     @Override // com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistAdapter.c
     public void a(View view, Object obj, int i, long j) {
         if (obj instanceof OfficialBarFeedMsglistAdapter.a) {
             OfficialBarFeedMsglistAdapter.a aVar = (OfficialBarFeedMsglistAdapter.a) obj;
-            SingleForumBroadcastFeedActivityConfig singleForumBroadcastFeedActivityConfig = new SingleForumBroadcastFeedActivityConfig(this.kab.getPageActivity(), String.valueOf(aVar.getGroupId()), aVar.cRb());
+            SingleForumBroadcastFeedActivityConfig singleForumBroadcastFeedActivityConfig = new SingleForumBroadcastFeedActivityConfig(this.kab.getPageActivity(), String.valueOf(aVar.getGroupId()), aVar.cRc());
             singleForumBroadcastFeedActivityConfig.setSource((byte) 1);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, singleForumBroadcastFeedActivityConfig));
             aq aqVar = new aq("c13862");
             aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
             aqVar.w("fid", aVar.getGroupId());
             TiebaStatic.log(aqVar);
-        } else if (obj instanceof a.C0766a) {
-            a((a.C0766a) obj, this.kab.getPageActivity());
+        } else if (obj instanceof a.C0775a) {
+            a((a.C0775a) obj, this.kab.getPageActivity());
         }
     }
 
-    private void a(a.C0766a c0766a, Context context) {
-        if (c0766a != null) {
-            K(c0766a.fid, System.currentTimeMillis());
-            if (!StringUtils.isNull(c0766a.url)) {
-                if (c0766a.url.startsWith("web:http")) {
-                    c0766a.url = c0766a.url.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_WEB, "");
+    private void a(a.C0775a c0775a, Context context) {
+        if (c0775a != null) {
+            K(c0775a.fid, System.currentTimeMillis());
+            if (!StringUtils.isNull(c0775a.url)) {
+                if (c0775a.url.startsWith("web:http")) {
+                    c0775a.url = c0775a.url.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_WEB, "");
                 }
-                if (c0766a.url.contains("?")) {
-                    c0766a.url = String.format(Locale.US, "%s&broadcast_id=%d", c0766a.url, Long.valueOf(c0766a.kFM));
+                if (c0775a.url.contains("?")) {
+                    c0775a.url = String.format(Locale.US, "%s&broadcast_id=%d", c0775a.url, Long.valueOf(c0775a.kFM));
                 } else {
-                    c0766a.url = String.format(Locale.US, "%s?broadcast_id=%d", c0766a.url, Long.valueOf(c0766a.kFM));
+                    c0775a.url = String.format(Locale.US, "%s?broadcast_id=%d", c0775a.url, Long.valueOf(c0775a.kFM));
                 }
-                if (c0766a.url.contains("com.baidu.tieba://deeplink?jump=new_hot_topic_list")) {
+                if (c0775a.url.contains("com.baidu.tieba://deeplink?jump=new_hot_topic_list")) {
                     try {
-                        context.startActivity(Intent.parseUri(c0766a.url, 1));
+                        context.startActivity(Intent.parseUri(c0775a.url, 1));
                     } catch (URISyntaxException e) {
                         e.printStackTrace();
                     }
                 }
-                if (URLUtil.isHttpUrl(c0766a.url) || URLUtil.isHttpsUrl(c0766a.url) || c0766a.url.startsWith("flt://")) {
-                    be.bwu().b(this.kab, new String[]{c0766a.url});
+                if (URLUtil.isHttpUrl(c0775a.url) || URLUtil.isHttpsUrl(c0775a.url) || c0775a.url.startsWith("flt://")) {
+                    be.bwv().b(this.kab, new String[]{c0775a.url});
                 } else {
-                    Uri parse = Uri.parse(c0766a.url);
+                    Uri parse = Uri.parse(c0775a.url);
                     if (parse != null) {
                         UtilHelper.dealOneScheme(context, parse.toString());
                     }
                 }
                 aq aqVar = new aq(this.kyq ? "c13866" : "c13864");
                 aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
-                aqVar.dX("fid", c0766a.fid);
-                aqVar.dX("tid", c0766a.tid == null ? "" : c0766a.tid);
+                aqVar.dX("fid", c0775a.fid);
+                aqVar.dX("tid", c0775a.tid == null ? "" : c0775a.tid);
                 TiebaStatic.log(aqVar);
             }
         }
@@ -300,7 +300,7 @@ public class OfficialBarFeedMsglistView extends com.baidu.adp.base.d<OfficialBar
             this.fKO = NoDataViewFactory.a(this.kab.getPageActivity(), this.kzf, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 454), NoDataViewFactory.d.ra(R.string.official_feed_no_data), null);
             NoDataViewFactory.c.a aVar = new NoDataViewFactory.c.a();
             aVar.b(NoDataViewFactory.ImgType.CREATE);
-            this.fKO.setImgOption(aVar.bxz());
+            this.fKO.setImgOption(aVar.bxA());
         }
         if (this.fKO.getVisibility() != 0) {
             this.fKO.onChangeSkinType(this.kab, TbadkApplication.getInst().getSkinType());
@@ -312,10 +312,10 @@ public class OfficialBarFeedMsglistView extends com.baidu.adp.base.d<OfficialBar
         ac.b(new ab<Void>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ab
-            /* renamed from: bPm */
+            /* renamed from: bPn */
             public Void doInBackground() {
                 if (!StringUtils.isNull(str)) {
-                    com.baidu.tieba.im.db.l.cXC().D(Long.parseLong(str), j);
+                    com.baidu.tieba.im.db.l.cXD().D(Long.parseLong(str), j);
                     return null;
                 }
                 return null;

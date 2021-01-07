@@ -1,5 +1,5 @@
 package com.baidu.prologue.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface b {
     boolean W(int i, int i2);
 

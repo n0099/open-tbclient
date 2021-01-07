@@ -33,17 +33,17 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgrightView> msgViewHolder) {
         super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
-        MsgrightView cWy = msgViewHolder.cWy();
-        cWy.DW(this.kwM);
-        cWy.sv(this.kwV);
+        MsgrightView cWz = msgViewHolder.cWz();
+        cWz.DW(this.kwM);
+        cWz.sv(this.kwV);
         chatMessage.getCacheData().setIs_left(0);
-        cWy.a(this.kwD);
-        cWy.setOnItemViewLongClickListener(this.kwE);
-        cWy.setPosition(i);
-        cWy.gH(this.gsJ);
-        cWy.gG(chatMessage.getCacheData().getLastMsgTime());
-        cWy.a(viewGroup, chatMessage);
-        cWy.b(viewGroup, chatMessage);
+        cWz.a(this.kwD);
+        cWz.setOnItemViewLongClickListener(this.kwE);
+        cWz.setPosition(i);
+        cWz.gH(this.gsJ);
+        cWz.gG(chatMessage.getCacheData().getLastMsgTime());
+        cWz.a(viewGroup, chatMessage);
+        cWz.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

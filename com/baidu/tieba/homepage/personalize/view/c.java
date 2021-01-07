@@ -50,11 +50,11 @@ public class c extends com.baidu.tieba.play.operableVideoView.b {
             }
         };
         xd(true);
-        cTH();
+        cTI();
     }
 
-    protected void cTH() {
-        this.ivy = new com.baidu.afd.videopaster.d(this.mContext, (ViewGroup) dBx());
+    protected void cTI() {
+        this.ivy = new com.baidu.afd.videopaster.d(this.mContext, (ViewGroup) dBy());
         this.ivy.a(new d.a() { // from class: com.baidu.tieba.homepage.personalize.view.c.1
             @Override // com.baidu.afd.videopaster.d.a
             public void ru() {
@@ -77,7 +77,7 @@ public class c extends com.baidu.tieba.play.operableVideoView.b {
         a(new d.a() { // from class: com.baidu.tieba.homepage.personalize.view.c.2
             @Override // com.baidu.tieba.play.operableVideoView.d.a
             public void cJ(int i, int i2) {
-                if (!c.this.dCv()) {
+                if (!c.this.dCw()) {
                     if (i2 >= i) {
                         if (c.this.ivy.d(false, false, "NEWINDEX")) {
                         }
@@ -145,10 +145,10 @@ public class c extends com.baidu.tieba.play.operableVideoView.b {
             i = -1;
             i2 = -1;
         }
-        VideoInfo brH = bzVar.brH();
-        if (brH != null) {
-            i4 = brH.video_width.intValue();
-            i3 = brH.video_height.intValue();
+        VideoInfo brI = bzVar.brI();
+        if (brI != null) {
+            i4 = brI.video_width.intValue();
+            i3 = brI.video_height.intValue();
         } else {
             i3 = 0;
             i4 = 0;
@@ -157,7 +157,7 @@ public class c extends com.baidu.tieba.play.operableVideoView.b {
         hashMap.put("video_vid", bzVar.getId());
         hashMap.put("video_title", bzVar.getTitle());
         hashMap.put("forum_id", String.valueOf(bzVar.getFid()));
-        hashMap.put("forum_name", bzVar.bru());
+        hashMap.put("forum_name", bzVar.brv());
         hashMap.put("up_distance", String.valueOf(i2));
         hashMap.put("down_distance", String.valueOf(i));
         com.baidu.afd.videopaster.a a2 = com.baidu.afd.videopaster.c.a(3, 0, "1546854828072", ry + 1, i4, i3);
@@ -207,7 +207,7 @@ public class c extends com.baidu.tieba.play.operableVideoView.b {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    protected int cTI() {
+    protected int cTJ() {
         return 1;
     }
 

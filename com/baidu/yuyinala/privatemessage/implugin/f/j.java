@@ -12,7 +12,7 @@ public class j {
     private static int oUG;
     private static int oUH = -1;
 
-    public static void Yl(String str) {
+    public static void Yk(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             oUH = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
@@ -46,7 +46,7 @@ public class j {
     }
 
     public static String getType() {
-        return Ym("type") ? mType : "";
+        return Yl("type") ? mType : "";
     }
 
     public static void Av(boolean z) {
@@ -54,16 +54,16 @@ public class j {
         OH();
     }
 
-    public static boolean elq() {
-        return Ym("has_sub") && oUF == 1;
+    public static boolean elr() {
+        return Yl("has_sub") && oUF == 1;
     }
 
-    public static String elp() {
-        return Ym("third_id") ? oUE : "";
+    public static String elq() {
+        return Yl("third_id") ? oUE : "";
     }
 
     public static boolean isNeedNotify() {
-        return Ym("notify") && oUG == 1;
+        return Yl("notify") && oUG == 1;
     }
 
     private static boolean isDataValid() {
@@ -77,7 +77,7 @@ public class j {
         return null;
     }
 
-    private static boolean Ym(String str) {
+    private static boolean Yl(String str) {
         return isDataValid() && mData != null && mData.has(str);
     }
 }

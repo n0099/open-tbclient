@@ -49,7 +49,7 @@ public class Static {
                         str = data.kSW;
                         z = true;
                     }
-                    if (ad.bvY() && str.length() > 0) {
+                    if (ad.bvZ() && str.length() > 0) {
                         data.isSuccess = data.cdnTachometerModel.getTestImageData(data.ipListData.imageUrl, str, data.ipListData.kTb, data.ipListData.kSY, data.isNormal);
                         data.costTime = System.currentTimeMillis() - currentTimeMillis;
                         data.cdnIp = str;

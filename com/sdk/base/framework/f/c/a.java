@@ -13,10 +13,10 @@ import java.util.List;
 public class a extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f13132a = f.f13118b;
+    private static final boolean f13133a = f.f13119b;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f13133b = a.class.getSimpleName();
+    private static final String f13134b = a.class.getSimpleName();
 
     public static ArrayList<KInfo> a(Context context) {
         ArrayList<KInfo> arrayList = new ArrayList<>();
@@ -93,7 +93,7 @@ public class a extends com.sdk.base.framework.f.a {
                 }
             }
         } catch (Throwable th) {
-            c.b(f13133b, th.getMessage(), Boolean.valueOf(f13132a));
+            c.b(f13134b, th.getMessage(), Boolean.valueOf(f13133a));
         }
         return arrayList;
     }
@@ -157,7 +157,7 @@ public class a extends com.sdk.base.framework.f.a {
                         kInfo.setM(str4);
                         kInfo.setSid(0);
                         arrayList.add(kInfo);
-                        if (f13132a) {
+                        if (f13133a) {
                         }
                         return arrayList;
                     }
@@ -188,10 +188,10 @@ public class a extends com.sdk.base.framework.f.a {
             kInfo2.setSid(0);
             arrayList.add(kInfo2);
         } catch (Exception e4) {
-            c.b(f13133b, e4.getMessage(), Boolean.valueOf(f13132a));
+            c.b(f13134b, e4.getMessage(), Boolean.valueOf(f13133a));
         }
-        if (f13132a) {
-            c.a(f13133b, "应用层获取sim卡信息耗时：" + (System.currentTimeMillis() - currentTimeMillis), Boolean.valueOf(f13132a));
+        if (f13133a) {
+            c.a(f13134b, "应用层获取sim卡信息耗时：" + (System.currentTimeMillis() - currentTimeMillis), Boolean.valueOf(f13133a));
         }
         return arrayList;
     }

@@ -10,46 +10,46 @@ import com.baidu.tieba.R;
 public class f {
     private BaseFragmentActivity iJr;
     private int mSkinType = 3;
-    private c mez;
+    private c mey;
 
     public f(BaseFragmentActivity baseFragmentActivity) {
         this.iJr = baseFragmentActivity;
     }
 
     public void b(com.baidu.tieba.pb.data.f fVar, String str) {
-        if (fVar != null && fVar.dmE() != null) {
+        if (fVar != null && fVar.dmF() != null) {
             c(fVar, str);
         }
     }
 
     private void c(com.baidu.tieba.pb.data.f fVar, String str) {
         if (fVar != null) {
-            if (this.mez == null) {
-                this.mez = new c(LayoutInflater.from(this.iJr.getPageContext().getPageActivity()).inflate(R.layout.pb_header_video_abstract_layout, (ViewGroup) null));
+            if (this.mey == null) {
+                this.mey = new c(LayoutInflater.from(this.iJr.getPageContext().getPageActivity()).inflate(R.layout.pb_header_video_abstract_layout, (ViewGroup) null));
             }
-            this.mez.a(fVar, str);
+            this.mey.a(fVar, str);
         }
     }
 
-    public View dvd() {
-        if (this.mez == null) {
+    public View dve() {
+        if (this.mey == null) {
             return null;
         }
-        return this.mez.mRootView;
+        return this.mey.mRootView;
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.mez != null) {
-                this.mez.bCO();
+            if (this.mey != null) {
+                this.mey.bCP();
             }
             this.mSkinType = i;
         }
     }
 
     public void e(BdTypeListView bdTypeListView) {
-        if (this.mez != null) {
-            bdTypeListView.removeHeaderView(this.mez.mRootView);
+        if (this.mey != null) {
+            bdTypeListView.removeHeaderView(this.mey.mRootView);
         }
     }
 }

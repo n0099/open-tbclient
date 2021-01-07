@@ -5,10 +5,10 @@ import androidx.annotation.NonNull;
 class n<Z> implements s<Z> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final boolean f10539a;
+    private final boolean f10540a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final boolean f10540b;
+    private final boolean f10541b;
     private final s<Z> c;
     private a d;
     private com.kwad.sdk.glide.load.c e;
@@ -23,8 +23,8 @@ class n<Z> implements s<Z> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(s<Z> sVar, boolean z, boolean z2) {
         this.c = (s) com.kwad.sdk.glide.g.j.a(sVar);
-        this.f10539a = z;
-        this.f10540b = z2;
+        this.f10540a = z;
+        this.f10541b = z2;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
@@ -58,7 +58,7 @@ class n<Z> implements s<Z> {
             throw new IllegalStateException("Cannot recycle a resource that has already been recycled");
         }
         this.g = true;
-        if (this.f10540b) {
+        if (this.f10541b) {
             this.c.d_();
         }
     }
@@ -71,7 +71,7 @@ class n<Z> implements s<Z> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean f() {
-        return this.f10539a;
+        return this.f10540a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -99,6 +99,6 @@ class n<Z> implements s<Z> {
     }
 
     public synchronized String toString() {
-        return "EngineResource{isCacheable=" + this.f10539a + ", listener=" + this.d + ", key=" + this.e + ", acquired=" + this.f + ", isRecycled=" + this.g + ", resource=" + this.c + '}';
+        return "EngineResource{isCacheable=" + this.f10540a + ", listener=" + this.d + ", key=" + this.e + ", acquired=" + this.f + ", isRecycled=" + this.g + ", resource=" + this.c + '}';
     }
 }

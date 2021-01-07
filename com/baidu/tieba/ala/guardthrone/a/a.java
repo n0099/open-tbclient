@@ -68,19 +68,19 @@ public class a implements c {
                 this.heA.getRootView().setVisibility(8);
                 this.hez.getRootView().setVisibility(0);
             }
-            this.hez.bnO();
-            this.heA.bnO();
+            this.hez.bnP();
+            this.heA.bnP();
         }
     }
 
     @Override // com.baidu.live.k.c
     public void onDestroy() {
         if (this.hez != null) {
-            this.hez.bZN();
+            this.hez.bZO();
             this.hez.onDestroy();
         }
         if (this.heA != null) {
-            this.heA.bZN();
+            this.heA.bZO();
             this.heA.onDestroy();
         }
     }

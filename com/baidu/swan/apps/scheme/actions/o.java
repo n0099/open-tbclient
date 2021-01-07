@@ -37,7 +37,7 @@ public class o extends aa {
         }
         final String optString2 = b2.optString("open", "");
         c(eVar, optString2);
-        eVar.aMw().e("scope_open_app", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.o.1
+        eVar.aMx().e("scope_open_app", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.o.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: c */
@@ -61,7 +61,7 @@ public class o extends aa {
 
     private void c(@NonNull com.baidu.swan.apps.runtime.e eVar, @NonNull String str) {
         com.baidu.swan.apps.statistic.a.e eVar2 = new com.baidu.swan.apps.statistic.a.e();
-        eVar2.mSource = eVar.aju().aCv();
+        eVar2.mSource = eVar.ajv().aCw();
         eVar2.t("appkey", eVar.getAppId());
         eVar2.t(Config.ROM, "Android");
         try {
@@ -78,16 +78,16 @@ public class o extends aa {
         if (eVar == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        String aCv = com.baidu.swan.apps.runtime.d.aMg().aMc().aMo().aCv();
-        if (TextUtils.isEmpty(aCv)) {
-            aCv = "NA";
+        String aCw = com.baidu.swan.apps.runtime.d.aMh().aMd().aMp().aCw();
+        if (TextUtils.isEmpty(aCw)) {
+            aCw = "NA";
         }
         JSONObject jSONObject = eVar.dLS;
         if (jSONObject == null || jSONObject.keys() == null) {
             return false;
         }
         if (DEBUG) {
-            Log.i("OpenAppAction", "source: " + aCv + " openUrl:" + str + " 配置数据:" + jSONObject);
+            Log.i("OpenAppAction", "source: " + aCw + " openUrl:" + str + " 配置数据:" + jSONObject);
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("scene");
         JSONArray optJSONArray2 = jSONObject.optJSONArray("package_name");
@@ -95,7 +95,7 @@ public class o extends aa {
         if (length > 0) {
             boolean z2 = false;
             for (int i = 0; i < length; i++) {
-                if (aCv.equals(optJSONArray.optString(i))) {
+                if (aCw.equals(optJSONArray.optString(i))) {
                     z2 = true;
                 }
             }

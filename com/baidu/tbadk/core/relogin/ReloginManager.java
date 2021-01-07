@@ -38,7 +38,7 @@ public class ReloginManager {
                 int error = bgLoginHttpResponsedMessage.getError();
                 a.a("account", -1L, 0, "login_auto_local_result", bgLoginHttpResponsedMessage.getError(), bgLoginHttpResponsedMessage.getErrorString(), new Object[0]);
                 if ((statusCode != 200 || error == 0) && statusCode == 200) {
-                    ReloginManager.this.bvj();
+                    ReloginManager.this.bvk();
                     return;
                 }
                 ReloginManager.this.e(TbadkCoreApplication.getCurrentAccountObj());
@@ -65,7 +65,7 @@ public class ReloginManager {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static ReloginManager bvi() {
+    public static ReloginManager bvj() {
         return faP;
     }
 
@@ -75,14 +75,14 @@ public class ReloginManager {
         if (!this.faO) {
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj == null) {
-                currentAccountObj = b.boy();
+                currentAccountObj = b.boz();
             }
             if (currentAccountObj == null || TextUtils.isEmpty(currentAccountObj.getAccount())) {
                 e(currentAccountObj);
                 return;
             }
             this.faO = true;
-            if (!bvl()) {
+            if (!bvm()) {
                 d(currentAccountObj);
             }
         }
@@ -103,7 +103,7 @@ public class ReloginManager {
 
     public void e(AccountData accountData) {
         a.a("account", -1L, 0, "login_auto_foreground", 0, "", new Object[0]);
-        b.bow();
+        b.box();
         TbadkCoreApplication.getInst().handler.sendMessage(TbadkCoreApplication.getInst().handler.obtainMessage(1));
     }
 
@@ -130,7 +130,7 @@ public class ReloginManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvj() {
+    public void bvk() {
         MessageManager messageManager = MessageManager.getInstance();
         Iterator<HttpMessage> it = this.faQ.iterator();
         while (it.hasNext()) {
@@ -139,7 +139,7 @@ public class ReloginManager {
         this.faQ.clear();
     }
 
-    public boolean bvk() {
+    public boolean bvl() {
         return this.faO;
     }
 
@@ -194,7 +194,7 @@ public class ReloginManager {
         }
     }
 
-    public boolean bvl() {
+    public boolean bvm() {
         return Build.VERSION.SDK_INT >= 9 && !TbConfig.USE_OLD_LOGIN && TbadkCoreApplication.getInst().isPassportV6ShouldOpen();
     }
 }

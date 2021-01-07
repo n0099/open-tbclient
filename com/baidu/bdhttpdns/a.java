@@ -9,17 +9,17 @@ class a implements Runnable {
     final /* synthetic */ BDHttpDns afG;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ ArrayList f1623b;
+    final /* synthetic */ ArrayList f1624b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BDHttpDns bDHttpDns, BDHttpDns.a aVar, ArrayList arrayList) {
         this.afG = bDHttpDns;
         this.afF = aVar;
-        this.f1623b = arrayList;
+        this.f1624b = arrayList;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.afF.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONEED, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.f1623b, null));
+        this.afF.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONEED, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.f1624b, null));
     }
 }

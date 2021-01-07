@@ -51,8 +51,8 @@ public class c extends com.baidu.tieba.card.b<a> {
         this.kPL = new OriginalThreadCardView.a() { // from class: com.baidu.tieba.imMessageCenter.mention.base.c.1
             @Override // com.baidu.tieba.card.OriginalThreadCardView.a
             public void a(OriginalThreadInfo originalThreadInfo) {
-                if (c.this.kPK != null && c.this.kPK.dbv() != null) {
-                    aq an = new aq(c.this.kPK.dbv()).an("obj_locate", 2);
+                if (c.this.kPK != null && c.this.kPK.dbw() != null) {
+                    aq an = new aq(c.this.kPK.dbw()).an("obj_locate", 2);
                     if (c.this.kPK.getType() == a.kPB || c.this.kPK.getType() == a.kPx) {
                         an.an("obj_type", 1);
                     } else {
@@ -60,8 +60,8 @@ public class c extends com.baidu.tieba.card.b<a> {
                     }
                     TiebaStatic.log(an);
                 }
-                if (c.this.cuC() != null) {
-                    c.this.cuC().a(c.this.ixo, c.this.kPK);
+                if (c.this.cuD() != null) {
+                    c.this.cuD().a(c.this.ixo, c.this.kPK);
                 }
             }
         };
@@ -150,12 +150,12 @@ public class c extends com.baidu.tieba.card.b<a> {
                 this.kPF.setVisibility(8);
             }
             this.gFk.setText(at.getFormatTime(aVar.getTime()));
-            this.mTitle.setText(a(this.mTitle, TbFaceManager.bGo().b(this.eXu.getPageActivity().getApplicationContext(), aVar.getTitle(), this.ds48, this.ds48)));
+            this.mTitle.setText(a(this.mTitle, TbFaceManager.bGp().b(this.eXu.getPageActivity().getApplicationContext(), aVar.getTitle(), this.ds48, this.ds48)));
             if (at.isEmpty(aVar.getSubTitle())) {
                 this.kPH.setVisibility(8);
                 this.dxT.setVisibility(8);
             } else {
-                this.dxT.setText(a(this.dxT, TbFaceManager.bGo().b(this.eXu.getPageActivity().getApplicationContext(), aVar.getSubTitle(), this.ds42, this.ds42)));
+                this.dxT.setText(a(this.dxT, TbFaceManager.bGp().b(this.eXu.getPageActivity().getApplicationContext(), aVar.getSubTitle(), this.ds42, this.ds42)));
                 this.dxT.setVisibility(0);
                 this.kPH.setVisibility(0);
             }
@@ -190,8 +190,8 @@ public class c extends com.baidu.tieba.card.b<a> {
                     return;
                 }
             }
-            if (cuC() != null) {
-                cuC().a(view, this.kPK);
+            if (cuD() != null) {
+                cuD().a(view, this.kPK);
             }
         }
     }

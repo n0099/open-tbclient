@@ -18,33 +18,33 @@ import java.lang.ref.WeakReference;
 public class a extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f10110b;
+    private ImageView f10111b;
     private TextView c;
     private AdTemplate d;
     private RecyclerView e;
     private com.kwad.sdk.lib.b.c<?, AdTemplate> f;
     private Handler g;
-    private a.InterfaceC1086a h;
+    private a.InterfaceC1127a h;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.kwad.sdk.feed.a.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1087a implements a.InterfaceC1086a, ap.a {
+    public static class C1128a implements a.InterfaceC1127a, ap.a {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<a> f10111a;
+        private WeakReference<a> f10112a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final int f10112b = 100;
+        private final int f10113b = 100;
 
-        public C1087a(a aVar) {
-            this.f10111a = new WeakReference<>(aVar);
+        public C1128a(a aVar) {
+            this.f10112a = new WeakReference<>(aVar);
         }
 
-        @Override // com.kwad.sdk.feed.a.a.InterfaceC1086a
+        @Override // com.kwad.sdk.feed.a.a.InterfaceC1127a
         public void a(int i) {
             com.kwad.sdk.core.d.a.a("FeedHomeItemClickPresenter", "position=" + i);
-            a aVar = this.f10111a.get();
+            a aVar = this.f10112a.get();
             if (aVar == null || aVar.f == null) {
                 return;
             }
@@ -60,7 +60,7 @@ public class a extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener
 
         @Override // com.kwad.sdk.utils.ap.a
         public void a(Message message) {
-            a aVar = this.f10111a.get();
+            a aVar = this.f10112a.get();
             if (aVar == null) {
                 return;
             }
@@ -75,28 +75,28 @@ public class a extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener
     }
 
     private void e() {
-        SceneImpl sceneImpl = ((AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f10751a).i).mAdScene;
+        SceneImpl sceneImpl = ((AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f10752a).i).mAdScene;
         if (sceneImpl == null) {
             return;
         }
-        com.kwad.sdk.feed.a.a.a().a(((com.kwad.sdk.feed.a.a.a.b) this.f10751a).f.g());
+        com.kwad.sdk.feed.a.a.a().a(((com.kwad.sdk.feed.a.a.a.b) this.f10752a).f.g());
         com.kwad.sdk.feed.a.a.a().f();
         com.kwad.sdk.feed.a.a.a().a(f());
         FeedSlideParam feedSlideParam = new FeedSlideParam();
         feedSlideParam.mEntryScene = sceneImpl.entryScene;
-        feedSlideParam.mSelectedPosition = ((com.kwad.sdk.feed.a.a.a.b) this.f10751a).h;
-        com.kwad.sdk.feed.detail.a.a(((com.kwad.sdk.feed.a.a.a.b) this.f10751a).d, feedSlideParam);
+        feedSlideParam.mSelectedPosition = ((com.kwad.sdk.feed.a.a.a.b) this.f10752a).h;
+        com.kwad.sdk.feed.detail.a.a(((com.kwad.sdk.feed.a.a.a.b) this.f10752a).d, feedSlideParam);
     }
 
-    private a.InterfaceC1086a f() {
+    private a.InterfaceC1127a f() {
         if (this.h == null) {
-            this.h = new C1087a(this);
+            this.h = new C1128a(this);
         }
         return this.h;
     }
 
     private void g() {
-        com.kwad.sdk.core.report.e.b((AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f10751a).i, 1);
+        com.kwad.sdk.core.report.e.b((AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f10752a).i, 1);
     }
 
     /* JADX DEBUG: Type inference failed for r0v9. Raw type applied. Possible types: com.kwad.sdk.lib.b.c<?, MODEL>, com.kwad.sdk.lib.b.c<?, com.kwad.sdk.core.response.model.AdTemplate> */
@@ -104,9 +104,9 @@ public class a extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.d = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f10751a).i;
-        this.e = ((com.kwad.sdk.feed.a.a.a.b) this.f10751a).e;
-        this.f = ((com.kwad.sdk.feed.a.a.a.b) this.f10751a).f;
+        this.d = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f10752a).i;
+        this.e = ((com.kwad.sdk.feed.a.a.a.b) this.f10752a).e;
+        this.f = ((com.kwad.sdk.feed.a.a.a.b) this.f10752a).f;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -125,9 +125,9 @@ public class a extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f10110b = (ImageView) b(R.id.ksad_feed_item_cover);
+        this.f10111b = (ImageView) b(R.id.ksad_feed_item_cover);
         this.c = (TextView) b(R.id.ksad_feed_item_photo_desc);
-        this.f10110b.setOnClickListener(this);
+        this.f10111b.setOnClickListener(this);
         this.c.setOnClickListener(this);
         l().setOnClickListener(this);
     }
@@ -149,7 +149,7 @@ public class a extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener
         if (ao.a()) {
             return;
         }
-        if (view == this.f10110b) {
+        if (view == this.f10111b) {
             if (com.kwad.sdk.core.response.b.c.c(this.d)) {
                 com.kwad.sdk.core.report.b.d(this.d, 83);
             }

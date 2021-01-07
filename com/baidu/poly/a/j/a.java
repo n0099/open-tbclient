@@ -15,7 +15,7 @@ import com.baidu.poly.widget.c;
 import com.baidu.poly.widget.m;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     private static volatile a coP;
     private long coQ;
@@ -25,7 +25,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.poly.a.j.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class C0315a extends com.baidu.poly.a.a.a<JSONObject> {
         final /* synthetic */ m coK;
         final /* synthetic */ boolean coL;
@@ -61,7 +61,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         final /* synthetic */ m coK;
 
@@ -78,7 +78,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         final /* synthetic */ m coK;
         final /* synthetic */ Context coM;
@@ -99,7 +99,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements View.OnClickListener {
         d() {
         }
@@ -114,7 +114,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements c.b {
         final /* synthetic */ m coK;
 
@@ -131,7 +131,7 @@ public class a {
     private a() {
     }
 
-    public static a afF() {
+    public static a afG() {
         if (coP == null) {
             synchronized (a.class) {
                 if (coP == null) {
@@ -175,7 +175,7 @@ public class a {
             layoutParams.gravity = 17;
             this.coR = com.baidu.poly.a.l.a.a((ViewGroup) a((Activity) context), layoutParams, (String) null, -1L);
             this.coQ = System.currentTimeMillis();
-            com.baidu.poly.a.b.b.afn().c(bundle, new C0315a(mVar, z, context, bundle));
+            com.baidu.poly.a.b.b.afo().c(bundle, new C0315a(mVar, z, context, bundle));
         }
     }
 

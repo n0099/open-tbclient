@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import androidx.annotation.NonNull;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     private static final b ctv = new b();
     private final int cto;
@@ -17,16 +17,16 @@ public class b {
     private int cts;
     private final int ctu;
     private final com.baidu.prologue.a.b.a ctn = com.baidu.prologue.a.b.a.ctd.get();
-    private final boolean DEBUG = this.ctn.ago();
+    private final boolean DEBUG = this.ctn.agp();
 
     private b() {
-        DisplayMetrics displayMetrics = this.ctn.age().getResources().getDisplayMetrics();
+        DisplayMetrics displayMetrics = this.ctn.agf().getResources().getDisplayMetrics();
         this.ctp = displayMetrics.heightPixels;
         this.cto = displayMetrics.widthPixels;
         this.ctu = displayMetrics.densityDpi;
     }
 
-    public static b agD() {
+    public static b agE() {
         return ctv;
     }
 
@@ -46,7 +46,7 @@ public class b {
         }
         String[] strArr = new String[9];
         strArr[0] = "v2";
-        strArr[1] = this.ctn.agq() ? "1" : "0";
+        strArr[1] = this.ctn.agr() ? "1" : "0";
         strArr[2] = String.valueOf(iArr[0]);
         strArr[3] = String.valueOf(iArr[1]);
         strArr[4] = String.valueOf(i);
@@ -64,7 +64,7 @@ public class b {
         return join;
     }
 
-    public int[] agE() {
+    public int[] agF() {
         return this.ctq != 0 ? new int[]{this.ctq, this.cts, this.ctu} : new int[]{this.cto, this.ctp, this.ctu};
     }
 

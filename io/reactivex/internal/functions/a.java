@@ -1,9 +1,9 @@
 package io.reactivex.internal.functions;
 
 import io.reactivex.b.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class a {
-    static final d<Object, Object> qgA = new C1265a();
+    static final d<Object, Object> qij = new C1306a();
 
     public static <T> T m(T t, String str) {
         if (t == null) {
@@ -23,7 +23,7 @@ public final class a {
         return i > i2 ? 1 : 0;
     }
 
-    public static int R(long j, long j2) {
+    public static int S(long j, long j2) {
         if (j < j2) {
             return -1;
         }
@@ -45,9 +45,9 @@ public final class a {
     }
 
     /* renamed from: io.reactivex.internal.functions.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    static final class C1265a implements d<Object, Object> {
-        C1265a() {
+    /* loaded from: classes5.dex */
+    static final class C1306a implements d<Object, Object> {
+        C1306a() {
         }
 
         @Override // io.reactivex.b.d

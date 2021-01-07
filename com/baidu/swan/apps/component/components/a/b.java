@@ -33,7 +33,7 @@ public final class b extends com.baidu.swan.apps.component.a.d.b {
         return (TextUtils.isEmpty(this.cNP) || TextUtils.isEmpty(this.cNO)) ? false : true;
     }
 
-    public boolean aoG() {
+    public boolean aoH() {
         return isValid() && !TextUtils.isEmpty(this.path);
     }
 }

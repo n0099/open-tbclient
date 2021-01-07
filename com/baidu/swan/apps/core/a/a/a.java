@@ -26,16 +26,16 @@ public final class a implements b {
     /* renamed from: com.baidu.swan.apps.core.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
     public interface InterfaceC0420a {
-        void arg();
-
         void arh();
+
+        void ari();
 
         void ig(int i);
     }
 
     public static void f(@NonNull List<e.b> list, @Nullable String str) {
-        String[] aZX;
-        if (!nf(h.aPH().getString("predownload_network_switch", "1"))) {
+        String[] aZY;
+        if (!nf(h.aPI().getString("predownload_network_switch", "1"))) {
             if (DEBUG) {
                 Log.e("SwanPreDownload", "pre download net invalid");
                 return;
@@ -46,7 +46,7 @@ public final class a implements b {
         ArrayList arrayList = new ArrayList();
         for (e.b bVar : list) {
             if (bVar != null) {
-                if (bVar.aZX() == null) {
+                if (bVar.aZY() == null) {
                     if (com.baidu.swan.apps.core.pms.d.a.nJ(bVar.getBundleId())) {
                         arrayList.add(bVar);
                         hashMap.put(bVar.getBundleId(), null);
@@ -57,7 +57,7 @@ public final class a implements b {
                         set = new HashSet();
                     }
                     boolean z = false;
-                    for (String str2 : bVar.aZX()) {
+                    for (String str2 : bVar.aZY()) {
                         if (com.baidu.swan.apps.core.pms.d.a.bF(bVar.getBundleId(), str2) && !z) {
                             arrayList.add(bVar);
                             z = true;
@@ -75,7 +75,7 @@ public final class a implements b {
             }
             return;
         }
-        e eVar = new e(arrayList, am.aRU());
+        e eVar = new e(arrayList, am.aRV());
         eVar.zc(str);
         eVar.zb("1");
         c.a(eVar, new d(new com.baidu.swan.apps.core.pms.a() { // from class: com.baidu.swan.apps.core.a.a.a.1
@@ -93,11 +93,11 @@ public final class a implements b {
             }
 
             @Override // com.baidu.swan.apps.core.pms.a
-            public void arc() {
-                ard();
+            public void ard() {
+                are();
             }
 
-            private void ard() {
+            private void are() {
                 for (String str3 : hashMap.keySet()) {
                     ng(str3);
                 }
@@ -119,16 +119,16 @@ public final class a implements b {
     }
 
     public static void a(@NonNull List<b.a> list, @NonNull String str, @NonNull com.baidu.swan.apps.core.pms.a aVar) {
-        if (!nf(h.aPH().getString("predownload_network_switch", "1"))) {
+        if (!nf(h.aPI().getString("predownload_network_switch", "1"))) {
             aVar.iw(6);
             return;
         }
         List<b.a> h = com.baidu.swan.apps.core.pms.d.a.h(list);
         if (h.isEmpty()) {
-            aVar.arc();
+            aVar.ard();
             return;
         }
-        com.baidu.swan.pms.c.d.b bVar = new com.baidu.swan.pms.c.d.b((List<? extends b.a>) h, (com.baidu.swan.pms.utils.a) am.aRU());
+        com.baidu.swan.pms.c.d.b bVar = new com.baidu.swan.pms.c.d.b((List<? extends b.a>) h, (com.baidu.swan.pms.utils.a) am.aRV());
         bVar.zb("1");
         bVar.zc(str);
         c.a(bVar, new d(aVar));
@@ -140,9 +140,9 @@ public final class a implements b {
         }
         if (TextUtils.isEmpty(str)) {
             if (interfaceC0420a != null) {
-                interfaceC0420a.arg();
+                interfaceC0420a.arh();
             }
-        } else if (!nf(h.aPH().getString("predownload_network_switch", "1"))) {
+        } else if (!nf(h.aPI().getString("predownload_network_switch", "1"))) {
             if (interfaceC0420a != null) {
                 interfaceC0420a.ig(6);
             }
@@ -159,12 +159,12 @@ public final class a implements b {
             }
             c.a(cVar, new com.baidu.swan.apps.core.pms.d.b(str, interfaceC0420a) { // from class: com.baidu.swan.apps.core.a.a.a.2
                 @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
-                public void are() {
+                public void arf() {
                     this.cXk = str2;
                 }
 
                 @Override // com.baidu.swan.apps.core.pms.f
-                protected int arf() {
+                protected int arg() {
                     return i;
                 }
 

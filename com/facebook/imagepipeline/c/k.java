@@ -4,17 +4,17 @@ import android.os.Process;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class k implements ThreadFactory {
     private final AtomicInteger cmt = new AtomicInteger(1);
     private final String mPrefix;
     private final int mThreadPriority;
-    private final boolean pCb;
+    private final boolean pDI;
 
     public k(int i, String str, boolean z) {
         this.mThreadPriority = i;
         this.mPrefix = str;
-        this.pCb = z;
+        this.pDI = z;
     }
 
     @Override // java.util.concurrent.ThreadFactory
@@ -30,7 +30,7 @@ public class k implements ThreadFactory {
                 runnable.run();
             }
         };
-        if (this.pCb) {
+        if (this.pDI) {
             str = this.mPrefix + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.cmt.getAndIncrement();
         } else {
             str = this.mPrefix;

@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class b extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    private AdTemplate f8667b;
+    private AdTemplate f8668b;
     private AdInfo c;
     private List<Integer> d;
     private e e = new f() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.b.b.1
@@ -28,7 +28,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
             b.this.e();
-            com.kwad.sdk.core.report.b.a(b.this.f8667b, (JSONObject) null);
+            com.kwad.sdk.core.report.b.a(b.this.f8668b, (JSONObject) null);
         }
     };
 
@@ -40,7 +40,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         }
         for (Integer num : this.d) {
             if (ceil >= num.intValue()) {
-                com.kwad.sdk.core.report.b.b(this.f8667b, ceil, null);
+                com.kwad.sdk.core.report.b.b(this.f8668b, ceil, null);
                 this.d.remove(num);
                 return;
             }
@@ -49,23 +49,23 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        com.kwad.sdk.core.report.b.h(this.f8667b);
+        com.kwad.sdk.core.report.b.h(this.f8668b);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        com.kwad.sdk.core.report.b.i(this.f8667b);
+        com.kwad.sdk.core.report.b.i(this.f8668b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f8667b = this.f8692a.j;
-        this.c = c.j(this.f8667b);
+        this.f8668b = this.f8693a.j;
+        this.c = c.j(this.f8668b);
         this.d = com.kwad.sdk.core.response.b.a.M(this.c);
-        if (this.f8692a.m != null) {
-            this.f8692a.m.a(this.e);
+        if (this.f8693a.m != null) {
+            this.f8693a.m.a(this.e);
         }
     }
 
@@ -73,8 +73,8 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        if (this.f8692a.m != null) {
-            this.f8692a.m.b(this.e);
+        if (this.f8693a.m != null) {
+            this.f8693a.m.b(this.e);
         }
     }
 }

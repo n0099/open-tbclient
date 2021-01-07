@@ -19,11 +19,11 @@ public class b {
         this.abd = aVar.abd;
     }
 
-    public int aVI() {
+    public int aVJ() {
         return this.eby;
     }
 
-    public int aVJ() {
+    public int aVK() {
         return this.ebz;
     }
 
@@ -31,11 +31,11 @@ public class b {
         return this.ebw;
     }
 
-    public String aVK() {
+    public String aVL() {
         return this.ebv;
     }
 
-    public String aVL() {
+    public String aVM() {
         return this.ebx;
     }
 
@@ -82,7 +82,7 @@ public class b {
             return this;
         }
 
-        public b aVM() {
+        public b aVN() {
             return new b(this);
         }
     }

@@ -29,11 +29,11 @@ public class a extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (eVar == null || eVar.aMe() == null) {
+        if (eVar == null || eVar.aMf() == null) {
             com.baidu.swan.apps.console.c.e("chooseAlbum", "runtime exception");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
             return false;
-        } else if (eVar.ank()) {
+        } else if (eVar.anl()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
@@ -82,7 +82,7 @@ public class a extends aa {
         bundle.putString(UbcStatConstant.KEY_CONTENT_EXT_MODE, this.mMode);
         bundle.putBoolean("compressed", this.dlQ);
         bundle.putString("swanAppId", eVar.id);
-        bundle.putString("swanTmpPath", f.aDG().aDm().aPB());
+        bundle.putString("swanTmpPath", f.aDH().aDn().aPC());
         d.a(context, bundle, new com.baidu.swan.apps.media.chooser.listener.c() { // from class: com.baidu.swan.apps.media.chooser.a.a.2
             @Override // com.baidu.swan.apps.media.chooser.listener.c
             public void aN(List list) {

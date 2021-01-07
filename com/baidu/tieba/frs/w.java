@@ -52,7 +52,7 @@ public class w implements com.baidu.adp.widget.ListView.n {
         }
     }
 
-    public int bsH() {
+    public int bsI() {
         return this.jjc;
     }
 
@@ -60,11 +60,11 @@ public class w implements com.baidu.adp.widget.ListView.n {
         return this.jjd;
     }
 
-    public String cGR() {
+    public String cGS() {
         return this.jje;
     }
 
-    public boolean cGS() {
+    public boolean cGT() {
         return this.jjf;
     }
 

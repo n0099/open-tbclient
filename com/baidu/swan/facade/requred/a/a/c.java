@@ -29,8 +29,8 @@ public class c implements g {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
-    public void alF() {
-        this.cGb.alF();
+    public void alG() {
+        this.cGb.alG();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g

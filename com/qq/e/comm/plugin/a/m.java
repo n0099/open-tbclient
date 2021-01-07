@@ -17,23 +17,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class m implements SVSD, r.a {
     private static final ArrayList<String> e = new ArrayList<>();
     private static final HashMap<String, ReentrantLock> f = new HashMap<>();
 
     /* renamed from: a  reason: collision with root package name */
-    private final Service f11926a;
+    private final Service f11927a;
 
     /* renamed from: b  reason: collision with root package name */
-    private r f11927b;
+    private r f11928b;
     private final Context c;
     private final ConcurrentHashMap<String, Intent> d = new ConcurrentHashMap<>();
     private boolean g;
     private boolean h;
     private final k i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private class a extends s.a {
         private a() {
         }
@@ -80,7 +80,7 @@ public class m implements SVSD, r.a {
     }
 
     public m(Service service) {
-        this.f11926a = service;
+        this.f11927a = service;
         this.c = service.getApplicationContext();
         this.i = new k(this.c);
     }
@@ -149,19 +149,19 @@ public class m implements SVSD, r.a {
     }
 
     private void d() {
-        if (this.f11927b == null) {
-            this.f11927b = new r(this);
+        if (this.f11928b == null) {
+            this.f11928b = new r(this);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            this.c.registerReceiver(this.f11927b, intentFilter);
+            this.c.registerReceiver(this.f11928b, intentFilter);
             GDTLogger.d("注册网络状态广播接收器");
         }
     }
 
     private void e() {
-        if (this.f11927b != null) {
-            this.c.unregisterReceiver(this.f11927b);
-            this.f11927b = null;
+        if (this.f11928b != null) {
+            this.c.unregisterReceiver(this.f11928b);
+            this.f11928b = null;
             GDTLogger.d("取消网络状态广播接收器");
         }
     }
@@ -179,7 +179,7 @@ public class m implements SVSD, r.a {
         try {
             for (Intent intent : this.d.values()) {
                 j.a(intent, false);
-                this.f11926a.startService(intent);
+                this.f11927a.startService(intent);
             }
             this.d.clear();
         } catch (Throwable th) {
@@ -193,7 +193,7 @@ public class m implements SVSD, r.a {
 
     @Override // com.qq.e.comm.plugin.a.r.a
     public void a() {
-        com.qq.e.comm.plugin.util.s.f12888a.submit(new Runnable() { // from class: com.qq.e.comm.plugin.a.m.2
+        com.qq.e.comm.plugin.util.s.f12889a.submit(new Runnable() { // from class: com.qq.e.comm.plugin.a.m.2
             @Override // java.lang.Runnable
             public void run() {
                 m.this.f();
@@ -202,7 +202,7 @@ public class m implements SVSD, r.a {
     }
 
     void a(int i) {
-        this.f11926a.stopSelf(i);
+        this.f11927a.stopSelf(i);
     }
 
     @Override // com.qq.e.comm.plugin.a.r.a

@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.walknavi.fsm;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public abstract class RGState {
     public static final String METHOD_NAME_ENTER = "enter";
     public static final String METHOD_NAME_EXCUTE = "excute";

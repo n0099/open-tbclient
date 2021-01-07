@@ -23,14 +23,14 @@ import org.json.JSONObject;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3865a;
+    private static String f3866a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static s f3866b;
+    private static s f3867b;
     private Handler c;
 
     static {
-        f3865a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
+        f3866a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
     }
 
     private s() {
@@ -40,14 +40,14 @@ public class s {
     }
 
     public static s a() {
-        if (f3866b == null) {
+        if (f3867b == null) {
             synchronized (s.class) {
-                if (f3866b == null) {
-                    f3866b = new s();
+                if (f3867b == null) {
+                    f3867b = new s();
                 }
             }
         }
-        return f3866b;
+        return f3867b;
     }
 
     public void a(final Context context, final String str) {
@@ -138,7 +138,7 @@ public class s {
         }
         if (bw.c().booleanValue()) {
             try {
-                a(context, f3865a, str);
+                a(context, f3866a, str);
                 return true;
             } catch (Exception e) {
                 bb.c().c(e);

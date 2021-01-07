@@ -34,7 +34,7 @@ public class UbcFlowEvent {
         return this;
     }
 
-    public long aHD() {
+    public long aHE() {
         return this.mTime;
     }
 
@@ -47,7 +47,7 @@ public class UbcFlowEvent {
         return this;
     }
 
-    public String aHE() {
+    public String aHF() {
         return this.dtI;
     }
 
@@ -56,7 +56,7 @@ public class UbcFlowEvent {
         return this;
     }
 
-    public boolean aHF() {
+    public boolean aHG() {
         return this.dtK;
     }
 
@@ -65,16 +65,16 @@ public class UbcFlowEvent {
         return this;
     }
 
-    public RecordType aHG() {
+    public RecordType aHH() {
         return this.dtJ;
     }
 
     public String toString() {
         Locale locale = Locale.getDefault();
         Object[] objArr = new Object[3];
-        objArr[0] = Long.valueOf(aHD());
+        objArr[0] = Long.valueOf(aHE());
         objArr[1] = this.id;
-        objArr[2] = aHF() ? "(justLocalRecord)" : "";
+        objArr[2] = aHG() ? "(justLocalRecord)" : "";
         return String.format(locale, "Event at %d id = %s %s", objArr);
     }
 

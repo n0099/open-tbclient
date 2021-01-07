@@ -22,14 +22,14 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class d extends WebView {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final com.qq.e.comm.plugin.ab.b.b f12047a = new com.qq.e.comm.plugin.ab.b.b("webviewLayout", null);
+    private static final com.qq.e.comm.plugin.ab.b.b f12048a = new com.qq.e.comm.plugin.ab.b.b("webviewLayout", null);
 
     /* renamed from: b  reason: collision with root package name */
-    private com.qq.e.comm.plugin.ab.b.a f12048b;
+    private com.qq.e.comm.plugin.ab.b.a f12049b;
     private List<com.qq.e.comm.plugin.ab.a.b> c;
     private final c d;
     private Map<String, Object> e;
@@ -146,7 +146,7 @@ class d extends WebView {
     }
 
     public com.qq.e.comm.plugin.ab.b.a a() {
-        return this.f12048b;
+        return this.f12049b;
     }
 
     public void a(com.qq.e.comm.plugin.ab.a.a aVar) {
@@ -162,7 +162,7 @@ class d extends WebView {
     }
 
     public void a(com.qq.e.comm.plugin.ab.b.a aVar) {
-        this.f12048b = aVar;
+        this.f12049b = aVar;
     }
 
     public void a(h.a aVar) {
@@ -172,7 +172,7 @@ class d extends WebView {
     public void a(Collection<com.qq.e.comm.plugin.ab.c.e> collection) {
         if (collection != null) {
             for (com.qq.e.comm.plugin.ab.c.e eVar : collection) {
-                this.f12048b.a(eVar.b(), eVar);
+                this.f12049b.a(eVar.b(), eVar);
             }
         }
     }
@@ -255,7 +255,7 @@ class d extends WebView {
         super.onLayout(z, i, i2, i3, i4);
         if (!this.i) {
             this.i = true;
-            this.f12048b.a(f12047a);
+            this.f12049b.a(f12048a);
         }
         if (this.k != null) {
             this.k.j();

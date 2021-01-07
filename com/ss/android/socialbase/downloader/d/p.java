@@ -23,7 +23,7 @@ public interface p extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof p)) {
                 return (p) queryLocalInterface;
             }
-            return new C1217a(iBinder);
+            return new C1258a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -49,18 +49,18 @@ public interface p extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.d.p$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        private static class C1217a implements p {
+        private static class C1258a implements p {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13416a;
+            private IBinder f13417a;
 
-            C1217a(IBinder iBinder) {
-                this.f13416a = iBinder;
+            C1258a(IBinder iBinder) {
+                this.f13417a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13416a;
+                return this.f13417a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.p
@@ -69,7 +69,7 @@ public interface p extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadDiskSpaceAidlCallback");
-                    this.f13416a.transact(1, obtain, obtain2, 0);
+                    this.f13417a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

@@ -10,21 +10,21 @@ import tbclient.GiftInfo;
 import tbclient.User;
 /* loaded from: classes8.dex */
 public class g extends BaseCardInfo {
-    public static final BdUniqueId mxh = BdUniqueId.gen();
+    public static final BdUniqueId mxg = BdUniqueId.gen();
     public String Ot;
     public int giftNum = 0;
     public boolean mIsHost;
     public int mSex;
     public String mUid;
-    public boolean mxi;
-    public String mxj;
-    public List<com.baidu.adp.widget.ListView.n> mxk;
+    public boolean mxh;
+    public String mxi;
+    public List<com.baidu.adp.widget.ListView.n> mxj;
 
     public void parserProtoBuf(User user) {
         if (user != null && !x.isEmpty(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
             this.Ot = user.name;
-            this.mxj = user.name_show;
+            this.mxi = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.mIsHost = true;
@@ -32,28 +32,28 @@ public class g extends BaseCardInfo {
                 this.mIsHost = false;
             }
             if (user.sex.intValue() == 2) {
-                this.mxi = false;
+                this.mxh = false;
             } else {
-                this.mxi = true;
+                this.mxh = true;
             }
             this.giftNum = user.gift_num != null ? user.gift_num.intValue() : 0;
-            this.mxk = new ArrayList();
+            this.mxj = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     o oVar = new o();
                     oVar.a(giftInfo);
-                    this.mxk.add(oVar);
+                    this.mxj.add(oVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !x.isEmpty(this.mxk);
+        return !x.isEmpty(this.mxj);
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return mxh;
+        return mxg;
     }
 }

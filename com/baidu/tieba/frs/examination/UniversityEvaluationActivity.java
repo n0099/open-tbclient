@@ -28,7 +28,7 @@ public class UniversityEvaluationActivity extends BaseFragmentActivity {
         } else {
             this.jsG = new b(this, this.jst, this.jsv);
         }
-        this.jsG.cJr();
+        this.jsG.cJs();
         setContentView(this.jsG.getView());
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
@@ -56,7 +56,7 @@ public class UniversityEvaluationActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            this.jsG.cJq();
+            this.jsG.cJr();
             return true;
         }
         return super.onKeyDown(i, keyEvent);

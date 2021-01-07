@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class DuplayerQualityMonitorManager {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int[] f3245b = {480, UIMsg.MsgDefine.MSG_NETWORK_CHANNEL, 720, 1080};
+    private static final int[] f3246b = {480, UIMsg.MsgDefine.MSG_NETWORK_CHANNEL, 720, 1080};
     private static DuplayerQualityMonitorManager cjc;
     private ConcurrentHashMap<String, Integer> c = new ConcurrentHashMap<>();
     private int d = -1;
@@ -34,12 +34,12 @@ public class DuplayerQualityMonitorManager {
         if (min <= 0) {
             return UIMsg.MsgDefine.MSG_NETWORK_CHANNEL;
         }
-        for (int length = f3245b.length - 1; length >= 0; length--) {
-            if (min >= f3245b[length]) {
-                return f3245b[length];
+        for (int length = f3246b.length - 1; length >= 0; length--) {
+            if (min >= f3246b[length]) {
+                return f3246b[length];
             }
         }
-        return f3245b[0];
+        return f3246b[0];
     }
 
     /* JADX INFO: Access modifiers changed from: private */

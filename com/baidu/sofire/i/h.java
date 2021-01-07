@@ -21,10 +21,10 @@ import java.util.UUID;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f5540a = {"On7h9W1_KIkIa50wk9Fnl1friw1cdOsubmr_O-Hrgss=", "73Ry_SRX9WDHPoeAkGWfJbuntGR7RQ3rde1s6KyyCoo=", "iQirV45vitYDQfzxgr68ylBY1DWLBKje2Pl428sE27Q=", "czwe2zUrt14MfnaeH474T5prOCIik3agOnBud_KwFa0=", "JzLix2JtXzSSsVkQFD0Cnf37028Rco5rGb7_-t_C8Qk=", "lUApGLCwwTIqYrpC4ZaqkVItjc8DeoJ5fB_pxizrjnc=", "6PzPHS4JINi0q8yUj180JTMbpq1Q44DuQggknxVmVPA=", "fCbyLrInjq1BOByP4wH4mUGBidquiIKIy6zcJCBuKtk=", "qEeaB7chq_oSIUyWhq_EwETFQIu3w3myIFyGD80p_u8=", "UNzyljxPfmKANfePasqvdfmpLS4aJ1v0S1Aj2BGl75o="};
+    private static final String[] f5541a = {"On7h9W1_KIkIa50wk9Fnl1friw1cdOsubmr_O-Hrgss=", "73Ry_SRX9WDHPoeAkGWfJbuntGR7RQ3rde1s6KyyCoo=", "iQirV45vitYDQfzxgr68ylBY1DWLBKje2Pl428sE27Q=", "czwe2zUrt14MfnaeH474T5prOCIik3agOnBud_KwFa0=", "JzLix2JtXzSSsVkQFD0Cnf37028Rco5rGb7_-t_C8Qk=", "lUApGLCwwTIqYrpC4ZaqkVItjc8DeoJ5fB_pxizrjnc=", "6PzPHS4JINi0q8yUj180JTMbpq1Q44DuQggknxVmVPA=", "fCbyLrInjq1BOByP4wH4mUGBidquiIKIy6zcJCBuKtk=", "qEeaB7chq_oSIUyWhq_EwETFQIu3w3myIFyGD80p_u8=", "UNzyljxPfmKANfePasqvdfmpLS4aJ1v0S1Aj2BGl75o="};
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f5541b = "";
+    private static String f5542b = "";
 
     public static void a(Context context) {
         try {
@@ -45,21 +45,21 @@ public final class h {
         String str;
         synchronized (h.class) {
             try {
-                if (!TextUtils.isEmpty(f5541b)) {
-                    str = f5541b;
+                if (!TextUtils.isEmpty(f5542b)) {
+                    str = f5542b;
                 } else {
                     com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
                     String m = eVar.m();
                     if (!TextUtils.isEmpty(m)) {
                         str = e.f(m);
                         if (!TextUtils.isEmpty(str)) {
-                            f5541b = str;
+                            f5542b = str;
                         }
                     }
                     str = eVar.l();
                     if (!TextUtils.isEmpty(str)) {
                         eVar.b(new String(Base64.encode(a.a("30212102dicudiab".getBytes(), str.getBytes("UTF-8")), 10), "UTF-8"));
-                        f5541b = str;
+                        f5542b = str;
                     } else {
                         String k = k(context);
                         String e = e(context);
@@ -72,9 +72,9 @@ public final class h {
                         if (TextUtils.isEmpty(l)) {
                             eVar.a(str);
                             eVar.b(str2);
-                            f5541b = str;
+                            f5542b = str;
                         } else {
-                            f5541b = l;
+                            f5542b = l;
                             str = l;
                         }
                     }
@@ -90,7 +90,7 @@ public final class h {
     public static String c(Context context) {
         try {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            String string = eVar.f5521b.getString("sgud", "");
+            String string = eVar.f5522b.getString("sgud", "");
             if (TextUtils.isEmpty(string)) {
                 if (Build.VERSION.SDK_INT > 25) {
                     return "";
@@ -165,7 +165,7 @@ public final class h {
                 return "";
             }
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            if (eVar.f5520a.getInt("appinv_sai", 0) == 0 || !eVar.f5521b.getBoolean("s_a_pl", false)) {
+            if (eVar.f5521a.getInt("appinv_sai", 0) == 0 || !eVar.f5522b.getBoolean("s_a_pl", false)) {
                 return "";
             }
             return com.baidu.sofire.a.a.a(context);

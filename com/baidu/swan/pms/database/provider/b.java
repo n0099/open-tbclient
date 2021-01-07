@@ -81,7 +81,7 @@ public class b {
                 Log.e("PMSDBProvider", "query");
             }
             try {
-                return awt().getReadableDatabase().query(q, strArr, str, strArr2, null, null, str2, null);
+                return awu().getReadableDatabase().query(q, strArr, str, strArr2, null, null, str2, null);
             } catch (SQLException e) {
                 if (d.DEBUG) {
                     e.printStackTrace();
@@ -100,7 +100,7 @@ public class b {
                 Log.e("PMSDBProvider", "insert:" + contentValues.toString());
             }
             try {
-                long insertWithOnConflict = awt().getWritableDatabase().insertWithOnConflict(q, null, contentValues, 5);
+                long insertWithOnConflict = awu().getWritableDatabase().insertWithOnConflict(q, null, contentValues, 5);
                 if (insertWithOnConflict > 0) {
                     Uri withAppendedId = ContentUris.withAppendedId(uri, insertWithOnConflict);
                     this.mContext.getContentResolver().notifyChange(withAppendedId, null);
@@ -123,7 +123,7 @@ public class b {
                 Log.e("PMSDBProvider", "delete");
             }
             try {
-                int delete = awt().getWritableDatabase().delete(q, str, strArr);
+                int delete = awu().getWritableDatabase().delete(q, str, strArr);
                 if (delete > 0) {
                     this.mContext.getContentResolver().notifyChange(uri, null);
                     return delete;
@@ -145,7 +145,7 @@ public class b {
                 Log.e("PMSDBProvider", IMTrack.DbBuilder.ACTION_UPDATE);
             }
             try {
-                int update = awt().getWritableDatabase().update(q, contentValues, str, strArr);
+                int update = awu().getWritableDatabase().update(q, contentValues, str, strArr);
                 if (update > 0) {
                     this.mContext.getContentResolver().notifyChange(uri, null);
                     return update;
@@ -161,7 +161,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public SQLiteOpenHelper awt() {
-        return a.bgi();
+    public SQLiteOpenHelper awu() {
+        return a.bgj();
     }
 }

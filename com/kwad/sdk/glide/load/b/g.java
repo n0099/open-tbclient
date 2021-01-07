@@ -11,7 +11,7 @@ import java.util.Map;
 public class g implements com.kwad.sdk.glide.load.c {
 
     /* renamed from: b  reason: collision with root package name */
-    private final h f10385b;
+    private final h f10386b;
     @Nullable
     private final URL c;
     @Nullable
@@ -25,23 +25,23 @@ public class g implements com.kwad.sdk.glide.load.c {
     private int h;
 
     public g(String str) {
-        this(str, h.f10387b);
+        this(str, h.f10388b);
     }
 
     public g(String str, h hVar) {
         this.c = null;
         this.d = com.kwad.sdk.glide.g.j.a(str);
-        this.f10385b = (h) com.kwad.sdk.glide.g.j.a(hVar);
+        this.f10386b = (h) com.kwad.sdk.glide.g.j.a(hVar);
     }
 
     public g(URL url) {
-        this(url, h.f10387b);
+        this(url, h.f10388b);
     }
 
     public g(URL url, h hVar) {
         this.c = (URL) com.kwad.sdk.glide.g.j.a(url);
         this.d = null;
-        this.f10385b = (h) com.kwad.sdk.glide.g.j.a(hVar);
+        this.f10386b = (h) com.kwad.sdk.glide.g.j.a(hVar);
     }
 
     private URL d() {
@@ -64,7 +64,7 @@ public class g implements com.kwad.sdk.glide.load.c {
 
     private byte[] f() {
         if (this.g == null) {
-            this.g = c().getBytes(f10431a);
+            this.g = c().getBytes(f10432a);
         }
         return this.g;
     }
@@ -79,7 +79,7 @@ public class g implements com.kwad.sdk.glide.load.c {
     }
 
     public Map<String, String> b() {
-        return this.f10385b.a();
+        return this.f10386b.a();
     }
 
     public String c() {
@@ -90,7 +90,7 @@ public class g implements com.kwad.sdk.glide.load.c {
     public boolean equals(Object obj) {
         if (obj instanceof g) {
             g gVar = (g) obj;
-            return c().equals(gVar.c()) && this.f10385b.equals(gVar.f10385b);
+            return c().equals(gVar.c()) && this.f10386b.equals(gVar.f10386b);
         }
         return false;
     }
@@ -99,7 +99,7 @@ public class g implements com.kwad.sdk.glide.load.c {
     public int hashCode() {
         if (this.h == 0) {
             this.h = c().hashCode();
-            this.h = (this.h * 31) + this.f10385b.hashCode();
+            this.h = (this.h * 31) + this.f10386b.hashCode();
         }
         return this.h;
     }

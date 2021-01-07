@@ -6,7 +6,7 @@ import com.baidu.tieba.recapp.j;
 /* loaded from: classes8.dex */
 public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements com.baidu.tieba.play.e {
     com.baidu.tieba.lego.card.view.e<?> jCZ;
-    private j mNq;
+    private j mNp;
 
     public CardAppLegoViewHolder(com.baidu.tieba.lego.card.view.e<?> eVar) {
         super((View) eVar);
@@ -14,23 +14,23 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements com
     }
 
     public void a(j jVar) {
-        this.mNq = jVar;
+        this.mNp = jVar;
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlayStarted() {
-        if (this.mNq == null) {
+        if (this.mNp == null) {
             return false;
         }
-        return this.mNq.isPlayStarted();
+        return this.mNp.isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlaying() {
-        if (this.mNq == null) {
+        if (this.mNp == null) {
             return false;
         }
-        return this.mNq.isPlaying();
+        return this.mNp.isPlaying();
     }
 
     @Override // com.baidu.tieba.play.e
@@ -40,53 +40,53 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements com
 
     @Override // com.baidu.tieba.play.e
     public void startPlay() {
-        if (this.mNq != null) {
-            this.mNq.startPlay();
+        if (this.mNp != null) {
+            this.mNp.startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public void stopPlay() {
-        if (this.mNq != null) {
-            this.mNq.stopPlay();
+        if (this.mNp != null) {
+            this.mNp.stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public View getVideoContainer() {
-        if (this.mNq == null) {
+        if (this.mNp == null) {
             return null;
         }
-        return this.mNq.getVideoContainer();
+        return this.mNp.getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.e
     public String getPlayUrl() {
-        return this.mNq == null ? "" : this.mNq.getPlayUrl();
+        return this.mNp == null ? "" : this.mNp.getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.e
     public int getCurrentPosition() {
-        if (this.mNq == null) {
+        if (this.mNp == null) {
             return 0;
         }
-        return (int) this.mNq.getCurrentPosition();
+        return (int) this.mNp.getCurrentPosition();
     }
 
     public boolean canPlay() {
-        return this.mNq != null && this.mNq.canPlay();
+        return this.mNp != null && this.mNp.canPlay();
     }
 
     public void autoPlay(int i) {
-        if (this.mNq != null) {
-            this.mNq.autoPlay(i);
+        if (this.mNp != null) {
+            this.mNp.autoPlay(i);
         }
     }
 
     public int getPlayStatus() {
-        if (this.mNq == null) {
+        if (this.mNp == null) {
             return -2;
         }
-        return this.mNq.getPlayStatus();
+        return this.mNp.getPlayStatus();
     }
 }

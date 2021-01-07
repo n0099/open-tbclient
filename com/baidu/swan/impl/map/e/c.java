@@ -14,7 +14,7 @@ public abstract class c implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPo
     private List<OverlayOptions> etR;
     List<Overlay> etS;
 
-    public abstract List<OverlayOptions> beW();
+    public abstract List<OverlayOptions> beX();
 
     public c(BaiduMap baiduMap) {
         this.ery = null;
@@ -29,11 +29,11 @@ public abstract class c implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPo
         }
     }
 
-    public final void beX() {
+    public final void beY() {
         if (this.ery != null) {
-            beY();
-            if (beW() != null) {
-                this.etR.addAll(beW());
+            beZ();
+            if (beX() != null) {
+                this.etR.addAll(beX());
             }
             for (OverlayOptions overlayOptions : this.etR) {
                 this.etS.add(this.ery.addOverlay(overlayOptions));
@@ -41,7 +41,7 @@ public abstract class c implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPo
         }
     }
 
-    public final void beY() {
+    public final void beZ() {
         if (this.ery != null) {
             for (Overlay overlay : this.etS) {
                 overlay.remove();
@@ -51,7 +51,7 @@ public abstract class c implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPo
         }
     }
 
-    public void beZ() {
+    public void bfa() {
         if (this.ery != null && this.etS.size() > 0) {
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
             for (Overlay overlay : this.etS) {

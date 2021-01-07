@@ -39,7 +39,7 @@ public class m extends a<bm, ThreadCardViewHolder<bm>> implements com.baidu.tieb
         };
         this.ana = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.newdetail.adapter.a.m.2
             @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
-            public void bKt() {
+            public void bKu() {
                 m.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumSquareActivityConfig(m.this.mPageContext.getPageActivity(), m.this.mTabName)));
             }
         };
@@ -110,7 +110,7 @@ public class m extends a<bm, ThreadCardViewHolder<bm>> implements com.baidu.tieb
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 }

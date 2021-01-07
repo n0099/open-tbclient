@@ -17,10 +17,10 @@ public class LrcView extends FrameLayout {
     private static int B;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f2421a;
+    boolean f2422a;
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f2422b;
+    boolean f2423b;
     boolean c;
     int d;
     int e;
@@ -59,8 +59,8 @@ public class LrcView extends FrameLayout {
 
     public LrcView(@NonNull Context context) {
         super(context);
-        this.f2421a = false;
-        this.f2422b = false;
+        this.f2422a = false;
+        this.f2423b = false;
         this.c = false;
         this.d = 255;
         this.e = 127;
@@ -76,10 +76,10 @@ public class LrcView extends FrameLayout {
                     }
                     return;
                 }
-                LrcView.this.f2422b = false;
+                LrcView.this.f2423b = false;
                 LrcView.d(LrcView.this);
                 LrcView.this.toInvalidate();
-                LrcView.this.f2421a = false;
+                LrcView.this.f2422a = false;
             }
         };
         a();
@@ -87,8 +87,8 @@ public class LrcView extends FrameLayout {
 
     public LrcView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2421a = false;
-        this.f2422b = false;
+        this.f2422a = false;
+        this.f2423b = false;
         this.c = false;
         this.d = 255;
         this.e = 127;
@@ -104,10 +104,10 @@ public class LrcView extends FrameLayout {
                     }
                     return;
                 }
-                LrcView.this.f2422b = false;
+                LrcView.this.f2423b = false;
                 LrcView.d(LrcView.this);
                 LrcView.this.toInvalidate();
-                LrcView.this.f2421a = false;
+                LrcView.this.f2422a = false;
             }
         };
         a();
@@ -153,8 +153,8 @@ public class LrcView extends FrameLayout {
         if (this.p != null && this.p.size() != 0) {
             a(canvas, this.p);
             if (!this.c) {
-                if (this.f2422b && !this.f2421a) {
-                    this.f2421a = true;
+                if (this.f2423b && !this.f2422a) {
+                    this.f2422a = true;
                     if (this.q == 0) {
                         getHandler().postDelayed(this.m, 200L);
                         return;
@@ -183,7 +183,7 @@ public class LrcView extends FrameLayout {
                         } else if (this.f >= 108 && this.f <= 144) {
                             this.f += 2;
                         } else {
-                            this.f2422b = true;
+                            this.f2423b = true;
                         }
                         this.u.setColor(Color.argb(111, 255, 255, 255));
                         canvas.drawCircle(this.v[0], this.v[1], this.w, this.u);
@@ -241,7 +241,7 @@ public class LrcView extends FrameLayout {
                             canvas.drawText(list.get(i2), this.n / 2, (this.o / 2) + ((int) ((B * (A - this.j)) / A)), this.s);
                             this.j++;
                         } else {
-                            this.f2422b = true;
+                            this.f2423b = true;
                             this.s.setTextSize(this.y);
                             this.s.setAlpha(this.d);
                             canvas.drawText(list.get(i2), this.n / 2, this.o / 2, this.s);
@@ -250,7 +250,7 @@ public class LrcView extends FrameLayout {
                         if (this.k < A) {
                             this.k++;
                         } else {
-                            this.f2422b = true;
+                            this.f2423b = true;
                         }
                         this.s.setTextSize(this.z);
                         this.s.setAlpha(this.e);
@@ -263,7 +263,7 @@ public class LrcView extends FrameLayout {
                         canvas.drawText(list.get(i2), this.n / 2, (this.o / 2) + ((int) ((B * (A - this.f)) / A)), this.s);
                         this.f++;
                     } else {
-                        this.f2422b = true;
+                        this.f2423b = true;
                         this.s.setTextSize(this.y);
                         this.s.setAlpha(this.d);
                         canvas.drawText(list.get(i2), this.n / 2, this.o / 2, this.s);

@@ -32,10 +32,10 @@ public class aj extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (bVar.aoj() == 0) {
+        if (bVar.aok() == 0) {
             bVar.hS(canvas.save());
         } else {
-            canvas.restoreToCount(bVar.aoj());
+            canvas.restoreToCount(bVar.aok());
             bVar.hS(canvas.save());
         }
         Matrix matrix = new Matrix();

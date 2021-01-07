@@ -15,11 +15,11 @@ public class a implements c {
     private long bvY;
     private long gqJ;
     private Activity mActivity;
-    private b oml;
+    private b omk;
 
     public a(Activity activity) {
         this.mActivity = activity;
-        aaf();
+        aag();
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a.c
@@ -44,7 +44,7 @@ public class a implements c {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a.c
     public void cb(String str, int i) {
-        this.oml = new b(this.mActivity);
+        this.omk = new b(this.mActivity);
         g gVar = new g();
         AlaLastLiveroomInfo alaLastLiveroomInfo = new AlaLastLiveroomInfo();
         alaLastLiveroomInfo.setLastLiveId(this.bvY);
@@ -53,25 +53,25 @@ public class a implements c {
         alaLastLiveroomInfo.setLastAnchorPortrait(this.aQH);
         alaLastLiveroomInfo.setFrom(AlaLastLiveroomInfo.TYPE_FROM_HALF_WEBVIEW);
         alaLastLiveroomInfo.setIsAudio(1);
-        gVar.w(this.mActivity).a(this.oml).a(this.oml.getWebView().getSchemeCallback()).bA(this.gqJ).jj(this.aQG).dD(this.aVQ).bB(this.bvY).a(alaLastLiveroomInfo);
-        com.baidu.live.view.web.a[] aae = gVar.aae();
-        for (com.baidu.live.view.web.a aVar : aae) {
-            this.oml.getWebView().addJavascriptInterface(aVar, aVar.getName());
+        gVar.w(this.mActivity).a(this.omk).a(this.omk.getWebView().getSchemeCallback()).bA(this.gqJ).jj(this.aQG).dD(this.aVQ).bB(this.bvY).a(alaLastLiveroomInfo);
+        com.baidu.live.view.web.a[] aaf = gVar.aaf();
+        for (com.baidu.live.view.web.a aVar : aaf) {
+            this.omk.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.oml.aJ(str, i);
+        this.omk.aJ(str, i);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a.c
     public void resume() {
-        if (this.oml != null && this.oml.isShowing() && this.oml.getWebView() != null) {
-            this.oml.getWebView().onResume();
+        if (this.omk != null && this.omk.isShowing() && this.omk.getWebView() != null) {
+            this.omk.getWebView().onResume();
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a.c
     public void pause() {
-        if (this.oml != null && this.oml.isShowing() && this.oml.getWebView() != null) {
-            this.oml.getWebView().onPause();
+        if (this.omk != null && this.omk.isShowing() && this.omk.getWebView() != null) {
+            this.omk.getWebView().onPause();
         }
     }
 
@@ -80,21 +80,21 @@ public class a implements c {
         this.gqJ = 0L;
         this.aQG = "";
         MessageManager.getInstance().unRegisterListener(this.bXd);
-        if (this.oml != null) {
-            this.oml.aag();
-            if (this.oml.getWebView() != null) {
-                this.oml.getWebView().release();
+        if (this.omk != null) {
+            this.omk.aah();
+            if (this.omk.getWebView() != null) {
+                this.omk.getWebView().release();
             }
         }
     }
 
-    private void aaf() {
+    private void aag() {
         this.bXd = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.yuyinala.liveroom.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (a.this.oml != null && a.this.oml.isShowing()) {
-                    a.this.oml.dismiss();
+                if (a.this.omk != null && a.this.omk.isShowing()) {
+                    a.this.omk.dismiss();
                 }
             }
         };

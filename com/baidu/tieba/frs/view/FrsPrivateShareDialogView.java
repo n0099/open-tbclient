@@ -179,7 +179,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         this.jNt.setDefaultResource(R.drawable.pic_frs_head_default);
         this.jNt.setRadius(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds30));
         this.jNt.setConrers(3);
-        cPj();
+        cPk();
         this.jdI = (TextView) this.mRootView.findViewById(R.id.frs_private_share_name);
         ao.setViewTextColor(this.jdI, R.color.CAM_X0101);
         this.jOE = (TextView) this.mRootView.findViewById(R.id.frs_private_share_brief);
@@ -234,7 +234,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         }
     }
 
-    private void cPj() {
+    private void cPk() {
         ForumData forum;
         ThemeElement themeElement;
         String str;
@@ -254,8 +254,8 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             } else {
                 themeElement = themeColorInfo.day;
             }
-            if (this.jFx.getStar() != null && !StringUtils.isNull(this.jFx.getStar().dOm())) {
-                str = this.jFx.getStar().dOm();
+            if (this.jFx.getStar() != null && !StringUtils.isNull(this.jFx.getStar().dOn())) {
+                str = this.jFx.getStar().dOn();
             } else {
                 str = themeElement.pattern_image;
             }

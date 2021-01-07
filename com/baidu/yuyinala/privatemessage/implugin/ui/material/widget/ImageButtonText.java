@@ -33,7 +33,7 @@ public class ImageButtonText extends ImageButton {
             this.Yn = (int) (3.0f * f);
             this.fye = (int) (f * 9.0f);
             this.color = Color.parseColor("#F43531");
-            if (ThemeManager.enQ() == ThemeManager.ThemeMode.NIGHT) {
+            if (ThemeManager.enR() == ThemeManager.ThemeMode.NIGHT) {
                 this.color = Color.parseColor("#79251f");
             }
         }

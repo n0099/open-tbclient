@@ -39,7 +39,7 @@ final class b {
             } catch (IOException e) {
                 Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e);
                 if (context instanceof c.a) {
-                    ((c.a) context).getSplash().diQ();
+                    ((c.a) context).getSplash().diR();
                 }
                 m = m(file2, file);
                 a(context, ae(file2), af, m.size() + 1);
@@ -47,7 +47,7 @@ final class b {
         } else {
             Log.i("MultiDex", "Detected that extraction must be performed.");
             if (context instanceof c.a) {
-                ((c.a) context).getSplash().diQ();
+                ((c.a) context).getSplash().diR();
             }
             m = m(file2, file);
             a(context, ae(file2), af, m.size() + 1);

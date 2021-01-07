@@ -57,9 +57,9 @@ public class k extends a {
                     this.mSrcRect = new Rect(optInt, optInt2, optInt3 + optInt, optInt4 + optInt2);
                 }
             }
-            com.baidu.swan.apps.runtime.e arO = com.baidu.swan.apps.v.f.aDG().arO();
-            if (arO != null) {
-                String a4 = a(this.cMl, arO);
+            com.baidu.swan.apps.runtime.e arP = com.baidu.swan.apps.v.f.aDH().arP();
+            if (arP != null) {
+                String a4 = a(this.cMl, arP);
                 if (!TextUtils.isEmpty(a4)) {
                     this.mBitmap = BitmapFactory.decodeFile(a4);
                 } else if (!TextUtils.isEmpty(this.cMl)) {
@@ -121,13 +121,13 @@ public class k extends a {
         if (this.mLoadStatus == 0 && bVar.cLW != null && bVar.cLW.getContext() != null && !TextUtils.isEmpty(this.cMl)) {
             this.mLoadStatus = 1;
             Context context = bVar.cLW.getContext();
-            final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> e = com.facebook.drawee.a.a.c.euK().e(ImageRequestBuilder.aj(Uri.parse(this.cMl)).eBe(), context);
+            final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> e = com.facebook.drawee.a.a.c.euR().e(ImageRequestBuilder.aj(Uri.parse(this.cMl)).eBI(), context);
             e.a(new com.facebook.imagepipeline.d.b() { // from class: com.baidu.swan.apps.canvas.a.a.k.1
                 @Override // com.facebook.imagepipeline.d.b
                 public void f(@Nullable Bitmap bitmap) {
                     if (e.isFinished() && bitmap != null) {
                         k.this.mBitmap = Bitmap.createBitmap(bitmap);
-                        e.ath();
+                        e.ati();
                         if (bVar.cLW != null) {
                             bVar.cLW.postInvalidate();
                         }
@@ -139,11 +139,11 @@ public class k extends a {
                 @Override // com.facebook.datasource.a
                 public void a(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> bVar2) {
                     if (bVar2 != null) {
-                        bVar2.ath();
+                        bVar2.ati();
                     }
                     k.this.mLoadStatus = 3;
                 }
-            }, com.facebook.common.b.f.etR());
+            }, com.facebook.common.b.i.etX());
         }
     }
 

@@ -9,7 +9,7 @@ import java.security.MessageDigest;
 public final class e implements c {
 
     /* renamed from: b  reason: collision with root package name */
-    private final ArrayMap<d<?>, Object> f10434b = new com.kwad.sdk.glide.g.b();
+    private final ArrayMap<d<?>, Object> f10435b = new com.kwad.sdk.glide.g.b();
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
@@ -19,17 +19,17 @@ public final class e implements c {
 
     @NonNull
     public <T> e a(@NonNull d<T> dVar, @NonNull T t) {
-        this.f10434b.put(dVar, t);
+        this.f10435b.put(dVar, t);
         return this;
     }
 
     @Nullable
     public <T> T a(@NonNull d<T> dVar) {
-        return this.f10434b.containsKey(dVar) ? (T) this.f10434b.get(dVar) : dVar.a();
+        return this.f10435b.containsKey(dVar) ? (T) this.f10435b.get(dVar) : dVar.a();
     }
 
     public void a(@NonNull e eVar) {
-        this.f10434b.putAll((SimpleArrayMap<? extends d<?>, ? extends Object>) eVar.f10434b);
+        this.f10435b.putAll((SimpleArrayMap<? extends d<?>, ? extends Object>) eVar.f10435b);
     }
 
     @Override // com.kwad.sdk.glide.load.c
@@ -37,10 +37,10 @@ public final class e implements c {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.f10434b.size()) {
+            if (i2 >= this.f10435b.size()) {
                 return;
             }
-            a(this.f10434b.keyAt(i2), this.f10434b.valueAt(i2), messageDigest);
+            a(this.f10435b.keyAt(i2), this.f10435b.valueAt(i2), messageDigest);
             i = i2 + 1;
         }
     }
@@ -48,17 +48,17 @@ public final class e implements c {
     @Override // com.kwad.sdk.glide.load.c
     public boolean equals(Object obj) {
         if (obj instanceof e) {
-            return this.f10434b.equals(((e) obj).f10434b);
+            return this.f10435b.equals(((e) obj).f10435b);
         }
         return false;
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public int hashCode() {
-        return this.f10434b.hashCode();
+        return this.f10435b.hashCode();
     }
 
     public String toString() {
-        return "Options{values=" + this.f10434b + '}';
+        return "Options{values=" + this.f10435b + '}';
     }
 }

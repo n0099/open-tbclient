@@ -17,13 +17,13 @@ public interface a extends IInterface {
         public static class C0365a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            public static a f5578a;
+            public static a f5579a;
 
             /* renamed from: b  reason: collision with root package name */
-            private IBinder f5579b;
+            private IBinder f5580b;
 
             C0365a(IBinder iBinder) {
-                this.f5579b = iBinder;
+                this.f5580b = iBinder;
             }
 
             @Override // com.baidu.sofire.l.a
@@ -36,7 +36,7 @@ public interface a extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     obtain.writeString(str3);
-                    if (this.f5579b.transact(1, obtain, obtain2, 0) || AbstractBinderC0364a.a() == null) {
+                    if (this.f5580b.transact(1, obtain, obtain2, 0) || AbstractBinderC0364a.a() == null) {
                         obtain2.readException();
                         readString = obtain2.readString();
                     } else {
@@ -51,12 +51,12 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public final IBinder asBinder() {
-                return this.f5579b;
+                return this.f5580b;
             }
         }
 
         public static a a() {
-            return C0365a.f5578a;
+            return C0365a.f5579a;
         }
 
         public static a a(IBinder iBinder) {

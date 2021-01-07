@@ -6,35 +6,35 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
     protected volatile int fgC;
-    protected volatile HashMap<Long, Integer> nuM = new HashMap<>();
+    protected volatile HashMap<Long, Integer> nuL = new HashMap<>();
     private volatile int mWeight = 0;
 
     public d(int i) {
         this.fgC = i;
     }
 
-    public void TK(String str) {
+    public void TJ(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.nuM.size() >= this.fgC) {
-                    dQq();
+                if (this.nuL.size() >= this.fgC) {
+                    dQr();
                 }
                 this.mWeight++;
-                this.nuM.put(valueOf, Integer.valueOf(this.mWeight));
+                this.nuL.put(valueOf, Integer.valueOf(this.mWeight));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void dQq() {
+    public void dQr() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.nuM.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.nuL.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     i = entry.getValue().intValue();
                     l = entry.getKey();
@@ -46,19 +46,19 @@ public class d {
                 l2 = l;
             }
             if (l2 != null) {
-                this.nuM.remove(l2);
+                this.nuL.remove(l2);
             } else {
-                this.nuM.clear();
+                this.nuL.clear();
             }
         }
     }
 
-    public boolean TL(String str) {
+    public boolean TK(String str) {
         boolean z;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.nuM.get(valueOf) != null;
+                z = this.nuL.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -67,18 +67,18 @@ public class d {
         }
     }
 
-    public boolean TM(String str) {
+    public boolean TL(String str) {
         try {
-            return this.nuM.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.nuL.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void dQp() {
+    public void dQq() {
         synchronized (this) {
-            this.nuM.clear();
+            this.nuL.clear();
         }
     }
 }

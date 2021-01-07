@@ -127,18 +127,18 @@ public final class m {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final PrintWriter f7968a;
+        private final PrintWriter f7969a;
 
         a(PrintWriter printWriter) {
-            this.f7968a = printWriter;
+            this.f7969a = printWriter;
         }
 
         Object a() {
-            return this.f7968a;
+            return this.f7969a;
         }
 
         void a(Object obj) {
-            this.f7968a.println(obj);
+            this.f7969a.println(obj);
         }
     }
 

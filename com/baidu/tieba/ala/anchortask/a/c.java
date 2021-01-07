@@ -38,33 +38,33 @@ public class c extends e implements f {
         return this.byR;
     }
 
-    public void GB(String str) {
+    public void GA(String str) {
         View findViewById;
-        int aaj;
         int aak;
+        int aal;
         if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && (findViewById = ((Activity) this.mContext).getWindow().getDecorView().findViewById(16908290)) != null) {
             switch (UtilHelper.getRealScreenOrientation(this.mContext)) {
                 case 1:
                     this.bXh = 80;
-                    aaj = aah();
                     aak = aai();
+                    aal = aaj();
                     this.byQ.setCornerRadius(this.byT, this.byT, 0.0f, 0.0f);
                     break;
                 case 2:
                     this.bXh = 5;
-                    aaj = aaj();
                     aak = aak();
+                    aal = aal();
                     this.byQ.setCornerRadius(this.byT, 0.0f, 0.0f, this.byT);
                     break;
                 default:
                     this.bXh = 80;
-                    aaj = aah();
                     aak = aai();
+                    aal = aaj();
                     this.byQ.setCornerRadius(this.byT, this.byT, 0.0f, 0.0f);
                     break;
             }
-            setWidth(aaj);
-            setHeight(aak);
+            setWidth(aak);
+            setHeight(aal);
             showAtLocation(findViewById, 85, 0, 0);
             if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
                 ah(this.byQ);
@@ -74,14 +74,14 @@ public class c extends e implements f {
         }
     }
 
-    public void aag() {
+    public void aah() {
         super.dismiss();
     }
 
     @Override // com.baidu.live.view.e, android.widget.PopupWindow
     public void dismiss() {
-        if (!aal()) {
-            aag();
+        if (!aam()) {
+            aah();
         }
     }
 
@@ -157,19 +157,19 @@ public class c extends e implements f {
         this.byS.setVisibility(8);
     }
 
-    private int aah() {
+    private int aai() {
         return ScreenHelper.getRealScreenWidth(this.mContext);
     }
 
-    private int aai() {
+    private int aaj() {
         return (int) Math.min(ScreenHelper.getRealScreenHeight(this.mContext) * 0.64f, this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds856));
     }
 
-    private int aaj() {
-        return (aak() * 375) / 470;
+    private int aak() {
+        return (aal() * 375) / 470;
     }
 
-    private int aak() {
+    private int aal() {
         return ScreenHelper.getRealScreenHeight(this.mContext);
     }
 
@@ -192,7 +192,7 @@ public class c extends e implements f {
         }
     }
 
-    private boolean aal() {
+    private boolean aam() {
         if (getContentView() == null) {
             return false;
         }
@@ -215,7 +215,7 @@ public class c extends e implements f {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    c.this.aag();
+                    c.this.aah();
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener

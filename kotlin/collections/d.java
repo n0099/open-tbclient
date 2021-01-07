@@ -9,7 +9,7 @@ import java.util.RandomAccess;
 @kotlin.e
 /* loaded from: classes5.dex */
 public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
-    public static final a qlG = new a(null);
+    public static final a qno = new a(null);
 
     @Override // java.util.List
     public void add(int i, E e) {
@@ -50,36 +50,36 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
     @Override // java.util.List
     public List<E> subList(int i, int i2) {
-        return new C1272d(this, i, i2);
+        return new C1313d(this, i, i2);
     }
 
     @kotlin.e
     /* renamed from: kotlin.collections.d$d  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    private static final class C1272d<E> extends d<E> implements RandomAccess {
-        private int qlI;
-        private final d<E> qlJ;
-        private final int qlK;
+    private static final class C1313d<E> extends d<E> implements RandomAccess {
+        private int qnq;
+        private final d<E> qnr;
+        private final int qns;
 
         /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.collections.d<? extends E> */
         /* JADX WARN: Multi-variable type inference failed */
-        public C1272d(d<? extends E> dVar, int i, int i2) {
+        public C1313d(d<? extends E> dVar, int i, int i2) {
             kotlin.jvm.internal.p.o(dVar, "list");
-            this.qlJ = dVar;
-            this.qlK = i;
-            d.qlG.al(this.qlK, i2, this.qlJ.size());
-            this.qlI = i2 - this.qlK;
+            this.qnr = dVar;
+            this.qns = i;
+            d.qno.am(this.qns, i2, this.qnr.size());
+            this.qnq = i2 - this.qns;
         }
 
         @Override // kotlin.collections.d, java.util.List
         public E get(int i) {
-            d.qlG.ej(i, this.qlI);
-            return this.qlJ.get(this.qlK + i);
+            d.qno.el(i, this.qnq);
+            return this.qnr.get(this.qns + i);
         }
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.qlI;
+            return this.qnq;
         }
     }
 
@@ -89,14 +89,14 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             return true;
         }
         if (obj instanceof List) {
-            return qlG.a(this, (Collection) obj);
+            return qno.a(this, (Collection) obj);
         }
         return false;
     }
 
     @Override // java.util.Collection, java.util.List
     public int hashCode() {
-        return qlG.m(this);
+        return qno.n(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -154,7 +154,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
         public c(int i) {
             super();
-            d.qlG.ek(i, d.this.size());
+            d.qno.em(i, d.this.size());
             setIndex(i);
         }
 
@@ -194,19 +194,19 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             this();
         }
 
-        public final void ej(int i, int i2) {
+        public final void el(int i, int i2) {
             if (i < 0 || i >= i2) {
                 throw new IndexOutOfBoundsException("index: " + i + ", size: " + i2);
             }
         }
 
-        public final void ek(int i, int i2) {
+        public final void em(int i, int i2) {
             if (i < 0 || i > i2) {
                 throw new IndexOutOfBoundsException("index: " + i + ", size: " + i2);
             }
         }
 
-        public final void al(int i, int i2, int i3) {
+        public final void am(int i, int i2, int i3) {
             if (i < 0 || i2 > i3) {
                 throw new IndexOutOfBoundsException("fromIndex: " + i + ", toIndex: " + i2 + ", size: " + i3);
             }
@@ -215,7 +215,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             }
         }
 
-        public final int m(Collection<?> collection) {
+        public final int n(Collection<?> collection) {
             kotlin.jvm.internal.p.o(collection, "c");
             int i = 1;
             Iterator<?> it = collection.iterator();

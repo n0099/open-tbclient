@@ -10,12 +10,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class b {
     private static int sCoreNum = 0;
-    private static long pJY = 0;
+    private static long pLG = 0;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     class a implements FileFilter {
         a() {
         }
@@ -40,7 +40,7 @@ public class b {
 
     public static long getFreeMemory() {
         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        ((ActivityManager) com.github.a.a.c.eBv().provideContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
+        ((ActivityManager) com.github.a.a.c.eBZ().provideContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
         return memoryInfo.availMem / 1024;
     }
 
@@ -52,7 +52,7 @@ public class b {
     public static long getTotalMemory() {
         FileReader fileReader;
         String readLine;
-        if (pJY == 0) {
+        if (pLG == 0) {
             FileReader fileReader2 = null;
             try {
                 try {
@@ -78,8 +78,8 @@ public class b {
                                 Log.e("PerformanceUtils", "close localFileReader exception = ", e3);
                             }
                         }
-                        pJY = r0;
-                        return pJY;
+                        pLG = r0;
+                        return pLG;
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -101,8 +101,8 @@ public class b {
                 }
                 throw th;
             }
-            pJY = r0;
+            pLG = r0;
         }
-        return pJY;
+        return pLG;
     }
 }

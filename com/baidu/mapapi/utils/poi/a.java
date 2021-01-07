@@ -5,15 +5,15 @@ import android.util.Log;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.platform.comapi.pano.a;
 import com.baidu.platform.comapi.pano.c;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 final class a implements a.InterfaceC0293a<c> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f3073a;
+    final /* synthetic */ Context f3074a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.f3073a = context;
+        this.f3074a = context;
     }
 
     @Override // com.baidu.platform.comapi.pano.a.InterfaceC0293a
@@ -53,7 +53,7 @@ final class a implements a.InterfaceC0293a<c> {
                     return;
                 }
                 try {
-                    BaiduMapPoiSearch.b(cVar.b(), this.f3073a);
+                    BaiduMapPoiSearch.b(cVar.b(), this.f3074a);
                     return;
                 } catch (Exception e) {
                     e.printStackTrace();

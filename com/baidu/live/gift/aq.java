@@ -22,7 +22,7 @@ public class aq extends HttpMessage {
 
     public void c(String str, String str2, String str3, String str4, int i, int i2, String str5, String str6, int i3, long j) {
         this.giftId = str;
-        this.sceneFrom = com.baidu.live.utils.t.XF();
+        this.sceneFrom = com.baidu.live.utils.t.XG();
         this.aZh = i;
         this.aZS = str6;
         this.aZQ = j;

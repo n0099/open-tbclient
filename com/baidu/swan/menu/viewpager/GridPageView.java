@@ -14,7 +14,7 @@ import android.widget.ListAdapter;
 import com.baidu.swan.menu.f;
 import com.baidu.swan.menu.viewpager.SlideableGridView;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GridPageView extends FrameLayout {
     private AutoGridView evO;
     private SlideableGridView.a evP;
@@ -73,7 +73,7 @@ public class GridPageView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends BaseAdapter {
         private Context mContext;
 
@@ -112,7 +112,7 @@ public class GridPageView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class AutoGridView extends GridView {
         private int evR;
         private int evS;
@@ -132,7 +132,7 @@ public class GridPageView extends FrameLayout {
         @Override // android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
         protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
             super.onLayout(z, i, i2, i3, i4);
-            bfs();
+            bft();
         }
 
         @Override // android.view.View
@@ -140,12 +140,12 @@ public class GridPageView extends FrameLayout {
             int firstVisiblePosition = getFirstVisiblePosition();
             if (this.evR != firstVisiblePosition) {
                 this.evR = firstVisiblePosition;
-                bfs();
+                bft();
             }
             super.onScrollChanged(i, i2, i3, i4);
         }
 
-        private void bfs() {
+        private void bft() {
             int i = 0;
             if (getAdapter() != null) {
                 ArrayList<Integer> arrayList = new ArrayList();

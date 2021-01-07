@@ -12,14 +12,14 @@ import java.util.Map;
 public final class g implements w {
 
     /* renamed from: a  reason: collision with root package name */
-    final boolean f7179a;
+    final boolean f7180a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.bytedance.sdk.openadsdk.d.b.c f7180b;
+    private final com.bytedance.sdk.openadsdk.d.b.c f7181b;
 
     public g(com.bytedance.sdk.openadsdk.d.b.c cVar, boolean z) {
-        this.f7180b = cVar;
-        this.f7179a = z;
+        this.f7181b = cVar;
+        this.f7180a = z;
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.w
@@ -29,7 +29,7 @@ public final class g implements w {
             return null;
         }
         Type[] b3 = com.bytedance.sdk.openadsdk.d.b.b.b(b2, com.bytedance.sdk.openadsdk.d.b.b.e(b2));
-        return new a(fVar, b3[0], a(fVar, b3[0]), b3[1], fVar.a((com.bytedance.sdk.openadsdk.d.c.a) com.bytedance.sdk.openadsdk.d.c.a.a(b3[1])), this.f7180b.a(aVar));
+        return new a(fVar, b3[0], a(fVar, b3[0]), b3[1], fVar.a((com.bytedance.sdk.openadsdk.d.c.a) com.bytedance.sdk.openadsdk.d.c.a.a(b3[1])), this.f7181b.a(aVar));
     }
 
     private v<?> a(com.bytedance.sdk.openadsdk.d.f fVar, Type type) {
@@ -40,7 +40,7 @@ public final class g implements w {
     private final class a<K, V> extends v<Map<K, V>> {
 
         /* renamed from: b  reason: collision with root package name */
-        private final v<K> f7182b;
+        private final v<K> f7183b;
         private final v<V> c;
         private final com.bytedance.sdk.openadsdk.d.b.i<? extends Map<K, V>> d;
 
@@ -50,7 +50,7 @@ public final class g implements w {
         }
 
         public a(com.bytedance.sdk.openadsdk.d.f fVar, Type type, v<K> vVar, Type type2, v<V> vVar2, com.bytedance.sdk.openadsdk.d.b.i<? extends Map<K, V>> iVar) {
-            this.f7182b = new m(fVar, vVar, type);
+            this.f7183b = new m(fVar, vVar, type);
             this.c = new m(fVar, vVar2, type2);
             this.d = iVar;
         }
@@ -69,7 +69,7 @@ public final class g implements w {
                 aVar.a();
                 while (aVar.e()) {
                     aVar.a();
-                    K b2 = this.f7182b.b(aVar);
+                    K b2 = this.f7183b.b(aVar);
                     if (a2.put(b2, this.c.b(aVar)) != null) {
                         throw new t("duplicate key: " + b2);
                     }
@@ -80,8 +80,8 @@ public final class g implements w {
             }
             aVar.c();
             while (aVar.e()) {
-                com.bytedance.sdk.openadsdk.d.b.f.f7257a.a(aVar);
-                K b3 = this.f7182b.b(aVar);
+                com.bytedance.sdk.openadsdk.d.b.f.f7258a.a(aVar);
+                K b3 = this.f7183b.b(aVar);
                 if (a2.put(b3, this.c.b(aVar)) != null) {
                     throw new t("duplicate key: " + b3);
                 }
@@ -97,7 +97,7 @@ public final class g implements w {
             int i = 0;
             if (map == null) {
                 cVar.f();
-            } else if (!g.this.f7179a) {
+            } else if (!g.this.f7180a) {
                 cVar.d();
                 for (Map.Entry<K, V> entry : map.entrySet()) {
                     cVar.a(String.valueOf(entry.getKey()));
@@ -109,7 +109,7 @@ public final class g implements w {
                 ArrayList arrayList2 = new ArrayList(map.size());
                 boolean z = false;
                 for (Map.Entry<K, V> entry2 : map.entrySet()) {
-                    com.bytedance.sdk.openadsdk.d.l a2 = this.f7182b.a(entry2.getKey());
+                    com.bytedance.sdk.openadsdk.d.l a2 = this.f7183b.a(entry2.getKey());
                     arrayList.add(a2);
                     arrayList2.add(entry2.getValue());
                     z = (a2.g() || a2.h()) | z;

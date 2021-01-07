@@ -30,10 +30,10 @@ import com.kwad.sdk.utils.ao;
 public class a extends com.kwad.sdk.contentalliance.detail.photo.comment.a {
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f8833a;
+    boolean f8834a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f8834b;
+    private TextView f8835b;
     private ImageView c;
     private ImageView d;
     private RelativeLayout e;
@@ -45,7 +45,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.comment.a {
 
     public a(Context context) {
         super(context);
-        this.f8833a = false;
+        this.f8834a = false;
         a();
     }
 
@@ -54,7 +54,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.comment.a {
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_photo_comment_item_2, (ViewGroup) this, true);
         this.c = (ImageView) findViewById(R.id.ksad_photo_comment_item_avatar);
         this.d = (ImageView) findViewById(R.id.ksad_photo_comment_item_self_img);
-        this.f8834b = (TextView) findViewById(R.id.ksad_photo_comment_item_name);
+        this.f8835b = (TextView) findViewById(R.id.ksad_photo_comment_item_name);
         this.e = (RelativeLayout) findViewById(R.id.ksad_photo_comment_item_content_frame);
         this.g = (TextView) this.e.findViewById(R.id.ksad_photo_comment_item_comment);
         this.g.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.a.a.1
@@ -125,12 +125,12 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.comment.a {
     }
 
     private void c() {
-        if (this.f8833a) {
+        if (this.f8834a) {
             setCommentText(this.j);
             return;
         }
         Layout layout = this.g.getLayout();
-        if (layout == null || this.i == null || this.i.f8746a == null) {
+        if (layout == null || this.i == null || this.i.f8747a == null) {
             return;
         }
         int lineCount = layout.getLineCount();
@@ -139,9 +139,9 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.comment.a {
             this.f.setVisibility(0);
         } else if (this.i.f) {
         } else {
-            setCommentText(b(this.i.f8746a.content, this.i.f8746a.timestamp));
+            setCommentText(b(this.i.f8747a.content, this.i.f8747a.timestamp));
             this.g.setOnClickListener(null);
-            this.f8833a = true;
+            this.f8834a = true;
         }
     }
 
@@ -150,16 +150,16 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.comment.a {
         this.h.setLikeStateListener(new CommentLikeButton.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.a.a.3
             @Override // com.kwad.sdk.contentalliance.detail.photo.comment.CommentLikeButton.a
             public void a(int i2) {
-                if (a.this.i == null || a.this.i.f8746a == null) {
+                if (a.this.i == null || a.this.i.f8747a == null) {
                     return;
                 }
                 if (i2 == 2) {
-                    c.a(a.this.i.f8746a.photo_id, a.this.i.f8746a.comment_id);
-                    e.b(a.this.i.f8747b, a.this.i.f8746a.comment_id);
+                    c.a(a.this.i.f8747a.photo_id, a.this.i.f8747a.comment_id);
+                    e.b(a.this.i.f8748b, a.this.i.f8747a.comment_id);
                     return;
                 }
-                c.b(a.this.i.f8746a.photo_id, a.this.i.f8746a.comment_id);
-                e.c(a.this.i.f8747b, a.this.i.f8746a.comment_id);
+                c.b(a.this.i.f8747a.photo_id, a.this.i.f8747a.comment_id);
+                e.c(a.this.i.f8748b, a.this.i.f8747a.comment_id);
             }
         });
     }
@@ -195,18 +195,18 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.comment.a {
             return;
         }
         com.kwad.sdk.core.d.a.a("CommentItemView2", "bindCommentItemViewData commentHolderData=" + bVar + " commentPosition=" + bVar.e + " isCommentOpen=" + bVar.d);
-        this.f8833a = false;
+        this.f8834a = false;
         this.i = bVar;
         if (this.i.d) {
             this.g.setMaxLines(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
         } else {
             this.g.setMaxLines(4);
         }
-        a(this.i.f8746a);
-        a(this.i.f8746a, d.o(com.kwad.sdk.core.response.b.c.k(bVar.f8747b)));
+        a(this.i.f8747a);
+        a(this.i.f8747a, d.o(com.kwad.sdk.core.response.b.c.k(bVar.f8748b)));
     }
 
     public void setName(String str) {
-        this.f8834b.setText(str);
+        this.f8835b.setText(str);
     }
 }

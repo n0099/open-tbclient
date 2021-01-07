@@ -47,7 +47,7 @@ public class a extends BaseAdapter {
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.live.yuyingift.container.a.1
         private void a(g gVar, C0244a c0244a) {
             com.baidu.live.gift.c hA;
-            if (gVar.GK() && gVar.aXO == 0 && !com.baidu.live.yuyingift.b.b.aaZ().gV(gVar.Gx()) && (hA = com.baidu.live.yuyingift.b.b.aaZ().hA(gVar.Gx())) != null) {
+            if (gVar.GK() && gVar.aXO == 0 && !com.baidu.live.yuyingift.b.b.aba().gV(gVar.Gx()) && (hA = com.baidu.live.yuyingift.b.b.aba().hA(gVar.Gx())) != null) {
                 am.Ih().a(hA.aXb, true);
             }
         }
@@ -151,7 +151,7 @@ public class a extends BaseAdapter {
                     break;
                 }
                 g item = getItem(i2);
-                if (item == null || TextUtils.isEmpty(item.Gx()) || (hA = com.baidu.live.yuyingift.b.b.aaZ().hA(item.Gx())) == null || TextUtils.isEmpty(hA.getDynamicGiftId()) || !hA.getDynamicGiftId().equals(str) || !TextUtils.equals(aj.hh(item.Gx()), str2)) {
+                if (item == null || TextUtils.isEmpty(item.Gx()) || (hA = com.baidu.live.yuyingift.b.b.aba().hA(item.Gx())) == null || TextUtils.isEmpty(hA.getDynamicGiftId()) || !hA.getDynamicGiftId().equals(str) || !TextUtils.equals(aj.hh(item.Gx()), str2)) {
                     i2++;
                 } else {
                     item.aXO = i;
@@ -311,7 +311,7 @@ public class a extends BaseAdapter {
                         }
                     } else if (item.GK()) {
                         c0244a.bbw.setVisibility(0);
-                        if (!com.baidu.live.yuyingift.b.b.aaZ().gV(item.Gx())) {
+                        if (!com.baidu.live.yuyingift.b.b.aba().gV(item.Gx())) {
                             c0244a.bbC.setText(" ");
                             c0244a.bbw.setClickable(true);
                             c0244a.bZf.setTag(a.f.TAG_GIFT_ITEM, item);
@@ -330,7 +330,7 @@ public class a extends BaseAdapter {
                                     c0244a.bZg.setVisibility(0);
                                     c0244a.bZg.playAnimation();
                                 }
-                            } else if (com.baidu.live.yuyingift.b.b.aaZ().hA(item.Gx()) != null) {
+                            } else if (com.baidu.live.yuyingift.b.b.aba().hA(item.Gx()) != null) {
                                 c0244a.bZg.setVisibility(8);
                                 c0244a.bZg.cancelAnimation();
                                 c0244a.bbw.setVisibility(0);

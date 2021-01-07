@@ -5,10 +5,10 @@ import java.util.HashMap;
 public abstract class RouterProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1973a = true;
+    private boolean f1974a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    private HashMap<String, RouterAction> f1974b = new HashMap<>();
+    private HashMap<String, RouterAction> f1975b = new HashMap<>();
 
     protected abstract void registerActions();
 
@@ -18,14 +18,14 @@ public abstract class RouterProvider {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void registerAction(String str, RouterAction routerAction) {
-        this.f1974b.put(str, routerAction);
+        this.f1975b.put(str, routerAction);
     }
 
     public RouterAction findAction(String str) {
-        return this.f1974b.get(str);
+        return this.f1975b.get(str);
     }
 
     public boolean isValid() {
-        return this.f1973a;
+        return this.f1974a;
     }
 }

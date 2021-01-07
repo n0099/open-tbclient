@@ -31,16 +31,16 @@ public abstract class h<LIST, D, VH extends b> extends BaseAdapter implements Vi
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
         this.mData = list;
-        bSg();
+        bSh();
     }
 
     public void setData(LIST list) {
         this.mData = list;
-        bSg();
+        bSh();
         notifyDataSetChanged();
     }
 
-    protected void bSg() {
+    protected void bSh() {
         this.abC = -1;
     }
 

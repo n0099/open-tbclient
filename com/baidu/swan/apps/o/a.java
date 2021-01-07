@@ -55,7 +55,7 @@ public class a extends d {
         if (optJSONObject == null) {
             optJSONObject = new JSONObject();
         }
-        com.baidu.swan.apps.api.c.b a2 = com.baidu.swan.apps.t.a.aBo().a(optString, optJSONObject, bVar);
+        com.baidu.swan.apps.api.c.b a2 = com.baidu.swan.apps.t.a.aBp().a(optString, optJSONObject, bVar);
         if (a2 == null) {
             return new com.baidu.swan.apps.api.c.b(0);
         }

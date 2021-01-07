@@ -46,7 +46,7 @@ public class a {
     }
 
     public void onChangeSkinType(int i) {
-        LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.f.a.b.bwV().qq(0).ae(this.juv).b("TL_BR", R.color.CAM_X0212, R.color.CAM_X0212).bwX(), com.baidu.tbadk.core.util.f.a.b.bwV().qq(0).ae(this.juv).Cr("#4D000000").bwX()});
+        LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.f.a.b.bwW().qq(0).ae(this.juv).b("TL_BR", R.color.CAM_X0212, R.color.CAM_X0212).bwY(), com.baidu.tbadk.core.util.f.a.b.bwW().qq(0).ae(this.juv).Cq("#4D000000").bwY()});
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
             if (layerDrawable.getDrawable(1) != null) {
                 layerDrawable.getDrawable(1).setAlpha(255);
@@ -59,7 +59,7 @@ public class a {
         c.bv(this.juu).pC(R.color.CAM_X0109);
     }
 
-    public void La(String str) {
+    public void KZ(String str) {
         if (this.juu != null) {
             this.juu.setText(str);
         }

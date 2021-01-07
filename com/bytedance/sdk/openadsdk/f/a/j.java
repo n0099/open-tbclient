@@ -11,10 +11,10 @@ import java.util.Set;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    WebView f7427a;
+    WebView f7428a;
 
     /* renamed from: b  reason: collision with root package name */
-    a f7428b;
+    a f7429b;
     h d;
     Context e;
     boolean f;
@@ -32,7 +32,7 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(@NonNull WebView webView) {
-        this.f7427a = webView;
+        this.f7428a = webView;
     }
 
     j() {
@@ -69,7 +69,7 @@ public class j {
     }
 
     private void c() {
-        if ((this.f7427a == null && !this.n && this.f7428b == null) || ((TextUtils.isEmpty(this.c) && this.f7427a != null) || this.d == null)) {
+        if ((this.f7428a == null && !this.n && this.f7429b == null) || ((TextUtils.isEmpty(this.c) && this.f7428a != null) || this.d == null)) {
             throw new IllegalArgumentException("Requested arguments aren't set properly when building JsBridge.");
         }
     }

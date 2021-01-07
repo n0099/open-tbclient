@@ -33,11 +33,11 @@ public class d {
         return this.mRootView;
     }
 
-    public ImageView cwc() {
+    public ImageView cwd() {
         return this.iCe;
     }
 
-    public MessageRedDotView cwd() {
+    public MessageRedDotView cwe() {
         return this.iCf;
     }
 

@@ -55,14 +55,14 @@ public class c extends BdBaseModel {
                     if (c.this.caJ != null) {
                         if (httpResponsedMessage.getOrginalMessage() != null && (httpResponsedMessage.getOrginalMessage() instanceof an)) {
                             an anVar = (an) httpResponsedMessage.getOrginalMessage();
-                            if (com.baidu.live.yuyingift.b.b.aaZ().gX(anVar.giftId)) {
-                                TiebaInitialize.log(new StatisticItem("c12793").param("obj_id", anVar.giftId).param("obj_param1", anVar.aYv).param("obj_locate", BdNetTypeUtil.isWifiNet() ? 1 : 0).param(TiebaInitialize.Params.OBJ_PARAM2, com.baidu.live.yuyingift.b.b.aaZ().gV(anVar.giftId) ? 1 : 0));
+                            if (com.baidu.live.yuyingift.b.b.aba().gX(anVar.giftId)) {
+                                TiebaInitialize.log(new StatisticItem("c12793").param("obj_id", anVar.giftId).param("obj_param1", anVar.aYv).param("obj_locate", BdNetTypeUtil.isWifiNet() ? 1 : 0).param(TiebaInitialize.Params.OBJ_PARAM2, com.baidu.live.yuyingift.b.b.aba().gV(anVar.giftId) ? 1 : 0));
                             }
                         }
                         c.this.caJ.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, Long.valueOf(((YuyinAlaGiftSendHttpResponseMessage) httpResponsedMessage).Kl()), ((YuyinAlaGiftSendHttpResponseMessage) httpResponsedMessage).Km());
-                        com.baidu.live.yuyingift.a.a aba = ((YuyinAlaGiftSendHttpResponseMessage) httpResponsedMessage).aba();
-                        if (aba != null) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ad(c.this.bha.getPageActivity(), aba.beo, aba.bep, aba.beq, aba.ber)));
+                        com.baidu.live.yuyingift.a.a abb = ((YuyinAlaGiftSendHttpResponseMessage) httpResponsedMessage).abb();
+                        if (abb != null) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ad(c.this.bha.getPageActivity(), abb.beo, abb.bep, abb.beq, abb.ber)));
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913024));
                         }
                     }
@@ -178,7 +178,7 @@ public class c extends BdBaseModel {
                 long j2 = anVar.aYw;
                 anVar.sceneFrom = bVar.sceneFrom;
                 anVar.aZR = bVar.boI;
-                anVar.addParam("scene_from", t.XF());
+                anVar.addParam("scene_from", t.XG());
                 anVar.addParam(LogConfig.LOG_GIFT_ID, bVar.aPa);
                 anVar.addParam("benefit_username", bVar.userName);
                 anVar.addParam("benefit_userid", bVar.userId);
@@ -209,7 +209,7 @@ public class c extends BdBaseModel {
                 long j3 = apVar.aYw;
                 apVar.sceneFrom = bVar.sceneFrom;
                 apVar.aZR = bVar.boI;
-                apVar.addParam("scene_from", t.XF());
+                apVar.addParam("scene_from", t.XG());
                 apVar.addParam(LogConfig.LOG_GIFT_ID, bVar.aPa);
                 apVar.addParam("benefit_username", bVar.userName);
                 apVar.addParam("benefit_userid", bVar.userId);
@@ -237,7 +237,7 @@ public class c extends BdBaseModel {
                 long j4 = anVar2.aYw;
                 anVar2.aZR = bVar.boI;
                 anVar2.sceneFrom = bVar.sceneFrom;
-                anVar2.addParam("scene_from", t.XF());
+                anVar2.addParam("scene_from", t.XG());
                 anVar2.addParam(LogConfig.LOG_GIFT_ID, bVar.aPa);
                 anVar2.addParam("benefit_username", bVar.userName);
                 anVar2.addParam("benefit_userid", bVar.userId);

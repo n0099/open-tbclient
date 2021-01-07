@@ -148,12 +148,12 @@ public class TbCDNTachometerService extends BdBaseService {
             if (!z2) {
                 synchronized (lock) {
                     if (0 == lastTachometerTime) {
-                        lastTachometerTime = com.baidu.tbadk.core.sharedPref.b.bvq().getLong(LAST_GETCDNLIST_TIME, 0L);
+                        lastTachometerTime = com.baidu.tbadk.core.sharedPref.b.bvr().getLong(LAST_GETCDNLIST_TIME, 0L);
                     }
                     long currentTimeMillis = System.currentTimeMillis();
                     if (0 == lastTachometerTime || currentTimeMillis - lastTachometerTime >= 300000) {
                         lastTachometerTime = currentTimeMillis;
-                        com.baidu.tbadk.core.sharedPref.b.bvq().putLong(LAST_GETCDNLIST_TIME, currentTimeMillis);
+                        com.baidu.tbadk.core.sharedPref.b.bvr().putLong(LAST_GETCDNLIST_TIME, currentTimeMillis);
                     } else {
                         return;
                     }

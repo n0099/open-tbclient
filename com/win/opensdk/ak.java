@@ -11,8 +11,8 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public final class ak {
-    private static HashMap<String, String> qcO = new HashMap<>();
-    private static boolean qbE = false;
+    private static HashMap<String, String> qew = new HashMap<>();
+    private static boolean qdm = false;
 
     public static String R(Map<String, String> map) {
         StringBuilder sb = new StringBuilder();
@@ -22,9 +22,9 @@ public final class ak {
         return sb.substring(0, sb.length() - 1);
     }
 
-    private static String abN(String str) {
+    private static String abO(String str) {
         try {
-            return bc.abO(str);
+            return bc.abP(str);
         } catch (Exception e) {
             return str;
         }
@@ -32,31 +32,31 @@ public final class ak {
 
     public static HashMap<String, String> iO(Context context) {
         HashMap<String, String> hashMap;
-        if (qbE) {
-            hashMap = qcO;
+        if (qdm) {
+            hashMap = qew;
         } else {
-            qcO.put("app", context.getPackageName());
-            qcO.put("sdkna", "norm-1.1.3");
-            qcO.put("plat", "a");
-            qcO.put("model", Build.MODEL);
-            qcO.put("manu", Build.MANUFACTURER);
-            qcO.put("sysv", String.valueOf(Build.VERSION.SDK_INT));
-            qcO.put("h", String.valueOf(bd.iT(context)));
-            qcO.put("w", String.valueOf(bd.iS(context)));
-            qcO.put("appv", String.valueOf(bd.a(context)));
-            qcO.put("appvn", bd.iQ(context));
-            qcO.put("rt", ay.java() ? "1" : "0");
-            qcO.put("dpi", String.valueOf(context.getResources().getDisplayMetrics().densityDpi));
+            qew.put("app", context.getPackageName());
+            qew.put("sdkna", "norm-1.1.3");
+            qew.put("plat", "a");
+            qew.put("model", Build.MODEL);
+            qew.put("manu", Build.MANUFACTURER);
+            qew.put("sysv", String.valueOf(Build.VERSION.SDK_INT));
+            qew.put("h", String.valueOf(bd.iT(context)));
+            qew.put("w", String.valueOf(bd.iS(context)));
+            qew.put("appv", String.valueOf(bd.a(context)));
+            qew.put("appvn", bd.iQ(context));
+            qew.put("rt", ay.java() ? "1" : "0");
+            qew.put("dpi", String.valueOf(context.getResources().getDisplayMetrics().densityDpi));
             String java = bd.java();
             if (!TextUtils.isEmpty(java)) {
-                qcO.put("serial", abN(java));
+                qew.put("serial", abO(java));
             }
             String d = bd.d(context);
             if (!TextUtils.isEmpty(d)) {
-                qcO.put("imsi", abN(d));
+                qew.put("imsi", abO(d));
             }
-            qbE = true;
-            hashMap = qcO;
+            qdm = true;
+            hashMap = qew;
         }
         HashMap<String, String> hashMap2 = new HashMap<>();
         if (hashMap != null) {
@@ -64,11 +64,11 @@ public final class ak {
         }
         String c = bd.c(context);
         if (!TextUtils.isEmpty(c)) {
-            hashMap2.put("imei", abN(c));
+            hashMap2.put("imei", abO(c));
         }
-        String m63a = bd.m63a(context);
-        if (!TextUtils.isEmpty(m63a)) {
-            hashMap2.put("opcode", m63a);
+        String m74a = bd.m74a(context);
+        if (!TextUtils.isEmpty(m74a)) {
+            hashMap2.put("opcode", m74a);
         }
         String iR = bd.iR(context);
         if (!TextUtils.isEmpty(iR)) {
@@ -76,7 +76,7 @@ public final class ak {
         }
         String iR2 = at.iR(context);
         if (!TextUtils.isEmpty(iR2)) {
-            hashMap2.put("oaid", abN(iR2));
+            hashMap2.put("oaid", abO(iR2));
         }
         hashMap2.put("lic", az.iQ(context));
         hashMap2.put("locale", Locale.getDefault().getLanguage());
@@ -84,28 +84,28 @@ public final class ak {
         if (!TextUtils.isEmpty(b2)) {
             hashMap2.put("net", b2);
         }
-        hashMap2.put("bt", az.m54a(context));
-        String eJS = bd.eJS();
-        if (!TextUtils.isEmpty(eJS)) {
-            hashMap2.put("wm", abN(eJS));
+        hashMap2.put("bt", az.m65a(context));
+        String eKw = bd.eKw();
+        if (!TextUtils.isEmpty(eKw)) {
+            hashMap2.put("wm", abO(eKw));
         }
-        double d2 = au.a.eKa().qcY;
+        double d2 = au.a.eKE().qeG;
         if (d2 > 0.0d) {
-            hashMap2.put("lau", abN(String.valueOf(d2)));
-            hashMap2.put("lon", abN(String.valueOf(au.a.eKa().qcZ)));
+            hashMap2.put("lau", abO(String.valueOf(d2)));
+            hashMap2.put("lon", abO(String.valueOf(au.a.eKE().qeH)));
         }
         try {
             String java2 = bl.java();
             if (!TextUtils.isEmpty(java2)) {
-                hashMap2.put("oid", abN(java2));
+                hashMap2.put("oid", abO(java2));
             }
             String a2 = bl.a();
             if (!TextUtils.isEmpty(a2)) {
-                hashMap2.put("vid", abN(a2));
+                hashMap2.put("vid", abO(a2));
             }
-            String eJS2 = bl.eJS();
-            if (!TextUtils.isEmpty(eJS2)) {
-                hashMap2.put("aid", abN(eJS2));
+            String eKw2 = bl.eKw();
+            if (!TextUtils.isEmpty(eKw2)) {
+                hashMap2.put("aid", abO(eKw2));
             }
         } catch (Exception e) {
             e.printStackTrace();

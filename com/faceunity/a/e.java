@@ -23,25 +23,25 @@ public class e {
     private MediaCodec mEncoder;
     private Surface mInputSurface;
     private int mTrackIndex;
-    private g nsP;
-    private c pGu;
+    private g nsO;
+    private c pIc;
     private Bundle dvx = new Bundle();
-    private long pGY = 0;
-    private boolean pGT = false;
+    private long pIG = 0;
+    private boolean pIB = false;
 
     public e(int i, int i2, int i3, c cVar) throws IOException {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, k.class);
         k kVar = runTask != null ? (k) runTask.getData() : null;
         if (kVar != null) {
-            this.nsP = kVar.diP();
+            this.nsO = kVar.diQ();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
-        MediaFormat createVideoFormat = MediaFormat.createVideoFormat(f.f2362b, i, i2);
+        MediaFormat createVideoFormat = MediaFormat.createVideoFormat(f.f2363b, i, i2);
         createVideoFormat.setInteger("color-format", 2130708361);
         createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, i3);
         createVideoFormat.setInteger("frame-rate", 20);
         createVideoFormat.setInteger("i-frame-interval", 1);
-        this.mEncoder = MediaCodec.createEncoderByType(f.f2362b);
+        this.mEncoder = MediaCodec.createEncoderByType(f.f2363b);
         this.mEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
         this.mInputSurface = this.mEncoder.createInputSurface();
         this.mEncoder.start();
@@ -51,11 +51,11 @@ public class e {
         }
         this.mTrackIndex = -1;
         this.cim = false;
-        this.pGu = cVar;
+        this.pIc = cVar;
     }
 
     public synchronized void requestStop() {
-        this.pGT = true;
+        this.pIB = true;
     }
 
     public Surface getInputSurface() {
@@ -68,15 +68,15 @@ public class e {
             this.mEncoder.release();
             this.mEncoder = null;
         }
-        if (this.pGu != null) {
+        if (this.pIc != null) {
             try {
-                this.pGu.stop();
+                this.pIc.stop();
             } catch (IllegalStateException e) {
-                if (this.nsP != null) {
-                    this.nsP.bD(17, com.baidu.tieba.l.a.p(e));
+                if (this.nsO != null) {
+                    this.nsO.bD(17, com.baidu.tieba.l.a.p(e));
                 }
             }
-            this.pGu = null;
+            this.pIc = null;
         }
     }
 
@@ -99,19 +99,19 @@ public class e {
                 }
                 MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                 Log.d("VideoEncoder", "encoder output format changed: " + outputFormat);
-                this.mTrackIndex = this.pGu.f(outputFormat);
-                if (!this.pGu.start()) {
-                    synchronized (this.pGu) {
-                        while (!this.pGu.isStarted() && !this.pGT) {
+                this.mTrackIndex = this.pIc.f(outputFormat);
+                if (!this.pIc.start()) {
+                    synchronized (this.pIc) {
+                        while (!this.pIc.isStarted() && !this.pIB) {
                             try {
-                                this.pGu.wait(100L);
+                                this.pIc.wait(100L);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
                     }
                 }
-                if (!this.pGT) {
+                if (!this.pIB) {
                     this.cim = true;
                 } else {
                     return;
@@ -132,12 +132,12 @@ public class e {
                     }
                     byteBuffer.position(this.mBufferInfo.offset);
                     byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                    this.pGu.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
+                    this.pIc.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
                 }
                 this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
-                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.pGY >= 500) {
+                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.pIG >= 500) {
                     this.mEncoder.setParameters(this.dvx);
-                    this.pGY = System.currentTimeMillis();
+                    this.pIG = System.currentTimeMillis();
                 }
                 if ((this.mBufferInfo.flags & 4) != 0) {
                     if (!z) {

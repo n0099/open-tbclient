@@ -18,7 +18,7 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
     public static final String TAG = "BDVRRenderDelegate";
 
     /* renamed from: b  reason: collision with root package name */
-    private Method f3228b;
+    private Method f3229b;
     private final Object c;
     private final a ciQ;
     private Method ciR;
@@ -81,7 +81,7 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
         this.h = com.baidu.media.duplayer.a.a.a(cls, "switchDisplayMode", Integer.TYPE);
         this.i = com.baidu.media.duplayer.a.a.a(cls, "switchProjectionMode", Integer.TYPE);
         this.j = com.baidu.media.duplayer.a.a.a(cls, MissionEvent.MESSAGE_RESUME, new Class[0]);
-        this.f3228b = com.baidu.media.duplayer.a.a.a(cls, MissionEvent.MESSAGE_PAUSE, new Class[0]);
+        this.f3229b = com.baidu.media.duplayer.a.a.a(cls, MissionEvent.MESSAGE_PAUSE, new Class[0]);
         this.k = com.baidu.media.duplayer.a.a.a(cls, MissionEvent.MESSAGE_DESTROY, new Class[0]);
         this.l = com.baidu.media.duplayer.a.a.a(cls, "onOrientationChanged", new Class[0]);
         this.m = com.baidu.media.duplayer.a.a.a(cls, "displayMode", Integer.TYPE);
@@ -227,12 +227,12 @@ public class CyberVRRenderProviderImpl extends CyberVRRenderProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberVRRenderProvider
     public void onPause() {
-        if (this.c == null || this.f3228b == null) {
-            CyberLog.e(TAG, "can not call onPause method. mBdVRRender = " + this.c + ", mOnPause = " + this.f3228b);
+        if (this.c == null || this.f3229b == null) {
+            CyberLog.e(TAG, "can not call onPause method. mBdVRRender = " + this.c + ", mOnPause = " + this.f3229b);
             return;
         }
         try {
-            this.f3228b.invoke(this.c, new Object[0]);
+            this.f3229b.invoke(this.c, new Object[0]);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e2) {

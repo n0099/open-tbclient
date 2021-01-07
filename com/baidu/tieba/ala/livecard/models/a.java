@@ -49,9 +49,9 @@ public class a implements an {
                         } else {
                             bz bzVar = (bz) a.this.dataList.get(size);
                             if (bzVar != null) {
-                                if (bzVar.brJ() == null) {
+                                if (bzVar.brK() == null) {
                                     z = z2;
-                                } else if (closedIds.contains(Long.valueOf(bzVar.brJ().live_id))) {
+                                } else if (closedIds.contains(Long.valueOf(bzVar.brK().live_id))) {
                                     a.this.dataList.remove(size);
                                     z = true;
                                 }
@@ -161,7 +161,7 @@ public class a implements an {
     }
 
     @Override // com.baidu.tieba.frs.an
-    public void cbG() {
+    public void cbH() {
         MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD);
         unRegisterListener();
     }

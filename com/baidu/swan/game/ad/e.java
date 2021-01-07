@@ -14,7 +14,7 @@ public class e extends b {
     }
 
     @Override // com.baidu.swan.game.ad.b
-    public View aUH() {
+    public View aUI() {
         return LayoutInflater.from(this.mContext).inflate(c.f.ng_game_portrait_por_play, (ViewGroup) null);
     }
 
@@ -23,7 +23,7 @@ public class e extends b {
     }
 
     @Override // com.baidu.swan.game.ad.b
-    public String aUI() {
+    public String aUJ() {
         return "reward_banner_html";
     }
 }

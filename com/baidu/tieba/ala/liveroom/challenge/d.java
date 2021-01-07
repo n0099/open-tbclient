@@ -8,7 +8,7 @@ public interface d {
 
     void a(bc bcVar, bg bgVar, bg bgVar2);
 
-    void cfy();
+    void cfA();
 
     void cfz();
 }

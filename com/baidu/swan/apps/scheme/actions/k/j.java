@@ -7,7 +7,7 @@ import java.util.Map;
 /* loaded from: classes9.dex */
 public class j {
     public static String tj(String str) {
-        return c(str, com.baidu.swan.apps.runtime.d.aMg().aMc().aMt());
+        return c(str, com.baidu.swan.apps.runtime.d.aMh().aMd().aMu());
     }
 
     public static String c(String str, SwanAppConfigData swanAppConfigData) {

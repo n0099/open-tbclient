@@ -16,7 +16,7 @@ public class a extends com.kwad.sdk.core.e.b {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.b f10824b;
+    public com.kwad.sdk.reward.a.b f10825b;
     @NonNull
     public KsVideoPlayConfig c;
     @Nullable
@@ -41,13 +41,13 @@ public class a extends com.kwad.sdk.core.e.b {
     public boolean q;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<com.kwad.sdk.reward.a.a> f10823a = new ArrayList();
+    public List<com.kwad.sdk.reward.a.a> f10824a = new ArrayList();
     public Set<com.kwad.sdk.reward.a.e> n = new HashSet();
     public Set<com.kwad.sdk.reward.a.d> o = new HashSet();
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        this.f10823a.clear();
+        this.f10824a.clear();
         this.n.clear();
         this.i.h();
         if (this.j != null) {

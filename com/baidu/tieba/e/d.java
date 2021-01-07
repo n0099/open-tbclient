@@ -11,7 +11,7 @@ public class d extends BaseCardInfo {
         this.iCW = bVar;
     }
 
-    public com.baidu.tieba.frs.gamerecommend.data.b cww() {
+    public com.baidu.tieba.frs.gamerecommend.data.b cwx() {
         return this.iCW;
     }
 

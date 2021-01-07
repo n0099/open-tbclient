@@ -19,11 +19,11 @@ public class b {
         this.jdT = new ArrayList<>();
     }
 
-    public static b cDX() {
+    public static b cDY() {
         return a.jdW;
     }
 
-    public boolean cDR() {
+    public boolean cDS() {
         return this.jdU;
     }
 
@@ -52,7 +52,7 @@ public class b {
         return true;
     }
 
-    public List<bz> cDU() {
+    public List<bz> cDV() {
         return this.jdT;
     }
 
@@ -92,7 +92,7 @@ public class b {
         private static b jdW = new b();
     }
 
-    public AntiData cDY() {
+    public AntiData cDZ() {
         return this.ftd;
     }
 
@@ -136,7 +136,7 @@ public class b {
         }
     }
 
-    public boolean cDZ() {
+    public boolean cEa() {
         return this.jdV;
     }
 }

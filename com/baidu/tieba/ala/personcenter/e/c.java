@@ -35,7 +35,7 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c
     public void a(com.baidu.tieba.ala.personcenter.c.b bVar) {
     }
 
-    public void Ja(String str) {
+    public void IZ(String str) {
         this.idO = str;
         if (this.idM != null) {
             this.idM.setText(getContext().getResources().getString(R.string.ala_person_center_qq_group) + str);
@@ -53,6 +53,6 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c
         if (!TextUtils.isEmpty(this.idO)) {
             UtilHelper.copyToClipBoard(this.idO);
         }
-        BdToast.b(getContext(), getContext().getResources().getString(R.string.ala_person_center_copy_to_clipboard)).pk(17).bud();
+        BdToast.b(getContext(), getContext().getResources().getString(R.string.ala_person_center_copy_to_clipboard)).pk(17).bue();
     }
 }

@@ -3,7 +3,7 @@ package com.qq.e.comm.plugin.t.b;
 import com.qq.e.comm.plugin.t.b.e;
 import java.net.HttpURLConnection;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c extends a {
     public c(String str, e.a aVar, byte[] bArr) {
         super(str, aVar, bArr);

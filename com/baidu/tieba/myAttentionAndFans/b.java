@@ -18,7 +18,7 @@ public abstract class b extends BaseAdapter {
         this.eYq.clear();
     }
 
-    public void cbi() {
+    public void cbj() {
         this.hlg = false;
         if (this.eYq != null && this.eYq.size() == 0) {
             this.hlg = true;

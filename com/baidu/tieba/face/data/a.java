@@ -15,7 +15,7 @@ public class a {
         this.cea = i;
     }
 
-    public int cAL() {
+    public int cAM() {
         return this.hXl;
     }
 
@@ -23,7 +23,7 @@ public class a {
         this.hXl = i;
     }
 
-    public List<EmotionImageData> cAM() {
+    public List<EmotionImageData> cAN() {
         return this.iRv;
     }
 

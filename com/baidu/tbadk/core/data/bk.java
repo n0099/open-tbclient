@@ -7,7 +7,7 @@ public class bk extends bz {
     public static final BdUniqueId eRH = BdUniqueId.gen();
     private ArrayList<RecommendForumData> eRI = new ArrayList<>();
 
-    public ArrayList<RecommendForumData> bqt() {
+    public ArrayList<RecommendForumData> bqu() {
         return this.eRI;
     }
 

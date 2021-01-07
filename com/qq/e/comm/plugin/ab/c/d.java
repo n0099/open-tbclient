@@ -19,17 +19,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    private Point f12028a;
+    private Point f12029a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final d f12031a = new d();
+        static final d f12032a = new d();
     }
 
     private d() {
@@ -99,16 +99,16 @@ public class d implements e {
     private Point a(Context context) {
         Point point;
         synchronized (this) {
-            if (this.f12028a == null) {
+            if (this.f12029a == null) {
                 WindowManager windowManager = (WindowManager) context.getSystemService("window");
-                this.f12028a = new Point();
+                this.f12029a = new Point();
                 if (Build.VERSION.SDK_INT >= 17) {
-                    windowManager.getDefaultDisplay().getRealSize(this.f12028a);
+                    windowManager.getDefaultDisplay().getRealSize(this.f12029a);
                 } else {
-                    this.f12028a.set(windowManager.getDefaultDisplay().getWidth(), windowManager.getDefaultDisplay().getHeight());
+                    this.f12029a.set(windowManager.getDefaultDisplay().getWidth(), windowManager.getDefaultDisplay().getHeight());
                 }
             }
-            point = this.f12028a;
+            point = this.f12029a;
         }
         return point;
     }
@@ -127,7 +127,7 @@ public class d implements e {
     }
 
     public static final d a() {
-        return a.f12031a;
+        return a.f12032a;
     }
 
     @Override // com.qq.e.comm.plugin.ab.c.e

@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class e extends g {
 
     /* renamed from: b  reason: collision with root package name */
-    private byte[] f8006b;
+    private byte[] f8007b;
     private String c;
     private String d;
     private boolean e = false;
@@ -24,7 +24,7 @@ public class e extends g {
     }
 
     public void a(byte[] bArr) {
-        this.f8006b = bArr;
+        this.f8007b = bArr;
     }
 
     public void b(String str) {
@@ -35,7 +35,7 @@ public class e extends g {
         this.prc = aVar;
     }
 
-    public a esO() {
+    public a esP() {
         return this.prc;
     }
 
@@ -50,7 +50,7 @@ public class e extends g {
         if (this.e) {
             try {
                 jSONObject.put("encrypted", this.c);
-                jSONObject.put("reqdata", com.cmic.sso.sdk.e.a.a(this.f8006b, this.prc.toString()));
+                jSONObject.put("reqdata", com.cmic.sso.sdk.e.a.a(this.f8007b, this.prc.toString()));
                 jSONObject.put("securityreinforce", this.d);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -65,10 +65,10 @@ public class e extends g {
         private long q;
 
         /* renamed from: a  reason: collision with root package name */
-        private String f8007a = "";
+        private String f8008a = "";
 
         /* renamed from: b  reason: collision with root package name */
-        private String f8008b = "";
+        private String f8009b = "";
         private String c = "";
         private String d = "";
         private String e = "";
@@ -118,11 +118,11 @@ public class e extends g {
         }
 
         public void e(String str) {
-            this.f8007a = Ze(str);
+            this.f8008a = Zd(str);
         }
 
         public void f(String str) {
-            this.f8008b = Ze(str);
+            this.f8009b = Zd(str);
         }
 
         public String a() {
@@ -130,90 +130,90 @@ public class e extends g {
         }
 
         public void g(String str) {
-            this.c = Ze(str);
+            this.c = Zd(str);
         }
 
         public void h(String str) {
-            this.d = Ze(str);
+            this.d = Zd(str);
         }
 
         public void i(String str) {
-            this.e = Ze(str);
+            this.e = Zd(str);
         }
 
         public void j(String str) {
-            this.f = Ze(str);
+            this.f = Zd(str);
         }
 
         public void k(String str) {
-            this.g = Ze(str);
+            this.g = Zd(str);
         }
 
         public void l(String str) {
-            this.h = Ze(str);
+            this.h = Zd(str);
         }
 
         public void m(String str) {
-            this.i = Ze(str);
+            this.i = Zd(str);
         }
 
         public void n(String str) {
-            String Ze = Ze(str);
+            String Zd = Zd(str);
             try {
-                this.j = URLEncoder.encode(Ze, "utf-8");
+                this.j = URLEncoder.encode(Zd, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
-                this.j = Ze;
+                this.j = Zd;
             }
         }
 
         public void o(String str) {
-            String Ze = Ze(str);
+            String Zd = Zd(str);
             try {
-                this.k = URLEncoder.encode(Ze, "utf-8");
+                this.k = URLEncoder.encode(Zd, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
-                this.k = Ze;
+                this.k = Zd;
             }
         }
 
         public void p(String str) {
-            this.l = Ze(str);
+            this.l = Zd(str);
         }
 
         public void q(String str) {
-            this.m = Ze(str);
+            this.m = Zd(str);
         }
 
         public void r(String str) {
-            this.o = Ze(str);
+            this.o = Zd(str);
         }
 
         public void s(String str) {
-            this.p = Ze(str);
+            this.p = Zd(str);
         }
 
         public void t(String str) {
-            this.A = Ze(str);
+            this.A = Zd(str);
         }
 
         public void u(String str) {
-            this.B = Ze(str);
+            this.B = Zd(str);
         }
 
         public void v(String str) {
-            this.E = Ze(str);
+            this.E = Zd(str);
         }
 
-        public String Zd(String str) {
-            return com.cmic.sso.sdk.e.d.a(this.f8008b + this.c + this.d + this.e + this.f + this.g + this.h + this.i + this.j + this.k + this.l + this.m + this.o + this.p + str + this.r + this.s + this.t + this.u + this.v + this.w + this.x + this.y + this.z + this.A + this.B + this.C + this.D);
+        public String Zc(String str) {
+            return com.cmic.sso.sdk.e.d.a(this.f8009b + this.c + this.d + this.e + this.f + this.g + this.h + this.i + this.j + this.k + this.l + this.m + this.o + this.p + str + this.r + this.s + this.t + this.u + this.v + this.w + this.x + this.y + this.z + this.A + this.B + this.C + this.D);
         }
 
         public String toString() {
-            return this.f8007a + ETAG.ITEM_SEPARATOR + this.f8008b + ETAG.ITEM_SEPARATOR + this.c + ETAG.ITEM_SEPARATOR + this.d + ETAG.ITEM_SEPARATOR + this.e + ETAG.ITEM_SEPARATOR + this.f + ETAG.ITEM_SEPARATOR + this.g + ETAG.ITEM_SEPARATOR + this.h + ETAG.ITEM_SEPARATOR + this.i + ETAG.ITEM_SEPARATOR + this.j + ETAG.ITEM_SEPARATOR + this.k + ETAG.ITEM_SEPARATOR + this.l + ETAG.ITEM_SEPARATOR + this.m + ETAG.ITEM_SEPARATOR + "6.0" + ETAG.ITEM_SEPARATOR + this.n + ETAG.ITEM_SEPARATOR + this.o + ETAG.ITEM_SEPARATOR + this.p + ETAG.ITEM_SEPARATOR + this.r + ETAG.ITEM_SEPARATOR + this.s + ETAG.ITEM_SEPARATOR + this.t + ETAG.ITEM_SEPARATOR + this.u + ETAG.ITEM_SEPARATOR + this.v + ETAG.ITEM_SEPARATOR + this.w + ETAG.ITEM_SEPARATOR + this.x + ETAG.ITEM_SEPARATOR + this.y + ETAG.ITEM_SEPARATOR + this.z + ETAG.ITEM_SEPARATOR + this.A + ETAG.ITEM_SEPARATOR + this.B + ETAG.ITEM_SEPARATOR + this.E + "&&" + this.C + ETAG.ITEM_SEPARATOR + this.D;
+            return this.f8008a + ETAG.ITEM_SEPARATOR + this.f8009b + ETAG.ITEM_SEPARATOR + this.c + ETAG.ITEM_SEPARATOR + this.d + ETAG.ITEM_SEPARATOR + this.e + ETAG.ITEM_SEPARATOR + this.f + ETAG.ITEM_SEPARATOR + this.g + ETAG.ITEM_SEPARATOR + this.h + ETAG.ITEM_SEPARATOR + this.i + ETAG.ITEM_SEPARATOR + this.j + ETAG.ITEM_SEPARATOR + this.k + ETAG.ITEM_SEPARATOR + this.l + ETAG.ITEM_SEPARATOR + this.m + ETAG.ITEM_SEPARATOR + "6.0" + ETAG.ITEM_SEPARATOR + this.n + ETAG.ITEM_SEPARATOR + this.o + ETAG.ITEM_SEPARATOR + this.p + ETAG.ITEM_SEPARATOR + this.r + ETAG.ITEM_SEPARATOR + this.s + ETAG.ITEM_SEPARATOR + this.t + ETAG.ITEM_SEPARATOR + this.u + ETAG.ITEM_SEPARATOR + this.v + ETAG.ITEM_SEPARATOR + this.w + ETAG.ITEM_SEPARATOR + this.x + ETAG.ITEM_SEPARATOR + this.y + ETAG.ITEM_SEPARATOR + this.z + ETAG.ITEM_SEPARATOR + this.A + ETAG.ITEM_SEPARATOR + this.B + ETAG.ITEM_SEPARATOR + this.E + "&&" + this.C + ETAG.ITEM_SEPARATOR + this.D;
         }
 
-        private String Ze(String str) {
+        private String Zd(String str) {
             return str == null ? "" : str;
         }
     }

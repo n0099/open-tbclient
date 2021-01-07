@@ -194,7 +194,7 @@ public class a implements k {
     private Runnable bqp = new Runnable() { // from class: com.baidu.live.yuyinim.controller.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.cdK.abK();
+            a.this.cdK.abL();
         }
     };
 
@@ -485,7 +485,7 @@ public class a implements k {
             if (!ListUtils.isEmpty(hashMap2)) {
                 for (Map.Entry entry : hashMap2.entrySet()) {
                     if (!StringUtils.isNull((String) entry.getValue(), true)) {
-                        if (!com.baidu.live.aq.a.aam().jm(com.baidu.live.aq.a.aam().aar())) {
+                        if (!com.baidu.live.aq.a.aan().jm(com.baidu.live.aq.a.aan().aas())) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501026, entry.getValue()));
                         } else {
                             try {
@@ -537,7 +537,7 @@ public class a implements k {
         }
         ArrayList arrayList = new ArrayList();
         for (b bVar : list) {
-            if (bVar != null && "audio_emoticon".equals(z(bVar)) && !this.cdM.contains(Long.valueOf(bVar.getMsgId())) && (com.baidu.live.aq.a.aam().jm(ExtraParamsManager.getEncryptionUserId(bVar.getUserId() + "")) || !StringUtils.isNull(H(bVar), true))) {
+            if (bVar != null && "audio_emoticon".equals(z(bVar)) && !this.cdM.contains(Long.valueOf(bVar.getMsgId())) && (com.baidu.live.aq.a.aan().jm(ExtraParamsManager.getEncryptionUserId(bVar.getUserId() + "")) || !StringUtils.isNull(H(bVar), true))) {
                 arrayList.add(bVar);
                 this.cdM.add(Long.valueOf(bVar.getMsgId()));
             }

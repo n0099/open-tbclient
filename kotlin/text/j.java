@@ -8,24 +8,24 @@ import java.util.regex.Matcher;
 @kotlin.e
 /* loaded from: classes5.dex */
 public final class j implements i {
-    private final CharSequence qmV;
-    private final MatchResult qnd;
-    private final g qne;
-    private final Matcher qnf;
+    private final CharSequence qoD;
+    private final MatchResult qoL;
+    private final g qoM;
+    private final Matcher qoN;
 
     public j(Matcher matcher, CharSequence charSequence) {
         kotlin.jvm.internal.p.o(matcher, "matcher");
         kotlin.jvm.internal.p.o(charSequence, Config.INPUT_PART);
-        this.qnf = matcher;
-        this.qmV = charSequence;
-        this.qnd = this.qnf.toMatchResult();
-        this.qne = new a();
+        this.qoN = matcher;
+        this.qoD = charSequence;
+        this.qoL = this.qoN.toMatchResult();
+        this.qoM = new a();
     }
 
     @Override // kotlin.text.i
-    public kotlin.b.h eMA() {
+    public kotlin.b.h eNe() {
         kotlin.b.h a2;
-        MatchResult matchResult = this.qnd;
+        MatchResult matchResult = this.qoL;
         kotlin.jvm.internal.p.n(matchResult, "matchResult");
         a2 = k.a(matchResult);
         return a2;
@@ -52,7 +52,7 @@ public final class j implements i {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return j.this.qnd.groupCount() + 1;
+            return j.this.qoL.groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -62,16 +62,16 @@ public final class j implements i {
 
         @Override // java.util.Collection, java.lang.Iterable
         public Iterator<f> iterator() {
-            return kotlin.sequences.d.c(kotlin.collections.n.i(kotlin.collections.n.n(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
+            return kotlin.sequences.d.c(kotlin.collections.n.i(kotlin.collections.n.o(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
         }
 
-        public f Tq(int i) {
+        public f TG(int i) {
             kotlin.b.h a2;
-            MatchResult matchResult = j.this.qnd;
+            MatchResult matchResult = j.this.qoL;
             kotlin.jvm.internal.p.n(matchResult, "matchResult");
             a2 = k.a(matchResult, i);
-            if (a2.eMr().intValue() >= 0) {
-                String group = j.this.qnd.group(i);
+            if (a2.eMV().intValue() >= 0) {
+                String group = j.this.qoL.group(i);
                 kotlin.jvm.internal.p.n(group, "matchResult.group(index)");
                 return new f(group, a2);
             }
@@ -80,11 +80,11 @@ public final class j implements i {
     }
 
     @Override // kotlin.text.i
-    public i eMB() {
+    public i eNf() {
         i a2;
-        int end = (this.qnd.end() == this.qnd.start() ? 1 : 0) + this.qnd.end();
-        if (end <= this.qmV.length()) {
-            a2 = k.a(this.qnf, end, this.qmV);
+        int end = (this.qoL.end() == this.qoL.start() ? 1 : 0) + this.qoL.end();
+        if (end <= this.qoD.length()) {
+            a2 = k.a(this.qoN, end, this.qoD);
             return a2;
         }
         return null;

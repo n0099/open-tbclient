@@ -11,7 +11,7 @@ public class h extends a {
     @Override // com.ss.android.socialbase.appdownloader.a.e
     public Intent b() {
         Intent intent = new Intent("com.android.filemanager.FILE_OPEN");
-        intent.putExtra("FilePathToBeOpenAfterScan", this.f13307b);
+        intent.putExtra("FilePathToBeOpenAfterScan", this.f13308b);
         intent.putExtra("com.iqoo.secure", true);
         intent.putExtra("OpenParentAndLocationDestFile", true);
         intent.addFlags(268435456);

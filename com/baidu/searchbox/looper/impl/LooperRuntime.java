@@ -29,12 +29,12 @@ public class LooperRuntime {
     private c<ILooperUIContext> mLooperUIContext;
 
     public void initmLooperMonitordList() {
-        this.mLooperMonitordList = b.ahA();
+        this.mLooperMonitordList = b.ahB();
         this.mLooperMonitordList.b(new ILooperRegister_LooperRuntime_ListProvider());
     }
 
     public void initmLooperNeedContext() {
-        this.mLooperNeedContext = a.ahz();
+        this.mLooperNeedContext = a.ahA();
         this.mLooperNeedContext.a(new ILooperNeedContext_LooperRuntime_Provider());
     }
 
@@ -82,7 +82,7 @@ public class LooperRuntime {
 
     public void dispatchBlock(Context context, com.github.a.a.a.a aVar) {
         if (this.mLooperMonitordList != null && this.mLooperMonitordList.getList() != null) {
-            LooperBlock looperBlock = new LooperBlock(aVar.duration, aVar.pJS, aVar.pJP, aVar.pJQ, aVar.pJX);
+            LooperBlock looperBlock = new LooperBlock(aVar.duration, aVar.pLA, aVar.pLx, aVar.pLy, aVar.pLF);
             TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
             if (lastTrackUI != null) {
                 if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {

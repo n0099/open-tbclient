@@ -43,7 +43,7 @@ public class h implements g.a {
         }
     }
 
-    public void cOT() {
+    public void cOU() {
         if (this.jMy != null) {
             this.jMy.setFrom(this.mFrom);
             this.jMy.LoadData();
@@ -54,7 +54,7 @@ public class h implements g.a {
         this.mFrom = str;
     }
 
-    public void bUp() {
+    public void bUq() {
         if (this.jMy != null && this.mHasMore) {
             this.jMy.setFrom(this.mFrom);
             this.jMy.LoadData();
@@ -68,10 +68,10 @@ public class h implements g.a {
         }
     }
 
-    public void KO(String str) {
+    public void KN(String str) {
         this.st_type = str;
         if (this.jMy != null) {
-            this.jMy.KO(str);
+            this.jMy.KN(str);
         }
     }
 
@@ -89,11 +89,11 @@ public class h implements g.a {
         }
     }
 
-    public VideoSerializeVideoThreadInfo cOU() {
+    public VideoSerializeVideoThreadInfo cOV() {
         return this.jMz;
     }
 
-    public void cIb() {
+    public void cIc() {
         if (this.jMy != null) {
             this.jMy.cancelLoadData();
         }

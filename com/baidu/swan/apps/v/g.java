@@ -11,7 +11,7 @@ public class g implements Application.ActivityLifecycleCallbacks {
     private int mActivityCount;
     private boolean mIsForeground = false;
 
-    public static g aDP() {
+    public static g aDQ() {
         if (djR == null) {
             synchronized (g.class) {
                 if (djR == null) {
@@ -25,12 +25,12 @@ public class g implements Application.ActivityLifecycleCallbacks {
     private g() {
     }
 
-    public void aDQ() {
-        com.baidu.swan.apps.t.a.aAr().registerActivityLifecycleCallbacks(this);
+    public void aDR() {
+        com.baidu.swan.apps.t.a.aAs().registerActivityLifecycleCallbacks(this);
     }
 
-    public void aDR() {
-        com.baidu.swan.apps.t.a.aAr().unregisterActivityLifecycleCallbacks(this);
+    public void aDS() {
+        com.baidu.swan.apps.t.a.aAs().unregisterActivityLifecycleCallbacks(this);
     }
 
     public boolean isForeground() {

@@ -30,26 +30,26 @@ public class t {
     public t() {
         MessageManager.getInstance().registerListener(this.eHz);
         OH();
-        this.eHy = com.baidu.tbadk.core.sharedPref.b.bvq().getLong("key_redpacket_pop_last_time", 0L);
+        this.eHy = com.baidu.tbadk.core.sharedPref.b.bvr().getLong("key_redpacket_pop_last_time", 0L);
     }
 
     public void check() {
-        if (blU() && isShowTime()) {
-            blV();
+        if (blV() && isShowTime()) {
+            blW();
         }
     }
 
-    private boolean blU() {
+    private boolean blV() {
         Date date = new Date();
-        return date.getTime() >= this.eHx.getStartDate() && date.getTime() <= this.eHx.blW();
+        return date.getTime() >= this.eHx.getStartDate() && date.getTime() <= this.eHx.blX();
     }
 
     private boolean isShowTime() {
-        if (com.baidu.tbadk.core.util.x.isEmpty(this.eHx.blX())) {
+        if (com.baidu.tbadk.core.util.x.isEmpty(this.eHx.blY())) {
             return false;
         }
         Date date = new Date();
-        Iterator<w> it = this.eHx.blX().iterator();
+        Iterator<w> it = this.eHx.blY().iterator();
         while (it.hasNext()) {
             w next = it.next();
             if (date.getTime() >= next.getStartTime() && date.getTime() <= next.getEndTime() && !a(next)) {
@@ -65,13 +65,13 @@ public class t {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void OH() {
-        this.eHx.parseJson(com.baidu.tbadk.core.sharedPref.b.bvq().getString("key_redpacket_pop", ""));
+        this.eHx.parseJson(com.baidu.tbadk.core.sharedPref.b.bvr().getString("key_redpacket_pop", ""));
     }
 
-    private void blV() {
+    private void blW() {
         if (!at.isEmpty(this.eHx.getUrl())) {
             this.eHy = System.currentTimeMillis();
-            com.baidu.tbadk.core.sharedPref.b.bvq().putLong("key_redpacket_pop_last_time", this.eHy);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putLong("key_redpacket_pop_last_time", this.eHy);
             TiebaStatic.log(new aq("c13083"));
             String str = this.eHx.getUrl() + "?page_type=open_full_screen_opacity_web_page";
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();

@@ -142,7 +142,7 @@ public class FlowLayout extends ViewGroup {
     }
 
     private int a(LayoutParams layoutParams) {
-        if (!layoutParams.bKE()) {
+        if (!layoutParams.bKF()) {
             return this.verticalSpacing;
         }
         return layoutParams.verticalSpacing;
@@ -157,7 +157,7 @@ public class FlowLayout extends ViewGroup {
     }
 
     private int b(LayoutParams layoutParams) {
-        if (!layoutParams.bKD()) {
+        if (!layoutParams.bKE()) {
             return this.horizontalSpacing;
         }
         return layoutParams.horizontalSpacing;
@@ -188,7 +188,7 @@ public class FlowLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: bKC */
+    /* renamed from: bKD */
     public LayoutParams generateDefaultLayoutParams() {
         return new LayoutParams(-2, -2);
     }
@@ -305,11 +305,11 @@ public class FlowLayout extends ViewGroup {
             this.fWl = false;
         }
 
-        public boolean bKD() {
+        public boolean bKE() {
             return this.horizontalSpacing != fWk;
         }
 
-        public boolean bKE() {
+        public boolean bKF() {
             return this.verticalSpacing != fWk;
         }
 

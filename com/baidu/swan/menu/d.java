@@ -2,7 +2,7 @@ package com.baidu.swan.menu;
 
 import android.graphics.PointF;
 import android.view.animation.Interpolator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d implements Interpolator {
     private int euC = 0;
     private final PointF euD = new PointF();

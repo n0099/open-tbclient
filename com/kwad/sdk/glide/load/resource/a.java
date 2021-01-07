@@ -7,16 +7,16 @@ import com.kwad.sdk.glide.load.engine.s;
 public class a<T> implements s<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final T f10554a;
+    protected final T f10555a;
 
     public a(@NonNull T t) {
-        this.f10554a = (T) j.a(t);
+        this.f10555a = (T) j.a(t);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     @NonNull
     public Class<T> a() {
-        return (Class<T>) this.f10554a.getClass();
+        return (Class<T>) this.f10555a.getClass();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
@@ -31,6 +31,6 @@ public class a<T> implements s<T> {
     @Override // com.kwad.sdk.glide.load.engine.s
     @NonNull
     public final T e() {
-        return this.f10554a;
+        return this.f10555a;
     }
 }

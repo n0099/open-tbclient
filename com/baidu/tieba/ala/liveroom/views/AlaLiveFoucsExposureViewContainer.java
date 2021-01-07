@@ -37,7 +37,7 @@ public class AlaLiveFoucsExposureViewContainer extends RelativeLayout {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void cka();
+        void ckb();
 
         float getExposure();
 
@@ -84,15 +84,15 @@ public class AlaLiveFoucsExposureViewContainer extends RelativeLayout {
             }
 
             @Override // com.baidu.tieba.ala.liveroom.views.AlaLiveExposureView.a
-            public void cka() {
+            public void ckb() {
                 if (AlaLiveFoucsExposureViewContainer.this.hQG != null) {
-                    AlaLiveFoucsExposureViewContainer.this.hQG.cka();
+                    AlaLiveFoucsExposureViewContainer.this.hQG.ckb();
                 }
             }
         });
         addView(this.hQH, getNewLayoutParams());
         this.hQH.setVisibility(4);
-        cnU();
+        cnV();
     }
 
     public void setFoucsListener(a aVar) {
@@ -167,13 +167,13 @@ public class AlaLiveFoucsExposureViewContainer extends RelativeLayout {
                         this.hQG.onFocus(StatusLine.HTTP_PERM_REDIRECT, StatusLine.HTTP_PERM_REDIRECT, clamp, clamp2);
                     }
                     if (this.hQF == null) {
-                        cnU();
+                        cnV();
                     } else {
                         int width = this.hQF.getWidth();
                         int height = this.hQF.getHeight();
                         this.hQF.setTranslationX(motionEvent.getX() - (width / 2));
                         this.hQF.setTranslationY((motionEvent.getY() - (height / 2)) - UtilHelper.getStatusBarHeight());
-                        this.hQF.cnT();
+                        this.hQF.cnU();
                     }
                     if (Math.round(motionEvent.getRawX()) < ScreenHelper.getScreenWidth(getContext()) / 2) {
                         RelativeLayout.LayoutParams newLayoutParams = getNewLayoutParams();
@@ -193,7 +193,7 @@ public class AlaLiveFoucsExposureViewContainer extends RelativeLayout {
                         }
                     }
                     this.hQH.setVisibility(0);
-                    this.hQH.cnR();
+                    this.hQH.cnS();
                     break;
                 }
                 break;
@@ -201,7 +201,7 @@ public class AlaLiveFoucsExposureViewContainer extends RelativeLayout {
         return true;
     }
 
-    private void cnU() {
+    private void cnV() {
         if (this.hQF == null) {
             this.hQF = new AlaLiveFocusCircleView(getContext());
             addView(this.hQF, getChildCount() > 0 ? 1 : 0, new RelativeLayout.LayoutParams(-1, -1));

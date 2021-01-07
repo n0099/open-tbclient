@@ -18,11 +18,11 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class AdConstrainImageLayout extends ConstrainImageLayout {
-    private TbImageView.c mUL;
+    private TbImageView.c mUJ;
 
     public AdConstrainImageLayout(Context context) {
         super(context);
-        this.mUL = new TbImageView.c() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
+        this.mUJ = new TbImageView.c() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
             @Override // com.baidu.tbadk.widget.TbImageView.c
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i;
@@ -32,10 +32,10 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
                 float f3;
                 float f4;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Ef = c.bGp().Ef(d.mx().genCacheKey(tbImageView.getUrl(), 17));
-                    if (Ef != null) {
-                        int width = Ef.getWidth();
-                        i = Ef.getHeight();
+                    com.baidu.adp.widget.ImageView.a Ee = c.bGq().Ee(d.mx().genCacheKey(tbImageView.getUrl(), 17));
+                    if (Ee != null) {
+                        int width = Ee.getWidth();
+                        i = Ee.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -82,7 +82,7 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
 
     public AdConstrainImageLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mUL = new TbImageView.c() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
+        this.mUJ = new TbImageView.c() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
             @Override // com.baidu.tbadk.widget.TbImageView.c
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i;
@@ -92,10 +92,10 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
                 float f3;
                 float f4;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Ef = c.bGp().Ef(d.mx().genCacheKey(tbImageView.getUrl(), 17));
-                    if (Ef != null) {
-                        int width = Ef.getWidth();
-                        i = Ef.getHeight();
+                    com.baidu.adp.widget.ImageView.a Ee = c.bGq().Ee(d.mx().genCacheKey(tbImageView.getUrl(), 17));
+                    if (Ee != null) {
+                        int width = Ee.getWidth();
+                        i = Ee.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -142,7 +142,7 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
 
     public AdConstrainImageLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mUL = new TbImageView.c() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
+        this.mUJ = new TbImageView.c() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
             @Override // com.baidu.tbadk.widget.TbImageView.c
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i2;
@@ -152,10 +152,10 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
                 float f3;
                 float f4;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Ef = c.bGp().Ef(d.mx().genCacheKey(tbImageView.getUrl(), 17));
-                    if (Ef != null) {
-                        int width = Ef.getWidth();
-                        i2 = Ef.getHeight();
+                    com.baidu.adp.widget.ImageView.a Ee = c.bGq().Ee(d.mx().genCacheKey(tbImageView.getUrl(), 17));
+                    if (Ee != null) {
+                        int width = Ee.getWidth();
+                        i2 = Ee.getHeight();
                         i22 = width;
                     } else {
                         i2 = 0;
@@ -234,7 +234,7 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
                     }
                     tbImageView.setScaleType(ImageView.ScaleType.MATRIX);
                     tbImageView.setForegroundColor(0);
-                    tbImageView.setOnDrawListener(this.mUL);
+                    tbImageView.setOnDrawListener(this.mUJ);
                     tbImageView.startLoad(thumbnails_url, 17, false);
                 }
                 i2++;

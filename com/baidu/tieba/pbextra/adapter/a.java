@@ -25,32 +25,32 @@ public class a extends l<PostData, PbInterviewLiveNormalItemViewHolder> implemen
     private View.OnClickListener bdp;
     private TbRichTextView.i fWO;
     private c fyb;
-    private f lJI;
+    private f lJH;
+    private boolean lJI;
     private boolean lJJ;
-    private boolean lJK;
-    private int lJQ;
-    private boolean lLR;
-    private final boolean lLS;
+    private int lJP;
+    private boolean lLQ;
+    private final boolean lLR;
     private View.OnLongClickListener mOnLongClickListener;
-    private boolean mkU;
+    private boolean mkT;
+    private int mkU;
     private int mkV;
-    private int mkW;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
         boolean z = true;
-        this.lJQ = 0;
+        this.lJP = 0;
+        this.lJI = true;
+        this.mkT = true;
+        this.lJH = null;
         this.lJJ = true;
-        this.mkU = true;
-        this.lJI = null;
-        this.lJK = true;
         this.bdp = null;
         this.fWO = null;
         this.fyb = null;
         this.mOnLongClickListener = null;
-        this.lLR = false;
-        this.lLS = (Build.VERSION.SDK_INT < 14 || Build.VERSION.SDK_INT > 16) ? false : z;
+        this.lLQ = false;
+        this.lLR = (Build.VERSION.SDK_INT < 14 || Build.VERSION.SDK_INT > 16) ? false : z;
         a(pbFragment);
     }
 
@@ -58,8 +58,8 @@ public class a extends l<PostData, PbInterviewLiveNormalItemViewHolder> implemen
     public void a(b bVar) {
         super.a(bVar);
         if (bVar != null) {
-            this.mkV = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds30);
-            this.mkW = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds60);
+            this.mkU = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds30);
+            this.mkV = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds60);
         }
     }
 
@@ -68,7 +68,7 @@ public class a extends l<PostData, PbInterviewLiveNormalItemViewHolder> implemen
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: cL */
     public PbInterviewLiveNormalItemViewHolder e(ViewGroup viewGroup) {
-        return new PbInterviewLiveNormalItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.pb_interview_normal_item, viewGroup, false), this.mkU, this.lJJ, this.lJQ, false);
+        return new PbInterviewLiveNormalItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.pb_interview_normal_item, viewGroup, false), this.mkT, this.lJI, this.lJP, false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -85,102 +85,102 @@ public class a extends l<PostData, PbInterviewLiveNormalItemViewHolder> implemen
     private void a(PbInterviewLiveNormalItemViewHolder pbInterviewLiveNormalItemViewHolder, PostData postData) {
         int i;
         if (pbInterviewLiveNormalItemViewHolder != null && postData != null) {
-            a(pbInterviewLiveNormalItemViewHolder.lMb, (int) this.mContext.getResources().getDimension(R.dimen.ds30));
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) pbInterviewLiveNormalItemViewHolder.lMb.getLayoutParams();
+            a(pbInterviewLiveNormalItemViewHolder.lMa, (int) this.mContext.getResources().getDimension(R.dimen.ds30));
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) pbInterviewLiveNormalItemViewHolder.lMa.getLayoutParams();
             layoutParams.bottomMargin = 0;
             layoutParams.topMargin = 0;
-            pbInterviewLiveNormalItemViewHolder.lMb.setLayoutParams(layoutParams);
-            pbInterviewLiveNormalItemViewHolder.lMb.setPadding(0, 0, 0, 0);
-            pbInterviewLiveNormalItemViewHolder.lMb.EW(null);
-            postData.bsE();
-            if (postData.dPd() == 1) {
-                pbInterviewLiveNormalItemViewHolder.mla.setVisibility(0);
+            pbInterviewLiveNormalItemViewHolder.lMa.setLayoutParams(layoutParams);
+            pbInterviewLiveNormalItemViewHolder.lMa.setPadding(0, 0, 0, 0);
+            pbInterviewLiveNormalItemViewHolder.lMa.EV(null);
+            postData.bsF();
+            if (postData.dPe() == 1) {
+                pbInterviewLiveNormalItemViewHolder.mkZ.setVisibility(0);
                 String str = null;
                 String str2 = null;
                 long j = 0;
-                if (postData.brq() != null) {
-                    j = postData.brq().getUserIdLong();
-                    str = postData.brq().getUserName();
-                    str2 = postData.brq().getName_show();
+                if (postData.brr() != null) {
+                    j = postData.brr().getUserIdLong();
+                    str = postData.brr().getUserName();
+                    str2 = postData.brr().getName_show();
                 }
-                pbInterviewLiveNormalItemViewHolder.mla.a(postData.dPl(), str, str2, j, com.baidu.adp.lib.f.b.toLong(this.lJI.dmE().getId(), 0L), com.baidu.adp.lib.f.b.toLong(postData.getId(), 0L));
-                pbInterviewLiveNormalItemViewHolder.mla.onChangeSkinType();
-                if (this.lJK) {
-                    PraiseData brb = this.lJI.dmE().brb();
-                    if (brb != null && brb.getUser() != null && brb.getUser().size() > 0) {
+                pbInterviewLiveNormalItemViewHolder.mkZ.a(postData.dPm(), str, str2, j, com.baidu.adp.lib.f.b.toLong(this.lJH.dmF().getId(), 0L), com.baidu.adp.lib.f.b.toLong(postData.getId(), 0L));
+                pbInterviewLiveNormalItemViewHolder.mkZ.onChangeSkinType();
+                if (this.lJJ) {
+                    PraiseData brc = this.lJH.dmF().brc();
+                    if (brc != null && brc.getUser() != null && brc.getUser().size() > 0) {
+                        pbInterviewLiveNormalItemViewHolder.mla.setVisibility(0);
+                        pbInterviewLiveNormalItemViewHolder.mkY.setVisibility(0);
                         pbInterviewLiveNormalItemViewHolder.mlb.setVisibility(0);
-                        pbInterviewLiveNormalItemViewHolder.mkZ.setVisibility(0);
-                        pbInterviewLiveNormalItemViewHolder.mlc.setVisibility(0);
-                        pbInterviewLiveNormalItemViewHolder.mlb.setIsFromPb(true);
-                        pbInterviewLiveNormalItemViewHolder.mlb.setData(brb, this.lJI.dmE().getId(), brb.getPostId(), true);
-                        pbInterviewLiveNormalItemViewHolder.mlb.onChangeSkin(this.mSkinType);
+                        pbInterviewLiveNormalItemViewHolder.mla.setIsFromPb(true);
+                        pbInterviewLiveNormalItemViewHolder.mla.setData(brc, this.lJH.dmF().getId(), brc.getPostId(), true);
+                        pbInterviewLiveNormalItemViewHolder.mla.onChangeSkin(this.mSkinType);
                     } else {
+                        pbInterviewLiveNormalItemViewHolder.mla.setVisibility(8);
+                        pbInterviewLiveNormalItemViewHolder.mkY.setVisibility(8);
                         pbInterviewLiveNormalItemViewHolder.mlb.setVisibility(8);
-                        pbInterviewLiveNormalItemViewHolder.mkZ.setVisibility(8);
-                        pbInterviewLiveNormalItemViewHolder.mlc.setVisibility(8);
                     }
                 } else {
+                    pbInterviewLiveNormalItemViewHolder.mla.setVisibility(8);
+                    pbInterviewLiveNormalItemViewHolder.mkY.setVisibility(8);
                     pbInterviewLiveNormalItemViewHolder.mlb.setVisibility(8);
-                    pbInterviewLiveNormalItemViewHolder.mkZ.setVisibility(8);
-                    pbInterviewLiveNormalItemViewHolder.mlc.setVisibility(8);
                 }
+                pbInterviewLiveNormalItemViewHolder.mla.setVisibility(0);
+                pbInterviewLiveNormalItemViewHolder.mkY.setVisibility(0);
                 pbInterviewLiveNormalItemViewHolder.mlb.setVisibility(0);
-                pbInterviewLiveNormalItemViewHolder.mkZ.setVisibility(0);
-                pbInterviewLiveNormalItemViewHolder.mlc.setVisibility(0);
-                a(pbInterviewLiveNormalItemViewHolder.lMb, (int) this.mContext.getResources().getDimension(R.dimen.ds30));
+                a(pbInterviewLiveNormalItemViewHolder.lMa, (int) this.mContext.getResources().getDimension(R.dimen.ds30));
             } else {
-                pbInterviewLiveNormalItemViewHolder.mla.setVisibility(8);
+                pbInterviewLiveNormalItemViewHolder.mkZ.setVisibility(8);
             }
-            pbInterviewLiveNormalItemViewHolder.lMb.getLayoutStrategy().ty(R.drawable.pic_video);
-            pbInterviewLiveNormalItemViewHolder.lMb.setTextColor(ao.getColor(R.color.common_color_10039));
-            pbInterviewLiveNormalItemViewHolder.lMb.setLinkTextColor(ao.getColor(R.color.CAM_X0304));
-            pbInterviewLiveNormalItemViewHolder.lMb.setLinkTextColor(ao.getColor(R.color.CAM_X0304));
-            if (this.lJJ) {
-                pbInterviewLiveNormalItemViewHolder.lMb.getLayoutStrategy().tB(R.drawable.transparent_bg);
+            pbInterviewLiveNormalItemViewHolder.lMa.getLayoutStrategy().ty(R.drawable.pic_video);
+            pbInterviewLiveNormalItemViewHolder.lMa.setTextColor(ao.getColor(R.color.common_color_10039));
+            pbInterviewLiveNormalItemViewHolder.lMa.setLinkTextColor(ao.getColor(R.color.CAM_X0304));
+            pbInterviewLiveNormalItemViewHolder.lMa.setLinkTextColor(ao.getColor(R.color.CAM_X0304));
+            if (this.lJI) {
+                pbInterviewLiveNormalItemViewHolder.lMa.getLayoutStrategy().tB(R.drawable.transparent_bg);
             } else {
-                pbInterviewLiveNormalItemViewHolder.lMb.getLayoutStrategy().tB(R.drawable.icon_click);
+                pbInterviewLiveNormalItemViewHolder.lMa.getLayoutStrategy().tB(R.drawable.icon_click);
             }
-            pbInterviewLiveNormalItemViewHolder.lMb.setIsFromCDN(this.mIsFromCDN);
+            pbInterviewLiveNormalItemViewHolder.lMa.setIsFromCDN(this.mIsFromCDN);
             TbRichText tbRichText = null;
             if (0 == 0) {
-                tbRichText = postData.dPf();
+                tbRichText = postData.dPg();
             }
-            if (this.lLR || !this.lLS) {
-                pbInterviewLiveNormalItemViewHolder.lMb.setText(tbRichText, false);
+            if (this.lLQ || !this.lLR) {
+                pbInterviewLiveNormalItemViewHolder.lMa.setText(tbRichText, false);
             } else {
-                pbInterviewLiveNormalItemViewHolder.lMb.setText(tbRichText, true);
+                pbInterviewLiveNormalItemViewHolder.lMa.setText(tbRichText, true);
             }
-            bx bqW = this.lJI.dmE().bqW();
-            if (bqW != null) {
-                pbInterviewLiveNormalItemViewHolder.mkY.startLoad(this.lJI.dmE().bqW().getThreadImgUrl(), this.mIsFromCDN ? 17 : 18, false);
+            bx bqX = this.lJH.dmF().bqX();
+            if (bqX != null) {
+                pbInterviewLiveNormalItemViewHolder.mkX.startLoad(this.lJH.dmF().bqX().getThreadImgUrl(), this.mIsFromCDN ? 17 : 18, false);
                 int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext);
-                float bqL = bqW.bqL() / bqW.bqK();
-                if (bqL > 1.0f) {
+                float bqM = bqX.bqM() / bqX.bqL();
+                if (bqM > 1.0f) {
                     i = (int) (1.0f * equipmentWidth);
-                } else if (bqL < 0.2f) {
+                } else if (bqM < 0.2f) {
                     i = (int) (equipmentWidth * 0.2f);
                 } else {
-                    i = (int) (equipmentWidth * bqL);
+                    i = (int) (equipmentWidth * bqM);
                 }
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) pbInterviewLiveNormalItemViewHolder.mkY.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) pbInterviewLiveNormalItemViewHolder.mkX.getLayoutParams();
                 layoutParams2.height = i;
                 layoutParams2.width = equipmentWidth;
-                pbInterviewLiveNormalItemViewHolder.mkY.setLayoutParams(layoutParams2);
+                pbInterviewLiveNormalItemViewHolder.mkX.setLayoutParams(layoutParams2);
             } else {
-                pbInterviewLiveNormalItemViewHolder.mkY.setVisibility(8);
+                pbInterviewLiveNormalItemViewHolder.mkX.setVisibility(8);
             }
             b(pbInterviewLiveNormalItemViewHolder, postData);
         }
     }
 
     private void b(PbInterviewLiveNormalItemViewHolder pbInterviewLiveNormalItemViewHolder, PostData postData) {
-        if (TextUtils.isEmpty(postData.getBimg_url()) || !this.lJJ) {
-            pbInterviewLiveNormalItemViewHolder.lMb.setOnClickListener(null);
+        if (TextUtils.isEmpty(postData.getBimg_url()) || !this.lJI) {
+            pbInterviewLiveNormalItemViewHolder.lMa.setOnClickListener(null);
         } else {
-            pbInterviewLiveNormalItemViewHolder.lMb.setOnClickListener(this.bdp);
+            pbInterviewLiveNormalItemViewHolder.lMa.setOnClickListener(this.bdp);
         }
-        pbInterviewLiveNormalItemViewHolder.lMb.setTextViewCheckSelection(false);
-        pbInterviewLiveNormalItemViewHolder.lMb.setTextViewOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pbextra.adapter.a.1
+        pbInterviewLiveNormalItemViewHolder.lMa.setTextViewCheckSelection(false);
+        pbInterviewLiveNormalItemViewHolder.lMa.setTextViewOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pbextra.adapter.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
             }
@@ -191,17 +191,17 @@ public class a extends l<PostData, PbInterviewLiveNormalItemViewHolder> implemen
         if (tbRichTextView != null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tbRichTextView.getLayoutParams();
             layoutParams.leftMargin = i;
-            tbRichTextView.getLayoutStrategy().tz(this.mkW - (i - this.mkV));
+            tbRichTextView.getLayoutStrategy().tz(this.mkV - (i - this.mkU));
             tbRichTextView.setLayoutParams(layoutParams);
         }
     }
 
     private void a(PbInterviewLiveNormalItemViewHolder pbInterviewLiveNormalItemViewHolder) {
-        pbInterviewLiveNormalItemViewHolder.lMb.setOnLongClickListener(this.mOnLongClickListener);
-        pbInterviewLiveNormalItemViewHolder.lMb.setOnTouchListener(this.fyb);
-        pbInterviewLiveNormalItemViewHolder.lMb.setOnImageClickListener(this.fWO);
-        if (this.lLF != null && this.lLF.dpD() != null) {
-            pbInterviewLiveNormalItemViewHolder.lMb.setOnEmotionClickListener(this.lLF.dpD().lJa.lZA);
+        pbInterviewLiveNormalItemViewHolder.lMa.setOnLongClickListener(this.mOnLongClickListener);
+        pbInterviewLiveNormalItemViewHolder.lMa.setOnTouchListener(this.fyb);
+        pbInterviewLiveNormalItemViewHolder.lMa.setOnImageClickListener(this.fWO);
+        if (this.lLE != null && this.lLE.dpE() != null) {
+            pbInterviewLiveNormalItemViewHolder.lMa.setOnEmotionClickListener(this.lLE.dpE().lIZ.lZz);
         }
     }
 
@@ -211,7 +211,7 @@ public class a extends l<PostData, PbInterviewLiveNormalItemViewHolder> implemen
 
     @Override // com.baidu.tieba.pb.pb.adapter.a
     public void setData(f fVar) {
-        this.lJI = fVar;
+        this.lJH = fVar;
     }
 
     @Override // com.baidu.tieba.pb.pb.adapter.a
@@ -220,17 +220,17 @@ public class a extends l<PostData, PbInterviewLiveNormalItemViewHolder> implemen
 
     @Override // com.baidu.tieba.pb.pb.adapter.a
     public void setImageMaxWidth(int i) {
-        this.lJQ = i;
+        this.lJP = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.adapter.a
     public void uz(boolean z) {
-        this.lJJ = z;
+        this.lJI = z;
     }
 
     @Override // com.baidu.tieba.pb.pb.adapter.a
     public void uA(boolean z) {
-        this.lJK = z;
+        this.lJJ = z;
     }
 
     @Override // com.baidu.tieba.pb.pb.adapter.a

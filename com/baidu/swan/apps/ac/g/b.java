@@ -26,7 +26,7 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return com.baidu.swan.pms.database.a.bgb().dw(str, "0.0.0");
+        return com.baidu.swan.pms.database.a.bgc().dw(str, "0.0.0");
     }
 
     public static String rI(String str) {
@@ -63,10 +63,10 @@ public class b {
         return hashMap.get(str2);
     }
 
-    public static void aIr() {
-        f ajs = com.baidu.swan.apps.v.f.aDG().ajs();
-        if (ajs != null && (ajs.asT() instanceof g)) {
-            com.baidu.swan.apps.v.f.aDG().aDq().onBackPressed();
+    public static void aIs() {
+        f ajt = com.baidu.swan.apps.v.f.aDH().ajt();
+        if (ajt != null && (ajt.asU() instanceof g)) {
+            com.baidu.swan.apps.v.f.aDH().aDr().onBackPressed();
         }
     }
 
@@ -118,18 +118,18 @@ public class b {
     }
 
     public static void cr(String str, String str2) {
-        e aMk;
-        if (!TextUtils.isEmpty(str) && (aMk = e.aMk()) != null) {
-            aMk.aMC().putString(str, str2);
+        e aMl;
+        if (!TextUtils.isEmpty(str) && (aMl = e.aMl()) != null) {
+            aMl.aMD().putString(str, str2);
         }
     }
 
     public static String cs(String str, String str2) {
-        e aMk = e.aMk();
-        if (aMk == null || TextUtils.isEmpty(str)) {
+        e aMl = e.aMl();
+        if (aMl == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return aMk.aMC().getString(str, str2);
+        return aMl.aMD().getString(str, str2);
     }
 
     public static void c(Map<String, String> map, String str) {
@@ -171,7 +171,7 @@ public class b {
                             hVar.downloadUrl = "";
                             arrayList.add(hVar);
                             if (z) {
-                                com.baidu.swan.pms.database.a.bgb().c(hVar);
+                                com.baidu.swan.pms.database.a.bgc().c(hVar);
                             }
                         }
                     }
@@ -190,13 +190,13 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (com.baidu.swan.apps.console.debugger.a.e.apG() || com.baidu.swan.apps.ad.a.a.aIK()) {
-            e aMk = e.aMk();
-            if (aMk == null) {
+        if (com.baidu.swan.apps.console.debugger.a.e.apH() || com.baidu.swan.apps.ad.a.a.aIL()) {
+            e aMl = e.aMl();
+            if (aMl == null) {
                 return null;
             }
-            SwanAppConfigData aMt = aMk.aMt();
-            if (aMt == null || (list = aMt.dHH) == null) {
+            SwanAppConfigData aMu = aMl.aMu();
+            if (aMu == null || (list = aMu.dHH) == null) {
                 return null;
             }
             for (h hVar : list) {
@@ -213,25 +213,25 @@ public class b {
         if (map == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        e aMk = e.aMk();
-        String string = aMk != null ? aMk.aMC().getString(str, (String) null) : null;
+        e aMl = e.aMl();
+        String string = aMl != null ? aMl.aMD().getString(str, (String) null) : null;
         if (!TextUtils.isEmpty(string)) {
             map.put(str, string);
             return string;
         }
-        SwanAppConfigData aMt = aMk != null ? aMk.aMt() : null;
+        SwanAppConfigData aMu = aMl != null ? aMl.aMu() : null;
         if (i == 3) {
-            if (c.aHT()) {
-                com.baidu.swan.apps.ac.b.a.b(aMt, false);
+            if (c.aHU()) {
+                com.baidu.swan.apps.ac.b.a.b(aMu, false);
             } else {
-                com.baidu.swan.apps.ac.b.a.a(aMt, false);
+                com.baidu.swan.apps.ac.b.a.a(aMu, false);
             }
             string = cs(str, null);
         } else if (i == 4) {
-            if (c.aHT()) {
-                string = f(aMt);
+            if (c.aHU()) {
+                string = f(aMu);
             } else {
-                string = e(aMt);
+                string = e(aMu);
             }
         }
         map.put(str, string);

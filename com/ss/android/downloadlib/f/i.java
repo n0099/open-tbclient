@@ -28,11 +28,11 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: b  reason: collision with root package name */
-    private static Object[] f13288b = new Object[0];
+    private static Object[] f13289b = new Object[0];
     private static Object[] c = new Object[73];
 
     /* renamed from: a  reason: collision with root package name */
-    static final char[] f13287a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    static final char[] f13288a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     private static String d = null;
 
     public static boolean a(String str) {
@@ -176,11 +176,11 @@ public class i {
             try {
                 PackageInfo packageInfo = com.ss.android.downloadlib.a.j.a().getPackageManager().getPackageInfo(str, 0);
                 if (packageInfo != null) {
-                    bVar.RP(packageInfo.versionCode);
-                    bVar.RO(com.ss.android.downloadlib.a.b.b.f13231b);
-                    o eFF = com.ss.android.downloadlib.a.j.eFF();
-                    if (eFF != null && eFF.a() && !a(packageInfo.versionCode, i, packageInfo.versionName, str2)) {
-                        bVar.RO(com.ss.android.downloadlib.a.b.b.c);
+                    bVar.Sf(packageInfo.versionCode);
+                    bVar.Se(com.ss.android.downloadlib.a.b.b.f13232b);
+                    o eGj = com.ss.android.downloadlib.a.j.eGj();
+                    if (eGj != null && eGj.a() && !a(packageInfo.versionCode, i, packageInfo.versionName, str2)) {
+                        bVar.Se(com.ss.android.downloadlib.a.b.b.c);
                     }
                 }
             } catch (Exception e) {
@@ -481,7 +481,7 @@ public class i {
     }
 
     public static void a(@NonNull Throwable th) {
-        com.ss.android.downloadlib.a.j.eFE().a(null, new com.ss.android.socialbase.downloader.e.a(1, b(th)), 1);
+        com.ss.android.downloadlib.a.j.eGi().a(null, new com.ss.android.socialbase.downloader.e.a(1, b(th)), 1);
     }
 
     public static String b(Throwable th) {

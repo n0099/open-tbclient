@@ -36,7 +36,7 @@ public class c {
         this.ery = baiduMap;
     }
 
-    private void bdT() {
+    private void bdU() {
         if (this.eqW == null) {
             this.eqW = new LocationClient(this.mContext.getApplicationContext());
             this.eqW.registerLocationListener(new a());
@@ -57,9 +57,9 @@ public class c {
         }
     }
 
-    private void bdU() {
+    private void bdV() {
         if (!this.eqZ) {
-            bdT();
+            bdU();
             if (this.eqW != null && !this.eqW.isStarted()) {
                 this.eqW.start();
                 this.eqZ = true;
@@ -67,13 +67,13 @@ public class c {
         }
     }
 
-    public BDLocation bdY() {
+    public BDLocation bdZ() {
         return this.eqY;
     }
 
     public void ir(boolean z) {
         if (z) {
-            bdU();
+            bdV();
         } else {
             stopLocation();
         }

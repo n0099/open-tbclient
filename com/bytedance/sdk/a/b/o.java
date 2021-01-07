@@ -17,10 +17,10 @@ import org.apache.http.cookie.SM;
 public final class o {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pattern f6266a = Pattern.compile("(\\d{2,4})[^\\d]*");
+    private static final Pattern f6267a = Pattern.compile("(\\d{2,4})[^\\d]*");
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Pattern f6267b = Pattern.compile("(?i)(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec).*");
+    private static final Pattern f6268b = Pattern.compile("(?i)(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec).*");
     private static final Pattern c = Pattern.compile("(\\d{1,2})[^\\d]*");
     private static final Pattern d = Pattern.compile("(\\d{1,2}):(\\d{1,2}):(\\d{1,2})[^\\d]*");
     private final String e;
@@ -150,7 +150,7 @@ public final class o {
         } else if (!a(f, str3)) {
             return null;
         }
-        if (f.length() != str3.length() && com.bytedance.sdk.a.b.a.h.a.erb().a(str3) == null) {
+        if (f.length() != str3.length() && com.bytedance.sdk.a.b.a.h.a.erc().a(str3) == null) {
             return null;
         }
         if (str4 == null || !str4.startsWith("/")) {
@@ -181,9 +181,9 @@ public final class o {
                 i5 = Integer.parseInt(matcher.group(3));
             } else if (i6 == -1 && matcher.usePattern(c).matches()) {
                 i6 = Integer.parseInt(matcher.group(1));
-            } else if (i7 == -1 && matcher.usePattern(f6267b).matches()) {
-                i7 = f6267b.pattern().indexOf(matcher.group(1).toLowerCase(Locale.US)) / 4;
-            } else if (i8 == -1 && matcher.usePattern(f6266a).matches()) {
+            } else if (i7 == -1 && matcher.usePattern(f6268b).matches()) {
+                i7 = f6268b.pattern().indexOf(matcher.group(1).toLowerCase(Locale.US)) / 4;
+            } else if (i8 == -1 && matcher.usePattern(f6267a).matches()) {
                 i8 = Integer.parseInt(matcher.group(1));
             }
             b2 = b(str, b3 + 1, i2, false);

@@ -66,19 +66,19 @@ public class b extends com.baidu.swan.apps.component.b.b {
             super.parseFromJson(jSONObject);
             this.cNz = jSONObject.optJSONObject("style");
             this.cNC = jSONObject.optJSONObject("transition");
-            aor();
-            aov();
+            aos();
+            aow();
         }
     }
 
     @Override // com.baidu.swan.apps.component.b.b
     public void be(JSONObject jSONObject) {
         super.be(jSONObject);
-        aor();
-        aov();
+        aos();
+        aow();
     }
 
-    private void aor() {
+    private void aos() {
         if (this.cNz != null) {
             try {
                 this.backgroundColor = Color.parseColor(this.cNz.optString("bgColor"));
@@ -99,7 +99,7 @@ public class b extends com.baidu.swan.apps.component.b.b {
         }
     }
 
-    private void aov() {
+    private void aow() {
         if (this.cNC != null) {
             try {
                 this.duration = Long.parseLong(this.cNC.optString("duration"));

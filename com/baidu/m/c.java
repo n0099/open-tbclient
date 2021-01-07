@@ -9,7 +9,7 @@ public class c {
     private static final String TAG = c.class.getSimpleName();
     private static volatile c cnj;
 
-    public static synchronized c afi() {
+    public static synchronized c afj() {
         c cVar;
         synchronized (c.class) {
             if (cnj == null) {
@@ -31,7 +31,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.afh().e(activity, str, aVar);
+        b.afi().e(activity, str, aVar);
         return true;
     }
 
@@ -39,7 +39,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.afh().f(activity, str, aVar);
+        b.afi().f(activity, str, aVar);
         return true;
     }
 
@@ -47,7 +47,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.afh().b(context, jSONObject, aVar);
+        b.afi().b(context, jSONObject, aVar);
         return true;
     }
 
@@ -55,7 +55,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.afh().f(context, jSONObject);
+        b.afi().f(context, jSONObject);
         return true;
     }
 
@@ -63,7 +63,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.afh().b(activity, jSONObject, aVar);
+        b.afi().b(activity, jSONObject, aVar);
         return true;
     }
 }

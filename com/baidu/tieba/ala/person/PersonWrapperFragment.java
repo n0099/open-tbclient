@@ -53,12 +53,12 @@ public class PersonWrapperFragment extends BaseFragment implements ViewPager.OnP
         View inflate = layoutInflater.inflate(a.g.ala_fragment_person_wrapper, (ViewGroup) null);
         ap(inflate);
         initListener();
-        cpp();
+        cpq();
         xG(this.type);
         return inflate;
     }
 
-    private void cpp() {
+    private void cpq() {
         this.hVy.setIndicatorMargin(getResources().getDimensionPixelSize(a.d.sdk_ds34));
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) {
             this.hVy.setViewPager(this.hVv, this.hVz / 3);
@@ -68,13 +68,13 @@ public class PersonWrapperFragment extends BaseFragment implements ViewPager.OnP
         this.hVy.setOnPageChangeListener(this);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) {
             this.hVC.add(PersonPlayBacksListFragment.y(this.userId, null));
-            this.hVy.IT(getString(a.h.ala_person_playbacks));
+            this.hVy.IS(getString(a.h.ala_person_playbacks));
         }
         this.hVC.add(PersonListFragment.a(0, this.userId, this.metaKey, this.hVw));
-        this.hVy.IT(getString(a.h.ala_person_fans));
+        this.hVy.IS(getString(a.h.ala_person_fans));
         this.hVD = PersonListFragment.a(1, this.userId, this.metaKey, this.hVx);
         this.hVC.add(this.hVD);
-        this.hVy.IT(getString(a.h.ala_person_attentions));
+        this.hVy.IS(getString(a.h.ala_person_attentions));
         this.hVu = new PersonViewPagerAdapter(getChildFragmentManager());
         this.hVu.setData(this.hVC);
         this.hVv.setAdapter(this.hVu);
@@ -87,13 +87,13 @@ public class PersonWrapperFragment extends BaseFragment implements ViewPager.OnP
     public void xG(int i) {
         this.type = i;
         this.hVm = false;
-        cpq();
+        cpr();
         if (this.hVv != null) {
             this.hVv.setCurrentItem(this.abC);
         }
     }
 
-    private void cpq() {
+    private void cpr() {
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba()) {
             if (this.type == 2) {
                 this.abC = 0;

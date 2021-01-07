@@ -17,7 +17,7 @@ public class l extends a<com.ksad.lottie.model.content.h, Path> {
     @Override // com.ksad.lottie.a.b.a
     /* renamed from: b */
     public Path a(com.ksad.lottie.e.a<com.ksad.lottie.model.content.h> aVar, float f) {
-        this.c.a(aVar.f8300a, aVar.f8301b, f);
+        this.c.a(aVar.f8301a, aVar.f8302b, f);
         com.ksad.lottie.d.e.a(this.c, this.d);
         return this.d;
     }

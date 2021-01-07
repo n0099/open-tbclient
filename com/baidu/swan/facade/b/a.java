@@ -20,7 +20,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void vD(final String str) {
-        HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().setHeader("Swan-Accept", "swan/json").userAgent(com.baidu.swan.apps.am.a.aQL()).url(str).build().executeAsyncOnUIBack(new StringResponseCallback() { // from class: com.baidu.swan.facade.b.a.1
+        HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().setHeader("Swan-Accept", "swan/json").userAgent(com.baidu.swan.apps.am.a.aQM()).url(str).build().executeAsyncOnUIBack(new StringResponseCallback() { // from class: com.baidu.swan.facade.b.a.1
             private Response dYl;
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -66,9 +66,9 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public static void f(String str, String str2, String str3, boolean z) {
         if (z) {
-            d.a(AppRuntime.getAppContext(), "打开失败，请检查网络设置").aLS();
+            d.a(AppRuntime.getAppContext(), "打开失败，请检查网络设置").aLT();
         }
-        e.aQJ().j(new com.baidu.swan.apps.al.a().cV(1L).cW(12L).uz(str));
+        e.aQK().j(new com.baidu.swan.apps.al.a().cV(1L).cW(12L).uz(str));
         if (DEBUG) {
             Log.w("SwanAppExchanger", "open aiapp fail, url : " + str2);
         }

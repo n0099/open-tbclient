@@ -9,7 +9,7 @@ import java.util.List;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final d<Object> f10308a = new d<Object>() { // from class: com.kwad.sdk.glide.g.a.a.1
+    private static final d<Object> f10309a = new d<Object>() { // from class: com.kwad.sdk.glide.g.a.a.1
         @Override // com.kwad.sdk.glide.g.a.a.d
         public void a(@NonNull Object obj) {
         }
@@ -17,7 +17,7 @@ public final class a {
 
     /* renamed from: com.kwad.sdk.glide.g.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1095a<T> {
+    public interface InterfaceC1136a<T> {
         T b();
     }
 
@@ -26,23 +26,23 @@ public final class a {
     public static final class b<T> implements Pools.Pool<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final InterfaceC1095a<T> f10309a;
+        private final InterfaceC1136a<T> f10310a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final d<T> f10310b;
+        private final d<T> f10311b;
         private final Pools.Pool<T> c;
 
-        b(@NonNull Pools.Pool<T> pool, @NonNull InterfaceC1095a<T> interfaceC1095a, @NonNull d<T> dVar) {
+        b(@NonNull Pools.Pool<T> pool, @NonNull InterfaceC1136a<T> interfaceC1136a, @NonNull d<T> dVar) {
             this.c = pool;
-            this.f10309a = interfaceC1095a;
-            this.f10310b = dVar;
+            this.f10310a = interfaceC1136a;
+            this.f10311b = dVar;
         }
 
         @Override // androidx.core.util.Pools.Pool
         public T acquire() {
             T acquire = this.c.acquire();
             if (acquire == null) {
-                acquire = this.f10309a.b();
+                acquire = this.f10310a.b();
                 if (Log.isLoggable("FactoryPools", 2)) {
                     Log.v("FactoryPools", "Created new " + acquire.getClass());
                 }
@@ -58,7 +58,7 @@ public final class a {
             if (t instanceof c) {
                 ((c) t).d().a(true);
             }
-            this.f10310b.a(t);
+            this.f10311b.a(t);
             return this.c.release(t);
         }
     }
@@ -81,9 +81,9 @@ public final class a {
 
     @NonNull
     public static <T> Pools.Pool<List<T>> a(int i) {
-        return a(new Pools.SynchronizedPool(i), new InterfaceC1095a<List<T>>() { // from class: com.kwad.sdk.glide.g.a.a.2
+        return a(new Pools.SynchronizedPool(i), new InterfaceC1136a<List<T>>() { // from class: com.kwad.sdk.glide.g.a.a.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1095a
+            @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1136a
             @NonNull
             /* renamed from: a */
             public List<T> b() {
@@ -99,22 +99,22 @@ public final class a {
     }
 
     @NonNull
-    public static <T extends c> Pools.Pool<T> a(int i, @NonNull InterfaceC1095a<T> interfaceC1095a) {
-        return a(new Pools.SynchronizedPool(i), interfaceC1095a);
+    public static <T extends c> Pools.Pool<T> a(int i, @NonNull InterfaceC1136a<T> interfaceC1136a) {
+        return a(new Pools.SynchronizedPool(i), interfaceC1136a);
     }
 
     @NonNull
-    private static <T extends c> Pools.Pool<T> a(@NonNull Pools.Pool<T> pool, @NonNull InterfaceC1095a<T> interfaceC1095a) {
-        return a(pool, interfaceC1095a, b());
+    private static <T extends c> Pools.Pool<T> a(@NonNull Pools.Pool<T> pool, @NonNull InterfaceC1136a<T> interfaceC1136a) {
+        return a(pool, interfaceC1136a, b());
     }
 
     @NonNull
-    private static <T> Pools.Pool<T> a(@NonNull Pools.Pool<T> pool, @NonNull InterfaceC1095a<T> interfaceC1095a, @NonNull d<T> dVar) {
-        return new b(pool, interfaceC1095a, dVar);
+    private static <T> Pools.Pool<T> a(@NonNull Pools.Pool<T> pool, @NonNull InterfaceC1136a<T> interfaceC1136a, @NonNull d<T> dVar) {
+        return new b(pool, interfaceC1136a, dVar);
     }
 
     @NonNull
     private static <T> d<T> b() {
-        return (d<T>) f10308a;
+        return (d<T>) f10309a;
     }
 }

@@ -124,7 +124,7 @@ public class k extends c {
             this.oSX.setText(smartMsg.getTitle());
             this.oSK.setText(com.baidu.yuyinala.privatemessage.implugin.util.f.j(context, smartMsg.getMsgTime()));
             com.baidu.yuyinala.privatemessage.implugin.util.b.hE(context);
-            ImageLoader.getInstance().displayImage(smartMsg.getIcon(), this.oSY, com.baidu.yuyinala.privatemessage.implugin.util.b.enT());
+            ImageLoader.getInstance().displayImage(smartMsg.getIcon(), this.oSY, com.baidu.yuyinala.privatemessage.implugin.util.b.enU());
             int notifyCmd = chatMsg.getNotifyCmd();
             if (notifyCmd >= -1) {
                 if (notifyCmd < 1) {
@@ -152,8 +152,8 @@ public class k extends c {
                     } else {
                         this.oSO.setVisibility(0);
                     }
-                    this.oSL.setTextColor(Color.parseColor(Yh(smartMsg.getFirstColor())));
-                    this.oSM.setTextColor(Color.parseColor(ThemeManager.enQ() != ThemeManager.ThemeMode.NIGHT ? "#666666" : "#999999"));
+                    this.oSL.setTextColor(Color.parseColor(Yg(smartMsg.getFirstColor())));
+                    this.oSM.setTextColor(Color.parseColor(ThemeManager.enR() != ThemeManager.ThemeMode.NIGHT ? "#666666" : "#999999"));
                     if (smartMsg.getCommodity() != null) {
                         com.baidu.yuyinala.privatemessage.implugin.util.c.e("PushSmartTemplateItem", "Error:getCommodity is null");
                         return;
@@ -206,7 +206,7 @@ public class k extends c {
                             }
                             try {
                                 if (!TextUtils.isEmpty(color)) {
-                                    textView2.setTextColor(Color.parseColor(Yh(color)));
+                                    textView2.setTextColor(Color.parseColor(Yg(color)));
                                 }
                             } catch (Exception e) {
                                 com.baidu.yuyinala.privatemessage.implugin.util.c.e("PushSmartTemplateItem", "Error:color parse error");
@@ -233,17 +233,17 @@ public class k extends c {
             if (!TextUtils.isEmpty(smartMsg.getDetail())) {
             }
             this.oSO.setVisibility(0);
-            this.oSL.setTextColor(Color.parseColor(Yh(smartMsg.getFirstColor())));
-            this.oSM.setTextColor(Color.parseColor(ThemeManager.enQ() != ThemeManager.ThemeMode.NIGHT ? "#666666" : "#999999"));
+            this.oSL.setTextColor(Color.parseColor(Yg(smartMsg.getFirstColor())));
+            this.oSM.setTextColor(Color.parseColor(ThemeManager.enR() != ThemeManager.ThemeMode.NIGHT ? "#666666" : "#999999"));
             if (smartMsg.getCommodity() != null) {
             }
         }
-        eld();
+        ele();
         super.b(context, chatMsg);
     }
 
-    private String Yh(String str) {
-        if (ThemeManager.enQ() == ThemeManager.ThemeMode.NIGHT) {
+    private String Yg(String str) {
+        if (ThemeManager.enR() == ThemeManager.ThemeMode.NIGHT) {
             return "#555555";
         }
         return "#000000";
@@ -255,7 +255,7 @@ public class k extends c {
         return textPaint.measureText(str);
     }
 
-    private void eld() {
+    private void ele() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -285,7 +285,7 @@ public class k extends c {
                 k.this.a(smartMsg);
             }
         });
-        eld();
+        ele();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -300,7 +300,7 @@ public class k extends c {
                     if (i == 200) {
                         com.baidu.yuyinala.privatemessage.implugin.f.h hVar = new com.baidu.yuyinala.privatemessage.implugin.f.h();
                         hVar.setPaid(smartMsg.getContacter());
-                        hVar.Yl(str);
+                        hVar.Yk(str);
                         if (hVar.isDataValid()) {
                             com.baidu.yuyinala.privatemessage.implugin.f.k.hB(k.this.mContext).a(smartMsg.getContacter(), hVar);
                             k.this.a(hVar, smartMsg);
@@ -314,22 +314,22 @@ public class k extends c {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final com.baidu.yuyinala.privatemessage.implugin.f.h hVar, final SmartMsg smartMsg) {
         try {
-            com.baidu.yuyinala.privatemessage.implugin.b.b.hv(this.mContext).z(new com.baidu.yuyinala.privatemessage.implugin.f.a(this.mContext, Long.valueOf(hVar.elp()).longValue(), hVar.getType(), hVar.elo(), new com.baidu.yuyinala.privatemessage.implugin.f.g() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.k.5
+            com.baidu.yuyinala.privatemessage.implugin.b.b.hv(this.mContext).z(new com.baidu.yuyinala.privatemessage.implugin.f.a(this.mContext, Long.valueOf(hVar.elq()).longValue(), hVar.getType(), hVar.elp(), new com.baidu.yuyinala.privatemessage.implugin.f.g() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.k.5
                 @Override // com.baidu.yuyinala.privatemessage.implugin.f.g
                 public void d(int i, String str, long j) {
                     if (i == 200) {
                         com.baidu.yuyinala.privatemessage.implugin.f.h hVar2 = new com.baidu.yuyinala.privatemessage.implugin.f.h();
                         hVar.setPaid(smartMsg.getContacter());
-                        if (hVar.elo() == 0) {
+                        if (hVar.elp() == 0) {
                             hVar.OO(1);
-                        } else if (hVar.elo() == 1) {
+                        } else if (hVar.elp() == 1) {
                             hVar.OO(0);
                         }
-                        hVar2.Yl(str);
+                        hVar2.Yk(str);
                         if (hVar2.isDataValid()) {
                             com.baidu.yuyinala.privatemessage.implugin.f.k.hB(k.this.mContext).a(smartMsg.getContacter(), hVar);
                             if (k.this.oSJ != null) {
-                                smartMsg.setNotifyCmd(hVar.elo());
+                                smartMsg.setNotifyCmd(hVar.elp());
                                 k.this.oSJ.a(k.this.mConvertView, k.this.mPosition, smartMsg);
                             }
                         }

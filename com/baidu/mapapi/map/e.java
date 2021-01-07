@@ -4,15 +4,15 @@ import android.os.Bundle;
 import android.util.Log;
 import java.util.concurrent.locks.Lock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class e implements com.baidu.mapsdkplatform.comapi.map.l {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaiduMap f2914a;
+    final /* synthetic */ BaiduMap f2915a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(BaiduMap baiduMap) {
-        this.f2914a = baiduMap;
+        this.f2915a = baiduMap;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
@@ -22,23 +22,23 @@ public class e implements com.baidu.mapsdkplatform.comapi.map.l {
         HeatMap heatMap;
         Lock lock3;
         HeatMap heatMap2;
-        lock = this.f2914a.I;
+        lock = this.f2915a.I;
         lock.lock();
         try {
-            heatMap = this.f2914a.H;
+            heatMap = this.f2915a.H;
             if (heatMap != null) {
-                heatMap2 = this.f2914a.H;
+                heatMap2 = this.f2915a.H;
                 Tile a2 = heatMap2.a(i, i2, i3);
                 Log.e("SPTest", "mapLayerDataReq t == null = " + (a2 == null));
                 if (a2 != null) {
                     return a2.toBundle();
                 }
             }
-            lock3 = this.f2914a.I;
+            lock3 = this.f2915a.I;
             lock3.unlock();
             return null;
         } finally {
-            lock2 = this.f2914a.I;
+            lock2 = this.f2915a.I;
             lock2.unlock();
         }
     }

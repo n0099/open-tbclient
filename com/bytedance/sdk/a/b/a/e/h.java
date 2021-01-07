@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public final class h implements Closeable {
 
     /* renamed from: a  reason: collision with root package name */
-    static final Logger f6209a = Logger.getLogger(e.class.getName());
+    static final Logger f6210a = Logger.getLogger(e.class.getName());
     private final boolean e;
     private final com.bytedance.sdk.a.a.e pjC;
     final d.a pkA;
@@ -59,12 +59,12 @@ public final class h implements Closeable {
             }
             return;
         }
-        com.bytedance.sdk.a.a.f mo47if = this.pjC.mo47if(e.pjK.g());
-        if (f6209a.isLoggable(Level.FINE)) {
-            f6209a.fine(com.bytedance.sdk.a.b.a.c.a("<< CONNECTION %s", mo47if.e()));
+        com.bytedance.sdk.a.a.f mo58if = this.pjC.mo58if(e.pjK.g());
+        if (f6210a.isLoggable(Level.FINE)) {
+            f6210a.fine(com.bytedance.sdk.a.b.a.c.a("<< CONNECTION %s", mo58if.e()));
         }
-        if (!e.pjK.equals(mo47if)) {
-            throw e.j("Expected a connection header but was %s", mo47if.a());
+        if (!e.pjK.equals(mo58if)) {
+            throw e.j("Expected a connection header but was %s", mo58if.a());
         }
     }
 
@@ -75,42 +75,42 @@ public final class h implements Closeable {
             if (a2 < 0 || a2 > 16384) {
                 throw e.j("FRAME_SIZE_ERROR: %s", Integer.valueOf(a2));
             }
-            byte epV = (byte) (this.pjC.epV() & 255);
-            if (z && epV != 4) {
-                throw e.j("Expected a SETTINGS frame but was %s", Byte.valueOf(epV));
+            byte epW = (byte) (this.pjC.epW() & 255);
+            if (z && epW != 4) {
+                throw e.j("Expected a SETTINGS frame but was %s", Byte.valueOf(epW));
             }
-            byte epV2 = (byte) (this.pjC.epV() & 255);
+            byte epW2 = (byte) (this.pjC.epW() & 255);
             int j = this.pjC.j() & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-            if (f6209a.isLoggable(Level.FINE)) {
-                f6209a.fine(e.a(true, j, a2, epV, epV2));
+            if (f6210a.isLoggable(Level.FINE)) {
+                f6210a.fine(e.a(true, j, a2, epW, epW2));
             }
-            switch (epV) {
+            switch (epW) {
                 case 0:
-                    b(bVar, a2, epV2, j);
+                    b(bVar, a2, epW2, j);
                     return true;
                 case 1:
-                    a(bVar, a2, epV2, j);
+                    a(bVar, a2, epW2, j);
                     return true;
                 case 2:
-                    c(bVar, a2, epV2, j);
+                    c(bVar, a2, epW2, j);
                     return true;
                 case 3:
-                    d(bVar, a2, epV2, j);
+                    d(bVar, a2, epW2, j);
                     return true;
                 case 4:
-                    e(bVar, a2, epV2, j);
+                    e(bVar, a2, epW2, j);
                     return true;
                 case 5:
-                    f(bVar, a2, epV2, j);
+                    f(bVar, a2, epW2, j);
                     return true;
                 case 6:
-                    g(bVar, a2, epV2, j);
+                    g(bVar, a2, epW2, j);
                     return true;
                 case 7:
-                    h(bVar, a2, epV2, j);
+                    h(bVar, a2, epW2, j);
                     return true;
                 case 8:
-                    i(bVar, a2, epV2, j);
+                    i(bVar, a2, epW2, j);
                     return true;
                 default:
                     this.pjC.h(a2);
@@ -126,20 +126,20 @@ public final class h implements Closeable {
             throw e.j("PROTOCOL_ERROR: TYPE_HEADERS streamId == 0", new Object[0]);
         }
         boolean z = (b2 & 1) != 0;
-        short epV = (b2 & 8) != 0 ? (short) (this.pjC.epV() & 255) : (short) 0;
+        short epW = (b2 & 8) != 0 ? (short) (this.pjC.epW() & 255) : (short) 0;
         if ((b2 & 32) != 0) {
             a(bVar, i2);
             i -= 5;
         }
-        bVar.a(z, i2, -1, a(a(i, b2, epV), epV, b2, i2));
+        bVar.a(z, i2, -1, a(a(i, b2, epW), epW, b2, i2));
     }
 
     private List<c> a(int i, short s, byte b2, int i2) throws IOException {
         a aVar = this.pkz;
         this.pkz.d = i;
-        aVar.f6210a = i;
+        aVar.f6211a = i;
         this.pkz.pkB = s;
-        this.pkz.f6211b = b2;
+        this.pkz.f6212b = b2;
         this.pkz.c = i2;
         this.pkA.a();
         return this.pkA.b();
@@ -153,9 +153,9 @@ public final class h implements Closeable {
         if ((b2 & 32) != 0) {
             throw e.j("PROTOCOL_ERROR: FLAG_COMPRESSED without SETTINGS_COMPRESS_DATA", new Object[0]);
         }
-        short epV = (b2 & 8) != 0 ? (short) (this.pjC.epV() & 255) : (short) 0;
-        bVar.a(z, i2, this.pjC, a(i, b2, epV));
-        this.pjC.h(epV);
+        short epW = (b2 & 8) != 0 ? (short) (this.pjC.epW() & 255) : (short) 0;
+        bVar.a(z, i2, this.pjC, a(i, b2, epW));
+        this.pjC.h(epW);
     }
 
     private void c(b bVar, int i, byte b2, int i2) throws IOException {
@@ -170,7 +170,7 @@ public final class h implements Closeable {
 
     private void a(b bVar, int i) throws IOException {
         int j = this.pjC.j();
-        bVar.a(i, j & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, (this.pjC.epV() & 255) + 1, (Integer.MIN_VALUE & j) != 0);
+        bVar.a(i, j & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, (this.pjC.epW() & 255) + 1, (Integer.MIN_VALUE & j) != 0);
     }
 
     private void d(b bVar, int i, byte b2, int i2) throws IOException {
@@ -202,19 +202,19 @@ public final class h implements Closeable {
         } else {
             n nVar = new n();
             for (int i3 = 0; i3 < i; i3 += 6) {
-                short epW = this.pjC.epW();
+                short epX = this.pjC.epX();
                 int j = this.pjC.j();
-                switch (epW) {
+                switch (epX) {
                     case 2:
                         if (j != 0 && j != 1) {
                             throw e.j("PROTOCOL_ERROR SETTINGS_ENABLE_PUSH != 0 or 1", new Object[0]);
                         }
                         break;
                     case 3:
-                        epW = 4;
+                        epX = 4;
                         break;
                     case 4:
-                        epW = 7;
+                        epX = 7;
                         if (j < 0) {
                             throw e.j("PROTOCOL_ERROR SETTINGS_INITIAL_WINDOW_SIZE > 2^31 - 1", new Object[0]);
                         }
@@ -226,7 +226,7 @@ public final class h implements Closeable {
                         break;
                         break;
                 }
-                nVar.dX(epW, j);
+                nVar.dX(epX, j);
             }
             bVar.a(false, nVar);
         }
@@ -236,8 +236,8 @@ public final class h implements Closeable {
         if (i2 == 0) {
             throw e.j("PROTOCOL_ERROR: TYPE_PUSH_PROMISE streamId == 0", new Object[0]);
         }
-        short epV = (b2 & 8) != 0 ? (short) (this.pjC.epV() & 255) : (short) 0;
-        bVar.b(i2, this.pjC.j() & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, a(a(i - 4, b2, epV), epV, b2, i2));
+        short epW = (b2 & 8) != 0 ? (short) (this.pjC.epW() & 255) : (short) 0;
+        bVar.b(i2, this.pjC.j() & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, a(a(i - 4, b2, epW), epW, b2, i2));
     }
 
     private void g(b bVar, int i, byte b2, int i2) throws IOException {
@@ -264,9 +264,9 @@ public final class h implements Closeable {
         if (a2 == null) {
             throw e.j("TYPE_GOAWAY unexpected error code: %d", Integer.valueOf(j2));
         }
-        com.bytedance.sdk.a.a.f fVar = com.bytedance.sdk.a.a.f.f6141b;
+        com.bytedance.sdk.a.a.f fVar = com.bytedance.sdk.a.a.f.f6142b;
         if (i3 > 0) {
-            fVar = this.pjC.mo47if(i3);
+            fVar = this.pjC.mo58if(i3);
         }
         bVar.a(j, a2, fVar);
     }
@@ -292,10 +292,10 @@ public final class h implements Closeable {
     public static final class a implements s {
 
         /* renamed from: a  reason: collision with root package name */
-        int f6210a;
+        int f6211a;
 
         /* renamed from: b  reason: collision with root package name */
-        byte f6211b;
+        byte f6212b;
         int c;
         int d;
         private final com.bytedance.sdk.a.a.e pjS;
@@ -310,7 +310,7 @@ public final class h implements Closeable {
             while (this.d == 0) {
                 this.pjS.h(this.pkB);
                 this.pkB = (short) 0;
-                if ((this.f6211b & 4) != 0) {
+                if ((this.f6212b & 4) != 0) {
                     return -1L;
                 }
                 b();
@@ -324,8 +324,8 @@ public final class h implements Closeable {
         }
 
         @Override // com.bytedance.sdk.a.a.s
-        public t epR() {
-            return this.pjS.epR();
+        public t epS() {
+            return this.pjS.epS();
         }
 
         @Override // com.bytedance.sdk.a.a.s, java.io.Closeable, java.lang.AutoCloseable
@@ -336,15 +336,15 @@ public final class h implements Closeable {
             int i = this.c;
             int a2 = h.a(this.pjS);
             this.d = a2;
-            this.f6210a = a2;
-            byte epV = (byte) (this.pjS.epV() & 255);
-            this.f6211b = (byte) (this.pjS.epV() & 255);
-            if (h.f6209a.isLoggable(Level.FINE)) {
-                h.f6209a.fine(e.a(true, this.c, this.f6210a, epV, this.f6211b));
+            this.f6211a = a2;
+            byte epW = (byte) (this.pjS.epW() & 255);
+            this.f6212b = (byte) (this.pjS.epW() & 255);
+            if (h.f6210a.isLoggable(Level.FINE)) {
+                h.f6210a.fine(e.a(true, this.c, this.f6211a, epW, this.f6212b));
             }
             this.c = this.pjS.j() & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-            if (epV != 9) {
-                throw e.j("%s != TYPE_CONTINUATION", Byte.valueOf(epV));
+            if (epW != 9) {
+                throw e.j("%s != TYPE_CONTINUATION", Byte.valueOf(epW));
             }
             if (this.c != i) {
                 throw e.j("TYPE_CONTINUATION streamId changed", new Object[0]);
@@ -353,7 +353,7 @@ public final class h implements Closeable {
     }
 
     static int a(com.bytedance.sdk.a.a.e eVar) throws IOException {
-        return ((eVar.epV() & 255) << 16) | ((eVar.epV() & 255) << 8) | (eVar.epV() & 255);
+        return ((eVar.epW() & 255) << 16) | ((eVar.epW() & 255) << 8) | (eVar.epW() & 255);
     }
 
     static int a(int i, byte b2, short s) throws IOException {

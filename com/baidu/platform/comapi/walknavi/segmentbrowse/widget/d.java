@@ -5,17 +5,17 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.platform.comapi.wnplatform.p.g;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f4594a;
+    private static int f4595a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static int f4595b = 0;
+    private static int f4596b = 0;
 
     public static void a(int i) {
-        f4594a = i;
+        f4595a = i;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.util.ArrayList<com.baidu.platform.comapi.walknavi.segmentbrowse.widget.b> */
@@ -215,12 +215,12 @@ public class d {
     }
 
     public static int a() {
-        return f4595b;
+        return f4596b;
     }
 
     private static void a(ArrayList<b> arrayList, HashMap<Integer, Integer> hashMap) {
         b bVar;
-        f4595b = 0;
+        f4596b = 0;
         if (hashMap.size() >= 2 && hashMap.get(1).intValue() <= 6) {
             com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "guide enter new branch1!!!");
             b a2 = b.a(arrayList.get(0), arrayList.get(1));
@@ -228,7 +228,7 @@ public class d {
             arrayList.remove(0);
             arrayList.add(0, a2);
         }
-        if (arrayList.size() >= 2 && arrayList.get(1).c.length > f4594a) {
+        if (arrayList.size() >= 2 && arrayList.get(1).c.length > f4595a) {
             com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "guide enter new branch2!!!");
             b bVar2 = arrayList.get(1);
             if (arrayList.size() < 3) {
@@ -236,9 +236,9 @@ public class d {
             } else {
                 bVar = arrayList.get(2);
             }
-            b a3 = b.a(arrayList.get(1), f4594a);
-            b b2 = b.b(arrayList.get(1), f4594a);
-            f4595b = b2.c.length;
+            b a3 = b.a(arrayList.get(1), f4595a);
+            b b2 = b.b(arrayList.get(1), f4595a);
+            f4596b = b2.c.length;
             com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "headSecondText:" + String.valueOf(a3.c));
             com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "tailSecondText:" + String.valueOf(b2.c));
             b a4 = arrayList.size() >= 3 ? b.a(b2, arrayList.get(2)) : b2;
@@ -258,7 +258,7 @@ public class d {
             arrayList.remove(0);
             arrayList.remove(0);
             arrayList.add(0, a2);
-            if (arrayList.get(0).c.length > f4594a) {
+            if (arrayList.get(0).c.length > f4595a) {
                 com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "poi enter new branch2!!!");
                 b bVar2 = arrayList.get(0);
                 if (arrayList.size() < 2) {
@@ -266,8 +266,8 @@ public class d {
                 } else {
                     bVar = arrayList.get(1);
                 }
-                b a3 = b.a(arrayList.get(0), f4594a);
-                b b2 = b.b(arrayList.get(0), f4594a);
+                b a3 = b.a(arrayList.get(0), f4595a);
+                b b2 = b.b(arrayList.get(0), f4595a);
                 com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "headSecondText:" + String.valueOf(a3.c));
                 com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "tailSecondText:" + String.valueOf(b2.c));
                 b a4 = arrayList.size() >= 2 ? b.a(b2, arrayList.get(1)) : b2;

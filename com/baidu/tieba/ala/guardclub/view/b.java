@@ -77,12 +77,12 @@ public class b {
             }
             this.hdh = z;
             if (!TextUtils.isEmpty(str)) {
-                HI(str);
+                HH(str);
             }
         }
     }
 
-    private Drawable bZp() {
+    private Drawable bZq() {
         if (this.hdi != null) {
             return this.hdi;
         }
@@ -96,7 +96,7 @@ public class b {
         return this.hdi;
     }
 
-    private Drawable bZq() {
+    private Drawable bZr() {
         if (this.hdj != null) {
             return this.hdj;
         }
@@ -110,7 +110,7 @@ public class b {
         return this.hdj;
     }
 
-    private void HI(final String str) {
+    private void HH(final String str) {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.mView, "scaleX", 1.0f, 0.7f);
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.mView, "scaleY", 1.0f, 0.7f);
         ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.mView, "alpha", 1.0f, 0.2f);
@@ -169,13 +169,13 @@ public class b {
     public void aW(int i, String str) {
         switch (i) {
             case 0:
-                this.mView.setBackgroundDrawable(bZp());
+                this.mView.setBackgroundDrawable(bZq());
                 this.hdd.setImageResource(a.e.gcb_icon_enter_not_join);
                 this.hde.setCurrentText(this.mContext.getString(a.h.guard_club));
                 this.aGu.setVisibility(0);
                 return;
             case 1:
-                this.mView.setBackgroundDrawable(bZq());
+                this.mView.setBackgroundDrawable(bZr());
                 this.hdd.setImageResource(a.e.gcb_icon_enter_joined);
                 this.hde.setCurrentText(str);
                 this.aGu.setVisibility(8);

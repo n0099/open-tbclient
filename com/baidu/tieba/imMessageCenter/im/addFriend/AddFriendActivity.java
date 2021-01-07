@@ -175,7 +175,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
             public void onClick(View view) {
                 AddFriendActivity.this.HidenSoftKeyPad(AddFriendActivity.this.jRF, AddFriendActivity.this.kKa);
                 if (TbadkCoreApplication.getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
-                    AddFriendActivity.this.FR(AddFriendActivity.this.kKa.getText().toString());
+                    AddFriendActivity.this.FQ(AddFriendActivity.this.kKa.getText().toString());
                     return;
                 }
                 AddFriendActivity.this.showToast(R.string.plugin_not_install);
@@ -206,7 +206,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FR(String str) {
+    public void FQ(String str) {
         if (!TextUtils.isEmpty(this.userId) && !TextUtils.isEmpty(this.name) && !TextUtils.isEmpty(this.portrait)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestNewFriendActionLocalMessage(b.toLong(this.userId, 0L), this.name, this.portrait, TextUtils.isEmpty(str) ? getPageContext().getPageActivity().getString(R.string.my_name_is) + TbadkCoreApplication.getCurrentAccountName() : str, this.st_type));
         }

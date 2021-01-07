@@ -38,7 +38,7 @@ public class GetNuomiOrderHttpResponsedMessage extends JsonHttpResponsedMessage 
         }
     }
 
-    public HashMap<String, String> caO() {
+    public HashMap<String, String> caP() {
         return this.hjM;
     }
 

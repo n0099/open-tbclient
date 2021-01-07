@@ -8,13 +8,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.z;
 import java.io.Serializable;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class PostAsyncTask extends BdAsyncTask<String, Object, ResultData> {
     private String barId;
     private PostCallback callback;
     private String url;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes4.dex */
     public interface PostCallback {
         void onFailure(ResultData resultData);
 
@@ -37,7 +37,7 @@ public class PostAsyncTask extends BdAsyncTask<String, Object, ResultData> {
         zVar.addPostData(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, this.url);
         zVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
         String postNetData = zVar.postNetData();
-        if (zVar.bvQ().bwA().isRequestSuccess()) {
+        if (zVar.bvR().bwB().isRequestSuccess()) {
             try {
                 resultData = (ResultData) OrmObject.objectWithJsonStr(postNetData, ResultData.class);
             } catch (Exception e) {
@@ -66,7 +66,7 @@ public class PostAsyncTask extends BdAsyncTask<String, Object, ResultData> {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes4.dex */
     public static class ResultData extends OrmObject implements Serializable {
         public int error_code = 0;
         public String error_msg = "";

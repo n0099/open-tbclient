@@ -13,10 +13,10 @@ import org.apache.http.protocol.HTTP;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pattern f6177a = Pattern.compile(" +([^ \"=]*)=(:?\"([^\"]*)\"|([^ \"=]*)) *(:?,|$)");
+    private static final Pattern f6178a = Pattern.compile(" +([^ \"=]*)=(:?\"([^\"]*)\"|([^ \"=]*)) *(:?,|$)");
 
     public static long d(com.bytedance.sdk.a.b.b bVar) {
-        return b(bVar.erf());
+        return b(bVar.erg());
     }
 
     public static long b(v vVar) {
@@ -44,7 +44,7 @@ public final class e {
     }
 
     public static boolean e(com.bytedance.sdk.a.b.b bVar) {
-        if (bVar.eqN().b().equals(HttpHead.METHOD_NAME)) {
+        if (bVar.eqO().b().equals(HttpHead.METHOD_NAME)) {
             return false;
         }
         int c = bVar.c();

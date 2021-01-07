@@ -48,7 +48,7 @@ public class d {
                 this.fsH = optJSONObject2.optInt("interval", 300);
             }
             this.fsI = jSONObject.optInt("video_page_style", 1);
-            com.baidu.tbadk.core.sharedPref.b.bvq().putInt("video_page_style", this.fsI);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putInt("video_page_style", this.fsI);
             this.fsF = jSONObject.optInt("ad_download_lib", 0);
             JSONObject optJSONObject3 = jSONObject.optJSONObject("afd_sync_config");
             if (optJSONObject3 != null) {
@@ -68,22 +68,22 @@ public class d {
             JSONObject optJSONObject5 = jSONObject.optJSONObject("iadex_sniff_list_url");
             if (optJSONObject5 != null) {
                 this.fsO = optJSONObject5.optString("os_type2_iadex_url");
-                com.baidu.tbadk.util.c.EE(this.fsO);
+                com.baidu.tbadk.util.c.ED(this.fsO);
                 return;
             }
-            com.baidu.tbadk.util.c.EE(null);
+            com.baidu.tbadk.util.c.ED(null);
         }
     }
 
-    public h bzw() {
+    public h bzx() {
         return this.fsx;
     }
 
-    public boolean bzx() {
+    public boolean bzy() {
         return this.fsw > 0;
     }
 
-    public boolean bzy() {
+    public boolean bzz() {
         if (this.fsz == 1) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
             return this.fsA < currentTimeMillis && currentTimeMillis < this.fsB;
@@ -91,27 +91,27 @@ public class d {
         return false;
     }
 
-    public boolean bzz() {
+    public boolean bzA() {
         return this.fsE == 1;
     }
 
-    public boolean bzA() {
+    public boolean bzB() {
         return this.fsG == 1;
     }
 
-    public String bzB() {
+    public String bzC() {
         return this.fsC;
     }
 
-    public boolean bzC() {
+    public boolean bzD() {
         return this.fsD == 1;
     }
 
-    public int bzD() {
+    public int bzE() {
         return this.fsH;
     }
 
-    public boolean bzE() {
+    public boolean bzF() {
         return this.fsF == 0;
     }
 

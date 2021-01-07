@@ -20,7 +20,7 @@ public class a {
     private TbPageContext eXu;
     private GameVideoGridView kbW;
     private com.baidu.tieba.homepage.gamevideo.a.b kbX;
-    private InterfaceC0751a kbY;
+    private InterfaceC0760a kbY;
     private BdUniqueId mBdUniqueId;
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.a.1
         @Override // android.widget.AdapterView.OnItemClickListener
@@ -32,9 +32,9 @@ public class a {
                     if (a.this.kbY != null) {
                         a.this.kbY.a(aVar);
                     }
-                    a.this.cRX();
-                    com.baidu.tbadk.core.sharedPref.b.bvq().putInt("key_game_video_tab_has_choosed_sub_class_id", aVar.sub_class_id);
-                    com.baidu.tbadk.core.sharedPref.b.bvq().putString("key_game_video_tab_has_choosed_sub_class_name", aVar.sub_class_name);
+                    a.this.cRY();
+                    com.baidu.tbadk.core.sharedPref.b.bvr().putInt("key_game_video_tab_has_choosed_sub_class_id", aVar.sub_class_id);
+                    com.baidu.tbadk.core.sharedPref.b.bvr().putString("key_game_video_tab_has_choosed_sub_class_name", aVar.sub_class_name);
                     TiebaStatic.log(new aq("c13485").an("obj_type", aVar.sub_class_id));
                 }
             }
@@ -45,7 +45,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.homepage.gamevideo.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0751a {
+    public interface InterfaceC0760a {
         void a(com.baidu.tieba.homepage.gamevideo.c.a aVar);
     }
 
@@ -92,14 +92,14 @@ public class a {
         }
     }
 
-    public void cRX() {
+    public void cRY() {
         if (this.mRootView != null && this.mRootView.getParent() != null) {
             ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
         }
     }
 
-    public void a(InterfaceC0751a interfaceC0751a) {
-        this.kbY = interfaceC0751a;
+    public void a(InterfaceC0760a interfaceC0760a) {
+        this.kbY = interfaceC0760a;
     }
 
     public void onDestroy() {

@@ -119,7 +119,7 @@ public class a implements c {
     public void quitLiveShow() {
     }
 
-    public BIMConversation abX() {
+    public BIMConversation abY() {
         return this.cfU;
     }
 }

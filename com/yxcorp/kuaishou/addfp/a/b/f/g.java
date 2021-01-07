@@ -7,22 +7,22 @@ import android.os.IInterface;
 public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuaishou.addfp.a.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f14659a;
+    private Context f14660a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.yxcorp.kuaishou.addfp.a.a.a f14660b;
+    private com.yxcorp.kuaishou.addfp.a.a.a f14661b;
 
     public g(Context context, com.yxcorp.kuaishou.addfp.a.a.a aVar) {
-        this.f14659a = context;
-        this.f14660b = aVar;
+        this.f14660a = context;
+        this.f14661b = aVar;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void a(IInterface iInterface) {
         d dVar;
-        if (this.f14660b != null) {
-            com.yxcorp.kuaishou.addfp.a.a.a aVar = this.f14660b;
-            dVar = f.qeB;
+        if (this.f14661b != null) {
+            com.yxcorp.kuaishou.addfp.a.a.a aVar = this.f14661b;
+            dVar = f.qgj;
             aVar.a(dVar.a(), this);
         }
     }
@@ -30,8 +30,8 @@ public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final void a(com.yxcorp.kuaishou.addfp.a.a.a aVar) {
         d dVar;
-        dVar = f.qeB;
-        dVar.a(this.f14659a, this);
+        dVar = f.qgj;
+        dVar.a(this.f14660a, this);
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
@@ -49,8 +49,8 @@ public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
         d dVar;
         String str = "";
         try {
-            dVar = f.qeB;
-            str = dVar.a(this.f14659a, "OUID");
+            dVar = f.qgj;
+            str = dVar.a(this.f14660a, "OUID");
             if (str != null) {
             }
         } catch (Throwable th) {
@@ -62,22 +62,22 @@ public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final boolean c() {
         d dVar;
-        dVar = f.qeB;
+        dVar = f.qgj;
         return dVar.a();
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final void d() {
         d dVar;
-        dVar = f.qeB;
-        dVar.a(this.f14659a);
+        dVar = f.qgj;
+        dVar.a(this.f14660a);
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void e() {
-        if (this.f14660b != null) {
+        if (this.f14661b != null) {
             com.yxcorp.kuaishou.addfp.android.b.b.b("failed here");
-            this.f14660b.a(false, this);
+            this.f14661b.a(false, this);
         }
     }
 }

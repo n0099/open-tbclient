@@ -77,7 +77,7 @@ public class IdentityReviewActivity extends BaseActivity {
                 }
             }
             if (str != null) {
-                com.baidu.tbadk.imageManager.c.bGp().deletePic(str + 32);
+                com.baidu.tbadk.imageManager.c.bGq().deletePic(str + 32);
             }
         }
     };
@@ -142,7 +142,7 @@ public class IdentityReviewActivity extends BaseActivity {
                 }
                 String str = "https://tieba.baidu.com/mo/q/newmanagerapplyresult?passIDCert=1&nomenu=1&forum_id=" + IdentityReviewActivity.this.forumId;
                 if (error == 0) {
-                    be.bwu().b(IdentityReviewActivity.this.getPageContext(), new String[]{str});
+                    be.bwv().b(IdentityReviewActivity.this.getPageContext(), new String[]{str});
                     IdentityReviewActivity.this.setResult(-1);
                     IdentityReviewActivity.this.finish();
                     return;

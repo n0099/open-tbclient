@@ -1,10 +1,10 @@
 package com.qq.e.comm.plugin.nativeadunified;
 
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface b {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
 
@@ -18,8 +18,8 @@ public interface b {
     }
 
     /* renamed from: com.qq.e.comm.plugin.nativeadunified.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public enum EnumC1175b {
+    /* loaded from: classes4.dex */
+    public enum EnumC1216b {
         INIT,
         PLAYING,
         AUTO_PAUSE,
@@ -30,7 +30,7 @@ public interface b {
         ERROR
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a();
 
@@ -39,7 +39,7 @@ public interface b {
         void b();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum d {
         NOT_DOWNLOAD,
         START,
@@ -56,7 +56,7 @@ public interface b {
 
     void a(a aVar);
 
-    void a(EnumC1175b enumC1175b);
+    void a(EnumC1216b enumC1216b);
 
     void a(c cVar);
 
@@ -70,7 +70,7 @@ public interface b {
 
     d f();
 
-    EnumC1175b h();
+    EnumC1216b h();
 
     int i();
 

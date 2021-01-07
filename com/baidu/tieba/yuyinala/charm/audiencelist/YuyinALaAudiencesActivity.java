@@ -25,7 +25,7 @@ import com.baidu.live.utils.i;
 public class YuyinALaAudiencesActivity extends BaseActivity<YuyinALaAudiencesActivity> implements View.OnTouchListener {
     private View mRootView;
     private int mScreenWidth;
-    private c okk;
+    private c okj;
     private Handler mHandler = new Handler();
     private boolean aYb = false;
     private boolean bco = false;
@@ -40,7 +40,7 @@ public class YuyinALaAudiencesActivity extends BaseActivity<YuyinALaAudiencesAct
                     YuyinALaAudiencesActivity.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.YuyinALaAudiencesActivity.2.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            i.ae(YuyinALaAudiencesActivity.this.okk.getView());
+                            i.ae(YuyinALaAudiencesActivity.this.okj.getView());
                         }
                     }, 300L);
                 }
@@ -70,8 +70,8 @@ public class YuyinALaAudiencesActivity extends BaseActivity<YuyinALaAudiencesAct
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         if (!isFinishing()) {
-            this.okk = new c(this);
-            this.mRootView = this.okk.getView();
+            this.okj = new c(this);
+            this.mRootView = this.okj.getView();
             setContentView(this.mRootView);
             registerListener(this.aYs);
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
@@ -129,10 +129,10 @@ public class YuyinALaAudiencesActivity extends BaseActivity<YuyinALaAudiencesAct
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Xk();
+        Xl();
     }
 
-    private void Xk() {
+    private void Xl() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -147,12 +147,12 @@ public class YuyinALaAudiencesActivity extends BaseActivity<YuyinALaAudiencesAct
             this.mScreenWidth = screenDimensions[0];
             window.setBackgroundDrawableResource(17170445);
             window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.bck);
-            if (this.okk.getView().getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.okk.getView().getLayoutParams();
+            if (this.okj.getView().getLayoutParams() instanceof FrameLayout.LayoutParams) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.okj.getView().getLayoutParams();
                 layoutParams.width = screenDimensions[0];
                 layoutParams.height = (int) (screenDimensions[1] * 0.6d);
                 layoutParams.gravity = 80;
-                this.okk.getView().setLayoutParams(layoutParams);
+                this.okj.getView().setLayoutParams(layoutParams);
             }
         }
     }
@@ -173,7 +173,7 @@ public class YuyinALaAudiencesActivity extends BaseActivity<YuyinALaAudiencesAct
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.okk.onDestory();
+        this.okj.onDestory();
         this.mHandler.removeCallbacksAndMessages(null);
         MessageManager.getInstance().unRegisterListener(this.bih);
         getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.bck);

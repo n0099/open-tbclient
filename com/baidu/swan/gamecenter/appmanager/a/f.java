@@ -22,7 +22,7 @@ public class f extends com.baidu.swan.gamecenter.c.a {
             }
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            com.baidu.swan.apps.t.a.aAr().registerReceiver(this.edW, intentFilter);
+            com.baidu.swan.apps.t.a.aAs().registerReceiver(this.edW, intentFilter);
             bVar.aI(null);
         }
         return null;

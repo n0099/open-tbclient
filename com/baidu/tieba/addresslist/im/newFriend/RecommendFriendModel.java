@@ -20,7 +20,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void FO(String str);
+        void FN(String str);
 
         void cP(String str);
     }
@@ -58,10 +58,10 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                     ac.b(new ab<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.ab
-                        /* renamed from: bPm */
+                        /* renamed from: bPn */
                         public Void doInBackground() {
                             if (datas != null && datas.size() > 0) {
-                                b.bPs().cd(datas);
+                                b.bPt().cd(datas);
                                 return null;
                             }
                             return null;
@@ -71,7 +71,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                         @Override // com.baidu.tbadk.util.l
                         /* renamed from: a */
                         public void onReturnDataInUI(Void r3) {
-                            RecommendFriendModel.this.glR.FO(errMsg);
+                            RecommendFriendModel.this.glR.FN(errMsg);
                         }
                     });
                 }
@@ -84,7 +84,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
         registerListener(this.glT);
     }
 
-    public void bPy() {
+    public void bPz() {
         sendMessage(new HttpMessage(1001900));
     }
 

@@ -26,17 +26,17 @@ public class g extends a {
         if (optString.length() > 3) {
             optString = context.getString(a.h.aiapps_tabbar_badge_over_length);
         }
-        if (anu()) {
+        if (anv()) {
             com.baidu.swan.apps.console.c.e("SetTabBarBadgeAction", "fail not TabBar page");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
             return false;
         }
-        com.baidu.swan.apps.tabbar.b.a ant = ant();
-        if (ant == null) {
+        com.baidu.swan.apps.tabbar.b.a anu = anu();
+        if (anu == null) {
             com.baidu.swan.apps.console.c.e("SetTabBarBadgeAction", "tabBarViewController is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!ant.aq(optInt, optString)) {
+        } else if (!anu.aq(optInt, optString)) {
             com.baidu.swan.apps.console.c.e("setTabBarBadge", "set bottom badge fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

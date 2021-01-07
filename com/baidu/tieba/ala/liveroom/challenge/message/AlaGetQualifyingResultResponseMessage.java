@@ -45,15 +45,15 @@ public class AlaGetQualifyingResultResponseMessage extends JsonHttpResponsedMess
         }
     }
 
-    public boolean cfU() {
+    public boolean cfV() {
         return this.hvH == 1;
     }
 
-    public boolean cfV() {
+    public boolean cfW() {
         return this.hvJ == 1;
     }
 
-    public long cfW() {
+    public long cfX() {
         try {
             this.hvK = Integer.parseInt(this.hvL);
         } catch (NumberFormatException e) {

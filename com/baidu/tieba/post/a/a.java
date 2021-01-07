@@ -16,9 +16,9 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class a {
     private BdTypeListView gAY;
-    public j mHQ;
-    private c mHR;
-    public i muQ;
+    public j mHP;
+    private c mHQ;
+    public i muP;
     private List<com.baidu.adp.widget.ListView.a> boM = new ArrayList();
     private ArrayList<n> grW = new ArrayList<>();
 
@@ -28,12 +28,12 @@ public class a {
     }
 
     private void w(TbPageContext<?> tbPageContext) {
-        this.muQ = new i(tbPageContext);
-        this.mHQ = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.mxn);
-        this.mHR = new e(tbPageContext, this, tbPageContext.getUniqueId());
-        this.mHQ.a(this.mHR);
-        this.boM.add(this.muQ);
-        this.boM.add(this.mHQ);
+        this.muP = new i(tbPageContext);
+        this.mHP = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.mxm);
+        this.mHQ = new e(tbPageContext, this, tbPageContext.getUniqueId());
+        this.mHP.a(this.mHQ);
+        this.boM.add(this.muP);
+        this.boM.add(this.mHP);
         this.gAY.addAdapters(this.boM);
     }
 
@@ -57,7 +57,7 @@ public class a {
         }
     }
 
-    public boolean Rb(String str) {
+    public boolean Ra(String str) {
         boolean z;
         if (at.isEmpty(str)) {
             return false;

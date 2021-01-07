@@ -131,7 +131,7 @@ public class AlaEmoticonListView extends com.baidu.live.tieba.pb.interactionpopu
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (com.baidu.live.aq.a.aam().jm(ExtraParamsManager.getEncryptionUserId(TbadkCoreApplication.getCurrentAccount())) && currentTimeMillis - this.oQu < this.oQs.getSendIntervalTime() * 1000) {
+        if (com.baidu.live.aq.a.aan().jm(ExtraParamsManager.getEncryptionUserId(TbadkCoreApplication.getCurrentAccount())) && currentTimeMillis - this.oQu < this.oQs.getSendIntervalTime() * 1000) {
             this.mTbPageContext.showToast(a.h.send_emoticon_interval_time_tips);
             return;
         }

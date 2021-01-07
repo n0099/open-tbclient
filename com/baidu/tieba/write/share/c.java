@@ -10,7 +10,7 @@ public class c {
     public String linkUrl;
     public String oaA;
     public String oaB;
-    public String oaC;
+    public String oax;
     public String oay;
     public String oaz;
     public String title;

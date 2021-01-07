@@ -30,7 +30,7 @@ public class a extends aa {
         if (eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
-        } else if (eVar.ank()) {
+        } else if (eVar.anl()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
@@ -68,7 +68,7 @@ public class a extends aa {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                     return false;
                 }
-                eVar.aMw().b(context, "mapp_images", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.media.b.a.a.1
+                eVar.aMx().b(context, "mapp_images", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.media.b.a.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.ao.e.b
                     /* renamed from: a */
@@ -115,18 +115,18 @@ public class a extends aa {
         if (file == null) {
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "can not save to album : " + file).toString());
         } else {
-            rx.d.bW(file).d(new rx.functions.f<File, File>() { // from class: com.baidu.swan.apps.media.b.a.a.4
+            rx.d.bX(file).d(new rx.functions.f<File, File>() { // from class: com.baidu.swan.apps.media.b.a.a.4
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.f
                 /* renamed from: J */
                 public File call(File file2) {
-                    String tU = com.baidu.swan.apps.storage.b.tU(com.baidu.swan.apps.runtime.e.aMm());
+                    String tU = com.baidu.swan.apps.storage.b.tU(com.baidu.swan.apps.runtime.e.aMn());
                     if (!TextUtils.isEmpty(tU) && file2.getPath().startsWith(tU)) {
                         return a.this.e(context, file2);
                     }
                     return null;
                 }
-            }).d(Schedulers.io()).c(rx.a.b.a.eNI()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.b.a.a.3
+            }).d(Schedulers.io()).c(rx.a.b.a.eOm()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.b.a.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 /* renamed from: I */

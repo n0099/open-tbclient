@@ -22,10 +22,10 @@ import java.util.List;
 public class MarqueeView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f8827a = new a(40);
+    private static a f8828a = new a(40);
 
     /* renamed from: b  reason: collision with root package name */
-    private String f8828b;
+    private String f8829b;
     private float c;
     private int d;
     private float e;
@@ -48,18 +48,18 @@ public class MarqueeView extends View {
     public static class a implements Handler.Callback {
 
         /* renamed from: b  reason: collision with root package name */
-        private Handler f8831b;
+        private Handler f8832b;
         private long e;
         private final Object c = new Object();
         private List<WeakReference<b>> d = new ArrayList();
 
         /* renamed from: a  reason: collision with root package name */
-        private HandlerThread f8830a = new HandlerThread("marquee");
+        private HandlerThread f8831a = new HandlerThread("marquee");
 
         a(long j) {
             this.e = j;
-            this.f8830a.start();
-            this.f8831b = new Handler(this.f8830a.getLooper(), this);
+            this.f8831a.start();
+            this.f8832b = new Handler(this.f8831a.getLooper(), this);
         }
 
         private void c() {
@@ -74,7 +74,7 @@ public class MarqueeView extends View {
         }
 
         public void a() {
-            this.f8831b.sendEmptyMessageAtTime(0, SystemClock.uptimeMillis() + this.e);
+            this.f8832b.sendEmptyMessageAtTime(0, SystemClock.uptimeMillis() + this.e);
         }
 
         void a(b bVar) {
@@ -104,7 +104,7 @@ public class MarqueeView extends View {
         }
 
         public void b() {
-            this.f8831b.removeMessages(0);
+            this.f8832b.removeMessages(0);
         }
 
         void b(b bVar) {
@@ -138,7 +138,7 @@ public class MarqueeView extends View {
                         com.kwad.sdk.core.d.a.a(e);
                     }
                 }
-                this.f8831b.sendEmptyMessageAtTime(0, SystemClock.uptimeMillis() + this.e);
+                this.f8832b.sendEmptyMessageAtTime(0, SystemClock.uptimeMillis() + this.e);
             }
             return false;
         }
@@ -215,13 +215,13 @@ public class MarqueeView extends View {
         if (this.j) {
             return;
         }
-        f8827a.a(this.r);
+        f8828a.a(this.r);
         this.j = true;
     }
 
     public void b() {
         this.j = false;
-        f8827a.b(this.r);
+        f8828a.b(this.r);
     }
 
     @Override // android.view.View
@@ -246,7 +246,7 @@ public class MarqueeView extends View {
             case 2:
                 if (this.h < 0.0f && ((int) ((-this.h) / this.i)) >= this.n) {
                     this.n++;
-                    this.f8828b += this.p;
+                    this.f8829b += this.p;
                     break;
                 }
                 break;
@@ -257,8 +257,8 @@ public class MarqueeView extends View {
                 }
                 break;
         }
-        if (this.f8828b != null) {
-            canvas.drawText(this.f8828b, this.h, (getHeight() / 2.0f) + (this.q / 2.0f), this.k);
+        if (this.f8829b != null) {
+            canvas.drawText(this.f8829b, this.h, (getHeight() / 2.0f) + (this.q / 2.0f), this.k);
         }
     }
 
@@ -276,18 +276,18 @@ public class MarqueeView extends View {
                 this.h = getWidth() * this.g;
             }
             this.i = (int) a(this.p);
-            this.f8828b = str;
+            this.f8829b = str;
             return;
         }
         this.i = (int) (a(this.p) + this.m);
         this.n = 0;
         int width = (getWidth() / this.i) + 2;
-        this.f8828b = "";
-        StringBuilder sb = new StringBuilder(this.f8828b);
+        this.f8829b = "";
+        StringBuilder sb = new StringBuilder(this.f8829b);
         for (int i = 0; i <= width; i++) {
             sb.append(this.p);
         }
-        this.f8828b = sb.toString();
+        this.f8829b = sb.toString();
     }
 
     public void setRepetType(int i) {

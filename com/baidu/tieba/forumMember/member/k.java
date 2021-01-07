@@ -29,7 +29,7 @@ public class k extends com.baidu.tieba.frs.k<l, ManagerApplyViewHolder> {
                 if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
                     k.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 } else {
-                    be.bwu().b((TbPageContext) com.baidu.adp.base.j.K(k.this.mContext), new String[]{tag.toString()});
+                    be.bwv().b((TbPageContext) com.baidu.adp.base.j.K(k.this.mContext), new String[]{tag.toString()});
                 }
             }
         };
@@ -57,10 +57,10 @@ public class k extends com.baidu.tieba.frs.k<l, ManagerApplyViewHolder> {
                     ao.setViewTextColor(managerApplyViewHolder.jcd, R.color.CAM_X0105, 1);
                     ao.setBackgroundResource(managerApplyViewHolder.jcf, R.drawable.frs_member_manito_bg);
                 }
-                int cDu = lVar.cDu();
-                if (cDu > 0) {
-                    managerApplyViewHolder.jce.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), at.numberUniformFormat(cDu)));
-                    managerApplyViewHolder.jcf.setTag(jbV, lVar.cDv());
+                int cDv = lVar.cDv();
+                if (cDv > 0) {
+                    managerApplyViewHolder.jce.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), at.numberUniformFormat(cDv)));
+                    managerApplyViewHolder.jcf.setTag(jbV, lVar.cDw());
                     managerApplyViewHolder.jcf.setOnClickListener(this.mClickListener);
                     managerApplyViewHolder.jcf.setEnabled(true);
                     managerApplyViewHolder.jcf.setClickable(true);
@@ -88,7 +88,7 @@ public class k extends com.baidu.tieba.frs.k<l, ManagerApplyViewHolder> {
         if (this.fso == null) {
             this.fso = new com.baidu.tbadk.coreExtra.view.b(activity);
         }
-        this.fso.bDb();
+        this.fso.bDc();
         this.fso.setAccountData(accountData);
         this.fso.se(1);
     }

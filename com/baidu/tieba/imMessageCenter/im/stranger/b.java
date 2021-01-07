@@ -34,7 +34,7 @@ public class b extends d<StrangerListActivity> {
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
         this.kML = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.stranger_delete, this.kMF);
-        SvgManager.bwq().a(this.kML, R.drawable.icon_pure_topbar_delete44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bwr().a(this.kML, R.drawable.icon_pure_topbar_delete44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         this.mRootView = (ViewGroup) strangerListActivity.findViewById(R.id.root_view);
         this.gCe = (NoNetworkView) this.mRootView.findViewById(R.id.no_network_view);
     }
@@ -45,7 +45,7 @@ public class b extends d<StrangerListActivity> {
         this.mNavigationBar.onChangeSkinType(this.kMF.getPageContext(), i);
         this.gCe.onChangeSkinType(this.kMF.getPageContext(), i);
         this.kMK.notifyDataSetChanged();
-        SvgManager.bwq().a(this.kML, R.drawable.icon_pure_topbar_delete44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bwr().a(this.kML, R.drawable.icon_pure_topbar_delete44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     private void m(StrangerListActivity strangerListActivity) {
@@ -56,11 +56,11 @@ public class b extends d<StrangerListActivity> {
         this.kzV.setAdapter((ListAdapter) this.kMK);
     }
 
-    public StrangerListAdapter daR() {
+    public StrangerListAdapter daS() {
         return this.kMK;
     }
 
-    public View daS() {
+    public View daT() {
         return this.kML;
     }
 }

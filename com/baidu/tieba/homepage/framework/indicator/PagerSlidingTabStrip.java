@@ -175,7 +175,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         invalidate();
     }
 
-    public boolean cRA() {
+    public boolean cRB() {
         return this.gbo;
     }
 
@@ -184,7 +184,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         invalidate();
     }
 
-    public boolean cRB() {
+    public boolean cRC() {
         return this.kaL;
     }
 
@@ -238,11 +238,11 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     private void aF(int i, String str) {
         String string;
-        if (d.bmN() && i == 0 && (getResources().getString(R.string.tab_name_concern).equals(str) || getResources().getString(R.string.attention_person).equals(str))) {
+        if (d.bmO() && i == 0 && (getResources().getString(R.string.tab_name_concern).equals(str) || getResources().getString(R.string.attention_person).equals(str))) {
             LinearLayout linearLayout = new LinearLayout(getContext());
             linearLayout.setOrientation(0);
             TextView textView = new TextView(getContext());
-            if (TbadkCoreApplication.isLogin() && com.baidu.tbadk.core.sharedPref.b.bvq().getInt("key_home_concern_all_status", 0) == 1) {
+            if (TbadkCoreApplication.isLogin() && com.baidu.tbadk.core.sharedPref.b.bvr().getInt("key_home_concern_all_status", 0) == 1) {
                 string = getResources().getString(R.string.attention_person);
             } else {
                 string = getResources().getString(R.string.tab_name_concern);
@@ -264,7 +264,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         }
         EMTextView eMTextView = new EMTextView(getContext());
         if (i == 0) {
-            if (d.bmN() && TbadkCoreApplication.isLogin() && com.baidu.tbadk.core.sharedPref.b.bvq().getInt("key_home_concern_all_status", 0) == 1) {
+            if (d.bmO() && TbadkCoreApplication.isLogin() && com.baidu.tbadk.core.sharedPref.b.bvr().getInt("key_home_concern_all_status", 0) == 1) {
                 str = getResources().getString(R.string.attention_person);
             } else {
                 str = getResources().getString(R.string.tab_name_concern);
@@ -287,7 +287,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                     if (PagerSlidingTabStrip.this.kaR != null) {
                         PagerSlidingTabStrip.this.kaR.t(view2, i);
                     }
-                    if (PagerSlidingTabStrip.this.fhD.getCurrentItem() != i || i != 0 || !TbadkCoreApplication.isLogin() || !d.bmN()) {
+                    if (PagerSlidingTabStrip.this.fhD.getCurrentItem() != i || i != 0 || !TbadkCoreApplication.isLogin() || !d.bmO()) {
                         if (PagerSlidingTabStrip.this.fhD.getCurrentItem() == i) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
                             return;
@@ -305,7 +305,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 }
             }
         });
-        if (i == 0 && (view instanceof LinearLayout) && d.bmN()) {
+        if (i == 0 && (view instanceof LinearLayout) && d.bmO()) {
             this.fhC.addView(view, i, this.fhy);
         } else {
             this.fhC.addView(view, i, this.fhH ? this.fhz : this.fhy);

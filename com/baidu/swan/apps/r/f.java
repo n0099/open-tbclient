@@ -37,7 +37,7 @@ public class f extends m {
 
     public synchronized f a(ReadableByteChannel readableByteChannel) {
         long currentTimeMillis = System.currentTimeMillis();
-        this.dhx.aCU();
+        this.dhx.aCV();
         final com.baidu.swan.apps.ao.b.a W = new com.baidu.swan.apps.ao.b.a().lR(32768).b(30L, TimeUnit.SECONDS).W(this.dhw.toBundle());
         W.D(new com.baidu.swan.apps.ao.e.b<String>() { // from class: com.baidu.swan.apps.r.f.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -75,7 +75,7 @@ public class f extends m {
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
                 public void L(a aVar) {
-                    aVar.aAm();
+                    aVar.aAn();
                 }
             });
         }
@@ -133,24 +133,24 @@ public class f extends m {
         /* renamed from: a */
         public void L(Pipe.SourceChannel sourceChannel) {
             if (this.dhB != null && a(sourceChannel, this.dhB.dhw.toBundle())) {
-                aAn();
+                aAo();
             }
         }
 
-        private void aAn() {
+        private void aAo() {
             this.mResult.putBoolean("flag_is_ok", true);
         }
 
-        public Bundle aAo() {
+        public Bundle aAp() {
             return this.mResult;
         }
 
         public boolean isOk() {
-            return aAo().getBoolean("flag_is_ok");
+            return aAp().getBoolean("flag_is_ok");
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
-        public void aAm() {
+        public void aAn() {
         }
 
         public String toString() {

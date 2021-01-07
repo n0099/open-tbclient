@@ -23,10 +23,10 @@ public class a implements a.InterfaceC0101a {
     private volatile int h;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1834a = 0;
+    private long f1835a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f1835b = 0;
+    private int f1836b = 0;
     private Context c = null;
     private String d = SDKVersion.VERSION;
     private String e = null;
@@ -159,8 +159,8 @@ public class a implements a.InterfaceC0101a {
             a(-4, "cancel download isSFSwitchEnabled");
             return false;
         }
-        this.f1835b = a("success-download-core-count", 0);
-        if (this.f1835b >= 12) {
+        this.f1836b = a("success-download-core-count", 0);
+        if (this.f1836b >= 12) {
             CyberLog.w("CyberCoreLoader", "Achieve max success download time:12");
             a(-1, "Achieve max success download time");
             return false;
@@ -214,8 +214,8 @@ public class a implements a.InterfaceC0101a {
     public void a(String str, long j, int i, String str2) {
         CyberLog.d("CyberCoreLoader", "srcUrl:" + str + " detail:" + str2);
         if (i != -1) {
-            this.f1835b++;
-            a("success-download-core-count", Integer.toString(this.f1835b));
+            this.f1836b++;
+            a("success-download-core-count", Integer.toString(this.f1836b));
         }
         a(i, str2);
     }
@@ -223,10 +223,10 @@ public class a implements a.InterfaceC0101a {
     @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0101a
     public void a(String str, long j, long j2) {
         Long valueOf = Long.valueOf(System.currentTimeMillis());
-        if (valueOf.longValue() - this.f1834a > 500) {
+        if (valueOf.longValue() - this.f1835a > 500) {
             float f = (((float) j) / ((float) j2)) * 99.0f;
             a((int) f);
-            this.f1834a = valueOf.longValue();
+            this.f1835a = valueOf.longValue();
             CyberLog.d("CyberCoreLoader", "onDownloading:" + ((int) f) + "%");
         }
     }
@@ -234,8 +234,8 @@ public class a implements a.InterfaceC0101a {
     @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0101a
     public void a(String str, long j, ArrayList<String> arrayList) {
         this.j = arrayList;
-        this.f1835b++;
-        a("success-download-core-count", Integer.toString(this.f1835b));
+        this.f1836b++;
+        a("success-download-core-count", Integer.toString(this.f1836b));
         CyberLog.d("CyberCoreLoader", "onDownloadSuccess:" + this.j);
         c();
     }

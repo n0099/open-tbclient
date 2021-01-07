@@ -9,15 +9,15 @@ import tbclient.AlaLiveInfo;
 import tbclient.DislikeInfo;
 /* loaded from: classes2.dex */
 public class x implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId lQm = BdUniqueId.gen();
+    public static final BdUniqueId lQl = BdUniqueId.gen();
     public String cover;
     public String description;
     private boolean eQz;
     public MetaData eTY;
     public boolean isChushou;
-    public int lPC;
-    public boolean lPD = false;
-    public com.baidu.tbadk.core.data.at lPF;
+    public int lPB;
+    public boolean lPC = false;
+    public com.baidu.tbadk.core.data.at lPE;
     public long liveId;
     public int liveStatus;
     public String routeType;
@@ -31,7 +31,7 @@ public class x implements com.baidu.adp.widget.ListView.n {
         if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.pb_display_type.intValue() == 3 && alaLiveInfo.live_status.intValue() == 1) {
             this.userName = alaLiveInfo.user_info.user_name;
             this.liveStatus = alaLiveInfo.live_status.intValue();
-            this.lPC = alaLiveInfo.audience_count.intValue();
+            this.lPB = alaLiveInfo.audience_count.intValue();
             this.description = alaLiveInfo.description;
             this.cover = alaLiveInfo.cover;
             this.liveId = alaLiveInfo.live_id.longValue();
@@ -52,11 +52,11 @@ public class x implements com.baidu.adp.widget.ListView.n {
                         sparseArray2.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.extra);
                     }
                 }
-                this.lPF = new com.baidu.tbadk.core.data.at();
-                this.lPF.setFeedBackReasonMap(sparseArray);
-                this.lPF.eQN = sparseArray2;
+                this.lPE = new com.baidu.tbadk.core.data.at();
+                this.lPE.setFeedBackReasonMap(sparseArray);
+                this.lPE.eQN = sparseArray2;
             } else {
-                this.lPF = null;
+                this.lPE = null;
             }
             this.eQz = true;
             return;
@@ -74,6 +74,6 @@ public class x implements com.baidu.adp.widget.ListView.n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return lQm;
+        return lQl;
     }
 }

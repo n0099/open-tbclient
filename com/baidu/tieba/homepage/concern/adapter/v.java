@@ -36,7 +36,7 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
-                if (view != null && kVar != null && kVar.boO() != null && !StringUtils.isNull(kVar.boO().getTid())) {
+                if (view != null && kVar != null && kVar.boP() != null && !StringUtils.isNull(kVar.boP().getTid())) {
                     int id = view.getId();
                     if (id == R.id.thread_card_root || id == R.id.thread_info_commont_container) {
                         com.baidu.tieba.homepage.concern.c.a(view, kVar, 2);
@@ -49,8 +49,8 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                         aqVar.an("obj_locate", 4);
                         if (kVar != null) {
                             aqVar.dX("tid", kVar.tid);
-                            if (kVar.eMv != null && kVar.eMv.bsW() != null) {
-                                aqVar.dX("pid", kVar.eMv.bsW().getId());
+                            if (kVar.eMv != null && kVar.eMv.bsX() != null) {
+                                aqVar.dX("pid", kVar.eMv.bsX().getId());
                             }
                         }
                         TiebaStatic.log(aqVar);
@@ -59,8 +59,8 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                         aqVar2.an("obj_locate", 2);
                         if (kVar != null) {
                             aqVar2.dX("tid", kVar.tid);
-                            if (kVar.eMv != null && kVar.eMv.bsW() != null) {
-                                aqVar2.dX("pid", kVar.eMv.bsW().getId());
+                            if (kVar.eMv != null && kVar.eMv.bsX() != null) {
+                                aqVar2.dX("pid", kVar.eMv.bsX().getId());
                             }
                         }
                         TiebaStatic.log(aqVar2);
@@ -69,8 +69,8 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                         aqVar3.an("obj_locate", 1);
                         if (kVar != null) {
                             aqVar3.dX("tid", kVar.tid);
-                            if (kVar.eMv != null && kVar.eMv.bsW() != null) {
-                                aqVar3.dX("pid", kVar.eMv.bsW().getId());
+                            if (kVar.eMv != null && kVar.eMv.bsX() != null) {
+                                aqVar3.dX("pid", kVar.eMv.bsX().getId());
                             }
                         }
                         TiebaStatic.log(aqVar3);
@@ -79,8 +79,8 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                         aqVar4.an("obj_locate", 5);
                         if (kVar != null) {
                             aqVar4.dX("tid", kVar.tid);
-                            if (kVar.eMv != null && kVar.eMv.bsW() != null) {
-                                aqVar4.dX("pid", kVar.eMv.bsW().getId());
+                            if (kVar.eMv != null && kVar.eMv.bsX() != null) {
+                                aqVar4.dX("pid", kVar.eMv.bsX().getId());
                             }
                         }
                         TiebaStatic.log(aqVar4);
@@ -92,8 +92,8 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                             aqVar5.an("obj_locate", 3);
                             if (kVar != null) {
                                 aqVar5.dX("tid", kVar.tid);
-                                if (kVar.eMv != null && kVar.eMv.bsW() != null) {
-                                    aqVar5.dX("pid", kVar.eMv.bsW().getId());
+                                if (kVar.eMv != null && kVar.eMv.bsX() != null) {
+                                    aqVar5.dX("pid", kVar.eMv.bsX().getId());
                                 }
                             }
                             TiebaStatic.log(aqVar5);
@@ -180,7 +180,7 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         kVar.yA(kVar.position + 1);
-        com.baidu.tieba.card.s.cva().e(kVar.Jt("c12351"));
+        com.baidu.tieba.card.s.cvb().e(kVar.Js("c12351"));
         threadCardViewHolder.ty().setPage(this.aji);
         threadCardViewHolder.a(true, Align.ALIGN_RIGHT_TOP);
         threadCardViewHolder.tB();
@@ -191,7 +191,7 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 }

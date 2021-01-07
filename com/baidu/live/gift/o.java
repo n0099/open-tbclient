@@ -32,7 +32,7 @@ public class o {
                 com.baidu.live.d.Ba().putString("quick_gift_id", this.aZf.Gx());
                 com.baidu.live.d.Ba().putBoolean("quick_gift_guide_show", true);
             }
-            this.aZf.setSceneFrom(com.baidu.live.utils.q.XF());
+            this.aZf.setSceneFrom(com.baidu.live.utils.q.XG());
         }
     }
 }

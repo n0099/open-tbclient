@@ -7,7 +7,7 @@ public class ae {
     private static ae fcJ;
     private static final BdUniqueId fcK = BdUniqueId.gen();
 
-    public static synchronized ae bvZ() {
+    public static synchronized ae bwa() {
         ae aeVar;
         synchronized (ae.class) {
             if (fcJ == null) {
@@ -49,7 +49,7 @@ public class ae {
         int i3;
         int i4;
         boolean z2 = true;
-        int msgSPicMaxSizeInt = LocalViewSize.bvN().getMsgSPicMaxSizeInt();
+        int msgSPicMaxSizeInt = LocalViewSize.bvO().getMsgSPicMaxSizeInt();
         if (z) {
             if (i / i2 >= 3) {
                 i3 = i / 2;

@@ -38,11 +38,11 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.enterForum.recommend.b.c cVar, CardViewHolder<com.baidu.tieba.enterForum.recommend.view.b> cardViewHolder) {
-        if (cVar == null || cardViewHolder == null || cardViewHolder.cvG() == null) {
+        if (cVar == null || cardViewHolder == null || cardViewHolder.cvH() == null) {
             return null;
         }
-        cardViewHolder.cvG().a(cVar);
-        cardViewHolder.cvG().c(this.iKM);
+        cardViewHolder.cvH().a(cVar);
+        cardViewHolder.cvH().c(this.iKM);
         return cardViewHolder.getView();
     }
 }

@@ -249,7 +249,7 @@ public class a extends Drawable {
             canvas.drawRoundRect(this.mDrawableRect, this.mCornerRadius, this.mCornerRadius, this.mBitmapPaint);
         }
         try {
-            if (ThemeManager.enQ() == ThemeManager.ThemeMode.NIGHT && this.oYz) {
+            if (ThemeManager.enR() == ThemeManager.ThemeMode.NIGHT && this.oYz) {
                 Paint paint = new Paint();
                 paint.setAntiAlias(true);
                 paint.setColor(1342177280);

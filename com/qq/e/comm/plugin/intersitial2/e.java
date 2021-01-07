@@ -33,14 +33,14 @@ import com.qq.e.comm.util.GDTLogger;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e implements DialogInterface.OnDismissListener, UIADI, com.qq.e.comm.plugin.r.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.qq.e.comm.plugin.intersitial2.a f12406a;
+    private final com.qq.e.comm.plugin.intersitial2.a f12407a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final g f12407b;
+    private final g f12408b;
     private com.qq.e.comm.plugin.intersitial2.fullscreen.d c;
     private final UnifiedInterstitialADListener d;
     private volatile UnifiedInterstitialMediaListener e;
@@ -57,7 +57,7 @@ public class e implements DialogInterface.OnDismissListener, UIADI, com.qq.e.com
     private boolean p;
     private boolean q;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(boolean z);
     }
@@ -76,14 +76,14 @@ public class e implements DialogInterface.OnDismissListener, UIADI, com.qq.e.com
         this.g = str2;
         this.h = new WeakReference<>(activity);
         this.d = unifiedInterstitialADListener;
-        this.f12406a = new com.qq.e.comm.plugin.intersitial2.a(this, unifiedInterstitialADListener, str2, new a() { // from class: com.qq.e.comm.plugin.intersitial2.e.1
+        this.f12407a = new com.qq.e.comm.plugin.intersitial2.a(this, unifiedInterstitialADListener, str2, new a() { // from class: com.qq.e.comm.plugin.intersitial2.e.1
             @Override // com.qq.e.comm.plugin.intersitial2.e.a
             public void a(boolean z) {
                 e.this.q = z;
             }
         });
-        this.f12407b = new g(activity, new ADSize(-1, -2), str, str2, lVar, this.f12406a);
-        this.c = new com.qq.e.comm.plugin.intersitial2.fullscreen.d(activity, new ADSize(-1, -2), str, str2, lVar, this.f12406a);
+        this.f12408b = new g(activity, new ADSize(-1, -2), str, str2, lVar, this.f12407a);
+        this.c = new com.qq.e.comm.plugin.intersitial2.fullscreen.d(activity, new ADSize(-1, -2), str, str2, lVar, this.f12407a);
         this.o.a(str2);
     }
 
@@ -120,7 +120,7 @@ public class e implements DialogInterface.OnDismissListener, UIADI, com.qq.e.com
                 GDTLogger.e("UnifiedInterstitialAD has shown , please loadAd again !");
                 c.a(eVar, d(), 4015, this.o);
             } else {
-                NativeExpressADView a2 = this.f12406a.a();
+                NativeExpressADView a2 = this.f12407a.a();
                 if (a2 == null) {
                     GDTLogger.e("cannot show before AD ready !");
                     c.a(eVar, d(), 4014, this.o);
@@ -280,7 +280,7 @@ public class e implements DialogInterface.OnDismissListener, UIADI, com.qq.e.com
     }
 
     private boolean d() {
-        NativeExpressADView a2 = this.f12406a.a();
+        NativeExpressADView a2 = this.f12407a.a();
         if (a2 == null) {
             return false;
         }
@@ -293,7 +293,7 @@ public class e implements DialogInterface.OnDismissListener, UIADI, com.qq.e.com
     }
 
     public int a() {
-        return this.f12407b.f();
+        return this.f12408b.f();
     }
 
     public void a(JSONObject jSONObject) {
@@ -330,7 +330,7 @@ public class e implements DialogInterface.OnDismissListener, UIADI, com.qq.e.com
 
     @Override // com.qq.e.comm.pi.UIADI
     public void destory() {
-        NativeExpressADView a2 = this.f12406a.a();
+        NativeExpressADView a2 = this.f12407a.a();
         if (a2 != null) {
             a2.destroy();
         }
@@ -347,13 +347,13 @@ public class e implements DialogInterface.OnDismissListener, UIADI, com.qq.e.com
     @Override // com.qq.e.comm.pi.UIADI
     public int getAdPatternType() {
         if (this.p) {
-            AdData b2 = this.f12406a.b();
+            AdData b2 = this.f12407a.b();
             if (b2 == null) {
                 return 0;
             }
             return b2.getAdPatternType();
         }
-        NativeExpressADView a2 = this.f12406a.a();
+        NativeExpressADView a2 = this.f12407a.a();
         if (a2 != null) {
             return a2.getBoundData().getAdPatternType();
         }
@@ -363,13 +363,13 @@ public class e implements DialogInterface.OnDismissListener, UIADI, com.qq.e.com
     @Override // com.qq.e.comm.pi.UIADI
     public int getECPM() {
         if (this.p) {
-            AdData b2 = this.f12406a.b();
+            AdData b2 = this.f12407a.b();
             if (b2 == null) {
                 return -1;
             }
             return b2.getECPM();
         }
-        NativeExpressADView a2 = this.f12406a.a();
+        NativeExpressADView a2 = this.f12407a.a();
         if (a2 == null) {
             GDTLogger.e("Can't getECPM before AD ready!");
             return -1;
@@ -385,13 +385,13 @@ public class e implements DialogInterface.OnDismissListener, UIADI, com.qq.e.com
     @Override // com.qq.e.comm.pi.UIADI
     public String getECPMLevel() {
         if (this.p) {
-            AdData b2 = this.f12406a.b();
+            AdData b2 = this.f12407a.b();
             if (b2 == null) {
                 return null;
             }
             return b2.getECPMLevel();
         }
-        NativeExpressADView a2 = this.f12406a.a();
+        NativeExpressADView a2 = this.f12407a.a();
         if (a2 == null) {
             GDTLogger.e("Can't getECPMLevel before AD ready!");
             return null;
@@ -406,12 +406,12 @@ public class e implements DialogInterface.OnDismissListener, UIADI, com.qq.e.com
 
     @Override // com.qq.e.comm.plugin.r.a
     public int getMediationPrice() {
-        return this.f12407b.getMediationPrice();
+        return this.f12408b.getMediationPrice();
     }
 
     @Override // com.qq.e.comm.plugin.r.a
     public boolean isContractAd() {
-        return this.f12407b.isContractAd();
+        return this.f12408b.isContractAd();
     }
 
     @Override // com.qq.e.comm.pi.UIADI
@@ -422,7 +422,7 @@ public class e implements DialogInterface.OnDismissListener, UIADI, com.qq.e.com
     @Override // com.qq.e.comm.pi.UIADI
     public void loadAd() {
         this.p = false;
-        this.f12407b.loadAd(com.qq.e.comm.plugin.ad.e.UNIFIED_INTERSTITIAL.c());
+        this.f12408b.loadAd(com.qq.e.comm.plugin.ad.e.UNIFIED_INTERSTITIAL.c());
         Activity activity = this.h.get();
         if (activity != null) {
             activity.getWindowManager().getDefaultDisplay().getSize(new Point());
@@ -453,12 +453,12 @@ public class e implements DialogInterface.OnDismissListener, UIADI, com.qq.e.com
 
     @Override // com.qq.e.comm.pi.UIADI
     public void setDownAPPConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy) {
-        this.f12407b.setDownAPPConfirmPolicy(downAPPConfirmPolicy);
+        this.f12408b.setDownAPPConfirmPolicy(downAPPConfirmPolicy);
     }
 
     @Override // com.qq.e.comm.pi.UIADI
     public void setMaxVideoDuration(int i) {
-        this.f12407b.setMaxVideoDuration(i);
+        this.f12408b.setMaxVideoDuration(i);
         this.c.setMaxVideoDuration(i);
     }
 
@@ -469,18 +469,18 @@ public class e implements DialogInterface.OnDismissListener, UIADI, com.qq.e.com
 
     @Override // com.qq.e.comm.pi.UIADI
     public void setMinVideoDuration(int i) {
-        this.f12407b.setMinVideoDuration(i);
+        this.f12408b.setMinVideoDuration(i);
         this.c.setMinVideoDuration(i);
     }
 
     @Override // com.qq.e.comm.pi.UIADI
     public void setVideoOption(VideoOption videoOption) {
-        this.f12407b.setVideoOption(videoOption);
+        this.f12408b.setVideoOption(videoOption);
     }
 
     @Override // com.qq.e.comm.pi.UIADI
     public void setVideoPlayPolicy(int i) {
-        this.f12407b.setVideoPlayPolicy(i);
+        this.f12408b.setVideoPlayPolicy(i);
     }
 
     @Override // com.qq.e.comm.pi.UIADI

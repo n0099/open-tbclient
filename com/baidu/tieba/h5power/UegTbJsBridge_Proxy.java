@@ -28,20 +28,20 @@ public class UegTbJsBridge_Proxy extends a {
         if (cVar == null) {
             cVar = new c();
         }
-        String dPP = eVar.dPP();
-        JSONObject dPN = eVar.dPN();
-        if (dPP.equals("host/callNativeSMS")) {
+        String dPQ = eVar.dPQ();
+        JSONObject dPO = eVar.dPO();
+        if (dPQ.equals("host/callNativeSMS")) {
             cVar.yj(true);
-            c callNativeSMS = this.mJsBridge.callNativeSMS(dPN.optString("phoneNumber"), dPN.optString("content"));
+            c callNativeSMS = this.mJsBridge.callNativeSMS(dPO.optString("phoneNumber"), dPO.optString("content"));
             if (callNativeSMS != null) {
                 cVar.setStatus(callNativeSMS.getStatus());
                 cVar.setMessage(callNativeSMS.getMessage());
                 cVar.setData(callNativeSMS.getData());
             }
             cVar.KZ(0);
-        } else if (dPP.equals("device/setBlockPopInfo")) {
+        } else if (dPQ.equals("device/setBlockPopInfo")) {
             cVar.yj(true);
-            c blockPopInfo = this.mJsBridge.setBlockPopInfo(dPN.optInt("canPost"), dPN.optString("blockInfo"), dPN.optString("aheadInfo"), dPN.optString("aheadUrl"), dPN.optString("okInfo"), dPN.optInt("aheadType"));
+            c blockPopInfo = this.mJsBridge.setBlockPopInfo(dPO.optInt("canPost"), dPO.optString("blockInfo"), dPO.optString("aheadInfo"), dPO.optString("aheadUrl"), dPO.optString("okInfo"), dPO.optInt("aheadType"));
             if (blockPopInfo != null) {
                 cVar.setStatus(blockPopInfo.getStatus());
                 cVar.setMessage(blockPopInfo.getMessage());
@@ -68,12 +68,12 @@ public class UegTbJsBridge_Proxy extends a {
             while (it.hasNext()) {
                 b next = it.next();
                 c cVar2 = new c();
-                cVar2.Ts(next.getName());
+                cVar2.Tr(next.getName());
                 cVar2.setStatus(cVar.getStatus());
                 cVar2.setMessage(cVar.getMessage());
                 cVar2.setData(cVar.getData());
                 arrayList.add(cVar2);
-                if (!next.dPG()) {
+                if (!next.dPH()) {
                     it.remove();
                 }
             }

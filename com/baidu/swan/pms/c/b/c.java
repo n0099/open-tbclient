@@ -22,11 +22,11 @@ public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a am(com.baidu.swan.pms.c.c.c cVar) {
-        this.ewT.aud();
+        this.ewT.aue();
         f fVar = new f();
         a(cVar.exH, fVar);
-        if (fVar.bhr() == 0) {
-            this.ewT.arc();
+        if (fVar.bhs() == 0) {
+            this.ewT.ard();
             return null;
         }
         this.ewT.a(fVar);
@@ -42,11 +42,11 @@ public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
         if (cVar == null) {
             return false;
         }
-        return cVar.exH == null || cVar.exH.auV();
+        return cVar.exH == null || cVar.exH.auW();
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String bgq() {
+    protected String bgr() {
         return "getplugin";
     }
 }

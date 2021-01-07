@@ -71,14 +71,14 @@ public class o extends BdAsyncTask<String, String, b> {
         if (TextUtils.isEmpty(this.url)) {
             return new b(false, "url is null");
         }
-        if (!bIT()) {
+        if (!bIU()) {
             return new b(false, "make file error");
         }
         if (!this.fPp) {
-            if (!bIU()) {
+            if (!bIV()) {
                 return new b(false, "download error");
             }
-        } else if (!bIV()) {
+        } else if (!bIW()) {
             return new b(false, "decode base64 error");
         }
         return new b(true, null);
@@ -100,12 +100,12 @@ public class o extends BdAsyncTask<String, String, b> {
             }
         } else {
             if (this.fPr && W(new File(this.imagePath))) {
-                String replace = this.imagePath.replace(Eg(this.imagePath), ".gif");
+                String replace = this.imagePath.replace(Ef(this.imagePath), ".gif");
                 this.fPo.renameTo(new File(replace));
                 this.imagePath = replace;
                 this.fPo = new File(this.imagePath);
             }
-            bIW();
+            bIX();
             if (this.fPn != null) {
                 this.fPn.onSuccess(this.imagePath);
             }
@@ -136,7 +136,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean bIT() {
+    private boolean bIU() {
         File externalStoragePublicDirectory;
         String lowerCase;
         try {
@@ -165,7 +165,7 @@ public class o extends BdAsyncTask<String, String, b> {
             } else {
                 lowerCase = UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase();
             }
-            this.imagePath = this.dnS + lowerCase + Eg(this.url);
+            this.imagePath = this.dnS + lowerCase + Ef(this.url);
             this.fPo = new File(this.imagePath);
             if (this.fPo.exists()) {
                 this.fPo.delete();
@@ -181,7 +181,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean bIU() {
+    private boolean bIV() {
         return r(this.url, this.imagePath, 3);
     }
 
@@ -211,7 +211,7 @@ public class o extends BdAsyncTask<String, String, b> {
         try {
             a2 = a(new URL(str), i, i2);
             try {
-                fileOutputStream = new FileOutputStream(EH(str2), true);
+                fileOutputStream = new FileOutputStream(EG(str2), true);
                 try {
                     a2.connect();
                     int responseCode = a2.getResponseCode();
@@ -224,7 +224,7 @@ public class o extends BdAsyncTask<String, String, b> {
                             }
                         } catch (Exception e) {
                         }
-                        this.imagePath = this.dnS + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + Eg(headerField);
+                        this.imagePath = this.dnS + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + Ef(headerField);
                         this.fPo = new File(this.imagePath);
                         if (this.fPo.exists()) {
                             this.fPo.delete();
@@ -314,7 +314,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean bIV() {
+    private boolean bIW() {
         FileOutputStream fileOutputStream;
         byte[] decode = Base64.decode(this.url.substring(this.url.indexOf(",") + 1, this.url.length()), 0);
         for (int i = 0; i < decode.length; i++) {
@@ -357,7 +357,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private File EH(String str) {
+    private File EG(String str) {
         com.baidu.adp.lib.util.f.delFile(str);
         return new File(str);
     }
@@ -408,13 +408,13 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private void bIW() {
+    private void bIX() {
         if (this.fPo != null) {
             TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.fPo)));
         }
     }
 
-    private String Eg(String str) {
+    private String Ef(String str) {
         if (TextUtils.isEmpty(str)) {
             return ".jpg";
         }

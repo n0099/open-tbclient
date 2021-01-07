@@ -32,7 +32,7 @@ public class ai {
         return false;
     }
 
-    public List<FrsTabInfo> bEt() {
+    public List<FrsTabInfo> bEu() {
         return this.jet;
     }
 
@@ -47,7 +47,7 @@ public class ai {
         }
     }
 
-    public void cHk() {
+    public void cHl() {
         boolean z;
         LinkedList linkedList = new LinkedList();
         LinkedList linkedList2 = new LinkedList();
@@ -82,7 +82,7 @@ public class ai {
         return this.mContext;
     }
 
-    public List<com.baidu.tbadk.mainTab.b> cED() {
+    public List<com.baidu.tbadk.mainTab.b> cEE() {
         return this.jeu;
     }
 
@@ -110,11 +110,11 @@ public class ai {
         return this.forumGameLabel;
     }
 
-    public void IU(String str) {
+    public void IT(String str) {
         this.hZe = str;
     }
 
-    public String cHl() {
+    public String cHm() {
         return this.hZe;
     }
 }

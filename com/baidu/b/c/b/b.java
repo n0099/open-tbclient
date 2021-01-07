@@ -7,17 +7,17 @@ import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 import java.security.GeneralSecurityException;
 import java.util.Random;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int[] f1599a = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+    private static final int[] f1600a = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f1600b;
+    private final int f1601b;
 
     public b(int i) {
-        this.f1600b = i;
+        this.f1601b = i;
     }
 
     private static int a(int i, int i2) {
@@ -28,7 +28,7 @@ public class b {
         int remaining = byteBuffer2.remaining();
         int i = (remaining / 64) + 1;
         for (int i2 = 0; i2 < i; i2++) {
-            ByteBuffer c = c(bArr, bArr2, this.f1600b + i2);
+            ByteBuffer c = c(bArr, bArr2, this.f1601b + i2);
             if (i2 == i - 1) {
                 a.a(byteBuffer, byteBuffer2, c, remaining % 64);
             } else {
@@ -62,8 +62,8 @@ public class b {
     }
 
     static void d(int[] iArr, int[] iArr2) {
-        System.arraycopy(f1599a, 0, iArr, 0, f1599a.length);
-        System.arraycopy(iArr2, 0, iArr, f1599a.length, 8);
+        System.arraycopy(f1600a, 0, iArr, 0, f1600a.length);
+        System.arraycopy(iArr2, 0, iArr, f1600a.length, 8);
     }
 
     static int[] s(byte[] bArr) {

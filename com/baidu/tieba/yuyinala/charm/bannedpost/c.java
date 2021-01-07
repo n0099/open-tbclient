@@ -10,7 +10,7 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes11.dex */
 public class c extends BdBaseModel {
-    private a okw;
+    private a okv;
     private HttpMessageListener gQE = new HttpMessageListener(1031038) { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -18,11 +18,11 @@ public class c extends BdBaseModel {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof BannedListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == c.this.getUniqueId()) {
                 BannedListHttpResponseMessage bannedListHttpResponseMessage = (BannedListHttpResponseMessage) httpResponsedMessage;
                 if (httpResponsedMessage.getError() == 0) {
-                    if (c.this.okw != null) {
-                        c.this.okw.a(bannedListHttpResponseMessage.ebL());
+                    if (c.this.okv != null) {
+                        c.this.okv.a(bannedListHttpResponseMessage.ebM());
                     }
-                } else if (c.this.okw != null) {
-                    c.this.okw.v(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (c.this.okv != null) {
+                    c.this.okv.v(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -37,7 +37,7 @@ public class c extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.okw = aVar;
+        this.okv = aVar;
     }
 
     public c(Context context) {

@@ -10,20 +10,20 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile d f9606a;
+    private static volatile d f9607a;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile List<WeakReference<Object>> f9607b = new CopyOnWriteArrayList();
+    private volatile List<WeakReference<Object>> f9608b = new CopyOnWriteArrayList();
 
     public static d a() {
-        if (f9606a == null) {
+        if (f9607a == null) {
             synchronized (d.class) {
-                if (f9606a == null) {
-                    f9606a = c();
+                if (f9607a == null) {
+                    f9607a = c();
                 }
             }
         }
-        return f9606a;
+        return f9607a;
     }
 
     private boolean a(@NonNull Collection<WeakReference<Object>> collection, Object obj) {
@@ -66,15 +66,15 @@ public class d {
     }
 
     public void a(Object obj) {
-        if (a(this.f9607b, obj)) {
+        if (a(this.f9608b, obj)) {
             return;
         }
-        b(this.f9607b, obj);
+        b(this.f9608b, obj);
         d();
     }
 
     public int b() {
-        Iterator<WeakReference<Object>> it = this.f9607b.iterator();
+        Iterator<WeakReference<Object>> it = this.f9608b.iterator();
         int i = 0;
         while (it.hasNext()) {
             if (it.next().get() == null) {
@@ -87,7 +87,7 @@ public class d {
     }
 
     public void b(Object obj) {
-        c(this.f9607b, obj);
+        c(this.f9608b, obj);
         d();
     }
 }

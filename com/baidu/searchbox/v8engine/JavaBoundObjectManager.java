@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 @NotProguard
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class JavaBoundObjectManager {
     public static final String TAG = "JavaBoundObjectManager";
     private Map<Long, Object> mJavaBoundObjectMap = new HashMap();

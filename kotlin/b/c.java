@@ -5,8 +5,8 @@ import kotlin.jvm.internal.o;
 @kotlin.e
 /* loaded from: classes5.dex */
 public final class c extends kotlin.b.a {
-    public static final a qmq = new a(null);
-    private static final c qmp = new c((char) 1, (char) 0);
+    public static final a qnY = new a(null);
+    private static final c qnX = new c((char) 1, (char) 0);
 
     public c(char c, char c2) {
         super(c, c2, 1);
@@ -14,12 +14,12 @@ public final class c extends kotlin.b.a {
 
     @Override // kotlin.b.a
     public boolean isEmpty() {
-        return eMm() > eMn();
+        return eMQ() > eMR();
     }
 
     @Override // kotlin.b.a
     public boolean equals(Object obj) {
-        return (obj instanceof c) && ((isEmpty() && ((c) obj).isEmpty()) || (eMm() == ((c) obj).eMm() && eMn() == ((c) obj).eMn()));
+        return (obj instanceof c) && ((isEmpty() && ((c) obj).isEmpty()) || (eMQ() == ((c) obj).eMQ() && eMR() == ((c) obj).eMR()));
     }
 
     @Override // kotlin.b.a
@@ -27,12 +27,12 @@ public final class c extends kotlin.b.a {
         if (isEmpty()) {
             return -1;
         }
-        return (eMm() * 31) + eMn();
+        return (eMQ() * 31) + eMR();
     }
 
     @Override // kotlin.b.a
     public String toString() {
-        return "" + eMm() + IStringUtil.TOP_PATH + eMn();
+        return "" + eMQ() + IStringUtil.TOP_PATH + eMR();
     }
 
     @kotlin.e

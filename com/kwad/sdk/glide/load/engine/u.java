@@ -7,7 +7,7 @@ import java.security.MessageDigest;
 final class u implements com.kwad.sdk.glide.load.c {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final com.kwad.sdk.glide.g.g<Class<?>, byte[]> f10549b = new com.kwad.sdk.glide.g.g<>(50);
+    private static final com.kwad.sdk.glide.g.g<Class<?>, byte[]> f10550b = new com.kwad.sdk.glide.g.g<>(50);
     private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b c;
     private final com.kwad.sdk.glide.load.c d;
     private final com.kwad.sdk.glide.load.c e;
@@ -30,10 +30,10 @@ final class u implements com.kwad.sdk.glide.load.c {
     }
 
     private byte[] a() {
-        byte[] b2 = f10549b.b(this.h);
+        byte[] b2 = f10550b.b(this.h);
         if (b2 == null) {
-            byte[] bytes = this.h.getName().getBytes(f10431a);
-            f10549b.b(this.h, bytes);
+            byte[] bytes = this.h.getName().getBytes(f10432a);
+            f10550b.b(this.h, bytes);
             return bytes;
         }
         return b2;

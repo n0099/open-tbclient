@@ -24,10 +24,10 @@ public class StatService {
     public static final int JAVA_EXCEPTION_LOG = 16;
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f3672a = false;
+    private static boolean f3673a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f3673b;
+    private static boolean f3674b;
 
     /* loaded from: classes15.dex */
     public interface WearListener {
@@ -124,8 +124,8 @@ public class StatService {
     }
 
     public static void setOn(Context context, int i) {
-        if (a(context, "setOn(...)") && !f3672a) {
-            f3672a = true;
+        if (a(context, "setOn(...)") && !f3673a) {
+            f3673a = true;
             if ((i & 1) != 0) {
                 a(context, false);
             } else if ((i & 16) != 0) {
@@ -357,7 +357,7 @@ public class StatService {
             }
             af.a(appKey);
             af.a(z2);
-            if (!f3673b) {
+            if (!f3674b) {
                 setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_ALL);
             }
             BDStatCore.instance().init(context);
@@ -425,7 +425,7 @@ public class StatService {
 
     public static void setFeedTrack(MtjConfig.FeedTrackStrategy feedTrackStrategy) {
         av.a(feedTrackStrategy);
-        f3673b = true;
+        f3674b = true;
     }
 
     public static void enableListTrack(View view) {

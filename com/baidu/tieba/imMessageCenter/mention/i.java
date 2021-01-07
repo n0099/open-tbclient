@@ -18,20 +18,20 @@ public class i {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             h msgData;
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002500 && (httpResponsedMessage instanceof MsgReminderHttpRespMessage) && (msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData()) != null) {
-                if (msgData.dbg() >= 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.b.bBc().setMsgAtme(msgData.dbg());
-                }
-                if (msgData.dbf() >= 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.b.bBc().setMsgReplyme(msgData.dbf());
-                }
                 if (msgData.dbh() >= 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.b.bBc().setMsgFans(msgData.dbh());
+                    com.baidu.tbadk.coreExtra.messageCenter.b.bBd().setMsgAtme(msgData.dbh());
                 }
-                if (msgData.dbe() >= 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.b.bBc().rT(msgData.dbe());
+                if (msgData.dbg() >= 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.b.bBd().setMsgReplyme(msgData.dbg());
                 }
                 if (msgData.dbi() >= 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.b.bBc().setMsgBookmark(msgData.dbi());
+                    com.baidu.tbadk.coreExtra.messageCenter.b.bBd().setMsgFans(msgData.dbi());
+                }
+                if (msgData.dbf() >= 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.b.bBd().rT(msgData.dbf());
+                }
+                if (msgData.dbj() >= 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.b.bBd().setMsgBookmark(msgData.dbj());
                 }
             }
         }
@@ -45,7 +45,7 @@ public class i {
                 i.this.kOu = System.currentTimeMillis();
                 boolean z = !MessageManager.getInstance().getSocketClient().isValid();
                 if (i == 2 || (z && com.baidu.adp.lib.util.j.isNetWorkAvailable())) {
-                    i.this.dbk();
+                    i.this.dbl();
                 }
                 i.this.z(1, 600000L);
             }
@@ -59,7 +59,7 @@ public class i {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static synchronized i dbj() {
+    public static synchronized i dbk() {
         i iVar;
         synchronized (i.class) {
             if (kOt == null) {
@@ -75,7 +75,7 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dbk() {
+    public void dbl() {
         MessageManager.getInstance().sendMessage(new HttpMessage(1002500));
     }
 

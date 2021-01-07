@@ -42,11 +42,11 @@ public abstract class a {
         this.cvW = i2;
     }
 
-    public final int ahP() {
+    public final int ahQ() {
         return this.cvV;
     }
 
-    public final int ahQ() {
+    public final int ahR() {
         return this.cvW;
     }
 

@@ -44,11 +44,11 @@ public class i {
         return this.height;
     }
 
-    public String bLL() {
+    public String bLM() {
         return this.fZP;
     }
 
-    public boolean bLM() {
+    public boolean bLN() {
         return this.fZO == 15;
     }
 

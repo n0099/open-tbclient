@@ -8,21 +8,21 @@ import com.kwad.sdk.contentalliance.detail.video.f;
 public class c extends com.kwad.sdk.draw.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f10002b;
+    private TextView f10003b;
     private e c = new f() { // from class: com.kwad.sdk.draw.b.c.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a(int i, int i2) {
-            c.this.f10002b.setVisibility(0);
+            c.this.f10003b.setVisibility(0);
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
-            c.this.f10002b.setVisibility(8);
+            c.this.f10003b.setVisibility(8);
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void d() {
-            c.this.f10002b.setVisibility(8);
+            c.this.f10003b.setVisibility(8);
         }
     };
 
@@ -31,24 +31,24 @@ public class c extends com.kwad.sdk.draw.a.a {
     public void a() {
         super.a();
         if (com.ksad.download.d.b.a(o())) {
-            this.f10002b.setVisibility(8);
+            this.f10003b.setVisibility(8);
         } else {
-            this.f10002b.setVisibility(0);
+            this.f10003b.setVisibility(0);
         }
-        this.f9972a.e.a(this.c);
+        this.f9973a.e.a(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f9972a.e.b(this.c);
+        this.f9973a.e.b(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f10002b = (TextView) b(R.id.ksad_video_fail_tip);
+        this.f10003b = (TextView) b(R.id.ksad_video_fail_tip);
     }
 }

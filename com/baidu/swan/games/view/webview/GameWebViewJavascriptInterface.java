@@ -15,9 +15,9 @@ public class GameWebViewJavascriptInterface {
         if (DEBUG) {
             Log.i(TAG, "closeGameWebView");
         }
-        a bdM = a.bdM();
-        if (bdM != null) {
-            bdM.close();
+        a bdN = a.bdN();
+        if (bdN != null) {
+            bdN.close();
         }
     }
 
@@ -26,9 +26,9 @@ public class GameWebViewJavascriptInterface {
         if (DEBUG) {
             Log.i(TAG, "onGameLoadingFinish");
         }
-        a bdM = a.bdM();
-        if (bdM != null) {
-            bdM.onGameLoadingFinish();
+        a bdN = a.bdN();
+        if (bdN != null) {
+            bdN.onGameLoadingFinish();
         }
     }
 }

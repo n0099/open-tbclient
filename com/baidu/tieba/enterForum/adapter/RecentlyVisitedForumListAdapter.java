@@ -64,7 +64,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
             a(visitedForumData, forumViewHolder);
             b(visitedForumData, forumViewHolder);
             d(visitedForumData, forumViewHolder);
-            forumViewHolder.iGf.startLoad(visitedForumData.bEk(), 10, false);
+            forumViewHolder.iGf.startLoad(visitedForumData.bEl(), 10, false);
             forumViewHolder.iGf.setStrokeColorResId(R.color.CAM_X0201);
             forumViewHolder.iGf.setStrokeWith(3);
             forumViewHolder.iGf.setShowOval(true);
@@ -72,7 +72,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
             ao.setImageResource(forumViewHolder.fHy, R.drawable.icon_ba_delete_n);
             ao.setViewTextColor(forumViewHolder.fni, R.color.CAM_X0105);
             ao.setViewTextColor(forumViewHolder.iGe, R.color.CAM_X0109);
-            com.baidu.tbadk.core.util.f.a.bwT().qI(R.color.CAM_X0901).qD(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds10)).qE(R.color.CAM_X0804).qC(4353).qF(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).qG(0).qH(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds5)).bz(forumViewHolder.bxO);
+            com.baidu.tbadk.core.util.f.a.bwU().qI(R.color.CAM_X0901).qD(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds10)).qE(R.color.CAM_X0804).qC(4353).qF(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).qG(0).qH(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds5)).bz(forumViewHolder.bxO);
         }
     }
 
@@ -88,7 +88,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
 
     private void b(VisitedForumData visitedForumData, ForumViewHolder forumViewHolder) {
         if (visitedForumData != null && forumViewHolder != null) {
-            forumViewHolder.iGe.setText("关注 " + at.numFormatOverWanNa(visitedForumData.bEo()));
+            forumViewHolder.iGe.setText("关注 " + at.numFormatOverWanNa(visitedForumData.bEp()));
         }
     }
 
@@ -113,13 +113,13 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
             if (this.iFZ) {
                 forumViewHolder.fHy.setVisibility(0);
                 forumViewHolder.fHy.setTag(visitedForumData);
-            } else if (!visitedForumData.bEl()) {
-                if (visitedForumData.bEm() <= 0) {
+            } else if (!visitedForumData.bEm()) {
+                if (visitedForumData.bEn() <= 0) {
                     forumViewHolder.iGg.setVisibility(8);
                     return;
                 }
                 forumViewHolder.iGg.setVisibility(0);
-                forumViewHolder.iGg.refresh(visitedForumData.bEm());
+                forumViewHolder.iGg.refresh(visitedForumData.bEn());
             } else {
                 forumViewHolder.iGi.setVisibility(0);
             }

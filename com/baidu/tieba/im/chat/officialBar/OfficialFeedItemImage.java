@@ -49,10 +49,10 @@ public class OfficialFeedItemImage extends RelativeLayout {
         this.kAm.setRadius(l.getDimens(this.mContext, R.dimen.tbds21));
         this.kAq = findViewById(R.id.image_container);
         this.kAr = findViewById(R.id.msg_read_container);
-        cWY();
+        cWZ();
     }
 
-    public void cWZ() {
+    public void cXa() {
         this.kAm.setRadius(l.getDimens(this.mContext, R.dimen.tbds31));
         this.kAm.setConrers(3);
         ViewGroup.LayoutParams layoutParams = this.kAq.getLayoutParams();
@@ -67,9 +67,9 @@ public class OfficialFeedItemImage extends RelativeLayout {
         this.kAk.setLayoutParams(layoutParams3);
     }
 
-    public void cWY() {
-        SvgManager.bwq().a(this.kAn, R.drawable.icon_pure_broadcast_read16_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        com.baidu.tbadk.core.util.f.a.b m = com.baidu.tbadk.core.util.f.a.bwU().qq(0).m(R.color.CAM_X0601, R.color.CAM_X0606);
+    public void cWZ() {
+        SvgManager.bwr().a(this.kAn, R.drawable.icon_pure_broadcast_read16_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        com.baidu.tbadk.core.util.f.a.b m = com.baidu.tbadk.core.util.f.a.bwV().qq(0).m(R.color.CAM_X0601, R.color.CAM_X0606);
         if (this.kyq) {
             m.bz(this.kAp);
         } else {
@@ -79,11 +79,11 @@ public class OfficialFeedItemImage extends RelativeLayout {
         ao.setViewTextColor(this.kAk, R.color.CAM_X0101);
     }
 
-    public void setData(a.C0766a c0766a, int i, com.baidu.tieba.im.forum.broadcast.data.b bVar) {
-        this.kAm.startLoad(c0766a.src, 10, false);
-        this.kAk.setText(c0766a.title);
+    public void setData(a.C0775a c0775a, int i, com.baidu.tieba.im.forum.broadcast.data.b bVar) {
+        this.kAm.startLoad(c0775a.src, 10, false);
+        this.kAk.setText(c0775a.title);
         if (bVar != null) {
-            i = bVar.cXQ();
+            i = bVar.cXR();
         }
         Ec(i);
     }

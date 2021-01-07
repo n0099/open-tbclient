@@ -26,16 +26,16 @@ public final class c {
     private c() {
     }
 
-    public final a aJT() {
+    public final a aJU() {
         return dwP;
     }
 
-    public final void aJU() {
-        d aMg = d.aMg();
-        p.n(aMg, "Swan.get()");
-        com.baidu.swan.apps.adaptation.a aMi = aMg.aMi();
-        p.n(aMi, "Swan.get().adaptationProducer");
-        aMi.ajN().alG().ca(d.aMg()).A(b.dwR).aOb();
+    public final void aJV() {
+        d aMh = d.aMh();
+        p.n(aMh, "Swan.get()");
+        com.baidu.swan.apps.adaptation.a aMj = aMh.aMj();
+        p.n(aMj, "Swan.get().adaptationProducer");
+        aMj.ajO().alH().ca(d.aMh()).A(b.dwR).aOc();
     }
 
     @e
@@ -54,31 +54,31 @@ public final class c {
             if (hVar.isOk()) {
                 JSONObject jSONObject = hVar.mData;
                 JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("data") : null;
-                a aJT = c.dwQ.aJT();
+                a aJU = c.dwQ.aJU();
                 if (optJSONObject != null) {
                     String optString = optJSONObject.optString("openid");
-                    if (aJT == null || !ProcessUtils.isMainProcess()) {
+                    if (aJU == null || !ProcessUtils.isMainProcess()) {
                         c.dwQ.cu(null, optString);
                         return;
                     }
                     p.n(optString, "openId");
-                    d aMg = d.aMg();
-                    p.n(aMg, "Swan.get()");
-                    String appId = aMg.getAppId();
-                    am aBd = com.baidu.swan.apps.t.a.aBd();
-                    p.n(aBd, "SwanAppRuntime.getConfig()");
-                    aJT.X(optString, appId, aBd.getHostName());
+                    d aMh = d.aMh();
+                    p.n(aMh, "Swan.get()");
+                    String appId = aMh.getAppId();
+                    am aBe = com.baidu.swan.apps.t.a.aBe();
+                    p.n(aBe, "SwanAppRuntime.getConfig()");
+                    aJU.X(optString, appId, aBe.getHostName());
                 }
             }
         }
     }
 
-    public final void aJV() {
-        d aMg = d.aMg();
-        p.n(aMg, "Swan.get()");
-        com.baidu.swan.apps.adaptation.a aMi = aMg.aMi();
-        p.n(aMi, "Swan.get().adaptationProducer");
-        aMi.ajN().alG().bZ(d.aMg()).A(C0373c.dwS).aOb();
+    public final void aJW() {
+        d aMh = d.aMh();
+        p.n(aMh, "Swan.get()");
+        com.baidu.swan.apps.adaptation.a aMj = aMh.aMj();
+        p.n(aMj, "Swan.get().adaptationProducer");
+        aMj.ajO().alH().bZ(d.aMh()).A(C0373c.dwS).aOc();
     }
 
     @e
@@ -98,20 +98,20 @@ public final class c {
             if (hVar.isOk()) {
                 JSONObject jSONObject = hVar.mData;
                 JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("data") : null;
-                a aJT = c.dwQ.aJT();
+                a aJU = c.dwQ.aJU();
                 if (optJSONObject != null) {
                     String optString = optJSONObject.optString("swanid");
-                    if (aJT == null || !ProcessUtils.isMainProcess()) {
+                    if (aJU == null || !ProcessUtils.isMainProcess()) {
                         c.dwQ.cu(optString, null);
                         return;
                     }
                     p.n(optString, "swanId");
-                    d aMg = d.aMg();
-                    p.n(aMg, "Swan.get()");
-                    String appId = aMg.getAppId();
-                    am aBd = com.baidu.swan.apps.t.a.aBd();
-                    p.n(aBd, "SwanAppRuntime.getConfig()");
-                    aJT.W(optString, appId, aBd.getHostName());
+                    d aMh = d.aMh();
+                    p.n(aMh, "Swan.get()");
+                    String appId = aMh.getAppId();
+                    am aBe = com.baidu.swan.apps.t.a.aBe();
+                    p.n(aBe, "SwanAppRuntime.getConfig()");
+                    aJU.W(optString, appId, aBe.getHostName());
                 }
             }
         }
@@ -119,20 +119,20 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void cu(String str, String str2) {
-        d aMg = d.aMg();
-        p.n(aMg, "Swan.get()");
-        com.baidu.swan.apps.process.messaging.client.a aMb = aMg.aMb();
-        if (aMb != null) {
+        d aMh = d.aMh();
+        p.n(aMh, "Swan.get()");
+        com.baidu.swan.apps.process.messaging.client.a aMc = aMh.aMc();
+        if (aMc != null) {
             Bundle bundle = new Bundle();
             bundle.putString("swanId", str);
             bundle.putString("openId", str2);
-            d aMg2 = d.aMg();
-            p.n(aMg2, "Swan.get()");
-            bundle.putString("appId", aMg2.getAppId());
-            am aBd = com.baidu.swan.apps.t.a.aBd();
-            p.n(aBd, "SwanAppRuntime.getConfig()");
-            bundle.putString("hostName", aBd.getHostName());
-            aMb.b(bundle, com.baidu.swan.apps.ae.b.class);
+            d aMh2 = d.aMh();
+            p.n(aMh2, "Swan.get()");
+            bundle.putString("appId", aMh2.getAppId());
+            am aBe = com.baidu.swan.apps.t.a.aBe();
+            p.n(aBe, "SwanAppRuntime.getConfig()");
+            bundle.putString("hostName", aBe.getHostName());
+            aMc.b(bundle, com.baidu.swan.apps.ae.b.class);
         }
     }
 }

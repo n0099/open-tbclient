@@ -10,9 +10,9 @@ public class a implements CustomMessageTask.CustomRunnable {
     public CustomResponsedMessage<?> run(CustomMessage customMessage) {
         if (customMessage != null && (customMessage.getData() instanceof String)) {
             String str = (String) customMessage.getData();
-            f dHl = com.baidu.tieba.sdk.d.a.dHb().dHl();
-            if (dHl != null) {
-                dHl.Oh(str);
+            f dHm = com.baidu.tieba.sdk.d.a.dHc().dHm();
+            if (dHm != null) {
+                dHm.Og(str);
                 return null;
             }
             return null;

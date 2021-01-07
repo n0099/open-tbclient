@@ -73,7 +73,7 @@ public class MultiContentView extends LinearLayout {
         this.mContainer.addView(view);
     }
 
-    public void setData(TbPageContext<?> tbPageContext, List<a.C0766a> list, View view) {
+    public void setData(TbPageContext<?> tbPageContext, List<a.C0775a> list, View view) {
         this.mContainer.removeAllViews();
         if (list != null && list.size() != 0) {
             int size = list.size();
@@ -130,11 +130,11 @@ public class MultiContentView extends LinearLayout {
         return multiImageTextTopView;
     }
 
-    private void a(TbPageContext<?> tbPageContext, a.C0766a c0766a, MultiImageTextTopView multiImageTextTopView, View view) {
-        if (c0766a != null && multiImageTextTopView != null) {
+    private void a(TbPageContext<?> tbPageContext, a.C0775a c0775a, MultiImageTextTopView multiImageTextTopView, View view) {
+        if (c0775a != null && multiImageTextTopView != null) {
             multiImageTextTopView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             multiImageTextTopView.setTime(this.kyx);
-            multiImageTextTopView.setData(tbPageContext, c0766a, view, this.mType);
+            multiImageTextTopView.setData(tbPageContext, c0775a, view, this.mType);
             this.mContainer.addView(multiImageTextTopView);
         }
     }
@@ -188,10 +188,10 @@ public class MultiContentView extends LinearLayout {
         return commonBottomView;
     }
 
-    private void a(TbPageContext<?> tbPageContext, a.C0766a c0766a, MultiImageTextBottomView multiImageTextBottomView, View view) {
-        if (c0766a != null && multiImageTextBottomView != null) {
+    private void a(TbPageContext<?> tbPageContext, a.C0775a c0775a, MultiImageTextBottomView multiImageTextBottomView, View view) {
+        if (c0775a != null && multiImageTextBottomView != null) {
             multiImageTextBottomView.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(R.dimen.ds132)));
-            multiImageTextBottomView.setData(tbPageContext, c0766a, view, this.mType);
+            multiImageTextBottomView.setData(tbPageContext, c0775a, view, this.mType);
             this.mContainer.addView(multiImageTextBottomView);
         }
     }
@@ -219,11 +219,11 @@ public class MultiContentView extends LinearLayout {
         return singleImageTextView;
     }
 
-    private void a(TbPageContext<?> tbPageContext, a.C0766a c0766a, SingleImageTextView singleImageTextView, View view) {
-        if (c0766a != null && singleImageTextView != null) {
+    private void a(TbPageContext<?> tbPageContext, a.C0775a c0775a, SingleImageTextView singleImageTextView, View view) {
+        if (c0775a != null && singleImageTextView != null) {
             singleImageTextView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             singleImageTextView.setTime(this.kyx);
-            singleImageTextView.setData(tbPageContext, c0766a, view, this.mType);
+            singleImageTextView.setData(tbPageContext, c0775a, view, this.mType);
             this.mContainer.addView(singleImageTextView);
         }
     }

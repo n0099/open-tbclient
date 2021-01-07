@@ -47,7 +47,7 @@ public class e {
         if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isQuickGiftUnabled()) {
             HttpMessage httpMessage = new HttpMessage(1021124);
             int i = 0;
-            String XF = q.XF();
+            String XG = q.XG();
             if (TbadkCoreApplication.getInst().isHaokan()) {
                 i = 1;
             } else if (TbadkCoreApplication.getInst().isQuanmin()) {
@@ -60,7 +60,7 @@ public class e {
                 i = 6;
             }
             httpMessage.addParam("from", i);
-            httpMessage.addParam("scene_from", XF);
+            httpMessage.addParam("scene_from", XG);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }

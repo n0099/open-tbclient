@@ -25,7 +25,7 @@ public class t {
         return "";
     }
 
-    public static String XF() {
+    public static String XG() {
         if (TextUtils.isEmpty(bOX)) {
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
                 return "ala_audio_mobilebaidu_android_consume";
@@ -51,7 +51,7 @@ public class t {
         bOX = str;
     }
 
-    public static String XG() {
+    public static String XH() {
         return bOX;
     }
 }

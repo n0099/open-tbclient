@@ -5,13 +5,13 @@ import android.os.Bundle;
 import com.baidu.helios.channels.b;
 import com.baidu.helios.ids.b;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public abstract class a {
     protected C0129a awc;
     protected b awd;
 
     /* renamed from: com.baidu.helios.bridge.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class C0129a {
         public Context applicationContext;
         public b.a awe;
@@ -20,18 +20,18 @@ public abstract class a {
         public ExecutorService awh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class b {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface c<T> {
         void a(int i, Exception exc, Bundle bundle);
 
         void a(T t, Bundle bundle);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class d {
         public int errCode;
         public Exception exception;

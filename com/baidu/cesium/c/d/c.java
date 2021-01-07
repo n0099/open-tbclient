@@ -10,11 +10,11 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class c {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final byte[] f1696b = new byte[0];
+    private static final byte[] f1697b = new byte[0];
     private f aok;
     private d aom;
     private int i;

@@ -14,11 +14,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class c extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f4778b = c.class.getSimpleName();
+    private static final String f4779b = c.class.getSimpleName();
 
     private LatLng a(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -72,7 +72,7 @@ public class c extends com.baidu.platform.base.d {
                     return false;
             }
         } catch (JSONException e) {
-            Log.e(f4778b, "Parse sug search error", e);
+            Log.e(f4779b, "Parse sug search error", e);
             suggestionResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
             return false;
         }
@@ -175,7 +175,7 @@ public class c extends com.baidu.platform.base.d {
                     }
                 }
             } catch (JSONException e) {
-                Log.e(f4778b, "Parse suggestion search result error", e);
+                Log.e(f4779b, "Parse suggestion search result error", e);
                 suggestionResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
             }
         }

@@ -230,7 +230,7 @@ public class TiebaUpdateService extends BdBaseService {
                     bool = Boolean.valueOf(this.cmJ.downloadFile(n.CreateFileIfNotFound(TiebaUpdateService.this.mMainApkFileName + ".tmp").getAbsolutePath(), TiebaUpdateService.this.mMainApkHandler, 0, 5, 100, true));
                     try {
                         if (!bool.booleanValue() && this.cmJ.getServerErrorCode() != -2) {
-                            if (!this.cmJ.bvQ().bwA().isFileSegSuccess()) {
+                            if (!this.cmJ.bvR().bwB().isFileSegSuccess()) {
                                 try {
                                     Thread.sleep(10000L);
                                 } catch (Exception e) {
@@ -319,7 +319,7 @@ public class TiebaUpdateService extends BdBaseService {
                         if (bool.booleanValue() || this.cmJ.getServerErrorCode() == -2) {
                             break;
                         }
-                        if (!this.cmJ.bvQ().bwA().isFileSegSuccess()) {
+                        if (!this.cmJ.bvR().bwB().isFileSegSuccess()) {
                             try {
                                 Thread.sleep(10000L);
                             } catch (Exception e) {

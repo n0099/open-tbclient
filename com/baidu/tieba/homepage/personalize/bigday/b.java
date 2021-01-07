@@ -91,7 +91,7 @@ public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLay
     }
 
     public void a(com.baidu.tbadk.core.bigday.a aVar) {
-        if (aVar.boB()) {
+        if (aVar.boC()) {
             this.khy = aVar;
         }
         if (aVar.eME == 1) {
@@ -119,7 +119,7 @@ public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLay
         });
     }
 
-    public com.baidu.tbadk.core.bigday.a cTs() {
+    public com.baidu.tbadk.core.bigday.a cTt() {
         return this.khy;
     }
 
@@ -166,7 +166,7 @@ public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLay
         this.khv.setAlpha(1.0f);
         this.khx.setText(this.khz);
         if (this.flU != null) {
-            this.flU.bxX();
+            this.flU.bxY();
         }
         if (this.flS != null) {
             this.flS.onListPullRefreshFinished(getView(), z);
@@ -175,26 +175,26 @@ public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLay
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
-    public void cTp() {
+    public void cTq() {
         this.khx.setText(this.khC);
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
-    public void cTq() {
+    public void cTr() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GET_LIVE_IS_MIX, false));
         this.khx.animate().alpha(0.0f).setDuration(200L).start();
         this.khw.animate().alpha(0.0f).setDuration(200L).start();
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
-    public void cTr() {
-        if (this.khy != null && this.khy.boB()) {
+    public void cTs() {
+        if (this.khy != null && this.khy.boC()) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BigdayActivityConfig(getContext(), this.khy.imgUrl, this.khy.aJH, this.khy.eMF)));
         }
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
-    public int cTo() {
+    public int cTp() {
         return (int) (l.getEquipmentHeight(getContext()) * 0.3d);
     }
 
@@ -216,7 +216,7 @@ public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLay
             this.khv.setProgress(f3);
             return;
         }
-        this.khv.setAlpha(1.0f - ((f4 - dimension2) / (cTo() - dimension2)));
+        this.khv.setAlpha(1.0f - ((f4 - dimension2) / (cTp() - dimension2)));
     }
 
     private void setAlpha(float f) {

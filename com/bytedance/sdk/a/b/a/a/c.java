@@ -36,19 +36,19 @@ public final class c {
                 return false;
             case 302:
             case 307:
-                if (bVar.a(Headers.EXPIRES) == null && bVar.erj().c() == -1 && !bVar.erj().e() && !bVar.erj().d()) {
+                if (bVar.a(Headers.EXPIRES) == null && bVar.erk().c() == -1 && !bVar.erk().e() && !bVar.erk().d()) {
                     return false;
                 }
                 break;
         }
-        return (bVar.erj().b() || abVar.erY().b()) ? false : true;
+        return (bVar.erk().b() || abVar.erZ().b()) ? false : true;
     }
 
     /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        final long f6154a;
+        final long f6155a;
         private Date d;
         private String e;
         private String g;
@@ -63,17 +63,17 @@ public final class c {
 
         public a(long j, ab abVar, com.bytedance.sdk.a.b.b bVar) {
             this.l = -1;
-            this.f6154a = j;
+            this.f6155a = j;
             this.piy = abVar;
             this.piz = bVar;
             if (bVar != null) {
                 this.i = bVar.k();
                 this.j = bVar.l();
-                v erf = bVar.erf();
-                int a2 = erf.a();
+                v erg = bVar.erg();
+                int a2 = erg.a();
                 for (int i = 0; i < a2; i++) {
-                    String a3 = erf.a(i);
-                    String b2 = erf.b(i);
+                    String a3 = erg.a(i);
+                    String b2 = erg.b(i);
                     if ("Date".equalsIgnoreCase(a3)) {
                         this.d = com.bytedance.sdk.a.b.a.c.d.a(b2);
                         this.e = b2;
@@ -91,53 +91,53 @@ public final class c {
             }
         }
 
-        public c equ() {
-            c eqv = eqv();
-            if (eqv.piw != null && this.piy.erY().i()) {
+        public c eqv() {
+            c eqw = eqw();
+            if (eqw.piw != null && this.piy.erZ().i()) {
                 return new c(null, null);
             }
-            return eqv;
+            return eqw;
         }
 
-        private c eqv() {
+        private c eqw() {
             String str;
             String str2;
             long j = 0;
             if (this.piz == null) {
                 return new c(this.piy, null);
             }
-            if (this.piy.g() && this.piz.ere() == null) {
+            if (this.piy.g() && this.piz.erf() == null) {
                 return new c(this.piy, null);
             }
             if (!c.a(this.piz, this.piy)) {
                 return new c(this.piy, null);
             }
-            g erY = this.piy.erY();
-            if (erY.a() || a(this.piy)) {
+            g erZ = this.piy.erZ();
+            if (erZ.a() || a(this.piy)) {
                 return new c(this.piy, null);
             }
-            g erj = this.piz.erj();
-            if (erj.j()) {
+            g erk = this.piz.erk();
+            if (erk.j()) {
                 return new c(null, this.piz);
             }
             long d = d();
             long c = c();
-            if (erY.c() != -1) {
-                c = Math.min(c, TimeUnit.SECONDS.toMillis(erY.c()));
+            if (erZ.c() != -1) {
+                c = Math.min(c, TimeUnit.SECONDS.toMillis(erZ.c()));
             }
-            long millis = erY.h() != -1 ? TimeUnit.SECONDS.toMillis(erY.h()) : 0L;
-            if (!erj.f() && erY.g() != -1) {
-                j = TimeUnit.SECONDS.toMillis(erY.g());
+            long millis = erZ.h() != -1 ? TimeUnit.SECONDS.toMillis(erZ.h()) : 0L;
+            if (!erk.f() && erZ.g() != -1) {
+                j = TimeUnit.SECONDS.toMillis(erZ.g());
             }
-            if (!erj.a() && d + millis < j + c) {
-                b.a erh = this.piz.erh();
+            if (!erk.a() && d + millis < j + c) {
+                b.a eri = this.piz.eri();
                 if (millis + d >= c) {
-                    erh.hc("Warning", "110 HttpURLConnection \"Response is stale\"");
+                    eri.hc("Warning", "110 HttpURLConnection \"Response is stale\"");
                 }
                 if (d > 86400000 && e()) {
-                    erh.hc("Warning", "113 HttpURLConnection \"Heuristic expiration\"");
+                    eri.hc("Warning", "113 HttpURLConnection \"Heuristic expiration\"");
                 }
-                return new c(null, erh.erk());
+                return new c(null, eri.erl());
             }
             if (this.k != null) {
                 str = "If-None-Match";
@@ -151,15 +151,15 @@ public final class c {
             } else {
                 return new c(this.piy, null);
             }
-            v.a erw = this.piy.eqQ().erw();
-            com.bytedance.sdk.a.b.a.a.pir.a(erw, str, str2);
-            return new c(this.piy.erX().e(erw.erx()).esc(), this.piz);
+            v.a erx = this.piy.eqR().erx();
+            com.bytedance.sdk.a.b.a.a.pir.a(erx, str, str2);
+            return new c(this.piy.erY().e(erx.ery()).esd(), this.piz);
         }
 
         private long c() {
-            g erj;
-            if (this.piz.erj().c() != -1) {
-                return TimeUnit.SECONDS.toMillis(erj.c());
+            g erk;
+            if (this.piz.erk().c() != -1) {
+                return TimeUnit.SECONDS.toMillis(erk.c());
             }
             if (this.piB != null) {
                 long time = this.piB.getTime() - (this.d != null ? this.d.getTime() : this.j);
@@ -167,7 +167,7 @@ public final class c {
                     time = 0;
                 }
                 return time;
-            } else if (this.piA == null || this.piz.eqN().eqk().k() != null) {
+            } else if (this.piA == null || this.piz.eqO().eql().k() != null) {
                 return 0L;
             } else {
                 long time2 = (this.d != null ? this.d.getTime() : this.i) - this.piA.getTime();
@@ -183,11 +183,11 @@ public final class c {
             if (this.l != -1) {
                 max = Math.max(max, TimeUnit.SECONDS.toMillis(this.l));
             }
-            return max + (this.j - this.i) + (this.f6154a - this.j);
+            return max + (this.j - this.i) + (this.f6155a - this.j);
         }
 
         private boolean e() {
-            return this.piz.erj().c() == -1 && this.piB == null;
+            return this.piz.erk().c() == -1 && this.piB == null;
         }
 
         private static boolean a(ab abVar) {

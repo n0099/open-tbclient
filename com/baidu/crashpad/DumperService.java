@@ -8,7 +8,7 @@ import android.net.NetworkInfo;
 import android.os.IBinder;
 import android.util.Log;
 import com.baidu.crashpad.ZeusLogUploader;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class DumperService extends Service implements ZeusLogUploader.OnFinishedListener {
     private static final String CALLBACK = "CRASH_CALLBACK";
     private static final String CRASHLOGENCRYPT = "CRASHLOGENCRYPT";

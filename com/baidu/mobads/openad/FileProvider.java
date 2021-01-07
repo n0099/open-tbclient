@@ -22,10 +22,10 @@ import java.util.Map;
 public class FileProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f3424a = {"_display_name", "_size"};
+    private static final String[] f3425a = {"_display_name", "_size"};
 
     /* renamed from: b  reason: collision with root package name */
-    private static final File f3425b = new File("/");
+    private static final File f3426b = new File("/");
     private static HashMap<String, a> c = new HashMap<>();
     private a d;
 
@@ -70,7 +70,7 @@ public class FileProvider extends ContentProvider {
         }
         File a2 = this.d.a(uri);
         if (strArr == null) {
-            strArr = f3424a;
+            strArr = f3425a;
         }
         String[] strArr3 = new String[strArr.length];
         Object[] objArr = new Object[strArr.length];
@@ -173,7 +173,7 @@ public class FileProvider extends ContentProvider {
                     String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
                     String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
                     if ("root-path".equals(name)) {
-                        file = a(f3425b, attributeValue2);
+                        file = a(f3426b, attributeValue2);
                     } else if ("files-path".equals(name)) {
                         file = a(context.getFilesDir(), attributeValue2);
                     } else if (CyberPlayerManager.OPT_CHCHE_PATH.equals(name)) {
@@ -205,13 +205,13 @@ public class FileProvider extends ContentProvider {
     public static class b implements a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f3426a;
+        private final String f3427a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final HashMap<String, File> f3427b = new HashMap<>();
+        private final HashMap<String, File> f3428b = new HashMap<>();
 
         public b(String str) {
-            this.f3426a = str;
+            this.f3427a = str;
         }
 
         public void a(String str, File file) {
@@ -219,7 +219,7 @@ public class FileProvider extends ContentProvider {
                 throw new IllegalArgumentException("Name must not be empty");
             }
             try {
-                this.f3427b.put(str, file.getCanonicalFile());
+                this.f3428b.put(str, file.getCanonicalFile());
             } catch (IOException e) {
                 throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e);
             }
@@ -231,7 +231,7 @@ public class FileProvider extends ContentProvider {
             try {
                 String canonicalPath = file.getCanonicalPath();
                 Map.Entry<String, File> entry = null;
-                for (Map.Entry<String, File> entry2 : this.f3427b.entrySet()) {
+                for (Map.Entry<String, File> entry2 : this.f3428b.entrySet()) {
                     String path = entry2.getValue().getPath();
                     if (!canonicalPath.startsWith(path) || (entry != null && path.length() <= entry.getValue().getPath().length())) {
                         entry2 = entry;
@@ -247,7 +247,7 @@ public class FileProvider extends ContentProvider {
                 } else {
                     substring = canonicalPath.substring(path2.length() + 1);
                 }
-                return new Uri.Builder().scheme("content").authority(this.f3426a).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
+                return new Uri.Builder().scheme("content").authority(this.f3427a).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
             } catch (IOException e) {
                 throw new IllegalArgumentException("Failed to resolve canonical path for " + file);
             }
@@ -259,7 +259,7 @@ public class FileProvider extends ContentProvider {
             int indexOf = encodedPath.indexOf(47, 1);
             String decode = Uri.decode(encodedPath.substring(1, indexOf));
             String decode2 = Uri.decode(encodedPath.substring(indexOf + 1));
-            File file = this.f3427b.get(decode);
+            File file = this.f3428b.get(decode);
             if (file == null) {
                 throw new IllegalArgumentException("Unable to find configured root for " + uri);
             }

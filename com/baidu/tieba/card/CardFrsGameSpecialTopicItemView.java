@@ -69,7 +69,7 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
             public void onClick(View view) {
                 if (view.getTag() instanceof String) {
                     TiebaStatic.log(new aq("c13047").an("obj_locate", 5).dX("fid", CardFrsGameSpecialTopicItemView.this.mForumId));
-                    be.bwu().a((TbPageContext) com.baidu.adp.base.j.K(CardFrsGameSpecialTopicItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
+                    be.bwv().a((TbPageContext) com.baidu.adp.base.j.K(CardFrsGameSpecialTopicItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
                 }
             }
         });

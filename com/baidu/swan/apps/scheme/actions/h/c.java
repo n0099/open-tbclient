@@ -29,14 +29,14 @@ public class c extends aa {
             return false;
         }
         String optString = optParamsAsJo.optString("title");
-        f ajs = com.baidu.swan.apps.v.f.aDG().ajs();
-        if (ajs == null) {
+        f ajt = com.baidu.swan.apps.v.f.aDH().ajt();
+        if (ajt == null) {
             com.baidu.swan.apps.console.c.e("navigationTitle", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.c asT = ajs.asT();
-        if (!(asT != null && asT.Q(optString, true))) {
+        com.baidu.swan.apps.core.d.c asU = ajt.asU();
+        if (!(asU != null && asU.Q(optString, true))) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("navigationTitle", "set title fail");
             return false;

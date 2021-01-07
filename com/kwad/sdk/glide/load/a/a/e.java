@@ -17,17 +17,17 @@ import java.util.List;
 class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final a f10338a = new a();
+    private static final a f10339a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    private final a f10339b;
+    private final a f10340b;
     private final d c;
     private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b d;
     private final ContentResolver e;
     private final List<ImageHeaderParser> f;
 
     e(List<ImageHeaderParser> list, a aVar, d dVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, ContentResolver contentResolver) {
-        this.f10339b = aVar;
+        this.f10340b = aVar;
         this.c = dVar;
         this.d = bVar;
         this.e = contentResolver;
@@ -36,11 +36,11 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(List<ImageHeaderParser> list, d dVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, ContentResolver contentResolver) {
-        this(list, f10338a, dVar, bVar, contentResolver);
+        this(list, f10339a, dVar, bVar, contentResolver);
     }
 
     private boolean a(File file) {
-        return this.f10339b.a(file) && 0 < this.f10339b.b(file);
+        return this.f10340b.a(file) && 0 < this.f10340b.b(file);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -104,7 +104,7 @@ class e {
         if (TextUtils.isEmpty(c)) {
             return null;
         }
-        File a2 = this.f10339b.a(c);
+        File a2 = this.f10340b.a(c);
         if (a(a2)) {
             Uri fromFile = Uri.fromFile(a2);
             try {

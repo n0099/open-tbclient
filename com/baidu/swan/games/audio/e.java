@@ -39,7 +39,7 @@ public class e extends com.baidu.swan.apps.media.audio.b.a {
     }
 
     @Override // com.baidu.swan.apps.media.audio.b.a
-    public boolean aEp() {
+    public boolean aEq() {
         return true;
     }
 }

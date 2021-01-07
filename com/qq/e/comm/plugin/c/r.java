@@ -10,30 +10,30 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class r implements k {
 
     /* renamed from: com.qq.e.comm.plugin.c.r$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class AnonymousClass1 implements Future<com.qq.e.comm.plugin.s.b> {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ Future f12277a;
+        final /* synthetic */ Future f12278a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ f f12278b;
+        final /* synthetic */ f f12279b;
         private com.qq.e.comm.plugin.s.b d;
 
         AnonymousClass1(Future future, f fVar) {
-            this.f12277a = future;
-            this.f12278b = fVar;
+            this.f12278a = future;
+            this.f12279b = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Future
         /* renamed from: a */
         public com.qq.e.comm.plugin.s.b get() {
-            return get(this.f12278b.y, TimeUnit.SECONDS);
+            return get(this.f12279b.y, TimeUnit.SECONDS);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -47,11 +47,11 @@ public class r implements k {
                     bVar = this.d;
                 } else {
                     try {
-                        com.qq.e.comm.plugin.t.b.f fVar = (com.qq.e.comm.plugin.t.b.f) this.f12277a.get(j, timeUnit);
+                        com.qq.e.comm.plugin.t.b.f fVar = (com.qq.e.comm.plugin.t.b.f) this.f12278a.get(j, timeUnit);
                         if (fVar == null) {
                             i = -5006;
                         } else {
-                            this.d = r.a(r.this, fVar, this.f12278b);
+                            this.d = r.a(r.this, fVar, this.f12279b);
                             i = 0;
                         }
                     } catch (InterruptedException e) {
@@ -64,7 +64,7 @@ public class r implements k {
                         i = -5006;
                     }
                     if (this.d == null) {
-                        g.a(i, this.f12278b);
+                        g.a(i, this.f12279b);
                         this.d = new com.qq.e.comm.plugin.s.b(i);
                     }
                     bVar = this.d;
@@ -75,17 +75,17 @@ public class r implements k {
 
         @Override // java.util.concurrent.Future
         public boolean cancel(boolean z) {
-            return this.f12277a.cancel(z);
+            return this.f12278a.cancel(z);
         }
 
         @Override // java.util.concurrent.Future
         public boolean isCancelled() {
-            return this.f12277a.isCancelled();
+            return this.f12278a.isCancelled();
         }
 
         @Override // java.util.concurrent.Future
         public boolean isDone() {
-            return this.f12277a.isDone();
+            return this.f12278a.isDone();
         }
     }
 

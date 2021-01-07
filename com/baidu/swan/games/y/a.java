@@ -13,7 +13,7 @@ public class a {
     private a() {
     }
 
-    public static a bcf() {
+    public static a bcg() {
         if (enT == null) {
             synchronized (a.class) {
                 if (enT == null) {
@@ -42,13 +42,13 @@ public class a {
         if (DEBUG) {
             Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
         }
-        String aMm = e.aMm();
-        if (e.aMk() != null) {
-            String version = e.aMk().getVersion();
-            if (TextUtils.isEmpty(aMm) || TextUtils.isEmpty(version)) {
+        String aMn = e.aMn();
+        if (e.aMl() != null) {
+            String version = e.aMl().getVersion();
+            if (TextUtils.isEmpty(aMn) || TextUtils.isEmpty(version)) {
                 return false;
             }
-            boolean ak = com.baidu.swan.pms.database.a.bgb().ak(aMm, version, af);
+            boolean ak = com.baidu.swan.pms.database.a.bgc().ak(aMn, version, af);
             if (ak) {
                 ac(af, true);
                 return ak;

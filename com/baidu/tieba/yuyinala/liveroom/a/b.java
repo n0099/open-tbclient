@@ -39,8 +39,8 @@ public class b extends e implements f {
 
     @Override // com.baidu.live.view.e, android.widget.PopupWindow
     public void dismiss() {
-        if (!aal()) {
-            aag();
+        if (!aam()) {
+            aah();
         }
     }
 
@@ -48,9 +48,9 @@ public class b extends e implements f {
         View findViewById;
         if (!this.mActivity.isFinishing() && (findViewById = this.mActivity.getWindow().getDecorView().findViewById(16908290)) != null) {
             this.bXh = 80;
-            int aah = aah();
+            int aai = aai();
             this.byQ.setCornerRadius(this.byT, this.byT, 0.0f, 0.0f);
-            setWidth(aah);
+            setWidth(aai);
             setHeight((int) (ScreenHelper.getRealScreenHeight(this.mActivity) * 0.7f));
             showAtLocation(findViewById, 85, 0, 0);
             if (i == 2) {
@@ -61,7 +61,7 @@ public class b extends e implements f {
         }
     }
 
-    public void aag() {
+    public void aah() {
         super.dismiss();
     }
 
@@ -137,7 +137,7 @@ public class b extends e implements f {
         this.byS.setVisibility(8);
     }
 
-    private int aah() {
+    private int aai() {
         return ScreenHelper.getRealScreenWidth(this.mActivity);
     }
 
@@ -160,7 +160,7 @@ public class b extends e implements f {
         }
     }
 
-    private boolean aal() {
+    private boolean aam() {
         if (getContentView() == null) {
             return false;
         }
@@ -186,7 +186,7 @@ public class b extends e implements f {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    b.this.aag();
+                    b.this.aah();
                     b.this.hpp = false;
                 }
 

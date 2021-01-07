@@ -52,22 +52,22 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         if (x.isEmpty(this.lBV)) {
             if (LoadData) {
                 this.lBU.showLoadingView();
-                this.lBU.Zi();
+                this.lBU.Zj();
                 return;
             }
             this.lBU.hideLoadingView();
             this.lBU.pU(false);
         } else if (!LoadData) {
             this.lBU.hideLoadingView();
-            this.lBU.bUO();
+            this.lBU.bUP();
         }
     }
 
     @Override // com.baidu.tieba.newlist.b
     public void o(int i, List<n> list) {
         this.lBU.hideLoadingView();
-        this.lBU.bUO();
-        this.lBU.Zi();
+        this.lBU.bUP();
+        this.lBU.Zj();
         if (i != 0 || x.isEmpty(list)) {
             if (x.isEmpty(this.lBV)) {
                 this.lBU.pU(false);
@@ -76,7 +76,7 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
             return;
         }
         this.lBU.setData(list);
-        this.lBU.Zh();
+        this.lBU.Zi();
         this.lBV = list;
     }
 

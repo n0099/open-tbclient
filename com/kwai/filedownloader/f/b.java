@@ -15,20 +15,20 @@ public class b {
     public static class a implements ThreadFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final AtomicInteger f11224a = new AtomicInteger(1);
+        private static final AtomicInteger f11225a = new AtomicInteger(1);
 
         /* renamed from: b  reason: collision with root package name */
-        private final String f11225b;
+        private final String f11226b;
         private final AtomicInteger d = new AtomicInteger(1);
         private final ThreadGroup c = Thread.currentThread().getThreadGroup();
 
         a(String str) {
-            this.f11225b = f.i(str);
+            this.f11226b = f.i(str);
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            Thread thread = new Thread(this.c, runnable, this.f11225b + this.d.getAndIncrement(), 0L);
+            Thread thread = new Thread(this.c, runnable, this.f11226b + this.d.getAndIncrement(), 0L);
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }

@@ -40,7 +40,7 @@ public final class a {
     private static boolean nI(@NonNull String str) {
         Long l;
         if (cYd == -2) {
-            cYd = com.baidu.swan.apps.t.a.aAu().getSwitch("swan_predownload_one_sm_interval", -1);
+            cYd = com.baidu.swan.apps.t.a.aAv().getSwitch("swan_predownload_one_sm_interval", -1);
         }
         if (cYd < 0) {
             return !cYc.containsKey(str);

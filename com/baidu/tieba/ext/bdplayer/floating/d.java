@@ -45,7 +45,7 @@ public class d implements e {
 
     /* loaded from: classes11.dex */
     public interface b {
-        boolean cAC();
+        boolean cAD();
     }
 
     public static boolean Pm() {
@@ -75,18 +75,18 @@ public class d implements e {
         if (this.mPlayer != null) {
             this.mPlayer.setPlayerMode(PlayerConstant.HALF_MODE);
         }
-        if (this.iQZ == null || this.iQZ.cAC()) {
+        if (this.iQZ == null || this.iQZ.cAD()) {
         }
     }
 
-    public void Yz() {
+    public void YA() {
         if (this.mPlayer != null) {
             this.mPlayer.setPlayerMode(PlayerConstant.HALF_MODE);
         }
         dismiss(true);
     }
 
-    public void cAF() {
+    public void cAG() {
         if (this.mPlayer != null) {
             this.iQY = true;
             this.iQX = this.mPlayer.getCurrentMode();
@@ -192,11 +192,11 @@ public class d implements e {
         if (hasFloatingView()) {
             FloatView.Companion.invalidate(FloatView.Companion.getAppContentView() != null ? FloatView.Companion.getAppContentView().getContext() : null);
         }
-        return cAG();
+        return cAH();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cAG() {
+    public boolean cAH() {
         if (this.iQT.getScaleMode().getSecond() == ScaleMode.S) {
             return true;
         }
@@ -276,7 +276,7 @@ public class d implements e {
                             liveFloatOperateView2.setScaleMode(!d.this.nextScale());
                         }
                     });
-                    liveFloatOperateView.setScaleMode(!d.this.cAG());
+                    liveFloatOperateView.setScaleMode(!d.this.cAH());
                     if (liveFloatOperateView.getParent() != null) {
                         ((ViewGroup) liveFloatOperateView.getParent()).removeView(liveFloatOperateView);
                     }
@@ -356,7 +356,7 @@ public class d implements e {
         return audioManager != null && audioManager.isMusicActive();
     }
 
-    public boolean cAH() {
+    public boolean cAI() {
         return this.iQY;
     }
 

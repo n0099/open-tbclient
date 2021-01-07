@@ -45,7 +45,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, Bundle bundle) {
-        bnT();
+        bnU();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AdWebViewActivityConfig(context, str, str2, z, z2, z3, bundle)));
@@ -102,7 +102,7 @@ public class a {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x00c4 -> B:33:0x001c). Please submit an issue!!! */
     public static void initCookie(Context context) {
         CookieManager cookieManager;
-        a.b AB = com.baidu.tbadk.core.a.a.bov().AB(TbadkCoreApplication.getCurrentBduss());
+        a.b AB = com.baidu.tbadk.core.a.a.bow().AB(TbadkCoreApplication.getCurrentBduss());
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
             cookieManager = CookieManager.getInstance();
@@ -146,7 +146,7 @@ public class a {
         }
     }
 
-    private static void bnT() {
+    private static void bnU() {
         new ai("open_webview", true).start();
     }
 }

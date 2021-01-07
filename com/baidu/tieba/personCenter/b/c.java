@@ -8,11 +8,11 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
     private BdTypeListView gAY;
-    private a mpc;
+    private a mpb;
 
     public c(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.gAY = bdTypeListView;
-        this.mpc = new a(bdTypeListView, tbPageContext, bdUniqueId);
+        this.mpb = new a(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
     public void setData(List<n> list) {
@@ -20,18 +20,18 @@ public class c {
     }
 
     public void notifyDataSetChanged() {
-        this.mpc.onChangeSkinType();
+        this.mpb.onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        this.mpc.onChangeSkinType();
-    }
-
-    public void dyg() {
-        this.mpc.dyg();
+        this.mpb.onChangeSkinType();
     }
 
     public void dyh() {
-        this.mpc.dyh();
+        this.mpb.dyh();
+    }
+
+    public void dyi() {
+        this.mpb.dyi();
     }
 }

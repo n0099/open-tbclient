@@ -24,7 +24,7 @@ public class SwanAppAdbDebugActivity extends Activity {
         if (!u.S(this)) {
             final Intent intent = getIntent();
             if (TextUtils.isEmpty(intent.getStringExtra("adb_debug_path"))) {
-                d.u(this, a.h.aiapps_adb_debug_lack_path).aLS();
+                d.u(this, a.h.aiapps_adb_debug_lack_path).aLT();
                 if (DEBUG) {
                     Log.d("SwanAppAdbDebugActivity", "ADB Debug lack of app path");
                 }
@@ -42,7 +42,7 @@ public class SwanAppAdbDebugActivity extends Activity {
                 public void onClick(DialogInterface dialogInterface, int i) {
                     SwanAppAdbDebugActivity.this.finish();
                 }
-            }).aLx();
+            }).aLy();
         }
     }
 }

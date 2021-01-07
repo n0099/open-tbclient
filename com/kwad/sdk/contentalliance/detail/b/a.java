@@ -79,7 +79,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.a {
     public com.kwad.sdk.contentalliance.detail.c c() {
         com.kwad.sdk.contentalliance.detail.c cVar = new com.kwad.sdk.contentalliance.detail.c();
         cVar.k = this;
-        cVar.f8701a = this.e;
+        cVar.f8702a = this.e;
         cVar.j = this.i;
         cVar.i = this.h;
         cVar.q = this.j;

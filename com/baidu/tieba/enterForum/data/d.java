@@ -63,7 +63,7 @@ public class d {
         }
     }
 
-    public g cxB() {
+    public g cxC() {
         return this.iGu;
     }
 
@@ -75,7 +75,7 @@ public class d {
         this.iGv = bmVar;
     }
 
-    public bm cxC() {
+    public bm cxD() {
         return this.iGv;
     }
 
@@ -83,7 +83,7 @@ public class d {
         this.iGw = forumCreateInfoData;
     }
 
-    public ForumCreateInfoData cxD() {
+    public ForumCreateInfoData cxE() {
         return this.iGw;
     }
 
@@ -91,7 +91,7 @@ public class d {
         this.iGx = privateForumPopInfoData;
     }
 
-    public PrivateForumPopInfoData cxE() {
+    public PrivateForumPopInfoData cxF() {
         return this.iGx;
     }
 
@@ -103,7 +103,7 @@ public class d {
         return this.isSucc;
     }
 
-    public boolean cxF() {
+    public boolean cxG() {
         return System.currentTimeMillis() / com.baidu.tbadk.data.e.NEARBY_GUIDE_TIME.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.e.NEARBY_GUIDE_TIME.longValue();
     }
 
@@ -127,7 +127,7 @@ public class d {
         this.iGz = aVar;
     }
 
-    public com.baidu.tieba.enterForum.a.a.a cxG() {
+    public com.baidu.tieba.enterForum.a.a.a cxH() {
         return this.iGz;
     }
 }

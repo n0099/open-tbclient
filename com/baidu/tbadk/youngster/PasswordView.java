@@ -100,13 +100,13 @@ public class PasswordView extends RelativeLayout {
         this.gdH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.youngster.PasswordView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PasswordView.this.bMt();
+                PasswordView.this.bMu();
             }
         });
-        bMx();
         bMy();
+        bMz();
+        bMx();
         bMw();
-        bMv();
         onChangeSkinType();
     }
 
@@ -118,34 +118,34 @@ public class PasswordView extends RelativeLayout {
         return sb.toString();
     }
 
-    public void bMs() {
+    public void bMt() {
         for (EditText editText : this.gdI) {
             editText.getText().clear();
         }
-        bMv();
         bMw();
+        bMx();
     }
 
     public void setOnPasswordInputComplete(a aVar) {
         this.gdK = aVar;
     }
 
-    public void bMt() {
+    public void bMu() {
         e.mB().removeCallbacks(this.gdM);
         e.mB().postDelayed(this.gdM, 300L);
     }
 
-    public void bMu() {
+    public void bMv() {
         l.hideSoftKeyPad(getContext(), this.gdy);
     }
 
-    private void bMv() {
+    private void bMw() {
         c(this.gdy);
         this.gdy.requestFocus();
         this.gdC = this.gdy;
     }
 
-    private void bMw() {
+    private void bMx() {
         for (ImageView imageView : this.gdJ) {
             imageView.setVisibility(8);
         }
@@ -172,7 +172,7 @@ public class PasswordView extends RelativeLayout {
         return gradientDrawable;
     }
 
-    private void bMx() {
+    private void bMy() {
         int size = this.gdI.size();
         int i = 0;
         while (true) {
@@ -188,7 +188,7 @@ public class PasswordView extends RelativeLayout {
         }
     }
 
-    private void bMy() {
+    private void bMz() {
         for (int size = this.gdI.size() - 1; size > 0; size--) {
             b(this.gdI.get(size), this.gdI.get(size - 1), this.gdJ.get(size));
         }
@@ -285,7 +285,7 @@ public class PasswordView extends RelativeLayout {
         }
     }
 
-    private void bMz() {
+    private void bMA() {
         for (EditText editText : this.gdI) {
             for (TextWatcher textWatcher : this.gdL.get(editText)) {
                 editText.removeTextChangedListener(textWatcher);
@@ -298,7 +298,7 @@ public class PasswordView extends RelativeLayout {
         super.onDetachedFromWindow();
         e.mB().removeCallbacks(this.gdM);
         e.mB().removeCallbacks(this.gdN);
-        bMz();
+        bMA();
     }
 
     public void onChangeSkinType() {

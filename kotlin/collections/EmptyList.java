@@ -81,7 +81,7 @@ public final class EmptyList implements Serializable, List, RandomAccess {
 
     @Override // java.util.List, java.util.Collection
     public Object[] toArray() {
-        return kotlin.jvm.internal.n.q(this);
+        return kotlin.jvm.internal.n.r(this);
     }
 
     @Override // java.util.List, java.util.Collection
@@ -173,12 +173,12 @@ public final class EmptyList implements Serializable, List, RandomAccess {
 
     @Override // java.util.List, java.util.Collection, java.lang.Iterable
     public Iterator iterator() {
-        return v.qlN;
+        return v.qnv;
     }
 
     @Override // java.util.List
     public ListIterator listIterator() {
-        return v.qlN;
+        return v.qnv;
     }
 
     @Override // java.util.List
@@ -186,7 +186,7 @@ public final class EmptyList implements Serializable, List, RandomAccess {
         if (i != 0) {
             throw new IndexOutOfBoundsException("Index: " + i);
         }
-        return v.qlN;
+        return v.qnv;
     }
 
     @Override // java.util.List

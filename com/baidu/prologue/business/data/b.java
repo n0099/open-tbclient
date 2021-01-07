@@ -8,7 +8,7 @@ import com.baidu.prologue.service.network.i;
 import com.tencent.connect.common.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     private final e ctw;
 
@@ -16,17 +16,17 @@ public class b {
         this.ctw = eVar;
     }
 
-    public void agJ() {
-        agK();
+    public void agK() {
         agL();
+        agM();
     }
 
     public void a(@NonNull Als.Area area, String str) {
         b(area, str);
-        agM();
+        agN();
     }
 
-    public void agK() {
+    public void agL() {
         Als.a aVar = new Als.a(Als.Type.SHOW);
         aVar.a(Als.Page.NA_SPLASH);
         aVar.ki(this.ctw.ext);
@@ -49,7 +49,7 @@ public class b {
         aVar.a(Als.Page.NA_SPLASH);
         aVar.ki(this.ctw.ext);
         aVar.kk(String.valueOf(j));
-        if (com.baidu.prologue.a.b.a.ctd.get().agq()) {
+        if (com.baidu.prologue.a.b.a.ctd.get().agr()) {
             aVar.kj("1");
         } else {
             aVar.kj("0");
@@ -68,7 +68,7 @@ public class b {
         Als.a(aVar);
     }
 
-    public void agL() {
+    public void agM() {
         String[] strArr;
         for (String str : this.ctw.ctL) {
             if (!TextUtils.isEmpty(str)) {
@@ -83,7 +83,7 @@ public class b {
         }
     }
 
-    public void agM() {
+    public void agN() {
         String[] strArr;
         for (String str : this.ctw.ctM) {
             if (!TextUtils.isEmpty(str)) {
@@ -98,7 +98,7 @@ public class b {
         }
     }
 
-    public static void agN() {
+    public static void agO() {
         String string = k.getString("empty_ext_info", "");
         if (!TextUtils.isEmpty(string)) {
             Als.a aVar = new Als.a(Als.Type.SHOW);

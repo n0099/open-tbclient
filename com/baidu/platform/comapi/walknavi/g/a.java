@@ -37,7 +37,7 @@ import com.baidu.platform.comapi.wnplatform.i.e;
 import com.baidu.platform.comapi.wnplatform.p.g;
 import com.baidu.tieba.R;
 import java.math.BigDecimal;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a extends com.baidu.platform.comapi.wnplatform.o.a {
     private static int I = 0;
     private double A;
@@ -70,10 +70,10 @@ public class a extends com.baidu.platform.comapi.wnplatform.o.a {
     private boolean v = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f4496a = null;
+    public Bitmap f4497a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f4497b = null;
+    public Bitmap f4498b = null;
     public Bitmap c = null;
     private com.baidu.platform.comapi.walknavi.g.a.a B = null;
     private Bitmap C = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.p.a.a.b(), 2130837564);
@@ -92,7 +92,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.o.a {
     private final Runnable U = new n(this);
     private com.baidu.platform.comapi.wnplatform.walkmap.c V = new o(this);
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(int i);
 
@@ -222,13 +222,13 @@ public class a extends com.baidu.platform.comapi.wnplatform.o.a {
 
     private int B() {
         int b2 = (int) (com.baidu.platform.comapi.wnplatform.p.h.b(this.g) / 2.9d);
-        int a2 = com.baidu.platform.comapi.wnplatform.p.h.a(this.g, com.baidu.platform.comapi.wnplatform.p.h.f4692a);
+        int a2 = com.baidu.platform.comapi.wnplatform.p.h.a(this.g, com.baidu.platform.comapi.wnplatform.p.h.f4693a);
         return b2 > a2 ? a2 : b2;
     }
 
     private int C() {
         int b2 = (int) (com.baidu.platform.comapi.wnplatform.p.h.b(this.g) / 2.7d);
-        int a2 = com.baidu.platform.comapi.wnplatform.p.h.a(this.g, com.baidu.platform.comapi.wnplatform.p.h.f4693b);
+        int a2 = com.baidu.platform.comapi.wnplatform.p.h.a(this.g, com.baidu.platform.comapi.wnplatform.p.h.f4694b);
         if (b2 <= a2) {
             a2 = b2;
         }
@@ -269,13 +269,13 @@ public class a extends com.baidu.platform.comapi.wnplatform.o.a {
     }
 
     private void E() {
-        if (this.f4496a != null && !this.f4496a.isRecycled()) {
-            this.f4496a.recycle();
-            this.f4496a = null;
+        if (this.f4497a != null && !this.f4497a.isRecycled()) {
+            this.f4497a.recycle();
+            this.f4497a = null;
         }
-        if (this.f4497b != null && !this.f4497b.isRecycled()) {
-            this.f4497b.recycle();
-            this.f4497b = null;
+        if (this.f4498b != null && !this.f4498b.isRecycled()) {
+            this.f4498b.recycle();
+            this.f4498b = null;
         }
         if (this.c != null && !this.c.isRecycled()) {
             this.c.recycle();
@@ -373,8 +373,8 @@ public class a extends com.baidu.platform.comapi.wnplatform.o.a {
         }
         DisplayMetrics displayMetrics = new DisplayMetrics();
         this.g.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        com.baidu.platform.comapi.walknavi.segmentbrowse.c.f4586a = displayMetrics.widthPixels;
-        com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", "screen width" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.f4586a);
+        com.baidu.platform.comapi.walknavi.segmentbrowse.c.f4587a = displayMetrics.widthPixels;
+        com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", "screen width" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.f4587a);
         c cVar = new c(this);
         if (this.i != null && cVar != null) {
             this.i.a(cVar);
@@ -460,7 +460,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.o.a {
                 return;
             }
             com.baidu.platform.comapi.walknavi.widget.a b3 = new com.baidu.platform.comapi.walknavi.widget.a(this.g).a(true).b(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.g, R.drawable.res_0x7f080004_avd_show_password__1));
-            if (com.baidu.platform.comapi.walknavi.g.b.b.f4503a == 2) {
+            if (com.baidu.platform.comapi.walknavi.g.b.b.f4504a == 2) {
                 b2 = com.baidu.platform.comapi.wnplatform.p.a.a.b(this.g, R.drawable.res_0x7f080003_avd_show_password__0);
             } else {
                 b2 = com.baidu.platform.comapi.wnplatform.p.a.a.b(this.g, i);
@@ -644,7 +644,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.o.a {
                 com.baidu.platform.comapi.wnplatform.p.e.a(string, string2, false);
             }
             int i = bundle.getInt("simpleUpdateType");
-            if (i != e.a.f4641a && i != e.a.d && bundle.containsKey("enGuideType")) {
+            if (i != e.a.f4642a && i != e.a.d && bundle.containsKey("enGuideType")) {
                 int i2 = bundle.getInt("enGuideType");
                 int c = com.baidu.platform.comapi.walknavi.g.b.c.c(com.baidu.platform.comapi.wnplatform.i.c.a(RouteGuideKind.values()[i2]));
                 if (i2 != 0) {
@@ -917,32 +917,32 @@ public class a extends com.baidu.platform.comapi.wnplatform.o.a {
     }
 
     /* renamed from: com.baidu.platform.comapi.walknavi.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class CountDownTimerC0299a extends CountDownTimer {
 
         /* renamed from: a  reason: collision with root package name */
-        Activity f4500a;
+        Activity f4501a;
 
         /* renamed from: b  reason: collision with root package name */
-        com.baidu.platform.comapi.walknavi.widget.a f4501b;
+        com.baidu.platform.comapi.walknavi.widget.a f4502b;
 
         public CountDownTimerC0299a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
             super(j, j2);
-            this.f4500a = activity;
-            this.f4501b = aVar;
+            this.f4501a = activity;
+            this.f4502b = aVar;
         }
 
         @Override // android.os.CountDownTimer
         public void onTick(long j) {
-            if (this.f4501b != null) {
-                ((Button) this.f4501b.c()).setText("确定(" + (j / 1000) + ")");
+            if (this.f4502b != null) {
+                ((Button) this.f4502b.c()).setText("确定(" + (j / 1000) + ")");
             }
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
-            if (this.f4500a != null && !this.f4500a.isFinishing()) {
-                this.f4501b.dismiss();
+            if (this.f4501a != null && !this.f4501a.isFinishing()) {
+                this.f4502b.dismiss();
             }
             a.this.q();
         }

@@ -3,11 +3,11 @@ package com.alibaba.fastjson.asm;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class ClassReader {
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f1128b;
+    public final byte[] f1129b;
     public final int header;
     private final int[] items;
     private final int maxStringLength;
@@ -27,7 +27,7 @@ public class ClassReader {
             }
         }
         inputStream.close();
-        this.f1128b = byteArrayOutputStream.toByteArray();
+        this.f1129b = byteArrayOutputStream.toByteArray();
         this.items = new int[readUnsignedShort(8)];
         int length = this.items.length;
         this.strings = new String[length];
@@ -35,7 +35,7 @@ public class ClassReader {
         int i4 = 10;
         while (i3 < length) {
             this.items[i3] = i4 + 1;
-            switch (this.f1128b[i4]) {
+            switch (this.f1129b[i4]) {
                 case 1:
                     int readUnsignedShort = readUnsignedShort(i4 + 1) + 3;
                     if (readUnsignedShort <= i2) {
@@ -186,12 +186,12 @@ public class ClassReader {
     }
 
     private int readUnsignedShort(int i) {
-        byte[] bArr = this.f1128b;
+        byte[] bArr = this.f1129b;
         return (bArr[i + 1] & 255) | ((bArr[i] & 255) << 8);
     }
 
     private int readInt(int i) {
-        byte[] bArr = this.f1128b;
+        byte[] bArr = this.f1129b;
         return (bArr[i + 3] & 255) | ((bArr[i] & 255) << 24) | ((bArr[i + 1] & 255) << 16) | ((bArr[i + 2] & 255) << 8);
     }
 
@@ -211,7 +211,7 @@ public class ClassReader {
     private String readUTF(int i, int i2, char[] cArr) {
         int i3;
         int i4 = i + i2;
-        byte[] bArr = this.f1128b;
+        byte[] bArr = this.f1129b;
         char c = 0;
         char c2 = 0;
         int i5 = 0;

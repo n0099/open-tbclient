@@ -25,9 +25,9 @@ public class a extends com.baidu.swan.apps.api.a.d {
             public com.baidu.swan.apps.api.c.b a(com.baidu.swan.apps.runtime.e eVar, JSONObject jSONObject, @Nullable final String str2) {
                 com.baidu.swan.apps.console.c.i("Api-Accelerometer", " init ");
                 final k kVar = new k("accelerometerChange", jSONObject, str2);
-                com.baidu.swan.apps.ak.a.a aPY = com.baidu.swan.apps.ak.a.a.aPY();
-                aPY.w(a.this.getContext(), C0403a.mb(jSONObject.optString("interval")));
-                aPY.a(new a.InterfaceC0377a() { // from class: com.baidu.swan.apps.api.module.k.a.1.1
+                com.baidu.swan.apps.ak.a.a aPZ = com.baidu.swan.apps.ak.a.a.aPZ();
+                aPZ.w(a.this.getContext(), C0403a.mb(jSONObject.optString("interval")));
+                aPZ.a(new a.InterfaceC0377a() { // from class: com.baidu.swan.apps.api.module.k.a.1.1
                     @Override // com.baidu.swan.apps.ak.a.a.InterfaceC0377a
                     public void b(double[] dArr) {
                         if (dArr == null || dArr.length != 3) {
@@ -47,19 +47,19 @@ public class a extends com.baidu.swan.apps.api.a.d {
                         }
                     }
                 });
-                aPY.aPZ();
+                aPZ.aQa();
                 kVar.a(a.this);
                 return new com.baidu.swan.apps.api.c.b(0);
             }
         });
     }
 
-    public com.baidu.swan.apps.api.c.b anG() {
+    public com.baidu.swan.apps.api.c.b anH() {
         if (DEBUG) {
             Log.d("Api-Accelerometer", "stop accelerometer");
         }
         com.baidu.swan.apps.console.c.i("Api-Accelerometer", "stop listen accelerometer");
-        com.baidu.swan.apps.ak.a.a.aPY().aQa();
+        com.baidu.swan.apps.ak.a.a.aPZ().aQb();
         return new com.baidu.swan.apps.api.c.b(0);
     }
 

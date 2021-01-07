@@ -29,33 +29,33 @@ public class g {
         if (jSONObject != null) {
             isInit = true;
             fwC = jSONObject.optInt("switch", 1) != 0;
-            com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(SharedPrefConfig.KEY_REPORT_PLAY_SWITCH, fwC);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(SharedPrefConfig.KEY_REPORT_PLAY_SWITCH, fwC);
             fwD = jSONObject.optInt("upload_type", 0);
-            com.baidu.tbadk.core.sharedPref.b.bvq().putInt(SharedPrefConfig.KEY_REPORT_PLAY_UPLOAD_TYPE, fwD);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putInt(SharedPrefConfig.KEY_REPORT_PLAY_UPLOAD_TYPE, fwD);
             fwE = jSONObject.optInt("upload_number", 5);
-            com.baidu.tbadk.core.sharedPref.b.bvq().putInt(SharedPrefConfig.KEY_REPORT_PLAY_UPLOAD_NUMBER, fwE);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putInt(SharedPrefConfig.KEY_REPORT_PLAY_UPLOAD_NUMBER, fwE);
             fwI = jSONObject.optInt("prepare_max_wait_time", 10000);
-            com.baidu.tbadk.core.sharedPref.b.bvq().putInt(SharedPrefConfig.KEY_REPORT_PREPARE_MAX_WAIT_TIME, fwI);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putInt(SharedPrefConfig.KEY_REPORT_PREPARE_MAX_WAIT_TIME, fwI);
             fwJ = jSONObject.optInt("prepare_max_loading_time", 3000);
-            com.baidu.tbadk.core.sharedPref.b.bvq().putInt(SharedPrefConfig.KEY_REPORT_PREPARE_MAX_LOADING_TIME, fwJ);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putInt(SharedPrefConfig.KEY_REPORT_PREPARE_MAX_LOADING_TIME, fwJ);
             fwK = jSONObject.optInt("is_open_prepare_time", 0) == 1;
-            com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(SharedPrefConfig.KEY_REPORT_IS_OPEN_PREPARE_TIME, fwK);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(SharedPrefConfig.KEY_REPORT_IS_OPEN_PREPARE_TIME, fwK);
             fwF = jSONObject.optInt("moov_check", 0) != 0;
-            com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(SharedPrefConfig.KEY_REPORT_PLAY_MOOV_CHECK, fwF);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(SharedPrefConfig.KEY_REPORT_PLAY_MOOV_CHECK, fwF);
             fwG = jSONObject.optString("android_debug_type");
             if (!StringUtils.isNull(fwG)) {
-                com.baidu.tbadk.core.sharedPref.b.bvq().putString(SharedPrefConfig.KEY_REPORT_PLAY_DEBUG_TYPE, fwG);
-                Db(fwG);
+                com.baidu.tbadk.core.sharedPref.b.bvr().putString(SharedPrefConfig.KEY_REPORT_PLAY_DEBUG_TYPE, fwG);
+                Da(fwG);
             }
             fwA = jSONObject.optString("step_cache_strategy");
             if (!StringUtils.isNull(fwA)) {
-                com.baidu.tbadk.core.sharedPref.b.bvq().putString(SharedPrefConfig.KEY_STEP_CHACHE_STRATEGY, fwA);
-                Dc(fwA);
+                com.baidu.tbadk.core.sharedPref.b.bvr().putString(SharedPrefConfig.KEY_STEP_CHACHE_STRATEGY, fwA);
+                Db(fwA);
             }
         }
     }
 
-    private static void Db(String str) {
+    private static void Da(String str) {
         if (!StringUtils.isNull(str)) {
             if (fwH == null) {
                 fwH = new HashMap();
@@ -71,7 +71,7 @@ public class g {
         }
     }
 
-    private static void Dc(String str) {
+    private static void Db(String str) {
         if (!StringUtils.isNull(str)) {
             if (fwB == null) {
                 fwB = new HashMap();
@@ -89,15 +89,15 @@ public class g {
         }
     }
 
-    public static boolean bCw() {
-        return !isInit ? com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean(SharedPrefConfig.KEY_REPORT_PLAY_SWITCH, true) : fwC;
-    }
-
-    public static int bCx() {
-        return !isInit ? com.baidu.tbadk.core.sharedPref.b.bvq().getInt(SharedPrefConfig.KEY_REPORT_PLAY_UPLOAD_TYPE, 0) : fwD;
+    public static boolean bCx() {
+        return !isInit ? com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean(SharedPrefConfig.KEY_REPORT_PLAY_SWITCH, true) : fwC;
     }
 
     public static int bCy() {
-        return !isInit ? com.baidu.tbadk.core.sharedPref.b.bvq().getInt(SharedPrefConfig.KEY_REPORT_PLAY_UPLOAD_NUMBER, 5) : fwE;
+        return !isInit ? com.baidu.tbadk.core.sharedPref.b.bvr().getInt(SharedPrefConfig.KEY_REPORT_PLAY_UPLOAD_TYPE, 0) : fwD;
+    }
+
+    public static int bCz() {
+        return !isInit ? com.baidu.tbadk.core.sharedPref.b.bvr().getInt(SharedPrefConfig.KEY_REPORT_PLAY_UPLOAD_NUMBER, 5) : fwE;
     }
 }

@@ -16,10 +16,10 @@ public interface c extends IInterface {
         private static class C0106a implements c {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f1848a;
+            private IBinder f1849a;
 
             C0106a(IBinder iBinder) {
-                this.f1848a = iBinder;
+                this.f1849a = iBinder;
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.c
@@ -28,7 +28,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
-                    this.f1848a.transact(2, obtain, obtain2, 0);
+                    this.f1849a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readStrongBinder();
                 } finally {
@@ -44,7 +44,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
                     obtain.writeInt(i);
-                    this.f1848a.transact(1, obtain, obtain2, 0);
+                    this.f1849a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readStrongBinder();
                 } finally {
@@ -65,7 +65,7 @@ public interface c extends IInterface {
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
                     obtain.writeInt(i3);
-                    this.f1848a.transact(3, obtain, obtain2, 0);
+                    this.f1849a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -80,7 +80,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
                     obtain.writeString(str);
-                    this.f1848a.transact(4, obtain, obtain2, 0);
+                    this.f1849a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -91,7 +91,7 @@ public interface c extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f1848a;
+                return this.f1849a;
             }
         }
 

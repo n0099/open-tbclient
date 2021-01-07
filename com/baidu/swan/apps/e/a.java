@@ -17,15 +17,15 @@ public class a {
     private List<AnimatorSet> cGR = new CopyOnWriteArrayList();
 
     private ObjectAnimator a(SwanAppActivity swanAppActivity, long j) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.ajo().dUk, "alpha", 1.0f, 0.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.ajp().dUk, "alpha", 1.0f, 0.0f);
         ofFloat.setDuration(j);
         return ofFloat;
     }
 
     private AnimatorSet e(SwanAppActivity swanAppActivity) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.ajo().dUm, "translationX", 0.0f, -ah.dip2px(AppRuntime.getAppContext(), 9.5f));
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.ajp().dUm, "translationX", 0.0f, -ah.dip2px(AppRuntime.getAppContext(), 9.5f));
         ofFloat.setDuration(240L);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.ajo().dUn, "alpha", 0.0f, 1.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.ajp().dUn, "alpha", 0.0f, 1.0f);
         ofFloat2.setDuration(240L);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(ofFloat).with(ofFloat2);
@@ -33,11 +33,11 @@ public class a {
     }
 
     private AnimatorSet f(SwanAppActivity swanAppActivity) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.ajo().dUm, "translationX", -ah.dip2px(AppRuntime.getAppContext(), 9.5f), ah.dip2px(AppRuntime.getAppContext(), 9.5f));
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.ajp().dUm, "translationX", -ah.dip2px(AppRuntime.getAppContext(), 9.5f), ah.dip2px(AppRuntime.getAppContext(), 9.5f));
         ofFloat.setDuration(380L);
         ofFloat.setRepeatMode(2);
         ofFloat.setRepeatCount(-1);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.ajo().dUn, "translationX", 0.0f, -ah.dip2px(AppRuntime.getAppContext(), 19.0f));
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.ajp().dUn, "translationX", 0.0f, -ah.dip2px(AppRuntime.getAppContext(), 19.0f));
         ofFloat2.setDuration(380L);
         ofFloat2.setRepeatMode(2);
         ofFloat2.setRepeatCount(-1);
@@ -50,8 +50,8 @@ public class a {
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(e(swanAppActivity)).before(f(swanAppActivity));
         animatorSet.start();
-        i.aHz().f(new UbcFlowEvent("first_anim_start"));
-        com.baidu.swan.apps.aj.a.aOI().tr("first_anim_start");
+        i.aHA().f(new UbcFlowEvent("first_anim_start"));
+        com.baidu.swan.apps.aj.a.aOJ().tr("first_anim_start");
         this.cGR.add(animatorSet);
     }
 
@@ -73,16 +73,16 @@ public class a {
     }
 
     private void h(final SwanAppActivity swanAppActivity) {
-        c ajo;
-        if (!swanAppActivity.isFinishing() && (ajo = swanAppActivity.ajo()) != null) {
-            ajo.dUk.setVisibility(8);
-            if (!com.baidu.swan.apps.t.a.aAu().ako()) {
+        c ajp;
+        if (!swanAppActivity.isFinishing() && (ajp = swanAppActivity.ajp()) != null) {
+            ajp.dUk.setVisibility(8);
+            if (!com.baidu.swan.apps.t.a.aAv().akp()) {
                 if (this.cGR != null) {
                     for (AnimatorSet animatorSet : this.cGR) {
                         animatorSet.cancel();
                     }
                 }
-                swanAppActivity.ajn().reset();
+                swanAppActivity.ajo().reset();
                 return;
             }
             ak.l(new Runnable() { // from class: com.baidu.swan.apps.e.a.1
@@ -94,7 +94,7 @@ public class a {
                                 animatorSet2.cancel();
                             }
                         }
-                        swanAppActivity.ajn().reset();
+                        swanAppActivity.ajo().reset();
                     }
                 }
             });
@@ -112,16 +112,16 @@ public class a {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 if (!swanAppActivity.isFinishing()) {
-                    swanAppActivity.ajo().aSE();
+                    swanAppActivity.ajp().aSF();
                 }
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (!swanAppActivity.isFinishing()) {
-                    swanAppActivity.ajo().dUk.setVisibility(8);
-                    swanAppActivity.ajo().anf();
-                    swanAppActivity.ajn().reset();
+                    swanAppActivity.ajp().dUk.setVisibility(8);
+                    swanAppActivity.ajp().ang();
+                    swanAppActivity.ajo().reset();
                 }
             }
 
@@ -138,7 +138,7 @@ public class a {
         this.cGR.add(animatorSet);
     }
 
-    public void anf() {
+    public void ang() {
         for (AnimatorSet animatorSet : this.cGR) {
             animatorSet.removeAllListeners();
             animatorSet.cancel();

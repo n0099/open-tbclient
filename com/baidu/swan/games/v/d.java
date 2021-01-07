@@ -17,45 +17,45 @@ import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class d {
     public static void e(b.a aVar) {
-        Bundle aCA;
-        if (aVar != null && bbU() && (aCA = aVar.aCA()) != null && aCA.getLong("page_display_flag_for_statistic") > 0) {
+        Bundle aCB;
+        if (aVar != null && bbV() && (aCB = aVar.aCB()) != null && aCB.getLong("page_display_flag_for_statistic") > 0) {
             long j = aVar.getLong("launch_time", 0L);
             long currentTimeMillis = System.currentTimeMillis();
             f fVar = new f();
             fVar.mFrom = h.kX(aVar.getAppFrameType());
             fVar.mAppId = aVar.getAppId();
-            fVar.mSource = aVar.aCv();
+            fVar.mSource = aVar.aCw();
             fVar.mType = Config.LAUNCH;
             fVar.mValue = "realsuccess";
             fVar.dOm = String.valueOf(currentTimeMillis - j);
-            fVar.tL(aCA.getString("ubc"));
+            fVar.tL(aCB.getString("ubc"));
             h.onEvent(fVar);
-            aCA.remove("page_display_flag_for_statistic");
+            aCB.remove("page_display_flag_for_statistic");
         }
     }
 
     public static void b(String str, b.a aVar) {
-        Bundle aCA;
-        if (aVar != null && !bbU() && (aCA = aVar.aCA()) != null && aCA.getLong("page_display_flag_for_statistic") > 0) {
+        Bundle aCB;
+        if (aVar != null && !bbV() && (aCB = aVar.aCB()) != null && aCB.getLong("page_display_flag_for_statistic") > 0) {
             long j = aVar.getLong("launch_time", 0L);
             long currentTimeMillis = System.currentTimeMillis();
             f fVar = new f();
             fVar.mFrom = h.kX(aVar.getAppFrameType());
             fVar.mAppId = aVar.getAppId();
-            fVar.mSource = aVar.aCv();
+            fVar.mSource = aVar.aCw();
             fVar.mType = Config.LAUNCH;
             fVar.mValue = "realcancel";
             fVar.dOl = String.valueOf(currentTimeMillis - j);
             fVar.t(TiebaInitialize.LogFields.REASON, str);
-            fVar.t("errorList", b.bbS().bbT());
-            fVar.tL(aCA.getString("ubc"));
+            fVar.t("errorList", b.bbT().bbU());
+            fVar.tL(aCB.getString("ubc"));
             h.onEvent(fVar);
-            aCA.remove("page_display_flag_for_statistic");
+            aCB.remove("page_display_flag_for_statistic");
         }
     }
 
     public static void yd(String str) {
-        if (com.baidu.swan.apps.runtime.d.aMg().ajk() == 1 && !bbU()) {
+        if (com.baidu.swan.apps.runtime.d.aMh().ajl() == 1 && !bbV()) {
             i.rd("startup").f(new UbcFlowEvent(str));
         }
     }
@@ -76,26 +76,26 @@ public class d {
         }
     }
 
-    public static boolean bbU() {
-        SwanAppActivity aMe;
-        e aMk = e.aMk();
-        if (aMk != null && (aMe = aMk.aMe()) != null) {
-            com.baidu.swan.apps.framework.c ajl = aMe.ajl();
-            if (ajl instanceof com.baidu.swan.games.j.b) {
-                return ((com.baidu.swan.games.j.b) ajl).bav();
+    public static boolean bbV() {
+        SwanAppActivity aMf;
+        e aMl = e.aMl();
+        if (aMl != null && (aMf = aMl.aMf()) != null) {
+            com.baidu.swan.apps.framework.c ajm = aMf.ajm();
+            if (ajm instanceof com.baidu.swan.games.j.b) {
+                return ((com.baidu.swan.games.j.b) ajm).baw();
             }
             return false;
         }
         return false;
     }
 
-    public static long bbV() {
-        SwanAppActivity aMe;
-        e aMk = e.aMk();
-        if (aMk != null && (aMe = aMk.aMe()) != null) {
-            com.baidu.swan.apps.framework.c ajl = aMe.ajl();
-            if (ajl instanceof com.baidu.swan.games.j.b) {
-                return ((com.baidu.swan.games.j.b) ajl).baw();
+    public static long bbW() {
+        SwanAppActivity aMf;
+        e aMl = e.aMl();
+        if (aMl != null && (aMf = aMl.aMf()) != null) {
+            com.baidu.swan.apps.framework.c ajm = aMf.ajm();
+            if (ajm instanceof com.baidu.swan.games.j.b) {
+                return ((com.baidu.swan.games.j.b) ajm).bax();
             }
             return 0L;
         }

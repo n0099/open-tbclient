@@ -58,23 +58,23 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
             this.mLiveId = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID);
             this.ldX = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_EXT_INFO);
         }
-        this.mShareItem = dfo();
+        this.mShareItem = dfp();
         if (this.mAction == 1) {
-            dfn();
+            dfo();
         } else if (this.mAction == 2) {
-            dfm();
+            dfn();
         } else {
             finish();
         }
     }
 
-    private void dfm() {
+    private void dfn() {
         if (this.mShareItem != null) {
             MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this, this.mChannel, this.mShareItem, true));
         }
     }
 
-    private void dfn() {
+    private void dfo() {
         if (this.mShareItem != null) {
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this, this.mShareItem, true);
             shareDialogConfig.setAlaLiveRoomShare(true);
@@ -89,17 +89,17 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
             shareDialogConfig.addOutsideTextView(c.b.ala_share_to_tieba_frs_title, c.a.icon_pure_ala_share_morebar40_svg, new View.OnClickListener() { // from class: com.baidu.tieba.livesdk.share.AlaSDKShareEmptyActivity.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    AlaSDKShareEmptyActivity.this.dfp();
+                    AlaSDKShareEmptyActivity.this.dfq();
                 }
             });
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
             if (this.ldY != null) {
-                this.ldY.dfs();
+                this.ldY.dft();
             }
         }
     }
 
-    private ShareItem dfo() {
+    private ShareItem dfp() {
         ShareItem shareItem = new ShareItem();
         shareItem.title = this.mTitle;
         shareItem.content = this.mContent;
@@ -117,10 +117,10 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dfp() {
+    public void dfq() {
         if (bg.checkUpIsLogin(getPageContext().getPageActivity()) && this.ldY != null) {
-            if (x.isEmpty(this.ldY.dft())) {
-                this.ldY.dfs();
+            if (x.isEmpty(this.ldY.dfu())) {
+                this.ldY.dft();
             }
             this.ldY.hd(com.baidu.adp.lib.f.b.toLong(this.mLiveId, 0L));
         }

@@ -11,6 +11,6 @@ public class LokiOverlayRuntime {
     };
 
     public static ILokiOverlayContext getLokiOverlayContext() {
-        return n.dLM();
+        return n.dLN();
     }
 }

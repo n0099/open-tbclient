@@ -17,7 +17,7 @@ public class ad {
             if (privacyPolicyEvent != null) {
                 boolean z = privacyPolicyEvent.isAgreePrivacyPolicy;
                 boolean unused = ad.isAgreePrivacyPolicy = z;
-                com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("key_secret_is_show", z);
+                com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean("key_secret_is_show", z);
                 TbadkCoreApplication.getInst().registerPhoneListener();
                 TbadkCoreApplication.getInst().initCyberPlayer();
                 TbadkCoreApplication.getInst().initSapiTask();
@@ -27,28 +27,28 @@ public class ad {
     };
     private static boolean isAgreePrivacyPolicy;
 
-    public static void bvW() {
-        com.baidu.tbadk.mutiprocess.g.bGF().a(PrivacyPolicyEvent.class, fcI);
+    public static void bvX() {
+        com.baidu.tbadk.mutiprocess.g.bGG().a(PrivacyPolicyEvent.class, fcI);
     }
 
-    public static void bvX() {
-        com.baidu.tbadk.mutiprocess.g.publishEvent(new PrivacyPolicyEvent(Boolean.valueOf(com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("key_secret_is_show", false))));
+    public static void bvY() {
+        com.baidu.tbadk.mutiprocess.g.publishEvent(new PrivacyPolicyEvent(Boolean.valueOf(com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("key_secret_is_show", false))));
     }
 
     public static void jN(boolean z) {
         isAgreePrivacyPolicy = z;
-        com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("key_secret_is_show", z);
+        com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean("key_secret_is_show", z);
         com.baidu.tbadk.mutiprocess.g.publishEvent(new PrivacyPolicyEvent(Boolean.valueOf(z)));
     }
 
-    public static boolean bvY() {
-        return isAgreePrivacyPolicy || com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("key_secret_is_show", false);
+    public static boolean bvZ() {
+        return isAgreePrivacyPolicy || com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("key_secret_is_show", false);
     }
 
     public static boolean checkLocationForBaiduLocation(Context context) {
         boolean z;
         boolean z2;
-        if (com.baidu.n.a.afl()) {
+        if (com.baidu.n.a.afm()) {
             if (context == null) {
                 return false;
             }
@@ -73,7 +73,7 @@ public class ad {
     }
 
     public static boolean checkLocationForGoogle(Context context) {
-        if (com.baidu.n.a.afl()) {
+        if (com.baidu.n.a.afm()) {
             if (context != null) {
                 try {
                     if (!com.baidu.n.a.a.checkPermissionGranted(context, "android.permission.ACCESS_FINE_LOCATION")) {
@@ -93,7 +93,7 @@ public class ad {
     }
 
     public static boolean checkCamera(Context context) {
-        if (!com.baidu.n.a.afl()) {
+        if (!com.baidu.n.a.afm()) {
             return true;
         }
         if (context != null) {
@@ -108,7 +108,7 @@ public class ad {
     }
 
     public static boolean checkRecodeAudio(Context context) {
-        if (!com.baidu.n.a.afl()) {
+        if (!com.baidu.n.a.afm()) {
             return true;
         }
         if (context != null) {
@@ -123,7 +123,7 @@ public class ad {
     }
 
     public static boolean fb(Context context) {
-        if (!com.baidu.n.a.afl()) {
+        if (!com.baidu.n.a.afm()) {
             return true;
         }
         if (context != null) {
@@ -138,7 +138,7 @@ public class ad {
     }
 
     public static boolean checkReadPhoneState(Context context) {
-        if (!com.baidu.n.a.afl()) {
+        if (!com.baidu.n.a.afm()) {
             return true;
         }
         if (context != null) {
@@ -153,7 +153,7 @@ public class ad {
     }
 
     public static boolean checkWriteExternalStorage(Context context) {
-        if (!com.baidu.n.a.afl()) {
+        if (!com.baidu.n.a.afm()) {
             return true;
         }
         if (context != null) {
@@ -220,7 +220,7 @@ public class ad {
     }
 
     public static boolean aB(Context context, String str) {
-        if (!com.baidu.n.a.afl()) {
+        if (!com.baidu.n.a.afm()) {
             return true;
         }
         if (context != null) {

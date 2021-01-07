@@ -29,7 +29,7 @@ public class b {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!at.isEmpty(b.this.giS)) {
-                be.bwu().a(b.this.eXu, new String[]{b.this.giS}, true);
+                be.bwv().a(b.this.eXu, new String[]{b.this.giS}, true);
                 TiebaStatic.log(new aq("c13418").dX("fid", b.this.mForumId));
             }
         }

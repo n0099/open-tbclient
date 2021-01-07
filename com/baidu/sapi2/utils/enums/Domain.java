@@ -4,23 +4,23 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.f;
 /* loaded from: classes3.dex */
 public enum Domain {
-    DOMAIN_ONLINE("aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==", f.f5413b, f.c, f.d, f.e),
+    DOMAIN_ONLINE("aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==", f.f5414b, f.c, f.d, f.e),
     DOMAIN_QA(f.f, f.g, f.h, f.i, "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==");
     
 
     /* renamed from: a  reason: collision with root package name */
-    private String f5397a;
+    private String f5398a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f5398b;
+    private String f5399b;
     private String c;
     private String d;
     private String e;
     private boolean f;
 
     Domain(String str, String str2, String str3, String str4, String str5) {
-        this.f5397a = f.a(str);
-        this.f5398b = f.a(str2);
+        this.f5398a = f.a(str);
+        this.f5399b = f.a(str2);
         this.c = f.a(str3);
         this.d = f.a(str4);
         this.e = f.a(str5);
@@ -52,7 +52,7 @@ public enum Domain {
     }
 
     public String getWap() {
-        return (!(equals(DOMAIN_ONLINE) && SapiUtils.getDefaultHttpsEnabled()) && (equals(DOMAIN_ONLINE) || !this.f)) ? this.f5398b : this.f5398b.replace("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        return (!(equals(DOMAIN_ONLINE) && SapiUtils.getDefaultHttpsEnabled()) && (equals(DOMAIN_ONLINE) || !this.f)) ? this.f5399b : this.f5399b.replace("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX);
     }
 
     public String getWapDomain() {
@@ -60,6 +60,6 @@ public enum Domain {
     }
 
     public String getURL(boolean z) {
-        return (!(equals(DOMAIN_ONLINE) && z) && (equals(DOMAIN_ONLINE) || !this.f)) ? this.f5397a : this.f5397a.replace("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        return (!(equals(DOMAIN_ONLINE) && z) && (equals(DOMAIN_ONLINE) || !this.f)) ? this.f5398a : this.f5398a.replace("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX);
     }
 }

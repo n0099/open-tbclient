@@ -1,7 +1,7 @@
 package com.baidu.swan.menu.viewpager;
 
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c<T> {
     private ArrayList<T> ewa = new ArrayList<>();
     private final int ewb;

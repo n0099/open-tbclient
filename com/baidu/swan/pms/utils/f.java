@@ -15,7 +15,7 @@ public class f {
         this.eyB.add(new a(eVar, pMSPkgStatus));
     }
 
-    public int bhr() {
+    public int bhs() {
         return this.eyB.size();
     }
 
@@ -23,7 +23,7 @@ public class f {
         return this.eyB.isEmpty();
     }
 
-    public boolean bhs() {
+    public boolean bht() {
         for (a aVar : this.eyB) {
             if (aVar != null && (aVar.dhu instanceof com.baidu.swan.pms.model.f)) {
                 return true;
@@ -32,7 +32,7 @@ public class f {
         return false;
     }
 
-    public boolean bht() {
+    public boolean bhu() {
         for (a aVar : this.eyB) {
             if (aVar != null && (aVar.dhu instanceof com.baidu.swan.pms.model.g)) {
                 return true;
@@ -41,7 +41,7 @@ public class f {
         return false;
     }
 
-    public boolean bhu() {
+    public boolean bhv() {
         for (a aVar : this.eyB) {
             if (aVar != null && (aVar.dhu instanceof i)) {
                 return true;
@@ -50,7 +50,7 @@ public class f {
         return false;
     }
 
-    public boolean bhv() {
+    public boolean bhw() {
         for (a aVar : this.eyB) {
             if (aVar != null && (aVar.dhu instanceof com.baidu.swan.pms.model.d)) {
                 return true;
@@ -59,7 +59,7 @@ public class f {
         return false;
     }
 
-    public boolean bhw() {
+    public boolean bhx() {
         for (a aVar : this.eyB) {
             if (aVar != null && (aVar.dhu instanceof com.baidu.swan.pms.model.b)) {
                 return true;
@@ -110,7 +110,7 @@ public class f {
         }
     }
 
-    public synchronized boolean bhx() {
+    public synchronized boolean bhy() {
         boolean z;
         Iterator<a> it = this.eyB.iterator();
         while (true) {

@@ -31,7 +31,7 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
                 }
                 MentionActivityConfig.newJumpIn = true;
                 if (ChatAggregationFragment.this.kNm != null) {
-                    ChatAggregationFragment.this.kNm.cNw();
+                    ChatAggregationFragment.this.kNm.cNx();
                     ChatAggregationFragment.this.kNm.al(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
                 }
             }
@@ -58,12 +58,12 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
         } else {
             this.kNm.as(null);
         }
-        View bYm = this.kNm.bYm();
+        View bYn = this.kNm.bYn();
         this.kNm.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        bHi().addEventDelegate(this);
+        bHj().addEventDelegate(this);
         registerListener(this.mAccountChangedListener);
         registerListener(this.kNk);
-        return bYm;
+        return bYn;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -71,7 +71,7 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
         if (getActivity() != null && Y(getActivity().getIntent())) {
             this.kNm.onNewIntent(getActivity().getIntent());
         } else {
-            this.kNm.cNw();
+            this.kNm.cNx();
         }
         super.onViewCreated(view, bundle);
     }
@@ -81,7 +81,7 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean bGM() {
+    public boolean bGN() {
         return false;
     }
 
@@ -90,7 +90,7 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
         return bVar == null;
     }
 
-    public ViewEventCenter bHi() {
+    public ViewEventCenter bHj() {
         if (this.kNj == null) {
             this.kNj = new ViewEventCenter();
         }
@@ -143,7 +143,7 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
         MessageManager.getInstance().unRegisterListener(this.mAccountChangedListener);
         MessageManager.getInstance().unRegisterListener(this.kNk);
         if (this.kNm != null) {
-            this.kNm.cLD();
+            this.kNm.cLE();
         }
     }
 
@@ -154,9 +154,9 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
         }
     }
 
-    public void WE() {
+    public void WF() {
         if (this.kNm != null) {
-            this.kNm.WE();
+            this.kNm.WF();
         }
     }
 
@@ -164,7 +164,7 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
     public void onPrimary() {
         super.onPrimary();
         if (this.kNm != null) {
-            this.kNm.daX();
+            this.kNm.daY();
         }
     }
 }

@@ -73,12 +73,12 @@ public class c extends aa {
                 if (this.cQs == null) {
                     com.baidu.swan.apps.console.c.e("SwanAppPropertyLogAction", "Property log never start");
                 } else {
-                    String apR = this.cQs.apR();
+                    String apS = this.cQs.apS();
                     this.cQs = null;
-                    f.aDG().asD();
+                    f.aDH().asE();
                     try {
-                        jSONObject.put("wvID", f.aDG().asD());
-                        jSONObject.put("path", apR);
+                        jSONObject.put("wvID", f.aDH().asE());
+                        jSONObject.put("path", apS);
                     } catch (JSONException e) {
                         if (DEBUG) {
                             e.printStackTrace();

@@ -60,45 +60,45 @@ public class MultiImageTextTopView extends RelativeLayout {
         });
     }
 
-    public void setData(final TbPageContext<?> tbPageContext, final a.C0766a c0766a, View view, final int i) {
+    public void setData(final TbPageContext<?> tbPageContext, final a.C0775a c0775a, View view, final int i) {
         setPadding((int) this.mContext.getResources().getDimension(R.dimen.ds30), (int) this.mContext.getResources().getDimension(R.dimen.ds30), (int) this.mContext.getResources().getDimension(R.dimen.ds30), (int) this.mContext.getResources().getDimension(R.dimen.ds30));
-        if (c0766a != null) {
+        if (c0775a != null) {
             String str = "";
-            if (!TextUtils.isEmpty(c0766a.title)) {
-                str = c0766a.title;
+            if (!TextUtils.isEmpty(c0775a.title)) {
+                str = c0775a.title;
             }
             this.mTitle.setText(str);
-            if (!TextUtils.isEmpty(c0766a.url)) {
+            if (!TextUtils.isEmpty(c0775a.url)) {
                 setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.MultiImageTextTopView.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (c0766a != null && !StringUtils.isNull(c0766a.url)) {
-                            be.bwu().b(tbPageContext, new String[]{c0766a.url});
+                        if (c0775a != null && !StringUtils.isNull(c0775a.url)) {
+                            be.bwv().b(tbPageContext, new String[]{c0775a.url});
                             if (i == 1) {
-                                TiebaStatic.eventStat(MultiImageTextTopView.this.mContext, "official_msg_ck", "click", 1, "fid", c0766a.fid);
-                                com.baidu.tieba.im.data.d ND = com.baidu.tieba.im.util.c.ND(c0766a.kyB);
-                                if (ND != null) {
-                                    TiebaStatic.eventStat(MultiImageTextTopView.this.mContext, "message_open_detail", "click", 1, "task_type", ND.kBb, "task_id", ND.taskId, "loc", "0");
-                                    if ((c0766a.userType == 1 || c0766a.userType == 3) && !"0".equals(ND.taskId)) {
-                                        com.baidu.tieba.im.b.a.cZP().Ny(ND.taskId);
+                                TiebaStatic.eventStat(MultiImageTextTopView.this.mContext, "official_msg_ck", "click", 1, "fid", c0775a.fid);
+                                com.baidu.tieba.im.data.d NC = com.baidu.tieba.im.util.c.NC(c0775a.kyB);
+                                if (NC != null) {
+                                    TiebaStatic.eventStat(MultiImageTextTopView.this.mContext, "message_open_detail", "click", 1, "task_type", NC.kBb, "task_id", NC.taskId, "loc", "0");
+                                    if ((c0775a.userType == 1 || c0775a.userType == 3) && !"0".equals(NC.taskId)) {
+                                        com.baidu.tieba.im.b.a.cZQ().Nx(NC.taskId);
                                     }
                                 }
                                 aq aqVar = new aq("official_message_open_detail");
-                                aqVar.w("msg_id", c0766a.kFM / 100);
-                                aqVar.dX("official_id", c0766a.kFN);
-                                aqVar.an("official_type", c0766a.kFO);
+                                aqVar.w("msg_id", c0775a.kFM / 100);
+                                aqVar.dX("official_id", c0775a.kFN);
+                                aqVar.an("official_type", c0775a.kFO);
                                 aqVar.w("operate_time", System.currentTimeMillis() / 1000);
-                                aqVar.w("task_id", c0766a.taskId);
-                                aqVar.dX("obj_params1", c0766a.url);
+                                aqVar.w("task_id", c0775a.taskId);
+                                aqVar.dX("obj_params1", c0775a.url);
                                 TiebaStatic.log(aqVar);
                             }
                         }
                     }
                 });
             }
-            if (!TextUtils.isEmpty(c0766a.src)) {
-                this.kyz.setTag(c0766a.src);
-                this.kyz.startLoad(c0766a.src, 10, false);
+            if (!TextUtils.isEmpty(c0775a.src)) {
+                this.kyz.setTag(c0775a.src);
+                this.kyz.startLoad(c0775a.src, 10, false);
             }
         }
     }

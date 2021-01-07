@@ -56,22 +56,22 @@ public class b {
         };
         this.bQo.a(new a.InterfaceC0229a() { // from class: com.baidu.live.videochat.c.b.2
             @Override // com.baidu.live.videochat.c.a.InterfaceC0229a
-            public void Yd() {
-                interfaceC0229a.Yd();
+            public void Ye() {
+                interfaceC0229a.Ye();
             }
 
             @Override // com.baidu.live.videochat.c.a.InterfaceC0229a
-            public void Ye() {
+            public void Yf() {
                 b.this.H(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Value.VALUE_CHAT_LINK_INVITE_ACC);
-                interfaceC0229a.Ye();
+                interfaceC0229a.Yf();
                 b.this.bQo.dismiss();
                 countDownTimer.cancel();
             }
 
             @Override // com.baidu.live.videochat.c.a.InterfaceC0229a
-            public void Yf() {
+            public void Yg() {
                 b.this.H(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Value.VALUE_CHAT_LINK_INVITE_RFS);
-                interfaceC0229a.Yf();
+                interfaceC0229a.Yg();
                 b.this.bQo.dismiss();
                 countDownTimer.cancel();
             }

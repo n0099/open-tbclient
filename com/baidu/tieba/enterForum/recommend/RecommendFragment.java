@@ -35,7 +35,7 @@ public class RecommendFragment extends BaseFragment implements f.c, a {
         if (this.iKG.getParent() instanceof ViewGroup) {
             ((ViewGroup) this.iKG.getParent()).removeView(this.iKG);
         }
-        com.baidu.tieba.s.c.dNX().z(getUniqueId());
+        com.baidu.tieba.s.c.dNY().z(getUniqueId());
         return this.iKG;
     }
 
@@ -53,7 +53,7 @@ public class RecommendFragment extends BaseFragment implements f.c, a {
     public void onLazyLoad() {
         if (!this.iKH && !TbadkCoreApplication.getInst().checkInterrupt()) {
             this.iKG.it(false);
-            this.iKF.czv();
+            this.iKF.czw();
             this.iKH = true;
         }
     }
@@ -61,30 +61,30 @@ public class RecommendFragment extends BaseFragment implements f.c, a {
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
         if (this.iKF != null) {
-            this.iKF.czv();
+            this.iKF.czw();
         }
-        com.baidu.tieba.s.c.dNX().C(getUniqueId());
+        com.baidu.tieba.s.c.dNY().C(getUniqueId());
     }
 
     @Override // com.baidu.tieba.enterForum.recommend.a
     public void loadData() {
         if (j.isNetWorkAvailable()) {
-            this.iKG.Zi();
+            this.iKG.Zj();
             this.iKG.it(false);
-            this.iKF.czv();
+            this.iKF.czw();
         }
     }
 
     @Override // com.baidu.tieba.enterForum.recommend.a
     public void a(int i, com.baidu.tieba.enterForum.recommend.b.a aVar) {
         this.iKG.hideLoadingView();
-        this.iKG.bUO();
+        this.iKG.bUP();
         if (i != 0 || aVar == null) {
             this.iKG.pU(false);
             return;
         }
-        this.iKG.Zi();
-        this.iKG.caY();
+        this.iKG.Zj();
+        this.iKG.caZ();
         this.iKG.setData(aVar);
     }
 
@@ -100,7 +100,7 @@ public class RecommendFragment extends BaseFragment implements f.c, a {
         this.iHy = null;
         this.iKG.onDestroy();
         this.iKF.onDestroy();
-        com.baidu.tieba.s.c.dNX().A(getUniqueId());
+        com.baidu.tieba.s.c.dNY().A(getUniqueId());
         super.onDestroyView();
     }
 
@@ -117,7 +117,7 @@ public class RecommendFragment extends BaseFragment implements f.c, a {
             return;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921386));
-        com.baidu.tieba.s.c.dNX().b(getUniqueId(), false);
+        com.baidu.tieba.s.c.dNY().b(getUniqueId(), false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a

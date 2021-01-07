@@ -7,10 +7,10 @@ public class a extends SapiResult {
     public static final String d = "无权限";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4102a;
+    public String f4103a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4103b;
+    public String f4104b;
 
     public a() {
         this.msgMap.put(-901, d);

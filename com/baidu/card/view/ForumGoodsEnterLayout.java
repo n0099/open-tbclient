@@ -49,13 +49,13 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
     public void setData(com.baidu.tbadk.core.data.a aVar) {
         boolean z;
         this.ahi = aVar;
-        bz boO = aVar.boO();
-        if (c(aVar) || d(aVar) || aVar.boO() == null || !aVar.boO().btC() || this.alL == 3) {
+        bz boP = aVar.boP();
+        if (c(aVar) || d(aVar) || aVar.boP() == null || !aVar.boP().btD() || this.alL == 3) {
             z = false;
         } else {
             this.alF.setVisibility(0);
             this.alF.setFrom(2);
-            this.alF.r(boO);
+            this.alF.r(boP);
             this.alF.setAfterClickListener(this.alA);
             z = true;
         }
@@ -83,10 +83,10 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
     }
 
     private boolean c(com.baidu.tbadk.core.data.a aVar) {
-        return (aVar == null || aVar.boO() == null || aVar.boO().btz() == null || aVar.boO().btz().getOptions() == null || aVar.boO().btz().getOptions().size() <= 0) ? false : true;
+        return (aVar == null || aVar.boP() == null || aVar.boP().btA() == null || aVar.boP().btA().getOptions() == null || aVar.boP().btA().getOptions().size() <= 0) ? false : true;
     }
 
     private boolean d(com.baidu.tbadk.core.data.a aVar) {
-        return (aVar == null || aVar.boO() == null || !aVar.boO().bpV() || aVar.boO().brH() == null) ? false : true;
+        return (aVar == null || aVar.boP() == null || !aVar.boP().bpW() || aVar.boP().brI() == null) ? false : true;
     }
 }

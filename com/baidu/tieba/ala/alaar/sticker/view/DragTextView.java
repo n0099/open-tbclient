@@ -268,13 +268,13 @@ public class DragTextView extends TextView {
                     this.cGB = MotionEventCompat.getY(motionEvent, actionIndex);
                     this.dyT = getX();
                     this.bNt = getY();
-                    if (this.gxj != null && this.gxj.bTx()) {
+                    if (this.gxj != null && this.gxj.bTy()) {
                         this.gxs = getTranslationX();
                         this.gxt = getTranslationY();
                         this.gxu = getText();
                     }
                     if (this.gxj != null) {
-                        this.gxj.bTw();
+                        this.gxj.bTx();
                         return true;
                     }
                     return true;
@@ -294,7 +294,7 @@ public class DragTextView extends TextView {
                 }
                 if (this.mIsSilding) {
                     getParent().requestDisallowInterceptTouchEvent(true);
-                    if (!isInvalidEvent(motionEvent, getPointerIndex(motionEvent, this.mActivePointerId), this.mActivePointerId) && (this.gxj == null || this.gxj.bTx())) {
+                    if (!isInvalidEvent(motionEvent, getPointerIndex(motionEvent, this.mActivePointerId), this.mActivePointerId) && (this.gxj == null || this.gxj.bTy())) {
                         int diffX = getDiffX(motionEvent);
                         int M = M(motionEvent);
                         int x = ((int) getX()) + diffX;
@@ -424,7 +424,7 @@ public class DragTextView extends TextView {
         this.type = i;
     }
 
-    public void bTF() {
+    public void bTG() {
         setTranslationX(this.gxs);
         setTranslationY(this.gxt);
         if (this.type == 2) {

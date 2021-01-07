@@ -31,7 +31,7 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
 
     protected abstract void a(T t, int i);
 
-    protected abstract View ddH();
+    protected abstract View ddI();
 
     public PostAdBaseView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
@@ -55,8 +55,8 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
                 }
             }
             aqVar.an("obj_locate", getStatPosition());
-            aqVar.dX(TiebaInitialize.Params.OBJ_PARAM3, m.cuR());
-            s.cva().e(aqVar);
+            aqVar.dX(TiebaInitialize.Params.OBJ_PARAM3, m.cuS());
+            s.cvb().e(aqVar);
         }
     }
 
@@ -73,43 +73,43 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
             }
             if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
                 this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-                ddL();
+                ddM();
                 a((PostAdBaseData) updateCard, this.mSkinType);
             }
-            ddK();
+            ddL();
             a((PostAdBaseData) updateCard);
             c((PostAdBaseData) updateCard);
         }
     }
 
-    private void ddL() {
+    private void ddM() {
     }
 
     protected final void c(T t) {
     }
 
-    public final void ddK() {
+    public final void ddL() {
         this.kYI.setVisibility(0);
     }
 
     private void init() {
-        ddJ();
-        aqT();
+        ddK();
+        aqU();
         this.isInit = false;
     }
 
-    protected void aqT() {
+    protected void aqU() {
     }
 
-    public final void ddJ() {
+    public final void ddK() {
         FrameLayout frameLayout = new FrameLayout(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.kYI = ddH();
-        frameLayout.addView(this.kYI, ddI());
+        this.kYI = ddI();
+        frameLayout.addView(this.kYI, ddJ());
         addView(frameLayout, layoutParams);
     }
 
-    protected final ViewGroup.LayoutParams ddI() {
+    protected final ViewGroup.LayoutParams ddJ() {
         return new ViewGroup.LayoutParams(-1, -2);
     }
 
@@ -132,15 +132,15 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void ddM() {
+    public void ddN() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void aWD() {
+    public void aWE() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void cUp() {
+    public void cUq() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
@@ -161,6 +161,6 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void ddN() {
+    public void ddO() {
     }
 }

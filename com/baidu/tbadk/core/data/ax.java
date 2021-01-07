@@ -14,7 +14,7 @@ public class ax {
     private int total_count = 0;
     private int eRb = 0;
 
-    public int bqa() {
+    public int bqb() {
         return this.eRa;
     }
 
@@ -22,7 +22,7 @@ public class ax {
         this.eRa = i;
     }
 
-    public int bpc() {
+    public int bpd() {
         return this.total_num;
     }
 
@@ -30,11 +30,11 @@ public class ax {
         this.total_num = i;
     }
 
-    public int bqb() {
+    public int bqc() {
         return this.total_count;
     }
 
-    public int bqc() {
+    public int bqd() {
         return this.eRb;
     }
 
@@ -42,7 +42,7 @@ public class ax {
         this.eRb = i;
     }
 
-    public int bqd() {
+    public int bqe() {
         return this.current_page;
     }
 
@@ -50,7 +50,7 @@ public class ax {
         this.current_page = i;
     }
 
-    public int bqe() {
+    public int bqf() {
         return this.eRc;
     }
 
@@ -62,7 +62,7 @@ public class ax {
         this.has_more = i;
     }
 
-    public int bqf() {
+    public int bqg() {
         return this.has_more;
     }
 
@@ -70,7 +70,7 @@ public class ax {
         this.eRd = i;
     }
 
-    public int bqg() {
+    public int bqh() {
         return this.eRd;
     }
 

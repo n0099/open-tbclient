@@ -108,32 +108,32 @@ public class MultiImgLayout extends LinearLayout implements p<com.baidu.tbadk.co
     }
 
     private void setVoiceData(bz bzVar) {
-        ArrayList<VoiceData.VoiceModel> brD = bzVar.brD();
-        if (x.isEmpty(brD)) {
+        ArrayList<VoiceData.VoiceModel> brE = bzVar.brE();
+        if (x.isEmpty(brE)) {
             this.amd.setVisibility(8);
             this.amg = false;
             return;
         }
         this.amd.setVisibility(0);
-        VoiceData.VoiceModel voiceModel = brD.get(0);
+        VoiceData.VoiceModel voiceModel = brE.get(0);
         this.amd.setVoiceModel(voiceModel);
         this.amd.setTag(voiceModel);
-        this.amd.bxN();
+        this.amd.bxO();
         if (voiceModel != null) {
             this.amd.EE(voiceModel.voice_status.intValue());
         }
-        this.amd.cfq();
+        this.amd.cfr();
         this.amg = true;
     }
 
     private void setImageData(bz bzVar) {
         this.ame.setFromCDN(this.alQ);
         this.ame.setSinglePicUseStyleV10(true);
-        ArrayList<MediaData> brz = bzVar.brz();
-        if (k.bou().isShowImages() && x.getCount(brz) != 0) {
+        ArrayList<MediaData> brA = bzVar.brA();
+        if (k.bov().isShowImages() && x.getCount(brA) != 0) {
             final LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < brz.size(); i++) {
-                MediaData mediaData = (MediaData) x.getItem(brz, i);
+            for (int i = 0; i < brA.size(); i++) {
+                MediaData mediaData = (MediaData) x.getItem(brA, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
@@ -154,13 +154,13 @@ public class MultiImgLayout extends LinearLayout implements p<com.baidu.tbadk.co
                                 MultiImgLayout.this.ahi.objType = 1;
                             }
                             if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().fsM) {
-                                ay.a(view, MultiImgLayout.this.alQ, linkedList, i2, MultiImgLayout.this.ahi.boO(), MultiImgLayout.this.mFrom);
+                                ay.a(view, MultiImgLayout.this.alQ, linkedList, i2, MultiImgLayout.this.ahi.boP(), MultiImgLayout.this.mFrom);
                             } else if ("frs".equals(MultiImgLayout.this.mFrom)) {
                                 ay.a(MultiImgLayout.this.ahi, view.getContext(), 3, false);
                             } else if ("index".equals(MultiImgLayout.this.mFrom)) {
                                 ay.a(MultiImgLayout.this.ahi, view.getContext(), 2, false);
                             } else {
-                                ay.a(view, MultiImgLayout.this.alQ, linkedList, i2, MultiImgLayout.this.ahi.boO(), MultiImgLayout.this.mFrom);
+                                ay.a(view, MultiImgLayout.this.alQ, linkedList, i2, MultiImgLayout.this.ahi.boP(), MultiImgLayout.this.mFrom);
                             }
                         }
                     }
@@ -192,9 +192,9 @@ public class MultiImgLayout extends LinearLayout implements p<com.baidu.tbadk.co
     public void D(com.baidu.tbadk.core.data.a aVar) {
         boolean z = true;
         this.ahi = aVar;
-        bz boO = aVar.boO();
-        ay.a(this.mTitle, boO, this.ahF);
-        ay.a(this.aia, this.mTitle, boO, ahY, this.ahF);
+        bz boP = aVar.boP();
+        ay.a(this.mTitle, boP, this.ahF);
+        ay.a(this.aia, this.mTitle, boP, ahY, this.ahF);
         boolean z2 = this.mTitle == null || this.mTitle.getVisibility() != 0;
         boolean z3 = this.aia == null || this.aia.getVisibility() != 0;
         ConstrainImageGroup constrainImageGroup = this.ame;
@@ -202,8 +202,8 @@ public class MultiImgLayout extends LinearLayout implements p<com.baidu.tbadk.co
             z = false;
         }
         ay.a(constrainImageGroup, z, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-        setImageData(boO);
-        setVoiceData(boO);
+        setImageData(boP);
+        setVoiceData(boP);
     }
 
     public void setMarginsTop(View view, int i) {

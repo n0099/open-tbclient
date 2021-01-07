@@ -13,7 +13,7 @@ public class o extends com.kwai.filedownloader.services.a<a, com.kwai.filedownlo
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes5.dex */
-    public static class a extends a.AbstractBinderC1128a {
+    public static class a extends a.AbstractBinderC1169a {
         protected a() {
         }
 

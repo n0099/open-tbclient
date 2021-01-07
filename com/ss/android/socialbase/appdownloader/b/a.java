@@ -7,7 +7,7 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f13312a;
+    public static final String f13313a;
 
     static {
         boolean z = true;
@@ -35,6 +35,6 @@ public class a {
             }
         }
         sb.append(")");
-        f13312a = sb.toString();
+        f13313a = sb.toString();
     }
 }

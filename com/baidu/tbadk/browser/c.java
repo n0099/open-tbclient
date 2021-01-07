@@ -52,7 +52,7 @@ public class c {
                 }
             }
         });
-        be.bwu().a(new be.c() { // from class: com.baidu.tbadk.browser.c.2
+        be.bwv().a(new be.c() { // from class: com.baidu.tbadk.browser.c.2
             @Override // com.baidu.tbadk.core.util.be.c
             public void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, be.d dVar, boolean z2) {
                 if (z2) {
@@ -63,13 +63,13 @@ public class c {
             }
         });
         SwitchManager.getInstance().addSwitchData(new com.baidu.adp.lib.featureSwitch.b("switch_mbaidu_startup", 1, null));
-        bnW();
         bnX();
         bnY();
+        bnZ();
     }
 
-    private static void bnW() {
-        be.bwu().a(new be.a() { // from class: com.baidu.tbadk.browser.c.3
+    private static void bnX() {
+        be.bwv().a(new be.a() { // from class: com.baidu.tbadk.browser.c.3
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 Bundle parserQuery;
@@ -86,7 +86,7 @@ public class c {
                 if (str.startsWith("tel:")) {
                     UtilHelper.callPhone(tbPageContext.getPageActivity(), str.substring(4));
                     return 0;
-                } else if (ai.EO(str) && str.toLowerCase().endsWith(".apk")) {
+                } else if (ai.EN(str) && str.toLowerCase().endsWith(".apk")) {
                     c.aA(tbPageContext.getPageActivity(), str);
                     return 0;
                 } else if (str.contains("http://tieba.baidu.com/mo/q/hotMessage?topic_id=")) {
@@ -270,8 +270,8 @@ public class c {
         return false;
     }
 
-    private static void bnX() {
-        be.bwu().a(new be.a() { // from class: com.baidu.tbadk.browser.c.6
+    private static void bnY() {
+        be.bwv().a(new be.a() { // from class: com.baidu.tbadk.browser.c.6
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 PbActivityConfig createNormalCfg;
@@ -331,8 +331,8 @@ public class c {
         });
     }
 
-    private static void bnY() {
-        be.bwu().a(new be.a() { // from class: com.baidu.tbadk.browser.c.7
+    private static void bnZ() {
+        be.bwv().a(new be.a() { // from class: com.baidu.tbadk.browser.c.7
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

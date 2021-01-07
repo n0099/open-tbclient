@@ -6,7 +6,7 @@ import android.system.Os;
 import com.baidu.cyberplayer.sdk.rtc.RTCConst;
 import java.io.File;
 import java.io.FileOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class e implements b<String> {
     private Context mContext;
 
@@ -25,13 +25,13 @@ public class e implements b<String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: aRn */
+    /* renamed from: aRo */
     public String get() {
-        return bjl();
+        return bjm();
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean bji() {
+    public boolean bjj() {
         return !new File(this.mContext.getFilesDir(), "libuuid.so").exists();
     }
 
@@ -80,7 +80,7 @@ public class e implements b<String> {
         }
     }
 
-    private String bjl() {
+    private String bjm() {
         File file = new File(this.mContext.getFilesDir(), "libuuid.so");
         if (!file.exists()) {
             return null;

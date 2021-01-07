@@ -22,17 +22,17 @@ public class a extends h<C0486a> {
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aNZ() {
+    protected boolean aOa() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", aOz().id);
+            jSONObject.put("ma_id", aOA().id);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", aOz().getAppKey());
+            jSONObject2.put("app_key", aOA().getAppKey());
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            String alK = com.baidu.swan.apps.t.a.aAD().alK();
-            if (!TextUtils.isEmpty(alK)) {
-                jSONObject2.put("host_api_key", alK);
+            String alL = com.baidu.swan.apps.t.a.aAE().alL();
+            if (!TextUtils.isEmpty(alL)) {
+                jSONObject2.put("host_api_key", alL);
             }
             jSONObject.put("open", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
@@ -52,7 +52,7 @@ public class a extends h<C0486a> {
 
     @Override // com.baidu.swan.apps.setting.oauth.a.h
     protected HttpRequest a(h hVar) {
-        return com.baidu.swan.apps.t.a.aAD().f(this.mActivity, hVar.aOA());
+        return com.baidu.swan.apps.t.a.aAE().f(this.mActivity, hVar.aOB());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -79,9 +79,9 @@ public class a extends h<C0486a> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.a.h
-    public void aOu() {
-        super.aOu();
-        com.baidu.swan.apps.network.c.b.a.aGO();
+    public void aOv() {
+        super.aOv();
+        com.baidu.swan.apps.network.c.b.a.aGP();
     }
 
     /* renamed from: com.baidu.swan.apps.setting.oauth.a.a$a  reason: collision with other inner class name */

@@ -24,10 +24,10 @@ import java.util.Iterator;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected c f9945a;
+    protected c f9946a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected String f9946b = "";
+    protected String f9947b = "";
 
     private String a(String str) {
         return (str == null || !str.contains(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) ? str : str.substring(0, str.lastIndexOf(45));
@@ -36,7 +36,7 @@ public abstract class b {
     protected abstract ExceptionMessage a(@NonNull File file, File file2, File file3, String str);
 
     public void a(c cVar) {
-        this.f9945a = cVar;
+        this.f9946a = cVar;
     }
 
     @SuppressLint({"CheckResult"})
@@ -115,7 +115,7 @@ public abstract class b {
         ArrayList<File> arrayList = new ArrayList();
         try {
             ExceptionMessage a3 = a(file, file2, file3, a2);
-            this.f9945a.a(a3);
+            this.f9946a.a(a3);
             f.a(file4);
             ArrayList arrayList2 = new ArrayList();
             Collections.addAll(arrayList2, file3, file4);
@@ -143,14 +143,14 @@ public abstract class b {
                     h.b(file8.getPath());
                 }
                 h.b(file5.getPath());
-                f.b(com.kwad.sdk.crash.c.b.f9929b);
+                f.b(com.kwad.sdk.crash.c.b.f9930b);
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);
             }
         } catch (Throwable th2) {
             try {
                 com.kwad.sdk.core.d.a.b(th2);
-                this.f9945a.b("report_ex_error", f.a(th2));
+                this.f9946a.b("report_ex_error", f.a(th2));
                 try {
                     h.b(file.getPath());
                     h.b(file3.getPath());
@@ -159,7 +159,7 @@ public abstract class b {
                         h.b(file9.getPath());
                     }
                     h.b(file5.getPath());
-                    f.b(com.kwad.sdk.crash.c.b.f9929b);
+                    f.b(com.kwad.sdk.crash.c.b.f9930b);
                 } catch (Throwable th3) {
                     com.kwad.sdk.core.d.a.b(th3);
                 }
@@ -172,7 +172,7 @@ public abstract class b {
                         h.b(file10.getPath());
                     }
                     h.b(file5.getPath());
-                    f.b(com.kwad.sdk.crash.c.b.f9929b);
+                    f.b(com.kwad.sdk.crash.c.b.f9930b);
                 } catch (Throwable th5) {
                     com.kwad.sdk.core.d.a.b(th5);
                 }
@@ -210,12 +210,12 @@ public abstract class b {
                         }
                     } catch (FileNotFoundException e) {
                         e = e;
-                        this.f9946b += e + "\n";
+                        this.f9947b += e + "\n";
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (IOException e2) {
                         e = e2;
-                        this.f9946b += e + "\n";
+                        this.f9947b += e + "\n";
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     }

@@ -33,23 +33,23 @@ public class AddLinkActivity extends BaseActivity {
     private TextView gwW;
     private TextView jzB;
     private ViewGroup mContentLayout;
-    private ViewGroup ocM;
-    private EditText ocN;
-    private ImageView ocO;
-    private TextView ocP;
-    private String ocQ;
-    private boolean ocR;
-    private String ocS;
-    private WriteTipBubbleController ocT;
+    private ViewGroup ocL;
+    private EditText ocM;
+    private ImageView ocN;
+    private TextView ocO;
+    private String ocP;
+    private boolean ocQ;
+    private String ocR;
+    private WriteTipBubbleController ocS;
     private WriteTipBubbleController.a eYw = new WriteTipBubbleController.a() { // from class: com.baidu.tieba.write.write.AddLinkActivity.1
         @Override // com.baidu.tbadk.core.dialog.WriteTipBubbleController.a
         public void f(View view, String str) {
-            if (AddLinkActivity.this.ocN != null && AddLinkActivity.this.ocT != null) {
+            if (AddLinkActivity.this.ocM != null && AddLinkActivity.this.ocS != null) {
                 TiebaStatic.log("c13802");
-                AddLinkActivity.this.ocT.Zs();
+                AddLinkActivity.this.ocS.Zt();
                 UtilHelper.clearClipBoard();
-                AddLinkActivity.this.ocN.setText(str);
-                AddLinkActivity.this.ocN.setSelection(AddLinkActivity.this.ocN.getText().length());
+                AddLinkActivity.this.ocM.setText(str);
+                AddLinkActivity.this.ocM.setSelection(AddLinkActivity.this.ocM.getText().length());
             }
         }
     };
@@ -58,7 +58,7 @@ public class AddLinkActivity extends BaseActivity {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                AddLinkActivity.this.Vt(UtilHelper.getClipBoardContent());
+                AddLinkActivity.this.Vs(UtilHelper.getClipBoardContent());
             }
         }
     };
@@ -74,9 +74,9 @@ public class AddLinkActivity extends BaseActivity {
 
     private void initData() {
         if (getIntent() != null) {
-            this.ocQ = getIntent().getStringExtra(AddLinkActivityConfig.ORIGINAL_LINK_CONTENT);
-            this.ocR = getIntent().getBooleanExtra(AddLinkActivityConfig.IS_SHOW_FIND_NEW_LINK_BUBBLE, false);
-            this.ocS = getIntent().getStringExtra(AddLinkActivityConfig.BUBBLE_NEW_LINK_CONTENT);
+            this.ocP = getIntent().getStringExtra(AddLinkActivityConfig.ORIGINAL_LINK_CONTENT);
+            this.ocQ = getIntent().getBooleanExtra(AddLinkActivityConfig.IS_SHOW_FIND_NEW_LINK_BUBBLE, false);
+            this.ocR = getIntent().getStringExtra(AddLinkActivityConfig.BUBBLE_NEW_LINK_CONTENT);
         }
     }
 
@@ -89,38 +89,38 @@ public class AddLinkActivity extends BaseActivity {
         this.jzB = (TextView) findViewById(R.id.tv_cancel_add_link);
         this.bNi = (TextView) findViewById(R.id.tv_title_add_link);
         this.gwW = (TextView) findViewById(R.id.tv_complete_add_link);
-        this.ocM = (ViewGroup) findViewById(R.id.add_link_edit_layout);
-        this.ocN = (EditText) findViewById(R.id.et_edit_link);
-        this.ocO = (ImageView) findViewById(R.id.iv_del_edit_link);
-        this.ocP = (TextView) findViewById(R.id.add_link_tip);
+        this.ocL = (ViewGroup) findViewById(R.id.add_link_edit_layout);
+        this.ocM = (EditText) findViewById(R.id.et_edit_link);
+        this.ocN = (ImageView) findViewById(R.id.iv_del_edit_link);
+        this.ocO = (TextView) findViewById(R.id.add_link_tip);
         this.blI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AddLinkActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AddLinkActivity.this.dZl();
+                AddLinkActivity.this.dZm();
             }
         });
         this.mContentLayout.setClickable(true);
         this.jzB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AddLinkActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AddLinkActivity.this.dZl();
+                AddLinkActivity.this.dZm();
             }
         });
         this.gwW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AddLinkActivity.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AddLinkActivity.this.ocN != null && AddLinkActivity.this.ocN.getText() != null) {
-                    String obj = AddLinkActivity.this.ocN.getText().toString();
-                    if (!at.isEmpty(obj) && be.bwu().l(obj)) {
-                        AddLinkActivity.this.Vs(obj);
+                if (AddLinkActivity.this.ocM != null && AddLinkActivity.this.ocM.getText() != null) {
+                    String obj = AddLinkActivity.this.ocM.getText().toString();
+                    if (!at.isEmpty(obj) && be.bwv().l(obj)) {
+                        AddLinkActivity.this.Vr(obj);
                     } else {
                         AddLinkActivity.this.showToast(R.string.link_invalid_cant_add);
                     }
                 }
             }
         });
-        this.ocM.setClickable(true);
-        this.ocN.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.write.AddLinkActivity.6
+        this.ocL.setClickable(true);
+        this.ocM.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.write.AddLinkActivity.6
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -129,10 +129,10 @@ public class AddLinkActivity extends BaseActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                 if (charSequence == null || charSequence.length() == 0) {
                     AddLinkActivity.this.gwW.setEnabled(false);
-                    AddLinkActivity.this.ocO.setVisibility(8);
+                    AddLinkActivity.this.ocN.setVisibility(8);
                     return;
                 }
-                AddLinkActivity.this.ocO.setVisibility(0);
+                AddLinkActivity.this.ocN.setVisibility(0);
                 for (int i4 = 0; i4 < charSequence.length(); i4++) {
                     if (!Character.isWhitespace(charSequence.charAt(i4))) {
                         AddLinkActivity.this.gwW.setEnabled(true);
@@ -146,28 +146,28 @@ public class AddLinkActivity extends BaseActivity {
             public void afterTextChanged(Editable editable) {
             }
         });
-        this.ocN.setText(this.ocQ);
-        this.ocN.setSelection(this.ocN.getText().length());
-        this.ocO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AddLinkActivity.7
+        this.ocM.setText(this.ocP);
+        this.ocM.setSelection(this.ocM.getText().length());
+        this.ocN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AddLinkActivity.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AddLinkActivity.this.ocN.setText("");
-                AddLinkActivity.this.ocN.setSelection(0);
+                AddLinkActivity.this.ocM.setText("");
+                AddLinkActivity.this.ocM.setSelection(0);
             }
         });
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         addGlobalLayoutListener();
         adjustResizeForSoftInput(R.color.black_alpha70, true);
-        ShowSoftKeyPadDelay(this.ocN);
-        this.ocN.setSelection(this.ocN.length());
-        if (this.ocR) {
-            this.ocN.post(new Runnable() { // from class: com.baidu.tieba.write.write.AddLinkActivity.8
+        ShowSoftKeyPadDelay(this.ocM);
+        this.ocM.setSelection(this.ocM.length());
+        if (this.ocQ) {
+            this.ocM.post(new Runnable() { // from class: com.baidu.tieba.write.write.AddLinkActivity.8
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (at.isEmpty(AddLinkActivity.this.ocS)) {
-                        AddLinkActivity.this.Vt(UtilHelper.getClipBoardContent());
+                    if (at.isEmpty(AddLinkActivity.this.ocR)) {
+                        AddLinkActivity.this.Vs(UtilHelper.getClipBoardContent());
                     } else {
-                        AddLinkActivity.this.Vt(AddLinkActivity.this.ocS);
+                        AddLinkActivity.this.Vs(AddLinkActivity.this.ocR);
                     }
                 }
             });
@@ -181,15 +181,15 @@ public class AddLinkActivity extends BaseActivity {
         ao.setBackgroundResource(this.mContentLayout, R.drawable.bg_add_link_content);
         this.jzB.setTextColor(ao.qf(R.color.CAM_X0105));
         ao.setViewTextColor(this.bNi, R.color.CAM_X0105);
-        dZk();
-        ao.setViewTextColor(this.ocN, R.color.CAM_X0105);
-        this.ocN.setHintTextColor(ao.getColor(R.color.CAM_X0109));
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.ocM).pK(R.string.J_X01).setBackGroundColor(R.color.CAM_X0209);
-        SvgManager.bwq().a(this.ocO, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        ao.setViewTextColor(this.ocP, R.color.CAM_X0110);
+        dZl();
+        ao.setViewTextColor(this.ocM, R.color.CAM_X0105);
+        this.ocM.setHintTextColor(ao.getColor(R.color.CAM_X0109));
+        com.baidu.tbadk.core.elementsMaven.c.bv(this.ocL).pK(R.string.J_X01).setBackGroundColor(R.color.CAM_X0209);
+        SvgManager.bwr().a(this.ocN, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        ao.setViewTextColor(this.ocO, R.color.CAM_X0110);
     }
 
-    private void dZk() {
+    private void dZl() {
         int color = ao.getColor(R.color.CAM_X0302);
         this.gwW.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{com.baidu.tieba.tbadkCore.c.m(color, ao.fdi), com.baidu.tieba.tbadkCore.c.m(color, ao.fdh), color}));
     }
@@ -205,13 +205,13 @@ public class AddLinkActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dZl() {
+    public void dZm() {
         setResult(0);
         finish();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Vs(String str) {
+    public void Vr(String str) {
         Intent intent = new Intent();
         intent.putExtra(AddLinkActivityConfig.NEW_LINK_CONTENT, str);
         setResult(-1, intent);
@@ -219,15 +219,15 @@ public class AddLinkActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Vt(final String str) {
-        if (this.ocN != null && !at.isEmpty(str) && be.bwu().l(str)) {
-            this.ocN.post(new Runnable() { // from class: com.baidu.tieba.write.write.AddLinkActivity.9
+    public void Vs(final String str) {
+        if (this.ocM != null && !at.isEmpty(str) && be.bwv().l(str)) {
+            this.ocM.post(new Runnable() { // from class: com.baidu.tieba.write.write.AddLinkActivity.9
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (AddLinkActivity.this.ocT == null) {
-                        AddLinkActivity.this.ocT = new WriteTipBubbleController(AddLinkActivity.this.getPageContext(), AddLinkActivity.this.eYw);
+                    if (AddLinkActivity.this.ocS == null) {
+                        AddLinkActivity.this.ocS = new WriteTipBubbleController(AddLinkActivity.this.getPageContext(), AddLinkActivity.this.eYw);
                     }
-                    AddLinkActivity.this.ocT.a(AddLinkActivity.this.ocN, AddLinkActivity.this.getPageContext().getString(R.string.find_new_link) + "\n" + str, str, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDIT_TEXT);
+                    AddLinkActivity.this.ocS.a(AddLinkActivity.this.ocM, AddLinkActivity.this.getPageContext().getString(R.string.find_new_link) + "\n" + str, str, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDIT_TEXT);
                 }
             });
         }

@@ -60,8 +60,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                     StrangerListActivity.this.d(customResponsedMessage);
                 } else if (customResponsedMessage.getCmd() == 2016001) {
                     StrangerListActivity.this.kME.setData(null, StrangerListActivity.this.kzO);
-                } else if (customResponsedMessage.getCmd() == 2016011 && StrangerListActivity.this.kMD != null && StrangerListActivity.this.kMD.daR() != null) {
-                    StrangerListActivity.this.kMD.daR().notifyDataSetChanged();
+                } else if (customResponsedMessage.getCmd() == 2016011 && StrangerListActivity.this.kMD != null && StrangerListActivity.this.kMD.daS() != null) {
+                    StrangerListActivity.this.kMD.daS().notifyDataSetChanged();
                 }
             }
         }
@@ -69,13 +69,13 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     private com.baidu.tieba.im.chat.a.a kzO = new com.baidu.tieba.im.chat.a.a() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.5
         @Override // com.baidu.tieba.im.chat.a.a
         public void onComplete() {
-            StrangerListActivity.this.cWV();
+            StrangerListActivity.this.cWW();
         }
     };
     private final com.baidu.tieba.im.chat.a.b kzP = new com.baidu.tieba.im.chat.a.b() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivity.6
         @Override // com.baidu.tieba.im.chat.a.b
         public void onPreExecute() {
-            StrangerListActivity.this.cWU();
+            StrangerListActivity.this.cWV();
         }
 
         @Override // com.baidu.tieba.im.chat.a.b
@@ -90,13 +90,13 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         public void onPostExecute() {
             StrangerListActivity.this.If();
             StrangerListActivity.this.showToast(R.string.delete_success, false);
-            StrangerListActivity.this.cWV();
+            StrangerListActivity.this.cWW();
         }
 
         @Override // com.baidu.tieba.im.chat.a.b
         public void onCanceled() {
             StrangerListActivity.this.If();
-            StrangerListActivity.this.cWV();
+            StrangerListActivity.this.cWW();
         }
     };
 
@@ -170,7 +170,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         ImMessageCenterShowItemData DY;
-        if (this.kMD != null && this.kMD.daR() != null && (DY = this.kMD.daR().getItem(i)) != null) {
+        if (this.kMD != null && this.kMD.daS() != null && (DY = this.kMD.daS().getItem(i)) != null) {
             PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this.kMF.getPageContext().getContext(), com.baidu.adp.lib.f.b.toLong(DY.getFriendId(), 0L), DY.getFriendName(), DY.getFriendNameShow(), DY.getFriendPortrait(), 0, 0);
             personalChatActivityConfig.setFollowStatus(0);
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, personalChatActivityConfig));
@@ -180,7 +180,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         final ImMessageCenterShowItemData DY;
-        if (this.kMD == null || this.kMD.daR() == null || (DY = this.kMD.daR().getItem(i)) == null) {
+        if (this.kMD == null || this.kMD.daS() == null || (DY = this.kMD.daS().getItem(i)) == null) {
             return false;
         }
         final int size = this.kME.getData().size();
@@ -205,8 +205,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.kMD.daS() && this.kMG != null) {
-            this.kMG.btX();
+        if (view == this.kMD.daT() && this.kMG != null) {
+            this.kMG.btY();
         }
     }
 
@@ -214,8 +214,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.kMD != null && this.kMD.daR() != null) {
-            this.kMD.daR().notifyDataSetChanged();
+        if (this.kMD != null && this.kMD.daS() != null) {
+            this.kMD.daS().notifyDataSetChanged();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(TbEnum.CustomGroupId.STRANGE_MERGE, -7)));
     }
@@ -254,10 +254,10 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cWU() {
+    public void cWV() {
         If();
         if (this.kzL == null) {
-            this.kzL = e.cXn().gx(getPageContext().getPageActivity());
+            this.kzL = e.cXo().gx(getPageContext().getPageActivity());
         }
         this.kzL.show();
         this.kzL.setPercent(0);
@@ -275,18 +275,18 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyDataSetChanged() {
-        if (this.kMD != null && this.kMD.daR() != null) {
-            this.kMD.daR().notifyDataSetChanged();
+        if (this.kMD != null && this.kMD.daS() != null) {
+            this.kMD.daS().notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cWV() {
-        if (this.kMD != null && this.kMD.daR() != null && this.kME != null) {
+    public void cWW() {
+        if (this.kMD != null && this.kMD.daS() != null && this.kME != null) {
             if (this.kME != null && this.kME.isEmpty()) {
                 finish();
             }
-            this.kMD.daR().setData(this.kME.getData());
+            this.kMD.daS().setData(this.kME.getData());
         }
     }
 }

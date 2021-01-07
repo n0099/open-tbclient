@@ -27,7 +27,7 @@ import java.util.zip.ZipFile;
 public final class a {
     private static final String SECONDARY_FOLDER_NAME = "code_cache" + File.separator + "secondary-dexes";
     private static final Set<String> lrB = new HashSet();
-    private static final boolean lrC = Pb(System.getProperty("java.vm.version"));
+    private static final boolean lrC = Pa(System.getProperty("java.vm.version"));
 
     public static void gE(Context context) {
         Log.i("MultiDex", Config.INPUT_INSTALLED_PKG);
@@ -94,7 +94,7 @@ public final class a {
         }
     }
 
-    static boolean Pb(String str) {
+    static boolean Pa(String str) {
         boolean z = false;
         if (str != null) {
             Matcher matcher = Pattern.compile("(\\d+)\\.(\\d+)(\\.\\d+)?").matcher(str);
@@ -120,7 +120,7 @@ public final class a {
                     c.a(classLoader, list);
                     return;
                 } else {
-                    C0790a.a(classLoader, list, file);
+                    C0803a.a(classLoader, list, file);
                     return;
                 }
             }
@@ -236,7 +236,7 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0790a {
+    public static final class C0803a {
         /* JADX INFO: Access modifiers changed from: private */
         public static void a(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
             Object obj = a.findField(classLoader, "pathList").get(classLoader);

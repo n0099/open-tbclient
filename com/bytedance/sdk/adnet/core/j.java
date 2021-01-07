@@ -25,7 +25,7 @@ import org.apache.http.client.methods.HttpTrace;
 public class j implements com.bytedance.sdk.adnet.e.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private final SSLSocketFactory f6336b;
+    private final SSLSocketFactory f6337b;
     private final b ppu;
 
     /* loaded from: classes4.dex */
@@ -43,7 +43,7 @@ public class j implements com.bytedance.sdk.adnet.e.a {
 
     public j(b bVar, SSLSocketFactory sSLSocketFactory) {
         this.ppu = bVar;
-        this.f6336b = sSLSocketFactory;
+        this.f6337b = sSLSocketFactory;
     }
 
     @Override // com.bytedance.sdk.adnet.e.a
@@ -117,17 +117,17 @@ public class j implements com.bytedance.sdk.adnet.e.a {
     static class a extends FilterInputStream {
 
         /* renamed from: a  reason: collision with root package name */
-        private final HttpURLConnection f6337a;
+        private final HttpURLConnection f6338a;
 
         a(HttpURLConnection httpURLConnection) {
             super(j.f(httpURLConnection));
-            this.f6337a = httpURLConnection;
+            this.f6338a = httpURLConnection;
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             super.close();
-            this.f6337a.disconnect();
+            this.f6338a.disconnect();
         }
     }
 
@@ -174,10 +174,10 @@ public class j implements com.bytedance.sdk.adnet.e.a {
         if ("https".equals(url.getProtocol())) {
             if (a(a2)) {
                 r.b("connection verify by inner", new Object[0]);
-            } else if (this.f6336b == null) {
+            } else if (this.f6337b == null) {
                 com.bytedance.sdk.adnet.d.b.a();
             } else {
-                ((HttpsURLConnection) a2).setSSLSocketFactory(this.f6336b);
+                ((HttpsURLConnection) a2).setSSLSocketFactory(this.f6337b);
             }
         }
         return a2;

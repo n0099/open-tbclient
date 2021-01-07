@@ -351,11 +351,11 @@ public class n {
         return ((float) imageFileWH[0]) * equipmentDensity >= 100.0f && f >= 3.0f && f <= 50.0f;
     }
 
-    public static boolean BK(String str) {
+    public static boolean BJ(String str) {
         return str.endsWith(".heif") || str.endsWith(".heic");
     }
 
-    public static boolean BL(String str) {
+    public static boolean BK(String str) {
         return str != null && str.endsWith(".css");
     }
 
@@ -1790,7 +1790,7 @@ public class n {
             return str2;
         }
 
-        public static String bvF() {
+        public static String bvG() {
             File[] listFiles;
             try {
                 File file = new File(PACKAGE_DATA_DIR + "/" + FileHelper.DataDir.PACKAGE_VERSION_CUR_DIR);
@@ -1958,7 +1958,7 @@ public class n {
         return str.toLowerCase().startsWith("content:") || str.toLowerCase().startsWith("file:");
     }
 
-    public static String BM(String str) {
+    public static String BL(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -1966,7 +1966,7 @@ public class n {
         return parse.getLastPathSegment();
     }
 
-    public static String BN(String str) {
+    public static String BM(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -1974,7 +1974,7 @@ public class n {
         return (TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/") + parse.getLastPathSegment();
     }
 
-    public static void BO(@NonNull String str) {
+    public static void BN(@NonNull String str) {
         if (str != null) {
             S(new File(CACHE_DIR + "/" + str));
         }

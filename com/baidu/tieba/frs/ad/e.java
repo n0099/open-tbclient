@@ -32,7 +32,7 @@ public class e {
         cR(view);
     }
 
-    public a cHM() {
+    public a cHN() {
         return this.jlt;
     }
 
@@ -84,7 +84,7 @@ public class e {
         }
     }
 
-    public void cHN() {
+    public void cHO() {
         t tVar = new t();
         tVar.tabId = 90;
         tVar.geO = false;
@@ -95,7 +95,7 @@ public class e {
         return this.jhR;
     }
 
-    public RelativeLayout cqg() {
+    public RelativeLayout cqh() {
         return this.mContainer;
     }
 
@@ -107,20 +107,20 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Zg() {
+    public void Zh() {
         this.jhR.setNextPage(this.gCf);
         this.gCf.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.gCf.startLoadData();
     }
 
-    public void Zh() {
+    public void Zi() {
         this.jhR.setNextPage(this.gCf);
         this.gCf.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.gCf.endLoadData();
         this.gCf.setText(this.jli.getResources().getString(R.string.list_no_more));
     }
 
-    public void bVF() {
+    public void bVG() {
         this.jhR.setNextPage(null);
     }
 
@@ -135,7 +135,7 @@ public class e {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
     }
 
-    public void cGm() {
+    public void cGn() {
         if (this.jlt != null) {
             this.jlt.notifyDataSetChanged();
         }

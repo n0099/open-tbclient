@@ -31,14 +31,14 @@ public class g extends BaseAdapter {
     }
 
     private View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.im.message.chat.b bVar, MsgCommonItemAdapter.MsgViewHolder<b> msgViewHolder) {
-        b cWy = msgViewHolder.cWy();
-        a.C0766a cYN = bVar.cYN();
-        cYN.createTime = bVar.getCreateTime();
-        cWy.a(this.pageContext.getPageActivity().getBaseContext(), cYN, bVar.cYO(), this.kAh == null ? null : this.kAh.get(cYN.kFM), bVar.cYP(), bVar.cYM(), i);
+        b cWz = msgViewHolder.cWz();
+        a.C0775a cYO = bVar.cYO();
+        cYO.createTime = bVar.getCreateTime();
+        cWz.a(this.pageContext.getPageActivity().getBaseContext(), cYO, bVar.cYP(), this.kAh == null ? null : this.kAh.get(cYO.kFM), bVar.cYQ(), bVar.cYN(), i);
         aq aqVar = new aq(this.kyq ? "c13865" : "c13863");
         aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
-        aqVar.dX("tid", cYN.tid == null ? "" : cYN.tid);
-        aqVar.dX("fid", cYN.fid);
+        aqVar.dX("tid", cYO.tid == null ? "" : cYO.tid);
+        aqVar.dX("fid", cYO.fid);
         TiebaStatic.log(aqVar);
         return view;
     }

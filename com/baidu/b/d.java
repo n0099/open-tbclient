@@ -2,7 +2,7 @@ package com.baidu.b;
 
 import java.util.Comparator;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class d implements Comparator<b> {
     final /* synthetic */ c afr;
 
@@ -15,7 +15,7 @@ public class d implements Comparator<b> {
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(b bVar, b bVar2) {
-        int i = bVar2.f1573b - bVar.f1573b;
+        int i = bVar2.f1574b - bVar.f1574b;
         if (i == 0) {
             if (bVar.d && bVar2.d) {
                 return 0;

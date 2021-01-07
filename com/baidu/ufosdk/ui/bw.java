@@ -7,11 +7,11 @@ import android.view.View;
 public final class bw implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f5759a;
+    final /* synthetic */ FeedbackInputActivity f5760a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bw(FeedbackInputActivity feedbackInputActivity) {
-        this.f5759a = feedbackInputActivity;
+        this.f5760a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnTouchListener

@@ -90,7 +90,7 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
         M(this.mPn, 0, AlaLiveTabFragment.gCo);
     }
 
-    public void bUp() {
+    public void bUq() {
         if (this.hasMore && !this.gDx) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.gDz >= 1800000) {

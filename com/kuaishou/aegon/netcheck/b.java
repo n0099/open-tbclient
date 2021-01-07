@@ -3,12 +3,12 @@ package com.kuaishou.aegon.netcheck;
 final /* synthetic */ class b implements Runnable {
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f8418b;
-    private final NetcheckTaskListenerWrapper pQI;
+    private final int f8419b;
+    private final NetcheckTaskListenerWrapper pSq;
 
     private b(NetcheckTaskListenerWrapper netcheckTaskListenerWrapper, int i) {
-        this.pQI = netcheckTaskListenerWrapper;
-        this.f8418b = i;
+        this.pSq = netcheckTaskListenerWrapper;
+        this.f8419b = i;
     }
 
     public static Runnable b(NetcheckTaskListenerWrapper netcheckTaskListenerWrapper, int i) {
@@ -17,6 +17,6 @@ final /* synthetic */ class b implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.pQI.pQH.a(this.f8418b);
+        this.pSq.pSp.a(this.f8419b);
     }
 }

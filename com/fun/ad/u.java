@@ -7,51 +7,51 @@ import com.fun.ad.sdk.FunAdInteractionListener;
 public class u implements c {
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f8136b;
-    public final /* synthetic */ FunAdInteractionListener pHN;
-    public final /* synthetic */ au.a pHO;
-    public final /* synthetic */ p pHP;
+    public final /* synthetic */ String f8137b;
+    public final /* synthetic */ FunAdInteractionListener pJv;
+    public final /* synthetic */ au.a pJw;
+    public final /* synthetic */ p pJx;
 
     public u(p pVar, FunAdInteractionListener funAdInteractionListener, String str, au.a aVar) {
-        this.pHP = pVar;
-        this.pHN = funAdInteractionListener;
-        this.f8136b = str;
-        this.pHO = aVar;
+        this.pJx = pVar;
+        this.pJv = funAdInteractionListener;
+        this.f8137b = str;
+        this.pJw = aVar;
     }
 
     public void a(String str) {
         m.a("FunAdLoader 巨赢互联广告 onAdClicked，广告ID：" + str);
-        FunAdInteractionListener funAdInteractionListener = this.pHN;
+        FunAdInteractionListener funAdInteractionListener = this.pJv;
         if (funAdInteractionListener != null) {
-            funAdInteractionListener.onAdClicked(this.pHP.pHx.f8057a);
+            funAdInteractionListener.onAdClicked(this.pJx.pJf.f8058a);
         }
-        ((d.a) d.pHm).a(this.f8136b, this.pHO.f8060b, str, (String) null, (String) null);
+        ((d.a) d.pIU).a(this.f8137b, this.pJw.f8061b, str, (String) null, (String) null);
     }
 
     public void b(String str) {
         m.a("FunAdLoader 巨赢互联广告 onAdDismiss，广告ID：" + str);
-        FunAdInteractionListener funAdInteractionListener = this.pHN;
+        FunAdInteractionListener funAdInteractionListener = this.pJv;
         if (funAdInteractionListener != null) {
-            funAdInteractionListener.onAdClose(this.pHP.pHx.f8057a);
+            funAdInteractionListener.onAdClose(this.pJx.pJf.f8058a);
         }
-        ((d.a) d.pHm).a(this.f8136b, this.pHO.f8060b, str);
+        ((d.a) d.pIU).a(this.f8137b, this.pJw.f8061b, str);
     }
 
     public void c(String str) {
         m.a("FunAdLoader 巨赢互联广告 onAdShow，广告ID：" + str);
-        FunAdInteractionListener funAdInteractionListener = this.pHN;
+        FunAdInteractionListener funAdInteractionListener = this.pJv;
         if (funAdInteractionListener != null) {
-            funAdInteractionListener.onAdShow(this.pHP.pHx.f8057a);
+            funAdInteractionListener.onAdShow(this.pJx.pJf.f8058a);
         }
-        ((d.a) d.pHm).d(this.f8136b, this.pHO.f8060b, str);
+        ((d.a) d.pIU).d(this.f8137b, this.pJw.f8061b, str);
     }
 
     public void a(String str, int i, String str2) {
         m.a("FunAdLoader 巨赢互联广告 onAdError，广告ID：" + str + ", errorCode: " + i + ", errorMessage: " + str2);
-        FunAdInteractionListener funAdInteractionListener = this.pHN;
+        FunAdInteractionListener funAdInteractionListener = this.pJv;
         if (funAdInteractionListener != null) {
-            funAdInteractionListener.onAdError(this.pHP.pHx.f8057a);
+            funAdInteractionListener.onAdError(this.pJx.pJf.f8058a);
         }
-        ((d.a) d.pHm).e(this.f8136b, this.pHO.f8060b, str, i, str2);
+        ((d.a) d.pIU).e(this.f8137b, this.pJw.f8061b, str, i, str2);
     }
 }

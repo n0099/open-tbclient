@@ -5,21 +5,21 @@ import java.math.BigDecimal;
 public final class g extends Number {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f7258a;
+    private final String f7259a;
 
     public g(String str) {
-        this.f7258a = str;
+        this.f7259a = str;
     }
 
     @Override // java.lang.Number
     public int intValue() {
         try {
-            return Integer.parseInt(this.f7258a);
+            return Integer.parseInt(this.f7259a);
         } catch (NumberFormatException e) {
             try {
-                return (int) Long.parseLong(this.f7258a);
+                return (int) Long.parseLong(this.f7259a);
             } catch (NumberFormatException e2) {
-                return new BigDecimal(this.f7258a).intValue();
+                return new BigDecimal(this.f7259a).intValue();
             }
         }
     }
@@ -27,28 +27,28 @@ public final class g extends Number {
     @Override // java.lang.Number
     public long longValue() {
         try {
-            return Long.parseLong(this.f7258a);
+            return Long.parseLong(this.f7259a);
         } catch (NumberFormatException e) {
-            return new BigDecimal(this.f7258a).longValue();
+            return new BigDecimal(this.f7259a).longValue();
         }
     }
 
     @Override // java.lang.Number
     public float floatValue() {
-        return Float.parseFloat(this.f7258a);
+        return Float.parseFloat(this.f7259a);
     }
 
     @Override // java.lang.Number
     public double doubleValue() {
-        return Double.parseDouble(this.f7258a);
+        return Double.parseDouble(this.f7259a);
     }
 
     public String toString() {
-        return this.f7258a;
+        return this.f7259a;
     }
 
     public int hashCode() {
-        return this.f7258a.hashCode();
+        return this.f7259a.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -57,7 +57,7 @@ public final class g extends Number {
         }
         if (obj instanceof g) {
             g gVar = (g) obj;
-            return this.f7258a == gVar.f7258a || this.f7258a.equals(gVar.f7258a);
+            return this.f7259a == gVar.f7259a || this.f7259a.equals(gVar.f7259a);
         }
         return false;
     }

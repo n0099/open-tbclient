@@ -36,7 +36,7 @@ public abstract class g {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.media.b.c a2 = com.baidu.swan.apps.media.b.c.a(optParamsAsJo, c.amP());
+        com.baidu.swan.apps.media.b.c a2 = com.baidu.swan.apps.media.b.c.a(optParamsAsJo, c.amQ());
         if (!a2.isValid()) {
             com.baidu.swan.apps.console.c.e("video", "param is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -48,9 +48,9 @@ public abstract class g {
     @Nullable
     protected com.baidu.swan.apps.media.b.a c(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
         com.baidu.swan.apps.media.a U;
-        if (TextUtils.isEmpty(str3) || (U = com.baidu.swan.apps.media.b.U(str, str2, str3)) == null || !(U.aEa() instanceof com.baidu.swan.apps.media.b.a)) {
+        if (TextUtils.isEmpty(str3) || (U = com.baidu.swan.apps.media.b.U(str, str2, str3)) == null || !(U.aEb() instanceof com.baidu.swan.apps.media.b.a)) {
             return null;
         }
-        return (com.baidu.swan.apps.media.b.a) U.aEa();
+        return (com.baidu.swan.apps.media.b.a) U.aEb();
     }
 }

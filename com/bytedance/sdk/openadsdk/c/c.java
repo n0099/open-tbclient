@@ -6,11 +6,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class c extends b<a> {
 
     /* renamed from: a  reason: collision with root package name */
-    private AtomicBoolean f6521a = new AtomicBoolean(false);
+    private AtomicBoolean f6522a = new AtomicBoolean(false);
 
     @Override // com.bytedance.sdk.openadsdk.c.b
     public void a() {
-        if (!this.f6521a.getAndSet(true)) {
+        if (!this.f6522a.getAndSet(true)) {
             com.bytedance.sdk.openadsdk.multipro.c.a.c();
         }
     }
@@ -22,7 +22,7 @@ public class c extends b<a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.c.b
     public void a(@NonNull a aVar) {
-        if (this.f6521a.get()) {
+        if (this.f6522a.get()) {
             com.bytedance.sdk.openadsdk.multipro.c.a.a(aVar.a());
         }
     }

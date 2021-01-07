@@ -30,10 +30,10 @@ import com.kwad.sdk.utils.ar;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private AdBaseFrameLayout f8705a;
+    private AdBaseFrameLayout f8706a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ViewGroup f8706b;
+    private ViewGroup f8707b;
     private ViewGroup c;
     private FrameLayout d;
     private WebView e;
@@ -102,7 +102,7 @@ public class b {
                 this.c.setVisibility(8);
             }
             j();
-            this.r = am.a(this.d, this.f8706b, this.n);
+            this.r = am.a(this.d, this.f8707b, this.n);
             this.r.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.contentalliance.detail.photo.a.b.7
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
@@ -132,9 +132,9 @@ public class b {
 
     private void e() {
         this.i = new com.kwad.sdk.core.webview.a();
-        this.i.f9836b = this.f;
-        this.i.f9835a = 0;
-        this.i.c = this.f8705a;
+        this.i.f9837b = this.f;
+        this.i.f9836a = 0;
+        this.i.c = this.f8706a;
         this.i.e = this.d;
         this.i.f = this.e;
     }
@@ -168,7 +168,7 @@ public class b {
 
     private void i() {
         j();
-        this.q = am.a(this.f8706b, this.d, this.n);
+        this.q = am.a(this.f8707b, this.d, this.n);
         this.q.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.contentalliance.detail.photo.a.b.6
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
@@ -218,11 +218,11 @@ public class b {
     }
 
     public void a(ViewGroup viewGroup, ViewGroup viewGroup2, FrameLayout frameLayout, WebView webView, AdBaseFrameLayout adBaseFrameLayout, AdTemplate adTemplate, com.kwad.sdk.core.download.b.b bVar) {
-        this.f8706b = viewGroup;
+        this.f8707b = viewGroup;
         this.c = viewGroup2;
         this.d = frameLayout;
         this.e = webView;
-        this.f8705a = adBaseFrameLayout;
+        this.f8706a = adBaseFrameLayout;
         this.f = adTemplate;
         this.g = bVar;
         this.h = com.kwad.sdk.core.response.b.b.a(adTemplate).strongStyleCardUrl;
@@ -239,7 +239,7 @@ public class b {
         if (this.m != null) {
             this.d.getViewTreeObserver().removeOnGlobalLayoutListener(this.m);
         }
-        this.f8706b.setTranslationX(0.0f);
+        this.f8707b.setTranslationX(0.0f);
         this.d.setVisibility(8);
         this.e.removeCallbacks(this.t);
     }

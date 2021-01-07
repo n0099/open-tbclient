@@ -7,9 +7,9 @@ public class a extends HttpMessage {
     public int aas;
     public long igy;
     public long liveId;
+    public int mWe;
     public int mWf;
-    public int mWg;
-    public long mWh;
+    public long mWg;
 
     public a() {
         super(1021193);
@@ -19,8 +19,8 @@ public class a extends HttpMessage {
         addParam("live_id", this.liveId);
         addParam("session_id", this.igy);
         addParam("refresh_type", this.aas);
-        addParam("big_refresh_count", this.mWf);
+        addParam("big_refresh_count", this.mWe);
         addParam("live_recommend_switch", this.aSz);
-        addParam("live_recommend_lastlyliveid", this.mWh);
+        addParam("live_recommend_lastlyliveid", this.mWg);
     }
 }

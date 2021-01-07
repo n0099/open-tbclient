@@ -4,41 +4,41 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ah<g> f13823a = new b();
+    public static final ah<g> f13824a = new b();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f13824a;
+        public final /* synthetic */ String f13825a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f13825b;
+        public final /* synthetic */ String f13826b;
 
         public a(g gVar, String str, String str2) {
-            this.f13824a = str;
-            this.f13825b = str2;
+            this.f13825a = str;
+            this.f13826b = str2;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             try {
-                aj.a(this.f13824a, aj.a(this.f13825b.getBytes(), ".turingdebug".getBytes()));
+                aj.a(this.f13825a, aj.a(this.f13826b.getBytes(), ".turingdebug".getBytes()));
             } catch (Throwable th) {
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class b extends ah<g> {
     }
 
     public static g a() {
-        return f13823a.a();
+        return f13824a.a();
     }
 
     public final String a(String str) {

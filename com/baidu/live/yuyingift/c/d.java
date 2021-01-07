@@ -34,7 +34,7 @@ public class d implements b {
     @Override // com.baidu.live.yuyingift.c.b
     public void hB(String str) {
         com.baidu.live.yuyingift.message.a aVar = new com.baidu.live.yuyingift.message.a(str);
-        aVar.addParam("scene_from", t.XF());
+        aVar.addParam("scene_from", t.XG());
         aVar.addParam("platform", "2");
         MessageManager.getInstance().sendMessage(aVar);
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_LIST_REQ, UbcStatConstant.ContentType.UBC_TYPE_GIFT_PACKAGE_LIST, UbcStatConstant.Page.VOICE_ROOM, null));

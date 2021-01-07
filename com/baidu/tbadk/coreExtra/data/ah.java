@@ -18,11 +18,11 @@ public class ah {
         return this.vcode_pic_url;
     }
 
-    public String bAf() {
+    public String bAg() {
         return this.ftR;
     }
 
-    public VcodeExtra bAg() {
+    public VcodeExtra bAh() {
         return this.ftS;
     }
 

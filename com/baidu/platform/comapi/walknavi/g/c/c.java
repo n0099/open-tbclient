@@ -36,7 +36,7 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class c extends com.baidu.platform.comapi.walknavi.g.c.b implements CompoundButton.OnCheckedChangeListener, com.baidu.platform.comapi.walknavi.d.b {
     private TextView A;
     private View B;
@@ -60,7 +60,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.c.b implements Compo
     private IWNPCLoadAndInitListener Y;
 
     /* renamed from: a  reason: collision with root package name */
-    Animation f4516a;
+    Animation f4517a;
     private a.b ae;
     private a.C0259a af;
     private View ag;
@@ -73,7 +73,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.c.b implements Compo
     private TextView an;
 
     /* renamed from: b  reason: collision with root package name */
-    Animation f4517b;
+    Animation f4518b;
     CheckBox c;
     CheckBox d;
     CheckBox e;
@@ -110,19 +110,19 @@ public class c extends com.baidu.platform.comapi.walknavi.g.c.b implements Compo
     final Runnable i = new o(this);
     final Runnable j = new v(this);
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(com.baidu.platform.comapi.walknavi.segmentbrowse.b bVar);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(int i);
 
         void a(String str);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         void a();
 
@@ -133,10 +133,10 @@ public class c extends com.baidu.platform.comapi.walknavi.g.c.b implements Compo
         this.K = null;
         this.l = context;
         WalkNaviDisplayOption n = com.baidu.platform.comapi.walknavi.b.a().n();
-        this.f4516a = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.l, R.attr.actionBarPopupTheme);
-        this.f4516a.setFillAfter(true);
-        this.f4517b = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.l, R.attr.actionBarItemBackground);
-        this.f4517b.setFillAfter(true);
+        this.f4517a = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.l, R.attr.actionBarPopupTheme);
+        this.f4517a.setFillAfter(true);
+        this.f4518b = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.l, R.attr.actionBarItemBackground);
+        this.f4518b.setFillAfter(true);
         this.P.setDuration(300L);
         this.Q.setDuration(300L);
         this.m = aVar;
@@ -351,8 +351,8 @@ public class c extends com.baidu.platform.comapi.walknavi.g.c.b implements Compo
                 c(true);
             }
             if (!z) {
-                this.y.startAnimation(this.f4517b);
-                this.I.startAnimation(this.f4517b);
+                this.y.startAnimation(this.f4518b);
+                this.I.startAnimation(this.f4518b);
             }
         } else if (com.baidu.platform.comapi.wnplatform.a.a().c()) {
             this.N = true;
@@ -363,9 +363,9 @@ public class c extends com.baidu.platform.comapi.walknavi.g.c.b implements Compo
                 this.J.setVisibility(0);
             } else {
                 this.y.setVisibility(8);
-                this.y.startAnimation(this.f4516a);
-                this.I.startAnimation(this.f4516a);
-                this.f4516a.setAnimationListener(new g(this));
+                this.y.startAnimation(this.f4517a);
+                this.I.startAnimation(this.f4517a);
+                this.f4517a.setAnimationListener(new g(this));
             }
             WalkNaviDisplayOption n = com.baidu.platform.comapi.walknavi.b.a().n();
             if (n != null && n.getImageArCloseIcon() != null && this.L != null) {
@@ -528,15 +528,15 @@ public class c extends com.baidu.platform.comapi.walknavi.g.c.b implements Compo
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.c.c$c  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class C0300c implements g.a {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<com.baidu.platform.comapi.walknavi.g.c.b> f4518a;
+        private WeakReference<com.baidu.platform.comapi.walknavi.g.c.b> f4519a;
 
         public C0300c(com.baidu.platform.comapi.walknavi.g.c.b bVar) {
-            this.f4518a = null;
-            this.f4518a = new WeakReference<>(bVar);
+            this.f4519a = null;
+            this.f4519a = new WeakReference<>(bVar);
         }
 
         @Override // com.baidu.platform.comapi.walknavi.d.g.a
@@ -580,7 +580,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.c.b implements Compo
     public void b() {
         Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.l, R.attr.actionBarPopupTheme);
         this.o.b();
-        if (com.baidu.platform.comapi.walknavi.g.b.b.f4503a == 2) {
+        if (com.baidu.platform.comapi.walknavi.g.b.b.f4504a == 2) {
             if (this.r.isShown()) {
                 this.r.setAnimation(c);
             }

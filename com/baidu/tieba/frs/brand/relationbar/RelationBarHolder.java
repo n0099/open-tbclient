@@ -11,7 +11,7 @@ public class RelationBarHolder<T extends View> extends RecyclerView.ViewHolder {
         this.jnL = t;
     }
 
-    public T cId() {
+    public T cIe() {
         return this.jnL;
     }
 }

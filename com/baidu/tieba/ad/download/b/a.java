@@ -16,26 +16,26 @@ public interface a {
         }
 
         @Override // com.baidu.tieba.ad.download.b.a
+        public void FA(String str) {
+            throw new IllegalArgumentException("IDownloaderProxy 无有效实例");
+        }
+
+        @Override // com.baidu.tieba.ad.download.b.a
         public void FB(String str) {
             throw new IllegalArgumentException("IDownloaderProxy 无有效实例");
         }
 
         @Override // com.baidu.tieba.ad.download.b.a
-        public void FC(String str) {
-            throw new IllegalArgumentException("IDownloaderProxy 无有效实例");
-        }
-
-        @Override // com.baidu.tieba.ad.download.b.a
-        public c bOZ() {
+        public c bPa() {
             throw new IllegalArgumentException("IDownloaderProxy 无有效实例");
         }
     };
 
-    void FB(String str);
+    void FA(String str);
 
-    void FC(String str);
+    void FB(String str);
 
     void b(@NonNull DownloadCacheKey downloadCacheKey, @Nullable AdDownloadData adDownloadData);
 
-    c bOZ();
+    c bPa();
 }

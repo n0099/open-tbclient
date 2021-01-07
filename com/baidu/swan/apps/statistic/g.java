@@ -31,15 +31,15 @@ public final class g {
     }
 
     public static <EvenT extends com.baidu.swan.apps.statistic.a.e> EvenT a(EvenT event) {
-        return (EvenT) a(event, "coreState", Integer.valueOf(com.baidu.swan.apps.core.turbo.d.avz()));
+        return (EvenT) a(event, "coreState", Integer.valueOf(com.baidu.swan.apps.core.turbo.d.avA()));
     }
 
     public static <EvenT extends com.baidu.swan.apps.statistic.a.e> EvenT b(EvenT event) {
-        return (EvenT) a(event, "packageState", Integer.valueOf(com.baidu.swan.apps.runtime.d.aMg().aMc().aMr()));
+        return (EvenT) a(event, "packageState", Integer.valueOf(com.baidu.swan.apps.runtime.d.aMh().aMd().aMs()));
     }
 
     public static <EvenT extends com.baidu.swan.apps.statistic.a.e> EvenT c(EvenT event) {
-        return (EvenT) a(event, "isDownloading", Integer.valueOf(com.baidu.swan.apps.runtime.d.aMg().aMc().aMq() ? 1 : 0));
+        return (EvenT) a(event, "isDownloading", Integer.valueOf(com.baidu.swan.apps.runtime.d.aMh().aMd().aMr() ? 1 : 0));
     }
 
     public static <EvenT extends com.baidu.swan.apps.statistic.a.e> EvenT a(EvenT event, String str, Object obj) {

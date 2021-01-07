@@ -3,15 +3,15 @@ package com.baidu.platform.comapi.walknavi.c;
 import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class c extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f4414a;
+    final /* synthetic */ b f4415a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f4414a = bVar;
+        this.f4415a = bVar;
     }
 
     @Override // android.os.Handler
@@ -24,24 +24,24 @@ public class c extends Handler {
         a aVar4;
         switch (message.what) {
             case 1:
-                aVar3 = this.f4414a.e;
+                aVar3 = this.f4415a.e;
                 if (aVar3 != null) {
-                    aVar4 = this.f4414a.e;
+                    aVar4 = this.f4415a.e;
                     aVar4.b();
-                    this.f4414a.e = null;
+                    this.f4415a.e = null;
                     return;
                 }
                 return;
             case 16:
             case 32:
-                b bVar = this.f4414a;
-                i = this.f4414a.f;
+                b bVar = this.f4415a;
+                i = this.f4415a.f;
                 bVar.f = i | message.what;
-                aVar = this.f4414a.e;
+                aVar = this.f4415a.e;
                 if (aVar != null) {
-                    i2 = this.f4414a.f;
+                    i2 = this.f4415a.f;
                     if (i2 == 48) {
-                        aVar2 = this.f4414a.e;
+                        aVar2 = this.f4415a.e;
                         aVar2.a();
                         return;
                     }

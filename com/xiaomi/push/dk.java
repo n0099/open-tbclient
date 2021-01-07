@@ -7,35 +7,35 @@ import com.xiaomi.push.di;
 public class dk extends al.b {
 
     /* renamed from: a  reason: collision with root package name */
-    al.b f14244a;
+    al.b f14245a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ di f299a;
+    final /* synthetic */ di f300a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dk(di diVar) {
-        this.f299a = diVar;
+        this.f300a = diVar;
     }
 
     @Override // com.xiaomi.push.al.b
     public void b() {
-        di.b bVar = (di.b) this.f299a.f287a.peek();
+        di.b bVar = (di.b) this.f300a.f288a.peek();
         if (bVar == null || !bVar.a()) {
             return;
         }
-        if (this.f299a.f287a.remove(bVar)) {
-            this.f14244a = bVar;
+        if (this.f300a.f288a.remove(bVar)) {
+            this.f14245a = bVar;
         }
-        if (this.f14244a != null) {
-            this.f14244a.b();
+        if (this.f14245a != null) {
+            this.f14245a.b();
         }
     }
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo248c() {
-        if (this.f14244a != null) {
-            this.f14244a.mo248c();
+    public void mo259c() {
+        if (this.f14245a != null) {
+            this.f14245a.mo259c();
         }
     }
 }

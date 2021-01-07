@@ -20,16 +20,16 @@ public class b {
     public b(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mActivity = baseActivity;
         this.mOnClickListener = onClickListener;
-        bDf();
+        bDg();
     }
 
-    private void bDf() {
+    private void bDg() {
         this.mRootLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.account_safe_activity, (ViewGroup) null);
         this.giY = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
         this.giZ = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
         this.gja = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
-        this.giZ.bDh();
-        this.gja.bDh();
+        this.giZ.bDi();
+        this.gja.bDi();
         this.giZ.setOnClickListener(this.mOnClickListener);
         this.gja.setOnClickListener(this.mOnClickListener);
     }

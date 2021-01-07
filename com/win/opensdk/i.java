@@ -19,15 +19,15 @@ import org.apache.http.protocol.HTTP;
 public final class i implements Runnable {
 
     /* renamed from: case  reason: not valid java name */
-    private String f56case;
+    private String f57case;
 
     /* renamed from: java  reason: collision with other field name */
-    private String f57java;
-    boolean qbE;
-    private long qbX;
-    private bt qdr;
+    private String f58java;
+    private long qdF;
+    boolean qdm;
+    private bt qeZ;
     private int java = 0;
-    private a qds = new a();
+    private a qfa = new a();
 
     /* renamed from: com.win.opensdk.i$case  reason: invalid class name */
     /* loaded from: classes4.dex */
@@ -43,24 +43,24 @@ public final class i implements Runnable {
     }
 
     public i(String str, String str2, bt btVar) {
-        this.qbE = false;
-        this.f57java = str;
-        this.f56case = str2;
-        this.qdr = btVar;
-        this.qbE = true;
+        this.qdm = false;
+        this.f58java = str;
+        this.f57case = str2;
+        this.qeZ = btVar;
+        this.qdm = true;
     }
 
     /* loaded from: classes4.dex */
     public class a {
-        private Handler qcJ;
+        private Handler qer;
         private int java = 0;
 
         /* renamed from: case  reason: not valid java name */
-        private int f58case = 0;
+        private int f59case = 0;
 
         public a() {
             if (Looper.myLooper() != null) {
-                this.qcJ = new Handler() { // from class: com.win.opensdk.i.a.1
+                this.qer = new Handler() { // from class: com.win.opensdk.i.a.1
                     @Override // android.os.Handler
                     public final void handleMessage(Message message) {
                         a.this.X(message);
@@ -69,7 +69,7 @@ public final class i implements Runnable {
             }
         }
 
-        private void eJL() {
+        private void eKp() {
             Y(m(7, null));
         }
 
@@ -77,7 +77,7 @@ public final class i implements Runnable {
             switch (message.what) {
                 case 1:
                     Object obj = message.obj;
-                    i.this.qdr.a();
+                    i.this.qeZ.a();
                     return;
                 case 2:
                 case 4:
@@ -85,28 +85,28 @@ public final class i implements Runnable {
                 default:
                     return;
                 case 3:
-                    i.this.qdr.eJM();
+                    i.this.qeZ.eKq();
                     return;
                 case 5:
-                    i.this.qdr.Ta(((Integer) ((Object[]) message.obj)[0]).intValue());
+                    i.this.qeZ.Tq(((Integer) ((Object[]) message.obj)[0]).intValue());
                     return;
                 case 7:
-                    i.this.qdr.eJL();
+                    i.this.qeZ.eKp();
                     return;
             }
         }
 
         final void Y(Message message) {
-            if (this.qcJ != null) {
-                this.qcJ.sendMessage(message);
+            if (this.qer != null) {
+                this.qer.sendMessage(message);
             } else {
                 X(message);
             }
         }
 
         final Message m(int i, Object obj) {
-            if (this.qcJ != null) {
-                return this.qcJ.obtainMessage(i, obj);
+            if (this.qer != null) {
+                return this.qer.obtainMessage(i, obj);
             }
             Message obtain = Message.obtain();
             obtain.what = i;
@@ -120,31 +120,31 @@ public final class i implements Runnable {
             try {
                 try {
                     byte[] bArr = new byte[4096];
-                    FileOutputStream fileOutputStream = new FileOutputStream(new File(i.this.f56case));
+                    FileOutputStream fileOutputStream = new FileOutputStream(new File(i.this.f57case));
                     int i = 0;
                     while (true) {
                         int read = inputStream.read(bArr);
                         if (read == -1) {
                             z = false;
                             break;
-                        } else if (i.this.qbE) {
+                        } else if (i.this.qdm) {
                             fileOutputStream.write(bArr, 0, read);
                             this.java = read + this.java;
-                            if (i.this.java + this.java < i.this.qbX + i.this.java) {
-                                this.f58case = (int) (Float.parseFloat(new DecimalFormat("0.00").format((i.this.java + this.java) / ((float) (i.this.qbX + i.this.java)))) * 100.0f);
-                                if (i % 30 == 0 || this.f58case == 100) {
-                                    Y(m(5, new Object[]{Integer.valueOf(this.f58case)}));
+                            if (i.this.java + this.java < i.this.qdF + i.this.java) {
+                                this.f59case = (int) (Float.parseFloat(new DecimalFormat("0.00").format((i.this.java + this.java) / ((float) (i.this.qdF + i.this.java)))) * 100.0f);
+                                if (i % 30 == 0 || this.f59case == 100) {
+                                    Y(m(5, new Object[]{Integer.valueOf(this.f59case)}));
                                 }
                             }
                             i++;
                         } else {
-                            eJL();
+                            eKp();
                             break;
                         }
                     }
                     fileOutputStream.flush();
                     fileOutputStream.close();
-                    i.this.qbE = false;
+                    i.this.qdm = false;
                     if (!z) {
                         Y(m(3, null));
                     }
@@ -152,19 +152,19 @@ public final class i implements Runnable {
                         try {
                             inputStream.close();
                         } catch (IOException e) {
-                            i.this.qbE = false;
+                            i.this.qdm = false;
                             e.printStackTrace();
                         }
                     }
                 } catch (Exception e2) {
-                    eJL();
-                    i.this.qbE = false;
+                    eKp();
+                    i.this.qdm = false;
                     e2.printStackTrace();
                     if (inputStream != null) {
                         try {
                             inputStream.close();
                         } catch (IOException e3) {
-                            i.this.qbE = false;
+                            i.this.qdm = false;
                             e3.printStackTrace();
                         }
                     }
@@ -174,7 +174,7 @@ public final class i implements Runnable {
                     try {
                         inputStream.close();
                     } catch (IOException e4) {
-                        i.this.qbE = false;
+                        i.this.qdm = false;
                         e4.printStackTrace();
                     }
                 }
@@ -189,7 +189,7 @@ public final class i implements Runnable {
         try {
             if (!Thread.currentThread().isInterrupted()) {
                 try {
-                    URL url = new URL(this.f57java);
+                    URL url = new URL(this.f58java);
                     if (url.toString().startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
                         httpURLConnection = (HttpsURLConnection) url.openConnection();
                     } else {
@@ -201,12 +201,12 @@ public final class i implements Runnable {
                     httpURLConnection.setRequestProperty(Headers.RANGE, "bytes=" + this.java + Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                     httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
                     httpURLConnection.connect();
-                    this.qbX = httpURLConnection.getContentLength();
+                    this.qdF = httpURLConnection.getContentLength();
                     if (!Thread.currentThread().isInterrupted()) {
-                        if (this.qds != null && this.qbX > 10) {
-                            this.qds.P(httpURLConnection.getInputStream());
-                        } else if (this.qdr != null) {
-                            this.qdr.a();
+                        if (this.qfa != null && this.qdF > 10) {
+                            this.qfa.P(httpURLConnection.getInputStream());
+                        } else if (this.qeZ != null) {
+                            this.qeZ.a();
                         }
                     }
                 } catch (IOException e) {
@@ -216,8 +216,8 @@ public final class i implements Runnable {
                 }
             }
         } catch (Exception e2) {
-            if (this.qds != null) {
-                a aVar = this.qds;
+            if (this.qfa != null) {
+                a aVar = this.qfa;
                 aVar.Y(aVar.m(1, new Object[]{Ccase.Socket}));
             }
         }

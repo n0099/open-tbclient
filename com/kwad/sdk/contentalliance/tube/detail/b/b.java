@@ -13,7 +13,7 @@ import com.kwad.sdk.utils.ag;
 public class b extends com.kwad.sdk.contentalliance.tube.detail.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f9234b;
+    private TextView f9235b;
     private TextView c;
     private TextView d;
     private TextView e;
@@ -31,7 +31,7 @@ public class b extends com.kwad.sdk.contentalliance.tube.detail.a.a {
 
         @Override // com.kwad.sdk.contentalliance.tube.b.a
         public void a(boolean z, @NonNull AdResultData adResultData) {
-            b.this.a(b.this.f9221a.f9223b.mTubeInfo);
+            b.this.a(b.this.f9222a.f9224b.mTubeInfo);
         }
 
         @Override // com.kwad.sdk.contentalliance.tube.b.a
@@ -45,7 +45,7 @@ public class b extends com.kwad.sdk.contentalliance.tube.detail.a.a {
             tubeInfo = new TubeInfo();
         }
         String string = o().getString(R.string.ksad_text_placeholder);
-        this.f9234b.setText(ag.a(tubeInfo.name, string));
+        this.f9235b.setText(ag.a(tubeInfo.name, string));
         this.c.setText(ag.a(tubeInfo.authorName, string));
         this.d.setVisibility(0);
         this.h.setVisibility(0);
@@ -63,7 +63,7 @@ public class b extends com.kwad.sdk.contentalliance.tube.detail.a.a {
     @Override // com.kwad.sdk.contentalliance.tube.detail.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f9221a.d.add(this.i);
+        this.f9222a.d.add(this.i);
         com.kwad.sdk.core.d.a.a("TubeDetailHeaderPresenter", "TubeDetailHeaderPresenter onBind");
     }
 
@@ -71,7 +71,7 @@ public class b extends com.kwad.sdk.contentalliance.tube.detail.a.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f9221a.d.remove(this.i);
+        this.f9222a.d.remove(this.i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -81,7 +81,7 @@ public class b extends com.kwad.sdk.contentalliance.tube.detail.a.a {
         com.kwad.sdk.core.d.a.a("TubeDetailHeaderPresenter", "TubeDetailHeaderPresenter onCreate");
         this.g = (LinearLayout) b(R.id.ksad_tube_author_info_area);
         this.d = (TextView) b(R.id.ksad_tube_author_name_label);
-        this.f9234b = (TextView) b(R.id.ksad_tube_name);
+        this.f9235b = (TextView) b(R.id.ksad_tube_name);
         this.c = (TextView) b(R.id.ksad_tube_author_name);
         this.e = (TextView) b(R.id.ksad_tube_update_info);
         this.f = (TextView) b(R.id.ksad_tube_description);

@@ -1,7 +1,7 @@
 package com.facebook.cache.disk;
 
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface h extends com.facebook.common.a.a {
     com.facebook.a.a a(com.facebook.cache.common.b bVar, com.facebook.cache.common.h hVar) throws IOException;
 

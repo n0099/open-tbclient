@@ -13,7 +13,7 @@ public final class k {
     final String pnB;
 
     /* renamed from: a  reason: collision with root package name */
-    static final Comparator<String> f6262a = new Comparator<String>() { // from class: com.bytedance.sdk.a.b.k.1
+    static final Comparator<String> f6263a = new Comparator<String>() { // from class: com.bytedance.sdk.a.b.k.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -34,7 +34,7 @@ public final class k {
             return 0;
         }
     };
-    private static final Map<String, k> pls = new TreeMap(f6262a);
+    private static final Map<String, k> pls = new TreeMap(f6263a);
     public static final k plt = ci("SSL_RSA_WITH_NULL_MD5", 1);
     public static final k plu = ci("SSL_RSA_WITH_NULL_SHA", 2);
     public static final k plv = ci("SSL_RSA_EXPORT_WITH_RC4_40_MD5", 3);
@@ -148,7 +148,7 @@ public final class k {
     public static final k pnz = ci("TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256", 52392);
     public static final k pnA = ci("TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256", 52393);
 
-    public static synchronized k YK(String str) {
+    public static synchronized k YJ(String str) {
         k kVar;
         synchronized (k.class) {
             kVar = pls.get(str);
@@ -164,7 +164,7 @@ public final class k {
     public static List<k> a(String... strArr) {
         ArrayList arrayList = new ArrayList(strArr.length);
         for (String str : strArr) {
-            arrayList.add(YK(str));
+            arrayList.add(YJ(str));
         }
         return Collections.unmodifiableList(arrayList);
     }
@@ -177,7 +177,7 @@ public final class k {
     }
 
     private static k ci(String str, int i) {
-        return YK(str);
+        return YJ(str);
     }
 
     public String toString() {

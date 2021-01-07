@@ -1231,12 +1231,12 @@ public class VerticalViewPager extends ViewGroup {
             }
             throw new IllegalStateException("onPageScrolled did not call superclass implementation");
         }
-        b bMm = bMm();
+        b bMn = bMn();
         int clientHeight = getClientHeight();
         int i2 = this.mPageMargin + clientHeight;
         float f2 = this.mPageMargin / clientHeight;
-        int i3 = bMm.position;
-        float f3 = ((i / clientHeight) - bMm.offset) / (bMm.gdr + f2);
+        int i3 = bMn.position;
+        float f3 = ((i / clientHeight) - bMn.offset) / (bMn.gdr + f2);
         this.mCalledSuper = false;
         onPageScrolled(i3, f3, (int) (i2 * f3));
         if (!this.mCalledSuper) {
@@ -1475,8 +1475,8 @@ public class VerticalViewPager extends ViewGroup {
                         this.mPopulatePending = true;
                         int clientHeight = getClientHeight();
                         int scrollY = getScrollY();
-                        b bMm = bMm();
-                        setCurrentItemInternal(determineTargetPage(bMm.position, ((scrollY / clientHeight) - bMm.offset) / bMm.gdr, yVelocity, (int) (MotionEventCompat.getY(motionEvent, MotionEventCompat.findPointerIndex(motionEvent, this.mActivePointerId)) - this.mInitialMotionY)), true, true, yVelocity);
+                        b bMn = bMn();
+                        setCurrentItemInternal(determineTargetPage(bMn.position, ((scrollY / clientHeight) - bMn.offset) / bMn.gdr, yVelocity, (int) (MotionEventCompat.getY(motionEvent, MotionEventCompat.findPointerIndex(motionEvent, this.mActivePointerId)) - this.mInitialMotionY)), true, true, yVelocity);
                         this.mActivePointerId = -1;
                         endDrag();
                         z = this.gdl.onRelease() | this.gdk.onRelease();
@@ -1581,7 +1581,7 @@ public class VerticalViewPager extends ViewGroup {
         return r2;
     }
 
-    private b bMm() {
+    private b bMn() {
         b bVar;
         int clientHeight = getClientHeight();
         float scrollY = clientHeight > 0 ? getScrollY() / clientHeight : 0.0f;
@@ -1802,7 +1802,7 @@ public class VerticalViewPager extends ViewGroup {
     public boolean arrowScroll(int i) {
         View view;
         boolean z;
-        boolean bMn;
+        boolean bMo;
         View findFocus = findFocus();
         if (findFocus == this) {
             view = null;
@@ -1838,34 +1838,34 @@ public class VerticalViewPager extends ViewGroup {
                 int i2 = getChildRectInPagerCoordinates(this.mTempRect, findNextFocus).top;
                 int i3 = getChildRectInPagerCoordinates(this.mTempRect, view).top;
                 if (view != null && i2 >= i3) {
-                    bMn = bMn();
+                    bMo = bMo();
                 } else {
-                    bMn = findNextFocus.requestFocus();
+                    bMo = findNextFocus.requestFocus();
                 }
             } else {
                 if (i == 130) {
                     int i4 = getChildRectInPagerCoordinates(this.mTempRect, findNextFocus).bottom;
                     int i5 = getChildRectInPagerCoordinates(this.mTempRect, view).bottom;
                     if (view != null && i4 <= i5) {
-                        bMn = bMo();
+                        bMo = bMp();
                     } else {
-                        bMn = findNextFocus.requestFocus();
+                        bMo = findNextFocus.requestFocus();
                     }
                 }
-                bMn = false;
+                bMo = false;
             }
         } else if (i == 33 || i == 1) {
-            bMn = bMn();
+            bMo = bMo();
         } else {
             if (i == 130 || i == 2) {
-                bMn = bMo();
+                bMo = bMp();
             }
-            bMn = false;
+            bMo = false;
         }
-        if (bMn) {
+        if (bMo) {
             playSoundEffect(SoundEffectConstants.getContantForFocusDirection(i));
         }
-        return bMn;
+        return bMo;
     }
 
     private Rect getChildRectInPagerCoordinates(Rect rect, View view) {
@@ -1890,7 +1890,7 @@ public class VerticalViewPager extends ViewGroup {
         return rect2;
     }
 
-    boolean bMn() {
+    boolean bMo() {
         if (this.mCurItem > 0) {
             setCurrentItem(this.mCurItem - 1, true);
             return true;
@@ -1898,7 +1898,7 @@ public class VerticalViewPager extends ViewGroup {
         return false;
     }
 
-    boolean bMo() {
+    boolean bMp() {
         if (this.mAdapter == null || this.mCurItem >= this.mAdapter.getCount() - 1) {
             return false;
         }

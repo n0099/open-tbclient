@@ -9,7 +9,7 @@ import java.security.MessageDigest;
 class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final char[] f8541a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static final char[] f8542a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(File file) {

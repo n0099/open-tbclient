@@ -6,7 +6,7 @@ import java.io.Closeable;
 public final class b implements Closeable {
 
     /* renamed from: b  reason: collision with root package name */
-    final w f6252b;
+    final w f6253b;
     final int c;
     final String d;
     final long k;
@@ -22,11 +22,11 @@ public final class b implements Closeable {
 
     b(a aVar) {
         this.piw = aVar.piw;
-        this.f6252b = aVar.f6253b;
+        this.f6253b = aVar.f6254b;
         this.c = aVar.c;
         this.d = aVar.d;
         this.plc = aVar.plc;
-        this.pld = aVar.plj.erx();
+        this.pld = aVar.plj.ery();
         this.ple = aVar.ple;
         this.plf = aVar.plf;
         this.plg = aVar.plg;
@@ -35,12 +35,12 @@ public final class b implements Closeable {
         this.l = aVar.l;
     }
 
-    public ab eqN() {
+    public ab eqO() {
         return this.piw;
     }
 
-    public w erd() {
-        return this.f6252b;
+    public w ere() {
+        return this.f6253b;
     }
 
     public int c() {
@@ -51,7 +51,7 @@ public final class b implements Closeable {
         return this.d;
     }
 
-    public u ere() {
+    public u erf() {
         return this.plc;
     }
 
@@ -64,23 +64,23 @@ public final class b implements Closeable {
         return a2 != null ? a2 : str2;
     }
 
-    public v erf() {
+    public v erg() {
         return this.pld;
     }
 
-    public c erg() {
+    public c erh() {
         return this.ple;
     }
 
-    public a erh() {
+    public a eri() {
         return new a(this);
     }
 
-    public b eri() {
+    public b erj() {
         return this.plh;
     }
 
-    public g erj() {
+    public g erk() {
         g gVar = this.pli;
         if (gVar != null) {
             return gVar;
@@ -107,14 +107,14 @@ public final class b implements Closeable {
     }
 
     public String toString() {
-        return "Response{protocol=" + this.f6252b + ", code=" + this.c + ", message=" + this.d + ", url=" + this.piw.eqk() + '}';
+        return "Response{protocol=" + this.f6253b + ", code=" + this.c + ", message=" + this.d + ", url=" + this.piw.eql() + '}';
     }
 
     /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: b  reason: collision with root package name */
-        w f6253b;
+        w f6254b;
         int c;
         String d;
         long k;
@@ -135,11 +135,11 @@ public final class b implements Closeable {
         a(b bVar) {
             this.c = -1;
             this.piw = bVar.piw;
-            this.f6253b = bVar.f6252b;
+            this.f6254b = bVar.f6253b;
             this.c = bVar.c;
             this.d = bVar.d;
             this.plc = bVar.plc;
-            this.plj = bVar.pld.erw();
+            this.plj = bVar.pld.erx();
             this.ple = bVar.ple;
             this.plf = bVar.plf;
             this.plg = bVar.plg;
@@ -154,7 +154,7 @@ public final class b implements Closeable {
         }
 
         public a a(w wVar) {
-            this.f6253b = wVar;
+            this.f6254b = wVar;
             return this;
         }
 
@@ -163,7 +163,7 @@ public final class b implements Closeable {
             return this;
         }
 
-        public a YJ(String str) {
+        public a YI(String str) {
             this.d = str;
             return this;
         }
@@ -179,7 +179,7 @@ public final class b implements Closeable {
         }
 
         public a c(v vVar) {
-            this.plj = vVar.erw();
+            this.plj = vVar.erx();
             return this;
         }
 
@@ -243,11 +243,11 @@ public final class b implements Closeable {
             return this;
         }
 
-        public b erk() {
+        public b erl() {
             if (this.piw == null) {
                 throw new IllegalStateException("request == null");
             }
-            if (this.f6253b == null) {
+            if (this.f6254b == null) {
                 throw new IllegalStateException("protocol == null");
             }
             if (this.c < 0) {

@@ -30,14 +30,14 @@ public class d extends com.baidu.swan.apps.api.a.d {
                 ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.d.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        final com.baidu.swan.apps.adaptation.b.d aDr = com.baidu.swan.apps.v.f.aDG().aDr();
-                        if (aDr != null) {
-                            ValueAnimator ofInt = ValueAnimator.ofInt(aDr.getWebViewScrollY(), d.a(aDr, ah.dip2px(d.this.getContext(), optInt)));
+                        final com.baidu.swan.apps.adaptation.b.d aDs = com.baidu.swan.apps.v.f.aDH().aDs();
+                        if (aDs != null) {
+                            ValueAnimator ofInt = ValueAnimator.ofInt(aDs.getWebViewScrollY(), d.a(aDs, ah.dip2px(d.this.getContext(), optInt)));
                             ofInt.setDuration(optInt2);
                             ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.api.module.e.d.1.1.1
                                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                                    aDr.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                                    aDs.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
                                 }
                             });
                             ofInt.start();
@@ -50,7 +50,7 @@ public class d extends com.baidu.swan.apps.api.a.d {
     }
 
     public static int a(@NonNull com.baidu.swan.apps.adaptation.b.d dVar, int i) {
-        int contentHeight = ((int) (dVar.getContentHeight() * dVar.getScale())) - ((Integer) com.baidu.swan.apps.v.f.aDG().aDs().second).intValue();
+        int contentHeight = ((int) (dVar.getContentHeight() * dVar.getScale())) - ((Integer) com.baidu.swan.apps.v.f.aDH().aDt().second).intValue();
         if (contentHeight <= 0) {
             return 0;
         }

@@ -34,54 +34,54 @@ import java.util.List;
 public class DetailInfoFragment extends BaseFragment implements com.baidu.tieba.pb.videopb.a {
     private PbListView gCf;
     private BdTypeRecyclerView jlj;
-    private VideoPbViewModel lIZ;
-    private PbActivity lME;
-    private com.baidu.tieba.pb.videopb.a.a mhH;
+    private VideoPbViewModel lIY;
+    private PbActivity lMD;
+    private com.baidu.tieba.pb.videopb.a.a mhG;
+    private String mhH;
     private String mhI;
-    private String mhJ;
-    private VideoPbFragment mhw;
-    private int mhE = 0;
+    private VideoPbFragment mhv;
+    private int mhD = 0;
     private RecyclerView.OnScrollListener mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.pb.videopb.fragment.DetailInfoFragment.1
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             super.onScrollStateChanged(recyclerView, i);
-            if (i == 1 && DetailInfoFragment.this.mhw != null) {
-                DetailInfoFragment.this.mhw.drO();
+            if (i == 1 && DetailInfoFragment.this.mhv != null) {
+                DetailInfoFragment.this.mhv.drP();
             }
-            if (i == 0 && !recyclerView.canScrollVertically(-1) && DetailInfoFragment.this.mhw != null && !DetailInfoFragment.this.mhw.dvN()) {
-                DetailInfoFragment.this.lIZ.we(true);
+            if (i == 0 && !recyclerView.canScrollVertically(-1) && DetailInfoFragment.this.mhv != null && !DetailInfoFragment.this.mhv.dvO()) {
+                DetailInfoFragment.this.lIY.we(true);
             }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrolled(RecyclerView recyclerView, int i, int i2) {
-            MutableLiveData<Boolean> dwe;
+            MutableLiveData<Boolean> dwf;
             super.onScrolled(recyclerView, i, i2);
             boolean canScrollVertically = recyclerView.canScrollVertically(-1);
-            if (canScrollVertically && i2 > 0 && DetailInfoFragment.this.mhw != null && !DetailInfoFragment.this.mhw.dvN() && ((dwe = DetailInfoFragment.this.lIZ.dwe()) == null || dwe.getValue() == null || dwe.getValue().booleanValue())) {
-                DetailInfoFragment.this.lIZ.we(false);
+            if (canScrollVertically && i2 > 0 && DetailInfoFragment.this.mhv != null && !DetailInfoFragment.this.mhv.dvO() && ((dwf = DetailInfoFragment.this.lIY.dwf()) == null || dwf.getValue() == null || dwf.getValue().booleanValue())) {
+                DetailInfoFragment.this.lIY.we(false);
             }
             if (!canScrollVertically) {
-                if (Math.abs(i2) > 0 && DetailInfoFragment.this.mhE != 0 && DetailInfoFragment.this.mhw != null) {
-                    DetailInfoFragment.this.mhw.HI(8);
+                if (Math.abs(i2) > 0 && DetailInfoFragment.this.mhD != 0 && DetailInfoFragment.this.mhv != null) {
+                    DetailInfoFragment.this.mhv.HI(8);
                 }
-                DetailInfoFragment.this.mhE = 0;
+                DetailInfoFragment.this.mhD = 0;
                 return;
             }
-            if (Math.abs(i2) > 0 && DetailInfoFragment.this.mhw != null && DetailInfoFragment.this.mhE == 0) {
-                DetailInfoFragment.this.mhw.HI(0);
+            if (Math.abs(i2) > 0 && DetailInfoFragment.this.mhv != null && DetailInfoFragment.this.mhD == 0) {
+                DetailInfoFragment.this.mhv.HI(0);
             }
-            DetailInfoFragment.this.mhE = 2;
+            DetailInfoFragment.this.mhD = 2;
         }
     };
-    private CustomMessageListener lNX = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.pb.videopb.fragment.DetailInfoFragment.2
+    private CustomMessageListener lNW = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.pb.videopb.fragment.DetailInfoFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && DetailInfoFragment.this.dnV() != null && DetailInfoFragment.this.dnV().getPbData() != null) {
-                DetailInfoFragment.this.dnV().getPbData().dmY();
-                DetailInfoFragment.this.dnV().dqs();
-                DetailInfoFragment.this.mhH.setData(DetailInfoFragment.this.dnV().getPbData());
+            if (customResponsedMessage != null && DetailInfoFragment.this.dnW() != null && DetailInfoFragment.this.dnW().getPbData() != null) {
+                DetailInfoFragment.this.dnW().getPbData().dmZ();
+                DetailInfoFragment.this.dnW().dqt();
+                DetailInfoFragment.this.mhG.setData(DetailInfoFragment.this.dnW().getPbData());
                 MessageManager.getInstance().abortResponsedMessage(customResponsedMessage);
             }
         }
@@ -90,10 +90,10 @@ public class DetailInfoFragment extends BaseFragment implements com.baidu.tieba.
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && DetailInfoFragment.this.dnV() != null && DetailInfoFragment.this.dnV().getPbData() != null) {
-                DetailInfoFragment.this.PI((String) customResponsedMessage.getData());
-                DetailInfoFragment.this.dnV().dqs();
-                DetailInfoFragment.this.mhH.setData(DetailInfoFragment.this.dnV().getPbData());
+            if (customResponsedMessage != null && DetailInfoFragment.this.dnW() != null && DetailInfoFragment.this.dnW().getPbData() != null) {
+                DetailInfoFragment.this.PH((String) customResponsedMessage.getData());
+                DetailInfoFragment.this.dnW().dqt();
+                DetailInfoFragment.this.mhG.setData(DetailInfoFragment.this.dnW().getPbData());
             }
         }
     };
@@ -102,7 +102,7 @@ public class DetailInfoFragment extends BaseFragment implements com.baidu.tieba.
         Bundle bundle = new Bundle();
         DetailInfoFragment detailInfoFragment = new DetailInfoFragment();
         detailInfoFragment.setArguments(bundle);
-        detailInfoFragment.mhw = videoPbFragment;
+        detailInfoFragment.mhv = videoPbFragment;
         return detailInfoFragment;
     }
 
@@ -110,7 +110,7 @@ public class DetailInfoFragment extends BaseFragment implements com.baidu.tieba.
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof PbActivity) {
-            this.lME = (PbActivity) context;
+            this.lMD = (PbActivity) context;
         }
     }
 
@@ -118,20 +118,20 @@ public class DetailInfoFragment extends BaseFragment implements com.baidu.tieba.
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         MessageManager.getInstance().registerListener(this.jom);
-        this.lNX.setSelfListener(true);
-        if (dpD() != null) {
-            this.lNX.setTag(dpD().getUniqueId());
+        this.lNW.setSelfListener(true);
+        if (dpE() != null) {
+            this.lNW.setTag(dpE().getUniqueId());
         } else if (getPageContext() != null) {
-            this.lNX.setTag(getPageContext().getUniqueId());
+            this.lNW.setTag(getPageContext().getUniqueId());
         }
-        this.lNX.setPriority(-1);
-        MessageManager.getInstance().registerListener(this.lNX);
+        this.lNW.setPriority(-1);
+        MessageManager.getInstance().registerListener(this.lNW);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.pb_detail_info_fragment, viewGroup, false);
-        this.lIZ = (VideoPbViewModel) ViewModelProviders.of(getFragmentActivity()).get(VideoPbViewModel.class);
+        this.lIY = (VideoPbViewModel) ViewModelProviders.of(getFragmentActivity()).get(VideoPbViewModel.class);
         cR(inflate);
         return inflate;
     }
@@ -140,7 +140,7 @@ public class DetailInfoFragment extends BaseFragment implements com.baidu.tieba.
         this.jlj = (BdTypeRecyclerView) view.findViewById(R.id.pb_detail_info_list);
         this.jlj.setLayoutManager(new LinearLayoutManager(getContext()));
         this.jlj.addOnScrollListener(this.mOnScrollListener);
-        this.jlj.setOnTouchListener(dpC().bJe());
+        this.jlj.setOnTouchListener(dpD().bJf());
         this.gCf = new PbListView(getContext());
         this.gCf.getView();
         this.gCf.setText("");
@@ -150,39 +150,39 @@ public class DetailInfoFragment extends BaseFragment implements com.baidu.tieba.
         this.gCf.setTextSize(R.dimen.tbfontsize33);
         this.gCf.setNoMoreTextColorId(R.color.CAM_X0110);
         this.gCf.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
-        this.gCf.bxC();
+        this.gCf.bxD();
         this.jlj.setNextPage(this.gCf);
-        this.mhH = new com.baidu.tieba.pb.videopb.a.a(this, this.jlj);
+        this.mhG = new com.baidu.tieba.pb.videopb.a.a(this, this.jlj);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        if (this.lIZ != null) {
-            dwC();
+        if (this.lIY != null) {
+            dwD();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.jom);
-        MessageManager.getInstance().unRegisterListener(this.lNX);
+        MessageManager.getInstance().unRegisterListener(this.lNW);
         super.onDestroy();
     }
 
-    private void dwC() {
-        f dvX = this.lIZ.dvX();
-        if (dvX == null) {
-            dvX = this.lIZ.dvW();
+    private void dwD() {
+        f dvY = this.lIY.dvY();
+        if (dvY == null) {
+            dvY = this.lIY.dvX();
         }
-        Q(dvX);
+        Q(dvY);
     }
 
     private void Q(f fVar) {
-        if (this.lIZ != null && fVar != null) {
+        if (this.lIY != null && fVar != null) {
             R(fVar);
             S(fVar);
-            this.mhH.setData(fVar);
+            this.mhG.setData(fVar);
         }
     }
 
@@ -190,37 +190,37 @@ public class DetailInfoFragment extends BaseFragment implements com.baidu.tieba.
         String str;
         String str2;
         if (fVar != null) {
-            if (fVar.dmE() != null) {
+            if (fVar.dmF() != null) {
                 str2 = fVar.getThreadId();
-                str = fVar.dmE().getBaijiahaoData() != null ? fVar.dmE().getBaijiahaoData().oriUgcNid : null;
+                str = fVar.dmF().getBaijiahaoData() != null ? fVar.dmF().getBaijiahaoData().oriUgcNid : null;
             } else {
                 str = null;
                 str2 = null;
             }
-            if (str2 != this.mhI || str != this.mhJ) {
-                dwD();
+            if (str2 != this.mhH || str != this.mhI) {
+                dwE();
             }
-            this.mhI = str2;
-            this.mhJ = str;
+            this.mhH = str2;
+            this.mhI = str;
         }
     }
 
     private void S(f fVar) {
         if (fVar != null) {
-            if (x.isEmpty(fVar.dng())) {
-                dwE();
+            if (x.isEmpty(fVar.dnh())) {
+                dwF();
                 return;
             }
-            dwG();
+            dwH();
             this.gCf.setText(getString(R.string.recommend_no_more_data));
         }
     }
 
-    private void dwD() {
+    private void dwE() {
         if (this.jlj != null) {
             this.jlj.scrollToPosition(0);
         }
-        dwG();
+        dwH();
     }
 
     @Override // com.baidu.tieba.pb.videopb.a
@@ -230,55 +230,55 @@ public class DetailInfoFragment extends BaseFragment implements com.baidu.tieba.
         }
     }
 
-    public PbActivity dpD() {
-        return this.lME != null ? this.lME : this.mhw.dpD();
+    public PbActivity dpE() {
+        return this.lMD != null ? this.lMD : this.mhv.dpE();
     }
 
-    public VideoPbFragment dpC() {
-        if (this.mhw == null && this.lME != null) {
-            Fragment doh = this.lME.doh();
-            if (doh instanceof VideoPbFragment) {
-                this.mhw = (VideoPbFragment) doh;
+    public VideoPbFragment dpD() {
+        if (this.mhv == null && this.lMD != null) {
+            Fragment doi = this.lMD.doi();
+            if (doi instanceof VideoPbFragment) {
+                this.mhv = (VideoPbFragment) doi;
             }
         }
-        return this.mhw;
+        return this.mhv;
     }
 
-    public PbModel dnV() {
-        return dpC().dnV();
+    public PbModel dnW() {
+        return dpD().dnW();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.mhH != null) {
-            this.mhH.notifyDataSetChanged();
+        if (this.mhG != null) {
+            this.mhG.notifyDataSetChanged();
         }
         if (this.gCf != null) {
             this.gCf.changeSkin(i);
         }
     }
 
-    private void dwE() {
+    private void dwF() {
         if (this.gCf != null) {
             this.gCf.t(getString(R.string.no_relevant_content), R.drawable.new_pic_emotion_08, l.getDimens(TbadkApplication.getInst(), R.dimen.tbds256));
         }
     }
 
-    public void dwF() {
-        if (this.mhH != null) {
-            this.mhH.dwm();
+    public void dwG() {
+        if (this.mhG != null) {
+            this.mhG.dwn();
         }
     }
 
-    private void dwG() {
+    private void dwH() {
         if (this.gCf != null) {
-            this.gCf.bxD();
+            this.gCf.bxE();
         }
     }
 
-    public int dwz() {
-        return this.mhE;
+    public int dwA() {
+        return this.mhD;
     }
 
     public void wi(boolean z) {
@@ -288,12 +288,12 @@ public class DetailInfoFragment extends BaseFragment implements com.baidu.tieba.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void PI(String str) {
+    public void PH(String str) {
         if (!TextUtils.isEmpty(str)) {
-            List<o> dnl = dnV().getPbData().dnl();
-            for (o oVar : dnl) {
+            List<o> dnm = dnW().getPbData().dnm();
+            for (o oVar : dnm) {
                 if (TextUtils.equals(str, oVar.getAdId())) {
-                    dnl.remove(oVar);
+                    dnm.remove(oVar);
                     return;
                 }
             }

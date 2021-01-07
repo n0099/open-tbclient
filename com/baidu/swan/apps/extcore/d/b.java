@@ -24,26 +24,26 @@ public abstract class b<T extends com.baidu.swan.apps.extcore.model.b.a> extends
         this.den = new CopyOnWriteArrayList<>();
     }
 
-    public long ayf() {
-        return h.aPH().getLong(this.ddH.aya(), 0L);
+    public long ayg() {
+        return h.aPI().getLong(this.ddH.ayb(), 0L);
     }
 
     public void ce(long j) {
-        h.aPH().putLong(this.ddH.aya(), j);
+        h.aPI().putLong(this.ddH.ayb(), j);
     }
 
     @Override // com.baidu.swan.apps.extcore.b.a
-    public File axP() {
-        return new File(super.axP(), "preset");
+    public File axQ() {
+        return new File(super.axQ(), "preset");
     }
 
     @NonNull
-    public ExtensionCore ayg() {
+    public ExtensionCore ayh() {
         ExtensionCore extensionCore = new ExtensionCore();
-        long ayf = ayf();
-        extensionCore.extensionCoreVersionCode = ayf;
-        extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.f.a.cf(ayf);
-        extensionCore.extensionCorePath = cd(ayf).getPath();
+        long ayg = ayg();
+        extensionCore.extensionCoreVersionCode = ayg;
+        extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.f.a.cf(ayg);
+        extensionCore.extensionCorePath = cd(ayg).getPath();
         extensionCore.extensionCoreType = 0;
         return extensionCore;
     }
@@ -61,9 +61,9 @@ public abstract class b<T extends com.baidu.swan.apps.extcore.model.b.a> extends
         }
         long oM = com.baidu.swan.apps.extcore.f.a.oM(aVar.versionName);
         if (d.dE(aVar.dej, cd(oM).getPath())) {
-            com.baidu.swan.apps.extcore.f.a.a(axP(), oM);
+            com.baidu.swan.apps.extcore.f.a.a(axQ(), oM);
             ce(oM);
-            com.baidu.swan.apps.extcore.f.a.z(this.ddH.aye(), false);
+            com.baidu.swan.apps.extcore.f.a.z(this.ddH.ayf(), false);
             return null;
         }
         Exception exc = new Exception("ExtCore-PresetControl doUpdate: failed by can not unzip coreFile = " + aVar.dej);
@@ -75,7 +75,7 @@ public abstract class b<T extends com.baidu.swan.apps.extcore.model.b.a> extends
     }
 
     private boolean isNeedUpdate() {
-        if (!com.baidu.swan.apps.extcore.f.a.iS(this.ddH.aye())) {
+        if (!com.baidu.swan.apps.extcore.f.a.iS(this.ddH.ayf())) {
             if (DEBUG) {
                 Log.d("ExtCore-PresetControl", "isNeedUpdate: false");
                 return false;
@@ -83,12 +83,12 @@ public abstract class b<T extends com.baidu.swan.apps.extcore.model.b.a> extends
             return false;
         }
         a a2 = a.a(this.ddH);
-        long ayf = ayf();
+        long ayg = ayg();
         long oM = com.baidu.swan.apps.extcore.f.a.oM(a2.extensionCoreVersionName);
         if (DEBUG) {
-            Log.d("ExtCore-PresetControl", "isNeedUpdate curVer: " + ayf + " newVer: " + oM);
+            Log.d("ExtCore-PresetControl", "isNeedUpdate curVer: " + ayg + " newVer: " + oM);
         }
-        return ayf < oM;
+        return ayg < oM;
     }
 
     @SuppressLint({"SwanNewThread"})
@@ -107,7 +107,7 @@ public abstract class b<T extends com.baidu.swan.apps.extcore.model.b.a> extends
                     a a2 = a.a(b.this.ddH);
                     com.baidu.swan.apps.extcore.model.a aVar = new com.baidu.swan.apps.extcore.model.a();
                     aVar.versionName = a2.extensionCoreVersionName;
-                    aVar.dej = b.this.ddH.ayc();
+                    aVar.dej = b.this.ddH.ayd();
                     b.this.u(b.this.b(aVar));
                 }
             }, "updateExtensionCoreAsync").start();
@@ -117,12 +117,12 @@ public abstract class b<T extends com.baidu.swan.apps.extcore.model.b.a> extends
         }
     }
 
-    public void axQ() {
+    public void axR() {
         if (isNeedUpdate()) {
             a a2 = a.a(this.ddH);
             com.baidu.swan.apps.extcore.model.a aVar = new com.baidu.swan.apps.extcore.model.a();
             aVar.versionName = a2.extensionCoreVersionName;
-            aVar.dej = this.ddH.ayc();
+            aVar.dej = this.ddH.ayd();
             u(b(aVar));
         }
     }

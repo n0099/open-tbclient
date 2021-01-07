@@ -24,10 +24,10 @@ import com.kwad.sdk.utils.ao;
 public class ActionBarAppLandscape extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f10957a;
+    private ImageView f10958a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f10958b;
+    private TextView f10959b;
     private TextView c;
     private AppScoreView d;
     private TextView e;
@@ -59,8 +59,8 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
 
     private void a() {
         inflate(getContext(), R.layout.ksad_video_actionbar_app_landscape, this);
-        this.f10957a = (ImageView) findViewById(R.id.ksad_app_icon);
-        this.f10958b = (TextView) findViewById(R.id.ksad_app_title);
+        this.f10958a = (ImageView) findViewById(R.id.ksad_app_icon);
+        this.f10959b = (TextView) findViewById(R.id.ksad_app_title);
         this.c = (TextView) findViewById(R.id.ksad_app_desc);
         this.d = (AppScoreView) findViewById(R.id.ksad_app_score);
         this.e = (TextView) findViewById(R.id.ksad_app_download_count);
@@ -141,8 +141,8 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
         this.i = com.kwad.sdk.core.response.b.c.j(adTemplate);
         this.j = aVar;
         this.k = bVar;
-        KSImageLoader.loadAppIcon(this.f10957a, com.kwad.sdk.core.response.b.a.o(this.i), adTemplate, 12);
-        this.f10958b.setText(com.kwad.sdk.core.response.b.a.q(this.i));
+        KSImageLoader.loadAppIcon(this.f10958a, com.kwad.sdk.core.response.b.a.o(this.i), adTemplate, 12);
+        this.f10959b.setText(com.kwad.sdk.core.response.b.a.q(this.i));
         b();
         this.f.a(com.kwad.sdk.core.response.b.a.w(this.i), 0);
         if (this.k != null) {
@@ -159,8 +159,8 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         b.a(this.k, view == this.g);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.h, new a.InterfaceC1064a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarAppLandscape.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1064a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.h, new a.InterfaceC1105a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarAppLandscape.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
             public void a() {
                 if (ActionBarAppLandscape.this.j != null) {
                     ActionBarAppLandscape.this.j.a();

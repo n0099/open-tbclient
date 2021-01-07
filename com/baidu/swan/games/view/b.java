@@ -11,7 +11,7 @@ public class b {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void ano();
+        void anp();
 
         void hL(int i);
     }
@@ -29,20 +29,20 @@ public class b {
         }
     }
 
-    public synchronized void ano() {
+    public synchronized void anp() {
         Iterator<a> it = this.eoJ.iterator();
         while (it.hasNext()) {
-            it.next().ano();
+            it.next().anp();
         }
         this.eoJ.clear();
     }
 
     @Nullable
-    public static b bcR() {
+    public static b bcS() {
         j jVar;
-        f ajs = com.baidu.swan.apps.v.f.aDG().ajs();
-        if (ajs != null && (jVar = (j) ajs.j(j.class)) != null) {
-            return jVar.atr();
+        f ajt = com.baidu.swan.apps.v.f.aDH().ajt();
+        if (ajt != null && (jVar = (j) ajt.j(j.class)) != null) {
+            return jVar.ats();
         }
         return null;
     }

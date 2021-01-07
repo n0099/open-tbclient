@@ -19,10 +19,10 @@ import java.util.List;
 public class BaiduNative {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f3253a;
+    private final Context f3254a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f3254b;
+    private final String f3255b;
     private c c;
     private BaiduNativeNetworkListener d;
     private BaiduNativeEventListener e;
@@ -46,10 +46,10 @@ public class BaiduNative {
     public class CustomIOAdEventListener implements IOAdEventListener {
 
         /* renamed from: b  reason: collision with root package name */
-        private IXAdFeedsRequestParameters f3256b;
+        private IXAdFeedsRequestParameters f3257b;
 
         public CustomIOAdEventListener(IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
-            this.f3256b = iXAdFeedsRequestParameters;
+            this.f3257b = iXAdFeedsRequestParameters;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:20:0x007f  */
@@ -76,13 +76,13 @@ public class BaiduNative {
                                 z2 = true;
                             } else {
                                 hashSet.add(appPackageName);
-                                if (XAdSDKFoundationFacade.getInstance().getPackageUtils().isInstalled(BaiduNative.this.f3253a, appPackageName)) {
+                                if (XAdSDKFoundationFacade.getInstance().getPackageUtils().isInstalled(BaiduNative.this.f3254a, appPackageName)) {
                                     z = true;
                                     z2 = false;
                                 }
                             }
                             if (z2) {
-                                XAdNativeResponse xAdNativeResponse = new XAdNativeResponse(iXAdInstanceInfo, BaiduNative.this, this.f3256b, BaiduNative.this.c.getCurrentXAdContainer());
+                                XAdNativeResponse xAdNativeResponse = new XAdNativeResponse(iXAdInstanceInfo, BaiduNative.this, this.f3257b, BaiduNative.this.c.getCurrentXAdContainer());
                                 if (z) {
                                     xAdNativeResponse.setIsDownloadApp(false);
                                 }
@@ -122,9 +122,9 @@ public class BaiduNative {
     }
 
     public BaiduNative(Context context, String str, BaiduNativeNetworkListener baiduNativeNetworkListener, c cVar) {
-        this.f3253a = context;
+        this.f3254a = context;
         XAdSDKFoundationFacade.getInstance().initializeApplicationContext(context.getApplicationContext());
-        this.f3254b = str;
+        this.f3255b = str;
         this.d = baiduNativeNetworkListener;
         q.a(context).a();
         this.c = cVar;
@@ -146,7 +146,7 @@ public class BaiduNative {
         if (requestParameters == null) {
             requestParameters = new RequestParameters.Builder().build();
         }
-        requestParameters.mPlacementId = this.f3254b;
+        requestParameters.mPlacementId = this.f3255b;
         CustomIOAdEventListener customIOAdEventListener = new CustomIOAdEventListener(requestParameters);
         this.c.addEventListener(IXAdEvent.AD_STARTED, customIOAdEventListener);
         this.c.addEventListener(IXAdEvent.AD_ERROR, customIOAdEventListener);

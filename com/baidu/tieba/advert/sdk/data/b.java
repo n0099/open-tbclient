@@ -40,7 +40,7 @@ public class b {
         return bVar;
     }
 
-    public static b FX(String str) {
+    public static b FW(String str) {
         b bVar = new b();
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -81,7 +81,7 @@ public class b {
         return jSONObject.toString();
     }
 
-    public boolean bPM() {
+    public boolean bPN() {
         return (System.currentTimeMillis() / 1000 >= this.startShowTime && System.currentTimeMillis() / 1000 <= this.endShowTime) || (this.startShowTime == 0 && this.endShowTime == 0);
     }
 

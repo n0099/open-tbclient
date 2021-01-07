@@ -19,36 +19,36 @@ public class d {
     public String mVersion;
 
     public boolean isLoaded() {
-        return aeg() != null && aeg().exists();
+        return aeh() != null && aeh().exists();
     }
 
-    public void bWg() {
-        File file = new File(aei());
+    public void bWh() {
+        File file = new File(aej());
         if (file != null) {
             com.baidu.tieba.ala.b.b.a.deleteDir(file);
         }
         this.gNV = null;
-        aei();
-        aeg();
+        aej();
+        aeh();
     }
 
     public String getName() {
         return this.mVersion + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mMd5;
     }
 
-    public File aeg() {
+    public File aeh() {
         if (this.gNV == null && !TextUtils.isEmpty(this.mVersion)) {
-            this.gNV = new File(aei(), getName());
+            this.gNV = new File(aej(), getName());
         }
         return this.gNV;
     }
 
     public String getFilePath() {
-        return aeg().getAbsolutePath();
+        return aeh().getAbsolutePath();
     }
 
-    public String aei() {
-        return TextUtils.equals(this.mType, "so") ? c.bWe().getAbsolutePath() : c.bWf().getAbsolutePath();
+    public String aej() {
+        return TextUtils.equals(this.mType, "so") ? c.bWf().getAbsolutePath() : c.bWg().getAbsolutePath();
     }
 
     public String getLoadingFile() {
@@ -75,25 +75,25 @@ public class d {
                 }
             }
             com.baidu.tieba.ala.b.b.a.unzipFile(file, file2.getAbsolutePath());
-            file2.renameTo(aeg());
-            if (isLoaded() && bWh()) {
+            file2.renameTo(aeh());
+            if (isLoaded() && bWi()) {
                 z = true;
             }
             if (!z) {
-                com.baidu.tieba.ala.b.b.a.deleteDir(aeg());
+                com.baidu.tieba.ala.b.b.a.deleteDir(aeh());
             }
             com.baidu.tieba.ala.b.b.a.deleteFile(str);
         } catch (Exception e2) {
             e2.printStackTrace();
-            com.baidu.tieba.ala.b.b.a.deleteDir(aeg());
+            com.baidu.tieba.ala.b.b.a.deleteDir(aeh());
         }
         return z;
     }
 
-    public boolean bWh() {
+    public boolean bWi() {
         JSONArray optJSONArray;
         try {
-            File file = new File(aeg(), "files.json");
+            File file = new File(aeh(), "files.json");
             if (file == null || !file.exists()) {
                 return false;
             }
@@ -109,7 +109,7 @@ public class d {
             ArrayList<a> arrayList = new ArrayList<>();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                arrayList.add(a.GP(optJSONArray.getString(i)));
+                arrayList.add(a.GO(optJSONArray.getString(i)));
             }
             return aa(arrayList);
         } catch (Exception e) {
@@ -166,7 +166,7 @@ public class d {
         public String mName;
         public String mPath;
 
-        public static a GP(String str) {
+        public static a GO(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }

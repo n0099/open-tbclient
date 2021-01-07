@@ -30,23 +30,23 @@ public final class f {
         this.piV = dVar;
         this.piW = hVar;
         this.piX = tVar;
-        a(aVar.eqk(), aVar.eqp());
+        a(aVar.eql(), aVar.eqq());
     }
 
     public boolean a() {
         return c() || !this.h.isEmpty();
     }
 
-    public a eqA() throws IOException {
+    public a eqB() throws IOException {
         if (!a()) {
             throw new NoSuchElementException();
         }
         ArrayList arrayList = new ArrayList();
         while (c()) {
-            Proxy eqB = eqB();
+            Proxy eqC = eqC();
             int size = this.g.size();
             for (int i = 0; i < size; i++) {
-                com.bytedance.sdk.a.b.d dVar = new com.bytedance.sdk.a.b.d(this.piU, eqB, this.g.get(i));
+                com.bytedance.sdk.a.b.d dVar = new com.bytedance.sdk.a.b.d(this.piU, eqC, this.g.get(i));
                 if (this.piV.c(dVar)) {
                     this.h.add(dVar);
                 } else {
@@ -65,8 +65,8 @@ public final class f {
     }
 
     public void a(com.bytedance.sdk.a.b.d dVar, IOException iOException) {
-        if (dVar.ern().type() != Proxy.Type.DIRECT && this.piU.eqo() != null) {
-            this.piU.eqo().connectFailed(this.piU.eqk().ery(), dVar.ern().address(), iOException);
+        if (dVar.ero().type() != Proxy.Type.DIRECT && this.piU.eqp() != null) {
+            this.piU.eqp().connectFailed(this.piU.eql().erz(), dVar.ero().address(), iOException);
         }
         this.piV.a(dVar);
     }
@@ -76,7 +76,7 @@ public final class f {
         if (proxy != null) {
             this.e = Collections.singletonList(proxy);
         } else {
-            List<Proxy> select = this.piU.eqo().select(sVar.ery());
+            List<Proxy> select = this.piU.eqp().select(sVar.erz());
             if (select != null && !select.isEmpty()) {
                 P = com.bytedance.sdk.a.b.a.c.a(select);
             } else {
@@ -91,9 +91,9 @@ public final class f {
         return this.f < this.e.size();
     }
 
-    private Proxy eqB() throws IOException {
+    private Proxy eqC() throws IOException {
         if (!c()) {
-            throw new SocketException("No route to " + this.piU.eqk().f() + "; exhausted proxy configurations: " + this.e);
+            throw new SocketException("No route to " + this.piU.eql().f() + "; exhausted proxy configurations: " + this.e);
         }
         List<Proxy> list = this.e;
         int i = this.f;
@@ -108,8 +108,8 @@ public final class f {
         int g;
         this.g = new ArrayList();
         if (proxy.type() == Proxy.Type.DIRECT || proxy.type() == Proxy.Type.SOCKS) {
-            f = this.piU.eqk().f();
-            g = this.piU.eqk().g();
+            f = this.piU.eql().f();
+            g = this.piU.eql().g();
         } else {
             SocketAddress address = proxy.address();
             if (!(address instanceof InetSocketAddress)) {
@@ -127,9 +127,9 @@ public final class f {
             return;
         }
         this.piX.a(this.piW, f);
-        List<InetAddress> a2 = this.piU.eql().a(f);
+        List<InetAddress> a2 = this.piU.eqm().a(f);
         if (a2.isEmpty()) {
-            throw new UnknownHostException(this.piU.eql() + " returned no addresses for " + f);
+            throw new UnknownHostException(this.piU.eqm() + " returned no addresses for " + f);
         }
         this.piX.a(this.piW, f, a2);
         int size = a2.size();
@@ -147,31 +147,31 @@ public final class f {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final List<com.bytedance.sdk.a.b.d> f6166a;
+        private final List<com.bytedance.sdk.a.b.d> f6167a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f6167b = 0;
+        private int f6168b = 0;
 
         a(List<com.bytedance.sdk.a.b.d> list) {
-            this.f6166a = list;
+            this.f6167a = list;
         }
 
         public boolean a() {
-            return this.f6167b < this.f6166a.size();
+            return this.f6168b < this.f6167a.size();
         }
 
-        public com.bytedance.sdk.a.b.d eqC() {
+        public com.bytedance.sdk.a.b.d eqD() {
             if (!a()) {
                 throw new NoSuchElementException();
             }
-            List<com.bytedance.sdk.a.b.d> list = this.f6166a;
-            int i = this.f6167b;
-            this.f6167b = i + 1;
+            List<com.bytedance.sdk.a.b.d> list = this.f6167a;
+            int i = this.f6168b;
+            this.f6168b = i + 1;
             return list.get(i);
         }
 
         public List<com.bytedance.sdk.a.b.d> c() {
-            return new ArrayList(this.f6166a);
+            return new ArrayList(this.f6167a);
         }
     }
 }

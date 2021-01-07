@@ -9,10 +9,10 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13200a;
+    private String f13201a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f13201b;
+    private final String f13202b;
     private final String c;
     private final boolean d;
     private final long e;
@@ -28,8 +28,8 @@ public class d {
     private final JSONObject o;
 
     d(a aVar) {
-        this.f13200a = aVar.f13202a;
-        this.f13201b = aVar.f13203b;
+        this.f13201a = aVar.f13203a;
+        this.f13202b = aVar.f13204b;
         this.c = aVar.c;
         this.d = aVar.d;
         this.e = aVar.e;
@@ -49,11 +49,11 @@ public class d {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f13202a;
+        private String f13203a;
         private JSONObject axv;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f13203b;
+        private String f13204b;
         private String c;
         private long e;
         private String f;
@@ -73,27 +73,27 @@ public class d {
             return this;
         }
 
-        public a aao(String str) {
-            this.f13203b = str;
-            return this;
-        }
-
         public a aap(String str) {
-            this.c = str;
-            return this;
-        }
-
-        public a iQ(long j) {
-            this.e = j;
-            return this;
-        }
-
-        public a iR(long j) {
-            this.g = j;
+            this.f13204b = str;
             return this;
         }
 
         public a aaq(String str) {
+            this.c = str;
+            return this;
+        }
+
+        public a iT(long j) {
+            this.e = j;
+            return this;
+        }
+
+        public a iU(long j) {
+            this.g = j;
+            return this;
+        }
+
+        public a aar(String str) {
             this.f = str;
             return this;
         }
@@ -108,29 +108,29 @@ public class d {
             return this;
         }
 
-        public a gV(List<String> list) {
+        public a gW(List<String> list) {
             this.j = list;
             return this;
         }
 
-        public a RI(int i) {
+        public a RY(int i) {
             this.k = i;
             return this;
         }
 
-        public a bE(Object obj) {
+        public a bF(Object obj) {
             this.l = obj;
             return this;
         }
 
-        public a aar(String str) {
+        public a aas(String str) {
             this.m = str;
             return this;
         }
 
-        public d eEZ() {
-            if (TextUtils.isEmpty(this.f13202a)) {
-                this.f13202a = "umeng";
+        public d eFD() {
+            if (TextUtils.isEmpty(this.f13203a)) {
+                this.f13203a = "umeng";
             }
             JSONObject jSONObject = new JSONObject();
             if (this.h == null) {
@@ -152,8 +152,8 @@ public class d {
                         String next = keys.next();
                         this.axv.put(next, this.h.get(next));
                     }
-                    this.axv.put("category", this.f13202a);
-                    this.axv.put("tag", this.f13203b);
+                    this.axv.put("category", this.f13203a);
+                    this.axv.put("tag", this.f13204b);
                     this.axv.put("value", this.e);
                     this.axv.put("ext_value", this.g);
                     if (!TextUtils.isEmpty(this.m)) {
@@ -186,7 +186,7 @@ public class d {
     }
 
     public String a() {
-        return this.f13201b;
+        return this.f13202b;
     }
 
     public String b() {
@@ -206,6 +206,6 @@ public class d {
     }
 
     public String toString() {
-        return "category: " + this.f13200a + "\ttag: " + this.f13201b + "\tlabel: " + this.c + "\nisAd: " + this.d + "\tadId: " + this.e + "\tlogExtra: " + this.f + "\textValue: " + this.g + "\nextJson: " + this.h + "\nclickTrackUrl: " + (this.i != null ? this.i.toString() : "") + "\teventSource: " + this.j + "\textraObject: " + (this.k != null ? this.k.toString() : "") + "\nisV3: " + this.m + "\tV3EventName: " + this.n + "\tV3EventParams: " + (this.o != null ? this.o.toString() : "");
+        return "category: " + this.f13201a + "\ttag: " + this.f13202b + "\tlabel: " + this.c + "\nisAd: " + this.d + "\tadId: " + this.e + "\tlogExtra: " + this.f + "\textValue: " + this.g + "\nextJson: " + this.h + "\nclickTrackUrl: " + (this.i != null ? this.i.toString() : "") + "\teventSource: " + this.j + "\textraObject: " + (this.k != null ? this.k.toString() : "") + "\nisV3: " + this.m + "\tV3EventName: " + this.n + "\tV3EventParams: " + (this.o != null ? this.o.toString() : "");
     }
 }

@@ -51,13 +51,13 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
             public void onClick(View view2) {
                 if (bg.checkUpIsLogin(FrsU9ViewHolder.this.eXu.getPageActivity()) && l.isNetOk()) {
                     if (view2 == FrsU9ViewHolder.this.jtj) {
-                        if (FrsU9ViewHolder.this.top_code != null && !TextUtils.isEmpty(FrsU9ViewHolder.this.top_code.btE())) {
+                        if (FrsU9ViewHolder.this.top_code != null && !TextUtils.isEmpty(FrsU9ViewHolder.this.top_code.btF())) {
                             TiebaStatic.eventStat(FrsU9ViewHolder.this.eXu.getPageActivity(), "num_click", "click", 1, new Object[0]);
-                            be.bwu().b((TbPageContext) j.K(FrsU9ViewHolder.this.eXu.getPageActivity()), new String[]{FrsU9ViewHolder.this.top_code.btE()});
+                            be.bwv().b((TbPageContext) j.K(FrsU9ViewHolder.this.eXu.getPageActivity()), new String[]{FrsU9ViewHolder.this.top_code.btF()});
                         }
-                    } else if (view2 == FrsU9ViewHolder.this.jtk && FrsU9ViewHolder.this.news_info != null && !TextUtils.isEmpty(FrsU9ViewHolder.this.news_info.btL())) {
+                    } else if (view2 == FrsU9ViewHolder.this.jtk && FrsU9ViewHolder.this.news_info != null && !TextUtils.isEmpty(FrsU9ViewHolder.this.news_info.btM())) {
                         TiebaStatic.eventStat(FrsU9ViewHolder.this.eXu.getPageActivity(), "info_click", "click", 1, "page", "frs");
-                        be.bwu().b((TbPageContext) j.K(FrsU9ViewHolder.this.eXu.getPageActivity()), new String[]{FrsU9ViewHolder.this.news_info.btL()});
+                        be.bwv().b((TbPageContext) j.K(FrsU9ViewHolder.this.eXu.getPageActivity()), new String[]{FrsU9ViewHolder.this.news_info.btM()});
                     }
                 }
             }
@@ -78,16 +78,16 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         this.jtt = view.findViewById(R.id.frs_list_item_u9_top_line);
         ao.setBackgroundResource(this.jtp, R.drawable.frs_star_btn_like);
         ao.setViewTextColor(this.jtp, R.drawable.frs_text_color_selector);
-        cJw();
+        cJx();
     }
 
     public void a(ad adVar) {
         if (adVar != null) {
-            cb dOA = adVar.dOA();
-            ce dOB = adVar.dOB();
-            this.top_code = dOA;
-            this.news_info = dOB;
-            if (adVar.dOz()) {
+            cb dOB = adVar.dOB();
+            ce dOC = adVar.dOC();
+            this.top_code = dOB;
+            this.news_info = dOC;
+            if (adVar.dOA()) {
                 this.jtt.setVisibility(0);
             } else {
                 this.jtt.setVisibility(8);
@@ -103,48 +103,48 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                 this.jtq.setVisibility(0);
                 this.jtl.startLoad(this.top_code.getImgUrl(), 10, false);
                 this.jtm.setText(this.top_code.getSummary());
-                if (StringUtils.isNull(dOA.btI())) {
+                if (StringUtils.isNull(dOB.btJ())) {
                     this.jtp.setVisibility(8);
                 } else {
-                    this.jtp.setText(dOA.btI());
+                    this.jtp.setText(dOB.btJ());
                     this.jtp.setVisibility(0);
                 }
-                int btF = this.top_code.btF();
-                if (btF == 1 || btF == 2) {
-                    if (StringUtils.isNull(this.top_code.btG())) {
+                int btG = this.top_code.btG();
+                if (btG == 1 || btG == 2) {
+                    if (StringUtils.isNull(this.top_code.btH())) {
                         this.jtn.setVisibility(8);
                     } else {
-                        String str = this.eXu.getResources().getString(R.string.u9_shengyu) + this.top_code.btG();
+                        String str = this.eXu.getResources().getString(R.string.u9_shengyu) + this.top_code.btH();
                         SpannableString spannableString = new SpannableString(str);
-                        UtilHelper.setSpan(spannableString, str, this.top_code.btG(), new ForegroundColorSpan(ao.getColor(R.color.CAM_X0305)));
+                        UtilHelper.setSpan(spannableString, str, this.top_code.btH(), new ForegroundColorSpan(ao.getColor(R.color.CAM_X0305)));
                         this.jtn.setText(spannableString);
                         this.jtn.setVisibility(0);
                     }
-                    if (dOA.btH() <= 0) {
+                    if (dOB.btI() <= 0) {
                         this.jto.setVisibility(8);
                     } else {
-                        String str2 = this.eXu.getResources().getString(R.string.u9_worth) + this.top_code.btH();
+                        String str2 = this.eXu.getResources().getString(R.string.u9_worth) + this.top_code.btI();
                         SpannableString spannableString2 = new SpannableString(str2);
-                        UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.top_code.btH()), new ForegroundColorSpan(ao.getColor(R.color.CAM_X0305)));
+                        UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.top_code.btI()), new ForegroundColorSpan(ao.getColor(R.color.CAM_X0305)));
                         this.jto.setText(spannableString2);
                         this.jto.setVisibility(0);
                     }
                 } else {
                     this.jto.setVisibility(8);
-                    this.jtn.setText(dOA.getSubTitle());
+                    this.jtn.setText(dOB.getSubTitle());
                     this.jtn.setVisibility(0);
                 }
             }
-            if (this.news_info == null || StringUtils.isNull(dOB.getSummary())) {
+            if (this.news_info == null || StringUtils.isNull(dOC.getSummary())) {
                 this.jtk.setVisibility(8);
                 return;
             }
             this.jtk.setVisibility(0);
-            this.jtr.setText(dOB.getSummary());
+            this.jtr.setText(dOC.getSummary());
         }
     }
 
-    public void cJw() {
+    public void cJx() {
         this.jtj.setOnClickListener(this.aHh);
         this.jtk.setOnClickListener(this.aHh);
     }

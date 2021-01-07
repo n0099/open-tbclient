@@ -13,7 +13,7 @@ public class d {
     private boolean isWifi = true;
     private int mSize = 0;
 
-    public static d bxf() {
+    public static d bxg() {
         if (fgB == null) {
             synchronized (d.class) {
                 if (fgB == null) {
@@ -27,7 +27,7 @@ public class d {
     private d() {
         e.log("PreLoadVideoSwitchManager init ");
         try {
-            parseJson(com.baidu.tbadk.core.sharedPref.b.bvq().getString("video_sync_switch_json", ""));
+            parseJson(com.baidu.tbadk.core.sharedPref.b.bvr().getString("video_sync_switch_json", ""));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -41,7 +41,7 @@ public class d {
         return false;
     }
 
-    public int bxg() {
+    public int bxh() {
         return this.fgC;
     }
 
@@ -49,12 +49,12 @@ public class d {
         return this.mSize == 0 ? IoUtils.DEFAULT_IMAGE_TOTAL_SIZE : this.mSize;
     }
 
-    public void Cs(String str) {
+    public void Cr(String str) {
         e.log("PreLoadVideoSwitchManager setSyncSwitchJson: " + str);
         if (!TextUtils.isEmpty(str)) {
             try {
                 parseJson(str);
-                com.baidu.tbadk.core.sharedPref.b.bvq().putString("video_sync_switch_json", str);
+                com.baidu.tbadk.core.sharedPref.b.bvr().putString("video_sync_switch_json", str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

@@ -69,7 +69,7 @@ public class ao {
         fdm = new SparseIntArray();
     }
 
-    public static void BW(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
+    public static void BV(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
         if (!StringUtils.isNull(str)) {
             try {
                 Resources resources = TbadkCoreApplication.getInst().getResources();
@@ -90,7 +90,7 @@ public class ao {
         }
     }
 
-    public static String bwj() {
+    public static String bwk() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType == 1) {
             return "night";
@@ -1053,15 +1053,15 @@ public class ao {
         }
     }
 
-    public static boolean bwk() {
+    public static boolean bwl() {
         return (TbadkCoreApplication.getInst() == null || TbadkCoreApplication.getInst().getResources() == null || TbadkCoreApplication.getInst().getResources().getConfiguration() == null || (TbadkCoreApplication.getInst().getResources().getConfiguration().uiMode & 48) != 32) ? false : true;
     }
 
     public static void C(boolean z, boolean z2) {
-        boolean bwk = bwk();
+        boolean bwl = bwl();
         Activity currentActivity = com.baidu.adp.base.b.kC().currentActivity();
         if (currentActivity != null) {
-            if (!bwk) {
+            if (!bwl) {
                 if (z) {
                     UtilHelper.showSkinChangeAnimation(currentActivity);
                 }
@@ -1071,8 +1071,8 @@ public class ao {
                     return;
                 }
                 TbadkCoreApplication.getInst().setSkinType(0);
-            } else if (com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("key_is_dark_mode_notify_shown", false)) {
-                boolean z3 = com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("key_is_follow_system_mode", false);
+            } else if (com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("key_is_dark_mode_notify_shown", false)) {
+                boolean z3 = com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("key_is_follow_system_mode", false);
                 if (z) {
                     UtilHelper.showSkinChangeAnimation(currentActivity);
                 }
@@ -1084,9 +1084,9 @@ public class ao {
                 }
                 TbadkCoreApplication.getInst().setSkinType(i);
             } else {
-                com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("key_is_dark_mode_notify_shown", true);
-                com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("key_is_follow_system_mode", true);
-                TbadkCoreApplication.getInst().setSkinType(bwk() ? 4 : 0);
+                com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean("key_is_dark_mode_notify_shown", true);
+                com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean("key_is_follow_system_mode", true);
+                TbadkCoreApplication.getInst().setSkinType(bwl() ? 4 : 0);
             }
         }
     }

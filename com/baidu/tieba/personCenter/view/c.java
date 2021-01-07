@@ -24,11 +24,11 @@ public class c {
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
     private TextView mTitle;
-    private com.baidu.tieba.personCenter.b.c mqn;
-    private com.baidu.tieba.view.d mqo;
-    private View mqp;
-    private FrameLayout mqq;
-    private a mqr;
+    private com.baidu.tieba.personCenter.b.c mqm;
+    private com.baidu.tieba.view.d mqn;
+    private View mqo;
+    private FrameLayout mqp;
+    private a mqq;
     private com.baidu.tbadk.l.h refreshView;
     private int mSkinType = 3;
     private AbsListView.OnScrollListener mOnScrollListener = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.personCenter.view.c.1
@@ -62,26 +62,26 @@ public class c {
             this.mNavigationBar = (NavigationBar) view.findViewById(R.id.person_center_navigation_bar);
             this.kNs = (NavigationBarShadowView) view.findViewById(R.id.navi_shadow_view_person_center);
             this.iHz = (PluginErrorTipView) view.findViewById(R.id.person_center_plugin_error_tip_view);
-            this.mqq = (FrameLayout) view.findViewById(R.id.layout_container);
+            this.mqp = (FrameLayout) view.findViewById(R.id.layout_container);
             this.gAY = (BdTypeListView) view.findViewById(R.id.person_center_listview);
             AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, (int) tbPageContext.getResources().getDimension(R.dimen.ds200));
-            this.mqp = new View(tbPageContext.getPageActivity());
-            this.mqp.setLayoutParams(layoutParams);
-            this.gAY.addFooterView(this.mqp);
+            this.mqo = new View(tbPageContext.getPageActivity());
+            this.mqo.setLayoutParams(layoutParams);
+            this.gAY.addFooterView(this.mqo);
             this.gAY.setOnScrollListener(this.mOnScrollListener);
-            this.mqn = new com.baidu.tieba.personCenter.b.c(this.gAY, tbPageContext, bdUniqueId);
-            this.mqo = new com.baidu.tieba.view.d(1);
+            this.mqm = new com.baidu.tieba.personCenter.b.c(this.gAY, tbPageContext, bdUniqueId);
+            this.mqn = new com.baidu.tieba.view.d(1);
         }
     }
 
     public void b(com.baidu.tieba.personCenter.c.f fVar) {
         if (fVar != null) {
-            this.mqn.setData(fVar.dyk());
+            this.mqm.setData(fVar.dyl());
         }
     }
 
     public void notifyDataSetChanged() {
-        this.mqn.notifyDataSetChanged();
+        this.mqm.notifyDataSetChanged();
     }
 
     public void bh(int i, String str) {
@@ -90,13 +90,13 @@ public class c {
 
     public void initView() {
         this.mTitle = this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(R.string.mine));
-        this.mqo.a(this.mPageContext.getPageActivity(), this.mNavigationBar);
-        this.mqo.dXD();
-        this.mqo.setOnViewResponseListener(null);
+        this.mqn.a(this.mPageContext.getPageActivity(), this.mNavigationBar);
+        this.mqn.dXE();
+        this.mqn.setOnViewResponseListener(null);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public boolean ctt() {
+    public boolean ctu() {
         if (this.refreshView != null) {
             return this.refreshView.isViewAttached();
         }
@@ -104,33 +104,33 @@ public class c {
     }
 
     public void a(a aVar) {
-        this.mqr = aVar;
+        this.mqq = aVar;
     }
 
-    public void bUH() {
-        if (!ctt()) {
+    public void bUI() {
+        if (!ctu()) {
             if (this.refreshView == null) {
                 this.refreshView = new com.baidu.tbadk.l.h(this.mPageContext.getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.c.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (j.isNetworkAvailableForImmediately()) {
-                            c.this.Zi();
-                            if (c.this.mqr != null) {
-                                c.this.mqr.dX(view);
+                            c.this.Zj();
+                            if (c.this.mqq != null) {
+                                c.this.mqq.dX(view);
                             }
                         }
                     }
                 });
             }
-            this.refreshView.attachView(this.mqq, false);
+            this.refreshView.attachView(this.mqp, false);
             this.refreshView.showRefreshButton();
             this.refreshView.onChangeSkinType();
         }
     }
 
-    public void Zi() {
+    public void Zj() {
         if (this.refreshView != null) {
-            this.refreshView.dettachView(this.mqq);
+            this.refreshView.dettachView(this.mqp);
             this.refreshView = null;
         }
     }
@@ -138,14 +138,14 @@ public class c {
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             ao.setViewTextColor(this.mTitle, R.color.CAM_X0105);
-            ao.setBackgroundColor(this.mqp, R.color.CAM_X0201);
+            ao.setBackgroundColor(this.mqo, R.color.CAM_X0201);
             ao.setBackgroundColor(this.gAY, R.color.CAM_X0201);
             this.mNavigationBar.onChangeSkinType(this.mPageContext, i);
             ao.setBackgroundColor(this.mNavigationBar.getBarBgView(), R.color.CAM_X0207, i);
-            this.mqn.onChangeSkinType();
+            this.mqm.onChangeSkinType();
             this.gCe.onChangeSkinType(this.mPageContext, i);
             this.iHz.onChangeSkinType(this.mPageContext, i);
-            this.mqo.onChangeSkinType(i);
+            this.mqn.onChangeSkinType(i);
             if (this.refreshView != null) {
                 this.refreshView.onChangeSkinType();
             }
@@ -155,24 +155,24 @@ public class c {
     }
 
     public void onDestroy() {
-        if (this.mqn != null) {
-            this.mqn.dyh();
+        if (this.mqm != null) {
+            this.mqm.dyi();
         }
     }
 
     public void ae(int i, boolean z) {
-        this.mqo.ae(i, z);
-    }
-
-    public void dyg() {
-        if (this.mqn != null) {
-            this.mqn.dyg();
-        }
+        this.mqn.ae(i, z);
     }
 
     public void dyh() {
-        if (this.mqn != null) {
-            this.mqn.dyh();
+        if (this.mqm != null) {
+            this.mqm.dyh();
+        }
+    }
+
+    public void dyi() {
+        if (this.mqm != null) {
+            this.mqm.dyi();
         }
     }
 }

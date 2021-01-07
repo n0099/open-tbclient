@@ -46,9 +46,9 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
     private ImageView mCloseBtn;
     private String mLiveId;
     private String mRedPacketId;
-    private a ojs;
-    private com.baidu.tieba.yuyinala.data.b ojt;
-    private com.baidu.tieba.yuyinala.c.a oju;
+    private a ojr;
+    private com.baidu.tieba.yuyinala.data.b ojs;
+    private com.baidu.tieba.yuyinala.c.a ojt;
     private CustomMessageListener aBj = new CustomMessageListener(2913129) { // from class: com.baidu.tieba.yuyinala.AlaRedPacketSnatchResultActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -56,7 +56,7 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
             AlaRedPacketSnatchResultActivity.this.finish();
         }
     };
-    private f ojv = new f() { // from class: com.baidu.tieba.yuyinala.AlaRedPacketSnatchResultActivity.2
+    private f oju = new f() { // from class: com.baidu.tieba.yuyinala.AlaRedPacketSnatchResultActivity.2
         @Override // com.baidu.tieba.yuyinala.c.f
         public void b(com.baidu.tieba.yuyinala.data.b bVar) {
             AlaRedPacketSnatchResultActivity.this.a(bVar);
@@ -90,8 +90,8 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
             }
             setContentView(a.g.ala_red_packet_snatch_result_view);
             initView();
-            this.oju = new com.baidu.tieba.yuyinala.c.a(getPageContext(), this.ojv);
-            this.oju.ay(this.mRedPacketId, this.mLiveId, this.bvS);
+            this.ojt = new com.baidu.tieba.yuyinala.c.a(getPageContext(), this.oju);
+            this.ojt.ay(this.mRedPacketId, this.mLiveId, this.bvS);
             MessageManager.getInstance().registerListener(this.aBj);
             mi(UtilHelper.getRealScreenOrientation(this) == 2);
         }
@@ -143,7 +143,7 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaRedPacketSnatchResultActivity.this.finish();
-                AlaRedPacketSnatchResultActivity.this.bRI();
+                AlaRedPacketSnatchResultActivity.this.bRJ();
             }
         });
         this.gpU.setVisibility(8);
@@ -151,7 +151,7 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRI() {
+    public void bRJ() {
         ak akVar = new ak();
         akVar.aMe = -1;
         akVar.aMf = -1;
@@ -161,7 +161,7 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
 
     public void a(com.baidu.tieba.yuyinala.data.b bVar) {
         String str;
-        this.ojt = bVar;
+        this.ojs = bVar;
         this.gpU.setVisibility(0);
         this.grP.setVisibility(0);
         if (!StringUtils.isNullObject(bVar.portrait)) {
@@ -188,9 +188,9 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
     }
 
     private void W(ArrayList<b.a> arrayList) {
-        this.ojs = new a(getPageContext().getPageActivity(), arrayList);
-        this.grQ.setAdapter((ListAdapter) this.ojs);
-        this.ojs.notifyDataSetChanged();
+        this.ojr = new a(getPageContext().getPageActivity(), arrayList);
+        this.grQ.setAdapter((ListAdapter) this.ojr);
+        this.ojr.notifyDataSetChanged();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
@@ -228,8 +228,8 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.oju != null) {
-            this.oju.onDestroy();
+        if (this.ojt != null) {
+            this.ojt.onDestroy();
         }
         MessageManager.getInstance().unRegisterListener(this.aBj);
         super.onDestroy();

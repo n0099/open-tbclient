@@ -10,34 +10,34 @@ import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.model.inner.MapBound;
 import java.lang.ref.SoftReference;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class d extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private e f4710b;
+    private e f4711b;
     private a c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    SoftReference<View> f4709a = null;
+    SoftReference<View> f4710a = null;
 
     public d() {
-        this.f4710b = null;
-        this.f4710b = new e();
+        this.f4711b = null;
+        this.f4711b = new e();
     }
 
     public MapView a() {
-        if (this.f4709a == null) {
+        if (this.f4710a == null) {
             return null;
         }
-        return (MapView) this.f4709a.get();
+        return (MapView) this.f4710a.get();
     }
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public void release() {
         a(0);
-        if (this.f4710b != null) {
-            this.f4710b.a();
-            this.f4710b = null;
+        if (this.f4711b != null) {
+            this.f4711b.a();
+            this.f4711b = null;
         }
         if (this.c != null) {
             this.c.a();
@@ -52,7 +52,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void a(Context context, MapView mapView) {
-        this.f4709a = new SoftReference<>(mapView);
+        this.f4710a = new SoftReference<>(mapView);
         if (this.c == null) {
             this.c = new a(mapView);
         } else {
@@ -68,67 +68,67 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public boolean c() {
-        if (this.f4710b != null) {
-            return this.f4710b.b();
+        if (this.f4711b != null) {
+            return this.f4711b.b();
         }
         return false;
     }
 
     public boolean d() {
-        if (this.f4710b != null) {
-            return this.f4710b.c();
+        if (this.f4711b != null) {
+            return this.f4711b.c();
         }
         return false;
     }
 
     public boolean e() {
-        if (this.f4710b != null) {
-            return this.f4710b.d();
+        if (this.f4711b != null) {
+            return this.f4711b.d();
         }
         return false;
     }
 
     public boolean f() {
-        if (this.f4710b != null) {
-            return this.f4710b.e();
+        if (this.f4711b != null) {
+            return this.f4711b.e();
         }
         return false;
     }
 
     public boolean g() {
-        if (this.f4710b != null) {
-            return this.f4710b.f();
+        if (this.f4711b != null) {
+            return this.f4711b.f();
         }
         return false;
     }
 
     public boolean a(boolean z) {
-        if (this.f4710b != null) {
-            return this.f4710b.a(z);
+        if (this.f4711b != null) {
+            return this.f4711b.a(z);
         }
         return false;
     }
 
     public void a(int i) {
-        if (this.f4710b != null) {
+        if (this.f4711b != null) {
             switch (i) {
                 case 0:
-                    this.f4710b.b(0);
-                    this.f4710b.b(1);
-                    this.f4710b.b(2);
-                    this.f4710b.b(3);
-                    this.f4710b.b(4);
+                    this.f4711b.b(0);
+                    this.f4711b.b(1);
+                    this.f4711b.b(2);
+                    this.f4711b.b(3);
+                    this.f4711b.b(4);
                     return;
                 case 1:
-                    this.f4710b.a(0);
-                    this.f4710b.a(1);
-                    this.f4710b.a(2);
+                    this.f4711b.a(0);
+                    this.f4711b.a(1);
+                    this.f4711b.a(2);
                     if (com.baidu.platform.comapi.wnplatform.a.a().f()) {
-                        this.f4710b.b(3);
+                        this.f4711b.b(3);
                     } else if (com.baidu.platform.comapi.wnplatform.a.a().g()) {
-                        this.f4710b.a(3);
+                        this.f4711b.a(3);
                     }
-                    this.f4710b.a(4);
+                    this.f4711b.a(4);
                     return;
                 default:
                     return;
@@ -137,15 +137,15 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public boolean a(int[] iArr, int[] iArr2) {
-        if (this.f4710b != null) {
-            return this.f4710b.a(iArr, iArr2);
+        if (this.f4711b != null) {
+            return this.f4711b.a(iArr, iArr2);
         }
         return false;
     }
 
     public float h() {
-        if (this.f4710b != null) {
-            return this.f4710b.g();
+        if (this.f4711b != null) {
+            return this.f4711b.g();
         }
         return -1.0f;
     }

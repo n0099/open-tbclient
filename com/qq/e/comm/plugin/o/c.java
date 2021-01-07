@@ -12,14 +12,14 @@ import android.widget.TextView;
 import com.qq.e.ads.hybrid.HybridADSetting;
 import com.qq.e.comm.plugin.util.ak;
 import com.qq.e.comm.plugin.util.ao;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class c extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private final ImageView f12635a;
+    private final ImageView f12636a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final View f12636b;
+    private final View f12637b;
     private final View c;
     private final ImageView d;
     private final TextView e;
@@ -35,27 +35,27 @@ class c extends RelativeLayout {
         int width2;
         int height2;
         setBackgroundColor(hybridADSetting.getTitleBarColor());
-        this.f12635a = new ImageView(context);
-        this.f12635a.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        this.f12635a.setId(2131755009);
+        this.f12636a = new ImageView(context);
+        this.f12636a.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        this.f12636a.setId(2131755009);
         float f = context.getResources().getDisplayMetrics().density / 2.0f;
         if (!TextUtils.isEmpty(hybridADSetting.getBackButtonImage())) {
             Drawable a2 = ao.a(context, hybridADSetting.getBackButtonImage());
             if (a2 instanceof BitmapDrawable) {
                 width = a2.getIntrinsicWidth();
                 height = a2.getIntrinsicHeight();
-                this.f12635a.setImageDrawable(a2);
+                this.f12636a.setImageDrawable(a2);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(width, height);
                 layoutParams.addRule(15, -1);
                 layoutParams.addRule(9, -1);
-                addView(this.f12635a, layoutParams);
-                this.f12636b = new View(context);
-                this.f12636b.setId(2131755010);
-                this.f12636b.setBackgroundColor(hybridADSetting.getSeparatorColor());
+                addView(this.f12636a, layoutParams);
+                this.f12637b = new View(context);
+                this.f12637b.setId(2131755010);
+                this.f12637b.setBackgroundColor(hybridADSetting.getSeparatorColor());
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(ak.a(context, 1), ak.a(context, hybridADSetting.getBackSeparatorLength()));
                 layoutParams2.addRule(15, -1);
                 layoutParams2.addRule(1, 2131755009);
-                addView(this.f12636b, layoutParams2);
+                addView(this.f12637b, layoutParams2);
                 this.d = new ImageView(context);
                 this.d.setId(2131755011);
                 this.d.setScaleType(ImageView.ScaleType.FIT_CENTER);
@@ -85,7 +85,7 @@ class c extends RelativeLayout {
                         RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-1, ak.a(context, 1));
                         layoutParams5.addRule(12, -1);
                         addView(this.c, layoutParams5);
-                        this.f12636b.setVisibility(4);
+                        this.f12637b.setVisibility(4);
                         this.d.setVisibility(4);
                     }
                 }
@@ -113,25 +113,25 @@ class c extends RelativeLayout {
                 RelativeLayout.LayoutParams layoutParams52 = new RelativeLayout.LayoutParams(-1, ak.a(context, 1));
                 layoutParams52.addRule(12, -1);
                 addView(this.c, layoutParams52);
-                this.f12636b.setVisibility(4);
+                this.f12637b.setVisibility(4);
                 this.d.setVisibility(4);
             }
         }
         Bitmap a5 = ao.a("iVBORw0KGgoAAAANSUhEUgAAAFgAAABYBAMAAACDuy0HAAAAMFBMVEUAAAArLTQqLTMyMjMuLjQrLjMrLTMsLzYrLzMuLkYsLzMrLTQrLzUsLzQrMDQqLTMf2TcfAAAAD3RSTlMA2OYYJ/rzUTwLRst+YjvhhJY4AAAAXklEQVRIx2MYBaNgFIyCkQw4V5Kg2PA38WqZ5T+RYPD/cBIM/lowavAQNZiTFIO5/v8hISHrf2sgXrXT/wziFbOMGj1ojc4jxeiPDCQYTYpi5ssMo2AUjIJRMAoIAQAD4S52zh4qlgAAAABJRU5ErkJggg==");
         width = (int) (a5.getWidth() * f);
         height = (int) (a5.getHeight() * f);
-        this.f12635a.setImageBitmap(a5);
+        this.f12636a.setImageBitmap(a5);
         RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(width, height);
         layoutParams6.addRule(15, -1);
         layoutParams6.addRule(9, -1);
-        addView(this.f12635a, layoutParams6);
-        this.f12636b = new View(context);
-        this.f12636b.setId(2131755010);
-        this.f12636b.setBackgroundColor(hybridADSetting.getSeparatorColor());
+        addView(this.f12636a, layoutParams6);
+        this.f12637b = new View(context);
+        this.f12637b.setId(2131755010);
+        this.f12637b.setBackgroundColor(hybridADSetting.getSeparatorColor());
         RelativeLayout.LayoutParams layoutParams22 = new RelativeLayout.LayoutParams(ak.a(context, 1), ak.a(context, hybridADSetting.getBackSeparatorLength()));
         layoutParams22.addRule(15, -1);
         layoutParams22.addRule(1, 2131755009);
-        addView(this.f12636b, layoutParams22);
+        addView(this.f12637b, layoutParams22);
         this.d = new ImageView(context);
         this.d.setId(2131755011);
         this.d.setScaleType(ImageView.ScaleType.FIT_CENTER);
@@ -161,12 +161,12 @@ class c extends RelativeLayout {
         RelativeLayout.LayoutParams layoutParams522 = new RelativeLayout.LayoutParams(-1, ak.a(context, 1));
         layoutParams522.addRule(12, -1);
         addView(this.c, layoutParams522);
-        this.f12636b.setVisibility(4);
+        this.f12637b.setVisibility(4);
         this.d.setVisibility(4);
     }
 
     public ImageView a() {
-        return this.f12635a;
+        return this.f12636a;
     }
 
     public ImageView b() {
@@ -178,6 +178,6 @@ class c extends RelativeLayout {
     }
 
     public View d() {
-        return this.f12636b;
+        return this.f12637b;
     }
 }

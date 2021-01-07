@@ -8,13 +8,13 @@ import com.ksad.lottie.a.b.a;
 import com.ksad.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class n implements j, l, a.InterfaceC1037a {
+public class n implements j, l, a.InterfaceC1078a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Path f8247a = new Path();
+    private final Path f8248a = new Path();
 
     /* renamed from: b  reason: collision with root package name */
-    private final RectF f8248b = new RectF();
+    private final RectF f8249b = new RectF();
     private final String c;
     private final com.ksad.lottie.f d;
     private final com.ksad.lottie.a.b.a<?, PointF> e;
@@ -43,7 +43,7 @@ public class n implements j, l, a.InterfaceC1037a {
         this.d.invalidateSelf();
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1037a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1078a
     public void a() {
         b();
     }
@@ -68,9 +68,9 @@ public class n implements j, l, a.InterfaceC1037a {
     @Override // com.ksad.lottie.a.a.l
     public Path d() {
         if (this.i) {
-            return this.f8247a;
+            return this.f8248a;
         }
-        this.f8247a.reset();
+        this.f8248a.reset();
         PointF e = this.f.e();
         float f = e.x / 2.0f;
         float f2 = e.y / 2.0f;
@@ -80,30 +80,30 @@ public class n implements j, l, a.InterfaceC1037a {
             min = floatValue;
         }
         PointF e2 = this.e.e();
-        this.f8247a.moveTo(e2.x + f, (e2.y - f2) + min);
-        this.f8247a.lineTo(e2.x + f, (e2.y + f2) - min);
+        this.f8248a.moveTo(e2.x + f, (e2.y - f2) + min);
+        this.f8248a.lineTo(e2.x + f, (e2.y + f2) - min);
         if (min > 0.0f) {
-            this.f8248b.set((e2.x + f) - (2.0f * min), (e2.y + f2) - (2.0f * min), e2.x + f, e2.y + f2);
-            this.f8247a.arcTo(this.f8248b, 0.0f, 90.0f, false);
+            this.f8249b.set((e2.x + f) - (2.0f * min), (e2.y + f2) - (2.0f * min), e2.x + f, e2.y + f2);
+            this.f8248a.arcTo(this.f8249b, 0.0f, 90.0f, false);
         }
-        this.f8247a.lineTo((e2.x - f) + min, e2.y + f2);
+        this.f8248a.lineTo((e2.x - f) + min, e2.y + f2);
         if (min > 0.0f) {
-            this.f8248b.set(e2.x - f, (e2.y + f2) - (2.0f * min), (e2.x - f) + (2.0f * min), e2.y + f2);
-            this.f8247a.arcTo(this.f8248b, 90.0f, 90.0f, false);
+            this.f8249b.set(e2.x - f, (e2.y + f2) - (2.0f * min), (e2.x - f) + (2.0f * min), e2.y + f2);
+            this.f8248a.arcTo(this.f8249b, 90.0f, 90.0f, false);
         }
-        this.f8247a.lineTo(e2.x - f, (e2.y - f2) + min);
+        this.f8248a.lineTo(e2.x - f, (e2.y - f2) + min);
         if (min > 0.0f) {
-            this.f8248b.set(e2.x - f, e2.y - f2, (e2.x - f) + (2.0f * min), (e2.y - f2) + (2.0f * min));
-            this.f8247a.arcTo(this.f8248b, 180.0f, 90.0f, false);
+            this.f8249b.set(e2.x - f, e2.y - f2, (e2.x - f) + (2.0f * min), (e2.y - f2) + (2.0f * min));
+            this.f8248a.arcTo(this.f8249b, 180.0f, 90.0f, false);
         }
-        this.f8247a.lineTo((e2.x + f) - min, e2.y - f2);
+        this.f8248a.lineTo((e2.x + f) - min, e2.y - f2);
         if (min > 0.0f) {
-            this.f8248b.set((e2.x + f) - (2.0f * min), e2.y - f2, f + e2.x, (e2.y - f2) + (min * 2.0f));
-            this.f8247a.arcTo(this.f8248b, 270.0f, 90.0f, false);
+            this.f8249b.set((e2.x + f) - (2.0f * min), e2.y - f2, f + e2.x, (e2.y - f2) + (min * 2.0f));
+            this.f8248a.arcTo(this.f8249b, 270.0f, 90.0f, false);
         }
-        this.f8247a.close();
-        com.ksad.lottie.d.f.a(this.f8247a, this.h);
+        this.f8248a.close();
+        com.ksad.lottie.d.f.a(this.f8248a, this.h);
         this.i = true;
-        return this.f8247a;
+        return this.f8248a;
     }
 }

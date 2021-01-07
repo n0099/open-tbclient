@@ -5,19 +5,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class ac extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private final /* synthetic */ y f8152a;
+    private final /* synthetic */ y f8153a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final /* synthetic */ w f8153b;
+    private final /* synthetic */ w f8154b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(w wVar, y yVar) {
-        this.f8153b = wVar;
-        this.f8152a = yVar;
+        this.f8154b = wVar;
+        this.f8153a = yVar;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -27,21 +27,21 @@ public final class ac extends BroadcastReceiver {
         if (!"com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) || extras == null || !extras.containsKey("install.status")) {
             return;
         }
-        this.f8153b.c();
+        this.f8154b.c();
         switch (extras.getInt("install.status")) {
             case 1:
             case 2:
             case 3:
-                this.f8152a.a(p.ACCEPTED);
+                this.f8153a.a(p.ACCEPTED);
                 return;
             case 4:
-                this.f8152a.a(p.COMPLETED);
+                this.f8153a.a(p.COMPLETED);
                 return;
             case 5:
             default:
                 return;
             case 6:
-                this.f8152a.a(p.CANCELLED);
+                this.f8153a.a(p.CANCELLED);
                 return;
         }
     }

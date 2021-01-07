@@ -2,7 +2,7 @@ package io.reactivex.disposables;
 
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 final class FutureDisposable extends AtomicReference<Future<?>> implements b {
     private static final long serialVersionUID = 6545242830671168775L;
     private final boolean allowInterrupt;

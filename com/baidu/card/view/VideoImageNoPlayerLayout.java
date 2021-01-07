@@ -67,10 +67,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<com.ba
                 float f7;
                 float f8;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Ef = c.bGp().Ef(d.mx().genCacheKey(tbImageView.getUrl(), 10));
-                    if (Ef != null) {
-                        int width = Ef.getWidth();
-                        i = Ef.getHeight();
+                    com.baidu.adp.widget.ImageView.a Ee = c.bGq().Ee(d.mx().genCacheKey(tbImageView.getUrl(), 10));
+                    if (Ee != null) {
+                        int width = Ee.getWidth();
+                        i = Ee.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -188,8 +188,8 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<com.ba
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void D(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.boO() != null && aVar.boO().eVB != null) {
-            OriginalThreadInfo originalThreadInfo = aVar.boO().eVB;
+        if (aVar != null && aVar.boP() != null && aVar.boP().eVB != null) {
+            OriginalThreadInfo originalThreadInfo = aVar.boP().eVB;
             this.anC = originalThreadInfo.videoInfo.is_vertical.intValue() == 1;
             this.anD = originalThreadInfo.threadId;
             this.anE = originalThreadInfo.videoInfo.video_length.intValue();

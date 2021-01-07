@@ -60,7 +60,7 @@ public class b {
     }
 
     public void a(com.baidu.tieba.enterForum.data.a aVar) {
-        if (aVar.bsa()) {
+        if (aVar.bsb()) {
             if (this.iQo.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.iQo.getLayoutParams();
                 if (marginLayoutParams.bottomMargin != this.iQu) {
@@ -76,9 +76,9 @@ public class b {
             }
         }
         ao.setBackgroundColor(this.iQo, R.color.CAM_X0206);
-        SvgManager.bwq().a(this.iQp, R.drawable.ic_pic_mask_square, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.bwr().a(this.iQp, R.drawable.ic_pic_mask_square, SvgManager.SvgResourceStateType.NORMAL);
         ao.setImageResource(this.iQq, R.drawable.pic_mask_square_circle);
-        SvgManager.bwq().a(this.iQr, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.bwr().a(this.iQr, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
         ao.setViewTextColor(this.iQs, R.color.CAM_X0105);
         ao.setViewTextColor(this.iQt, R.color.CAM_X0108);
     }

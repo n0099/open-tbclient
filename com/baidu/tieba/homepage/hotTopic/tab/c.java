@@ -24,9 +24,9 @@ public class c {
         if (hotThreadListResIdl == null || hotThreadListResIdl.data == null || x.isEmpty(hotThreadListResIdl.data.thread_info)) {
             return null;
         }
-        boolean bmx = d.bmx();
+        boolean bmy = d.bmy();
         List<ThreadInfo> list = hotThreadListResIdl.data.thread_info;
-        if (bmx) {
+        if (bmy) {
             return dZ(list);
         }
         return dY(list);
@@ -71,12 +71,12 @@ public class c {
     }
 
     private static void aC(bz bzVar) {
-        String bqN = bzVar.bqN();
-        String dT = at.dT(bzVar.brj() * 1000);
-        if (!TextUtils.isEmpty(bqN) && !TextUtils.isEmpty(dT)) {
-            bqN = bqN + "   " + dT;
+        String bqO = bzVar.bqO();
+        String dT = at.dT(bzVar.brk() * 1000);
+        if (!TextUtils.isEmpty(bqO) && !TextUtils.isEmpty(dT)) {
+            bqO = bqO + "   " + dT;
         }
-        bzVar.Ba(bqN);
+        bzVar.AZ(bqO);
     }
 
     public static List<n> ea(List<bz> list) {
@@ -98,13 +98,13 @@ public class c {
                 by byVar2 = new by();
                 byVar2.eMv = bzVar;
                 byVar2.position = i;
-                if (bzVar.bto()) {
+                if (bzVar.btp()) {
                     byVar2.eSv = true;
-                } else if (bzVar.bsy() == 1) {
+                } else if (bzVar.bsz() == 1) {
                     byVar2.eSt = true;
                     byVar2.eSI = imageWidthAndHeight[0];
                     byVar2.eSJ = imageWidthAndHeight[1];
-                } else if (bzVar.bsy() >= 2) {
+                } else if (bzVar.bsz() >= 2) {
                     byVar2.eSu = true;
                 } else {
                     byVar2.eSr = true;

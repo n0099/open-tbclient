@@ -31,7 +31,7 @@ public class k extends h {
     }
 
     public void tk() {
-        if (com.baidu.tbadk.a.d.bmE()) {
+        if (com.baidu.tbadk.a.d.bmF()) {
             int dimens = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.M_H_X003);
             int dimens2 = com.baidu.adp.lib.util.l.getDimens(this.mContext, com.baidu.tbadk.a.b.b.aK(R.dimen.tbds21, R.dimen.tbds0));
             setTopMargin(dimens);

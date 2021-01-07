@@ -22,7 +22,7 @@ public class d extends BdBaseModel {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaFeedBackReasonListResponse) && d.this.hTS != null) {
-                List<com.baidu.tieba.ala.data.b> aj = d.this.aj(((AlaFeedBackReasonListResponse) httpResponsedMessage).Xo());
+                List<com.baidu.tieba.ala.data.b> aj = d.this.aj(((AlaFeedBackReasonListResponse) httpResponsedMessage).Xp());
                 if (!ListUtils.isEmpty(aj)) {
                     d.this.hTS.ai(aj);
                 } else {
@@ -48,11 +48,11 @@ public class d extends BdBaseModel {
     public d(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
         this.hTS = aVar;
-        Xp();
+        Xq();
         MessageManager.getInstance().registerListener(this.bOw);
     }
 
-    private void Xp() {
+    private void Xq() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021205, TbConfig.SERVER_ADDRESS + "ala/tipoff/getTipOffType");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -70,16 +70,16 @@ public class d extends BdBaseModel {
         int size = list.size();
         for (int i = 0; i < size; i++) {
             com.baidu.tieba.ala.data.b bVar = list.get(i);
-            if (bVar.Xn() == 1) {
+            if (bVar.Xo() == 1) {
                 arrayList.add(bVar);
-            } else if (bVar.Xn() == 0 && !this.bOu) {
+            } else if (bVar.Xo() == 0 && !this.bOu) {
                 arrayList.add(bVar);
             }
         }
         return arrayList;
     }
 
-    public void Xq() {
+    public void Xr() {
         HttpMessage httpMessage = new HttpMessage(1021205);
         httpMessage.addParam("live_id", this.bvY);
         MessageManager.getInstance().sendMessage(httpMessage);
@@ -108,7 +108,7 @@ public class d extends BdBaseModel {
         this.bOu = z2;
     }
 
-    public List<com.baidu.tieba.ala.data.b> Xr() {
+    public List<com.baidu.tieba.ala.data.b> Xs() {
         ArrayList arrayList = new ArrayList();
         int length = this.bOv.length;
         for (int i = 0; i < length; i++) {

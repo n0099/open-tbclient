@@ -24,10 +24,10 @@ import java.util.Queue;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Boolean> f10681a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.webp.decoder.WebpDownsampler.DisableDecoder", false);
+    public static final com.kwad.sdk.glide.load.d<Boolean> f10682a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.webp.decoder.WebpDownsampler.DisableDecoder", false);
 
     /* renamed from: b  reason: collision with root package name */
-    private static final k.a f10682b = new k.a() { // from class: com.kwad.sdk.glide.webp.decoder.j.1
+    private static final k.a f10683b = new k.a() { // from class: com.kwad.sdk.glide.webp.decoder.j.1
         @Override // com.kwad.sdk.glide.load.resource.bitmap.k.a
         public void a() {
         }
@@ -313,7 +313,7 @@ public final class j {
     }
 
     public s<Bitmap> a(InputStream inputStream, int i, int i2, com.kwad.sdk.glide.load.e eVar) {
-        return a(inputStream, i, i2, eVar, f10682b);
+        return a(inputStream, i, i2, eVar, f10683b);
     }
 
     public s<Bitmap> a(InputStream inputStream, int i, int i2, com.kwad.sdk.glide.load.e eVar, k.a aVar) {
@@ -321,9 +321,9 @@ public final class j {
         byte[] bArr = (byte[]) this.f.a(65536, byte[].class);
         BitmapFactory.Options a2 = a();
         a2.inTempStorage = bArr;
-        DecodeFormat decodeFormat = (DecodeFormat) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f10582a);
+        DecodeFormat decodeFormat = (DecodeFormat) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f10583a);
         try {
-            return com.kwad.sdk.glide.load.resource.bitmap.d.a(a(inputStream, a2, (DownsampleStrategy) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f10583b), decodeFormat, eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.d) != null && ((Boolean) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.d)).booleanValue(), i, i2, ((Boolean) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.c)).booleanValue(), aVar), this.d);
+            return com.kwad.sdk.glide.load.resource.bitmap.d.a(a(inputStream, a2, (DownsampleStrategy) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.f10584b), decodeFormat, eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.d) != null && ((Boolean) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.d)).booleanValue(), i, i2, ((Boolean) eVar.a(com.kwad.sdk.glide.load.resource.bitmap.k.c)).booleanValue(), aVar), this.d);
         } finally {
             c(a2);
             this.f.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) bArr, (Class<com.kwad.sdk.glide.load.engine.bitmap_recycle.b>) byte[].class);
@@ -331,7 +331,7 @@ public final class j {
     }
 
     public boolean a(InputStream inputStream, com.kwad.sdk.glide.load.e eVar) {
-        if (((Boolean) eVar.a(f10681a)).booleanValue() || WebpHeaderParser.f10655a) {
+        if (((Boolean) eVar.a(f10682a)).booleanValue() || WebpHeaderParser.f10656a) {
             return false;
         }
         WebpHeaderParser.WebpImageType a2 = WebpHeaderParser.a(inputStream, this.f);
@@ -339,7 +339,7 @@ public final class j {
     }
 
     public boolean a(ByteBuffer byteBuffer, com.kwad.sdk.glide.load.e eVar) {
-        if (((Boolean) eVar.a(f10681a)).booleanValue() || WebpHeaderParser.f10655a) {
+        if (((Boolean) eVar.a(f10682a)).booleanValue() || WebpHeaderParser.f10656a) {
             return false;
         }
         WebpHeaderParser.WebpImageType a2 = WebpHeaderParser.a(byteBuffer);

@@ -38,7 +38,7 @@ public class HackyViewPager extends ViewPager {
     @Override // androidx.viewpager.widget.ViewPager, android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (ThemeManager.enQ() == ThemeManager.ThemeMode.NIGHT) {
+        if (ThemeManager.enR() == ThemeManager.ThemeMode.NIGHT) {
             canvas.drawColor(2130706432);
         }
     }

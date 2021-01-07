@@ -78,12 +78,12 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
     }
 
     private void initView() {
-        chC();
-        oe(false);
         chD();
+        oe(false);
+        chE();
     }
 
-    private void chC() {
+    private void chD() {
         if (this.hCI == null) {
             this.hCI = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.ala_liveroom_exclusive_scene_layout, (ViewGroup) null);
             this.hCJ = (AlphaGradientHListView) this.hCI.findViewById(a.f.lv_scene_list);
@@ -131,7 +131,7 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
         }
     }
 
-    private void chD() {
+    private void chE() {
         if (this.hCT == null) {
             this.hCT = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.ala_exclusive_scene_land_top_view, (ViewGroup) null);
             this.hCV = (HeadImageView) this.hCT.findViewById(a.f.iv_land_scene_avatar);
@@ -145,12 +145,12 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
     }
 
     private void a(boolean z, View view) {
-        if (chE() && this.bAD && view != null && view.getVisibility() == 0) {
+        if (chF() && this.bAD && view != null && view.getVisibility() == 0) {
             c.a(this.mTbPageContext.getPageActivity(), view, z, this.hCO.EF(), this.hCO.EE(), true);
         }
     }
 
-    private boolean chE() {
+    private boolean chF() {
         return this.hCO != null && this.hCO.EC();
     }
 
@@ -169,7 +169,7 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
                     this.hCO = xVar.aLn;
                 } else if (!b(xVar.aLn) || !a(xVar.aLn) || !this.bAD) {
                     if (!b(xVar.aLn) && a(xVar.aLn) && this.bAD) {
-                        aja();
+                        ajb();
                         this.hCO = xVar.aLn;
                     } else {
                         this.hCO = xVar.aLn;
@@ -177,7 +177,7 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
                 } else {
                     return;
                 }
-                chG();
+                chH();
             }
         }
     }
@@ -199,7 +199,7 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
         }
     }
 
-    public void chF() {
+    public void chG() {
         hideLoadingView();
     }
 
@@ -208,21 +208,21 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
             String videoPath = this.bsZ.getVideoPath();
             if (!TextUtils.isEmpty(videoPath) && !videoPath.equals(this.hCZ) && this.hCR != null && this.hCR.url != null) {
                 this.currentIndex = -1;
-                chM();
+                chN();
                 a(this.hCR, true);
-                Iq(videoPath);
+                Ip(videoPath);
             }
         }
     }
 
     public void el(int i) {
-        if (chE() && this.bAD) {
+        if (chF() && this.bAD) {
             if (i == 1) {
-                chP();
+                chQ();
                 wS(i);
-                chM();
-            } else if (i == 2) {
                 chN();
+            } else if (i == 2) {
+                chO();
             }
             if (this.hCS != null) {
                 this.hCS.dU(i);
@@ -235,7 +235,7 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
         if (this.hDa != null) {
             this.hDa.playUrl = null;
         }
-        aja();
+        ajb();
     }
 
     private void dX(JSONObject jSONObject) {
@@ -245,7 +245,7 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
                 this.hCO = z;
             } else if (!b(z) || !a(z) || !this.bAD) {
                 if (!b(z) && a(z) && this.bAD) {
-                    aja();
+                    ajb();
                     this.hCO = z;
                 } else {
                     this.hCO = z;
@@ -254,38 +254,38 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
                 return;
             }
             if (this.hCO != null) {
-                chG();
+                chH();
             }
         }
     }
 
-    private void chG() {
+    private void chH() {
         String action = this.hCO.getAction();
         if (TextUtils.equals("1", action)) {
-            if (chE()) {
-                aiZ();
+            if (chF()) {
+                aja();
             }
         } else if (TextUtils.equals("2", action)) {
-            aja();
+            ajb();
         }
     }
 
-    private void aiZ() {
+    private void aja() {
         if (!this.bAD) {
-            chL();
+            chM();
             this.bAD = true;
-            chH();
+            chI();
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.exclusive.b.2
                 @Override // java.lang.Runnable
                 public void run() {
                     int realScreenOrientation = UtilHelper.getRealScreenOrientation(b.this.mTbPageContext.getPageActivity());
-                    b.this.chJ();
+                    b.this.chK();
                     if (!TextUtils.isEmpty(b.this.hCO.EG())) {
                         b.this.hCN.setText(b.this.hCO.EG());
                     }
                     b.this.cK(b.this.hCO.ED());
                     b.this.el(realScreenOrientation);
-                    b.this.chU();
+                    b.this.chV();
                     b.this.a(b.this.hCR, true);
                     if (b.this.hCQ != null) {
                         b.this.hCQ.wK(b.this.getHeight());
@@ -293,13 +293,13 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
                     b.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.exclusive.b.2.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            b.this.chQ();
+                            b.this.chR();
                         }
                     }, 100L);
                     b.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.exclusive.b.2.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            b.this.chR();
+                            b.this.chS();
                         }
                     }, 5000L);
                 }
@@ -307,7 +307,7 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
         }
     }
 
-    private void chH() {
+    private void chI() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_LIVESDK, TbConfig.getVersion());
@@ -317,7 +317,7 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "vision_show").setContentExt(jSONObject));
     }
 
-    private void chI() {
+    private void chJ() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_LIVESDK, TbConfig.getVersion());
@@ -341,14 +341,14 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
         UbcStatisticManager.getInstance().logSendRequest(ubcStatisticItem);
     }
 
-    private void aja() {
+    private void ajb() {
         if (this.bAD) {
             this.bAD = false;
             this.currentIndex = -1;
-            chK();
-            chP();
+            chL();
+            chQ();
             if (a(this.hCR)) {
-                Iq(this.hCR.url);
+                Ip(this.hCR.url);
             }
             if (this.hCQ != null) {
                 this.hCQ.wK(0);
@@ -357,7 +357,7 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chJ() {
+    public void chK() {
         if (this.hCI.getParent() != null) {
             ((ViewGroup) this.hCI.getParent()).removeView(this.hCI);
         }
@@ -366,7 +366,7 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
         }
     }
 
-    private void chK() {
+    private void chL() {
         if (this.hCI.getParent() != null) {
             ((ViewGroup) this.hCI.getParent()).removeView(this.hCI);
         }
@@ -386,7 +386,7 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
         return this.hCO.gn(vVar.getId());
     }
 
-    private void chL() {
+    private void chM() {
         if (this.bsZ != null) {
             this.hCR.url = this.bsZ.getVideoPath();
             this.hCZ = this.hCR.url;
@@ -415,7 +415,7 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
         }
     }
 
-    private void chM() {
+    private void chN() {
         if (this.currentIndex == -1) {
             a(true, (View) this.hCM);
         }
@@ -435,11 +435,11 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
         }
     }
 
-    private void chN() {
-        chO();
+    private void chO() {
+        chP();
     }
 
-    private void chO() {
+    private void chP() {
         oe(false);
         if (this.hCT != null && this.hue != null && this.mTbPageContext != null) {
             if (this.hCT.getParent() != null) {
@@ -456,7 +456,7 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
         }
     }
 
-    private void chP() {
+    private void chQ() {
         if (this.hCT != null && this.hCT.getParent() != null) {
             ((ViewGroup) this.hCT.getParent()).removeView(this.hCT);
         }
@@ -466,14 +466,14 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chQ() {
+    public void chR() {
         if (this.hCL != null && this.hCL.getVisibility() != 0) {
             this.hCL.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chR() {
+    public void chS() {
         if (this.hCL != null && this.hCL.getVisibility() == 0) {
             this.hCL.setVisibility(4);
         }
@@ -498,23 +498,23 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
                 }
                 a(this.hCR, true);
                 if (a(this.hCR)) {
-                    Iq(this.hCR.url);
+                    Ip(this.hCR.url);
                 }
             }
         } else if (this.hCW == view) {
-            chI();
-            chS();
+            chJ();
+            chT();
         }
     }
 
-    private void chS() {
-        chT();
+    private void chT() {
+        chU();
         if (!this.hCX.isShowing()) {
             this.hCX.a(this.hCO, this.currentIndex);
         }
     }
 
-    private void chT() {
+    private void chU() {
         if (this.hCX == null) {
             this.hCX = new d(this.mTbPageContext.getPageActivity());
             this.hCX.a(this);
@@ -528,7 +528,7 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
         a(false, (View) this.hCM);
         a(ajVar, false);
         if (a(ajVar)) {
-            Iq(ajVar.url);
+            Ip(ajVar.url);
         }
     }
 
@@ -541,7 +541,7 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
                 d(false, 1, this.hCR.aMc);
                 a(this.hCR, true);
                 if (a(this.hCR)) {
-                    Iq(this.hCR.url);
+                    Ip(this.hCR.url);
                     return;
                 }
                 return;
@@ -552,7 +552,7 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
         d(false, i + 2, ajVar.aMc);
         a(ajVar, false);
         if (a(ajVar)) {
-            Iq(ajVar.url);
+            Ip(ajVar.url);
         }
     }
 
@@ -560,9 +560,9 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
         return (ajVar == null || TextUtils.isEmpty(ajVar.url) || TextUtils.equals(ajVar.url, this.hCZ)) ? false : true;
     }
 
-    private void Iq(String str) {
+    private void Ip(String str) {
         if (!TextUtils.isEmpty(str) && this.bsZ != null && this.hDa != null) {
-            chV();
+            chW();
             this.hCZ = str;
             this.bsZ.cH(true);
             this.hDa.playUrl = str;
@@ -573,7 +573,7 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(aj ajVar, boolean z) {
         if (ajVar != null) {
-            chD();
+            chE();
             if (z) {
                 this.hCV.setVisibility(8);
             } else {
@@ -585,24 +585,24 @@ public class b implements View.OnClickListener, a.InterfaceC0679a, f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chU() {
+    public void chV() {
         if (this.hCO != null) {
-            chD();
+            chE();
             c.a(this.mTbPageContext.getPageActivity(), this.hCW, true, this.hCO.EF(), this.hCO.EE(), true);
         }
     }
 
-    private void chV() {
-        chW();
+    private void chW() {
+        chX();
         this.hCS.show();
     }
 
     private void hideLoadingView() {
-        chW();
+        chX();
         this.hCS.dismiss();
     }
 
-    private void chW() {
+    private void chX() {
         if (this.hCS == null) {
             this.hCS = new h(this.mTbPageContext.getPageActivity(), this.bsZ.getLivePlayer());
         }

@@ -13,16 +13,16 @@ import java.util.List;
 public class n implements e.a, t {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Class<?> f11269a = KsAdSDKImpl.getProxyRealClass(FileDownloadServiceProxy.SharedMainProcessServiceProxy.class);
+    private static final Class<?> f11270a = KsAdSDKImpl.getProxyRealClass(FileDownloadServiceProxy.SharedMainProcessServiceProxy.class);
 
     /* renamed from: b  reason: collision with root package name */
-    private final ArrayList<Runnable> f11270b = new ArrayList<>();
+    private final ArrayList<Runnable> f11271b = new ArrayList<>();
     private com.kwai.filedownloader.services.e c;
 
     @Override // com.kwai.filedownloader.services.e.a
     public void a() {
         this.c = null;
-        f.a().b(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.disconnected, f11269a));
+        f.a().b(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.disconnected, f11270a));
     }
 
     @Override // com.kwai.filedownloader.t
@@ -31,20 +31,20 @@ public class n implements e.a, t {
     }
 
     public void a(Context context, Runnable runnable) {
-        if (runnable != null && !this.f11270b.contains(runnable)) {
-            this.f11270b.add(runnable);
+        if (runnable != null && !this.f11271b.contains(runnable)) {
+            this.f11271b.add(runnable);
         }
-        context.startService(new Intent(context, f11269a));
+        context.startService(new Intent(context, f11270a));
     }
 
     @Override // com.kwai.filedownloader.services.e.a
     public void a(com.kwai.filedownloader.services.e eVar) {
         this.c = eVar;
-        this.f11270b.clear();
-        for (Runnable runnable : (List) this.f11270b.clone()) {
+        this.f11271b.clear();
+        for (Runnable runnable : (List) this.f11271b.clone()) {
             runnable.run();
         }
-        f.a().b(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.connected, f11269a));
+        f.a().b(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.connected, f11270a));
     }
 
     @Override // com.kwai.filedownloader.t

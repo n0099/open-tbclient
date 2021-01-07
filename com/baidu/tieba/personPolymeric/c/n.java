@@ -5,6 +5,6 @@ import android.os.Bundle;
 public class n {
     public int gtC;
     public Bundle iQK;
-    public com.baidu.tieba.personCenter.d.a mxr;
+    public com.baidu.tieba.personCenter.d.a mxq;
     public String title;
 }

@@ -96,13 +96,13 @@ public class e extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.e>
         this.gLb.setLayoutParams(layoutParams);
         this.gLP.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_video_direct_seeding, 0, 0, 0);
         this.gLP.setText(this.mContext.getResources().getString(R.string.square_live_tip));
-        this.gKY.startLoad(this.gAx.brJ().cover, 10, false);
-        String numberUniformFormatExtra = at.numberUniformFormatExtra(this.gAx.brJ().audience_count);
+        this.gKY.startLoad(this.gAx.brK().cover, 10, false);
+        String numberUniformFormatExtra = at.numberUniformFormatExtra(this.gAx.brK().audience_count);
         this.gLa.setText(this.mContext.getResources().getString(R.string.square_audience_label, numberUniformFormatExtra));
         this.gLc.setData(this.gAx);
         this.gLd.setText(this.gAx.getTitle());
-        if (this.gAx.brq() != null) {
-            String name_show = eVar.gAx.brq().getName_show();
+        if (this.gAx.brr() != null) {
+            String name_show = eVar.gAx.brr().getName_show();
             if (ad.getTextLengthWithEmoji(name_show) > 10) {
                 name_show = ad.subStringWithEmoji(name_show, 10) + StringHelper.STRING_MORE;
             }
@@ -207,23 +207,23 @@ public class e extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.e>
             if (this.gLE != null) {
                 this.gLE.a(view, this.gEV);
             }
-            com.baidu.tieba.ala.alasquare.b.a.bVl().mG(true);
+            com.baidu.tieba.ala.alasquare.b.a.bVm().mG(true);
             a(this.mTbPageContext, this.gAx);
         }
     }
 
     public void a(TbPageContext<?> tbPageContext, bz bzVar) {
-        if (tbPageContext != null && bzVar != null && bzVar.brq() != null && bzVar.brJ() != null) {
+        if (tbPageContext != null && bzVar != null && bzVar.brr() != null && bzVar.brK() != null) {
             boolean z = false;
             String str = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bzVar.brq().getUserId();
+                String userId = bzVar.brr().getUserId();
                 str = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bzVar.brJ());
-            alaLiveInfoCoreData.userName = bzVar.brq().getUserName();
+            alaLiveInfoCoreData.fillWithInfoData(bzVar.brK());
+            alaLiveInfoCoreData.userName = bzVar.brr().getUserName();
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, this.mFromPage, str, z, "")));
         }
     }

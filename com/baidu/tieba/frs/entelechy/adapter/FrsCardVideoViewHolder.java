@@ -11,8 +11,8 @@ public class FrsCardVideoViewHolder<T extends com.baidu.tieba.frs.entelechy.view
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.holder.CardViewHolder
-    /* renamed from: cIU */
-    public T cvG() {
+    /* renamed from: cIV */
+    public T cvH() {
         return (T) this.iAP;
     }
 

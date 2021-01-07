@@ -126,11 +126,11 @@ public class WheelView extends View {
             this.dCW = obtainStyledAttributes.getFloat(R.styleable.pickerview_wheelview_lineSpacingMultiplier, this.dCW);
             obtainStyledAttributes.recycle();
         }
-        aKZ();
+        aLa();
         dj(context);
     }
 
-    private void aKZ() {
+    private void aLa() {
         if (this.dCW < 1.0f) {
             this.dCW = 1.0f;
         } else if (this.dCW > 4.0f) {
@@ -146,10 +146,10 @@ public class WheelView extends View {
         this.dCX = true;
         this.dDa = 0.0f;
         this.dDb = -1;
-        aLa();
+        aLb();
     }
 
-    private void aLa() {
+    private void aLb() {
         this.dCJ = new Paint();
         this.dCJ.setColor(this.dCT);
         this.dCJ.setAntiAlias(true);
@@ -167,9 +167,9 @@ public class WheelView extends View {
         setLayerType(1, null);
     }
 
-    private void aLb() {
+    private void aLc() {
         if (this.gcW != null) {
-            aLc();
+            aLd();
             int i = (int) (this.dCS * (this.dDe - 1));
             this.dDf = (int) ((i * 2) / 3.141592653589793d);
             this.radius = (int) (i / 3.141592653589793d);
@@ -188,7 +188,7 @@ public class WheelView extends View {
         }
     }
 
-    private void aLc() {
+    private void aLd() {
         Rect rect = new Rect();
         for (int i = 0; i < this.gcW.getItemsCount(); i++) {
             String Y = Y(this.gcW.getItem(i));
@@ -204,7 +204,7 @@ public class WheelView extends View {
     }
 
     public void a(ACTION action) {
-        aLd();
+        aLe();
         if (action == ACTION.FLING || action == ACTION.DAGGLE) {
             this.mOffset = (int) (((this.dDa % this.dCS) + this.dCS) % this.dCS);
             if (this.mOffset > this.dCS / 2.0f) {
@@ -217,11 +217,11 @@ public class WheelView extends View {
     }
 
     public final void M(float f) {
-        aLd();
+        aLe();
         this.dCI = this.dCH.scheduleWithFixedDelay(new com.baidu.tbadk.widget.timepicker.wheel.d.a(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
     }
 
-    public void aLd() {
+    public void aLe() {
         if (this.dCI != null && !this.dCI.isCancelled()) {
             this.dCI.cancel(true);
             this.dCI = null;
@@ -259,7 +259,7 @@ public class WheelView extends View {
 
     public final void setAdapter(a aVar) {
         this.gcW = aVar;
-        aLb();
+        aLc();
         invalidate();
     }
 
@@ -277,7 +277,7 @@ public class WheelView extends View {
         return Math.max(0, Math.min(this.dDc, this.gcW.getItemsCount() - 1));
     }
 
-    public final void aLe() {
+    public final void aLf() {
         if (this.gcV != null) {
             postDelayed(new Runnable() { // from class: com.baidu.tbadk.widget.timepicker.wheel.view.WheelView.1
                 @Override // java.lang.Runnable
@@ -357,7 +357,7 @@ public class WheelView extends View {
                     } else {
                         Y = Y(objArr[i4]);
                     }
-                    EY(Y);
+                    EX(Y);
                     sh(Y);
                     si(Y);
                     float cos = (float) ((this.radius - (Math.cos(d) * this.radius)) - ((Math.sin(d) * this.dCQ) / 2.0d));
@@ -409,7 +409,7 @@ public class WheelView extends View {
         }
     }
 
-    private void EY(String str) {
+    private void EX(String str) {
         Rect rect = new Rect();
         this.dCK.getTextBounds(str, 0, str.length(), rect);
         int i = this.textSize;
@@ -436,7 +436,7 @@ public class WheelView extends View {
             return "";
         }
         if (obj instanceof com.baidu.tbadk.widget.timepicker.wheel.b.a) {
-            return ((com.baidu.tbadk.widget.timepicker.wheel.b.a) obj).aLg();
+            return ((com.baidu.tbadk.widget.timepicker.wheel.b.a) obj).aLh();
         }
         return obj instanceof Integer ? String.format(Locale.getDefault(), "%02d", Integer.valueOf(((Integer) obj).intValue())) : obj.toString();
     }
@@ -490,7 +490,7 @@ public class WheelView extends View {
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         this.dDi = i;
-        aLb();
+        aLc();
         setMeasuredDimension(this.dDg, this.dDf);
     }
 
@@ -503,7 +503,7 @@ public class WheelView extends View {
         switch (motionEvent.getAction()) {
             case 0:
                 this.startTime = System.currentTimeMillis();
-                aLd();
+                aLe();
                 this.dDh = motionEvent.getRawY();
                 break;
             case 1:
@@ -603,11 +603,11 @@ public class WheelView extends View {
     public void setLineSpacingMultiplier(float f) {
         if (f != 0.0f) {
             this.dCW = f;
-            aKZ();
+            aLa();
         }
     }
 
-    public boolean aLf() {
+    public boolean aLg() {
         return this.dCX;
     }
 

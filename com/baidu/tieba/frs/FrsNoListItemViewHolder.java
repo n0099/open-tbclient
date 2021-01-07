@@ -48,10 +48,10 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
         com.baidu.tbadk.core.util.ao.setImageResource(this.jiK, R.drawable.new_pic_emotion_06);
         this.jiM.setTag(jiI);
         MessageManager.getInstance().registerListener(this.jiM);
-        cGQ();
+        cGR();
     }
 
-    private void cGQ() {
+    private void cGR() {
         if (this.mRootView != null) {
             this.mRootView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() { // from class: com.baidu.tieba.frs.FrsNoListItemViewHolder.2
                 @Override // android.view.View.OnLayoutChangeListener

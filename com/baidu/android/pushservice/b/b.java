@@ -11,32 +11,32 @@ import java.io.File;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f1176a;
+    protected Context f1177a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected String f1177b;
+    protected String f1178b;
     protected String c;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(Context context) {
-        this.f1176a = context;
+        this.f1177a = context;
     }
 
     public boolean a() {
-        String a2 = new File(this.c).exists() ? a.a(this.f1176a, this.c) : a.a();
+        String a2 = new File(this.c).exists() ? a.a(this.f1177a, this.c) : a.a();
         if (!TextUtils.isEmpty(a2)) {
             try {
                 byte[] decode = Base64.decode(a2.getBytes(), 2);
                 if (decode != null && decode.length > 0) {
-                    this.f1177b = new String(BaiduAppSSOJni.decryptAES(decode, decode.length, 0), "utf-8");
+                    this.f1178b = new String(BaiduAppSSOJni.decryptAES(decode, decode.length, 0), "utf-8");
                 }
             } catch (Exception e) {
-                new b.c(this.f1176a).a(Log.getStackTraceString(e)).a();
+                new b.c(this.f1177a).a(Log.getStackTraceString(e)).a();
             } catch (UnsatisfiedLinkError e2) {
-                new b.c(this.f1176a).a(Log.getStackTraceString(e2)).a();
+                new b.c(this.f1177a).a(Log.getStackTraceString(e2)).a();
             }
         }
-        return !TextUtils.isEmpty(this.f1177b);
+        return !TextUtils.isEmpty(this.f1178b);
     }
 
     public boolean a(Context context, String str) {

@@ -1,5 +1,5 @@
 package com.baidu.prologue.a.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface g {
     public static final g ctf = new a();
 

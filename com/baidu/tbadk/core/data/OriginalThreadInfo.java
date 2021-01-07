@@ -59,7 +59,7 @@ public class OriginalThreadInfo {
 
     public void a(OriginThreadInfo originThreadInfo) {
         if (originThreadInfo == null) {
-            bpR();
+            bpS();
             return;
         }
         this.forumName = originThreadInfo.fname;
@@ -134,13 +134,13 @@ public class OriginalThreadInfo {
             this.pollData = new PollData();
             this.pollData.parserProtobuf(originThreadInfo.poll_info);
         }
-        bpT();
-        bpP();
+        bpU();
+        bpQ();
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
-            bpR();
+            bpS();
             return;
         }
         try {
@@ -197,17 +197,17 @@ public class OriginalThreadInfo {
                     this.eQW.add(voiceModel);
                 }
             }
-            bpP();
+            bpQ();
         } catch (Throwable th) {
             try {
                 BdLog.e(th.getMessage());
             } finally {
-                bpT();
+                bpU();
             }
         }
     }
 
-    private void bpP() {
+    private void bpQ() {
         this.eQX = new SpannableString(com.baidu.tbadk.widget.richText.e.a(this.content, this.eQZ, true));
     }
 
@@ -219,7 +219,7 @@ public class OriginalThreadInfo {
             return bzVar.eVB;
         }
         OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
-        originalThreadInfo.forumName = bzVar.bru();
+        originalThreadInfo.forumName = bzVar.brv();
         originalThreadInfo.forumId = bzVar.getFid();
         originalThreadInfo.threadId = bzVar.getTid();
         originalThreadInfo.title = bzVar.getTitle();
@@ -233,35 +233,35 @@ public class OriginalThreadInfo {
         MediaData mediaData = new MediaData();
         arrayList2.add(mediaData);
         originalThreadInfo.eQS = arrayList2;
-        originalThreadInfo.videoInfo = bzVar.brH();
-        if (bzVar.isLinkThread() && bzVar.bsX() != null) {
-            ao bsX = bzVar.bsX();
-            originalThreadInfo.title = bsX.bpG();
-            abstractData.text = bsX.bpH();
-            mediaData.setPic(bsX.bpI());
-        } else if (bzVar.bsz() && bzVar.bqW() != null) {
-            mediaData.setPic(bzVar.bqW().getThreadImgUrl());
-        } else if (com.baidu.tbadk.core.util.x.getCount(bzVar.brz()) > 0) {
-            originalThreadInfo.eQS = bzVar.brz();
-        } else if (bzVar.brH() != null && !StringUtils.isNull(bzVar.brH().thumbnail_url)) {
-            mediaData.setPic(bzVar.brH().thumbnail_url);
+        originalThreadInfo.videoInfo = bzVar.brI();
+        if (bzVar.isLinkThread() && bzVar.bsY() != null) {
+            ao bsY = bzVar.bsY();
+            originalThreadInfo.title = bsY.bpH();
+            abstractData.text = bsY.bpI();
+            mediaData.setPic(bsY.bpJ());
+        } else if (bzVar.bsA() && bzVar.bqX() != null) {
+            mediaData.setPic(bzVar.bqX().getThreadImgUrl());
+        } else if (com.baidu.tbadk.core.util.x.getCount(bzVar.brA()) > 0) {
+            originalThreadInfo.eQS = bzVar.brA();
+        } else if (bzVar.brI() != null && !StringUtils.isNull(bzVar.brI().thumbnail_url)) {
+            mediaData.setPic(bzVar.brI().thumbnail_url);
         }
-        originalThreadInfo.eQU = bzVar.brJ();
-        originalThreadInfo.bpT();
+        originalThreadInfo.eQU = bzVar.brK();
+        originalThreadInfo.bpU();
         originalThreadInfo.itemData = bzVar.itemData;
         originalThreadInfo.itemStarData = bzVar.itemStarData;
         originalThreadInfo.oriUgcInfo = bzVar.getBaijiahaoData();
-        originalThreadInfo.pollData = bzVar.btz();
+        originalThreadInfo.pollData = bzVar.btA();
         return originalThreadInfo;
     }
 
-    public bz bpQ() {
+    public bz bpR() {
         bz bzVar = new bz();
         bzVar.setTitle(this.title);
         if (this.eQS != null) {
             bzVar.G(new ArrayList<>(this.eQS));
         }
-        bzVar.Bd(this.forumName);
+        bzVar.Bc(this.forumName);
         bzVar.setTid(this.threadId);
         bzVar.a(this.eQU);
         bzVar.setFid(this.forumId);
@@ -269,22 +269,22 @@ public class OriginalThreadInfo {
         bzVar.isShareThread = true;
         bzVar.setBaijiahaoData(this.oriUgcInfo);
         bzVar.a(this.videoInfo);
-        bzVar.Bl(this.showPicUrl);
+        bzVar.Bk(this.showPicUrl);
         bzVar.eVB = this;
         return bzVar;
     }
 
-    private void bpR() {
+    private void bpS() {
         this.showType = 0;
         this.showText = TbadkCoreApplication.getInst().getString(R.string.original_thread_default_txt);
         this.showPicUrl = null;
     }
 
-    public boolean bpS() {
+    public boolean bpT() {
         return this.eQY;
     }
 
-    public void bpT() {
+    public void bpU() {
         switch (this.threadType) {
             case 40:
                 this.showType = 3;
@@ -326,14 +326,14 @@ public class OriginalThreadInfo {
         }
     }
 
-    public ActivityItemData bpU() {
+    public ActivityItemData bpV() {
         if (this.content != null && this.content.size() > 0) {
             int size = this.content.size();
             for (int i = 0; i < size; i++) {
                 PbContent pbContent = this.content.get(i);
-                if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && bpV() && pbContent.text != null && pbContent.text.length() >= 3) {
+                if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && bpW() && pbContent.text != null && pbContent.text.length() >= 3) {
                     ActivityItemData activityItemData = new ActivityItemData();
-                    activityItemData.link_url = com.baidu.tbadk.plugins.b.Ey(pbContent.text);
+                    activityItemData.link_url = com.baidu.tbadk.plugins.b.Ex(pbContent.text);
                     activityItemData.activity_name = pbContent.text.substring(1, pbContent.text.length() - 2);
                     return activityItemData;
                 }
@@ -342,11 +342,11 @@ public class OriginalThreadInfo {
         return null;
     }
 
-    public boolean bpV() {
+    public boolean bpW() {
         return this.threadType == 40 || this.threadType == 50;
     }
 
-    public String bpW() {
+    public String bpX() {
         String str;
         if (!StringUtils.isNull(this.title)) {
             str = this.title;
@@ -361,15 +361,15 @@ public class OriginalThreadInfo {
         return str;
     }
 
-    public boolean bpX() {
+    public boolean bpY() {
         return this.oriUgcInfo != null && this.oriUgcInfo.oriUgcType == 1;
     }
 
-    public boolean bpY() {
+    public boolean bpZ() {
         return this.oriUgcInfo != null && this.oriUgcInfo.oriUgcType == 2;
     }
 
-    public boolean bpZ() {
+    public boolean bqa() {
         if (this.oriUgcInfo == null) {
             return false;
         }

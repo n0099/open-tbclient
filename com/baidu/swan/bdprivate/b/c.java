@@ -3,7 +3,7 @@ package com.baidu.swan.bdprivate.b;
 public class c {
     private static volatile b dWd;
 
-    public static synchronized b aTa() {
+    public static synchronized b aTb() {
         b bVar;
         synchronized (c.class) {
             if (dWd == null) {

@@ -33,7 +33,7 @@ public class i {
         }
         Iterator<String> it = arrayList.iterator();
         while (it.hasNext()) {
-            this.ikb.add(Jf(it.next()));
+            this.ikb.add(Je(it.next()));
         }
     }
 
@@ -76,7 +76,7 @@ public class i {
         }
     }
 
-    public void cpb() {
+    public void cpc() {
         this.handler.removeCallbacksAndMessages(null);
         this.loop = false;
         Iterator<HeadImageView> it = this.ikb.iterator();
@@ -88,11 +88,11 @@ public class i {
         this.ikb.clear();
     }
 
-    public boolean csu() {
+    public boolean csv() {
         return this.ikb.size() != 0;
     }
 
-    private HeadImageView Jf(String str) {
+    private HeadImageView Je(String str) {
         HeadImageView headImageView = new HeadImageView(this.context);
         headImageView.startLoad(str, 25, false, false);
         headImageView.setIsRound(true);

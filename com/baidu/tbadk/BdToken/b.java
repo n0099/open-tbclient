@@ -103,11 +103,11 @@ public class b {
         }
     }
 
-    public ArrayList<h> bks() {
+    public ArrayList<h> bkt() {
         return this.eFt;
     }
 
-    public int bkt() {
+    public int bku() {
         int i;
         int size = this.eFt.size();
         int i2 = 0;
@@ -141,7 +141,7 @@ public class b {
         return ((j) hVar).getFid();
     }
 
-    public void bku() {
+    public void bkv() {
         int size = this.eFt.size();
         for (int i = 0; i < size; i++) {
             h hVar = (h) com.baidu.tbadk.core.util.x.getItem(this.eFt, i);
@@ -216,7 +216,7 @@ public class b {
         }
     }
 
-    public String bkv() {
+    public String bkw() {
         try {
             ArrayList<h> arrayList = this.eFt;
             JSONArray jSONArray = new JSONArray();
@@ -224,7 +224,7 @@ public class b {
                 h hVar = (h) com.baidu.tbadk.core.util.x.getItem(arrayList, i);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("i", b(hVar));
-                jSONObject.put("t", hVar.blt());
+                jSONObject.put("t", hVar.blu());
                 jSONObject.put("c", hVar.isCompleted());
                 jSONObject.put("a", hVar.getTag());
                 jSONArray.put(jSONObject);
@@ -291,7 +291,7 @@ public class b {
                 this.eFd = jSONObject.optInt(eED);
                 this.eFk = jSONObject.optInt(eEE);
                 this.eFl = jSONObject.optLong(eEF);
-                this.eFn = bkB();
+                this.eFn = bkC();
                 this.eFe = jSONObject.optLong(TID);
                 this.mFid = jSONObject.optLong(FID);
                 this.eFh = jSONObject.optString(eEG);
@@ -325,7 +325,7 @@ public class b {
             this.mTaskType = missionInfo.tasktype.intValue();
             this.eFk = missionInfo.cleartype.intValue();
             this.eFl = missionInfo.cleartime.intValue();
-            this.eFn = bkB();
+            this.eFn = bkC();
             this.eFc = missionInfo.browsetimepage;
             this.eFm = zR(this.eFc);
             if (missionInfo.threadnum.intValue() > 0) {
@@ -340,25 +340,25 @@ public class b {
         }
     }
 
-    public boolean bkw() {
+    public boolean bkx() {
         return this.eEZ > 0 && this.eFa > 0 && this.mTaskType > 0 && this.eFb > 0;
     }
 
-    public synchronized int bkx() {
+    public synchronized int bky() {
         int i;
         i = this.eFp + 1;
         this.eFp = i;
         return i;
     }
 
-    public synchronized int bky() {
+    public synchronized int bkz() {
         int i;
         i = this.eFo + 1;
         this.eFo = i;
         return i;
     }
 
-    public synchronized int bkz() {
+    public synchronized int bkA() {
         int i;
         i = this.mTag + 1;
         this.mTag = i;
@@ -386,11 +386,11 @@ public class b {
         return iArr;
     }
 
-    public boolean bkA() {
-        return System.currentTimeMillis() > bkN() * 1000;
+    public boolean bkB() {
+        return System.currentTimeMillis() > bkO() * 1000;
     }
 
-    public long bkB() {
+    public long bkC() {
         if (this.eFk == eEU) {
             return 0L;
         }
@@ -398,11 +398,11 @@ public class b {
             return (System.currentTimeMillis() / 1000) + this.eFl;
         }
         if (this.eFk == eEW) {
-            long bkC = (bkC() / 1000) + this.eFl;
-            if (System.currentTimeMillis() > bkC) {
-                return bkC + 86400;
+            long bkD = (bkD() / 1000) + this.eFl;
+            if (System.currentTimeMillis() > bkD) {
+                return bkD + 86400;
             }
-            return bkC;
+            return bkD;
         } else if (this.eFk == eEX) {
             return m((int) this.eFl, ob(4)) / 1000;
         } else {
@@ -413,7 +413,7 @@ public class b {
         }
     }
 
-    private long bkC() {
+    private long bkD() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(11, 0);
         calendar.set(12, 0);
@@ -423,13 +423,13 @@ public class b {
     }
 
     private long ob(int i) {
-        long bkC = bkC();
+        long bkD = bkD();
         Calendar calendar = Calendar.getInstance();
         calendar.set(11, i);
         calendar.set(12, 0);
         calendar.set(13, 0);
         calendar.set(14, 0);
-        return calendar.getTimeInMillis() - bkC;
+        return calendar.getTimeInMillis() - bkD;
     }
 
     private long m(int i, long j) {
@@ -479,7 +479,7 @@ public class b {
         this.eEZ = i;
     }
 
-    public int bkD() {
+    public int bkE() {
         return this.eFa;
     }
 
@@ -487,7 +487,7 @@ public class b {
         this.eFa = i;
     }
 
-    public String bkE() {
+    public String bkF() {
         return this.eFf;
     }
 
@@ -495,7 +495,7 @@ public class b {
         this.eFf = str;
     }
 
-    public String bkF() {
+    public String bkG() {
         return this.eFg;
     }
 
@@ -503,7 +503,7 @@ public class b {
         return this.mSource;
     }
 
-    public int bkG() {
+    public int bkH() {
         return this.mCallType;
     }
 
@@ -519,7 +519,7 @@ public class b {
         this.mTaskType = i;
     }
 
-    public String bkH() {
+    public String bkI() {
         return this.eFc;
     }
 
@@ -528,11 +528,11 @@ public class b {
         this.eFm = zR(str);
     }
 
-    public int[] bkI() {
+    public int[] bkJ() {
         return this.eFm;
     }
 
-    public long bkJ() {
+    public long bkK() {
         return this.eFb;
     }
 
@@ -548,7 +548,7 @@ public class b {
         this.mThreadNum = i;
     }
 
-    public int bkK() {
+    public int bkL() {
         return this.eFd;
     }
 
@@ -556,7 +556,7 @@ public class b {
         this.eFd = i;
     }
 
-    public int bkL() {
+    public int bkM() {
         return this.eFk;
     }
 
@@ -564,7 +564,7 @@ public class b {
         this.eFk = i;
     }
 
-    public long bkM() {
+    public long bkN() {
         return this.eFl;
     }
 
@@ -572,7 +572,7 @@ public class b {
         this.eFl = j;
     }
 
-    public long bkN() {
+    public long bkO() {
         return this.eFn;
     }
 
@@ -596,7 +596,7 @@ public class b {
         this.mFid = j;
     }
 
-    public String bkO() {
+    public String bkP() {
         return this.eFh;
     }
 
@@ -604,7 +604,7 @@ public class b {
         this.eFh = str;
     }
 
-    public String bkP() {
+    public String bkQ() {
         return this.eFi;
     }
 
@@ -612,7 +612,7 @@ public class b {
         this.eFi = str;
     }
 
-    public long bkQ() {
+    public long bkR() {
         return this.eFj;
     }
 
@@ -620,7 +620,7 @@ public class b {
         this.eFj = j;
     }
 
-    public int bkR() {
+    public int bkS() {
         return this.eFr;
     }
 
@@ -636,7 +636,7 @@ public class b {
         return this.mTag;
     }
 
-    public boolean bkS() {
+    public boolean bkT() {
         return this.eFq;
     }
 

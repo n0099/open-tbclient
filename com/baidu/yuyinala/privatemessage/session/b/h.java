@@ -12,7 +12,7 @@ public class h {
     private Map<String, String> pdG = new HashMap();
     private HashSet<String> pdH = new HashSet<>();
 
-    public static h eou() {
+    public static h eov() {
         if (pdF == null) {
             synchronized (h.class) {
                 if (pdF == null) {
@@ -23,7 +23,7 @@ public class h {
         return pdF;
     }
 
-    public Map<String, String> eov() {
+    public Map<String, String> eow() {
         return this.pdG;
     }
 
@@ -42,7 +42,7 @@ public class h {
         }
         if (!z) {
             if (gVar != null) {
-                gVar.aXI();
+                gVar.aXJ();
                 return;
             }
             return;
@@ -54,7 +54,7 @@ public class h {
     private void a(Context context, HashMap<String, String> hashMap, g gVar) {
     }
 
-    public String Yz(String str) {
+    public String Yy(String str) {
         return this.pdG.get(str);
     }
 }

@@ -12,7 +12,7 @@ import com.bumptech.glide.util.LogTime;
 import java.util.Collections;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SourceGenerator implements DataFetcher.DataCallback<Object>, DataFetcherGenerator, DataFetcherGenerator.FetcherReadyCallback {
     private static final String TAG = "SourceGenerator";
     private final DataFetcherGenerator.FetcherReadyCallback cb;

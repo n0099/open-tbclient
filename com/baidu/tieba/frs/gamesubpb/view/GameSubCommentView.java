@@ -12,7 +12,7 @@ import com.baidu.tieba.frs.gamesubpb.model.d;
 /* loaded from: classes2.dex */
 public class GameSubCommentView {
     private SpannableTextView jAE;
-    private a.InterfaceC0740a jzO;
+    private a.InterfaceC0747a jzO;
     private View mRootView;
     private TbPageContext<?> mTbPageContext;
 
@@ -41,9 +41,9 @@ public class GameSubCommentView {
         return this.mRootView;
     }
 
-    public void setClickListener(a.InterfaceC0740a interfaceC0740a) {
-        this.jzO = interfaceC0740a;
-        this.jAE.setClickListener(interfaceC0740a);
+    public void setClickListener(a.InterfaceC0747a interfaceC0747a) {
+        this.jzO = interfaceC0747a;
+        this.jAE.setClickListener(interfaceC0747a);
     }
 
     /* loaded from: classes2.dex */

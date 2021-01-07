@@ -6,21 +6,21 @@ import java.util.HashMap;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static HashMap<d, a> f14129a = new HashMap<>();
+    private static HashMap<d, a> f14130a = new HashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f14130a;
+        public String f14131a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f14131b;
+        public String f14132b;
 
         public a(String str, String str2) {
-            this.f14130a = str;
-            this.f14131b = str2;
+            this.f14131a = str;
+            this.f14132b = str2;
         }
     }
 
@@ -47,18 +47,18 @@ public class k {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static a m135a(d dVar) {
-        return f14129a.get(dVar);
+    public static a m146a(d dVar) {
+        return f14130a.get(dVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hr m136a(d dVar) {
+    public static hr m147a(d dVar) {
         return hr.AggregatePushSwitch;
     }
 
     private static void a(d dVar, a aVar) {
         if (aVar != null) {
-            f14129a.put(dVar, aVar);
+            f14130a.put(dVar, aVar);
         }
     }
 }

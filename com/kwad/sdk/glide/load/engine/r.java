@@ -8,9 +8,9 @@ import com.kwad.sdk.glide.g.a.a;
 public final class r<Z> implements a.c, s<Z> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pools.Pool<r<?>> f10545a = com.kwad.sdk.glide.g.a.a.a(20, new a.InterfaceC1095a<r<?>>() { // from class: com.kwad.sdk.glide.load.engine.r.1
+    private static final Pools.Pool<r<?>> f10546a = com.kwad.sdk.glide.g.a.a.a(20, new a.InterfaceC1136a<r<?>>() { // from class: com.kwad.sdk.glide.load.engine.r.1
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1095a
+        @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1136a
         /* renamed from: a */
         public r<?> b() {
             return new r<>();
@@ -18,7 +18,7 @@ public final class r<Z> implements a.c, s<Z> {
     });
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.glide.g.a.c f10546b = com.kwad.sdk.glide.g.a.c.a();
+    private final com.kwad.sdk.glide.g.a.c f10547b = com.kwad.sdk.glide.g.a.c.a();
     private s<Z> c;
     private boolean d;
     private boolean e;
@@ -29,7 +29,7 @@ public final class r<Z> implements a.c, s<Z> {
     /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
     public static <Z> r<Z> a(s<Z> sVar) {
-        r<Z> rVar = (r) com.kwad.sdk.glide.g.j.a(f10545a.acquire());
+        r<Z> rVar = (r) com.kwad.sdk.glide.g.j.a(f10546a.acquire());
         rVar.b(sVar);
         return rVar;
     }
@@ -42,7 +42,7 @@ public final class r<Z> implements a.c, s<Z> {
 
     private void f() {
         this.c = null;
-        f10545a.release(this);
+        f10546a.release(this);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
@@ -53,7 +53,7 @@ public final class r<Z> implements a.c, s<Z> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void b() {
-        this.f10546b.b();
+        this.f10547b.b();
         if (!this.d) {
             throw new IllegalStateException("Already unlocked");
         }
@@ -71,12 +71,12 @@ public final class r<Z> implements a.c, s<Z> {
     @Override // com.kwad.sdk.glide.g.a.a.c
     @NonNull
     public com.kwad.sdk.glide.g.a.c d() {
-        return this.f10546b;
+        return this.f10547b;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public synchronized void d_() {
-        this.f10546b.b();
+        this.f10547b.b();
         this.e = true;
         if (!this.d) {
             this.c.d_();

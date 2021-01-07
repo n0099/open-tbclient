@@ -61,14 +61,14 @@ public class b implements d {
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
             b.this.ipX = surfaceTexture;
-            b.this.cuf();
+            b.this.cug();
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
             b.this.cd(b.this.ipP.getWidth(), b.this.ipP.getHeight());
             b.this.pl(false);
-            b.this.cud();
+            b.this.cue();
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
@@ -78,7 +78,7 @@ public class b implements d {
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-            b.this.cud();
+            b.this.cue();
         }
     };
     private Comparator<Camera.Size> ipZ = new Comparator<Camera.Size>() { // from class: com.baidu.tieba.barselect.idCard.b.5
@@ -96,7 +96,7 @@ public class b implements d {
         return i;
     }
 
-    public int ctY() {
+    public int ctZ() {
         return this.rotation;
     }
 
@@ -115,8 +115,8 @@ public class b implements d {
             }
             try {
                 yuvImage.compressToJpeg(new Rect(0, 0, this.ipT.width, this.ipT.height), 80, byteArrayOutputStream);
-                if (this.ipR.j(byteArrayOutputStream.toByteArray(), ctY()) == 0) {
-                    cue();
+                if (this.ipR.j(byteArrayOutputStream.toByteArray(), ctZ()) == 0) {
+                    cuf();
                 }
                 if (byteArrayOutputStream != null) {
                     try {
@@ -169,7 +169,7 @@ public class b implements d {
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
-    public void ctZ() {
+    public void cua() {
         pl(true);
     }
 
@@ -182,7 +182,7 @@ public class b implements d {
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
-    public int cua() {
+    public int cub() {
         return this.ipJ;
     }
 
@@ -232,7 +232,7 @@ public class b implements d {
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
-    public View cub() {
+    public View cuc() {
         return this.ipQ;
     }
 
@@ -255,7 +255,7 @@ public class b implements d {
                 this.ipM.setPictureSize(cR.width, cR.height);
                 this.camera.setParameters(this.ipM);
                 this.ipK.set(true);
-                cug();
+                cuh();
                 c.execute(new Runnable() { // from class: com.baidu.tieba.barselect.idCard.b.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -297,10 +297,10 @@ public class b implements d {
     }
 
     private void openCamera() {
-        cuc();
+        cud();
     }
 
-    private void cuc() {
+    private void cud() {
         TextureView textureView = new TextureView(this.context);
         this.ipP.iqf = textureView;
         this.ipP.a(textureView);
@@ -309,7 +309,7 @@ public class b implements d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cud() {
+    public void cue() {
         if (this.buffer == null) {
             this.buffer = new byte[((this.ipQ.getWidth() * this.ipQ.getHeight()) * ImageFormat.getBitsPerPixel(17)) / 8];
         }
@@ -319,7 +319,7 @@ public class b implements d {
         }
     }
 
-    private void cue() {
+    private void cuf() {
         if (this.camera != null && this.ipW == 1) {
             this.camera.setPreviewCallback(null);
             UR();
@@ -327,7 +327,7 @@ public class b implements d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cuf() {
+    public void cug() {
         try {
             if (this.camera == null) {
                 Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
@@ -345,7 +345,7 @@ public class b implements d {
             }
             cd(this.ipP.getWidth(), this.ipP.getHeight());
             this.camera.setPreviewTexture(this.ipX);
-            cud();
+            cue();
             pl(false);
         } catch (IOException e) {
             e.printStackTrace();
@@ -356,22 +356,22 @@ public class b implements d {
     public void pl(boolean z) {
         if (ActivityCompat.checkSelfPermission(this.context, PermissionRequest.RESOURCE_VIDEO_CAPTURE) != 0) {
             if (z && this.ipN != null) {
-                this.ipN.cut();
+                this.ipN.cuu();
             }
         } else if (this.camera == null) {
-            cuf();
+            cug();
         } else {
             this.camera.startPreview();
-            cuh();
+            cui();
         }
     }
 
-    private void cug() {
+    private void cuh() {
         this.camera.cancelAutoFocus();
-        c.cuu();
+        c.cuv();
     }
 
-    private void cuh() {
+    private void cui() {
         c.q(new Runnable() { // from class: com.baidu.tieba.barselect.idCard.b.4
             @Override // java.lang.Runnable
             public void run() {
@@ -398,7 +398,7 @@ public class b implements d {
                 this.ipT = cR(this.camera.getParameters().getSupportedPreviewSizes());
                 this.ipM.setPreviewSize(this.ipT.width, this.ipT.height);
                 this.ipP.setRatio((1.0f * this.ipT.width) / this.ipT.height);
-                this.camera.setDisplayOrientation(cui());
+                this.camera.setDisplayOrientation(cuj());
                 UR();
                 this.camera.setParameters(this.ipM);
             } catch (Exception e) {
@@ -457,7 +457,7 @@ public class b implements d {
         this.camera.setParameters(this.ipM);
     }
 
-    private int cui() {
+    private int cuj() {
         switch (this.ipI) {
             case 0:
             default:
@@ -520,12 +520,12 @@ public class b implements d {
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
-    public Rect cuj() {
+    public Rect cuk() {
         return this.ipO;
     }
 
     @Override // com.baidu.tieba.barselect.idCard.d
-    public void cuk() {
+    public void cul() {
         this.ipK.set(false);
     }
 }

@@ -8,11 +8,11 @@ import android.net.NetworkInfo;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f1960b = a.class.getSimpleName();
+    private static final String f1961b = a.class.getSimpleName();
     private static final boolean c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1961a;
+    public String f1962a;
     private String d;
     private String e;
     private String f;
@@ -55,6 +55,6 @@ public class a {
     }
 
     public String e() {
-        return this.f1961a;
+        return this.f1962a;
     }
 }

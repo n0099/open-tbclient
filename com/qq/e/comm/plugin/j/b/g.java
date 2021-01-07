@@ -1,20 +1,20 @@
 package com.qq.e.comm.plugin.j.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class g implements d, com.qq.e.comm.plugin.j.f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final long f12468a;
+    private final long f12469a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f12469b;
+    private final int f12470b;
     private final c[] c;
     private com.qq.e.comm.plugin.j.f d;
 
     public g(long j, long[] jArr, long[] jArr2) {
-        this.f12468a = j;
-        this.f12469b = jArr.length;
-        this.c = new c[this.f12469b];
-        for (int i = 0; i < this.f12469b; i++) {
+        this.f12469a = j;
+        this.f12470b = jArr.length;
+        this.c = new c[this.f12470b];
+        for (int i = 0; i < this.f12470b; i++) {
             this.c[i] = new i(jArr[i], jArr2[i]);
             this.c[i].a(this);
         }
@@ -30,7 +30,7 @@ class g implements d, com.qq.e.comm.plugin.j.f {
     }
 
     public c a(int i) {
-        if (i < 0 || i >= this.f12469b) {
+        if (i < 0 || i >= this.f12470b) {
             return null;
         }
         return this.c[i];
@@ -49,6 +49,6 @@ class g implements d, com.qq.e.comm.plugin.j.f {
     }
 
     public long b() {
-        return this.f12468a;
+        return this.f12469a;
     }
 }

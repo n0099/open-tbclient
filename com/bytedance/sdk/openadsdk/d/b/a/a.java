@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public final class a<E> extends v<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f7167a = new w() { // from class: com.bytedance.sdk.openadsdk.d.b.a.a.1
+    public static final w f7168a = new w() { // from class: com.bytedance.sdk.openadsdk.d.b.a.a.1
         @Override // com.bytedance.sdk.openadsdk.d.w
         public <T> v<T> a(com.bytedance.sdk.openadsdk.d.f fVar, com.bytedance.sdk.openadsdk.d.c.a<T> aVar) {
             Type b2 = aVar.b();
@@ -24,12 +24,12 @@ public final class a<E> extends v<Object> {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    private final Class<E> f7168b;
+    private final Class<E> f7169b;
     private final v<E> c;
 
     public a(com.bytedance.sdk.openadsdk.d.f fVar, v<E> vVar, Class<E> cls) {
         this.c = new m(fVar, vVar, cls);
-        this.f7168b = cls;
+        this.f7169b = cls;
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.v
@@ -45,7 +45,7 @@ public final class a<E> extends v<Object> {
         }
         aVar.b();
         int size = arrayList.size();
-        Object newInstance = Array.newInstance((Class<?>) this.f7168b, size);
+        Object newInstance = Array.newInstance((Class<?>) this.f7169b, size);
         for (int i = 0; i < size; i++) {
             Array.set(newInstance, i, arrayList.get(i));
         }

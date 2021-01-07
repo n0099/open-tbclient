@@ -12,10 +12,10 @@ import java.util.ArrayList;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f8858a;
+    private ImageView f8859a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f8859b;
+    private ImageView f8860b;
     private Handler f;
     private a g;
     private AnimatorSet c = new AnimatorSet();
@@ -36,16 +36,16 @@ public class b {
     private Runnable j = new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.b.3
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f8859b == null) {
+            if (b.this.f8860b == null) {
                 return;
             }
-            b.this.f8859b.setVisibility(0);
-            b.this.f8859b.setPivotX(ao.a(b.this.f8859b.getContext(), 154.0f));
-            b.this.f8859b.setPivotY(ao.a(b.this.f8859b.getContext(), 27.0f));
-            b.this.f8859b.invalidate();
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(b.this.f8859b, "alpha", 0.0f, 1.0f);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(b.this.f8859b, "scaleX", 0.5f, 1.0f);
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(b.this.f8859b, "scaleY", 0.5f, 1.0f);
+            b.this.f8860b.setVisibility(0);
+            b.this.f8860b.setPivotX(ao.a(b.this.f8860b.getContext(), 154.0f));
+            b.this.f8860b.setPivotY(ao.a(b.this.f8860b.getContext(), 27.0f));
+            b.this.f8860b.invalidate();
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(b.this.f8860b, "alpha", 0.0f, 1.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(b.this.f8860b, "scaleX", 0.5f, 1.0f);
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(b.this.f8860b, "scaleY", 0.5f, 1.0f);
             ArrayList arrayList = new ArrayList();
             arrayList.add(ofFloat);
             arrayList.add(ofFloat2);
@@ -64,15 +64,15 @@ public class b {
     }
 
     public b(@NonNull ImageView imageView, @NonNull ImageView imageView2, @NonNull Handler handler, @NonNull a aVar) {
-        this.f8858a = imageView;
-        this.f8859b = imageView2;
+        this.f8859a = imageView;
+        this.f8860b = imageView2;
         this.g = aVar;
         this.f = handler;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (this.f8859b == null || this.f8858a == null) {
+        if (this.f8860b == null || this.f8859a == null) {
             return;
         }
         if (this.g != null) {
@@ -84,8 +84,8 @@ public class b {
     }
 
     private void c() {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f8858a, "scaleX", 1.1f, 1.0f, 1.1f);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f8858a, "scaleY", 1.1f, 1.0f, 1.1f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f8859a, "scaleX", 1.1f, 1.0f, 1.1f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f8859a, "scaleY", 1.1f, 1.0f, 1.1f);
         ofFloat.setRepeatCount(-1);
         ofFloat2.setRepeatCount(-1);
         this.c.setDuration(600L);
@@ -98,10 +98,10 @@ public class b {
         if (this.g != null) {
             this.g.b();
         }
-        if (this.f8859b != null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f8859b, "alpha", 1.0f, 0.0f);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f8859b, "scaleX", 1.0f, 0.5f);
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.f8859b, "scaleY", 1.0f, 0.5f);
+        if (this.f8860b != null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f8860b, "alpha", 1.0f, 0.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f8860b, "scaleX", 1.0f, 0.5f);
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.f8860b, "scaleY", 1.0f, 0.5f);
             ArrayList arrayList = new ArrayList();
             arrayList.add(ofFloat);
             arrayList.add(ofFloat2);
@@ -124,8 +124,8 @@ public class b {
             this.f.removeCallbacks(this.h);
             this.f.removeCallbacks(this.i);
         }
-        if (this.f8859b != null) {
-            this.f8859b.setVisibility(8);
+        if (this.f8860b != null) {
+            this.f8860b.setVisibility(8);
         }
         if (this.d != null) {
             this.d.cancel();
@@ -136,8 +136,8 @@ public class b {
         if (this.c != null) {
             this.c.cancel();
         }
-        this.f8858a = null;
-        this.f8859b = null;
+        this.f8859a = null;
+        this.f8860b = null;
         this.g = null;
     }
 

@@ -18,10 +18,10 @@ public class a extends com.kwad.sdk.core.view.b {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    private KsDrawAd.AdInteractionListener f9970a;
+    private KsDrawAd.AdInteractionListener f9971a;
 
     /* renamed from: b  reason: collision with root package name */
-    private AdBaseFrameLayout f9971b;
+    private AdBaseFrameLayout f9972b;
     private DetailVideoView c;
     private com.kwad.sdk.draw.a.b d;
     private Presenter e;
@@ -40,15 +40,15 @@ public class a extends com.kwad.sdk.core.view.b {
 
     private void c() {
         inflate(this.j, R.layout.ksad_draw_layout, this);
-        this.f9971b = (AdBaseFrameLayout) findViewById(R.id.ksad_root_container);
-        this.c = (DetailVideoView) this.f9971b.findViewById(R.id.ksad_video_player);
+        this.f9972b = (AdBaseFrameLayout) findViewById(R.id.ksad_root_container);
+        this.c = (DetailVideoView) this.f9972b.findViewById(R.id.ksad_video_player);
         this.c.setAd(true);
     }
 
     private com.kwad.sdk.draw.a.b d() {
         com.kwad.sdk.draw.a.b bVar = new com.kwad.sdk.draw.a.b();
-        bVar.f9973a = this.f9970a;
-        bVar.f9974b = this.f9971b;
+        bVar.f9974a = this.f9971a;
+        bVar.f9975b = this.f9972b;
         bVar.c = this.f;
         if (com.kwad.sdk.core.response.b.a.y(this.g)) {
             bVar.d = new com.kwad.sdk.core.download.b.b(this.f);
@@ -82,7 +82,7 @@ public class a extends com.kwad.sdk.core.view.b {
     protected void a() {
         this.d = d();
         this.e = e();
-        this.e.a((View) this.f9971b);
+        this.e.a((View) this.f9972b);
         this.e.a(this.d);
         this.i.a();
         this.h.a();
@@ -112,6 +112,6 @@ public class a extends com.kwad.sdk.core.view.b {
     }
 
     public void setAdInteractionListener(KsDrawAd.AdInteractionListener adInteractionListener) {
-        this.f9970a = adInteractionListener;
+        this.f9971a = adInteractionListener;
     }
 }

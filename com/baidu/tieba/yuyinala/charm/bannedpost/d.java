@@ -27,45 +27,45 @@ public class d {
     private String mRoomId;
     private View mRootView;
     private int mType;
-    private YuyinBannedPostListActivity oky;
-    private b okz;
+    private YuyinBannedPostListActivity okx;
+    private b oky;
 
     public d(YuyinBannedPostListActivity yuyinBannedPostListActivity, String str, String str2, String str3, int i) {
-        this.oky = yuyinBannedPostListActivity;
+        this.okx = yuyinBannedPostListActivity;
         this.mType = i;
         this.mRoomId = str3;
         this.mLiveId = str;
         this.mGroupId = str2;
-        this.mRootView = this.oky.getLayoutInflater().inflate(a.g.yuyin_banned_post_layout, (ViewGroup) null);
+        this.mRootView = this.okx.getLayoutInflater().inflate(a.g.yuyin_banned_post_layout, (ViewGroup) null);
         this.mListView = (BdListView) this.mRootView.findViewById(a.f.detail_list);
         this.bxT = (CommonEmptyView) this.mRootView.findViewById(a.f.emptyView);
-        this.okz = new b(yuyinBannedPostListActivity.getPageContext(), this.mLiveId, this.mGroupId, this.mRoomId, this.mType);
-        this.okz.a(new b.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.d.1
+        this.oky = new b(yuyinBannedPostListActivity.getPageContext(), this.mLiveId, this.mGroupId, this.mRoomId, this.mType);
+        this.oky.a(new b.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.d.1
             @Override // com.baidu.tieba.yuyinala.charm.bannedpost.b.a
-            public void bUL() {
+            public void bUM() {
                 d.this.dM(true);
             }
         });
-        this.mListView.setAdapter((ListAdapter) this.okz);
+        this.mListView.setAdapter((ListAdapter) this.oky);
         this.mListView.setEmptyView(this.bxT);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.d.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-                d.this.a(d.this.okz.getItem(i2));
+                d.this.a(d.this.oky.getItem(i2));
             }
         });
         if (this.gPy == null) {
-            this.gPy = new PbListView(this.oky);
-            this.gPy.setTextColor(this.oky.getResources().getColor(a.c.sdk_color_858585));
+            this.gPy = new PbListView(this.okx);
+            this.gPy.setTextColor(this.okx.getResources().getColor(a.c.sdk_color_858585));
             this.gPy.setSkinType(0);
             this.gPy.setmTextSize(14.0f);
             this.gPy.createView();
-            this.gPy.setHeight(BdUtilHelper.dip2px(this.oky, 60.0f));
+            this.gPy.setHeight(BdUtilHelper.dip2px(this.okx, 60.0f));
         }
     }
 
-    public void gp(List<a.C0888a> list) {
-        this.okz.setData(list);
+    public void gp(List<a.C0926a> list) {
+        this.oky.setData(list);
     }
 
     public void dM(boolean z) {
@@ -77,7 +77,7 @@ public class d {
                 this.bxT.setTitle("还没有人被永久禁言哦~");
             }
             this.bxT.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
-            this.bxT.setTextColor(this.oky.getResources().getColor(a.c.sdk_color_525252));
+            this.bxT.setTextColor(this.okx.getResources().getColor(a.c.sdk_color_525252));
             this.bxT.setVisibility(0);
             return;
         }
@@ -85,10 +85,10 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(a.C0888a c0888a) {
-        if (c0888a != null) {
-            this.oky.finish();
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.oky.getPageContext().getContext(), ExtraParamsManager.getDecryptUserId(c0888a.uk), c0888a.user_name, c0888a.bd_portrait, 0, 0, "", null, 0L, 0L, 0L, 0, this.mGroupId, this.mLiveId, false, "", null, c0888a.user_name, "")));
+    public void a(a.C0926a c0926a) {
+        if (c0926a != null) {
+            this.okx.finish();
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.okx.getPageContext().getContext(), ExtraParamsManager.getDecryptUserId(c0926a.uk), c0926a.user_name, c0926a.bd_portrait, 0, 0, "", null, 0L, 0L, 0L, 0, this.mGroupId, this.mLiveId, false, "", null, c0926a.user_name, "")));
         }
     }
 
@@ -101,11 +101,11 @@ public class d {
         this.bxT.setTitle("网络加载失败了哦~");
         this.bxT.setRefreshButton("重新加载", onClickListener);
         this.bxT.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.bxT.setTextColor(this.oky.getResources().getColor(a.c.sdk_color_525252));
+        this.bxT.setTextColor(this.okx.getResources().getColor(a.c.sdk_color_525252));
         this.bxT.setVisibility(0);
     }
 
-    public void Zi() {
+    public void Zj() {
         this.bxT.setVisibility(8);
     }
 }

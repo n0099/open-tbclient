@@ -15,14 +15,14 @@ import javax.crypto.Cipher;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f11666a = Charset.forName("UTF-8");
+    public static final Charset f11667a = Charset.forName("UTF-8");
 
     public static String a(String str, String str2) {
         String str3;
         if (str != null) {
             try {
                 if (!TextUtils.isEmpty(str2)) {
-                    str3 = new String(a(a(str), b(str2)), f11666a);
+                    str3 = new String(a(a(str), b(str2)), f11667a);
                     return str3;
                 }
             } catch (Exception e) {

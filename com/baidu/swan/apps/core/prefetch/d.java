@@ -15,7 +15,7 @@ public final class d {
         this.cYB = new b();
     }
 
-    public static d auG() {
+    public static d auH() {
         return a.cYD;
     }
 

@@ -53,7 +53,7 @@ public class c extends f {
         return this.mRequestUrl;
     }
 
-    public String aPj() {
+    public String aPk() {
         return this.bvX;
     }
 

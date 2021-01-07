@@ -58,7 +58,7 @@ public class AlaLiveFocusCircleView extends View {
         canvas.drawBitmap(this.hQw, (getWidth() / 2) - 80, (getHeight() / 2) - 80, this.fDz);
     }
 
-    public void cnT() {
+    public void cnU() {
         this.hQv = true;
         if (this.haN == null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "scaleX", 3.0f, 2.0f, 1.0f);

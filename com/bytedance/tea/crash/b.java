@@ -10,10 +10,10 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Map<c, List<a>> f7917a = new HashMap();
+    private Map<c, List<a>> f7918a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<String, String> f7918b = new HashMap();
+    private Map<String, String> f7919b = new HashMap();
     private final List<e> c = new CopyOnWriteArrayList();
     private final List<e> d = new CopyOnWriteArrayList();
     private final List<e> e = new CopyOnWriteArrayList();
@@ -22,16 +22,16 @@ public class b {
 
     @Nullable
     public List<a> b(c cVar) {
-        return this.f7917a.get(cVar);
+        return this.f7918a.get(cVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Map<? extends String, ? extends String> map) {
-        this.f7918b.putAll(map);
+        this.f7919b.putAll(map);
     }
 
     public Map<String, String> a() {
-        return this.f7918b;
+        return this.f7919b;
     }
 
     @NonNull
@@ -50,7 +50,7 @@ public class b {
     }
 
     @Nullable
-    public f esv() {
+    public f esw() {
         return this.ppU;
     }
 }

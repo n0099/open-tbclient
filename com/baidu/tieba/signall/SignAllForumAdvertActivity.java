@@ -16,10 +16,10 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     private ImageView dxS;
     private ImageView mCloseBtn;
     private NavigationBar mNavigationBar;
+    private String njj;
     private String njk;
-    private String njl;
-    private boolean njm;
-    private TbImageView njn;
+    private boolean njl;
+    private TbImageView njm;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -28,11 +28,11 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         super.setActivityBgTransparent();
         super.setSwipeBackEnabled(false);
         Intent intent = getIntent();
-        this.njk = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_PIC);
-        this.njl = intent.getStringExtra("ad_url");
-        this.njm = intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
+        this.njj = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_PIC);
+        this.njk = intent.getStringExtra("ad_url");
+        this.njl = intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
         initUI();
-        dMB();
+        dMC();
     }
 
     private void initUI() {
@@ -40,10 +40,10 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setTitleText(getPageContext().getString(R.string.signallforum));
         this.dxS = (ImageView) findViewById(R.id.signallforum_icon);
-        this.njn = (TbImageView) findViewById(R.id.signallforum_advert_pic);
+        this.njm = (TbImageView) findViewById(R.id.signallforum_advert_pic);
         this.mCloseBtn = (ImageView) findViewById(R.id.signallforum_advert_close);
-        this.njn.setDefaultBgResource(R.drawable.transparent_bg);
-        com.baidu.adp.lib.e.d.mx().a(this.njk, 10, new com.baidu.adp.lib.e.c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.1
+        this.njm.setDefaultBgResource(R.drawable.transparent_bg);
+        com.baidu.adp.lib.e.d.mx().a(this.njj, 10, new com.baidu.adp.lib.e.c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.c
@@ -54,13 +54,13 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
                 }
             }
         }, null);
-        this.njn.startLoad(this.njk, 10, false);
-        this.njn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.2
+        this.njm.startLoad(this.njj, 10, false);
+        this.njm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.2
             /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.signall.SignAllForumAdvertActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                be.bwu().b(SignAllForumAdvertActivity.this.getPageContext(), new String[]{SignAllForumAdvertActivity.this.njl});
+                be.bwv().b(SignAllForumAdvertActivity.this.getPageContext(), new String[]{SignAllForumAdvertActivity.this.njk});
             }
         });
         this.mCloseBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.3
@@ -71,7 +71,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         });
     }
 
-    private void dMB() {
+    private void dMC() {
         TiebaStatic.log("c10746");
     }
 

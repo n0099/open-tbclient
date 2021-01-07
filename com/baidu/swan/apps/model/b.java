@@ -47,7 +47,7 @@ public final class b {
         return this.mParams;
     }
 
-    public String aFS() {
+    public String aFT() {
         return this.dqt;
     }
 

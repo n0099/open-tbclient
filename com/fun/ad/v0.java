@@ -20,52 +20,52 @@ import java.util.List;
 public abstract class v0 extends NativeAdContainer {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f8137a;
+    public TextView f8138a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f8138b;
+    public TextView f8139b;
     public Button c;
 
     /* loaded from: classes15.dex */
     public class a implements NativeADEventListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ah f8139a;
+        public final /* synthetic */ ah f8140a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ au.a f8140b;
+        public final /* synthetic */ au.a f8141b;
         public final /* synthetic */ NativeUnifiedADData c;
 
         public a(ah ahVar, au.a aVar, NativeUnifiedADData nativeUnifiedADData) {
-            this.f8139a = ahVar;
-            this.f8140b = aVar;
+            this.f8140a = ahVar;
+            this.f8141b = aVar;
             this.c = nativeUnifiedADData;
         }
 
         @Override // com.qq.e.ads.nativ.NativeADEventListener
         public void onADClicked() {
             m.a("GDTNativeUnifiedAd onADClicked");
-            ah ahVar = this.f8139a;
+            ah ahVar = this.f8140a;
             if (ahVar != null) {
-                ((aa) ahVar).c(this.f8140b.f8059a);
+                ((aa) ahVar).c(this.f8141b.f8060a);
             }
         }
 
         @Override // com.qq.e.ads.nativ.NativeADEventListener
         public void onADError(AdError adError) {
             m.a("GDTNativeUnifiedAd onADError");
-            ah ahVar = this.f8139a;
+            ah ahVar = this.f8140a;
             if (ahVar != null) {
-                ((aa) ahVar).a(this.f8140b.f8059a, adError.getErrorCode(), adError.getErrorMsg());
+                ((aa) ahVar).a(this.f8141b.f8060a, adError.getErrorCode(), adError.getErrorMsg());
             }
         }
 
         @Override // com.qq.e.ads.nativ.NativeADEventListener
         public void onADExposed() {
             m.a("GDTNativeUnifiedAd onADExposed");
-            ah ahVar = this.f8139a;
+            ah ahVar = this.f8140a;
             if (ahVar != null) {
-                ((aa) ahVar).d(this.f8140b.f8059a);
+                ((aa) ahVar).d(this.f8141b.f8060a);
             }
         }
 
@@ -73,9 +73,9 @@ public abstract class v0 extends NativeAdContainer {
         public void onADStatusChanged() {
             m.a("GDTNativeUnifiedAd onADStatusChanged");
             v0.this.a(this.c);
-            ah ahVar = this.f8139a;
+            ah ahVar = this.f8140a;
             if (ahVar != null) {
-                String str = this.f8140b.f8059a;
+                String str = this.f8141b.f8060a;
                 if (((aa) ahVar) == null) {
                     throw null;
                 }
@@ -103,8 +103,8 @@ public abstract class v0 extends NativeAdContainer {
     }
 
     public void a(Activity activity, au.a aVar, NativeUnifiedADData nativeUnifiedADData, ah ahVar) {
-        this.f8138b.setText(nativeUnifiedADData.getTitle());
-        this.f8137a.setText(nativeUnifiedADData.getDesc());
+        this.f8139b.setText(nativeUnifiedADData.getTitle());
+        this.f8138a.setText(nativeUnifiedADData.getDesc());
         nativeUnifiedADData.bindAdToView(getContext(), this, null, a());
         nativeUnifiedADData.setNativeAdEventListener(new a(ahVar, aVar, nativeUnifiedADData));
         a(nativeUnifiedADData);
@@ -147,8 +147,8 @@ public abstract class v0 extends NativeAdContainer {
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f8137a = (TextView) findViewById(R.id.ad_description);
-        this.f8138b = (TextView) findViewById(R.id.ad_title);
+        this.f8138a = (TextView) findViewById(R.id.ad_description);
+        this.f8139b = (TextView) findViewById(R.id.ad_title);
         this.c = (Button) findViewById(R.id.ad_creative);
     }
 }

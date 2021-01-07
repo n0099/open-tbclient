@@ -3,7 +3,7 @@ package com.baidu.swan.apps.t.a;
 public class f {
     private static volatile e dhX;
 
-    public static synchronized e aBQ() {
+    public static synchronized e aBR() {
         e eVar;
         synchronized (f.class) {
             if (dhX == null) {

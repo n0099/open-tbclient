@@ -10,17 +10,17 @@ import com.baidu.mobads.interfaces.utils.IXAdLogger;
 public class n implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g.c f3379a;
+    final /* synthetic */ g.c f3380a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ Handler f3380b;
+    final /* synthetic */ Handler f3381b;
     final /* synthetic */ g c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(g gVar, g.c cVar, Handler handler) {
         this.c = gVar;
-        this.f3379a = cVar;
-        this.f3380b = handler;
+        this.f3380a = cVar;
+        this.f3381b = handler;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, INVOKE, IF, IGET, INVOKE, INVOKE, CONST_STR, IGET, INVOKE, INVOKE, SGET, IGET, INVOKE, CONST_STR, INVOKE, MOVE_EXCEPTION] complete} */
@@ -33,7 +33,7 @@ public class n implements Runnable {
         SharedPreferences l2;
         try {
             synchronized (g.class) {
-                this.c.b(this.f3379a, this.f3380b);
+                this.c.b(this.f3380a, this.f3381b);
             }
         } catch (Throwable th) {
             try {

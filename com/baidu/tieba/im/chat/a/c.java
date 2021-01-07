@@ -116,7 +116,7 @@ public abstract class c extends BaseAdapter {
                     aVar.kxZ.setVisibility(8);
                 } else if (!groupSetting.isAcceptNotify()) {
                     aVar.kxZ.setVisibility(0);
-                    SvgManager.bwq().a(aVar.kxZ, R.drawable.ic_icon_pure_shield_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL);
+                    SvgManager.bwr().a(aVar.kxZ, R.drawable.ic_icon_pure_shield_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL);
                 } else {
                     aVar.kxZ.setVisibility(8);
                 }
@@ -165,7 +165,7 @@ public abstract class c extends BaseAdapter {
     protected void f(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         int unReadCount = imMessageCenterShowItemData.getUnReadCount();
         if (unReadCount > 0) {
-            if (d.bBF().bBI() == 0) {
+            if (d.bBG().bBJ() == 0) {
                 unReadCount = 0;
             } else {
                 BasicNameValuePair a2 = a(imMessageCenterShowItemData, unReadCount, String.valueOf(unReadCount));
@@ -184,7 +184,7 @@ public abstract class c extends BaseAdapter {
         ao.setViewTextColor(aVar.kxX, R.color.CAM_X0109, 1);
     }
 
-    public boolean cWG() {
+    public boolean cWH() {
         return this.kxQ;
     }
 

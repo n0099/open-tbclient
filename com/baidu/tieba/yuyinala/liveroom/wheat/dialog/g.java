@@ -19,7 +19,7 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
     private TextView bYS;
     public CustomMessageListener bih;
     private TextView mTitle;
-    private a oCW;
+    private a oCV;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -72,7 +72,7 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
         }
     }
 
-    public void VN(String str) {
+    public void VM(String str) {
         if (this.bYR != null && !TextUtils.isEmpty(str)) {
             this.bYR.setText(str);
         }
@@ -92,7 +92,7 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
         }
     }
 
-    public void efG() {
+    public void efH() {
         if (this.bYS != null) {
             this.bYS.getPaint().setFakeBoldText(true);
         }
@@ -147,13 +147,13 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
     public void onClick(View view) {
         if (view == this.bYR) {
             dismiss();
-            if (this.oCW != null) {
-                this.oCW.onCancel();
+            if (this.oCV != null) {
+                this.oCV.onCancel();
             }
         } else if (view == this.bYS) {
             dismiss();
-            if (this.oCW != null) {
-                this.oCW.onConfirm();
+            if (this.oCV != null) {
+                this.oCV.onConfirm();
             }
         }
     }
@@ -164,6 +164,6 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
     }
 
     public void a(a aVar) {
-        this.oCW = aVar;
+        this.oCV = aVar;
     }
 }

@@ -20,19 +20,19 @@ public class bd {
         return this.eRq;
     }
 
-    public ArrayList<UserData> bqi() {
+    public ArrayList<UserData> bqj() {
         return this.bHm;
     }
 
-    public ArrayList<UserData> bqj() {
+    public ArrayList<UserData> bqk() {
         return this.eRp;
     }
 
-    public int bqk() {
+    public int bql() {
         return this.eRr;
     }
 
-    public int bql() {
+    public int bqm() {
         return this.eRs;
     }
 

@@ -15,47 +15,47 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.model.f;
 /* loaded from: classes11.dex */
 public class i {
     private String aUZ;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g oBy;
-    private a oBz;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g oBx;
+    private a oBy;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void Ww(String str);
+        void Wv(String str);
     }
 
     public void a(TbPageContext tbPageContext, String str, String str2) {
         this.aUZ = str2;
-        if (this.oBy == null) {
-            this.oBy = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g(tbPageContext);
-            this.oBy.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.1
+        if (this.oBx == null) {
+            this.oBx = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g(tbPageContext);
+            this.oBx.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.1
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
-                    i.this.oBy = null;
+                    i.this.oBx = null;
                 }
             });
-            this.oBy.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.2
+            this.oBx.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.2
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
                 public void onCancel() {
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
                 public void onConfirm() {
-                    if (o.eff().Wd(i.this.aUZ)) {
-                        h.eeU().zO(true);
+                    if (o.efg().Wc(i.this.aUZ)) {
+                        h.eeV().zO(true);
                     } else {
-                        h.eeU().zO(false);
+                        h.eeV().zO(false);
                     }
-                    i.this.Wv(i.this.aUZ);
+                    i.this.Wu(i.this.aUZ);
                 }
             });
         }
-        if (!this.oBy.isShowing()) {
-            this.oBy.show();
+        if (!this.oBx.isShowing()) {
+            this.oBx.show();
         }
-        this.oBy.setText(String.format(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_hang_up_wheat_remind_text), str));
+        this.oBx.setText(String.format(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_hang_up_wheat_remind_text), str));
     }
 
-    public void Wv(final String str) {
+    public void Wu(final String str) {
         this.aUZ = str;
         new com.baidu.tieba.yuyinala.liveroom.wheat.model.f(null, new f.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.3
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.f.a
@@ -68,33 +68,33 @@ public class i {
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.f.a
             public void onFail(int i, String str2) {
             }
-        }).gS(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().Cq(), this.aUZ);
+        }).gS(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().Cq(), this.aUZ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final String str, AlaEndConnectionWheatHttpResponseMessage alaEndConnectionWheatHttpResponseMessage) {
-        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().a(str, new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.4
+        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().a(str, new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.4
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.c.a
             public void zL(boolean z) {
-                if (o.eff().Wd(str)) {
-                    com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eeq().Wg("自己挂断自己");
+                if (o.efg().Wc(str)) {
+                    com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().Wf("自己挂断自己");
                 } else if (z) {
-                    com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eeq().Wj(str);
+                    com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().Wi(str);
                 }
             }
         });
-        if (!o.eff().eev()) {
+        if (!o.efg().eew()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501027, "hide_dot"));
         }
-        if (o.eff().Wd(str)) {
+        if (o.efg().Wc(str)) {
             BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_hung_up_text)).show();
         }
-        if (this.oBy != null) {
-            this.oBy.dismiss();
+        if (this.oBx != null) {
+            this.oBx.dismiss();
         }
-        h.eeU().a(o.eff().efl(), alaEndConnectionWheatHttpResponseMessage);
-        if (this.oBz != null) {
-            this.oBz.Ww(str);
+        h.eeV().a(o.efg().efm(), alaEndConnectionWheatHttpResponseMessage);
+        if (this.oBy != null) {
+            this.oBy.Wv(str);
         }
         SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.i.5
             @Override // java.lang.Runnable
@@ -105,7 +105,7 @@ public class i {
     }
 
     public i a(a aVar) {
-        this.oBz = aVar;
+        this.oBy = aVar;
         return this;
     }
 }

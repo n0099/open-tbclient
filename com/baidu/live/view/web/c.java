@@ -21,7 +21,7 @@ public abstract class c implements b {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void aab() {
+    public void aac() {
     }
 
     @Override // com.baidu.live.view.web.b

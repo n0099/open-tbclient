@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.route;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public interface OnGetRoutePlanResultListener {
     void onGetBikingRouteResult(BikingRouteResult bikingRouteResult);
 

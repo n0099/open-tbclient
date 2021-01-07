@@ -12,8 +12,8 @@ public class a implements b<SyncDataEvent> {
             return false;
         }
         TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
-        com.baidu.tbadk.util.a.bIq().a(syncDataEvent.abtestExtraData);
-        c.bmq().Ak(syncDataEvent.ubsABTest);
+        com.baidu.tbadk.util.a.bIr().a(syncDataEvent.abtestExtraData);
+        c.bmr().Ak(syncDataEvent.ubsABTest);
         return true;
     }
 }

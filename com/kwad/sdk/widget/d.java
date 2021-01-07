@@ -16,25 +16,25 @@ import java.util.Arrays;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public float[] f11156a = new float[8];
+    public float[] f11157a = new float[8];
 
     /* renamed from: b  reason: collision with root package name */
-    private float f11157b;
+    private float f11158b;
     private Path c;
     private Paint d;
     private RectF e;
     private boolean f;
 
     private float[] a() {
-        this.f11156a[0] = this.f11157b;
-        this.f11156a[1] = this.f11157b;
-        this.f11156a[2] = this.f11157b;
-        this.f11156a[3] = this.f11157b;
-        this.f11156a[4] = this.f11157b;
-        this.f11156a[5] = this.f11157b;
-        this.f11156a[6] = this.f11157b;
-        this.f11156a[7] = this.f11157b;
-        return this.f11156a;
+        this.f11157a[0] = this.f11158b;
+        this.f11157a[1] = this.f11158b;
+        this.f11157a[2] = this.f11158b;
+        this.f11157a[3] = this.f11158b;
+        this.f11157a[4] = this.f11158b;
+        this.f11157a[5] = this.f11158b;
+        this.f11157a[6] = this.f11158b;
+        this.f11157a[7] = this.f11158b;
+        return this.f11157a;
     }
 
     private Path b() {
@@ -44,7 +44,7 @@ public class d {
     }
 
     public void a(float f) {
-        this.f11157b = f;
+        this.f11158b = f;
     }
 
     public void a(int i, int i2) {
@@ -57,7 +57,7 @@ public class d {
         int[] iArr = {i, i2};
         Arrays.sort(iArr);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-        this.f11157b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, i), 0);
+        this.f11158b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, i), 0);
         this.f = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, i2), true);
         obtainStyledAttributes.recycle();
         this.c = new Path();

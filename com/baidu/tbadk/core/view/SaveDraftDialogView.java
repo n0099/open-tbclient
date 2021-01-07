@@ -69,7 +69,7 @@ public class SaveDraftDialogView extends LinearLayout {
         this.flG.setGravity(17);
         this.flG.setText(R.string.cancel);
         addView(this.flG, -1, com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds136));
-        bxN();
+        bxO();
     }
 
     @Override // android.view.View
@@ -90,7 +90,7 @@ public class SaveDraftDialogView extends LinearLayout {
         this.flD.setVisibility(8);
     }
 
-    private void bxN() {
+    private void bxO() {
         ao.setViewTextColor(this.title, R.color.CAM_X0105);
         ao.setViewTextColor(this.flD, R.color.CAM_X0108);
         ao.setViewTextColor(this.flE, R.color.CAM_X0105);

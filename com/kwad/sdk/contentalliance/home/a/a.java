@@ -11,15 +11,15 @@ import java.util.List;
 public abstract class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final List<AdTemplate> f8921a = new ArrayList();
+    protected final List<AdTemplate> f8922a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    protected Handler f8922b = new Handler(Looper.getMainLooper());
+    protected Handler f8923b = new Handler(Looper.getMainLooper());
     private List<d> c = new LinkedList();
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
     public int a(AdTemplate adTemplate) {
-        return this.f8921a.indexOf(adTemplate);
+        return this.f8922a.indexOf(adTemplate);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
@@ -46,10 +46,10 @@ public abstract class a implements b {
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
     public void a(int i, AdTemplate adTemplate) {
-        if (i < 0 || this.f8921a.size() <= i) {
+        if (i < 0 || this.f8922a.size() <= i) {
             return;
         }
-        this.f8921a.set(i, adTemplate);
+        this.f8922a.set(i, adTemplate);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -85,7 +85,7 @@ public abstract class a implements b {
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
     public List<AdTemplate> b() {
-        return this.f8921a;
+        return this.f8922a;
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
@@ -94,11 +94,11 @@ public abstract class a implements b {
     }
 
     public boolean c() {
-        return this.f8921a == null || this.f8921a.isEmpty();
+        return this.f8922a == null || this.f8922a.isEmpty();
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.b
     public void d() {
-        this.f8922b.removeCallbacksAndMessages(null);
+        this.f8923b.removeCallbacksAndMessages(null);
     }
 }

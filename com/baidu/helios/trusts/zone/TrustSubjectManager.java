@@ -16,14 +16,14 @@ import java.util.List;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TrustSubjectManager {
     a.C0141a awu;
     private a ayQ;
     private TrustSubject ayR;
     private Context d;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class IntegrationException extends RuntimeException {
         public IntegrationException(String str) {
             super(str);
@@ -38,36 +38,36 @@ public class TrustSubjectManager {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public Context applicationContext;
         public com.baidu.helios.common.c.a awL;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class c {
         public int ayS = 0;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class d {
         public List<TrustSubject> ayT;
         public TrustSubject ayU;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        private List<String> f2514a;
+        private List<String> f2515a;
 
         e(List<String> list) {
-            this.f2514a = list;
+            this.f2515a = list;
         }
 
         public static e e(TrustSubject trustSubject) {
@@ -89,19 +89,19 @@ public class TrustSubjectManager {
         }
 
         public List<String> a() {
-            return this.f2514a;
+            return this.f2515a;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        private Set<String> f2515a;
+        private Set<String> f2516a;
 
         f(Set<String> set) {
-            this.f2515a = set;
+            this.f2516a = set;
         }
 
         public static f f(TrustSubject trustSubject) {
@@ -123,7 +123,7 @@ public class TrustSubjectManager {
         }
 
         public Set<String> a() {
-            return this.f2515a;
+            return this.f2516a;
         }
     }
 
@@ -276,7 +276,7 @@ public class TrustSubjectManager {
         if (trustSubject != null) {
             a(arrayList3, trustSubject);
         }
-        Collections.sort(arrayList3, TrustSubject.f2513a);
+        Collections.sort(arrayList3, TrustSubject.f2514a);
         dVar.ayT = arrayList3;
         if (trustSubject != null) {
             trustSubject.d();
@@ -419,7 +419,7 @@ public class TrustSubjectManager {
             if (trustSubject4 != null) {
                 a(arrayList3, trustSubject4);
             }
-            Collections.sort(arrayList3, TrustSubject.f2513a);
+            Collections.sort(arrayList3, TrustSubject.f2514a);
             dVar.ayT = arrayList3;
             if (trustSubject4 != null) {
                 trustSubject4.d();
@@ -431,7 +431,7 @@ public class TrustSubjectManager {
     }
 
     private com.baidu.helios.common.a.b.a zu() {
-        return com.baidu.helios.common.a.c.c(com.baidu.helios.trusts.zone.a.f2516a, com.baidu.helios.trusts.zone.a.f2517b);
+        return com.baidu.helios.common.a.c.c(com.baidu.helios.trusts.zone.a.f2517a, com.baidu.helios.trusts.zone.a.f2518b);
     }
 
     public d a(c cVar) {

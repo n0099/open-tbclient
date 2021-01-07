@@ -17,16 +17,16 @@ import org.apache.http.HttpHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public final class d {
-    static final c[] pjR = {new c(c.pjO, ""), new c(c.pjL, "GET"), new c(c.pjL, "POST"), new c(c.pjM, "/"), new c(c.pjM, "/index.html"), new c(c.pjN, HttpHost.DEFAULT_SCHEME_NAME), new c(c.pjN, "https"), new c(c.f6189b, BasicPushStatus.SUCCESS_CODE), new c(c.f6189b, "204"), new c(c.f6189b, "206"), new c(c.f6189b, "304"), new c(c.f6189b, "400"), new c(c.f6189b, "404"), new c(c.f6189b, "500"), new c("accept-charset", ""), new c("accept-encoding", "gzip, deflate"), new c("accept-language", ""), new c(Headers.ACCEPT_RANGES, ""), new c(UbcStatConstant.ContentType.UBC_TYPE_PK_ACCPET, ""), new c("access-control-allow-origin", ""), new c("age", ""), new c("allow", ""), new c("authorization", ""), new c(Headers.CACHE_CONTROL, ""), new c(Headers.CONTENT_DISPOSITION, ""), new c(Headers.CONTENT_ENCODING, ""), new c("content-language", ""), new c(Headers.CONTENT_LEN, ""), new c("content-location", ""), new c("content-range", ""), new c(Headers.CONTENT_TYPE, ""), new c("cookie", ""), new c("date", ""), new c("etag", ""), new c("expect", ""), new c("expires", ""), new c("from", ""), new c("host", ""), new c("if-match", ""), new c("if-modified-since", ""), new c("if-none-match", ""), new c("if-range", ""), new c("if-unmodified-since", ""), new c(Headers.LAST_MODIFIED, ""), new c("link", ""), new c("location", ""), new c("max-forwards", ""), new c(Headers.PROXY_AUTHENTICATE, ""), new c("proxy-authorization", ""), new c("range", ""), new c(Config.LAUNCH_REFERER, ""), new c(Headers.REFRESH, ""), new c("retry-after", ""), new c("server", ""), new c(Headers.SET_COOKIE, ""), new c("strict-transport-security", ""), new c(Headers.TRANSFER_ENCODING, ""), new c("user-agent", ""), new c("vary", ""), new c("via", ""), new c(Headers.WWW_AUTHENTICATE, "")};
+    static final c[] pjR = {new c(c.pjO, ""), new c(c.pjL, "GET"), new c(c.pjL, "POST"), new c(c.pjM, "/"), new c(c.pjM, "/index.html"), new c(c.pjN, HttpHost.DEFAULT_SCHEME_NAME), new c(c.pjN, "https"), new c(c.f6190b, BasicPushStatus.SUCCESS_CODE), new c(c.f6190b, "204"), new c(c.f6190b, "206"), new c(c.f6190b, "304"), new c(c.f6190b, "400"), new c(c.f6190b, "404"), new c(c.f6190b, "500"), new c("accept-charset", ""), new c("accept-encoding", "gzip, deflate"), new c("accept-language", ""), new c(Headers.ACCEPT_RANGES, ""), new c(UbcStatConstant.ContentType.UBC_TYPE_PK_ACCPET, ""), new c("access-control-allow-origin", ""), new c("age", ""), new c("allow", ""), new c("authorization", ""), new c(Headers.CACHE_CONTROL, ""), new c(Headers.CONTENT_DISPOSITION, ""), new c(Headers.CONTENT_ENCODING, ""), new c("content-language", ""), new c(Headers.CONTENT_LEN, ""), new c("content-location", ""), new c("content-range", ""), new c(Headers.CONTENT_TYPE, ""), new c("cookie", ""), new c("date", ""), new c("etag", ""), new c("expect", ""), new c("expires", ""), new c("from", ""), new c("host", ""), new c("if-match", ""), new c("if-modified-since", ""), new c("if-none-match", ""), new c("if-range", ""), new c("if-unmodified-since", ""), new c(Headers.LAST_MODIFIED, ""), new c("link", ""), new c("location", ""), new c("max-forwards", ""), new c(Headers.PROXY_AUTHENTICATE, ""), new c("proxy-authorization", ""), new c("range", ""), new c(Config.LAUNCH_REFERER, ""), new c(Headers.REFRESH, ""), new c("retry-after", ""), new c("server", ""), new c(Headers.SET_COOKIE, ""), new c("strict-transport-security", ""), new c(Headers.TRANSFER_ENCODING, ""), new c("user-agent", ""), new c("vary", ""), new c("via", ""), new c(Headers.WWW_AUTHENTICATE, "")};
 
     /* renamed from: b  reason: collision with root package name */
-    static final Map<com.bytedance.sdk.a.a.f, Integer> f6190b = a();
+    static final Map<com.bytedance.sdk.a.a.f, Integer> f6191b = a();
 
     /* loaded from: classes4.dex */
     static final class a {
 
         /* renamed from: b  reason: collision with root package name */
-        int f6191b;
+        int f6192b;
         int c;
         int d;
         private final List<c> e;
@@ -43,7 +43,7 @@ public final class d {
         a(int i, int i2, s sVar) {
             this.e = new ArrayList();
             this.pjR = new c[8];
-            this.f6191b = this.pjR.length - 1;
+            this.f6192b = this.pjR.length - 1;
             this.c = 0;
             this.d = 0;
             this.g = i;
@@ -63,7 +63,7 @@ public final class d {
 
         private void e() {
             Arrays.fill(this.pjR, (Object) null);
-            this.f6191b = this.pjR.length - 1;
+            this.f6192b = this.pjR.length - 1;
             this.c = 0;
             this.d = 0;
         }
@@ -74,7 +74,7 @@ public final class d {
                 int length = this.pjR.length;
                 while (true) {
                     length--;
-                    if (length < this.f6191b || i <= 0) {
+                    if (length < this.f6192b || i <= 0) {
                         break;
                     }
                     i -= this.pjR[length].i;
@@ -82,8 +82,8 @@ public final class d {
                     this.c--;
                     i2++;
                 }
-                System.arraycopy(this.pjR, this.f6191b + 1, this.pjR, this.f6191b + 1 + i2, this.c);
-                this.f6191b += i2;
+                System.arraycopy(this.pjR, this.f6192b + 1, this.pjR, this.f6192b + 1 + i2, this.c);
+                this.f6192b += i2;
             }
             return i2;
         }
@@ -91,26 +91,26 @@ public final class d {
         /* JADX INFO: Access modifiers changed from: package-private */
         public void a() throws IOException {
             while (!this.pjS.e()) {
-                int epV = this.pjS.epV() & 255;
-                if (epV == 128) {
+                int epW = this.pjS.epW() & 255;
+                if (epW == 128) {
                     throw new IOException("index == 0");
                 }
-                if ((epV & 128) == 128) {
-                    b(a(epV, 127) - 1);
-                } else if (epV == 64) {
+                if ((epW & 128) == 128) {
+                    b(a(epW, 127) - 1);
+                } else if (epW == 64) {
                     g();
-                } else if ((epV & 64) == 64) {
-                    e(a(epV, 63) - 1);
-                } else if ((epV & 32) == 32) {
-                    this.h = a(epV, 31);
+                } else if ((epW & 64) == 64) {
+                    e(a(epW, 63) - 1);
+                } else if ((epW & 32) == 32) {
+                    this.h = a(epW, 31);
                     if (this.h < 0 || this.h > this.g) {
                         throw new IOException("Invalid dynamic table size update " + this.h);
                     }
                     d();
-                } else if (epV == 16 || epV == 0) {
+                } else if (epW == 16 || epW == 0) {
                     f();
                 } else {
-                    d(a(epV, 15) - 1);
+                    d(a(epW, 15) - 1);
                 }
             }
         }
@@ -134,7 +134,7 @@ public final class d {
         }
 
         private int c(int i) {
-            return this.f6191b + 1 + i;
+            return this.f6192b + 1 + i;
         }
 
         private void d(int i) throws IOException {
@@ -176,11 +176,11 @@ public final class d {
                 if (this.c + 1 > this.pjR.length) {
                     c[] cVarArr = new c[this.pjR.length * 2];
                     System.arraycopy(this.pjR, 0, cVarArr, this.pjR.length, this.pjR.length);
-                    this.f6191b = this.pjR.length - 1;
+                    this.f6192b = this.pjR.length - 1;
                     this.pjR = cVarArr;
                 }
-                int i3 = this.f6191b;
-                this.f6191b = i3 - 1;
+                int i3 = this.f6192b;
+                this.f6192b = i3 - 1;
                 this.pjR[i3] = cVar;
                 this.c++;
             } else {
@@ -190,7 +190,7 @@ public final class d {
         }
 
         private int h() throws IOException {
-            return this.pjS.epV() & 255;
+            return this.pjS.epW() & 255;
         }
 
         int a(int i, int i2) throws IOException {
@@ -216,9 +216,9 @@ public final class d {
             boolean z = (h & 128) == 128;
             int a2 = a(h, 127);
             if (z) {
-                return com.bytedance.sdk.a.a.f.a(k.eqW().a(this.pjS.ih(a2)));
+                return com.bytedance.sdk.a.a.f.a(k.eqX().a(this.pjS.ih(a2)));
             }
-            return this.pjS.mo47if(a2);
+            return this.pjS.mo58if(a2);
         }
     }
 
@@ -236,10 +236,10 @@ public final class d {
     static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        int f6192a;
+        int f6193a;
 
         /* renamed from: b  reason: collision with root package name */
-        int f6193b;
+        int f6194b;
         int d;
         int e;
         int f;
@@ -260,8 +260,8 @@ public final class d {
             this.d = this.pjU.length - 1;
             this.e = 0;
             this.f = 0;
-            this.f6192a = i;
-            this.f6193b = i;
+            this.f6193a = i;
+            this.f6194b = i;
             this.h = z;
             this.pjT = cVar;
         }
@@ -296,11 +296,11 @@ public final class d {
 
         private void a(c cVar) {
             int i = cVar.i;
-            if (i > this.f6193b) {
+            if (i > this.f6194b) {
                 a();
                 return;
             }
-            b((this.f + i) - this.f6193b);
+            b((this.f + i) - this.f6194b);
             if (this.e + 1 > this.pjU.length) {
                 c[] cVarArr = new c[this.pjU.length * 2];
                 System.arraycopy(this.pjU, 0, cVarArr, this.pjU.length, this.pjU.length);
@@ -319,19 +319,19 @@ public final class d {
             int i;
             int i2;
             if (this.j) {
-                if (this.i < this.f6193b) {
+                if (this.i < this.f6194b) {
                     a(this.i, 31, 32);
                 }
                 this.j = false;
                 this.i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-                a(this.f6193b, 31, 32);
+                a(this.f6194b, 31, 32);
             }
             int size = list.size();
             for (int i3 = 0; i3 < size; i3++) {
                 c cVar = list.get(i3);
                 com.bytedance.sdk.a.a.f f = cVar.pjP.f();
                 com.bytedance.sdk.a.a.f fVar = cVar.pjQ;
-                Integer num = d.f6190b.get(f);
+                Integer num = d.f6191b.get(f);
                 if (num != null) {
                     int intValue = num.intValue() + 1;
                     if (intValue > 1 && intValue < 8) {
@@ -400,12 +400,12 @@ public final class d {
         }
 
         void e(com.bytedance.sdk.a.a.f fVar) throws IOException {
-            if (this.h && k.eqW().f(fVar) < fVar.g()) {
+            if (this.h && k.eqX().f(fVar) < fVar.g()) {
                 com.bytedance.sdk.a.a.c cVar = new com.bytedance.sdk.a.a.c();
-                k.eqW().a(fVar, cVar);
-                com.bytedance.sdk.a.a.f epY = cVar.epY();
-                a(epY.g(), 127, 128);
-                this.pjT.c(epY);
+                k.eqX().a(fVar, cVar);
+                com.bytedance.sdk.a.a.f epZ = cVar.epZ();
+                a(epZ.g(), 127, 128);
+                this.pjT.c(epZ);
                 return;
             }
             a(fVar.g(), 127, 0);
@@ -414,24 +414,24 @@ public final class d {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void a(int i) {
-            this.f6192a = i;
+            this.f6193a = i;
             int min = Math.min(i, 16384);
-            if (this.f6193b != min) {
-                if (min < this.f6193b) {
+            if (this.f6194b != min) {
+                if (min < this.f6194b) {
                     this.i = Math.min(this.i, min);
                 }
                 this.j = true;
-                this.f6193b = min;
+                this.f6194b = min;
                 b();
             }
         }
 
         private void b() {
-            if (this.f6193b < this.f) {
-                if (this.f6193b == 0) {
+            if (this.f6194b < this.f) {
+                if (this.f6194b == 0) {
                     a();
                 } else {
-                    b(this.f - this.f6193b);
+                    b(this.f - this.f6194b);
                 }
             }
         }

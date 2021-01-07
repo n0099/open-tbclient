@@ -35,8 +35,8 @@ public class b {
             }
 
             @Override // com.baidu.live.yuyingift.yuyinhousegift.a.InterfaceC0247a
-            public void abu() {
-                b.this.abv();
+            public void abv() {
+                b.this.abw();
             }
 
             @Override // com.baidu.live.yuyingift.yuyinhousegift.a.InterfaceC0247a
@@ -51,8 +51,8 @@ public class b {
             }
 
             @Override // com.baidu.live.yuyingift.yuyinhousegift.c.a
-            public void abu() {
-                b.this.abv();
+            public void abv() {
+                b.this.abw();
             }
 
             @Override // com.baidu.live.yuyingift.yuyinhousegift.c.a
@@ -113,31 +113,31 @@ public class b {
                 return;
             }
             this.ccp.add(cVar);
-            abv();
+            abw();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abv() {
+    public void abw() {
         if (!ListUtils.isEmpty(this.ccp)) {
-            if (w(abx())) {
+            if (w(aby())) {
                 if (this.ccn.isRunning()) {
-                    while (b(this.ccn.getLastShowGift(), abx(), false)) {
-                        this.ccn.q(abw());
+                    while (b(this.ccn.getLastShowGift(), aby(), false)) {
+                        this.ccn.q(abx());
                     }
                 } else if (!this.cco.isRunning()) {
-                    if (abx().bZO > 0) {
-                        this.ccn.p(abw());
+                    if (aby().bZO > 0) {
+                        this.ccn.p(abx());
                     } else {
-                        this.ccn.r(abw());
+                        this.ccn.r(abx());
                     }
                 }
             } else if (this.cco.isRunning()) {
-                while (a(this.cco.getLastShowGift(), abx(), true)) {
-                    this.cco.q(abw());
+                while (a(this.cco.getLastShowGift(), aby(), true)) {
+                    this.cco.q(abx());
                 }
             } else if (!this.ccn.isRunning()) {
-                this.ccq = abw();
+                this.ccq = abx();
                 this.cco.r(this.ccq);
             }
         }
@@ -169,14 +169,14 @@ public class b {
         }
     }
 
-    private com.baidu.live.yuyingift.a.c abw() {
+    private com.baidu.live.yuyingift.a.c abx() {
         if (this.ccp == null || this.ccp.isEmpty()) {
             return null;
         }
         return this.ccp.remove(0);
     }
 
-    private com.baidu.live.yuyingift.a.c abx() {
+    private com.baidu.live.yuyingift.a.c aby() {
         if (this.ccp == null || this.ccp.isEmpty()) {
             return null;
         }

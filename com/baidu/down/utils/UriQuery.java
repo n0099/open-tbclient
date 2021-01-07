@@ -3,7 +3,7 @@ package com.baidu.down.utils;
 import android.text.TextUtils;
 import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class UriQuery {
     private static final boolean DEBUG = false;
     private static final String TAG = UriQuery.class.getSimpleName();

@@ -3,7 +3,7 @@ package com.idlefish.flutterboost.interfaces;
 import android.app.Activity;
 import com.idlefish.flutterboost.containers.FlutterSplashView;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public interface IFlutterViewContainer {
     void finishContainer(Map<String, Object> map);
 

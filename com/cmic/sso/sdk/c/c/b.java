@@ -20,17 +20,17 @@ public class b extends c {
             String aJ = r.aJ(true, "1".equals(aVar.b("operatortype", "")));
             aVar.a("ipv4List", a2);
             aVar.a("ipv6List", aJ);
-            e.a esO = this.prh.esO();
+            e.a esP = this.prh.esP();
             if (!aVar.b("isCloseIpv4", false)) {
-                esO.a(a2);
+                esP.a(a2);
             }
             if (!aVar.b("isCloseIpv6", false)) {
-                esO.b(aJ);
+                esP.b(aJ);
             }
-            esO.v(esO.Zd(aVar.b("appkey")));
-            this.prh.a(esO);
+            esP.v(esP.Zc(aVar.b("appkey")));
+            this.prh.a(esP);
             this.prh.a(true);
-            this.f8012a = this.prh.b().toString();
+            this.f8013a = this.prh.b().toString();
             this.c = true;
         }
     }

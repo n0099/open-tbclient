@@ -3,19 +3,19 @@ package com.baidu.mobads;
 class k implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f3417a;
+    final /* synthetic */ String f3418a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ j f3418b;
+    final /* synthetic */ j f3419b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar, String str) {
-        this.f3418b = jVar;
-        this.f3417a = str;
+        this.f3419b = jVar;
+        this.f3418a = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f3418b.d.onUrl(this.f3417a);
+        this.f3419b.d.onUrl(this.f3418a);
     }
 }

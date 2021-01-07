@@ -86,15 +86,15 @@ public class VisitedForumData extends OrmObject {
         }
     }
 
-    public String bEk() {
+    public String bEl() {
         return this.mForumImageUrl;
     }
 
-    public boolean bEl() {
+    public boolean bEm() {
         return this.fCI;
     }
 
-    public int bEm() {
+    public int bEn() {
         return this.fCJ;
     }
 
@@ -110,11 +110,11 @@ public class VisitedForumData extends OrmObject {
         this.mForumId = str;
     }
 
-    public String bEn() {
+    public String bEo() {
         return this.fCK;
     }
 
-    public int bEo() {
+    public int bEp() {
         return this.fCL;
     }
 
@@ -122,7 +122,7 @@ public class VisitedForumData extends OrmObject {
         return this.mThemeColorInfo;
     }
 
-    public boolean bEp() {
+    public boolean bEq() {
         return this.fCM;
     }
 
@@ -130,7 +130,7 @@ public class VisitedForumData extends OrmObject {
         this.fCO = z;
     }
 
-    public boolean bEq() {
+    public boolean bEr() {
         return this.fCO;
     }
 
@@ -138,19 +138,19 @@ public class VisitedForumData extends OrmObject {
         return this.fCN;
     }
 
-    public boolean bEr() {
+    public boolean bEs() {
         return this.fCP;
     }
 
-    public String bEs() {
+    public String bEt() {
         return this.fCQ;
     }
 
-    public List<FrsTabItemData> bEt() {
+    public List<FrsTabItemData> bEu() {
         return this.fCR;
     }
 
-    public PostPrefixData bEu() {
+    public PostPrefixData bEv() {
         return this.fCS;
     }
 }

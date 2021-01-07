@@ -15,7 +15,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class a extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f10870b;
+    private TextView f10871b;
     private ImageView c;
     private AdTemplate d;
     private AdInfo e;
@@ -38,7 +38,7 @@ public class a extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
-        this.f10870b.setText(String.valueOf(i));
+        this.f10871b.setText(String.valueOf(i));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -51,14 +51,14 @@ public class a extends com.kwad.sdk.reward.d implements View.OnClickListener {
         ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.reward.b.b.b.a.2
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                a.this.f10870b.setVisibility(8);
+                a.this.f10871b.setVisibility(8);
             }
         });
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.b.b.b.a.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                a.this.f10870b.setAlpha(1.0f - floatValue);
+                a.this.f10871b.setAlpha(1.0f - floatValue);
                 a.this.c.setAlpha(floatValue);
             }
         });
@@ -66,47 +66,47 @@ public class a extends com.kwad.sdk.reward.d implements View.OnClickListener {
     }
 
     private void f() {
-        this.f10949a.f10824b.e();
+        this.f10950a.f10825b.e();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        com.kwad.sdk.core.report.b.a(this.d, 41, this.f10949a.h.getTouchCoords(), this.f10949a.d);
-        this.f10949a.f10824b.a();
+        com.kwad.sdk.core.report.b.a(this.d, 41, this.f10950a.h.getTouchCoords(), this.f10950a.d);
+        this.f10950a.f10825b.a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.d = this.f10949a.f;
+        this.d = this.f10950a.f;
         this.e = com.kwad.sdk.core.response.b.c.j(this.d);
-        this.f = this.f10949a.j;
-        this.f10870b.setText(String.valueOf(com.kwad.sdk.core.response.b.a.b(this.e)));
-        this.f10870b.setVisibility(0);
-        this.f10949a.i.a(this.g);
+        this.f = this.f10950a.j;
+        this.f10871b.setText(String.valueOf(com.kwad.sdk.core.response.b.a.b(this.e)));
+        this.f10871b.setVisibility(0);
+        this.f10950a.i.a(this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f10949a.i.b(this.g);
+        this.f10950a.i.b(this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f10870b = (TextView) b(R.id.ksad_video_count_down);
+        this.f10871b = (TextView) b(R.id.ksad_video_count_down);
         this.c = (ImageView) b(R.id.ksad_detail_reward_icon);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.c) {
-            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.d, new a.InterfaceC1064a() { // from class: com.kwad.sdk.reward.b.b.b.a.4
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1064a
+            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.d, new a.InterfaceC1105a() { // from class: com.kwad.sdk.reward.b.b.b.a.4
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
                 public void a() {
                     a.this.g();
                 }

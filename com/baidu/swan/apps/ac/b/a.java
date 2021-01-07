@@ -176,8 +176,8 @@ public class a {
         }
         final String str = aVar.TZ;
         String str2 = aVar.dvr;
-        h dw = com.baidu.swan.pms.database.a.bgb().dw(str, str2);
-        if (dw != null && !dw.bgo()) {
+        h dw = com.baidu.swan.pms.database.a.bgc().dw(str, str2);
+        if (dw != null && !dw.bgp()) {
             com.baidu.swan.apps.ac.d.a.print("plugin is new, not yet expired");
         } else {
             c.a(new com.baidu.swan.pms.c.d.d(str, str2, aVar.dvs), new com.baidu.swan.apps.ac.a.a(str, str2, new com.baidu.swan.apps.core.f.b<Boolean>() { // from class: com.baidu.swan.apps.ac.b.a.2
@@ -214,7 +214,7 @@ public class a {
                     com.baidu.swan.apps.ac.d.a.print(Log.getStackTraceString(e));
                     j = -1;
                 }
-                h dw = com.baidu.swan.pms.database.a.bgb().dw(str, com.baidu.swan.apps.swancore.b.cS(j));
+                h dw = com.baidu.swan.pms.database.a.bgc().dw(str, com.baidu.swan.apps.swancore.b.cS(j));
                 if (j > j2) {
                     if (dw == null) {
                         com.baidu.swan.apps.ac.d.a.print(Log.getStackTraceString(new RuntimeException("get latest plugin version, but it hasn't insert the db yet")));

@@ -50,7 +50,7 @@ public class LoadingAnimView extends View {
 
     public void startAnim() {
         if (this.dzn != null) {
-            aKI();
+            aKJ();
         }
         this.dzn = ValueAnimator.ofFloat(0.0f, 1.0f);
         this.dzn.setDuration(750L);
@@ -77,7 +77,7 @@ public class LoadingAnimView extends View {
     }
 
     public void stopAnim() {
-        aKI();
+        aKJ();
         clearAnimation();
     }
 
@@ -112,7 +112,7 @@ public class LoadingAnimView extends View {
         this.mCanvas = new Canvas(this.mBitmap);
     }
 
-    private void aKI() {
+    private void aKJ() {
         if (this.dzn != null) {
             this.dzn.setRepeatCount(0);
             this.dzn.removeAllUpdateListeners();

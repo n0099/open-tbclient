@@ -88,11 +88,11 @@ public class PkRankStartAvatarView extends RelativeLayout {
         LayoutInflater.from(getContext()).inflate(a.g.sdk_pk_rank_start_avatar, (ViewGroup) this, true);
         this.imc = (HeadImageView) findViewById(a.f.iv_pk_rank_start_avatar);
         this.imd = (TextView) findViewById(a.f.tv_pk_rank_start_streak);
-        csZ();
         cta();
+        ctb();
     }
 
-    private void csZ() {
+    private void cta() {
         this.imc.setAutoChangeStyle(false);
         this.imc.setIsRound(true);
         this.imc.setBorderWidth(getResources().getDimensionPixelOffset(a.d.sdk_ds4));
@@ -100,7 +100,7 @@ public class PkRankStartAvatarView extends RelativeLayout {
         this.imc.setDefaultBgResource(a.e.sdk_default_avatar);
     }
 
-    private void cta() {
+    private void ctb() {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(0);
         gradientDrawable.setColor(-1072425964);

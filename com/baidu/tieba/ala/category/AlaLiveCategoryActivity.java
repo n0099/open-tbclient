@@ -93,14 +93,14 @@ public class AlaLiveCategoryActivity extends BaseActivity<AlaLiveCategoryActivit
         this.gOp.a(new a.InterfaceC0639a() { // from class: com.baidu.tieba.ala.category.AlaLiveCategoryActivity.1
             @Override // com.baidu.tieba.ala.category.c.a.InterfaceC0639a
             public void onLoadSuccess() {
-                List<IAdapterData> bWB = AlaLiveCategoryActivity.this.gOp.bWB();
-                AlaLiveCategoryActivity.this.gOn.setData(bWB);
-                AlaLiveCategoryActivity.this.cs(bWB);
+                List<IAdapterData> bWC = AlaLiveCategoryActivity.this.gOp.bWC();
+                AlaLiveCategoryActivity.this.gOn.setData(bWC);
+                AlaLiveCategoryActivity.this.cs(bWC);
             }
 
             @Override // com.baidu.tieba.ala.category.c.a.InterfaceC0639a
             public void aE(int i, String str) {
-                AlaLiveCategoryActivity.this.bUL();
+                AlaLiveCategoryActivity.this.bUM();
             }
         });
         this.gOq = new com.baidu.tieba.ala.category.a.a(getPageContext().getContext(), this.gOp.getUniqueId());
@@ -121,7 +121,7 @@ public class AlaLiveCategoryActivity extends BaseActivity<AlaLiveCategoryActivit
             if (next instanceof com.baidu.tieba.ala.category.b.c) {
                 cVar = cVar2 == null ? (com.baidu.tieba.ala.category.b.c) next : cVar2;
                 if (TextUtils.equals(((com.baidu.tieba.ala.category.b.c) next).getId(), this.gOs)) {
-                    for (IAdapterData iAdapterData : ((com.baidu.tieba.ala.category.b.c) next).bWC()) {
+                    for (IAdapterData iAdapterData : ((com.baidu.tieba.ala.category.b.c) next).bWD()) {
                         if ((iAdapterData instanceof com.baidu.tieba.ala.category.b.c) && TextUtils.equals(((com.baidu.tieba.ala.category.b.c) iAdapterData).getId(), this.gOt)) {
                             this.gOu = (com.baidu.tieba.ala.category.b.c) next;
                             this.gOv = (com.baidu.tieba.ala.category.b.c) iAdapterData;
@@ -164,14 +164,14 @@ public class AlaLiveCategoryActivity extends BaseActivity<AlaLiveCategoryActivit
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadData() {
-        this.gOp.bWG();
+        this.gOp.bWH();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.category.b.c cVar) {
         if (cVar != null) {
-            this.gOq.GQ(cVar.getId());
-            this.gOo.setData(cVar.bWC());
+            this.gOq.GP(cVar.getId());
+            this.gOo.setData(cVar.bWD());
             this.gOo.setTag(cVar);
         }
     }
@@ -181,13 +181,13 @@ public class AlaLiveCategoryActivity extends BaseActivity<AlaLiveCategoryActivit
         if (cVar != null) {
             this.gOv = cVar;
             this.gOu = (com.baidu.tieba.ala.category.b.c) this.gOo.getTag();
-            this.gOr.GQ(this.gOv.getId());
+            this.gOr.GP(this.gOv.getId());
             this.gOm.setText(cVar.getName());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUL() {
+    public void bUM() {
         this.bxT.reset();
         this.bxT.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.category.AlaLiveCategoryActivity.2
             @Override // android.view.View.OnClickListener

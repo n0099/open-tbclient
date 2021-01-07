@@ -9,11 +9,11 @@ import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes11.dex */
 public class LiveFlowerTaskInitialize {
     static {
+        bRW();
         bRV();
-        bRU();
     }
 
-    private static void bRU() {
+    private static void bRV() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913219, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.LiveFlowerTaskInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.ai.d> run(CustomMessage<TbPageContext> customMessage) {
@@ -24,7 +24,7 @@ public class LiveFlowerTaskInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bRV() {
+    private static void bRW() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913034, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.LiveFlowerTaskInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.ai.b> run(CustomMessage<Context> customMessage) {
@@ -44,7 +44,7 @@ public class LiveFlowerTaskInitialize {
         CustomMessageTask customMessageTask3 = new CustomMessageTask(2913136, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.ala.LiveFlowerTaskInitialize.4
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.ai.c> run(CustomMessage<Object> customMessage) {
-                return new CustomResponsedMessage<>(2913136, com.baidu.tieba.ala.liveroom.task.b.cnr());
+                return new CustomResponsedMessage<>(2913136, com.baidu.tieba.ala.liveroom.task.b.cns());
             }
         });
         customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

@@ -82,7 +82,7 @@ public class a implements View.OnClickListener {
         public void run() {
             if (a.this.hfr <= 0) {
                 a.this.hfr = 0L;
-                a.this.bZK();
+                a.this.bZL();
             } else {
                 a.e(a.this);
                 a.this.startCountDown();
@@ -106,10 +106,10 @@ public class a implements View.OnClickListener {
         public void run() {
             if (a.this.hfu <= 0) {
                 a.this.hfu = 0L;
-                a.this.bZM();
+                a.this.bZN();
             } else {
                 a.i(a.this);
-                a.this.bZL();
+                a.this.bZM();
             }
             if (a.this.hfu >= 0 && a.this.hfe != null && a.this.heQ != null && a.this.heQ.heB != null && !TextUtils.isEmpty(a.this.heQ.heB.heF)) {
                 a.this.hfe.setText(a.this.heQ.heB.heF + com.baidu.tieba.ala.guardthrone.e.a.f(Long.valueOf(a.this.hfu)));
@@ -158,13 +158,13 @@ public class a implements View.OnClickListener {
         this.hfi = (RelativeLayout) this.mRootView.findViewById(a.f.guard_throne_bottom_view);
         this.hfj = (TextView) this.mRootView.findViewById(a.f.tv_bottom);
         this.hfk = (TextView) this.mRootView.findViewById(a.f.btn_bottom_start);
-        bZC();
         bZD();
         bZE();
         bZF();
+        bZG();
     }
 
-    private void bZC() {
+    private void bZD() {
         this.hfb.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
         this.hfb.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def);
         this.hfb.setIsRound(true);
@@ -174,7 +174,7 @@ public class a implements View.OnClickListener {
         this.hfc.setDefaultBgResource(a.c.sdk_transparent);
     }
 
-    private void bZD() {
+    private void bZE() {
         if (this.mActivity != null) {
             ViewGroup.LayoutParams layoutParams = this.hfa.getLayoutParams();
             layoutParams.height = BdUtilHelper.getEquipmentWidth(this.mActivity) / 2;
@@ -182,7 +182,7 @@ public class a implements View.OnClickListener {
         }
     }
 
-    private void bZE() {
+    private void bZF() {
         if (this.hfq) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.heZ.getLayoutParams();
             layoutParams.width = BdUtilHelper.getEquipmentWidth(this.mActivity);
@@ -191,7 +191,7 @@ public class a implements View.OnClickListener {
         }
     }
 
-    private void bZF() {
+    private void bZG() {
         if (this.mIsHost) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hfg.getLayoutParams();
             layoutParams.bottomMargin = 0;
@@ -209,12 +209,12 @@ public class a implements View.OnClickListener {
     }
 
     private void initModel() {
-        bZG();
+        bZH();
         this.hfl = new com.baidu.tieba.ala.guardthrone.d.a(this.mTbPageContext, this.hfm);
         this.hfl.et(this.mLiveId, this.bvS);
     }
 
-    private void bZG() {
+    private void bZH() {
         this.hfm = new a.InterfaceC0660a() { // from class: com.baidu.tieba.ala.guardthrone.view.a.4
             @Override // com.baidu.tieba.ala.guardthrone.d.a.InterfaceC0660a
             public void a(com.baidu.tieba.ala.guardthrone.b.a aVar) {
@@ -309,7 +309,7 @@ public class a implements View.OnClickListener {
                     if (this.mHandler != null && this.hfw != null) {
                         this.mHandler.removeCallbacks(this.hfw);
                     }
-                    bZL();
+                    bZM();
                 }
             } else {
                 this.hfe.setVisibility(8);
@@ -371,13 +371,13 @@ public class a implements View.OnClickListener {
         if (view == this.mRootView) {
             this.mActivity.finish();
         } else if (view == this.grD) {
-            bZH();
-        } else if (view == this.hfk || view == this.hfi) {
             bZI();
+        } else if (view == this.hfk || view == this.hfi) {
+            bZJ();
         }
     }
 
-    private void bZH() {
+    private void bZI() {
         if (this.mActivity == null || this.heQ == null || this.heQ.heB == null || TextUtils.isEmpty(this.heQ.heB.heG)) {
             BdUtilHelper.showToast(this.mActivity, a.h.sdk_url_is_null);
         } else {
@@ -385,7 +385,7 @@ public class a implements View.OnClickListener {
         }
     }
 
-    private void bZI() {
+    private void bZJ() {
         if (this.mActivity != null) {
             this.mActivity.finish();
         }
@@ -406,7 +406,7 @@ public class a implements View.OnClickListener {
         }
     }
 
-    public void bZJ() {
+    public void bZK() {
         if (this.mHandler != null && this.bxo != null) {
             this.mHandler.removeCallbacks(this.bxo);
         }
@@ -417,24 +417,24 @@ public class a implements View.OnClickListener {
         this.mHandler.postDelayed(this.hfw, 1000L);
     }
 
-    public void bZK() {
+    public void bZL() {
         if (this.mHandler != null && this.hfw != null) {
             this.mHandler.removeCallbacks(this.hfw);
         }
     }
 
-    public void bZL() {
+    public void bZM() {
         this.mHandler.removeCallbacks(this.hfx);
         this.mHandler.postDelayed(this.hfx, 1000L);
     }
 
-    public void bZM() {
+    public void bZN() {
         if (this.mHandler != null && this.hfx != null) {
             this.mHandler.removeCallbacks(this.hfx);
         }
     }
 
-    public void bnO() {
+    public void bnP() {
     }
 
     private View nr(boolean z) {
@@ -455,12 +455,12 @@ public class a implements View.OnClickListener {
         if (this.hfl != null) {
             this.hfl.onDestroy();
         }
+        bZL();
+        bZN();
         bZK();
-        bZM();
-        bZJ();
     }
 
-    public Animation bZN() {
+    public Animation bZO() {
         this.mHandler.removeCallbacksAndMessages(null);
         this.mHandler = null;
         if (this.hfp != null) {

@@ -1,10 +1,10 @@
 package com.baidu.swan.apps.core.pms;
 /* loaded from: classes9.dex */
 public abstract class j extends com.baidu.swan.pms.a.g implements com.baidu.swan.apps.env.c.b {
-    private final int cXJ = auc();
+    private final int cXJ = aud();
     private int cXK = this.cXJ;
 
-    protected int auc() {
+    protected int aud() {
         return 0;
     }
 
@@ -16,7 +16,7 @@ public abstract class j extends com.baidu.swan.pms.a.g implements com.baidu.swan
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int auu() {
+    public int auv() {
         return this.cXK == 0 ? this.cXJ : this.cXK;
     }
 }

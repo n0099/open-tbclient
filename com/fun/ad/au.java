@@ -5,20 +5,20 @@ import java.util.List;
 public class au {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8057a;
+    public String f8058a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f8058b;
+    public long f8059b;
     public List<a> c;
 
     /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8059a;
+        public String f8060a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8060b;
+        public String f8061b;
         public int c;
         public int d;
         public int e;
@@ -29,8 +29,8 @@ public class au {
         }
 
         public a(String str, String str2, int i, int i2, int i3, int i4, int i5, int i6) {
-            this.f8059a = str;
-            this.f8060b = str2;
+            this.f8060a = str;
+            this.f8061b = str2;
             this.c = i;
             this.d = i2;
             this.e = i3;
@@ -43,8 +43,8 @@ public class au {
     }
 
     public au(String str, long j, List<a> list) {
-        this.f8057a = str;
-        this.f8058b = j;
+        this.f8058a = str;
+        this.f8059b = j;
         this.c = list;
     }
 }

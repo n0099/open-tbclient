@@ -18,7 +18,7 @@ public class a extends TBSpecificationButtonConfig {
         this.fpt = R.color.CAM_X0101;
         this.fpE = true;
         if (this.fpG != null) {
-            this.fpG.byt();
+            this.fpG.byu();
         }
     }
 

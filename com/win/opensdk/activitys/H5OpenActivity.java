@@ -17,36 +17,36 @@ import com.win.opensdk.webviewbase.AdvancedWebView;
 import com.win.opensdk.x;
 /* loaded from: classes4.dex */
 public class H5OpenActivity extends Activity implements AdvancedWebView.a {
-    private boolean qbE = false;
-    private Info qbW;
-    private AdvancedWebView qca;
-    private ProgressBar qcb;
+    private Info qdE;
+    private AdvancedWebView qdI;
+    private ProgressBar qdJ;
+    private boolean qdm = false;
 
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(d.c.layout_h5_open_activity);
         try {
-            this.qbW = (Info) getIntent().getSerializableExtra("Key_H5OpenActData");
+            this.qdE = (Info) getIntent().getSerializableExtra("Key_H5OpenActData");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (this.qbW != null) {
-            this.qbE = true;
-            w.iM(this).e(new x(this.qbW)).eJL();
-            this.qcb = (ProgressBar) findViewById(d.b.h5_open_webview_process);
-            this.qca = (AdvancedWebView) findViewById(d.b.h5_open_webview);
-            this.qca.a(this, this);
-            this.qca.setGeolocationEnabled(false);
-            this.qca.setMixedContentAllowed(false);
-            this.qca.setCookiesEnabled(true);
-            this.qca.setThirdPartyCookiesEnabled(true);
-            this.qca.setWebViewClient(new WebViewClient() { // from class: com.win.opensdk.activitys.H5OpenActivity.1
+        if (this.qdE != null) {
+            this.qdm = true;
+            w.iM(this).e(new x(this.qdE)).eKp();
+            this.qdJ = (ProgressBar) findViewById(d.b.h5_open_webview_process);
+            this.qdI = (AdvancedWebView) findViewById(d.b.h5_open_webview);
+            this.qdI.a(this, this);
+            this.qdI.setGeolocationEnabled(false);
+            this.qdI.setMixedContentAllowed(false);
+            this.qdI.setCookiesEnabled(true);
+            this.qdI.setThirdPartyCookiesEnabled(true);
+            this.qdI.setWebViewClient(new WebViewClient() { // from class: com.win.opensdk.activitys.H5OpenActivity.1
                 @Override // android.webkit.WebViewClient
                 public final void onPageFinished(WebView webView, String str) {
                 }
             });
-            this.qca.setWebChromeClient(new WebChromeClient() { // from class: com.win.opensdk.activitys.H5OpenActivity.2
+            this.qdI.setWebChromeClient(new WebChromeClient() { // from class: com.win.opensdk.activitys.H5OpenActivity.2
                 @Override // android.webkit.WebChromeClient
                 public final void onReceivedTitle(WebView webView, String str) {
                     super.onReceivedTitle(webView, str);
@@ -54,28 +54,28 @@ public class H5OpenActivity extends Activity implements AdvancedWebView.a {
 
                 @Override // android.webkit.WebChromeClient
                 public final void onProgressChanged(WebView webView, int i) {
-                    if (H5OpenActivity.this.qcb != null) {
-                        H5OpenActivity.this.qcb.setVisibility(0);
-                        H5OpenActivity.this.qcb.setProgress(i);
+                    if (H5OpenActivity.this.qdJ != null) {
+                        H5OpenActivity.this.qdJ.setVisibility(0);
+                        H5OpenActivity.this.qdJ.setProgress(i);
                         if (i == 100) {
-                            H5OpenActivity.this.qcb.setVisibility(8);
+                            H5OpenActivity.this.qdJ.setVisibility(8);
                         }
                     }
                     super.onProgressChanged(webView, i);
                 }
             });
-            if (this.qbW != null && !TextUtils.isEmpty(this.qbW.getOph5Url())) {
-                this.qca.loadUrl(this.qbW.getOph5Url());
-            } else if (this.qbW != null && !TextUtils.isEmpty(this.qbW.getOpen()) && !"null".equals(this.qbW.getOpen())) {
-                this.qca.loadUrl(this.qbW.getOpen());
+            if (this.qdE != null && !TextUtils.isEmpty(this.qdE.getOph5Url())) {
+                this.qdI.loadUrl(this.qdE.getOph5Url());
+            } else if (this.qdE != null && !TextUtils.isEmpty(this.qdE.getOpen()) && !"null".equals(this.qdE.getOpen())) {
+                this.qdI.loadUrl(this.qdE.getOpen());
             }
         }
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
-        if (this.qca != null) {
-            AdvancedWebView advancedWebView = this.qca;
+        if (this.qdI != null) {
+            AdvancedWebView advancedWebView = this.qdI;
             try {
                 ((ViewGroup) advancedWebView.getParent()).removeView(advancedWebView);
             } catch (Exception e) {
@@ -87,23 +87,23 @@ public class H5OpenActivity extends Activity implements AdvancedWebView.a {
             advancedWebView.destroy();
         }
         super.onDestroy();
-        this.qbE = false;
-        w.iM(this).d(new x(this.qbW)).eJL();
+        this.qdm = false;
+        w.iM(this).d(new x(this.qdE)).eKp();
     }
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.qca != null) {
-            this.qca.d(i, i2, intent);
+        if (this.qdI != null) {
+            this.qdI.d(i, i2, intent);
         }
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
         boolean z;
-        if (this.qca != null) {
-            AdvancedWebView advancedWebView = this.qca;
+        if (this.qdI != null) {
+            AdvancedWebView advancedWebView = this.qdI;
             if (advancedWebView.canGoBack()) {
                 advancedWebView.goBack();
                 z = false;
@@ -118,24 +118,24 @@ public class H5OpenActivity extends Activity implements AdvancedWebView.a {
     }
 
     @Override // com.win.opensdk.webviewbase.AdvancedWebView.a
-    public final void eJL() {
-        this.qca.setVisibility(4);
+    public final void eKp() {
+        this.qdI.setVisibility(4);
     }
 
     @Override // com.win.opensdk.webviewbase.AdvancedWebView.a
-    public final void abK(String str) {
-        this.qca.setVisibility(0);
-        if (this.qbE) {
-            w.iM(this).a(new x(this.qbW), 200, str).eJL();
-            this.qbE = false;
+    public final void abL(String str) {
+        this.qdI.setVisibility(0);
+        if (this.qdm) {
+            w.iM(this).a(new x(this.qdE), 200, str).eKp();
+            this.qdm = false;
         }
     }
 
     @Override // com.win.opensdk.webviewbase.AdvancedWebView.a
     public final void cc(int i, String str) {
-        if (this.qbE) {
-            w.iM(this).a(new x(this.qbW), i, str).eJL();
-            this.qbE = false;
+        if (this.qdm) {
+            w.iM(this).a(new x(this.qdE), i, str).eKp();
+            this.qdm = false;
             Toast.makeText(this, getString(d.e.win_loadp_error), 0).show();
         }
     }

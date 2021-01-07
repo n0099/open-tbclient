@@ -21,7 +21,7 @@ public class a {
         }
     }
 
-    public static c bzp() {
+    public static c bzq() {
         return fsq;
     }
 

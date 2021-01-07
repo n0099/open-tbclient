@@ -33,7 +33,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
             alaTopTipView.setText(str);
             alaTopTipView.setOnTipCompletedCallback(this.hON);
             if (i == 2) {
-                alaTopTipView.cnw();
+                alaTopTipView.cnx();
             }
             alaTopTipView.v(viewGroup, 0);
             this.hOM.add(alaTopTipView);
@@ -53,11 +53,11 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    public void cnx() {
+    public void cny() {
         if (!this.hOM.isEmpty()) {
             for (AlaTopTipView alaTopTipView : this.hOM) {
                 if (alaTopTipView != null) {
-                    alaTopTipView.cnx();
+                    alaTopTipView.cny();
                 }
             }
         }

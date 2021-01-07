@@ -75,7 +75,7 @@ public class AlaPkPanelWebView extends FrameLayout {
         return this.bWG != null ? this.bWG.getOriginalUrl() : "";
     }
 
-    public boolean cbD() {
+    public boolean cbE() {
         return this.hmR;
     }
 

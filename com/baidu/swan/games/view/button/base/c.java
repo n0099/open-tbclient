@@ -21,10 +21,10 @@ public class c {
         return PathType.RELATIVE;
     }
 
-    public static String bdo() {
+    public static String bdp() {
         File bS;
-        e aMc = d.aMg().aMc();
-        if (aMc.available() && aMc.getVersion() != null && (bS = a.c.bS(aMc.getAppId(), aMc.getVersion())) != null && bS.exists()) {
+        e aMd = d.aMh().aMd();
+        if (aMd.available() && aMd.getVersion() != null && (bS = a.c.bS(aMd.getAppId(), aMd.getVersion())) != null && bS.exists()) {
             return "file://" + bS.getAbsolutePath();
         }
         return null;

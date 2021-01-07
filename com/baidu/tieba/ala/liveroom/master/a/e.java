@@ -22,7 +22,7 @@ public class e extends a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void clA() {
+    public void clB() {
         if (this.huX != null && this.huX.hCg != null) {
             if (this.hJw != null) {
                 this.hJw.xi(2);

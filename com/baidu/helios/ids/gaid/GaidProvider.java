@@ -32,7 +32,7 @@ public class GaidProvider extends com.baidu.helios.ids.a {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        AtomicBoolean f2505a = new AtomicBoolean(false);
+        AtomicBoolean f2506a = new AtomicBoolean(false);
 
         public a() {
         }
@@ -169,9 +169,9 @@ public class GaidProvider extends com.baidu.helios.ids.a {
                         GaidProvider.this.axV.awg.submit(new Runnable() { // from class: com.baidu.helios.ids.gaid.GaidProvider.c.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (!GaidProvider.this.ayi.f2505a.get()) {
+                                if (!GaidProvider.this.ayi.f2506a.get()) {
                                     GaidProvider.this.a();
-                                    GaidProvider.this.ayi.f2505a.set(true);
+                                    GaidProvider.this.ayi.f2506a.set(true);
                                 }
                                 GaidProvider.this.ayg.a(a3 ? 1L : 2L, 3L);
                                 if (!TextUtils.isEmpty(a2)) {
@@ -201,15 +201,15 @@ public class GaidProvider extends com.baidu.helios.ids.a {
     static class d implements IInterface {
 
         /* renamed from: a  reason: collision with root package name */
-        private IBinder f2509a;
+        private IBinder f2510a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f2510b;
+        private String f2511b;
 
         public d(IBinder iBinder) {
-            this.f2509a = iBinder;
+            this.f2510a = iBinder;
             try {
-                this.f2510b = com.baidu.helios.ids.gaid.c.a(com.baidu.helios.ids.gaid.a.c());
+                this.f2511b = com.baidu.helios.ids.gaid.c.a(com.baidu.helios.ids.gaid.a.c());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -219,8 +219,8 @@ public class GaidProvider extends com.baidu.helios.ids.a {
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
-                obtain.writeInterfaceToken(this.f2510b);
-                this.f2509a.transact(1, obtain, obtain2, 0);
+                obtain.writeInterfaceToken(this.f2511b);
+                this.f2510a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 return obtain2.readString();
             } finally {
@@ -233,9 +233,9 @@ public class GaidProvider extends com.baidu.helios.ids.a {
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
-                obtain.writeInterfaceToken(this.f2510b);
+                obtain.writeInterfaceToken(this.f2511b);
                 obtain.writeInt(z ? 1 : 0);
-                this.f2509a.transact(2, obtain, obtain2, 0);
+                this.f2510a.transact(2, obtain, obtain2, 0);
                 obtain2.readException();
                 return obtain2.readInt() != 0;
             } finally {
@@ -246,7 +246,7 @@ public class GaidProvider extends com.baidu.helios.ids.a {
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return this.f2509a;
+            return this.f2510a;
         }
     }
 
@@ -254,27 +254,27 @@ public class GaidProvider extends com.baidu.helios.ids.a {
     private static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2511a;
+        private String f2512a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f2512b;
+        private String f2513b;
 
         private e() {
             try {
-                this.f2511a = com.baidu.helios.ids.gaid.c.a(com.baidu.helios.ids.gaid.a.a());
-                this.f2512b = com.baidu.helios.ids.gaid.c.a(com.baidu.helios.ids.gaid.a.b());
+                this.f2512a = com.baidu.helios.ids.gaid.c.a(com.baidu.helios.ids.gaid.a.a());
+                this.f2513b = com.baidu.helios.ids.gaid.c.a(com.baidu.helios.ids.gaid.a.b());
             } catch (Exception e) {
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public String a() {
-            return this.f2511a;
+            return this.f2512a;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public String b() {
-            return this.f2512b;
+            return this.f2513b;
         }
     }
 
@@ -291,10 +291,10 @@ public class GaidProvider extends com.baidu.helios.ids.a {
                     GaidProvider.this.axV.awg.submit(new Runnable() { // from class: com.baidu.helios.ids.gaid.GaidProvider.f.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (GaidProvider.this.ayi.f2505a.get()) {
+                            if (GaidProvider.this.ayi.f2506a.get()) {
                                 return;
                             }
-                            GaidProvider.this.ayi.f2505a.set(true);
+                            GaidProvider.this.ayi.f2506a.set(true);
                             GaidProvider.this.a();
                         }
                     });
@@ -345,14 +345,14 @@ public class GaidProvider extends com.baidu.helios.ids.a {
         try {
             String a2 = this.ayh.a();
             if (a2 == null) {
-                aVar.f2505a.set(true);
+                aVar.f2506a.set(true);
                 aVar = aVar;
             } else {
                 packageManager.getPackageInfo(a2, 0);
                 this.ayg.c();
                 long currentTimeMillis = System.currentTimeMillis();
                 if (Math.abs(currentTimeMillis - this.ayg.b()) <= 604800000) {
-                    AtomicBoolean atomicBoolean = aVar.f2505a;
+                    AtomicBoolean atomicBoolean = aVar.f2506a;
                     atomicBoolean.set(true);
                     aVar = atomicBoolean;
                 } else {
@@ -361,25 +361,25 @@ public class GaidProvider extends com.baidu.helios.ids.a {
                     try {
                         String b2 = this.ayh.b();
                         if (b2 == null) {
-                            aVar.f2505a.set(true);
+                            aVar.f2506a.set(true);
                             aVar = aVar;
                         } else if (context.bindService(new Intent(b2).setPackage(a2), new c(), 1)) {
                             this.ayj = new f(Looper.getMainLooper());
                             this.ayj.sendEmptyMessageDelayed(0, 50000L);
                             aVar = aVar;
                         } else {
-                            aVar.f2505a.set(true);
+                            aVar.f2506a.set(true);
                             aVar = aVar;
                         }
                     } catch (Exception e2) {
-                        AtomicBoolean atomicBoolean2 = aVar.f2505a;
+                        AtomicBoolean atomicBoolean2 = aVar.f2506a;
                         atomicBoolean2.set(true);
                         aVar = atomicBoolean2;
                     }
                 }
             }
         } catch (PackageManager.NameNotFoundException e3) {
-            aVar.f2505a.set(true);
+            aVar.f2506a.set(true);
         }
     }
 
@@ -388,7 +388,7 @@ public class GaidProvider extends com.baidu.helios.ids.a {
         this.axV.awg.submit(new Runnable() { // from class: com.baidu.helios.ids.gaid.GaidProvider.1
             @Override // java.lang.Runnable
             public void run() {
-                if (GaidProvider.this.ayi.f2505a.get()) {
+                if (GaidProvider.this.ayi.f2506a.get()) {
                     GaidProvider.this.b(cVar);
                 } else {
                     GaidProvider.this.i.add(cVar);

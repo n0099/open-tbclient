@@ -8,7 +8,7 @@ import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class CharArrayCodec implements ObjectDeserializer {
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
     public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {

@@ -8,8 +8,8 @@ import java.util.concurrent.TimeUnit;
 public class a extends t {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final long f6136b = TimeUnit.SECONDS.toMillis(60);
-    private static final long d = TimeUnit.MILLISECONDS.toNanos(f6136b);
+    private static final long f6137b = TimeUnit.SECONDS.toMillis(60);
+    private static final long d = TimeUnit.MILLISECONDS.toNanos(f6137b);
     static a phL;
     private boolean e;
     private long g;
@@ -19,11 +19,11 @@ public class a extends t {
         if (this.e) {
             throw new IllegalStateException("Unbalanced enter/exit");
         }
-        long eqd = eqd();
+        long eqe = eqe();
         boolean c = c();
-        if (eqd != 0 || c) {
+        if (eqe != 0 || c) {
             this.e = true;
-            a(this, eqd, c);
+            a(this, eqe, c);
         }
     }
 
@@ -31,15 +31,15 @@ public class a extends t {
         synchronized (a.class) {
             if (phL == null) {
                 phL = new a();
-                new C0967a().start();
+                new C1005a().start();
             }
             long nanoTime = System.nanoTime();
             if (j != 0 && z) {
-                aVar.g = Math.min(j, aVar.eqe() - nanoTime) + nanoTime;
+                aVar.g = Math.min(j, aVar.eqf() - nanoTime) + nanoTime;
             } else if (j != 0) {
                 aVar.g = nanoTime + j;
             } else if (z) {
-                aVar.g = aVar.eqe();
+                aVar.g = aVar.eqf();
             } else {
                 throw new AssertionError();
             }
@@ -97,14 +97,14 @@ public class a extends t {
         return this.g - j;
     }
 
-    protected void epP() {
+    protected void epQ() {
     }
 
     public final r a(final r rVar) {
         return new r() { // from class: com.bytedance.sdk.a.a.a.1
             @Override // com.bytedance.sdk.a.a.r
             public void a(c cVar, long j) throws IOException {
-                u.a(cVar.f6139b, 0L, j);
+                u.a(cVar.f6140b, 0L, j);
                 long j2 = j;
                 while (j2 > 0) {
                     o oVar = cVar.phQ;
@@ -113,7 +113,7 @@ public class a extends t {
                         if (j3 >= 65536) {
                             break;
                         }
-                        j3 += oVar.c - oVar.f6148b;
+                        j3 += oVar.c - oVar.f6149b;
                         if (j3 >= j2) {
                             j3 = j2;
                             break;
@@ -169,7 +169,7 @@ public class a extends t {
             }
 
             @Override // com.bytedance.sdk.a.a.r
-            public t epR() {
+            public t epS() {
                 return a.this;
             }
 
@@ -215,7 +215,7 @@ public class a extends t {
             }
 
             @Override // com.bytedance.sdk.a.a.s
-            public t epR() {
+            public t epS() {
                 return a.this;
             }
 
@@ -246,14 +246,14 @@ public class a extends t {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bytedance.sdk.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C0967a extends Thread {
-        C0967a() {
+    public static final class C1005a extends Thread {
+        C1005a() {
             super("Okio Watchdog");
             setDaemon(true);
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:19:0x001a, code lost:
-            r0.epP();
+            r0.epQ();
          */
         @Override // java.lang.Thread, java.lang.Runnable
         /*
@@ -262,9 +262,9 @@ public class a extends t {
         public void run() {
             while (true) {
                 synchronized (a.class) {
-                    a epQ = a.epQ();
-                    if (epQ != null) {
-                        if (epQ == a.phL) {
+                    a epR = a.epR();
+                    if (epR != null) {
+                        if (epR == a.phL) {
                             a.phL = null;
                             return;
                         }
@@ -274,11 +274,11 @@ public class a extends t {
         }
     }
 
-    static a epQ() throws InterruptedException {
+    static a epR() throws InterruptedException {
         a aVar = phL.phM;
         if (aVar == null) {
             long nanoTime = System.nanoTime();
-            a.class.wait(f6136b);
+            a.class.wait(f6137b);
             if (phL.phM != null || System.nanoTime() - nanoTime < d) {
                 return null;
             }

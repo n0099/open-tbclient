@@ -28,7 +28,7 @@ public class c {
         this.clU = j;
     }
 
-    public void aeB() {
+    public void aeC() {
         if (this.mLastTime == 0) {
             this.mLastTime = System.currentTimeMillis();
             return;
@@ -54,7 +54,7 @@ public class c {
         }
         this.clV++;
         if (this.clU > 0 && System.currentTimeMillis() - this.clW > this.clU) {
-            aeC();
+            aeD();
         }
         this.mLastTime = System.currentTimeMillis();
         if (this.clW == 0) {
@@ -63,7 +63,7 @@ public class c {
         }
     }
 
-    public void aeC() {
+    public void aeD() {
         this.clX = System.currentTimeMillis() - this.clW;
         this.clY = this.clV;
         this.clW = 0L;
@@ -81,7 +81,7 @@ public class c {
         this.clR = Long.MAX_VALUE;
     }
 
-    public String aeD() {
+    public String aeE() {
         String format = String.format("%s, Total: %d, Times: %d, Min: %d, Max: %d, Average：%f", this.clZ, Long.valueOf(this.clS), Long.valueOf(this.clT), Long.valueOf(this.clR), Long.valueOf(this.clQ), Float.valueOf(((float) this.clS) / ((float) this.clT)));
         if (this.mDebug) {
             d(this.mTag, format);

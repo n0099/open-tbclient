@@ -10,13 +10,13 @@ public class b extends e {
 
     @Override // com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        com.baidu.swan.apps.runtime.e arO;
+        com.baidu.swan.apps.runtime.e arP;
         if (this.dOd == null) {
             this.dOd = new JSONObject();
         }
-        if (TextUtils.isEmpty(this.dNW) && (arO = com.baidu.swan.apps.v.f.aDG().arO()) != null) {
-            b.a aju = arO.aju();
-            this.dNW = aju != null ? aju.aCv() : "";
+        if (TextUtils.isEmpty(this.dNW) && (arP = com.baidu.swan.apps.v.f.aDH().arP()) != null) {
+            b.a ajv = arP.ajv();
+            this.dNW = ajv != null ? ajv.aCw() : "";
         }
         try {
             this.dOd.put("source", this.dNW);

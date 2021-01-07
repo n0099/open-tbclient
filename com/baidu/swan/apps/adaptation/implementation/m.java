@@ -31,7 +31,7 @@ public class m implements com.baidu.swan.menu.b {
     }
 
     private void i(int i, List<com.baidu.swan.menu.h> list) {
-        if (!ak.aRP() && list != null && list.size() > 0) {
+        if (!ak.aRQ() && list != null && list.size() > 0) {
             ArrayList arrayList = new ArrayList();
             for (com.baidu.swan.menu.h hVar : list) {
                 if (this.cFu.get(hVar.getItemId()) != null) {

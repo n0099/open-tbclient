@@ -39,13 +39,13 @@ public class f implements View.OnClickListener, TbTabLayout.b, com.baidu.tbadk.s
         if (!StringUtils.isNull(currentAccount)) {
             this.ghi += currentAccount;
         }
-        bIk();
-        abn();
-        bNY();
+        bIl();
+        abo();
+        bNZ();
         initViewPager();
     }
 
-    private void bIk() {
+    private void bIl() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getResources().getString(R.string.activity_select_forum_title));
         this.ghj = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ghj.getLayoutParams();
@@ -55,13 +55,13 @@ public class f implements View.OnClickListener, TbTabLayout.b, com.baidu.tbadk.s
         this.ghj.setVisibility(8);
     }
 
-    private void abn() {
+    private void abo() {
         LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.activity_select_forum_layout, (ViewGroup) this.mContentView, true);
         this.ghk = (TbTabLayout) this.mContentView.findViewById(R.id.activity_select_forum_tab_layout);
         this.fri = (BdBaseViewPager) this.mContentView.findViewById(R.id.activity_select_forum_viewpager);
     }
 
-    private void bNY() {
+    private void bNZ() {
         this.ghk.setSelectedTabTextBlod(true);
         this.ghk.setSelectedTabIndicatorColor(0);
         TbTabLayout.e b2 = this.ghk.qN().b(TbadkCoreApplication.getInst().getString(R.string.activity_select_forum_tab_recently));
@@ -74,7 +74,7 @@ public class f implements View.OnClickListener, TbTabLayout.b, com.baidu.tbadk.s
         this.ghl = new SelectForumPagerAdapter(this.mPageContext);
         this.fri.setAdapter(this.ghl);
         this.ghk.setupWithViewPager(this.fri);
-        uu(com.baidu.tbadk.core.sharedPref.b.bvq().getInt(this.ghi, 0));
+        uu(com.baidu.tbadk.core.sharedPref.b.bvr().getInt(this.ghi, 0));
         this.ghk.setOnTabSelectedListener(this);
         this.fri.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.f.1
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -101,7 +101,7 @@ public class f implements View.OnClickListener, TbTabLayout.b, com.baidu.tbadk.s
     @Override // com.baidu.adp.widget.design.TbTabLayout.b
     public void h(TbTabLayout.e eVar) {
         TiebaStatic.log(new aq("c13994").an("obj_type", eVar.getPosition() + 1));
-        com.baidu.tbadk.core.sharedPref.b.bvq().putInt(this.ghi, eVar.getPosition());
+        com.baidu.tbadk.core.sharedPref.b.bvr().putInt(this.ghi, eVar.getPosition());
     }
 
     @Override // com.baidu.adp.widget.design.TbTabLayout.b
@@ -125,24 +125,24 @@ public class f implements View.OnClickListener, TbTabLayout.b, com.baidu.tbadk.s
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bIg() {
+    public boolean bIh() {
         return false;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean bIh() {
+    public boolean bIi() {
         return true;
     }
 
     @Override // com.baidu.tbadk.suspended.a
     public void sY(int i) {
-        SvgManager.bwq().a(this.ghj, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bwr().a(this.ghj, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         this.ghk.setTabTextColors(ao.getColor(R.color.CAM_X0108), ao.getColor(R.color.CAM_X0105));
-        this.ghl.bNW();
+        this.ghl.bNX();
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public Intent bIi() {
+    public Intent bIj() {
         return this.ghm;
     }
 

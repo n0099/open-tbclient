@@ -40,18 +40,18 @@ public class HotTopicTabFragment extends BaseFragment implements am, b {
                     String str = frsTabItemData.tabCode;
                     HotTopicTabFragment.this.kcZ.setTabCode(str);
                     if (HotTopicTabFragment.this.kcZ.LoadData()) {
-                        HotTopicTabFragment.this.kda.bUO();
+                        HotTopicTabFragment.this.kda.bUP();
                         HotTopicTabFragment.this.kda.hideLoadingView();
-                        HotTopicTabFragment.this.kda.Zi();
-                        HotTopicTabFragment.this.cSx();
+                        HotTopicTabFragment.this.kda.Zj();
+                        HotTopicTabFragment.this.cSy();
                     } else {
-                        HotTopicTabFragment.this.kda.bUO();
+                        HotTopicTabFragment.this.kda.bUP();
                         HotTopicTabFragment.this.kda.hideLoadingView();
-                        List<n> Mw = HotTopicTabFragment.this.kcZ.Mw(str);
-                        if (!x.isEmpty(Mw)) {
-                            HotTopicTabFragment.this.kda.setListData(Mw);
+                        List<n> Mv = HotTopicTabFragment.this.kcZ.Mv(str);
+                        if (!x.isEmpty(Mv)) {
+                            HotTopicTabFragment.this.kda.setListData(Mv);
                         } else {
-                            HotTopicTabFragment.this.bUL();
+                            HotTopicTabFragment.this.bUM();
                         }
                     }
                 }
@@ -61,7 +61,7 @@ public class HotTopicTabFragment extends BaseFragment implements am, b {
 
         @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
         public void onTabUnselected(TabLayout.Tab tab) {
-            HotTopicTabFragment.this.kda.bUO();
+            HotTopicTabFragment.this.kda.bUP();
         }
 
         @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
@@ -72,21 +72,21 @@ public class HotTopicTabFragment extends BaseFragment implements am, b {
         @Override // com.baidu.tbadk.h.f
         public void a(View view, Object obj, int i, long j) {
             if (obj != null) {
-                a.a(view, obj, i + 1, HotTopicTabFragment.this.bzO());
+                a.a(view, obj, i + 1, HotTopicTabFragment.this.bzP());
             }
         }
 
         @Override // com.baidu.tbadk.h.f
         public void b(View view, Object obj, int i, long j) {
             if (obj != null) {
-                a.a(view, obj, HotTopicTabFragment.this.bzO());
+                a.a(view, obj, HotTopicTabFragment.this.bzP());
             }
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String bzO() {
-        return this.kcZ != null ? this.kcZ.bzO() : "";
+    public String bzP() {
+        return this.kcZ != null ? this.kcZ.bzP() : "";
     }
 
     public HotTopicTabFragment() {
@@ -133,16 +133,16 @@ public class HotTopicTabFragment extends BaseFragment implements am, b {
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void WE() {
+    public void WF() {
         this.kda.reload();
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bUJ() {
+    public void bUK() {
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bUK() {
+    public void bUL() {
     }
 
     @Override // com.baidu.tieba.frs.am
@@ -154,7 +154,7 @@ public class HotTopicTabFragment extends BaseFragment implements am, b {
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bxO() {
+    public void bxP() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -172,76 +172,76 @@ public class HotTopicTabFragment extends BaseFragment implements am, b {
     @Override // com.baidu.tieba.homepage.hotTopic.tab.b
     public void loadData() {
         boolean LoadData = this.kcZ.LoadData();
-        List<n> Mw = this.kcZ.Mw(this.kcZ.bzO());
+        List<n> Mv = this.kcZ.Mv(this.kcZ.bzP());
         if (LoadData) {
-            if (x.isEmpty(Mw) && !this.kda.cSB()) {
-                this.kda.bUO();
-                this.kda.Zi();
+            if (x.isEmpty(Mv) && !this.kda.cSC()) {
+                this.kda.bUP();
+                this.kda.Zj();
                 showLoadingView();
                 return;
             }
             return;
         }
-        this.kda.bUO();
+        this.kda.bUP();
         this.kda.hideLoadingView();
-        if (!x.isEmpty(Mw)) {
-            this.kda.setListData(Mw);
+        if (!x.isEmpty(Mv)) {
+            this.kda.setListData(Mv);
         } else if (!j.isNetworkAvailableForImmediately()) {
-            bUL();
+            bUM();
         }
     }
 
     @Override // com.baidu.tieba.homepage.hotTopic.tab.b
     public void a(int i, com.baidu.tieba.homepage.hotTopic.tab.net.a aVar) {
         this.kda.hideLoadingView();
-        this.kda.Zi();
-        this.kda.bUO();
+        this.kda.Zj();
+        this.kda.bUP();
         if (aVar == null || i != 0 || x.isEmpty(aVar.getDataList())) {
-            if (x.isEmpty(this.kcZ.cSz())) {
-                bUL();
+            if (x.isEmpty(this.kcZ.cSA())) {
+                bUM();
                 return;
             } else {
-                this.kda.setListData(this.kcZ.cSz());
+                this.kda.setListData(this.kcZ.cSA());
                 return;
             }
         }
         this.kda.setData(aVar);
-        this.kda.Zh();
+        this.kda.Zi();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUL() {
-        if (this.kda.cSB()) {
-            this.kda.Zi();
-            cSy();
+    public void bUM() {
+        if (this.kda.cSC()) {
+            this.kda.Zj();
+            cSz();
             return;
         }
         this.kda.pU(false);
     }
 
     private void showLoadingView() {
-        if (this.kda.cSB()) {
+        if (this.kda.cSC()) {
             this.kda.hideLoadingView();
-            cSx();
+            cSy();
             return;
         }
         this.kda.it(false);
     }
 
-    public void cSx() {
+    public void cSy() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new t());
-        this.kda.cSC();
+        this.kda.cSD();
         this.kda.setListData(arrayList);
     }
 
-    public void cSy() {
+    public void cSz() {
         ArrayList arrayList = new ArrayList();
         v vVar = new v();
         vVar.resId = R.drawable.new_pic_emotion_05;
         vVar.showText = getString(R.string.no_data_common_txt);
         arrayList.add(vVar);
-        this.kda.cSC();
+        this.kda.cSD();
         this.kda.setListData(arrayList);
     }
 

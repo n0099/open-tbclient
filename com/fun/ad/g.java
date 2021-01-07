@@ -21,10 +21,10 @@ import java.util.Map;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Boolean> f8078a = new HashMap();
+    public static Map<String, Boolean> f8079a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f8079b;
+    public static String f8080b;
     public static String c;
     public static String d;
     public static String e;
@@ -226,7 +226,7 @@ public final class g {
             case 24:
             case 25:
             case 26:
-                return f8079b;
+                return f8080b;
             default:
                 return null;
         }
@@ -258,11 +258,11 @@ public final class g {
     public static void a(FunAdConfig funAdConfig, List<ar> list) {
         Boolean bool;
         for (ar arVar : list) {
-            m.a("AdSdkInitializer init platform type: " + arVar.f8055b + ", id: " + arVar.f8054a);
-            String str = arVar.f8054a;
-            if (!TextUtils.isEmpty(str) && ((bool = f8078a.get(str)) == null || !bool.booleanValue())) {
-                f8078a.put(str, true);
-                String str2 = arVar.f8055b;
+            m.a("AdSdkInitializer init platform type: " + arVar.f8056b + ", id: " + arVar.f8055a);
+            String str = arVar.f8055a;
+            if (!TextUtils.isEmpty(str) && ((bool = f8079a.get(str)) == null || !bool.booleanValue())) {
+                f8079a.put(str, true);
+                String str2 = arVar.f8056b;
                 char c2 = 65535;
                 int hashCode = str2.hashCode();
                 if (hashCode != 3407) {
@@ -299,7 +299,7 @@ public final class g {
                         continue;
                     case 3:
                         Context appContext4 = funAdConfig.getAppContext();
-                        f8079b = str;
+                        f8080b = str;
                         PBInitialize.init(appContext4, str);
                         continue;
                 }

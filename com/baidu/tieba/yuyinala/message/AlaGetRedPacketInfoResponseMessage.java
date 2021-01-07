@@ -21,7 +21,7 @@ public class AlaGetRedPacketInfoResponseMessage extends JsonHttpResponsedMessage
         }
     }
 
-    public a egW() {
+    public a egX() {
         return this.oGH;
     }
 }

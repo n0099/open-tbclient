@@ -29,35 +29,35 @@ public class c {
             if (i < jsObject.length()) {
                 int propertyType = jsObject.getPropertyType(i);
                 String propertyName = jsObject.getPropertyName(i);
-                cVar.aZg().put(propertyName, Integer.valueOf(propertyType));
+                cVar.aZh().put(propertyName, Integer.valueOf(propertyType));
                 switch (propertyType) {
                     case 1:
-                        cVar.aZf().put(propertyName, Boolean.valueOf(jsObject.toBoolean(i)));
+                        cVar.aZg().put(propertyName, Boolean.valueOf(jsObject.toBoolean(i)));
                         break;
                     case 2:
-                        cVar.aZf().put(propertyName, Integer.valueOf(jsObject.toInteger(i)));
+                        cVar.aZg().put(propertyName, Integer.valueOf(jsObject.toInteger(i)));
                         break;
                     case 3:
-                        cVar.aZf().put(propertyName, Long.valueOf(jsObject.toLong(i)));
+                        cVar.aZg().put(propertyName, Long.valueOf(jsObject.toLong(i)));
                         break;
                     case 5:
-                        cVar.aZf().put(propertyName, Double.valueOf(jsObject.toDouble(i)));
+                        cVar.aZg().put(propertyName, Double.valueOf(jsObject.toDouble(i)));
                         break;
                     case 6:
-                        cVar.aZf().put(propertyName, new d(i, jsObject));
+                        cVar.aZg().put(propertyName, new d(i, jsObject));
                         z2 = true;
                         break;
                     case 7:
-                        cVar.aZf().put(propertyName, jsObject.toString(i));
+                        cVar.aZg().put(propertyName, jsObject.toString(i));
                         break;
                     case 8:
-                        cVar.aZf().put(propertyName, jsObject.toJsFunction(i));
+                        cVar.aZg().put(propertyName, jsObject.toJsFunction(i));
                         break;
                     case 9:
-                        cVar.aZf().put(propertyName, e(jsObject.toJsObject(i)));
+                        cVar.aZg().put(propertyName, e(jsObject.toJsObject(i)));
                         break;
                     case 10:
-                        cVar.aZf().put(propertyName, jsObject.toJsArrayBuffer(i));
+                        cVar.aZg().put(propertyName, jsObject.toJsArrayBuffer(i));
                         break;
                 }
                 z = z2;
@@ -71,7 +71,7 @@ public class c {
         }
     }
 
-    private Map<String, Object> aZf() {
+    private Map<String, Object> aZg() {
         if (this.ehl == null) {
             this.ehl = new TreeMap();
         }
@@ -79,7 +79,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Map<String, Integer> aZg() {
+    public Map<String, Integer> aZh() {
         if (this.ehm == null) {
             this.ehm = new TreeMap();
         }
@@ -87,11 +87,11 @@ public class c {
     }
 
     public Set<String> keySet() {
-        return aZf().keySet();
+        return aZg().keySet();
     }
 
     public int wY(String str) {
-        Integer num = aZg().get(str);
+        Integer num = aZh().get(str);
         if (num == null) {
             num = 12;
         }
@@ -99,16 +99,16 @@ public class c {
     }
 
     public boolean wZ(String str) {
-        return aZg().containsKey(str);
+        return aZh().containsKey(str);
     }
 
     public int length() {
-        return aZf().size();
+        return aZg().size();
     }
 
     public void put(String str, Object obj) {
         if (!TextUtils.isEmpty(str) && obj != null) {
-            aZf().put(str, obj);
+            aZg().put(str, obj);
         }
     }
 
@@ -117,12 +117,12 @@ public class c {
     }
 
     public boolean optBoolean(String str, boolean z) {
-        Boolean bool = a.toBoolean(aZf().get(str));
+        Boolean bool = a.toBoolean(aZg().get(str));
         return bool != null ? bool.booleanValue() : z;
     }
 
     public int getInt(String str) throws JSTypeMismatchException {
-        Integer integer = a.toInteger(aZf().get(str));
+        Integer integer = a.toInteger(aZg().get(str));
         if (integer == null) {
             throw a.a(this, str, 2);
         }
@@ -134,17 +134,17 @@ public class c {
     }
 
     public int optInt(String str, int i) {
-        Integer integer = a.toInteger(aZf().get(str));
+        Integer integer = a.toInteger(aZg().get(str));
         return integer != null ? integer.intValue() : i;
     }
 
     public long optLong(String str, long j) {
-        Long l = a.toLong(aZf().get(str));
+        Long l = a.toLong(aZg().get(str));
         return l != null ? l.longValue() : j;
     }
 
     public double getDouble(String str) throws JSTypeMismatchException {
-        Double d = a.toDouble(aZf().get(str));
+        Double d = a.toDouble(aZg().get(str));
         if (d == null) {
             throw a.a(this, str, 5);
         }
@@ -152,12 +152,12 @@ public class c {
     }
 
     public double optDouble(String str, double d) {
-        Double d2 = a.toDouble(aZf().get(str));
+        Double d2 = a.toDouble(aZg().get(str));
         return d2 != null ? d2.doubleValue() : d;
     }
 
     public String[] xa(String str) throws JSTypeMismatchException {
-        d ae = a.ae(aZf().get(str));
+        d ae = a.ae(aZg().get(str));
         if (ae == null) {
             throw a.a(this, str, 6);
         }
@@ -169,12 +169,12 @@ public class c {
     }
 
     public String[] g(String str, String[] strArr) {
-        d ae = a.ae(aZf().get(str));
+        d ae = a.ae(aZg().get(str));
         return ae != null ? ae.ehn.toStringArray(ae.index) : strArr;
     }
 
     public JsObject[] xc(String str) throws JSTypeMismatchException {
-        d ae = a.ae(aZf().get(str));
+        d ae = a.ae(aZg().get(str));
         if (ae == null) {
             throw a.a(this, str, 6);
         }
@@ -186,7 +186,7 @@ public class c {
     }
 
     public JsObject[] a(String str, JsObject[] jsObjectArr) {
-        d ae = a.ae(aZf().get(str));
+        d ae = a.ae(aZg().get(str));
         return ae != null ? ae.ehn.toObjectArray(ae.index) : jsObjectArr;
     }
 
@@ -195,12 +195,12 @@ public class c {
     }
 
     public double[] a(String str, double[] dArr) {
-        d ae = a.ae(aZf().get(str));
+        d ae = a.ae(aZg().get(str));
         return ae != null ? ae.ehn.toDoubleArray(ae.index) : dArr;
     }
 
     public String getString(String str) throws JSTypeMismatchException {
-        String aVar = a.toString(aZf().get(str));
+        String aVar = a.toString(aZg().get(str));
         if (aVar == null) {
             throw a.a(this, str, 7);
         }
@@ -212,12 +212,12 @@ public class c {
     }
 
     public String optString(String str, String str2) {
-        String aVar = a.toString(aZf().get(str));
+        String aVar = a.toString(aZg().get(str));
         return aVar != null ? aVar : str2;
     }
 
     public String toString(String str) {
-        return String.valueOf(aZf().get(str));
+        return String.valueOf(aZg().get(str));
     }
 
     public JsFunction xf(String str) {
@@ -225,7 +225,7 @@ public class c {
     }
 
     public JsFunction a(String str, JsFunction jsFunction) {
-        JsFunction af = a.af(aZf().get(str));
+        JsFunction af = a.af(aZg().get(str));
         return af != null ? af : jsFunction;
     }
 
@@ -234,12 +234,12 @@ public class c {
     }
 
     public c a(String str, c cVar) {
-        c ah = a.ah(aZf().get(str));
+        c ah = a.ah(aZg().get(str));
         return ah != null ? ah : cVar;
     }
 
     public JsArrayBuffer a(String str, JsArrayBuffer jsArrayBuffer) {
-        JsArrayBuffer ag = a.ag(aZf().get(str));
+        JsArrayBuffer ag = a.ag(aZg().get(str));
         return ag != null ? ag : jsArrayBuffer;
     }
 
@@ -320,8 +320,8 @@ public class c {
 
         static JSTypeMismatchException a(c cVar, String str, int i) {
             int i2;
-            if (cVar.aZg().containsKey(str)) {
-                i2 = ((Integer) cVar.aZg().get(str)).intValue();
+            if (cVar.aZh().containsKey(str)) {
+                i2 = ((Integer) cVar.aZh().get(str)).intValue();
             } else {
                 i2 = 12;
             }
@@ -330,6 +330,6 @@ public class c {
     }
 
     public String toString() {
-        return aZf().toString();
+        return aZg().toString();
     }
 }

@@ -30,10 +30,10 @@ public class e extends com.baidu.adp.widget.ListView.a<o, PbAppEmptyHolder> impl
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, o oVar, PbAppEmptyHolder pbAppEmptyHolder) {
         boolean z = false;
-        AppData dOR = oVar.dOR();
-        if (dOR != null) {
-            com.baidu.tbadk.core.data.c cVar = dOR.advertAppContext;
-            if (dOR.goods != null && dOR.goods.goods_style == -1001) {
+        AppData dOS = oVar.dOS();
+        if (dOS != null) {
+            com.baidu.tbadk.core.data.c cVar = dOS.advertAppContext;
+            if (dOS.goods != null && dOS.goods.goods_style == -1001) {
                 z = true;
             }
             com.baidu.tbadk.core.data.c.b(cVar, oVar.getPosition(), z);

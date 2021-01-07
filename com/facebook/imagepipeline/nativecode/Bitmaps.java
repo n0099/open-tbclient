@@ -2,22 +2,21 @@ package com.facebook.imagepipeline.nativecode;
 
 import android.annotation.TargetApi;
 import android.graphics.Bitmap;
-import com.facebook.common.internal.d;
 import com.facebook.common.internal.g;
 import java.nio.ByteBuffer;
-@d
-/* loaded from: classes5.dex */
+@com.facebook.common.internal.d
+/* loaded from: classes3.dex */
 public class Bitmaps {
-    @d
+    @com.facebook.common.internal.d
     private static native void nativeCopyBitmap(Bitmap bitmap, int i, Bitmap bitmap2, int i2, int i3);
 
-    @d
+    @com.facebook.common.internal.d
     private static native ByteBuffer nativeGetByteBuffer(Bitmap bitmap, long j, long j2);
 
-    @d
+    @com.facebook.common.internal.d
     private static native void nativePinBitmap(Bitmap bitmap);
 
-    @d
+    @com.facebook.common.internal.d
     private static native void nativeReleaseByteBuffer(Bitmap bitmap);
 
     static {

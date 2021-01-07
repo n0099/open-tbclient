@@ -83,7 +83,7 @@ public class SvgManager {
         }
     }
 
-    public static synchronized SvgManager bwq() {
+    public static synchronized SvgManager bwr() {
         SvgManager svgManager;
         synchronized (SvgManager.class) {
             svgManager = a.fdD;

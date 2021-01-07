@@ -3,19 +3,19 @@ package com.baidu.platform.comapi.map.b;
 import android.view.MotionEvent;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.platform.comapi.map.b.a.a;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    private MapController f4321b;
+    private MapController f4322b;
     private com.baidu.platform.comapi.map.b.a.b c;
 
     /* renamed from: a  reason: collision with root package name */
-    a.InterfaceC0291a f4320a = new c(this);
-    private com.baidu.platform.comapi.map.b.a.a d = new com.baidu.platform.comapi.map.b.a.a(this.f4320a);
+    a.InterfaceC0291a f4321a = new c(this);
+    private com.baidu.platform.comapi.map.b.a.a d = new com.baidu.platform.comapi.map.b.a.a(this.f4321a);
 
     public b(MapController mapController) {
-        this.f4321b = mapController;
+        this.f4322b = mapController;
         this.c = new com.baidu.platform.comapi.map.b.a.b(new com.baidu.platform.comapi.map.b.b.b(mapController));
     }
 

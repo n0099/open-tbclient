@@ -101,10 +101,10 @@ public class MultiLinkCardView extends RelativeLayout {
         new ArrayList();
         ae aeVar = new ae();
         List<com.baidu.tieba.card.data.c> p = aeVar.p(list, list2);
-        boolean bJj = aeVar.bJj();
+        boolean bJk = aeVar.bJk();
         if (!x.isEmpty(p)) {
-            if (com.baidu.tbadk.a.d.bmE()) {
-                com.baidu.tbadk.core.util.f.a.bwU().m(R.color.CAM_X0601, R.color.CAM_X0606).ae(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds10)).bz(this.fjL);
+            if (com.baidu.tbadk.a.d.bmF()) {
+                com.baidu.tbadk.core.util.f.a.bwV().m(R.color.CAM_X0601, R.color.CAM_X0606).ae(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds10)).bz(this.fjL);
             }
             this.fjF.setVisibility(8);
             this.fjG.setVisibility(8);
@@ -134,17 +134,17 @@ public class MultiLinkCardView extends RelativeLayout {
                     this.fjL.setVisibility(0);
                 }
             }
-            this.fjM.setText(getContext().getString(bJj ? R.string.multi_goods_count : R.string.multi_link_count, Integer.valueOf(p.size())));
+            this.fjM.setText(getContext().getString(bJk ? R.string.multi_goods_count : R.string.multi_link_count, Integer.valueOf(p.size())));
         }
     }
 
     public void onChangeSkinType() {
         ao.setBackgroundResource(this, R.drawable.bg_link_card);
         ao.setViewTextColor(this.fjM, R.color.CAM_X0107);
-        SvgManager.bwq().a(this.fjN, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.bwr().a(this.fjN, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         for (int i = 0; i < this.fjQ.size(); i++) {
             ao.setViewTextColor(this.fjQ.get(i), R.color.CAM_X0101);
-            com.baidu.tbadk.core.util.f.a.bwU().qq(0).qr(R.color.cp_link_tip_d_alpha66).ai(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).ah(UtilHelper.getDimenPixelSize(R.dimen.tbds10)).ag(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).af(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).bz(this.fjQ.get(i));
+            com.baidu.tbadk.core.util.f.a.bwV().qq(0).qr(R.color.cp_link_tip_d_alpha66).ai(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).ah(UtilHelper.getDimenPixelSize(R.dimen.tbds10)).ag(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).af(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).bz(this.fjQ.get(i));
         }
     }
 }

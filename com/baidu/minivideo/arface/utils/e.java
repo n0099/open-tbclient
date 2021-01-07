@@ -8,7 +8,7 @@ public class e extends d {
     private e() {
     }
 
-    public static e aeJ() {
+    public static e aeK() {
         if (cmp == null) {
             init();
         }
@@ -25,7 +25,7 @@ public class e extends d {
 
     @Override // com.baidu.minivideo.arface.utils.d
     protected void run() {
-        com.baidu.minivideo.arface.b.adM();
-        setState(new File(com.baidu.minivideo.arface.c.adX()).exists() ? 2 : 3);
+        com.baidu.minivideo.arface.b.adN();
+        setState(new File(com.baidu.minivideo.arface.c.adY()).exists() ? 2 : 3);
     }
 }

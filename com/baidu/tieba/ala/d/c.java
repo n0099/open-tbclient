@@ -35,8 +35,8 @@ public class c {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.d.c.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (c.this.gSE.crX() != null && c.this.mUserId > 0) {
-                c.this.gSz.aG(String.valueOf(c.this.mUserId), c.this.gSE.crX().Xm());
+            if (c.this.gSE.crY() != null && c.this.mUserId > 0) {
+                c.this.gSz.aG(String.valueOf(c.this.mUserId), c.this.gSE.crY().Xn());
             }
         }
     };
@@ -44,7 +44,7 @@ public class c {
         @Override // com.baidu.tieba.ala.g.d.a
         public void ai(List<com.baidu.tieba.ala.data.b> list) {
             if (ListUtils.isEmpty(list)) {
-                list = c.this.gSD.Xr();
+                list = c.this.gSD.Xs();
             }
             if (!ListUtils.isEmpty(list)) {
                 c.this.gSE.setData(list);
@@ -53,9 +53,9 @@ public class c {
 
         @Override // com.baidu.tieba.ala.g.d.a
         public void onFail(int i, String str) {
-            List<com.baidu.tieba.ala.data.b> Xr = c.this.gSD.Xr();
-            if (!ListUtils.isEmpty(Xr)) {
-                c.this.gSE.setData(Xr);
+            List<com.baidu.tieba.ala.data.b> Xs = c.this.gSD.Xs();
+            if (!ListUtils.isEmpty(Xs)) {
+                c.this.gSE.setData(Xs);
             }
         }
     };
@@ -71,7 +71,7 @@ public class c {
         this.gSD.b(this.bvY, this.gqJ, this.mUserId, this.mIsHost, this.bOu);
         this.gSE = new com.baidu.tieba.ala.view.b(this.mTbPageContext, this.mOnClickListener);
         this.gSE.b(this.bvY, this.gqJ, this.mUserId, this.mIsHost, this.bOu);
-        this.gSD.Xq();
+        this.gSD.Xr();
         this.gSz = new com.baidu.live.personmanager.e(this.mTbPageContext);
         this.gSz.a(this.gSA);
     }

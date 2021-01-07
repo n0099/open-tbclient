@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.data.Config;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.status.NetworkType;
 import com.qq.e.comm.plugin.a.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a implements b {
     @Override // com.qq.e.comm.plugin.a.c.b
     public boolean a(c cVar) {

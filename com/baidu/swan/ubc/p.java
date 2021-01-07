@@ -16,7 +16,7 @@ public class p {
         private static final p eBC = new p();
     }
 
-    public static p biK() {
+    public static p biL() {
         return a.eBC;
     }
 
@@ -36,61 +36,61 @@ public class p {
     }
 
     public void onEvent(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.ahD()) {
-            if (e.bin() != null || !TextUtils.isEmpty(str)) {
-                n.biJ().o(str, str2, i);
+        if (com.baidu.pyramid.runtime.multiprocess.a.ahE()) {
+            if (e.bio() != null || !TextUtils.isEmpty(str)) {
+                n.biK().o(str, str2, i);
                 return;
             }
             return;
         }
         try {
-            bio().ubcOnEvent(str, s.zC(str2), i);
+            bip().ubcOnEvent(str, s.zC(str2), i);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
     public void onEvent(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.ahD()) {
-            if (e.bin() != null || !TextUtils.isEmpty(str)) {
-                n.biJ().a(str, jSONObject, i);
+        if (com.baidu.pyramid.runtime.multiprocess.a.ahE()) {
+            if (e.bio() != null || !TextUtils.isEmpty(str)) {
+                n.biK().a(str, jSONObject, i);
                 return;
             }
             return;
         }
         try {
-            bio().ubcOnEvent(str, s.dm(jSONObject), i);
+            bip().ubcOnEvent(str, s.dm(jSONObject), i);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
     public Flow n(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.ahD()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.ahE()) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return n.biJ().n(str, str2, i);
+            return n.biK().n(str, str2, i);
         }
         return p(str, s.zC(str2), i);
     }
 
     public void upload() {
-        n.biJ().upload();
+        n.biK().upload();
     }
 
-    public void biL() {
-        n.biJ().bih();
+    public void biM() {
+        n.biK().bii();
     }
 
-    private IRemoteUBCService bio() throws RemoteException {
-        return e.bio();
+    private IRemoteUBCService bip() throws RemoteException {
+        return e.bip();
     }
 
     private Flow p(String str, String str2, int i) {
         Flow flow;
         try {
-            flow = bio().ubcBeginFlow(str, str2, i);
+            flow = bip().ubcBeginFlow(str, str2, i);
         } catch (RemoteException e) {
             e.printStackTrace();
             flow = null;

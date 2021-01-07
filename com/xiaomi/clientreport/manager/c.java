@@ -6,19 +6,19 @@ import com.xiaomi.clientreport.data.PerfClientReport;
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PerfClientReport f14074a;
+    final /* synthetic */ PerfClientReport f14075a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ a f98a;
+    final /* synthetic */ a f99a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, PerfClientReport perfClientReport) {
-        this.f98a = aVar;
-        this.f14074a = perfClientReport;
+        this.f99a = aVar;
+        this.f14075a = perfClientReport;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f98a.b(this.f14074a);
+        this.f99a.b(this.f14075a);
     }
 }

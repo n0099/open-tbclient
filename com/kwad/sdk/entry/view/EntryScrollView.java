@@ -26,11 +26,11 @@ public class EntryScrollView extends com.kwad.sdk.entry.view.a {
     private class a extends PagerAdapter implements ViewPager.OnPageChangeListener {
 
         /* renamed from: b  reason: collision with root package name */
-        private List<EntryPhotoView> f10088b;
+        private List<EntryPhotoView> f10089b;
         private List<EntryPhotoView> c;
 
         private a() {
-            this.f10088b = new ArrayList();
+            this.f10089b = new ArrayList();
             this.c = new ArrayList();
         }
 
@@ -38,7 +38,7 @@ public class EntryScrollView extends com.kwad.sdk.entry.view.a {
         public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
             if (obj instanceof View) {
                 viewGroup.removeView((View) obj);
-                this.f10088b.add((EntryPhotoView) obj);
+                this.f10089b.add((EntryPhotoView) obj);
                 this.c.remove(obj);
             }
         }
@@ -57,8 +57,8 @@ public class EntryScrollView extends com.kwad.sdk.entry.view.a {
         @NonNull
         public Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
             EntryPhotoView entryPhotoView;
-            if (this.f10088b.size() > 0) {
-                EntryPhotoView remove = this.f10088b.remove(0);
+            if (this.f10089b.size() > 0) {
+                EntryPhotoView remove = this.f10089b.remove(0);
                 remove.l();
                 entryPhotoView = remove;
             } else {
@@ -70,9 +70,9 @@ public class EntryScrollView extends com.kwad.sdk.entry.view.a {
             entryPhotoView.setAdShowStyle(EntryScrollView.this.getAdShowStyle());
             viewGroup.addView(entryPhotoView);
             entryPhotoView.a(EntryScrollView.this.getEnableWebp(), true);
-            entryPhotoView.a(i, EntryScrollView.this.f10100a.e);
-            entryPhotoView.a((AdTemplate) EntryScrollView.this.c.get(i), EntryScrollView.this.f10100a);
-            entryPhotoView.setLikeViewPos(EntryScrollView.this.f10100a.d);
+            entryPhotoView.a(i, EntryScrollView.this.f10101a.e);
+            entryPhotoView.a((AdTemplate) EntryScrollView.this.c.get(i), EntryScrollView.this.f10101a);
+            entryPhotoView.setLikeViewPos(EntryScrollView.this.f10101a.d);
             entryPhotoView.setOnClickListener(EntryScrollView.this.g);
             if (i != getCount() - 1 || EntryScrollView.this.f) {
                 entryPhotoView.setLookMoreVisible(false);
@@ -154,7 +154,7 @@ public class EntryScrollView extends com.kwad.sdk.entry.view.a {
     @Override // com.kwad.sdk.entry.view.a
     protected boolean b() {
         this.c.clear();
-        for (AdTemplate adTemplate : this.f10100a.k) {
+        for (AdTemplate adTemplate : this.f10101a.k) {
             if (!adTemplate.needHide) {
                 this.c.add(adTemplate);
             }

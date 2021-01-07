@@ -32,14 +32,14 @@ public class b implements e {
         this.gvu.setFile(this.cld);
     }
 
-    public String bTn() {
+    public String bTo() {
         if (this.gvt == null) {
             return null;
         }
         return this.gvt.gvp;
     }
 
-    public Sticker.AbilityModel bTo() {
+    public Sticker.AbilityModel bTp() {
         return this.gvu;
     }
 
@@ -67,15 +67,15 @@ public class b implements e {
         if (aVar != null) {
             this.gvr.push(aVar);
         }
-        aev();
+        aew();
     }
 
-    private void aev() {
+    private void aew() {
         if (!isLoaded() && !isLoading()) {
             synchronized (this) {
                 if (!isLoaded() && !isLoading()) {
                     this.gvs = new a();
-                    com.baidu.tieba.ala.alaar.sticker.download.b.bSW().a(this.gvt.mUrl, this.mFolder, this.cle.getName(), this.gvs);
+                    com.baidu.tieba.ala.alaar.sticker.download.b.bSX().a(this.gvt.mUrl, this.mFolder, this.cle.getName(), this.gvs);
                 }
             }
         }

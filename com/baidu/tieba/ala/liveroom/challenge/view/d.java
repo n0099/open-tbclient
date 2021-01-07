@@ -81,7 +81,7 @@ public class d implements h {
     private Set<Long> hBa = new HashSet();
     private a.InterfaceC0676a hBb = new a.InterfaceC0676a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.d.4
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.a.InterfaceC0676a
-        public void cgT() {
+        public void cgU() {
             if (d.this.hAH != null && d.this.hAH.getParent() != null) {
                 d.this.hAN = true;
                 if (d.this.hAJ != null) {
@@ -107,8 +107,8 @@ public class d implements h {
                 if (d.this.isHost) {
                     d.this.hAQ = true;
                 }
-                d.this.chd();
                 d.this.che();
+                d.this.chf();
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("challengeId", d.this.challengeId);
@@ -120,7 +120,7 @@ public class d implements h {
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.a.InterfaceC0676a
-        public void cgU() {
+        public void cgV() {
             if (d.this.hAH != null && d.this.hAH.getParent() != null) {
                 d.this.hAO = false;
                 if (d.this.hAJ != null) {
@@ -135,8 +135,8 @@ public class d implements h {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2913088, cVar));
                 }
                 d.this.hAH.setLiveContainerVisible(false);
-                cgV();
                 cgW();
+                cgX();
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("challengeId", d.this.challengeId);
@@ -148,24 +148,24 @@ public class d implements h {
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.a.InterfaceC0676a
-        public void cgV() {
+        public void cgW() {
             if (d.this.hAH != null && d.this.hAH.getParent() != null) {
                 if (!d.this.hAO) {
-                    d.this.chc();
-                    d.this.chf();
+                    d.this.chd();
+                    d.this.chg();
                 }
                 d.this.hAQ = false;
             }
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.a.InterfaceC0676a
-        public void cgW() {
+        public void cgX() {
             d.this.hAR = false;
         }
     };
     private AlaChallengeLiveView.a hBc = new AlaChallengeLiveView.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.d.5
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeLiveView.a
-        public void cgR() {
+        public void cgS() {
             d.this.nY(false);
         }
 
@@ -206,7 +206,7 @@ public class d implements h {
                     fVar.setIsAttention(true);
                     fVar.setInLive("1");
                     fVar.setFrom("source_challenge_rival_user");
-                    com.baidu.live.view.a.Zx().a(String.valueOf(bgVar.aQy.userId), fVar);
+                    com.baidu.live.view.a.Zy().a(String.valueOf(bgVar.aQy.userId), fVar);
                     if (d.this.hAH != null) {
                         d.this.hAH.nW(true);
                     }
@@ -231,7 +231,7 @@ public class d implements h {
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeLiveView.a
-        public void cgS() {
+        public void cgT() {
             if (d.this.hzO && d.this.hAJ != null) {
                 d.this.hAJ.bq(d.this.hzO);
             }
@@ -324,7 +324,7 @@ public class d implements h {
         this.hAU = z3;
     }
 
-    private void cha() {
+    private void chb() {
         if (this.hAH == null) {
             this.hAH = new AlaChallengeLiveView(this.mTbPageContext.getPageActivity());
             this.hAH.setIsHost(this.isHost);
@@ -340,7 +340,7 @@ public class d implements h {
         }
     }
 
-    private void chb() {
+    private void chc() {
         int i = 0;
         if (this.hAH != null && this.mParentView != null) {
             if (this.hAH.getParent() != null) {
@@ -367,7 +367,7 @@ public class d implements h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chc() {
+    public void chd() {
         if (this.hAH != null && this.hAH.getParent() != null) {
             ((ViewGroup) this.hAH.getParent()).removeView(this.hAH);
         }
@@ -389,30 +389,30 @@ public class d implements h {
             BdLog.e("onMasterPlayerFirstFrame:" + this.hAN);
         }
         this.hAR = true;
-        che();
+        chf();
     }
 
     @Override // com.baidu.live.challenge.h
     public void dY(int i) {
         if (1 == i) {
             this.hAQ = true;
-            chd();
+            che();
         }
         if (2 == i) {
             this.hAR = true;
-            che();
+            chf();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chd() {
+    public void che() {
         if (this.hAN && this.hAQ) {
             this.hAI.k(this.hAH);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void che() {
+    public void chf() {
         if (this.hAN && this.hAR) {
             this.hAI.j(this.hAH);
         }
@@ -482,8 +482,8 @@ public class d implements h {
             if (this.hAJ != null) {
                 this.hAJ.DG();
             }
-            cha();
             chb();
+            chc();
             this.hAQ = false;
             this.hAR = false;
             if (this.hAI != null && this.hAH != null) {
@@ -496,7 +496,7 @@ public class d implements h {
                 if (this.hAI != null) {
                     this.hAI.a(this.mTbPageContext.getPageActivity(), this.hAH);
                 }
-                chg();
+                chh();
                 String str = null;
                 if (bgVar2 != null && bgVar2.aQM != null) {
                     str = String.valueOf(bgVar2.aQM.live_id);
@@ -527,8 +527,8 @@ public class d implements h {
             this.hAH.setAnchorUserViewBg(bgVar);
         }
         if (this.hAH != null) {
+            this.hAH.cgP();
             this.hAH.cgO();
-            this.hAH.cgN();
             this.hAI.b(this.mTbPageContext.getPageActivity(), this.hAH);
         }
     }
@@ -540,13 +540,13 @@ public class d implements h {
                 this.hAJ.bp(true);
             }
             if (this.hAH != null) {
-                this.hAH.cgM();
+                this.hAH.cgN();
             }
             this.hAQ = false;
             this.hAR = false;
-            chf();
+            chg();
             this.mHandler.removeCallbacksAndMessages(null);
-            chc();
+            chd();
             if (this.hAZ != null) {
                 this.hAZ.release();
                 this.hAZ = null;
@@ -556,7 +556,7 @@ public class d implements h {
 
     @Override // com.baidu.live.challenge.h
     public void onDestroy() {
-        chf();
+        chg();
         this.hAI.a((a.InterfaceC0676a) null);
         this.mHandler.removeCallbacksAndMessages(null);
         if (this.hAZ != null) {
@@ -573,7 +573,7 @@ public class d implements h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chf() {
+    public void chg() {
         MessageManager.getInstance().unRegisterListener(this.hAY);
         if (this.hAX != null) {
             this.hAX.release();
@@ -583,7 +583,7 @@ public class d implements h {
             this.hAH.releaseResource();
         }
         if (this.hAK != null) {
-            this.hAK.cgK();
+            this.hAK.cgL();
         }
         this.hAO = false;
         this.hAM = false;
@@ -682,7 +682,7 @@ public class d implements h {
         return true;
     }
 
-    private void chg() {
+    private void chh() {
         if (this.hAY == null) {
             this.hAY = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.d.9
                 /* JADX DEBUG: Method merged with bridge method */
@@ -705,7 +705,7 @@ public class d implements h {
                             if (d.this.hAH != null) {
                                 d.this.hAH.nW(updateAttentionMessage.getData().isAttention ? false : true);
                             }
-                            if (z && !com.baidu.live.view.a.Zx().a(updateAttentionMessage.getData(), (BdPageContext<?>) d.this.mTbPageContext, false) && updateAttentionMessage.getData().errorString != null) {
+                            if (z && !com.baidu.live.view.a.Zy().a(updateAttentionMessage.getData(), (BdPageContext<?>) d.this.mTbPageContext, false) && updateAttentionMessage.getData().errorString != null) {
                                 d.this.mTbPageContext.showToast(updateAttentionMessage.getData().errorString);
                             }
                         }
@@ -734,12 +734,12 @@ public class d implements h {
     public void f(int i, long j) {
         if (this.hAO && i == 3 && j == this.challengeId) {
             if (com.baidu.live.af.a.SE().bwi == null || com.baidu.live.af.a.SE().bwi.aOg == 1) {
-                chh();
+                chi();
             }
         }
     }
 
-    public void chh() {
+    public void chi() {
         HttpMessage httpMessage = new HttpMessage(1021199);
         httpMessage.addParam("challenge_id", this.challengeId);
         MessageManager.getInstance().sendMessage(httpMessage);

@@ -2,7 +2,7 @@ package com.example.utility_plugin;
 
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SharePrefNameTransform {
     private static HashMap<String, String> sharePrefNameMap = new HashMap<>();
 

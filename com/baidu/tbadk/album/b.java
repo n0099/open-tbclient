@@ -42,7 +42,7 @@ public class b {
         if (cVar == null) {
             return false;
         }
-        bnr();
+        bns();
         this.eJk = new a(cVar);
         this.eJk.setPriority(3);
         this.eJk.execute(new Object[0]);
@@ -53,21 +53,21 @@ public class b {
         if (dVar == null) {
             return false;
         }
-        bns();
+        bnt();
         this.eJl = new c(str, dVar);
         this.eJl.setPriority(3);
         this.eJl.execute(new Void[0]);
         return true;
     }
 
-    public void bnr() {
+    public void bns() {
         if (this.eJk != null) {
             this.eJk.cancel();
             this.eJk = null;
         }
     }
 
-    public void bns() {
+    public void bnt() {
         if (this.eJl != null) {
             this.eJl.cancel();
             this.eJl = null;
@@ -88,7 +88,7 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: o */
         public List<com.baidu.tbadk.album.a> doInBackground(Object... objArr) {
-            return b.this.bnt();
+            return b.this.bnu();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -113,7 +113,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<com.baidu.tbadk.album.a> bnt() {
+    public List<com.baidu.tbadk.album.a> bnu() {
         HashSet<String> hashSet = new HashSet<>();
         return a(this.mContext, a(this.mContext, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, hashSet), MediaStore.Images.Media.INTERNAL_CONTENT_URI, hashSet);
     }
@@ -271,7 +271,7 @@ public class b {
             }
             ArrayList arrayList = new ArrayList();
             if (this.eJp.equals(com.baidu.tbadk.album.a.ALBUM_ID_ALL)) {
-                this.eJr = b.this.bnt();
+                this.eJr = b.this.bnu();
                 if (this.eJr != null) {
                     for (com.baidu.tbadk.album.a aVar : this.eJr) {
                         String albumId = aVar.getAlbumId();

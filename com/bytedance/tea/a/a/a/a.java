@@ -19,12 +19,12 @@ import java.util.Map;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f7908b = false;
-    private static InterfaceC1006a ppJ;
+    private static boolean f7909b = false;
+    private static InterfaceC1044a ppJ;
 
     /* renamed from: com.bytedance.tea.a.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1006a {
+    public interface InterfaceC1044a {
         boolean a();
 
         boolean b();
@@ -33,7 +33,7 @@ public class a {
     }
 
     public static String a(String str, List<Pair<String, String>> list) {
-        if (!TextUtils.isEmpty(str) && ppJ != null && !f7908b) {
+        if (!TextUtils.isEmpty(str) && ppJ != null && !f7909b) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             try {
                 Uri parse = Uri.parse(str);

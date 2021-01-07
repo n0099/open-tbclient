@@ -108,7 +108,7 @@ public class VideoAggregationModel extends BdBaseModel {
         this.mFrom = str;
     }
 
-    public void KO(String str) {
+    public void KN(String str) {
         this.st_type = str;
     }
 
@@ -156,7 +156,7 @@ public class VideoAggregationModel extends BdBaseModel {
         }
     }
 
-    public void cIa() {
+    public void cIb() {
         this.mPn = 0;
         LoadData();
     }

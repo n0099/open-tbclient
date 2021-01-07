@@ -93,11 +93,11 @@ public class a {
         this.iIU = (ImageView) view.findViewById(R.id.img_right_bottom_cover);
         this.iIV = (IrregularImageView) view.findViewById(R.id.img_user_head);
         this.iIV.setErrorRes(R.drawable.pic_list_avatar);
-        this.iIQ.setImageDrawable(SvgManager.bwq().j(R.drawable.svg_pic_mask_rule_line100, 1, false));
-        this.iIR.setImageDrawable(SvgManager.bwq().j(R.drawable.svg_pic_mask_list_circle, 1, false));
-        this.iIS.setImageDrawable(SvgManager.bwq().j(R.drawable.svg_pic_mask_list_line, 1, false));
-        this.iIT.setImageDrawable(SvgManager.bwq().j(R.drawable.svg_pic_mask_list_circle2, 1, false));
-        this.iIU.setImageDrawable(SvgManager.bwq().j(R.drawable.svg_pic_mask_list_line2, 1, false));
+        this.iIQ.setImageDrawable(SvgManager.bwr().j(R.drawable.svg_pic_mask_rule_line100, 1, false));
+        this.iIR.setImageDrawable(SvgManager.bwr().j(R.drawable.svg_pic_mask_list_circle, 1, false));
+        this.iIS.setImageDrawable(SvgManager.bwr().j(R.drawable.svg_pic_mask_list_line, 1, false));
+        this.iIT.setImageDrawable(SvgManager.bwr().j(R.drawable.svg_pic_mask_list_circle2, 1, false));
+        this.iIU.setImageDrawable(SvgManager.bwr().j(R.drawable.svg_pic_mask_list_line2, 1, false));
         this.iIW = (TextView) view.findViewById(R.id.text_compute_method);
         this.iIW.setText(this.mRootView.getResources().getString(R.string.hot_user_rank_influence_desc));
         this.iIX = (RelativeLayout) view.findViewById(R.id.hot_rank_entry);
@@ -197,8 +197,8 @@ public class a {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             ao.setViewTextColor(this.iIW, R.color.CAM_X0109);
-            SvgManager.bwq().a(this.iIY, R.drawable.svg_icon_mask_crown24, SvgManager.SvgResourceStateType.NORMAL);
-            SvgManager.bwq().a(this.iJc, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bwr().a(this.iIY, R.drawable.svg_icon_mask_crown24, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bwr().a(this.iJc, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
             WebPManager.a(this.iJb, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
             ao.setViewTextColor(this.iIZ, R.color.CAM_X0105);
             this.iJa.onChangeSkinType();

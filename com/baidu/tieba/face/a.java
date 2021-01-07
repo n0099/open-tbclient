@@ -11,7 +11,7 @@ public class a {
     public static final Pattern iRj = Pattern.compile("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)");
     public static final Pattern iRk = Pattern.compile("#\\([^#\\)\\(]+\\)$");
 
-    public static String JS(String str) {
+    public static String JR(String str) {
         String replaceAll = str.replaceAll(d.SHARP_TEXT_PREFIX_SHORT, "meme,");
         Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
         StringBuilder sb = new StringBuilder(replaceAll);
@@ -39,7 +39,7 @@ public class a {
         return sb.toString();
     }
 
-    public static int JT(String str) {
+    public static int JS(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;

@@ -19,7 +19,7 @@ public class a extends BdBaseView<BaseActivity> {
         this.bMr = albumActivity;
     }
 
-    public void WF() {
+    public void WG() {
         this.bMB = new String[2];
         this.bMC = new j(this.bMr.getPageContext(), this.bMr);
         this.bMB[0] = this.bMz;
@@ -32,25 +32,18 @@ public class a extends BdBaseView<BaseActivity> {
         this.bMD.onChangeSkinType(i);
     }
 
-    public View WG() {
-        if (this.bMC == null) {
-            return null;
-        }
-        return this.bMC.WX();
-    }
-
     public View WH() {
         if (this.bMC == null) {
             return null;
         }
-        return this.bMC.Xb();
+        return this.bMC.WY();
     }
 
     public View WI() {
-        if (this.bMD == null) {
+        if (this.bMC == null) {
             return null;
         }
-        return this.bMD.WX();
+        return this.bMC.Xc();
     }
 
     public View WJ() {
@@ -64,24 +57,31 @@ public class a extends BdBaseView<BaseActivity> {
         if (this.bMD == null) {
             return null;
         }
-        return this.bMD.WK();
+        return this.bMD.WZ();
     }
 
     public View WL() {
+        if (this.bMD == null) {
+            return null;
+        }
+        return this.bMD.WL();
+    }
+
+    public View WM() {
         if (this.bMC == null) {
             return null;
         }
-        return this.bMC.WK();
+        return this.bMC.WL();
     }
 
     public void onDestroy() {
     }
 
-    public h WM() {
+    public h WN() {
         return this.bMD;
     }
 
-    public j WN() {
+    public j WO() {
         return this.bMC;
     }
 

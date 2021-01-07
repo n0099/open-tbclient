@@ -18,7 +18,7 @@ public class a {
         }
     };
 
-    public static a boL() {
+    public static a boM() {
         if (eNi == null) {
             synchronized (a.class) {
                 if (eNi == null) {
@@ -41,12 +41,12 @@ public class a {
         }
     }
 
-    public boolean boM() {
+    public boolean boN() {
         return am.check(RomUtils.ROM_EMUI);
     }
 
-    public void boN() {
-        if (boM()) {
+    public void boO() {
+        if (boN()) {
             ov(1);
             e.mB().postDelayed(this.eNj, 500L);
         }

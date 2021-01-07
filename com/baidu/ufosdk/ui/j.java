@@ -16,10 +16,10 @@ import com.tencent.connect.common.Constants;
 public final class j extends Dialog {
 
     /* renamed from: a */
-    private final int f5882a;
+    private final int f5883a;
 
     /* renamed from: b */
-    private final int f5883b;
+    private final int f5884b;
     private final int c;
     private final int d;
     private final int e;
@@ -29,8 +29,8 @@ public final class j extends Dialog {
 
     public j(Context context) {
         super(context);
-        this.f5882a = R.dimen.L_X02;
-        this.f5883b = R.dimen.L_X03;
+        this.f5883a = R.dimen.L_X02;
+        this.f5884b = R.dimen.L_X03;
         this.c = R.dimen.L_X05;
         this.d = R.dimen.L_X06;
         this.e = R.dimen.M_H_X001;

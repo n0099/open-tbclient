@@ -39,7 +39,7 @@ public class a implements com.baidu.live.w.a {
         this.bzc = xVar;
         this.mOtherParams = str;
         MessageManager.getInstance().registerListener(this.ifp);
-        cre();
+        crf();
     }
 
     @Override // com.baidu.live.w.a
@@ -70,7 +70,7 @@ public class a implements com.baidu.live.w.a {
         MessageManager.getInstance().unRegisterTask(1021227);
     }
 
-    private void cre() {
+    private void crf() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021227, TbConfig.SERVER_ADDRESS + "ala/live/poke");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

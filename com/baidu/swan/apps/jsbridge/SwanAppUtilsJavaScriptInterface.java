@@ -100,14 +100,14 @@ public class SwanAppUtilsJavaScriptInterface {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        com.baidu.swan.apps.t.a.aAs().a(context, parseString, new i.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
+        com.baidu.swan.apps.t.a.aAt().a(context, parseString, new i.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
             @Override // com.baidu.swan.apps.t.b.i.a
-            public void aBW() {
+            public void aBX() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str3, String.valueOf(true));
             }
 
             @Override // com.baidu.swan.apps.t.b.i.a
-            public void aBX() {
+            public void aBY() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str4, String.valueOf(false));
             }
         });

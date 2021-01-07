@@ -22,7 +22,7 @@ public abstract class b<W extends d> implements ZeusPlugin {
                 if (b.DEBUG) {
                     Log.i("BaseInlineController", "组件初始化完成，开始flush挂起的指令=====");
                 }
-                b.this.azs();
+                b.this.azt();
                 b.this.dfW = true;
                 if (b.DEBUG) {
                     Log.i("BaseInlineController", "指令flush完成=========================");
@@ -74,7 +74,7 @@ public abstract class b<W extends d> implements ZeusPlugin {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void azs() {
+    public void azt() {
         if (this.dfX.size() != 0) {
             Iterator<ZeusPlugin.Command> it = this.dfX.iterator();
             while (it.hasNext()) {

@@ -47,12 +47,12 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ehs() {
+    public void eht() {
         this.mIterationDepth++;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eht() {
+    public void ehu() {
         this.mIterationDepth--;
         if (!$assertionsDisabled && this.mIterationDepth < 0) {
             throw new AssertionError();
@@ -82,7 +82,7 @@ public class b<E> implements Iterable<E> {
         private a() {
             this.mIndex = 0;
             this.mIsExhausted = false;
-            b.this.ehs();
+            b.this.eht();
             this.mListEndMarker = b.this.capacity();
         }
 
@@ -95,7 +95,7 @@ public class b<E> implements Iterable<E> {
             if (i < this.mListEndMarker) {
                 return true;
             }
-            ehu();
+            ehv();
             return false;
         }
 
@@ -110,7 +110,7 @@ public class b<E> implements Iterable<E> {
                 this.mIndex = i + 1;
                 return (E) bVar.NU(i);
             }
-            ehu();
+            ehv();
             throw new NoSuchElementException();
         }
 
@@ -119,10 +119,10 @@ public class b<E> implements Iterable<E> {
             throw new UnsupportedOperationException();
         }
 
-        private void ehu() {
+        private void ehv() {
             if (!this.mIsExhausted) {
                 this.mIsExhausted = true;
-                b.this.eht();
+                b.this.ehu();
             }
         }
     }

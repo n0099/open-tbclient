@@ -49,7 +49,7 @@ public class g {
             public void onClick(View view) {
                 int i;
                 if (g.this.jlS != null && !StringUtils.isNull(g.this.jlS.getUrl())) {
-                    be.bwu().a((TbPageContext) j.K(g.this.mContext), new String[]{g.this.jlS.getUrl()}, true);
+                    be.bwv().a((TbPageContext) j.K(g.this.mContext), new String[]{g.this.jlS.getUrl()}, true);
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
                     httpMessage.addParam("id", g.this.jlS.getId());
                     MessageManager.getInstance().sendMessage(httpMessage);
@@ -102,15 +102,15 @@ public class g {
             this.jlS = iVar;
             this.mTitleView.setText(this.jlS.getTitle());
             if (iVar.getType() == 3) {
-                this.jlV.setText(this.mContext.getString(R.string.frs_top_ad_download_num, Integer.valueOf(this.jlS.dOb())));
+                this.jlV.setText(this.mContext.getString(R.string.frs_top_ad_download_num, Integer.valueOf(this.jlS.dOc())));
             } else if (iVar.getType() == 1) {
-                this.jlV.setText(this.mContext.getString(R.string.frs_top_ad_person_num, Integer.valueOf(this.jlS.dOb())));
+                this.jlV.setText(this.mContext.getString(R.string.frs_top_ad_person_num, Integer.valueOf(this.jlS.dOc())));
             } else if (iVar.getType() == 2) {
-                this.jlV.setText(this.mContext.getString(R.string.frs_top_ad_appointment_num, Integer.valueOf(this.jlS.dOb())));
+                this.jlV.setText(this.mContext.getString(R.string.frs_top_ad_appointment_num, Integer.valueOf(this.jlS.dOc())));
             }
             this.jlQ.startLoad(this.jlS.getImg(), 10, false);
             if (this.jlW != null) {
-                this.jlW.ci(this.jlS.dOc());
+                this.jlW.ci(this.jlS.dOd());
             }
         }
     }

@@ -78,16 +78,16 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bz boO() {
+    public bz boP() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public at boQ() {
+    public at boR() {
         return null;
     }
 
-    public List<SpecialColumnItemData> cTT() {
+    public List<SpecialColumnItemData> cTU() {
         return this.mListData;
     }
 
@@ -95,7 +95,7 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
         return this.title;
     }
 
-    public List<SpecialColumnItemData> bUU() {
+    public List<SpecialColumnItemData> bUV() {
         return this.mResultListData;
     }
 

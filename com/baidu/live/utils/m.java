@@ -88,7 +88,7 @@ public class m {
         return false;
     }
 
-    public static boolean XA() {
+    public static boolean XB() {
         if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu() && !TbadkCoreApplication.getInst().isOther()) {
             return !ExtraParamsManager.getSaveFlowStatus();
         }
@@ -99,7 +99,7 @@ public class m {
         return true;
     }
 
-    public static boolean XB() {
+    public static boolean XC() {
         if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu() && !TbadkCoreApplication.getInst().isOther()) {
             return !ExtraParamsManager.getSaveFlowStatus();
         }

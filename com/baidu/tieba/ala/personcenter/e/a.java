@@ -60,13 +60,13 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c
         }
     }
 
-    public void IZ(String str) {
+    public void IY(String str) {
         if (this.idv != null) {
             this.idv.setText(str);
         }
     }
 
-    public TextView cqh() {
+    public TextView cqi() {
         if (this.idv != null) {
             return this.idv;
         }

@@ -55,13 +55,13 @@ public class f extends b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(LiveVideoChatSendStartResponseMessage liveVideoChatSendStartResponseMessage) {
         if (liveVideoChatSendStartResponseMessage != null) {
-            if (liveVideoChatSendStartResponseMessage.getError() == 0 && liveVideoChatSendStartResponseMessage.Za() != null) {
-                if (liveVideoChatSendStartResponseMessage.Za().YD()) {
+            if (liveVideoChatSendStartResponseMessage.getError() == 0 && liveVideoChatSendStartResponseMessage.Zb() != null) {
+                if (liveVideoChatSendStartResponseMessage.Zb().YE()) {
                     if (this.bPL != null) {
-                        this.bPL.Yt();
+                        this.bPL.Yu();
                     }
                 } else if (this.bPL != null) {
-                    this.bPL.P(liveVideoChatSendStartResponseMessage.Za().YE(), liveVideoChatSendStartResponseMessage.Za().YF());
+                    this.bPL.P(liveVideoChatSendStartResponseMessage.Zb().YF(), liveVideoChatSendStartResponseMessage.Zb().YG());
                 }
             } else if (this.bPL != null) {
                 this.bPL.P(liveVideoChatSendStartResponseMessage.getError(), liveVideoChatSendStartResponseMessage.getErrorString());
@@ -76,12 +76,12 @@ public class f extends b {
                 if (this.bPL != null) {
                     this.bPL.Q(liveVideoChatSendCancelResponseMessage.getError(), liveVideoChatSendCancelResponseMessage.getErrorString());
                 }
-            } else if (liveVideoChatSendCancelResponseMessage.YR()) {
+            } else if (liveVideoChatSendCancelResponseMessage.YS()) {
                 if (this.bPL != null) {
-                    this.bPL.Yu();
+                    this.bPL.Yv();
                 }
             } else if (this.bPL != null) {
-                this.bPL.a(liveVideoChatSendCancelResponseMessage.YS(), liveVideoChatSendCancelResponseMessage.YT(), liveVideoChatSendCancelResponseMessage.YU());
+                this.bPL.a(liveVideoChatSendCancelResponseMessage.YT(), liveVideoChatSendCancelResponseMessage.YU(), liveVideoChatSendCancelResponseMessage.YV());
             }
         }
     }

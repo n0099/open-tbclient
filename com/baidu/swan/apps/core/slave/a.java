@@ -12,9 +12,9 @@ public final class a {
     public static class C0434a {
         private static int cZk = -1;
 
-        public static boolean avg() {
+        public static boolean avh() {
             if (cZk == -1) {
-                cZk = com.baidu.swan.apps.t.a.aAu().getSwitch("swan_preload_slave_optimization", 0);
+                cZk = com.baidu.swan.apps.t.a.aAv().getSwitch("swan_preload_slave_optimization", 0);
             }
             return cZk == 1;
         }

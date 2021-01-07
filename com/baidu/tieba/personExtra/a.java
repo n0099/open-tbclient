@@ -6,15 +6,15 @@ import tbclient.HistorySwan.DataRes;
 import tbclient.SmartApp;
 /* loaded from: classes8.dex */
 public class a {
-    private List<SmartApp> mrN;
+    private List<SmartApp> mrM;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.mrN = new ArrayList(dataRes.swan_list);
+            this.mrM = new ArrayList(dataRes.swan_list);
         }
     }
 
-    public List<SmartApp> dyQ() {
-        return this.mrN;
+    public List<SmartApp> dyR() {
+        return this.mrM;
     }
 }

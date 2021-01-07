@@ -83,14 +83,14 @@ public class c implements a {
         if (this.duw == null) {
             this.duw = new b();
         }
-        this.duw.aIf();
+        this.duw.aIg();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void turnOff() {
         AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", false).apply();
         if (this.duw != null) {
-            this.duw.aIg();
+            this.duw.aIh();
         }
     }
 

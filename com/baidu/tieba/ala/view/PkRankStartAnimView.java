@@ -32,7 +32,7 @@ public class PkRankStartAnimView extends FrameLayout {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void cro();
+        void crp();
     }
 
     public PkRankStartAnimView(Context context) {
@@ -46,15 +46,15 @@ public class PkRankStartAnimView extends FrameLayout {
 
     public void bZ(int i, int i2) {
         ca(i, i2);
-        cru();
         crv();
+        crw();
         int i3 = (int) (i * 0.5f);
         int i4 = (int) (i2 * 0.6183575f * 0.5f);
         int i5 = (int) ((i2 * 58.0f) / 414.0f);
         Q(i3, i4, i5);
         R(i3, i4, i5);
-        csV();
         csW();
+        csX();
     }
 
     public void setData(q qVar, q qVar2) {
@@ -68,7 +68,7 @@ public class PkRankStartAnimView extends FrameLayout {
         }
     }
 
-    public void Jc(String str) {
+    public void Jb(String str) {
         Animator streakAnim;
         Animator streakAnim2;
         if (this.bfS != null && !TextUtils.isEmpty(str)) {
@@ -84,7 +84,7 @@ public class PkRankStartAnimView extends FrameLayout {
                 @Override // java.lang.Runnable
                 public void run() {
                     if (PkRankStartAnimView.this.ima != null) {
-                        PkRankStartAnimView.this.ima.cro();
+                        PkRankStartAnimView.this.ima.crp();
                     }
                 }
             };
@@ -108,10 +108,10 @@ public class PkRankStartAnimView extends FrameLayout {
         if (arrayList != null && !arrayList.isEmpty()) {
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.playTogether(arrayList);
-            this.ilZ.play(csX()).with(csY()).before(animatorSet);
+            this.ilZ.play(csY()).with(csZ()).before(animatorSet);
             arrayList.clear();
         } else {
-            this.ilZ.playTogether(csX(), csY());
+            this.ilZ.playTogether(csY(), csZ());
         }
         this.ilZ.setStartDelay(800L);
         this.ilZ.start();
@@ -158,7 +158,7 @@ public class PkRankStartAnimView extends FrameLayout {
         this.igc.setLayoutParams(layoutParams);
     }
 
-    private void cru() {
+    private void crv() {
         if (this.bfS == null || this.bfS.isDestroyed()) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913181, com.baidu.live.alphavideo.c.class, getContext());
             if (runTask != null && runTask.getData() != null) {
@@ -179,7 +179,7 @@ public class PkRankStartAnimView extends FrameLayout {
                 @Override // com.baidu.live.alphavideo.c.a
                 public void onEnd() {
                     if (PkRankStartAnimView.this.ima != null) {
-                        PkRankStartAnimView.this.ima.cro();
+                        PkRankStartAnimView.this.ima.crp();
                     }
                 }
 
@@ -192,7 +192,7 @@ public class PkRankStartAnimView extends FrameLayout {
         }
     }
 
-    private void crv() {
+    private void crw() {
         if (this.igd == null) {
             this.igd = new ImageView(getContext());
             this.igd.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -234,7 +234,7 @@ public class PkRankStartAnimView extends FrameLayout {
         this.ilW.setLayoutParams(layoutParams);
     }
 
-    private void csV() {
+    private void csW() {
         if (this.ilV != null) {
             if (this.ilX == null) {
                 this.ilX = new PkRankStartInfoView(getContext(), false);
@@ -247,7 +247,7 @@ public class PkRankStartAnimView extends FrameLayout {
         }
     }
 
-    private void csW() {
+    private void csX() {
         if (this.ilW != null) {
             if (this.ilY == null) {
                 this.ilY = new PkRankStartInfoView(getContext(), true);
@@ -260,7 +260,7 @@ public class PkRankStartAnimView extends FrameLayout {
         }
     }
 
-    private AnimatorSet csX() {
+    private AnimatorSet csY() {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.ilX, "translationX", (-this.ilV.getLayoutParams().width) * 0.25f, 0.0f);
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.ilX, "alpha", 0.0f, 1.0f);
         AnimatorSet animatorSet = new AnimatorSet();
@@ -277,7 +277,7 @@ public class PkRankStartAnimView extends FrameLayout {
         return animatorSet;
     }
 
-    private AnimatorSet csY() {
+    private AnimatorSet csZ() {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.ilY, "translationX", this.ilW.getLayoutParams().width * 0.25f, 0.0f);
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.ilY, "alpha", 0.0f, 1.0f);
         AnimatorSet animatorSet = new AnimatorSet();

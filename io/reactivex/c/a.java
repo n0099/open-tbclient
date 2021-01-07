@@ -2,7 +2,7 @@ package io.reactivex.c;
 
 import io.reactivex.b.g;
 import io.reactivex.q;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class a<T> extends q<T> {
     public abstract void a(g<? super io.reactivex.disposables.b> gVar);
 }

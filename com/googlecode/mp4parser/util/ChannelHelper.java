@@ -4,7 +4,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.ReadableByteChannel;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ChannelHelper {
     private static ByteBuffer empty = ByteBuffer.allocate(0).asReadOnlyBuffer();
 

@@ -24,7 +24,7 @@ public class FeedBackTopListView extends LinearLayout {
     private Context mContext;
     private TbPageContext<?> mPageContext;
     private int mSkinType;
-    private ArrayList<bz> odD;
+    private ArrayList<bz> odC;
 
     public FeedBackTopListView(Context context) {
         this(context, null);
@@ -33,7 +33,7 @@ public class FeedBackTopListView extends LinearLayout {
     public FeedBackTopListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = null;
-        this.odD = null;
+        this.odC = null;
         this.mSkinType = 3;
         this.mContext = context;
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
@@ -49,14 +49,14 @@ public class FeedBackTopListView extends LinearLayout {
         }
         setVisibility(0);
         if (arrayList.size() > 3) {
-            this.odD = new ArrayList<>(arrayList.subList(0, 3));
+            this.odC = new ArrayList<>(arrayList.subList(0, 3));
         } else {
-            this.odD = arrayList;
+            this.odC = arrayList;
         }
         while (true) {
             int i2 = i;
-            if (i2 < this.odD.size()) {
-                addView(g(this.odD.get(i2), i2));
+            if (i2 < this.odC.size()) {
+                addView(g(this.odC.get(i2), i2));
                 i = i2 + 1;
             } else {
                 return;

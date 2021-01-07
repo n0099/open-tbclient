@@ -213,7 +213,7 @@ public class a {
         }
     }
 
-    public void Zi() {
+    public void Zj() {
         if (this.ibS != null) {
             this.ibS.dettachView(this.ibT);
         }

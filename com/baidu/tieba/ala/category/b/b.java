@@ -23,7 +23,7 @@ public class b {
         }
     }
 
-    public List<IAdapterData> bWB() {
+    public List<IAdapterData> bWC() {
         return this.gOR;
     }
 }

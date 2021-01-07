@@ -5,10 +5,10 @@ import androidx.annotation.NonNull;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6128a;
+    private String f6129a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6129b;
+    private String f6130b;
     private String c;
     private String d;
     private String e;
@@ -35,27 +35,27 @@ public class l {
     private boolean y = true;
 
     public l(@NonNull String str, @NonNull String str2) {
-        this.f6128a = str;
-        this.f6129b = str2;
+        this.f6129a = str;
+        this.f6130b = str2;
     }
 
-    public String eoZ() {
+    public String epa() {
         return this.j;
     }
 
-    public boolean epa() {
+    public boolean epb() {
         return this.h;
     }
 
     public String yz() {
-        return this.f6128a;
+        return this.f6129a;
     }
 
     public String getChannel() {
-        return this.f6129b;
+        return this.f6130b;
     }
 
-    public String epb() {
+    public String epc() {
         return this.c;
     }
 
@@ -63,11 +63,11 @@ public class l {
         return this.d;
     }
 
-    public String epc() {
+    public String epd() {
         return this.e;
     }
 
-    public String epd() {
+    public String epe() {
         return this.f;
     }
 
@@ -81,7 +81,7 @@ public class l {
         return this.i;
     }
 
-    public j epe() {
+    public j epf() {
         return this.pgF;
     }
 
@@ -98,7 +98,7 @@ public class l {
         return this.l;
     }
 
-    public String epf() {
+    public String epg() {
         return this.m;
     }
 
@@ -106,35 +106,35 @@ public class l {
         return this.n;
     }
 
-    public int epg() {
+    public int eph() {
         return this.o;
     }
 
-    public int eph() {
+    public int epi() {
         return this.p;
     }
 
-    public String epi() {
+    public String epj() {
         return this.r;
     }
 
-    public String epj() {
+    public String epk() {
         return this.s;
     }
 
-    public String epk() {
+    public String epl() {
         return this.t;
     }
 
-    public String epl() {
+    public String epm() {
         return this.u;
     }
 
-    public String epm() {
+    public String epn() {
         return this.v;
     }
 
-    public String epn() {
+    public String epo() {
         return this.w;
     }
 
@@ -142,7 +142,7 @@ public class l {
         this.x = z;
     }
 
-    public boolean epo() {
+    public boolean epp() {
         return this.y;
     }
 
@@ -150,15 +150,15 @@ public class l {
         this.y = z;
     }
 
-    public String epp() {
+    public String epq() {
         return this.z;
     }
 
-    public void YC(String str) {
+    public void YB(String str) {
         this.z = str;
     }
 
-    public k epq() {
+    public k epr() {
         return this.pgG;
     }
 

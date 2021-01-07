@@ -63,10 +63,10 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
     private final String N;
 
     /* renamed from: a  reason: collision with root package name */
-    View f7043a;
+    View f7044a;
 
     /* renamed from: b  reason: collision with root package name */
-    com.bytedance.sdk.openadsdk.core.video.renderview.b f7044b;
+    com.bytedance.sdk.openadsdk.core.video.renderview.b f7045b;
     ImageView c;
     View d;
     View e;
@@ -100,13 +100,13 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
         if (!(this instanceof g)) {
             this.z = p.a().getApplicationContext();
             c(z2);
-            this.f7043a = view;
+            this.f7044a = view;
             this.u = z;
             this.x = enumSet == null ? EnumSet.noneOf(b.a.class) : enumSet;
             this.E = cVar;
             this.y = lVar;
             c(8);
-            a(context, this.f7043a);
+            a(context, this.f7044a);
             a();
             n();
         }
@@ -136,8 +136,8 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
         }
         if (this.y.H() == 4) {
             this.D = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.z, this.y, str);
-            this.D.a(2, new a.InterfaceC0992a() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.h.1
-                @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC0992a
+            this.D.a(2, new a.InterfaceC1030a() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.h.1
+                @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC1030a
                 public boolean a(int i2, l lVar, String str3, String str4, Object obj) {
                     if (i2 == 2 && lVar != null && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
                         if (str4.equals("click_start_play")) {
@@ -201,9 +201,9 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
             if (this.D != null) {
                 this.G.a(this.D);
             }
-            if (this.f7043a != null) {
-                this.f7043a.setOnClickListener(this.G);
-                this.f7043a.setOnTouchListener(this.G);
+            if (this.f7044a != null) {
+                this.f7044a.setOnClickListener(this.G);
+                this.f7044a.setOnTouchListener(this.G);
             }
         }
     }
@@ -217,11 +217,11 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
     }
 
     private void z() {
-        if (this.z != null && this.f7043a != null) {
+        if (this.z != null && this.f7044a != null) {
             View view = new View(this.z) { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.h.4
 
                 /* renamed from: b  reason: collision with root package name */
-                private final AtomicBoolean f7049b = new AtomicBoolean(true);
+                private final AtomicBoolean f7050b = new AtomicBoolean(true);
 
                 @Override // android.view.View
                 protected void onMeasure(int i, int i2) {
@@ -253,13 +253,13 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
                 }
 
                 private void a() {
-                    if (this.f7049b.getAndSet(false) && h.this.D != null) {
+                    if (this.f7050b.getAndSet(false) && h.this.D != null) {
                         h.this.D.a();
                     }
                 }
 
                 private void b() {
-                    if (!this.f7049b.getAndSet(true) && h.this.D != null) {
+                    if (!this.f7050b.getAndSet(true) && h.this.D != null) {
                         h.this.D.d();
                     }
                 }
@@ -276,14 +276,14 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
                     b();
                 }
             };
-            if (this.f7043a instanceof ViewGroup) {
-                ((ViewGroup) this.f7043a).addView(view, 0, new RelativeLayout.LayoutParams(0, 0));
+            if (this.f7044a instanceof ViewGroup) {
+                ((ViewGroup) this.f7044a).addView(view, 0, new RelativeLayout.LayoutParams(0, 0));
             }
         }
     }
 
     public com.bytedance.sdk.openadsdk.core.video.renderview.b o() {
-        return this.f7044b;
+        return this.f7045b;
     }
 
     private boolean A() {
@@ -312,7 +312,7 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
             ((RelativeLayout) view).addView(sSRenderSurfaceView, 0, layoutParams);
         }
         ak.a(sSRenderSurfaceView, 8);
-        this.f7044b = (com.bytedance.sdk.openadsdk.core.video.renderview.b) sSRenderSurfaceView;
+        this.f7045b = (com.bytedance.sdk.openadsdk.core.video.renderview.b) sSRenderSurfaceView;
         this.c = (ImageView) view.findViewById(ac.e(context, "tt_video_play"));
         this.o = (ProgressBar) view.findViewById(ac.e(context, "tt_video_progress"));
         this.d = view.findViewById(ac.e(context, "tt_video_loading_retry_layout"));
@@ -349,7 +349,7 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
         if (this.B != null && this.A == null) {
             long currentTimeMillis = System.currentTimeMillis();
             this.A = new com.bytedance.sdk.openadsdk.core.widget.h();
-            this.A.a(this.z, this.f7043a);
+            this.A.a(this.z, this.f7044a);
             this.A.a(this.B, this);
             u.b("useTime", "mVideoTrafficTipLayout use time :" + (System.currentTimeMillis() - currentTimeMillis));
         }
@@ -383,7 +383,7 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.f7044b.a(this);
+        this.f7045b.a(this);
         this.c.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.h.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -397,9 +397,9 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
     }
 
     public void d(int i) {
-        ak.a(this.f7043a, 0);
-        if (this.f7044b != null) {
-            this.f7044b.setVisibility(i);
+        ak.a(this.f7044a, 0);
+        if (this.f7045b != null) {
+            this.f7045b.setVisibility(i);
         }
     }
 
@@ -463,14 +463,14 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
     }
 
     public void b(int i, int i2) {
-        ViewGroup.LayoutParams layoutParams = this.f7043a.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f7044a.getLayoutParams();
         if (i == -1 || i == -2 || i > 0) {
             layoutParams.width = i;
         }
         if (i2 == -1 || i2 == -2 || i2 > 0) {
             layoutParams.height = i2;
         }
-        this.f7043a.setLayoutParams(layoutParams);
+        this.f7044a.setLayoutParams(layoutParams);
     }
 
     private int e(int i) {
@@ -502,16 +502,16 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
 
     public void c(@Nullable ViewGroup viewGroup) {
         if (viewGroup != null) {
-            if (this.f7043a.getParent() != null) {
-                ((ViewGroup) this.f7043a.getParent()).removeView(this.f7043a);
+            if (this.f7044a.getParent() != null) {
+                ((ViewGroup) this.f7044a.getParent()).removeView(this.f7044a);
             }
-            viewGroup.addView(this.f7043a);
+            viewGroup.addView(this.f7044a);
             c(0);
         }
     }
 
     public View s() {
-        return this.f7043a;
+        return this.f7044a;
     }
 
     public void d() {
@@ -545,9 +545,9 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
     @RequiresApi(api = 14)
     @TargetApi(14)
     public void u() {
-        ak.a(this.f7043a, 0);
-        if (this.f7044b != null) {
-            View view = this.f7044b.getView();
+        ak.a(this.f7044a, 0);
+        if (this.f7045b != null) {
+            View view = this.f7045b.getView();
             if (view instanceof TextureView) {
                 ViewParent parent = view.getParent();
                 if (parent instanceof ViewGroup) {
@@ -587,7 +587,7 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
         String a2;
         if (lVar != null) {
             a(false, this.u);
-            a(this.f7043a, p.a());
+            a(this.f7044a, p.a());
             if (this.h != null) {
                 ak.a(this.h, 0);
             }
@@ -595,7 +595,7 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
                 ak.a((View) this.i, 0);
             }
             if (aj.b(this.y)) {
-                b(this.f7043a, p.a());
+                b(this.f7044a, p.a());
                 ak.a(this.j, 8);
                 ak.a((View) this.i, 0);
                 ak.a(this.J, 0);
@@ -618,8 +618,8 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
                     });
                 }
                 if (this.i != null && this.y != null && this.y.F() != null && this.y.F().g() != null) {
-                    com.bytedance.sdk.openadsdk.core.video.d.b.a((long) this.y.F().e(), this.y.F().h(), new b.InterfaceC0985b() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.h.7
-                        @Override // com.bytedance.sdk.openadsdk.core.video.d.b.InterfaceC0985b
+                    com.bytedance.sdk.openadsdk.core.video.d.b.a((long) this.y.F().e(), this.y.F().h(), new b.InterfaceC1023b() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.h.7
+                        @Override // com.bytedance.sdk.openadsdk.core.video.d.b.InterfaceC1023b
                         public void a(Bitmap bitmap) {
                             if (bitmap != null) {
                                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) h.this.i.getLayoutParams();
@@ -725,7 +725,7 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
 
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.a
     public void a(SurfaceHolder surfaceHolder) {
-        if (surfaceHolder == this.f7044b.getHolder()) {
+        if (surfaceHolder == this.f7045b.getHolder()) {
             this.v = true;
             if (r()) {
                 this.B.a(this, surfaceHolder);
@@ -735,14 +735,14 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
 
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.a
     public void a(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        if (surfaceHolder == this.f7044b.getHolder() && r()) {
+        if (surfaceHolder == this.f7045b.getHolder() && r()) {
             this.B.a(this, surfaceHolder, i, i2, i3);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.a
     public void b(SurfaceHolder surfaceHolder) {
-        if (surfaceHolder == this.f7044b.getHolder()) {
+        if (surfaceHolder == this.f7045b.getHolder()) {
             this.v = false;
             if (r()) {
                 this.B.b(this, surfaceHolder);
@@ -781,7 +781,7 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
         this.o.setSecondaryProgress(0);
         c(8);
         if (x()) {
-            this.f7044b.setVisibility(8);
+            this.f7045b.setVisibility(8);
         }
         if (this.f != null) {
             this.f.setImageDrawable(null);
@@ -843,7 +843,7 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
 
     public void c(int i) {
         this.w = i;
-        ak.a(this.f7043a, i);
+        ak.a(this.f7044a, i);
     }
 
     public void a(View view, boolean z) {

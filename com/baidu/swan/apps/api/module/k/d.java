@@ -22,9 +22,9 @@ public class d extends com.baidu.swan.apps.api.a.d {
             public com.baidu.swan.apps.api.c.b a(com.baidu.swan.apps.runtime.e eVar, JSONObject jSONObject, @Nullable String str2) {
                 com.baidu.swan.apps.console.c.i("Api-Compass", " init ");
                 final k kVar = new k("compassChange", jSONObject, str2);
-                com.baidu.swan.apps.ak.e.a aQg = com.baidu.swan.apps.ak.e.a.aQg();
-                aQg.init(d.this.getContext());
-                aQg.a(new a.InterfaceC0380a() { // from class: com.baidu.swan.apps.api.module.k.d.1.1
+                com.baidu.swan.apps.ak.e.a aQh = com.baidu.swan.apps.ak.e.a.aQh();
+                aQh.init(d.this.getContext());
+                aQh.a(new a.InterfaceC0380a() { // from class: com.baidu.swan.apps.api.module.k.d.1.1
                     @Override // com.baidu.swan.apps.ak.e.a.InterfaceC0380a
                     public void b(float f, int i) {
                         JSONObject jSONObject2 = new JSONObject();
@@ -39,19 +39,19 @@ public class d extends com.baidu.swan.apps.api.a.d {
                     }
                 });
                 com.baidu.swan.apps.console.c.i("Api-Compass", "start listen compass");
-                aQg.aQh();
+                aQh.aQi();
                 kVar.a(d.this);
                 return new com.baidu.swan.apps.api.c.b(0);
             }
         });
     }
 
-    public com.baidu.swan.apps.api.c.b anJ() {
+    public com.baidu.swan.apps.api.c.b anK() {
         if (DEBUG) {
             Log.d("Api-Compass", "stop accelerometer");
         }
         com.baidu.swan.apps.console.c.i("Api-Compass", "stop listen compass");
-        com.baidu.swan.apps.ak.e.a.aQg().aQi();
+        com.baidu.swan.apps.ak.e.a.aQh().aQj();
         return new com.baidu.swan.apps.api.c.b(0);
     }
 }

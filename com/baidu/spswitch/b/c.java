@@ -2,7 +2,7 @@ package com.baidu.spswitch.b;
 
 import android.content.Context;
 import com.baidu.spswitch.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     private static final boolean DEBUG = b.isDebug();
     private static int cDX = 0;

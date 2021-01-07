@@ -16,7 +16,7 @@ public class ac extends aa {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        if (dVar.f10800a != 7) {
+        if (dVar.f10801a != 7) {
             throw new PngjException("bad chunk " + dVar);
         }
         this.h = com.kwad.sdk.pngencrypt.n.b(dVar.d, 0);

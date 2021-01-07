@@ -134,7 +134,7 @@ public class a {
                     }
                     this.mNetwork.addPostData("in_live", this.inLive);
                     this.mNetwork.addPostData("authsid", this.authSid);
-                    this.mNetwork.bvQ().bwz().mIsNeedTbs = true;
+                    this.mNetwork.bvR().bwA().mIsNeedTbs = true;
                     String postNetData = this.mNetwork.postNetData();
                     this.tokenData = AuthTokenData.parse(postNetData);
                     return postNetData;
@@ -154,14 +154,14 @@ public class a {
             a.this.fvT = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.isSucc = this.mNetwork.bvQ().bwA().isRequestSuccess();
+                aVar.isSucc = this.mNetwork.bvR().bwB().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
                 aVar.isGod = this.isGod;
                 aVar.fqS = a.this.fqS;
                 aVar.parserJson(str, this.showToastAfterAttentionSuc);
-                if (this.mNetwork.bvQ().bwA().isRequestSuccess()) {
+                if (this.mNetwork.bvR().bwB().isRequestSuccess()) {
                     aVar.fuV = null;
                 }
                 int serverErrorCode = this.mNetwork.getServerErrorCode();
@@ -212,11 +212,11 @@ public class a {
     public boolean[] i(TbPageContext tbPageContext) {
         boolean[] zArr = null;
         String localClassName = (tbPageContext == null || tbPageContext.getPageActivity() == null) ? null : tbPageContext.getPageActivity().getLocalClassName();
-        if (("pb.pb.main.PbActivity".equals(localClassName) || "personPolymeric.PersonPolymericActivity".equals(localClassName) || "enterForum.hotuserrank.HotUserRankActivity".equals(localClassName)) && com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("first_call_attention", true)) {
-            com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("first_call_attention", false);
+        if (("pb.pb.main.PbActivity".equals(localClassName) || "personPolymeric.PersonPolymericActivity".equals(localClassName) || "enterForum.hotuserrank.HotUserRankActivity".equals(localClassName)) && com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("first_call_attention", true)) {
+            com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean("first_call_attention", false);
             zArr = new boolean[2];
             zArr[0] = !NotificationManagerCompat.from(this.mPageContext.getPageActivity()).areNotificationsEnabled();
-            zArr[1] = !com.baidu.tbadk.coreExtra.messageCenter.d.bBF().bBH();
+            zArr[1] = !com.baidu.tbadk.coreExtra.messageCenter.d.bBG().bBI();
             if (!zArr[0] && !zArr[1] && tbPageContext != null && !this.fqS) {
                 tbPageContext.showToast(R.string.attention_success);
             }

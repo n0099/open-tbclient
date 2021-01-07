@@ -40,7 +40,7 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
         bundle.putLong("groupid", this.kMa);
     }
 
-    public void NH(String str) {
+    public void NG(String str) {
         this.kLZ = d(this.kwY, this.kMa, str);
         super.sendMessage(this.kLZ);
     }

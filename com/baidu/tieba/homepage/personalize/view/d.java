@@ -18,7 +18,7 @@ public class d extends com.baidu.card.a<com.baidu.tbadk.core.data.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.a
     public View getView() {
-        return this.kiO.cUk();
+        return this.kiO.cUl();
     }
 
     /* JADX DEBUG: Method merged with bridge method */

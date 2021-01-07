@@ -36,7 +36,7 @@ public class GameRecorderController {
             this.emU = RecorderState.IDLE;
             this.emS.setGameRecordCallback(new a());
         }
-        com.baidu.swan.games.audio.b.b.aXK().aXM().post(new Runnable() { // from class: com.baidu.swan.games.screenrecord.GameRecorderController.2
+        com.baidu.swan.games.audio.b.b.aXL().aXN().post(new Runnable() { // from class: com.baidu.swan.games.screenrecord.GameRecorderController.2
             @Override // java.lang.Runnable
             public void run() {
                 SwanAudioPlayer.getInstance().setOnAudioRecordListener(GameRecorderController.this.emX);
@@ -46,14 +46,14 @@ public class GameRecorderController {
 
     public void aA(int i, String str) {
         if (this.emS != null) {
-            SwanAppActivity aDq = f.aDG().aDq();
-            boolean z = aDq != null && aDq.isLandScape();
+            SwanAppActivity aDr = f.aDH().aDr();
+            boolean z = aDr != null && aDr.isLandScape();
             this.emS.setAudioEngineProxy(new com.baidu.mario.a.a() { // from class: com.baidu.swan.games.screenrecord.GameRecorderController.3
                 @Override // com.baidu.mario.a.a
                 public void a(com.baidu.mario.audio.a.a aVar) {
                     GameRecorderController.this.emV = aVar;
                     GameRecorderController.this.emW = System.nanoTime();
-                    GameRecorderController.this.bbA();
+                    GameRecorderController.this.bbB();
                 }
             });
             this.emS.startRecord(true, i, str, z);
@@ -61,7 +61,7 @@ public class GameRecorderController {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bbA() {
+    public void bbB() {
         if (this.emV != null) {
             int i = SwanAudioPlayer.mSampleRate;
             int i2 = SwanAudioPlayer.mSampleBufSize;
@@ -75,7 +75,7 @@ public class GameRecorderController {
     }
 
     private void ii(final boolean z) {
-        com.baidu.swan.games.audio.b.b.aXK().aXM().post(new Runnable() { // from class: com.baidu.swan.games.screenrecord.GameRecorderController.4
+        com.baidu.swan.games.audio.b.b.aXL().aXN().post(new Runnable() { // from class: com.baidu.swan.games.screenrecord.GameRecorderController.4
             @Override // java.lang.Runnable
             public void run() {
                 SwanAudioPlayer.getInstance().setAudioRecord(z);
@@ -84,7 +84,7 @@ public class GameRecorderController {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bbB() {
+    public void bbC() {
         if (this.emV != null) {
             this.emV.onAudioStop(true);
         }
@@ -122,19 +122,19 @@ public class GameRecorderController {
         this.emT = cVar;
     }
 
-    public RecorderState bbC() {
+    public RecorderState bbD() {
         return this.emU;
     }
 
     public void release() {
-        if (this.emS != null && this.emT != null && (bbC() == RecorderState.RECORDING || bbC() == RecorderState.PAUSE)) {
+        if (this.emS != null && this.emT != null && (bbD() == RecorderState.RECORDING || bbD() == RecorderState.PAUSE)) {
             this.emT.onError(-1);
         }
         setGameRecordCallback(null);
         this.emU = RecorderState.IDLE;
     }
 
-    public static GameRecorderController bbD() {
+    public static GameRecorderController bbE() {
         return new GameRecorderController(null);
     }
 
@@ -154,7 +154,7 @@ public class GameRecorderController {
         @Override // com.baidu.mario.a.c
         public void aa(int i, String str) {
             GameRecorderController.this.emU = RecorderState.STOP;
-            GameRecorderController.this.bbB();
+            GameRecorderController.this.bbC();
             if (GameRecorderController.this.emT != null) {
                 GameRecorderController.this.emT.aa(i, str);
             }

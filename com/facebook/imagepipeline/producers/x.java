@@ -13,14 +13,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class x extends z implements aw<com.facebook.imagepipeline.f.e> {
     private final ContentResolver mContentResolver;
-    private static final Class<?> prQ = x.class;
+    private static final Class<?> prR = x.class;
     private static final String[] PROJECTION = {IMConstants.MSG_ROW_ID, "_data"};
-    private static final String[] pEW = {"_data"};
-    private static final Rect pEX = new Rect(0, 0, 512, 384);
-    private static final Rect pEY = new Rect(0, 0, 96, 96);
+    private static final String[] pGD = {"_data"};
+    private static final Rect pGE = new Rect(0, 0, 512, 384);
+    private static final Rect pGF = new Rect(0, 0, 96, 96);
 
     public x(Executor executor, com.facebook.common.memory.g gVar, ContentResolver contentResolver) {
         super(executor, gVar);
@@ -29,14 +29,14 @@ public class x extends z implements aw<com.facebook.imagepipeline.f.e> {
 
     @Override // com.facebook.imagepipeline.producers.aw
     public boolean a(com.facebook.imagepipeline.common.d dVar) {
-        return ax.a(pEX.width(), pEX.height(), dVar);
+        return ax.a(pGE.width(), pGE.height(), dVar);
     }
 
     @Override // com.facebook.imagepipeline.producers.z
     protected com.facebook.imagepipeline.f.e g(ImageRequest imageRequest) throws IOException {
         com.facebook.imagepipeline.f.e a2;
-        Uri eAT = imageRequest.eAT();
-        if (!com.facebook.common.util.d.R(eAT) || (a2 = a(eAT, imageRequest.eAV())) == null) {
+        Uri eBx = imageRequest.eBx();
+        if (!com.facebook.common.util.d.R(eBx) || (a2 = a(eBx, imageRequest.eBz())) == null) {
             return null;
         }
         return a2;
@@ -58,7 +58,7 @@ public class x extends z implements aw<com.facebook.imagepipeline.f.e> {
             if (dVar == null || (a2 = a(dVar, query.getInt(query.getColumnIndex(IMConstants.MSG_ROW_ID)))) == null) {
                 return null;
             }
-            a2.QG(ZD(string));
+            a2.QX(ZD(string));
             return a2;
         } finally {
             query.close();
@@ -72,7 +72,7 @@ public class x extends z implements aw<com.facebook.imagepipeline.f.e> {
         int b2 = b(dVar);
         if (b2 != 0) {
             try {
-                cursor = MediaStore.Images.Thumbnails.queryMiniThumbnail(this.mContentResolver, i, b2, pEW);
+                cursor = MediaStore.Images.Thumbnails.queryMiniThumbnail(this.mContentResolver, i, b2, pGD);
                 if (cursor != null) {
                     try {
                         cursor.moveToFirst();
@@ -107,10 +107,10 @@ public class x extends z implements aw<com.facebook.imagepipeline.f.e> {
     }
 
     private static int b(com.facebook.imagepipeline.common.d dVar) {
-        if (ax.a(pEY.width(), pEY.height(), dVar)) {
+        if (ax.a(pGF.width(), pGF.height(), dVar)) {
             return 3;
         }
-        if (ax.a(pEX.width(), pEX.height(), dVar)) {
+        if (ax.a(pGE.width(), pGE.height(), dVar)) {
             return 1;
         }
         return 0;
@@ -124,16 +124,16 @@ public class x extends z implements aw<com.facebook.imagepipeline.f.e> {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String eAo() {
+    protected String eAS() {
         return "LocalContentUriThumbnailFetchProducer";
     }
 
     private static int ZD(String str) {
         if (str != null) {
             try {
-                return com.facebook.d.b.Rm(new ExifInterface(str).getAttributeInt("Orientation", 1));
+                return com.facebook.d.b.RC(new ExifInterface(str).getAttributeInt("Orientation", 1));
             } catch (IOException e) {
-                com.facebook.common.c.a.b(prQ, e, "Unable to retrieve thumbnail rotation for %s", str);
+                com.facebook.common.c.a.b(prR, e, "Unable to retrieve thumbnail rotation for %s", str);
                 return 0;
             }
         }

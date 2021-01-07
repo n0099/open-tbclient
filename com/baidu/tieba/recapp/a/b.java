@@ -16,23 +16,23 @@ public class b implements e {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.recapp.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0836b {
-        private static b mMX = new b();
+    public static class C0869b {
+        private static b mMW = new b();
     }
 
-    public static b dEW() {
-        return C0836b.mMX;
+    public static b dEX() {
+        return C0869b.mMW;
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, com.baidu.adp.base.e eVar) {
         if (str != null) {
-            a RB = a.RB(str);
-            f fVar = this.kWK.get(RB.getKey());
-            if (fVar != null && RB.isValid()) {
+            a RA = a.RA(str);
+            f fVar = this.kWK.get(RA.getKey());
+            if (fVar != null && RA.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    RB.getParams().putAll(hashMap);
+                    RA.getParams().putAll(hashMap);
                 }
-                fVar.a(obj, RB.getParams(), str, eVar);
+                fVar.a(obj, RA.getParams(), str, eVar);
             }
         }
     }
@@ -79,7 +79,7 @@ public class b implements e {
             this.fbY = new HashMap<>();
         }
 
-        public static a RB(String str) {
+        public static a RA(String str) {
             return new a(str);
         }
     }

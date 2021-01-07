@@ -5,7 +5,7 @@ import com.kwad.sdk.internal.api.SceneImpl;
 public class d extends com.kwad.sdk.contentalliance.tube.detail.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f9238b;
+    private boolean f9239b;
     private long c;
     private String d;
     private SceneImpl e;
@@ -21,10 +21,10 @@ public class d extends com.kwad.sdk.contentalliance.tube.detail.a.a {
 
         @Override // com.kwad.sdk.core.i.c
         public void c_() {
-            if (d.this.f9238b) {
+            if (d.this.f9239b) {
                 com.kwad.sdk.core.report.e.c(d.this.e);
             } else {
-                d.this.f9238b = true;
+                d.this.f9239b = true;
                 com.kwad.sdk.core.report.e.b(d.this.e);
             }
             d.this.c = System.currentTimeMillis();
@@ -35,13 +35,13 @@ public class d extends com.kwad.sdk.contentalliance.tube.detail.a.a {
     @Override // com.kwad.sdk.contentalliance.tube.detail.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f = this.f9221a.c;
+        this.f = this.f9222a.c;
         if (this.f == null) {
             return;
         }
         this.f.a(this.g);
-        this.e = this.f9221a.f;
-        this.d = String.valueOf(this.f9221a.f9222a.hashCode());
+        this.e = this.f9222a.f;
+        this.d = String.valueOf(this.f9222a.f9223a.hashCode());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

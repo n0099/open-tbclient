@@ -14,24 +14,24 @@ public class b extends d {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public f f9219a;
+        public f f9220a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f9220b;
+        public long f9221b;
         public boolean c;
 
         public a(f fVar, long j, boolean z) {
-            this.f9219a = fVar;
-            this.f9220b = j;
+            this.f9220a = fVar;
+            this.f9221b = j;
             this.c = z;
         }
     }
 
     public b(@NonNull a aVar) {
         JSONArray jSONArray = new JSONArray();
-        o.a(jSONArray, aVar.f9219a.toJson());
+        o.a(jSONArray, aVar.f9220a.toJson());
         a("impInfo", jSONArray);
-        a(URLPackage.KEY_TUBE_ID, aVar.f9220b);
+        a(URLPackage.KEY_TUBE_ID, aVar.f9221b);
         a("showTrendTube", aVar.c);
         a("contentInfo", new c());
     }

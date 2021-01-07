@@ -61,9 +61,9 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.enterForum.recomme
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        aa<com.baidu.tieba.enterForum.recommend.b.d> cuC;
-        if (view == this.iMF && (cuC = cuC()) != null && this.iMG.czq() < this.iMG.getForumList().size()) {
-            cuC.a(view, this.iMG);
+        aa<com.baidu.tieba.enterForum.recommend.b.d> cuD;
+        if (view == this.iMF && (cuD = cuD()) != null && this.iMG.czr() < this.iMG.getForumList().size()) {
+            cuD.a(view, this.iMG);
         }
     }
 }

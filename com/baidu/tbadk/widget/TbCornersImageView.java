@@ -87,8 +87,8 @@ public class TbCornersImageView extends AppCompatImageView {
         this.fRw = new RectF();
         this.paint = new Paint();
         this.path = new Path();
-        bJI();
         bJJ();
+        bJK();
     }
 
     @Override // android.view.View
@@ -96,8 +96,8 @@ public class TbCornersImageView extends AppCompatImageView {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = i;
         this.height = i2;
-        bJG();
         bJH();
+        bJI();
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -169,13 +169,13 @@ public class TbCornersImageView extends AppCompatImageView {
         this.paint.setStyle(Paint.Style.STROKE);
     }
 
-    private void bJG() {
+    private void bJH() {
         if (!this.fRl) {
             this.fRx.set(this.borderWidth / 2.0f, this.borderWidth / 2.0f, this.width - (this.borderWidth / 2.0f), this.height - (this.borderWidth / 2.0f));
         }
     }
 
-    private void bJH() {
+    private void bJI() {
         if (this.fRl) {
             this.radius = Math.min(this.width, this.height) / 2.0f;
             this.fRw.set((this.width / 2.0f) - this.radius, (this.height / 2.0f) - this.radius, (this.width / 2.0f) + this.radius, (this.height / 2.0f) + this.radius);
@@ -187,7 +187,7 @@ public class TbCornersImageView extends AppCompatImageView {
         }
     }
 
-    private void bJI() {
+    private void bJJ() {
         if (!this.fRl) {
             if (this.cornerRadius > 0) {
                 for (int i = 0; i < this.fRu.length; i++) {
@@ -239,12 +239,12 @@ public class TbCornersImageView extends AppCompatImageView {
         if (z) {
             this.cornerRadius = 0;
         }
-        bJI();
-        bJG();
+        bJJ();
+        bJH();
         invalidate();
     }
 
-    private void bJJ() {
+    private void bJK() {
         if (!this.fRl) {
             this.fRn = 0;
         }
@@ -267,7 +267,7 @@ public class TbCornersImageView extends AppCompatImageView {
 
     public void setInnerBorderWidth(int i) {
         this.fRn = i;
-        bJJ();
+        bJK();
         invalidate();
     }
 

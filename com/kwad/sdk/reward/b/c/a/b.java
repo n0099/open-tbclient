@@ -11,12 +11,12 @@ import com.kwad.sdk.reward.d;
 public class b extends d {
 
     /* renamed from: b  reason: collision with root package name */
-    private FrameLayout f10922b;
+    private FrameLayout f10923b;
     private c c;
     private a.b d = new a.b() { // from class: com.kwad.sdk.reward.b.c.a.b.2
         @Override // com.kwad.sdk.core.webview.jshandler.a.b
         public void a() {
-            b.this.f10949a.f10824b.a();
+            b.this.f10950a.f10825b.a();
         }
     };
 
@@ -24,21 +24,21 @@ public class b extends d {
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = this.f10949a.f;
-        this.c = this.f10949a.l;
+        AdTemplate adTemplate = this.f10950a.f;
+        this.c = this.f10950a.l;
         if (this.c == null) {
             return;
         }
         this.c.a(this.d);
-        this.c.a(this.f10922b, this.f10949a.h, adTemplate, this.f10949a.j, this.f10949a.e);
-        this.c.a(this.f10949a.g);
+        this.c.a(this.f10923b, this.f10950a.h, adTemplate, this.f10950a.j, this.f10950a.e);
+        this.c.a(this.f10950a.g);
         this.c.g();
         if (this.c instanceof com.kwad.sdk.c.a) {
-            ((com.kwad.sdk.c.a) this.c).a(new a.InterfaceC1043a() { // from class: com.kwad.sdk.reward.b.c.a.b.1
-                @Override // com.kwad.sdk.c.a.InterfaceC1043a
+            ((com.kwad.sdk.c.a) this.c).a(new a.InterfaceC1084a() { // from class: com.kwad.sdk.reward.b.c.a.b.1
+                @Override // com.kwad.sdk.c.a.InterfaceC1084a
                 public void a() {
-                    if (b.this.f10949a.f10824b != null) {
-                        b.this.f10949a.f10824b.e();
+                    if (b.this.f10950a.f10825b != null) {
+                        b.this.f10950a.f10825b.e();
                     }
                 }
             });
@@ -58,6 +58,6 @@ public class b extends d {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f10922b = (FrameLayout) b(R.id.ksad_web_card_container);
+        this.f10923b = (FrameLayout) b(R.id.ksad_web_card_container);
     }
 }

@@ -50,10 +50,10 @@ public class n extends EventTargetImpl implements com.baidu.swan.games.a.c {
             bVar.throwJSException(JSExceptionType.Error, "请求广告的必须参数为空,中断执行");
             return;
         }
-        this.edC = com.baidu.swan.game.ad.d.f.aVX();
+        this.edC = com.baidu.swan.game.ad.d.f.aVY();
         if (this.edC) {
-            this.ebw = com.baidu.swan.game.ad.d.f.aWa();
-            this.adUnitId = com.baidu.swan.game.ad.d.f.aWb();
+            this.ebw = com.baidu.swan.game.ad.d.f.aWb();
+            this.adUnitId = com.baidu.swan.game.ad.d.f.aWc();
         }
         this.edG = new h(this.ebw, this.adUnitId, this.edC);
         this.edG.a(this.eds);

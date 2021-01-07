@@ -27,7 +27,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class m extends FrameLayout implements View.OnClickListener {
     private boolean G;
     private boolean H;
@@ -67,7 +67,7 @@ public class m extends FrameLayout implements View.OnClickListener {
     private String qa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements com.baidu.poly.a.k.a {
         final /* synthetic */ com.baidu.poly.a.k.a cpk;
 
@@ -79,7 +79,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         public void a(a.C0318a c0318a) {
             if (c0318a.statusCode == 0) {
                 m.this.crZ = Long.valueOf(c0318a.cpi);
-                m.this.afU();
+                m.this.afV();
                 if (m.this.crO != null && m.this.crO.P() == 1) {
                     m.this.crO.l(c0318a.cpj);
                 }
@@ -90,7 +90,7 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends com.baidu.poly.a.a.a<JSONObject> {
         b() {
         }
@@ -121,23 +121,23 @@ public class m extends FrameLayout implements View.OnClickListener {
                 }
                 com.baidu.poly.a.h.a.j("7");
                 if (m.this.crP.length != 1 || m.this.crV.getVisibility() != 8 || m.this.crO != null || m.this.crP[0] == null) {
-                    m.this.afU();
+                    m.this.afV();
                     if (m.this.crO != null || m.this.crV.getVisibility() != 8) {
                         m.this.crU.setVisibility(0);
                     } else {
                         m.this.crU.setVisibility(8);
                     }
-                    m.this.afT();
+                    m.this.afU();
                     m mVar = m.this;
                     mVar.b(mVar.a(mVar.crP));
                     m.this.crL.j();
-                    m.this.afR();
+                    m.this.afS();
                     m.this.csf = true;
-                    m.this.afW();
+                    m.this.afX();
                     return;
                 }
                 m.this.csf = true;
-                m.this.afW();
+                m.this.afX();
                 m.this.crL.b(m.this.crP[0].Q(), "即将进入" + m.this.crP[0].getDisplayName() + "…");
                 m mVar2 = m.this;
                 mVar2.b(mVar2.crP[0]);
@@ -159,19 +159,19 @@ public class m extends FrameLayout implements View.OnClickListener {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class c implements Runnable {
         c() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            m.this.afS();
+            m.this.afT();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements Animation.AnimationListener {
         d() {
         }
@@ -179,7 +179,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             m.this.cse = true;
-            m.this.afW();
+            m.this.afX();
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -192,7 +192,7 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements HostMarketView.a {
         e() {
         }
@@ -224,7 +224,7 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements Runnable {
         f() {
         }
@@ -240,7 +240,7 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g implements Runnable {
         g() {
         }
@@ -252,7 +252,7 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class h implements View.OnClickListener {
         h() {
         }
@@ -267,7 +267,7 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class i implements c.b {
         i() {
         }
@@ -279,7 +279,7 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class j implements a.InterfaceC0323a {
         final /* synthetic */ o[] crH;
         final /* synthetic */ o crI;
@@ -301,7 +301,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface l {
         void onClose();
     }
@@ -313,7 +313,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         this.cry = new c();
         this.cse = false;
         this.csf = false;
-        afQ();
+        afR();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -333,7 +333,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         this.crQ = null;
     }
 
-    private void afQ() {
+    private void afR() {
         this.crR = AnimationUtils.loadAnimation(getContext(), b.a.slide_in_bottom);
         this.crS = AnimationUtils.loadAnimation(getContext(), b.a.slide_out_bottom);
         LayoutInflater.from(getContext()).inflate(b.f.view_channel_list, this);
@@ -355,7 +355,7 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afR() {
+    public void afS() {
         if (this.I <= 0) {
             this.crN.setVisibility(4);
             return;
@@ -365,20 +365,20 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afS() {
+    public void afT() {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
         this.crw = com.baidu.poly.a.l.a.a(this.crK, layoutParams, "加载中", -1L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afT() {
+    public void afU() {
         this.crT.a(this.crO);
         this.crT.setListener(new e());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afU() {
+    public void afV() {
         Long l2;
         Long l3 = this.csa;
         if (l3 != null && (l2 = this.crZ) != null) {
@@ -397,12 +397,12 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afV() {
-        com.baidu.poly.a.b.b.afn().a(this.cpI, new b());
+    public void afW() {
+        com.baidu.poly.a.b.b.afo().a(this.cpI, new b());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afW() {
+    public void afX() {
         if (this.cse && this.csf) {
             com.baidu.poly.a.h.a.F();
         }
@@ -427,7 +427,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         this.crJ.animate().alpha(0.65f).setDuration(240L).start();
         this.crK.startAnimation(this.crR);
         this.crR.setAnimationListener(new d());
-        afR();
+        afS();
     }
 
     public void detach() {
@@ -567,7 +567,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         com.baidu.poly.a.h.d.a(new com.baidu.poly.a.h.b("5").ax(jSONObject));
     }
 
-    public m afX() {
+    public m afY() {
         if (!this.G) {
             this.G = true;
             if (!(getContext() instanceof Activity)) {
@@ -586,14 +586,14 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class k implements l.h {
         k() {
         }
 
         @Override // com.baidu.poly.widget.coupon.l.h
         public void b() {
-            m.this.afV();
+            m.this.afW();
         }
 
         @Override // com.baidu.poly.widget.coupon.l.h
@@ -677,7 +677,7 @@ public class m extends FrameLayout implements View.OnClickListener {
             }
         }
         this.cpI = bundle;
-        afV();
+        afW();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

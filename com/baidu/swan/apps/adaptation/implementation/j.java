@@ -8,7 +8,7 @@ public class j implements com.baidu.swan.apps.adaptation.a.x {
     @Override // com.baidu.swan.apps.adaptation.a.x
     public void a(@NonNull Activity activity, String str, String str2, c.a aVar) {
         if (aVar != null) {
-            aVar.asv();
+            aVar.asw();
         }
     }
 

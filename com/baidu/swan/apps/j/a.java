@@ -99,7 +99,7 @@ public class a {
         return sb.toString();
     }
 
-    public ContentValues aqk() {
+    public ContentValues aql() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/nickname");
         contentValues.put("data2", (Integer) 1);
@@ -107,14 +107,14 @@ public class a {
         return contentValues;
     }
 
-    public ContentValues aql() {
+    public ContentValues aqm() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/note");
         contentValues.put("data1", this.remark);
         return contentValues;
     }
 
-    public ContentValues aqm() {
+    public ContentValues aqn() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 2);
@@ -122,7 +122,7 @@ public class a {
         return contentValues;
     }
 
-    public ContentValues aqn() {
+    public ContentValues aqo() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 1);
@@ -130,7 +130,7 @@ public class a {
         return contentValues;
     }
 
-    public ContentValues aqo() {
+    public ContentValues aqp() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 3);
@@ -138,7 +138,7 @@ public class a {
         return contentValues;
     }
 
-    public ContentValues aqp() {
+    public ContentValues aqq() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 10);
@@ -146,7 +146,7 @@ public class a {
         return contentValues;
     }
 
-    public ContentValues aqq() {
+    public ContentValues aqr() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 5);
@@ -154,7 +154,7 @@ public class a {
         return contentValues;
     }
 
-    public ContentValues aqr() {
+    public ContentValues aqs() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/phone_v2");
         contentValues.put("data2", (Integer) 4);
@@ -162,7 +162,7 @@ public class a {
         return contentValues;
     }
 
-    public ContentValues aqs() {
+    public ContentValues aqt() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/im");
         contentValues.put("data5", (Integer) (-1));
@@ -171,7 +171,7 @@ public class a {
         return contentValues;
     }
 
-    public ContentValues aqt() {
+    public ContentValues aqu() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/organization");
         contentValues.put("data2", (Integer) 1);
@@ -180,7 +180,7 @@ public class a {
         return contentValues;
     }
 
-    public ContentValues aqu() {
+    public ContentValues aqv() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/website");
         contentValues.put("data2", (Integer) 1);
@@ -188,34 +188,34 @@ public class a {
         return contentValues;
     }
 
-    public ContentValues aqv() {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/postal-address_v2");
-        contentValues.put("data2", (Integer) 3);
-        contentValues.put("data1", aqA());
-        contentValues.put("data9", this.cRv);
-        return contentValues;
-    }
-
     public ContentValues aqw() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/postal-address_v2");
-        contentValues.put("data2", (Integer) 2);
-        contentValues.put("data1", aqz());
-        contentValues.put("data9", this.cRE);
+        contentValues.put("data2", (Integer) 3);
+        contentValues.put("data1", aqB());
+        contentValues.put("data9", this.cRv);
         return contentValues;
     }
 
     public ContentValues aqx() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/postal-address_v2");
+        contentValues.put("data2", (Integer) 2);
+        contentValues.put("data1", aqA());
+        contentValues.put("data9", this.cRE);
+        return contentValues;
+    }
+
+    public ContentValues aqy() {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "vnd.android.cursor.item/postal-address_v2");
         contentValues.put("data2", (Integer) 1);
-        contentValues.put("data1", aqy());
+        contentValues.put("data1", aqz());
         contentValues.put("data9", this.cRL);
         return contentValues;
     }
 
-    public String aqy() {
+    public String aqz() {
         StringBuilder sb = new StringBuilder();
         if (!TextUtils.isEmpty(this.cRH)) {
             sb.append(this.cRH);
@@ -235,7 +235,7 @@ public class a {
         return sb.toString();
     }
 
-    public String aqz() {
+    public String aqA() {
         StringBuilder sb = new StringBuilder();
         if (!TextUtils.isEmpty(this.cRA)) {
             sb.append(this.cRA);
@@ -255,7 +255,7 @@ public class a {
         return sb.toString();
     }
 
-    public String aqA() {
+    public String aqB() {
         StringBuilder sb = new StringBuilder();
         if (!TextUtils.isEmpty(this.cRr)) {
             sb.append(this.cRr);

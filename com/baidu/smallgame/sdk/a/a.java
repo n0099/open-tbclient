@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 import com.baidu.smallgame.sdk.Log;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static int cCO = 1;
     private static int cCP = 2;

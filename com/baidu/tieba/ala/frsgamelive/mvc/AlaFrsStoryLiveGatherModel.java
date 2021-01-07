@@ -162,13 +162,13 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
         for (int i = 0; i < size; i += 2) {
             com.baidu.tieba.ala.gamelist.b.a aVar = new com.baidu.tieba.ala.gamelist.b.a();
             aVar.gZa = list.get(i);
-            if (aVar.gZa.brq() != null) {
-                TiebaStatic.log(new aq("c12549").dX("obj_param1", aVar.gZa.brq().getUserId()));
+            if (aVar.gZa.brr() != null) {
+                TiebaStatic.log(new aq("c12549").dX("obj_param1", aVar.gZa.brr().getUserId()));
             }
             if (i + 1 < size) {
                 aVar.gZb = list.get(i + 1);
-                if (aVar.gZb.brq() != null) {
-                    TiebaStatic.log(new aq("c12549").dX("obj_param1", aVar.gZb.brq().getUserId()));
+                if (aVar.gZb.brr() != null) {
+                    TiebaStatic.log(new aq("c12549").dX("obj_param1", aVar.gZb.brr().getUserId()));
                 }
             }
             linkedList.add(aVar);
@@ -187,7 +187,7 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
         sendMessage(alaFrsStoryLiveGatherRequestMessage);
     }
 
-    public boolean bVK() {
+    public boolean bVL() {
         if (!this.hasMore) {
             return false;
         }
@@ -232,11 +232,11 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
         return this.mDatas;
     }
 
-    public boolean bYx() {
+    public boolean bYy() {
         return this.gXP;
     }
 
-    public List<bz> bVD() {
+    public List<bz> bVE() {
         return this.gJb;
     }
 

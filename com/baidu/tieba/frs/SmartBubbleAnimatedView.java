@@ -29,7 +29,7 @@ public class SmartBubbleAnimatedView extends View {
 
     /* loaded from: classes.dex */
     public interface a {
-        void bxW();
+        void bxX();
     }
 
     public void setExtrusionRemind(boolean z) {
@@ -76,7 +76,7 @@ public class SmartBubbleAnimatedView extends View {
         a(attributeSet, i);
     }
 
-    public void cHt() {
+    public void cHu() {
         this.dzn = ValueAnimator.ofFloat(0.0f, 1.1f);
         if (this.jkm) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
@@ -110,15 +110,15 @@ public class SmartBubbleAnimatedView extends View {
         com.baidu.adp.lib.f.e.mB().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.SmartBubbleAnimatedView.2
             @Override // java.lang.Runnable
             public void run() {
-                SmartBubbleAnimatedView.this.cHu();
+                SmartBubbleAnimatedView.this.cHv();
             }
         }, this.jki);
     }
 
-    public void cHu() {
+    public void cHv() {
         if (this.jkm) {
             if (this.jkk != null) {
-                this.jkk.bxW();
+                this.jkk.bxX();
                 return;
             }
             return;
@@ -142,14 +142,14 @@ public class SmartBubbleAnimatedView extends View {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (SmartBubbleAnimatedView.this.jkk != null) {
-                    SmartBubbleAnimatedView.this.jkk.bxW();
+                    SmartBubbleAnimatedView.this.jkk.bxX();
                 }
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 if (SmartBubbleAnimatedView.this.jkk != null) {
-                    SmartBubbleAnimatedView.this.jkk.bxW();
+                    SmartBubbleAnimatedView.this.jkk.bxX();
                 }
             }
 

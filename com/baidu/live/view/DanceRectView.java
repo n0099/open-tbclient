@@ -29,12 +29,12 @@ public class DanceRectView extends View {
 
     public void startAnim() {
         if (this.bUs != null && this.mValueAnimator != null) {
-            ZI();
+            ZJ();
             this.mValueAnimator.start();
         }
     }
 
-    public void ZF() {
+    public void ZG() {
         if (this.mValueAnimator != null) {
             this.mValueAnimator.cancel();
         }
@@ -66,9 +66,9 @@ public class DanceRectView extends View {
     private void init(AttributeSet attributeSet) {
         initAttrs(attributeSet);
         sa();
-        ZG();
         ZH();
-        ZJ();
+        ZI();
+        ZK();
     }
 
     private void initAttrs(AttributeSet attributeSet) {
@@ -84,23 +84,23 @@ public class DanceRectView extends View {
         this.mPaint.setColor(this.mColor);
     }
 
-    private void ZG() {
+    private void ZH() {
         this.bUr = new RectF[4];
         for (int i = 0; i < 4; i++) {
             this.bUr[i] = new RectF();
         }
     }
 
-    private void ZH() {
+    private void ZI() {
         this.bUs = new a[4];
         for (int i = 0; i < 4; i++) {
             this.bUs[i] = new a();
             this.bUs[i].bUv = 0.25f;
         }
-        ZI();
+        ZJ();
     }
 
-    private void ZI() {
+    private void ZJ() {
         int i = 0;
         while (i < 4) {
             this.bUs[i].up = i != 0;
@@ -112,7 +112,7 @@ public class DanceRectView extends View {
         }
     }
 
-    private void ZJ() {
+    private void ZK() {
         this.mValueAnimator = ValueAnimator.ofFloat(0.0f, 0.25f);
         this.mValueAnimator.setDuration(150L);
         this.mValueAnimator.setInterpolator(new LinearInterpolator());
@@ -122,7 +122,7 @@ public class DanceRectView extends View {
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
                 for (a aVar : DanceRectView.this.bUs) {
-                    aVar.ZK();
+                    aVar.ZL();
                 }
             }
 
@@ -130,7 +130,7 @@ public class DanceRectView extends View {
             public void onAnimationRepeat(Animator animator) {
                 super.onAnimationRepeat(animator);
                 for (a aVar : DanceRectView.this.bUs) {
-                    aVar.ZL();
+                    aVar.ZM();
                 }
                 DanceRectView.this.invalidate();
             }
@@ -158,7 +158,7 @@ public class DanceRectView extends View {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void ZK() {
+        public void ZL() {
             if (this.bUx <= 0.0f) {
                 this.bUx = 0.0f;
                 this.bUw = 0.0f;
@@ -191,14 +191,14 @@ public class DanceRectView extends View {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void ZL() {
+        public void ZM() {
             if (this.up) {
                 this.bUx = this.bUw - this.bUv;
             } else {
                 this.bUx = this.bUw + this.bUv;
             }
             this.bUw = this.bUx;
-            ZK();
+            ZL();
         }
     }
 }

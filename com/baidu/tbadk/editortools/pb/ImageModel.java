@@ -18,7 +18,7 @@ public class ImageModel extends BdBaseModel {
         this.filename = null;
     }
 
-    public boolean DP(String str) {
+    public boolean DO(String str) {
         this.filename = str;
         return LoadData();
     }

@@ -31,10 +31,10 @@ public class b {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.d.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.gSy.Xs().length() > 20) {
+            if (b.this.gSy.Xt().length() > 20) {
                 BdUtilHelper.showToast(b.this.mTbPageContext.getPageActivity(), a.h.txt_describe_feedback_reason_text_max_limit);
             } else if (b.this.mUserId > 0) {
-                b.this.gSz.aG(String.valueOf(b.this.mUserId), b.this.gSy.Xs());
+                b.this.gSz.aG(String.valueOf(b.this.mUserId), b.this.gSy.Xt());
             }
         }
     };

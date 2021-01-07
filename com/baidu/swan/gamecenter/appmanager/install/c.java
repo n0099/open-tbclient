@@ -27,11 +27,11 @@ public class c {
         if (this.eel != null) {
             this.eel.a(bVar);
         }
-        if (bVar != null && !bVar.aXh()) {
+        if (bVar != null && !bVar.aXi()) {
             com.baidu.swan.gamecenter.appmanager.d.c.a(this.eei.getKeyByUser(), "installApp", com.baidu.pass.biometrics.face.liveness.c.a.p, String.valueOf(bVar.getStatus()), new com.baidu.swan.gamecenter.appmanager.d.a(this.eej));
         }
         if (this.eek != null) {
-            com.baidu.swan.gamecenter.appmanager.a.aWG().e(this.eei.getKeyByUser(), this.eek);
+            com.baidu.swan.gamecenter.appmanager.a.aWH().e(this.eei.getKeyByUser(), this.eek);
             this.eek = null;
         }
     }
@@ -51,9 +51,9 @@ public class c {
 
         @Override // java.lang.Runnable
         public void run() {
-            com.baidu.swan.gamecenter.appmanager.a.aWG().cp(this.edN);
+            com.baidu.swan.gamecenter.appmanager.a.aWH().cp(this.edN);
             com.baidu.swan.gamecenter.appmanager.d.c.a(this.eei.getKeyByUser(), "installApp", null, null, new com.baidu.swan.gamecenter.appmanager.d.a(this.edN));
-            com.baidu.swan.gamecenter.appmanager.a.aWG().a(this.eei.getUrl(), this.eeg);
+            com.baidu.swan.gamecenter.appmanager.a.aWH().a(this.eei.getUrl(), this.eeg);
         }
     }
 
@@ -96,8 +96,8 @@ public class c {
 
         @Override // java.lang.Runnable
         public void run() {
-            com.baidu.swan.gamecenter.appmanager.a.aWG().wu(this.mFilePath);
-            com.baidu.swan.gamecenter.appmanager.a.aWG().aWK();
+            com.baidu.swan.gamecenter.appmanager.a.aWH().wu(this.mFilePath);
+            com.baidu.swan.gamecenter.appmanager.a.aWH().aWL();
         }
     }
 }

@@ -187,13 +187,13 @@ public class SignItemView extends FrameLayout {
             } else {
                 this.fXB = this.fXz;
             }
-            SvgManager.bwq().a(this.iconView, this.fXB, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bwr().a(this.iconView, this.fXB, SvgManager.SvgResourceStateType.NORMAL);
             ao.setViewTextColor(this.textView, R.color.CAM_X0109);
             this.textView.setText(activeCenterStatusData.day + "天");
         }
 
         public void onChangeSkinType() {
-            SvgManager.bwq().a(this.iconView, this.fXB, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bwr().a(this.iconView, this.fXB, SvgManager.SvgResourceStateType.NORMAL);
             ao.setViewTextColor(this.textView, R.color.CAM_X0109);
             this.fXC.onChangeSkinType();
         }

@@ -34,7 +34,7 @@ public class r extends k<s, FrsNoListItemViewHolder> {
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, s sVar, FrsNoListItemViewHolder frsNoListItemViewHolder) {
         super.a(i, view, viewGroup, (ViewGroup) sVar, (s) frsNoListItemViewHolder);
-        if (sVar.cGP() == 6) {
+        if (sVar.cGQ() == 6) {
             frsNoListItemViewHolder.jiJ.setText(R.string.attention_no_post_tip);
         } else {
             frsNoListItemViewHolder.jiJ.setText(R.string.no_data_common_txt);

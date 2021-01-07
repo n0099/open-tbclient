@@ -40,42 +40,42 @@ import org.json.JSONObject;
 public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmentWeightLayout {
     public static String URL = "https://afd.baidu.com/afd/updateTiebaAdExt";
     public static int fYY;
+    private final int mTI;
     private final int mTJ;
     private final int mTK;
     private final int mTL;
     private final int mTM;
-    private final int mTN;
+    private int mTN;
     private int mTO;
-    private int mTP;
-    private a mTQ;
+    private a mTP;
     private int style;
     private int type;
 
     public AdThreadCommentAndPraiseInfoLayout(Context context) {
         super(context);
-        this.mTJ = 446;
+        this.mTI = 446;
+        this.mTJ = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
         this.mTK = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
         this.mTL = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
         this.mTM = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
-        this.mTN = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
         this.style = 1;
         this.type = 0;
-        this.mTO = R.drawable.selector_comment_and_prise_item_text_color;
-        this.mTP = this.mTO;
+        this.mTN = R.drawable.selector_comment_and_prise_item_text_color;
+        this.mTO = this.mTN;
         initSetting();
     }
 
     public AdThreadCommentAndPraiseInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mTJ = 446;
+        this.mTI = 446;
+        this.mTJ = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
         this.mTK = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
         this.mTL = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
         this.mTM = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
-        this.mTN = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
         this.style = 1;
         this.type = 0;
-        this.mTO = R.drawable.selector_comment_and_prise_item_text_color;
-        this.mTP = this.mTO;
+        this.mTN = R.drawable.selector_comment_and_prise_item_text_color;
+        this.mTO = this.mTN;
         initSetting();
     }
 
@@ -84,7 +84,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         setManageVisible(false);
         setSelectVisible(false);
         setShowFlag(11);
-        dGi();
+        dGj();
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
@@ -94,12 +94,12 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
             if (this.fmo.getLayoutParams() instanceof LinearLayout.LayoutParams) {
                 ((LinearLayout.LayoutParams) this.fmo.getLayoutParams()).weight = 1.0f;
             }
-            AgreeData btk = bzVar.btk();
-            if (btk != null && btk.agreeNum == 0 && btk.diffAgreeNum == 0) {
-                btk.agreeNum = bzVar.bsR();
-                btk.hasAgree = bzVar.bsT() == 1;
-                btk.agreeType = bzVar.bsU();
-                btk.diffAgreeNum = bzVar.bsR() - bzVar.bsS();
+            AgreeData btl = bzVar.btl();
+            if (btl != null && btl.agreeNum == 0 && btl.diffAgreeNum == 0) {
+                btl.agreeNum = bzVar.bsS();
+                btl.hasAgree = bzVar.bsU() == 1;
+                btl.agreeType = bzVar.bsV();
+                btl.diffAgreeNum = bzVar.bsS() - bzVar.bsT();
             }
         }
         super.updatePraiseNum(bzVar);
@@ -115,7 +115,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     public void D(bz bzVar) {
         super.D(bzVar);
         if (this.style == 1) {
-            this.akv.setText(at.cutChineseAndEnglishWithSuffix(bzVar.bru(), 12, ""));
+            this.akv.setText(at.cutChineseAndEnglishWithSuffix(bzVar.brv(), 12, ""));
         }
     }
 
@@ -124,7 +124,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         this.fms.setClickable(false);
     }
 
-    private void dGi() {
+    private void dGj() {
         if (this.fmo != null) {
             View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdThreadCommentAndPraiseInfoLayout.1
                 @Override // android.view.View.OnClickListener
@@ -206,28 +206,28 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     /* JADX INFO: Access modifiers changed from: private */
     public void Js(int i) {
         if (i == 1) {
-            a(this.mTQ.getThreadData(), "nozan", 0);
-            a(this.mTQ.getThreadData(), "1", "2");
+            a(this.mTP.getThreadData(), "nozan", 0);
+            a(this.mTP.getThreadData(), "1", "2");
             return;
         }
-        a(this.mTQ.getThreadData(), FeedData.TYPE_ZAN, 0);
-        a(this.mTQ.getThreadData(), "1", "1");
+        a(this.mTP.getThreadData(), FeedData.TYPE_ZAN, 0);
+        a(this.mTP.getThreadData(), "1", "1");
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     protected void bD(View view) {
-        if (this.aim != null && this.mContext != null && this.mTQ != null) {
-            a(this.mTQ.getThreadData(), TbConfig.TMP_SHARE_DIR_NAME, 0);
-            a(this.mTQ.getThreadData(), "2", "1");
+        if (this.aim != null && this.mContext != null && this.mTP != null) {
+            a(this.mTP.getThreadData(), TbConfig.TMP_SHARE_DIR_NAME, 0);
+            a(this.mTP.getThreadData(), "2", "1");
             if (ShareSwitch.isOn() || bg.checkUpIsLogin(this.mContext)) {
                 final ShareItem shareItem = new ShareItem();
-                shareItem.title = this.mTQ.getTitle();
-                shareItem.content = this.mTQ.getAbstract();
-                shareItem.fxm = this.mTQ.getTitle();
-                shareItem.linkUrl = this.mTQ.getShareLink();
+                shareItem.title = this.mTP.getTitle();
+                shareItem.content = this.mTP.getAbstract();
+                shareItem.fxm = this.mTP.getTitle();
+                shareItem.linkUrl = this.mTP.getShareLink();
                 shareItem.fxp = 3;
                 shareItem.fxb = true;
-                String imageUrl = this.mTQ.getImageUrl();
+                String imageUrl = this.mTP.getImageUrl();
                 Uri parse = imageUrl == null ? null : Uri.parse(imageUrl);
                 if (parse != null) {
                     shareItem.imageUri = parse;
@@ -242,7 +242,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                         l.showToast(AdThreadCommentAndPraiseInfoLayout.this.mContext, view2.getResources().getString(R.string.copy_pb_url_success));
                     }
                 });
-                shareDialogConfig.setHideMode(Sg(shareItem.linkUrl));
+                shareDialogConfig.setHideMode(Sf(shareItem.linkUrl));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
             }
         }
@@ -253,14 +253,14 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     }
 
     public void setShareData(a aVar) {
-        this.mTQ = aVar;
-        setData(this.mTQ.getThreadData());
+        this.mTP = aVar;
+        setData(this.mTP.getThreadData());
     }
 
     private void a(AdvertAppInfo advertAppInfo, String str, int i) {
         c b2 = h.b(advertAppInfo, 8, i);
-        b2.Sf(str);
-        e.dFV().a(b2);
+        b2.Se(str);
+        e.dFW().a(b2);
     }
 
     private void a(AdvertAppInfo advertAppInfo, final String str, final String str2) {
@@ -300,7 +300,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         return this.fms;
     }
 
-    private int Sg(String str) {
+    private int Sf(String str) {
         int i = 0;
         if (TextUtils.isEmpty(str)) {
             return 0;
@@ -329,8 +329,8 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         super.onChangeSkinType();
         this.fmr.setClickable(false);
         this.fmr.setEnabled(false);
-        ao.setViewTextColor(this.fmq, this.mTO);
-        ao.setViewTextColor(this.fmt, this.mTP);
+        ao.setViewTextColor(this.fmq, this.mTN);
+        ao.setViewTextColor(this.fmt, this.mTO);
     }
 
     public void setDisPraiseViewVisibility(boolean z) {
@@ -338,9 +338,9 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     public void setReplayContainerBgGray(boolean z) {
         if (z) {
-            this.mTO = R.color.CAM_X0110;
+            this.mTN = R.color.CAM_X0110;
         } else {
-            this.mTO = R.drawable.selector_comment_and_prise_item_text_color;
+            this.mTN = R.drawable.selector_comment_and_prise_item_text_color;
         }
     }
 
@@ -349,9 +349,9 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     public void setShareContainerBgGray(boolean z) {
         if (z) {
-            this.mTP = R.color.CAM_X0110;
+            this.mTO = R.color.CAM_X0110;
         } else {
-            this.mTP = R.drawable.selector_comment_and_prise_item_text_color;
+            this.mTO = R.drawable.selector_comment_and_prise_item_text_color;
         }
     }
 
@@ -361,8 +361,8 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentWeightLayout, com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void alF() {
-        super.alF();
+    public void alG() {
+        super.alG();
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams instanceof RelativeLayout.LayoutParams) {
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;

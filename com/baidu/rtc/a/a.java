@@ -224,7 +224,7 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.cAA != null && (a.this.czO || a.this.czN)) {
-                a.this.aiz();
+                a.this.aiA();
             }
             a.this.mHandler.postDelayed(a.this.cAy, 300000L);
         }
@@ -333,7 +333,7 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
         audioManager.setSpeakerphoneOn(false);
         if (this.czO || this.czN) {
             this.czC = new com.baidu.rtc.b.a(context);
-            this.cAA = d.aiO();
+            this.cAA = d.aiP();
         }
         this.czt = 0;
         this.czx = false;
@@ -447,152 +447,8 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
         }
     }
 
-    private boolean aiA() {
-        Camera2Enumerator.disableExtraCamera(this.czZ.cyj);
-        return Camera2Enumerator.isSupported(this.mContext.get());
-    }
-
-    private boolean aiu() {
-        return !Build.MODEL.contains("SABRESD-MX6DQ");
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public VideoCapturer aiv() {
-        VideoCapturer a2;
-        if (this.cxb != null) {
-            return this.cxb;
-        }
-        if (aiA()) {
-            Log.d("BaiduRtcRoomImp", "Creating capturer using camera2 API.");
-            a2 = a(new Camera2Enumerator(this.mContext.get()));
-        } else {
-            Log.d("BaiduRtcRoomImp", "Creating capturer using camera1 API.");
-            a2 = a(new Camera1Enumerator(aiu()));
-        }
-        if (a2 == null) {
-            Log.e("BaiduRtcRoomImp", "Failed to open camera");
-            return null;
-        }
-        return a2;
-    }
-
-    private void aiw() {
-        if (this.cAp.isEmpty()) {
-            return;
-        }
-        for (Long l : this.cAp.keySet()) {
-            j jVar = this.cAp.get(l);
-            if (jVar != null) {
-                if (jVar.getSurface() != null) {
-                    jVar.releaseSurface();
-                }
-                jVar.release();
-            }
-            this.cAp.remove(l);
-        }
-    }
-
-    private void aix() {
-        synchronized (this) {
-            if (this.cAa.isEmpty()) {
-                return;
-            }
-            for (j jVar : this.cAa.values()) {
-                if (jVar != null) {
-                    if (jVar.getSurface() != null) {
-                        jVar.releaseSurface();
-                    }
-                    jVar.release();
-                }
-            }
-            this.cAa.clear();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aiy() {
-        com.baidu.rtc.b.b bVar;
-        if (this.cAt == null) {
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        boolean z = true;
-        com.baidu.rtc.b.b bVar2 = this.czF.get(this.cAb);
-        if (bVar2 == null) {
-            z = false;
-        } else {
-            bVar2.v(hashMap);
-        }
-        boolean z2 = hashMap.size() != 0 ? z : false;
-        JSONObject jSONObject = new JSONObject();
-        try {
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("duration", 2);
-            JSONObject jSONObject3 = new JSONObject();
-            if (this.czC != null) {
-                jSONObject3.put("sysCpuUsage", this.czC.aiI());
-            }
-            jSONObject3.put("appCpuUsage", 0);
-            jSONObject2.put("resourceUsageInfo", jSONObject3);
-            if (this.czO) {
-                JSONObject jSONObject4 = new JSONObject();
-                if (z2) {
-                    jSONObject4.put(KsMediaMeta.KSM_KEY_BITRATE, hashMap.get("bitrate_s"));
-                    jSONObject4.put("packetloss", hashMap.get("packetloss_s"));
-                    jSONObject4.put("cfps", hashMap.get("fps_s"));
-                    jSONObject4.put(AlaRecorderLog.KEY_CANERA_START_FPS, hashMap.get("fps_i"));
-                    if (bVar2 == null) {
-                        jSONObject4.put("resolution", "");
-                    } else {
-                        jSONObject4.put("resolution", bVar2.aiM());
-                    }
-                } else {
-                    jSONObject4.put(KsMediaMeta.KSM_KEY_BITRATE, 0);
-                    jSONObject4.put("packetloss", 0);
-                    jSONObject4.put(AlaRecorderLog.KEY_CANERA_START_FPS, 0);
-                    jSONObject4.put("resolution", "");
-                }
-                jSONObject2.put("senderQualityInfo", jSONObject4);
-            }
-            if (this.czN) {
-                JSONArray jSONArray = new JSONArray();
-                for (BigInteger bigInteger : this.czF.keySet()) {
-                    if (bigInteger != this.cAb && (bVar = this.czF.get(bigInteger)) != null) {
-                        HashMap hashMap2 = new HashMap();
-                        bVar.u(hashMap2);
-                        if (hashMap2.size() != 0) {
-                            JSONObject jSONObject5 = new JSONObject();
-                            if (this.cAt != null) {
-                                jSONObject5.put("feedId", this.cAt.k(bigInteger));
-                            }
-                            jSONObject5.put(KsMediaMeta.KSM_KEY_BITRATE, hashMap2.get("bitrate_r"));
-                            jSONObject5.put("packetloss", hashMap2.get("packetloss_r"));
-                            jSONObject5.put(AlaRecorderLog.KEY_CANERA_START_FPS, hashMap2.get("fps_r"));
-                            jSONObject5.put("resolution", bVar.aiL());
-                            jSONArray.put(jSONObject5);
-                        }
-                    }
-                }
-                jSONObject2.put("receiverQualityInfoList", jSONArray);
-            }
-            JSONObject jSONObject6 = new JSONObject();
-            jSONObject6.put("communicationQualityInfo", jSONObject2);
-            jSONObject.put("env", this.cAc);
-            jSONObject.put("appId", this.mAppId);
-            if (this.cAt != null) {
-                jSONObject.put("roomId", this.cAt.getRoomId());
-            }
-            jSONObject.put("timestamp", System.currentTimeMillis());
-            jSONObject.put(TbEnum.SystemMessage.KEY_USER_ID, this.mUserId);
-            jSONObject.put("message", jSONObject6);
-        } catch (JSONException e) {
-            Log.e("BaiduRtcRoomImp", "Caught error on reportCommunicationQualityInfo: " + e);
-        }
-        this.cAA.report(jSONObject.toString(), 2);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aiz() {
+    public void aiA() {
         if (this.cAt == null) {
             return;
         }
@@ -616,6 +472,150 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
             Log.e("BaiduRtcRoomImp", "Caught error on reportDeviceInfo: " + e);
         }
         this.cAA.report(jSONObject.toString(), 0);
+    }
+
+    private boolean aiB() {
+        Camera2Enumerator.disableExtraCamera(this.czZ.cyj);
+        return Camera2Enumerator.isSupported(this.mContext.get());
+    }
+
+    private boolean aiv() {
+        return !Build.MODEL.contains("SABRESD-MX6DQ");
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public VideoCapturer aiw() {
+        VideoCapturer a2;
+        if (this.cxb != null) {
+            return this.cxb;
+        }
+        if (aiB()) {
+            Log.d("BaiduRtcRoomImp", "Creating capturer using camera2 API.");
+            a2 = a(new Camera2Enumerator(this.mContext.get()));
+        } else {
+            Log.d("BaiduRtcRoomImp", "Creating capturer using camera1 API.");
+            a2 = a(new Camera1Enumerator(aiv()));
+        }
+        if (a2 == null) {
+            Log.e("BaiduRtcRoomImp", "Failed to open camera");
+            return null;
+        }
+        return a2;
+    }
+
+    private void aix() {
+        if (this.cAp.isEmpty()) {
+            return;
+        }
+        for (Long l : this.cAp.keySet()) {
+            j jVar = this.cAp.get(l);
+            if (jVar != null) {
+                if (jVar.getSurface() != null) {
+                    jVar.releaseSurface();
+                }
+                jVar.release();
+            }
+            this.cAp.remove(l);
+        }
+    }
+
+    private void aiy() {
+        synchronized (this) {
+            if (this.cAa.isEmpty()) {
+                return;
+            }
+            for (j jVar : this.cAa.values()) {
+                if (jVar != null) {
+                    if (jVar.getSurface() != null) {
+                        jVar.releaseSurface();
+                    }
+                    jVar.release();
+                }
+            }
+            this.cAa.clear();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aiz() {
+        com.baidu.rtc.b.b bVar;
+        if (this.cAt == null) {
+            return;
+        }
+        HashMap hashMap = new HashMap();
+        boolean z = true;
+        com.baidu.rtc.b.b bVar2 = this.czF.get(this.cAb);
+        if (bVar2 == null) {
+            z = false;
+        } else {
+            bVar2.v(hashMap);
+        }
+        boolean z2 = hashMap.size() != 0 ? z : false;
+        JSONObject jSONObject = new JSONObject();
+        try {
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("duration", 2);
+            JSONObject jSONObject3 = new JSONObject();
+            if (this.czC != null) {
+                jSONObject3.put("sysCpuUsage", this.czC.aiJ());
+            }
+            jSONObject3.put("appCpuUsage", 0);
+            jSONObject2.put("resourceUsageInfo", jSONObject3);
+            if (this.czO) {
+                JSONObject jSONObject4 = new JSONObject();
+                if (z2) {
+                    jSONObject4.put(KsMediaMeta.KSM_KEY_BITRATE, hashMap.get("bitrate_s"));
+                    jSONObject4.put("packetloss", hashMap.get("packetloss_s"));
+                    jSONObject4.put("cfps", hashMap.get("fps_s"));
+                    jSONObject4.put(AlaRecorderLog.KEY_CANERA_START_FPS, hashMap.get("fps_i"));
+                    if (bVar2 == null) {
+                        jSONObject4.put("resolution", "");
+                    } else {
+                        jSONObject4.put("resolution", bVar2.aiN());
+                    }
+                } else {
+                    jSONObject4.put(KsMediaMeta.KSM_KEY_BITRATE, 0);
+                    jSONObject4.put("packetloss", 0);
+                    jSONObject4.put(AlaRecorderLog.KEY_CANERA_START_FPS, 0);
+                    jSONObject4.put("resolution", "");
+                }
+                jSONObject2.put("senderQualityInfo", jSONObject4);
+            }
+            if (this.czN) {
+                JSONArray jSONArray = new JSONArray();
+                for (BigInteger bigInteger : this.czF.keySet()) {
+                    if (bigInteger != this.cAb && (bVar = this.czF.get(bigInteger)) != null) {
+                        HashMap hashMap2 = new HashMap();
+                        bVar.u(hashMap2);
+                        if (hashMap2.size() != 0) {
+                            JSONObject jSONObject5 = new JSONObject();
+                            if (this.cAt != null) {
+                                jSONObject5.put("feedId", this.cAt.k(bigInteger));
+                            }
+                            jSONObject5.put(KsMediaMeta.KSM_KEY_BITRATE, hashMap2.get("bitrate_r"));
+                            jSONObject5.put("packetloss", hashMap2.get("packetloss_r"));
+                            jSONObject5.put(AlaRecorderLog.KEY_CANERA_START_FPS, hashMap2.get("fps_r"));
+                            jSONObject5.put("resolution", bVar.aiM());
+                            jSONArray.put(jSONObject5);
+                        }
+                    }
+                }
+                jSONObject2.put("receiverQualityInfoList", jSONArray);
+            }
+            JSONObject jSONObject6 = new JSONObject();
+            jSONObject6.put("communicationQualityInfo", jSONObject2);
+            jSONObject.put("env", this.cAc);
+            jSONObject.put("appId", this.mAppId);
+            if (this.cAt != null) {
+                jSONObject.put("roomId", this.cAt.getRoomId());
+            }
+            jSONObject.put("timestamp", System.currentTimeMillis());
+            jSONObject.put(TbEnum.SystemMessage.KEY_USER_ID, this.mUserId);
+            jSONObject.put("message", jSONObject6);
+        } catch (JSONException e) {
+            Log.e("BaiduRtcRoomImp", "Caught error on reportCommunicationQualityInfo: " + e);
+        }
+        this.cAA.report(jSONObject.toString(), 2);
     }
 
     private void bO(long j) {
@@ -707,7 +707,7 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
             @Override // java.lang.Runnable
             public void run() {
                 if (a.this.czZ.HasVideo) {
-                    a.this.cxb = a.this.aiv();
+                    a.this.cxb = a.this.aiw();
                 }
                 if (a.this.cAx == null) {
                     Log.e("BaiduRtcRoomImp", "peerConnectionClient is null!");
@@ -1005,7 +1005,7 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
                     if (bigInteger != a.this.cAb || a.this.cAA == null) {
                         return;
                     }
-                    a.this.aiy();
+                    a.this.aiz();
                 }
             }
         });
@@ -1034,7 +1034,7 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
-    public BaiduRtcRoom.c[] ahY() {
+    public BaiduRtcRoom.c[] ahZ() {
         int i = 0;
         int i2 = 0;
         for (BigInteger bigInteger : this.cAh.keySet()) {
@@ -1061,15 +1061,15 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
-    public BaiduRtcRoom.d[] ahZ() {
+    public BaiduRtcRoom.d[] aia() {
         if (this.cAt == null) {
             return null;
         }
-        return this.cAt.ait();
+        return this.cAt.aiu();
     }
 
     @Override // com.baidu.rtc.c
-    public void aia() {
+    public void aib() {
         if (this.czA == null) {
             return;
         }
@@ -1078,7 +1078,7 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
     }
 
     @Override // com.baidu.rtc.c
-    public void aib() {
+    public void aic() {
         if (this.czA == null) {
             return;
         }
@@ -1087,7 +1087,7 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
     }
 
     @Override // com.baidu.rtc.c
-    public void aic() {
+    public void aid() {
         if (this.czA == null) {
             return;
         }
@@ -1095,15 +1095,11 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
     }
 
     @Override // com.baidu.rtc.c
-    public void aid() {
+    public void aie() {
         if (this.czA == null) {
             return;
         }
         this.czA.onRoomEventUpdate(112, 0L, "");
-    }
-
-    @Override // com.baidu.rtc.PeerConnectionClient.b
-    public void aik() {
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.b
@@ -1112,13 +1108,17 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
 
     @Override // com.baidu.rtc.PeerConnectionClient.b
     public void aim() {
+    }
+
+    @Override // com.baidu.rtc.PeerConnectionClient.b
+    public void ain() {
         if (this.czA != null) {
             this.czA.onPeerConnectStateUpdate(2003);
         }
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.b
-    public void ain() {
+    public void aio() {
     }
 
     @Override // com.baidu.rtc.c
@@ -1385,7 +1385,7 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
         if (this.cAp.containsKey(Long.valueOf(j)) && (jVar = this.cAp.get(Long.valueOf(j))) != null && surface == jVar.getSurface()) {
             jVar.releaseSurface();
         }
-        aix();
+        aiy();
     }
 
     @Override // com.baidu.rtc.BaiduRtcRoom
@@ -1462,7 +1462,7 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
             this.czC = new com.baidu.rtc.b.a(this.cAm);
         }
         if (this.cAA == null) {
-            this.cAA = d.aiO();
+            this.cAA = d.aiP();
         }
     }
 
@@ -1605,7 +1605,7 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
                 this.czv = true;
             }
             this.cwS = new PeerConnectionClient.c(false, i, i6, this.czZ.VideoFps, this.czZ.VideoCodec.toUpperCase(), true, 0, "opus", false, false, this.czZ.cyi, this.czu.booleanValue(), this.czv.booleanValue(), this.czZ.VideoMaxkbps, this.czZ.VideoMinkbps, this.czZ.cyp, this.czZ.cyh, true, this.czZ.cyk, this.czZ.cyn, this.czZ.cyl, this.czZ.cyg, this.czZ.cxu, this.czZ.cyq, this.czZ.cyo, this.czZ.cym);
-            this.cAx = PeerConnectionClient.aih();
+            this.cAx = PeerConnectionClient.aii();
             if (this.czD) {
                 if (this.czz == null) {
                     this.czz = new com.baidu.cloudbase.a.a();
@@ -1653,7 +1653,7 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
         if (this.cAx != null) {
             this.cAx.es(false);
             this.cAx.ey(false);
-            this.cAx.aij();
+            this.cAx.aik();
             this.cAt.Cw();
             this.cAt.finalize();
             this.cAx.close();
@@ -1679,8 +1679,8 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
                     }
                 }
             }
-            aiw();
             aix();
+            aiy();
             if (this.cAz != null) {
                 this.cAz.release();
             }
@@ -1729,7 +1729,7 @@ public class a extends BaiduRtcRoom implements PeerConnectionClient.b, c {
     public void setExternalSurface(long j, Surface surface) {
         j bP = bP(j);
         if (bP != null) {
-            if (!bP.aio()) {
+            if (!bP.aip()) {
                 bP.init();
                 bP.ez(true);
             }

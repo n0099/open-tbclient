@@ -10,30 +10,30 @@ import kotlin.text.l;
 @kotlin.e
 /* loaded from: classes6.dex */
 public final class b {
-    private final String pSr;
-    private Path pSs;
+    private final String pTZ;
+    private Path pUa;
 
     public b(String str) {
         p.o(str, "originValue");
-        this.pSr = l.a((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? l.a(str, ",", " ", false, 4, (Object) null) : str;
+        this.pTZ = l.a((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? l.a(str, ",", " ", false, 4, (Object) null) : str;
     }
 
     public final void a(Path path) {
         Set set;
         p.o(path, "toPath");
-        Path path2 = this.pSs;
+        Path path2 = this.pUa;
         if (path2 != null) {
             path.set(path2);
             return;
         }
         Path path3 = new Path();
-        StringTokenizer stringTokenizer = new StringTokenizer(this.pSr, "MLHVCSQRAZmlhvcsqraz", true);
+        StringTokenizer stringTokenizer = new StringTokenizer(this.pTZ, "MLHVCSQRAZmlhvcsqraz", true);
         String str = "";
         while (stringTokenizer.hasMoreTokens()) {
             String nextToken = stringTokenizer.nextToken();
             p.n(nextToken, "segment");
             if (!(nextToken.length() == 0)) {
-                set = c.pSt;
+                set = c.pUb;
                 if (set.contains(nextToken)) {
                     if (p.l(nextToken, "Z") || p.l(nextToken, MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z)) {
                         a(path3, nextToken, new StringTokenizer("", ""));
@@ -45,7 +45,7 @@ public final class b {
                 str = nextToken;
             }
         }
-        this.pSs = path3;
+        this.pUa = path3;
         path.set(path3);
     }
 

@@ -28,7 +28,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
             this.huq.getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.f.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.huq.cfr();
+                    a.this.huq.cfs();
                 }
             });
             this.huq.show();
@@ -45,7 +45,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
 
     public void dU(int i) {
         if (this.huq != null && this.hur) {
-            this.huq.cfu();
+            this.huq.cfv();
             if (i == 1) {
                 this.huq.show();
             } else if (i == 2) {
@@ -57,7 +57,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     @Override // com.baidu.tieba.ala.liveroom.a
     public void DC() {
         if (this.huq != null) {
-            this.huq.cft();
+            this.huq.cfu();
         }
     }
 

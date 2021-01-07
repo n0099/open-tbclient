@@ -67,14 +67,14 @@ public class a {
 
     public void setData(List<n> list, boolean z) {
         if (z) {
-            bUE();
+            bUF();
         } else {
-            bUD();
+            bUE();
         }
         this.jyS.setData(list);
     }
 
-    private void bUD() {
+    private void bUE() {
         if (this.gCf != null) {
             if (this.gCf.getView().getParent() == null) {
                 this.gAY.setNextPage(this.gCf);
@@ -84,7 +84,7 @@ public class a {
         }
     }
 
-    private void bUE() {
+    private void bUF() {
         if (this.gCf != null) {
             if (this.gCf.getView().getParent() == null) {
                 this.gAY.setNextPage(this.gCf);
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    public void bVp() {
+    public void bVq() {
         this.gAY.setNextPage(null);
     }
 
@@ -110,7 +110,7 @@ public class a {
         this.mPullView.setListPullRefreshListener(cVar);
     }
 
-    public void bVE() {
+    public void bVF() {
         if (this.gAY != null && j.isNetWorkAvailable()) {
             this.gAY.startPullRefresh();
         }
@@ -120,11 +120,11 @@ public class a {
         return this.mRootView;
     }
 
-    public FrameLayout cKL() {
+    public FrameLayout cKM() {
         return this.jyT;
     }
 
-    public NavigationBar bYq() {
+    public NavigationBar bYr() {
         return this.mNavigationBar;
     }
 

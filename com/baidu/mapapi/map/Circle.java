@@ -6,14 +6,14 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class Circle extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f2801a;
+    LatLng f2802a;
 
     /* renamed from: b  reason: collision with root package name */
-    int f2802b;
+    int f2803b;
     int c;
     Stroke d;
     boolean e;
@@ -46,7 +46,7 @@ public final class Circle extends Overlay {
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
         super.a(bundle);
-        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2801a);
+        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2802a);
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
         if (this.e) {
@@ -57,8 +57,8 @@ public final class Circle extends Overlay {
         } else {
             bundle.putInt("has_dotted_stroke", 0);
         }
-        bundle.putInt("radius", CoordUtil.getMCDistanceByOneLatLngAndRadius(this.f2801a, this.c));
-        Overlay.a(this.f2802b, bundle);
+        bundle.putInt("radius", CoordUtil.getMCDistanceByOneLatLngAndRadius(this.f2802a, this.c));
+        Overlay.a(this.f2803b, bundle);
         if (this.d == null) {
             bundle.putInt("has_stroke", 0);
         } else {
@@ -78,7 +78,7 @@ public final class Circle extends Overlay {
     }
 
     public LatLng getCenter() {
-        return this.f2801a;
+        return this.f2802a;
     }
 
     public int getDottedStrokeType() {
@@ -86,7 +86,7 @@ public final class Circle extends Overlay {
     }
 
     public int getFillColor() {
-        return this.f2802b;
+        return this.f2803b;
     }
 
     public HoleOptions getHoleOption() {
@@ -113,7 +113,7 @@ public final class Circle extends Overlay {
         if (latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: circle center can not be null");
         }
-        this.f2801a = latLng;
+        this.f2802a = latLng;
         this.listener.b(this);
     }
 
@@ -128,7 +128,7 @@ public final class Circle extends Overlay {
     }
 
     public void setFillColor(int i) {
-        this.f2802b = i;
+        this.f2803b = i;
         this.listener.b(this);
     }
 

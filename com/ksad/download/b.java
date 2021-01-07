@@ -6,18 +6,18 @@ import java.io.File;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f8207a;
+    private static Context f8208a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static File f8208b;
+    private static File f8209b;
     private static a c;
 
     public static Context a() {
-        return f8207a;
+        return f8208a;
     }
 
     public static void a(Context context) {
-        f8207a = context.getApplicationContext();
+        f8208a = context.getApplicationContext();
     }
 
     public static void a(a aVar) {
@@ -25,7 +25,7 @@ public final class b {
     }
 
     public static void a(File file) {
-        f8208b = file;
+        f8209b = file;
     }
 
     public static void a(String str) {
@@ -33,6 +33,6 @@ public final class b {
     }
 
     public static File b() {
-        return f8208b;
+        return f8209b;
     }
 }

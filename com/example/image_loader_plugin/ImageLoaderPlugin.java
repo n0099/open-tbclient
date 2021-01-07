@@ -30,12 +30,12 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     private static int requestId = -1;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public enum ImageLoadingError {
         Invalid,
         Succeed,
@@ -93,9 +93,9 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                                 } else if (methodCall.argument("patternColor") instanceof Long) {
                                     i2 = ((Long) methodCall.argument("patternColor")).intValue();
                                 }
-                                a2 = SvgManager.bwq().b(identifier, i2, SvgManager.SvgResourceStateType.NORMAL);
+                                a2 = SvgManager.bwr().b(identifier, i2, SvgManager.SvgResourceStateType.NORMAL);
                             } else {
-                                a2 = SvgManager.bwq().a(identifier, null);
+                                a2 = SvgManager.bwr().a(identifier, null);
                             }
                         } else if (methodCall.hasArgument("patternColor")) {
                             int i3 = 0;
@@ -228,7 +228,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
     }
 
     private boolean shouldMonitorPerformance(int i) {
-        return k.bHF().isSmallFlow() && i % 100 == 0;
+        return k.bHG().isSmallFlow() && i % 100 == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

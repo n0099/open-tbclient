@@ -1,16 +1,16 @@
 package com.baidu.b.a;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1565a = 5;
+    public static int f1566a = 5;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f1566b = 40;
-    private b aeH = new b(f1566b);
+    public static int f1567b = 40;
+    private b aeH = new b(f1567b);
 
     public f() {
-        this.aeH.a(0, f1566b, true);
+        this.aeH.a(0, f1567b, true);
     }
 
     public void a(b bVar, int i, int i2, int i3) {

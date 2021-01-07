@@ -71,7 +71,7 @@ public class DLauncher extends RelativeLayout implements h {
         }
         if (TextUtils.isEmpty(this.fDu.getText())) {
             if (this.fDs.fEx) {
-                this.fDu.setBackgroundDrawable(SvgManager.bwq().z(i, this.fDs.fEv, this.mSkinType));
+                this.fDu.setBackgroundDrawable(SvgManager.bwr().z(i, this.fDs.fEv, this.mSkinType));
                 return;
             } else {
                 ao.setBackgroundResource(this.fDu, i, this.mSkinType);
@@ -79,7 +79,7 @@ public class DLauncher extends RelativeLayout implements h {
             }
         }
         if (this.fDs.fEx) {
-            drawable = SvgManager.bwq().z(i, this.fDs.fEv, this.mSkinType);
+            drawable = SvgManager.bwr().z(i, this.fDs.fEv, this.mSkinType);
         } else {
             drawable = ao.getDrawable(this.mSkinType, i);
         }
@@ -114,12 +114,12 @@ public class DLauncher extends RelativeLayout implements h {
         }
     }
 
-    public void DF(String str) {
-        DG(str);
+    public void DE(String str) {
+        DF(str);
         this.mTip.setVisibility(0);
     }
 
-    private void DG(String str) {
+    private void DF(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mText = str;
             if (this.mTip == null) {
@@ -141,7 +141,7 @@ public class DLauncher extends RelativeLayout implements h {
         }
     }
 
-    public void bEG() {
+    public void bEH() {
         this.mText = null;
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
@@ -152,9 +152,9 @@ public class DLauncher extends RelativeLayout implements h {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                bEG();
+                bEH();
             } else if (aVar.data instanceof String) {
-                DF((String) aVar.data);
+                DE((String) aVar.data);
             }
         }
     }
@@ -190,7 +190,7 @@ public class DLauncher extends RelativeLayout implements h {
     }
 
     @Override // com.baidu.tbadk.editortools.h
-    public void bEH() {
+    public void bEI() {
     }
 
     public String getText() {

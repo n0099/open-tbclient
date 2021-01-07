@@ -10,7 +10,7 @@ public class d {
     }
 
     public static void a(o oVar, int i, int i2, int i3) {
-        if (oVar != null && oVar.dOR() != null && oVar.dOR().goods != null && oVar.dOR().goods.goods_style != 1001 && oVar.dOR().goods.goods_style != -1001) {
+        if (oVar != null && oVar.dOS() != null && oVar.dOS().goods != null && oVar.dOS().goods.goods_style != 1001 && oVar.dOS().goods.goods_style != -1001) {
             c b2 = h.b(oVar, 5);
             b2.Jm(i);
             if (i2 != -999) {
@@ -19,9 +19,9 @@ public class d {
             if (i3 != -999) {
                 b2.Jo(i3);
             }
-            e.dFV().a(b2);
-            if (oVar != null && oVar.dOR() != null) {
-                oVar.dOR().mDiscardReason = i;
+            e.dFW().a(b2);
+            if (oVar != null && oVar.dOS() != null) {
+                oVar.dOS().mDiscardReason = i;
             }
         }
     }
@@ -39,7 +39,7 @@ public class d {
             if (i4 != -999) {
                 a2.Jo(i4);
             }
-            e.dFV().a(a2);
+            e.dFW().a(a2);
             if (advertAppInfo.eOj != null) {
                 advertAppInfo.eOj.mDiscardReason = 2;
             }

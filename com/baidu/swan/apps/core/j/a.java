@@ -13,13 +13,13 @@ class a extends b {
     private static final String cYP = "swan_preset" + File.separator + "preset_list.json";
 
     @Override // com.baidu.swan.apps.core.j.b
-    protected String auT() {
-        return g.loadAssetsFile(com.baidu.swan.apps.t.a.aAr(), cYP);
+    protected String auU() {
+        return g.loadAssetsFile(com.baidu.swan.apps.t.a.aAs(), cYP);
     }
 
     @Override // com.baidu.swan.apps.core.j.b
     protected String nV(String str) {
-        return g.loadAssetsFile(com.baidu.swan.apps.t.a.aAr(), "swan_preset" + File.separator + str + File.separator + "app_info.json");
+        return g.loadAssetsFile(com.baidu.swan.apps.t.a.aAs(), "swan_preset" + File.separator + str + File.separator + "app_info.json");
     }
 
     @Override // com.baidu.swan.apps.core.j.b

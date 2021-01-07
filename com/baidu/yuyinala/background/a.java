@@ -8,7 +8,7 @@ public class a {
     private TbPageContext mPageContext;
     private b oPI;
 
-    public static a ekg() {
+    public static a ekh() {
         if (oPH == null) {
             synchronized (a.class) {
                 if (oPH == null) {

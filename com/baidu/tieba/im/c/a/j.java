@@ -13,19 +13,19 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class j implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
     private int mCmd = 2001154;
-    private com.baidu.tieba.im.db.l kIS = com.baidu.tieba.im.db.l.cXC();
+    private com.baidu.tieba.im.db.l kIS = com.baidu.tieba.im.db.l.cXD();
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
         if (this.kIS == null) {
             return EC(this.mCmd);
         }
-        List<com.baidu.tieba.im.db.pojo.a> cXE = com.baidu.tieba.im.db.l.cXE();
-        if (cXE == null || cXE.size() <= 0) {
+        List<com.baidu.tieba.im.db.pojo.a> cXF = com.baidu.tieba.im.db.l.cXF();
+        if (cXF == null || cXF.size() <= 0) {
             return EC(this.mCmd);
         }
-        HashMap hashMap = new HashMap(cXE.size());
-        for (com.baidu.tieba.im.db.pojo.a aVar : cXE) {
+        HashMap hashMap = new HashMap(cXF.size());
+        for (com.baidu.tieba.im.db.pojo.a aVar : cXF) {
             hashMap.put(aVar.getGid(), aVar);
         }
         LinkedList<ChatMessage> c = this.kIS.c(hashMap, 80);
@@ -35,7 +35,7 @@ public class j implements CustomMessageTask.CustomRunnable<OfficialFeedHeadRespo
         OfficialFeedHeadResponsedMessage.a aVar2 = new OfficialFeedHeadResponsedMessage.a();
         OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.mCmd);
         aVar2.kFH = c;
-        aVar2.msgList = cXE;
+        aVar2.msgList = cXF;
         try {
             officialFeedHeadResponsedMessage.decodeInBackGround(CmdConfigCustom.CMD_LOAD_HISTORY, aVar2);
             return officialFeedHeadResponsedMessage;

@@ -10,49 +10,49 @@ import com.baidu.android.util.devices.RomUtils;
 public class aw {
 
     /* renamed from: a  reason: collision with root package name */
-    private static aw f14555a;
+    private static aw f14556a;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f948a = 0;
+    private int f949a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f949a;
+    private Context f950a;
 
     private aw(Context context) {
-        this.f949a = context.getApplicationContext();
+        this.f950a = context.getApplicationContext();
     }
 
     public static aw a(Context context) {
-        if (f14555a == null) {
-            f14555a = new aw(context);
+        if (f14556a == null) {
+            f14556a = new aw(context);
         }
-        return f14555a;
+        return f14556a;
     }
 
     @SuppressLint({"NewApi"})
     public int a() {
-        if (this.f948a != 0) {
-            return this.f948a;
+        if (this.f949a != 0) {
+            return this.f949a;
         }
         if (Build.VERSION.SDK_INT >= 17) {
             try {
-                this.f948a = Settings.Global.getInt(this.f949a.getContentResolver(), "device_provisioned", 0);
+                this.f949a = Settings.Global.getInt(this.f950a.getContentResolver(), "device_provisioned", 0);
             } catch (Exception e) {
             }
-            return this.f948a;
+            return this.f949a;
         }
-        this.f948a = Settings.Secure.getInt(this.f949a.getContentResolver(), "device_provisioned", 0);
-        return this.f948a;
+        this.f949a = Settings.Secure.getInt(this.f950a.getContentResolver(), "device_provisioned", 0);
+        return this.f949a;
     }
 
     @SuppressLint({"NewApi"})
     /* renamed from: a  reason: collision with other method in class */
-    public Uri m571a() {
+    public Uri m582a() {
         return Build.VERSION.SDK_INT >= 17 ? Settings.Global.getUriFor("device_provisioned") : Settings.Secure.getUriFor("device_provisioned");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m572a() {
-        return com.xiaomi.push.ab.f170a.contains("xmsf") || com.xiaomi.push.ab.f170a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f170a.contains("miui");
+    public boolean m583a() {
+        return com.xiaomi.push.ab.f171a.contains("xmsf") || com.xiaomi.push.ab.f171a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f171a.contains("miui");
     }
 }

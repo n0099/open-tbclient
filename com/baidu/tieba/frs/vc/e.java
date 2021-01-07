@@ -29,7 +29,7 @@ public class e implements q {
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 111) {
-                e.this.cKj();
+                e.this.cKk();
                 return true;
             }
             return false;
@@ -60,7 +60,7 @@ public class e implements q {
         this.mHideRunnable = new Runnable() { // from class: com.baidu.tieba.frs.vc.e.3
             @Override // java.lang.Runnable
             public void run() {
-                e.this.cKk();
+                e.this.cKl();
             }
         };
         initView();
@@ -71,9 +71,9 @@ public class e implements q {
         this.jJi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.e.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.cKk();
-                if (e.this.jJh != null && !e.this.jJh.cFF() && e.this.jJh.cEZ() != null) {
-                    e.this.jJh.cEZ().startPullRefresh();
+                e.this.cKl();
+                if (e.this.jJh != null && !e.this.jJh.cFG() && e.this.jJh.cFa() != null) {
+                    e.this.jJh.cFa().startPullRefresh();
                 }
             }
         });
@@ -87,7 +87,7 @@ public class e implements q {
         ao.setViewTextColor(this.jJi, R.color.CAM_X0302);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
-        layoutParams.topMargin = this.jJh.bYq().getBottom() + com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds8);
+        layoutParams.topMargin = this.jJh.bYr().getBottom() + com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds8);
         this.jJi.setLayoutParams(layoutParams);
     }
 
@@ -109,7 +109,7 @@ public class e implements q {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cKj() {
+    public void cKk() {
         if (this.jJi.getParent() == null) {
             this.jIG.addView(this.jJi);
             this.jJi.clearAnimation();
@@ -120,7 +120,7 @@ public class e implements q {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cKk() {
+    public void cKl() {
         if (this.jJi.getParent() != null) {
             this.jhq = -1;
             this.jJj = -1;

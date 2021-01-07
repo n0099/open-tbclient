@@ -1,5 +1,5 @@
 package com.baidu.pano.platform.a;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public interface s {
     int a();
 

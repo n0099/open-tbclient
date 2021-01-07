@@ -4,11 +4,11 @@ import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.tbadk.switchs.TBCdnPortraitSwitch;
 /* loaded from: classes.dex */
 public class m {
-    public static boolean bIP() {
-        return bIQ();
+    public static boolean bIQ() {
+        return bIR();
     }
 
-    public static boolean bIQ() {
+    public static boolean bIR() {
         return com.baidu.tbadk.core.util.n.checkSD() && com.baidu.adp.gif.c.lg();
     }
 
@@ -38,7 +38,7 @@ public class m {
         return true;
     }
 
-    public static boolean EG(String str) {
+    public static boolean EF(String str) {
         int indexOf;
         return str != null && (indexOf = str.indexOf("tiebapic")) > 0 && indexOf < 20;
     }

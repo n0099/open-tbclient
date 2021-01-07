@@ -12,7 +12,7 @@ public class c extends a implements Choreographer.FrameCallback {
     private com.ksad.lottie.d i;
 
     /* renamed from: b  reason: collision with root package name */
-    private float f8285b = 1.0f;
+    private float f8286b = 1.0f;
     private boolean c = false;
     private long d = 0;
     private float e = 0.0f;
@@ -22,13 +22,13 @@ public class c extends a implements Choreographer.FrameCallback {
     @VisibleForTesting
 
     /* renamed from: a  reason: collision with root package name */
-    protected boolean f8284a = false;
+    protected boolean f8285a = false;
 
     private float o() {
         if (this.i == null) {
             return Float.MAX_VALUE;
         }
-        return (1.0E9f / this.i.f()) / Math.abs(this.f8285b);
+        return (1.0E9f / this.i.f()) / Math.abs(this.f8286b);
     }
 
     private boolean p() {
@@ -45,7 +45,7 @@ public class c extends a implements Choreographer.FrameCallback {
     }
 
     public void a(float f) {
-        this.f8285b = f;
+        this.f8286b = f;
     }
 
     public void a(int i) {
@@ -89,7 +89,7 @@ public class c extends a implements Choreographer.FrameCallback {
     protected void c(boolean z) {
         Choreographer.getInstance().removeFrameCallback(this);
         if (z) {
-            this.f8284a = false;
+            this.f8285a = false;
         }
     }
 
@@ -182,12 +182,12 @@ public class c extends a implements Choreographer.FrameCallback {
     }
 
     public float h() {
-        return this.f8285b;
+        return this.f8286b;
     }
 
     @MainThread
     public void i() {
-        this.f8284a = true;
+        this.f8285a = true;
         a(p());
         a((int) (p() ? l() : k()));
         this.d = System.nanoTime();
@@ -197,7 +197,7 @@ public class c extends a implements Choreographer.FrameCallback {
 
     @Override // android.animation.ValueAnimator, android.animation.Animator
     public boolean isRunning() {
-        return this.f8284a;
+        return this.f8285a;
     }
 
     @MainThread

@@ -82,12 +82,12 @@ public class FloatMyRecordCard extends LinearLayout {
     public void setData(f fVar) {
         String str;
         this.ioi = fVar;
-        if (this.ioi != null && this.ioi.ctW() != null) {
-            e ctW = this.ioi.ctW();
-            if (ctW != null) {
-                this.status = ctW.getStatus();
+        if (this.ioi != null && this.ioi.ctX() != null) {
+            e ctX = this.ioi.ctX();
+            if (ctX != null) {
+                this.status = ctX.getStatus();
             }
-            this.irV = this.ioi.ctV();
+            this.irV = this.ioi.ctW();
         }
         if (this.ioi == null || this.irV == null || this.status != com.baidu.tieba.barselect.a.d.iso) {
             setVisibility(8);
@@ -104,15 +104,15 @@ public class FloatMyRecordCard extends LinearLayout {
         } else if (rank == 3) {
             this.isq.setTextColor(getResources().getColor(R.color.common_color_10266));
         }
-        this.isr.Cv(this.irV.getPortrait());
+        this.isr.Cu(this.irV.getPortrait());
         this.isr.setOnClickListener(this.onClickListener);
         this.eLt.setText(at.cutChineseAndEnglishWithSuffix(this.irV.getNickname(), 14, StringHelper.STRING_MORE));
-        setGrade(this.irV.ctI());
-        if (this.irV.ctH() < 1000) {
-            String str2 = "0000" + this.irV.ctH();
+        setGrade(this.irV.ctJ());
+        if (this.irV.ctI() < 1000) {
+            String str2 = "0000" + this.irV.ctI();
             str = str2.substring(str2.length() - 4, str2.length());
         } else {
-            str = "" + this.irV.ctH();
+            str = "" + this.irV.ctI();
         }
         this.irR.setText("NO." + str);
         this.iss.setMyRecordData(this.irV);
@@ -128,11 +128,11 @@ public class FloatMyRecordCard extends LinearLayout {
                 ao.setViewTextColor(this.isq, R.color.CAM_X0105, 1, i);
             }
             ao.setViewTextColor(this.eLt, R.color.CAM_X0105, 1, i);
-            setGrade(this.irV.ctI());
+            setGrade(this.irV.ctJ());
             ao.setViewTextColor(this.irR, R.color.CAM_X0109, 1, i);
             this.iss.vU(i);
             ao.setBackgroundColor(this, R.color.CAM_X0201, i);
-            setGrade(this.irV.ctI());
+            setGrade(this.irV.ctJ());
         }
     }
 }

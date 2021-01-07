@@ -25,7 +25,7 @@ public abstract class c {
         return ak.ap(context.getApplicationContext(), this.etM) != null;
     }
 
-    public boolean beV() {
+    public boolean beW() {
         return this.etN;
     }
 

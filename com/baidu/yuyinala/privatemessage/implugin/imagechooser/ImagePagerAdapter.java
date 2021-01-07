@@ -35,7 +35,7 @@ public class ImagePagerAdapter extends PagerAdapter {
         ImageView imageView = new ImageView(viewGroup.getContext());
         imageView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         this.oTW = (String) getItem(i);
-        this.oTV.displayImage(Yj(this.oTW), imageView, this.oTX, (ImageLoadingListener) null);
+        this.oTV.displayImage(Yi(this.oTW), imageView, this.oTX, (ImageLoadingListener) null);
         viewGroup.addView(imageView, -1, -1);
         return imageView;
     }
@@ -50,7 +50,7 @@ public class ImagePagerAdapter extends PagerAdapter {
         return view == obj;
     }
 
-    private static String Yj(String str) {
+    private static String Yi(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }

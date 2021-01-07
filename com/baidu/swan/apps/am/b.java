@@ -13,23 +13,23 @@ public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String dQW;
 
-    public static String aQL() {
+    public static String aQM() {
         return uB(GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME);
     }
 
-    public static String awS() {
+    public static String awT() {
         return uB("swangame");
     }
 
     private static String uB(String str) {
-        String hostName = com.baidu.swan.apps.t.a.aBd().getHostName();
+        String hostName = com.baidu.swan.apps.t.a.aBe().getHostName();
         a aVar = new a();
         aVar.uC(str).uD(c.getVersion()).uE(hostName).uF(getVersionName()).uG(getOSVersion());
-        return aVar.aQM();
+        return aVar.aQN();
     }
 
     private static Context getContext() {
-        return com.baidu.swan.apps.t.a.aAr();
+        return com.baidu.swan.apps.t.a.aAs();
     }
 
     public static String getVersionName() {
@@ -92,18 +92,18 @@ public class b {
             return this;
         }
 
-        public String aQM() {
+        public String aQN() {
             String format = String.format(dRb, this.dQX, this.dQY);
             String format2 = String.format(dRc, this.dQX, this.dQZ, this.dRa);
             String format3 = String.format(dRe, this.dQZ, this.dRa);
             String format4 = String.format(dRd, this.mOSVersion);
-            if (aQN()) {
+            if (aQO()) {
                 return String.format("%s %s %s %s", format, format2, format3, format4);
             }
             return String.format("%s %s %s", format, format2, format4);
         }
 
-        private boolean aQN() {
+        private boolean aQO() {
             return TextUtils.equals("baiduboxapp", this.dQZ);
         }
     }

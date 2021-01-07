@@ -152,7 +152,7 @@ public class c {
 
                     @Override // com.bytedance.sdk.adnet.core.p.a
                     public void a(com.bytedance.sdk.adnet.core.p<File> pVar) {
-                        if (pVar != null && pVar.f6344a != null) {
+                        if (pVar != null && pVar.f6345a != null) {
                             a.a(p.a()).b(new o(aVar, lVar, null));
                             a.a(p.a()).a(new o(aVar, lVar, null));
                             c.a(elapsedRealtime, true, true, lVar, 0L, pVar);
@@ -175,13 +175,13 @@ public class c {
             if (lVar.ai() && lVar.M() != null && !lVar.M().isEmpty()) {
                 for (k kVar : lVar.M()) {
                     if (!TextUtils.isEmpty(kVar.a())) {
-                        com.bytedance.sdk.openadsdk.i.e.a(p.a()).f().a(kVar.a(), (b.InterfaceC0995b) com.bytedance.sdk.openadsdk.i.a.b.a(), kVar.b(), kVar.c(), true);
+                        com.bytedance.sdk.openadsdk.i.e.a(p.a()).f().a(kVar.a(), (b.InterfaceC1033b) com.bytedance.sdk.openadsdk.i.a.b.a(), kVar.b(), kVar.c(), true);
                     }
                 }
             }
             k I = lVar.I();
             if (I != null && !TextUtils.isEmpty(I.a())) {
-                com.bytedance.sdk.openadsdk.i.e.a(p.a()).f().a(I.a(), (b.InterfaceC0995b) com.bytedance.sdk.openadsdk.i.a.b.a(), I.b(), I.c(), true);
+                com.bytedance.sdk.openadsdk.i.e.a(p.a()).f().a(I.a(), (b.InterfaceC1033b) com.bytedance.sdk.openadsdk.i.a.b.a(), I.b(), I.c(), true);
             }
         }
     }

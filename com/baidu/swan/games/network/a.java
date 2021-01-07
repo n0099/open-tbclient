@@ -32,14 +32,14 @@ public class a extends EventTargetImpl {
         super(bVar);
         this.elw = 0;
         this.ely = bVar;
-        this.mTaskId = bbg();
+        this.mTaskId = bbh();
         this.elx = cVar;
     }
 
     @JavascriptInterface
     public void abort() {
-        if (this.elx != null && e.aMk() != null) {
-            e.aMk().aMz().cancelTag(this.mTaskId);
+        if (this.elx != null && e.aMl() != null) {
+            e.aMl().aMA().cancelTag(this.mTaskId);
         }
     }
 
@@ -48,12 +48,12 @@ public class a extends EventTargetImpl {
 
     protected HttpUrl lJ(String str) {
         HttpUrl parse = HttpUrl.parse(str);
-        if (com.baidu.swan.apps.runtime.d.aMg().aMe() == null) {
+        if (com.baidu.swan.apps.runtime.d.aMh().aMf() == null) {
             if (a(parse)) {
                 return parse;
             }
             return null;
-        } else if ((DEBUG && com.baidu.swan.apps.ad.a.a.aID()) || a(parse)) {
+        } else if ((DEBUG && com.baidu.swan.apps.ad.a.a.aIE()) || a(parse)) {
             return parse;
         } else {
             return null;
@@ -61,7 +61,7 @@ public class a extends EventTargetImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String bbf() {
+    public String bbg() {
         String optString = this.elx.optString("url");
         if (this.elx == null || TextUtils.isEmpty(this.mTaskId)) {
             onError("", 0, "request:swanApp is null");
@@ -69,7 +69,7 @@ public class a extends EventTargetImpl {
         } else if (TextUtils.isEmpty(optString)) {
             onError("", -1, "request:url is invalid");
             return null;
-        } else if (e.aMk() == null) {
+        } else if (e.aMl() == null) {
             onError("", -1, "request:swanApp is null");
             return null;
         } else {
@@ -99,14 +99,14 @@ public class a extends EventTargetImpl {
         return (httpUrl == null || cJO.contains(httpUrl.host().toLowerCase())) ? false : true;
     }
 
-    protected String bbg() {
-        String aMm = e.aMm();
-        return TextUtils.isEmpty(aMm) ? "" : aMm + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis();
+    protected String bbh() {
+        String aMn = e.aMn();
+        return TextUtils.isEmpty(aMn) ? "" : aMn + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis();
     }
 
-    public String anA() {
-        e aMk = e.aMk();
-        return aMk != null ? String.format("https://smartapp.baidu.com/%s/%s/page-frame.html", aMk.getAppKey(), aMk.aMG()) : "";
+    public String anB() {
+        e aMl = e.aMl();
+        return aMl != null ? String.format("https://smartapp.baidu.com/%s/%s/page-frame.html", aMl.getAppKey(), aMl.aMH()) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -179,7 +179,7 @@ public class a extends EventTargetImpl {
     public void a(@NonNull Request.Builder builder, com.baidu.swan.games.binding.model.c cVar, Map<String, String> map, boolean z) {
         a(builder, cVar, map);
         if (z) {
-            builder.header("Referer", anA());
+            builder.header("Referer", anB());
         }
     }
 

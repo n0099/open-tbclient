@@ -19,9 +19,9 @@ import java.util.Map;
 import tbclient.T;
 /* loaded from: classes2.dex */
 public class QueryMatchEmotionModel extends BdBaseModel {
-    private static LinkedHashMap<String, List<EmotionImageData>> lYN = new LinkedHashMap<>();
+    private static LinkedHashMap<String, List<EmotionImageData>> lYM = new LinkedHashMap<>();
     private final HttpMessageListener fIL;
-    private a lYM;
+    private a lYL;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -36,13 +36,13 @@ public class QueryMatchEmotionModel extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003369 && (httpResponsedMessage instanceof QueryMatchEmotionResponseMessage) && QueryMatchEmotionModel.this.lYM != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003369 && (httpResponsedMessage instanceof QueryMatchEmotionResponseMessage) && QueryMatchEmotionModel.this.lYL != null) {
                     QueryMatchEmotionResponseMessage queryMatchEmotionResponseMessage = (QueryMatchEmotionResponseMessage) httpResponsedMessage;
                     if (queryMatchEmotionResponseMessage.getData() == null) {
-                        QueryMatchEmotionModel.this.lYM.onFail(queryMatchEmotionResponseMessage.getError(), queryMatchEmotionResponseMessage.getErrorString());
+                        QueryMatchEmotionModel.this.lYL.onFail(queryMatchEmotionResponseMessage.getError(), queryMatchEmotionResponseMessage.getErrorString());
                     } else if (httpResponsedMessage.getOrginalMessage() != null && (httpResponsedMessage.getOrginalMessage().getExtra() instanceof String)) {
                         String str = (String) httpResponsedMessage.getOrginalMessage().getExtra();
-                        QueryMatchEmotionModel.this.lYM.n(str, queryMatchEmotionResponseMessage.getData());
+                        QueryMatchEmotionModel.this.lYL.n(str, queryMatchEmotionResponseMessage.getData());
                         QueryMatchEmotionModel.this.o(str, queryMatchEmotionResponseMessage.getData());
                     }
                 }
@@ -60,10 +60,10 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     }
 
     public void a(String str, a aVar) {
-        this.lYM = aVar;
-        if (this.lYM != null) {
-            if (!x.isEmpty(Qh(str))) {
-                this.lYM.n(str, lYN.get(str));
+        this.lYL = aVar;
+        if (this.lYL != null) {
+            if (!x.isEmpty(Qg(str))) {
+                this.lYL.n(str, lYM.get(str));
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(1003369);
@@ -76,28 +76,28 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void o(String str, List<EmotionImageData> list) {
         if (!TextUtils.isEmpty(str) && !x.isEmpty(list)) {
-            if (lYN == null) {
-                lYN = new LinkedHashMap<>();
+            if (lYM == null) {
+                lYM = new LinkedHashMap<>();
             }
-            if (!lYN.containsKey(str)) {
-                if (lYN.size() > 10) {
-                    Map.Entry<String, List<EmotionImageData>> next = lYN.entrySet().iterator().next();
+            if (!lYM.containsKey(str)) {
+                if (lYM.size() > 10) {
+                    Map.Entry<String, List<EmotionImageData>> next = lYM.entrySet().iterator().next();
                     if (next != null) {
-                        lYN.remove(next.getKey());
+                        lYM.remove(next.getKey());
                     } else {
-                        lYN.clear();
+                        lYM.clear();
                     }
                 }
-                lYN.put(str, list);
+                lYM.put(str, list);
             }
         }
     }
 
-    private List<EmotionImageData> Qh(String str) {
-        if (lYN == null || !lYN.containsKey(str)) {
+    private List<EmotionImageData> Qg(String str) {
+        if (lYM == null || !lYM.containsKey(str)) {
             return null;
         }
-        return lYN.get(str);
+        return lYM.get(str);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

@@ -29,18 +29,18 @@ public final class c extends TimerTask {
             }
         }
         if (Math.abs(this.dDy) <= 1) {
-            this.gcT.aLd();
+            this.gcT.aLe();
             this.gcT.getHandler().sendEmptyMessage(3000);
             return;
         }
         this.gcT.setTotalScrollY(this.gcT.getTotalScrollY() + this.dDz);
-        if (!this.gcT.aLf()) {
+        if (!this.gcT.aLg()) {
             float itemHeight = this.gcT.getItemHeight();
             float f = (-this.gcT.getInitPosition()) * itemHeight;
             float itemsCount = itemHeight * ((this.gcT.getItemsCount() - 1) - this.gcT.getInitPosition());
             if (this.gcT.getTotalScrollY() <= f || this.gcT.getTotalScrollY() >= itemsCount) {
                 this.gcT.setTotalScrollY(this.gcT.getTotalScrollY() - this.dDz);
-                this.gcT.aLd();
+                this.gcT.aLe();
                 this.gcT.getHandler().sendEmptyMessage(3000);
                 return;
             }

@@ -10,7 +10,7 @@ import com.qq.e.comm.plugin.util.ai;
 import com.qq.e.comm.plugin.util.az;
 import com.qq.e.comm.util.GDTLogger;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class g {
     @TargetApi(21)
     public Pair<? extends InputStream, az.a> a(boolean z, Uri uri) {

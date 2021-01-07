@@ -5,7 +5,7 @@ import android.util.JsonReader;
 public class o implements aj<Integer> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final o f8274a = new o();
+    public static final o f8275a = new o();
 
     private o() {
     }

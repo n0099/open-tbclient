@@ -14,30 +14,30 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class f {
-    private static AtomicBoolean nuO = new AtomicBoolean(false);
-    private static List<Integer> nuP = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
+    private static AtomicBoolean nuN = new AtomicBoolean(false);
+    private static List<Integer> nuO = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
 
     public static boolean a(int i, AuthTokenData authTokenData, a aVar) {
-        if (!nuP.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
+        if (!nuO.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
             return false;
         }
         return b(i, authTokenData.getAuthToken(), aVar);
     }
 
     public static boolean a(int i, String str, a aVar) {
-        if (!nuP.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
+        if (!nuO.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
             return false;
         }
         return b(i, str, aVar);
     }
 
     private static boolean b(int i, String str, a aVar) {
-        j CN;
-        if (nuO.compareAndSet(false, true)) {
+        j CM;
+        if (nuN.compareAndSet(false, true)) {
             String.valueOf(System.currentTimeMillis());
             if (i == 3250022) {
-                final j bzI = j.bzI();
-                bzI.a(aVar);
+                final j bzJ = j.bzJ();
+                bzJ.a(aVar);
                 if (aVar != null) {
                     aVar.onFail();
                 }
@@ -48,7 +48,7 @@ public class f {
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
                             com.baidu.tbadk.core.dialog.a.this.dismiss();
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, bzI));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, bzJ));
                         }
                     });
                     aVar2.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.tbadkCore.util.f.2
@@ -59,23 +59,23 @@ public class f {
                     });
                     if (TbadkCoreApplication.getInst().getCurrentActivity() instanceof g) {
                         aVar2.b(((g) TbadkCoreApplication.getInst().getCurrentActivity()).getPageContext());
-                        aVar2.btX();
+                        aVar2.btY();
                     }
                 }
             } else {
                 if (i == 3250017) {
-                    CN = j.bzJ();
+                    CM = j.bzK();
                 } else if (i == 3250023) {
-                    CN = j.bzK();
+                    CM = j.bzL();
                 } else if (i == 3250024) {
-                    CN = new j(4, null);
+                    CM = new j(4, null);
                 } else {
-                    CN = j.CN(str);
+                    CM = j.CM(str);
                 }
-                CN.a(aVar);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, CN));
+                CM.a(aVar);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, CM));
             }
-            nuO.set(false);
+            nuN.set(false);
             return true;
         }
         return false;
@@ -83,22 +83,22 @@ public class f {
 
     /* loaded from: classes.dex */
     public static abstract class a {
+        public abstract void JH(String str);
+
         public abstract void JI(String str);
 
-        public abstract void JJ(String str);
-
-        public abstract void cxA();
+        public abstract void cxB();
 
         public void b(j.c cVar) {
             if (cVar != null && cVar.isSuccess) {
                 if (cVar instanceof j.a) {
-                    JI(((j.a) cVar).authSid);
+                    JH(((j.a) cVar).authSid);
                     return;
                 } else if (cVar instanceof j.b) {
-                    JJ(((j.b) cVar).callbackKey);
+                    JI(((j.b) cVar).callbackKey);
                     return;
                 } else {
-                    cxA();
+                    cxB();
                     return;
                 }
             }

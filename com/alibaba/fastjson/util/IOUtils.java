@@ -19,7 +19,7 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.util.Arrays;
 import java.util.Properties;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class IOUtils {
     public static final char[] ASCII_CHARS;
     public static final char[] CA;

@@ -17,30 +17,30 @@ import java.util.List;
 public class d extends com.baidu.tieba.card.b<k> {
     private BdBaseViewPager fri;
     private TbTabLayout ghk;
-    private List<com.baidu.tieba.personCenter.c.c> mqt;
-    private List<PersonCenterSmartAppPageView> mqu;
-    private View mqv;
-    private a mqw;
-    private PersonCenterSmartAppPageView mqx;
+    private List<com.baidu.tieba.personCenter.c.c> mqs;
+    private List<PersonCenterSmartAppPageView> mqt;
+    private View mqu;
+    private a mqv;
+    private PersonCenterSmartAppPageView mqw;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         View view = getView();
         this.fri = (BdBaseViewPager) view.findViewById(R.id.vp_person_center_smart_app_banner);
         this.ghk = (TbTabLayout) view.findViewById(R.id.tl_person_center_smart_app_banner);
-        this.mqv = view.findViewById(R.id.blank_view_below_person_center_smart_app_banner);
+        this.mqu = view.findViewById(R.id.blank_view_below_person_center_smart_app_banner);
         this.ghk.setTabMode(1);
-        this.mqu = new ArrayList();
-        this.mqw = new a(this.mqu);
-        this.fri.setAdapter(this.mqw);
+        this.mqt = new ArrayList();
+        this.mqv = new a(this.mqt);
+        this.fri.setAdapter(this.mqv);
         this.ghk.setupWithViewPager(this.fri);
-        this.mqv.setVisibility(8);
+        this.mqu.setVisibility(8);
         onChangeSkinType(getTbPageContext(), this.mSkinType);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        for (PersonCenterSmartAppPageView personCenterSmartAppPageView : this.mqu) {
+        for (PersonCenterSmartAppPageView personCenterSmartAppPageView : this.mqt) {
             if (personCenterSmartAppPageView != null) {
                 personCenterSmartAppPageView.onChangeSkinType();
             }
@@ -48,7 +48,7 @@ public class d extends com.baidu.tieba.card.b<k> {
         ao.setBackgroundColor(getView(), R.color.CAM_X0205);
         this.ghk.setSelectedTabIndicatorColor(ao.getColor(R.color.CAM_X0629));
         this.ghk.setBackgroundDrawable(ao.aO(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds3), ao.getColor(R.color.CAM_X0625)));
-        ao.setBackgroundColor(this.mqv, R.color.CAM_X0204);
+        ao.setBackgroundColor(this.mqu, R.color.CAM_X0204);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -64,36 +64,36 @@ public class d extends com.baidu.tieba.card.b<k> {
             return;
         }
         setVisibility(0);
-        this.mqu.clear();
-        this.mqt = kVar.getData();
-        this.mqx = new PersonCenterSmartAppPageView(getContext());
-        this.mqu.add(this.mqx);
-        int min = Math.min(7, this.mqt.size());
+        this.mqt.clear();
+        this.mqs = kVar.getData();
+        this.mqw = new PersonCenterSmartAppPageView(getContext());
+        this.mqt.add(this.mqw);
+        int min = Math.min(7, this.mqs.size());
         for (int i = 0; i < min; i++) {
-            a((com.baidu.tieba.personCenter.c.c) x.getItem(this.mqt, i));
+            a((com.baidu.tieba.personCenter.c.c) x.getItem(this.mqs, i));
         }
-        if (this.mqt.isEmpty()) {
+        if (this.mqs.isEmpty()) {
             setVisibility(8);
         } else {
             a(new com.baidu.tieba.personCenter.c.l());
         }
-        if (this.mqu.size() <= 1) {
+        if (this.mqt.size() <= 1) {
             this.ghk.setVisibility(8);
         } else {
             this.ghk.setVisibility(0);
         }
-        this.mqw.fy(this.mqu);
+        this.mqv.fy(this.mqt);
         onChangeSkinType(getTbPageContext(), this.mSkinType);
     }
 
     private void a(com.baidu.tieba.personCenter.c.c cVar) {
-        if (this.mqx.dys()) {
-            this.mqx.c(cVar);
+        if (this.mqw.dyt()) {
+            this.mqw.c(cVar);
             return;
         }
-        this.mqx = new PersonCenterSmartAppPageView(getContext());
-        this.mqu.add(this.mqx);
-        this.mqx.c(cVar);
+        this.mqw = new PersonCenterSmartAppPageView(getContext());
+        this.mqt.add(this.mqw);
+        this.mqw.c(cVar);
     }
 
     @Override // android.view.View.OnClickListener

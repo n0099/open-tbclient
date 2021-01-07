@@ -30,92 +30,92 @@ public class b extends com.baidu.tieba.yuyinala.liveroom.a {
     private x aGe;
     private Activity mActivity;
     private View.OnClickListener onClickListener;
-    private a oqr;
-    private f oqs;
+    private a oqq;
+    private f oqr;
+    private CustomMessageListener oqs;
     private CustomMessageListener oqt;
     private CustomMessageListener oqu;
     private CustomMessageListener oqv;
     private CustomMessageListener oqw;
-    private CustomMessageListener oqx;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.oqt = new CustomMessageListener(2501028) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.1
+        this.oqs = new CustomMessageListener(2501028) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if ((customResponsedMessage instanceof YuyinFollowRoomMessage) && b.this.aGe != null && b.this.aGe.aLl != null && b.this.aGe.aLl.live_id.equals(((YuyinFollowRoomMessage) customResponsedMessage).QW().liveId)) {
                     if (((YuyinFollowRoomMessage) customResponsedMessage).QW().isFollowed) {
-                        if (b.this.oqr != null) {
-                            b.this.oqr.ecU();
+                        if (b.this.oqq != null) {
+                            b.this.oqq.ecV();
                         }
-                    } else if (b.this.oqr != null) {
-                        b.this.oqr.ecV();
+                    } else if (b.this.oqq != null) {
+                        b.this.oqq.ecW();
                     }
                 }
             }
         };
-        this.oqu = new CustomMessageListener(2501054) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.2
+        this.oqt = new CustomMessageListener(2501054) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof YuyinShowRoomDialogMessage) {
                     try {
                         ShowRoomCard QZ = ((YuyinShowRoomDialogMessage) customResponsedMessage).QZ();
-                        b.this.oqs = new f(b.this.mActivity);
-                        b.this.oqs.ai(QZ.alaLiveShowData);
+                        b.this.oqr = new f(b.this.mActivity);
+                        b.this.oqr.ai(QZ.alaLiveShowData);
                     } catch (Exception e) {
                     }
                 }
             }
         };
-        this.oqv = new CustomMessageListener(2501055) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.3
+        this.oqu = new CustomMessageListener(2501055) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof FollowPersonSuccMessage) {
-                    b.this.ecQ();
+                    b.this.ecR();
                 }
             }
         };
-        this.oqw = new CustomMessageListener(2501029) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.4
+        this.oqv = new CustomMessageListener(2501029) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof YuyinRenameRoomMessage) {
-                    b.this.oqr.VQ(((YuyinRenameRoomMessage) customResponsedMessage).QY().name);
+                    b.this.oqq.VP(((YuyinRenameRoomMessage) customResponsedMessage).QY().name);
                 }
             }
         };
-        this.oqx = new CustomMessageListener(2501030) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.5
+        this.oqw = new CustomMessageListener(2501030) { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof YuyinModifyRoomMessage) {
-                    b.this.oqr.VR(((YuyinModifyRoomMessage) customResponsedMessage).QX().url);
+                    b.this.oqq.VQ(((YuyinModifyRoomMessage) customResponsedMessage).QX().url);
                 }
             }
         };
         this.onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.i.b.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == b.this.oqr.getView()) {
-                    b.this.oqs = new f(b.this.mActivity);
-                    b.this.oqs.ai(b.this.aGe);
-                    b.this.ecX();
+                if (view == b.this.oqq.getView()) {
+                    b.this.oqr = new f(b.this.mActivity);
+                    b.this.oqr.ai(b.this.aGe);
+                    b.this.ecY();
                 }
             }
         };
         this.mActivity = tbPageContext.getPageActivity();
-        MessageManager.getInstance().registerListener(this.oqt);
-        MessageManager.getInstance().registerListener(this.oqw);
-        MessageManager.getInstance().registerListener(this.oqx);
-        MessageManager.getInstance().registerListener(this.oqu);
+        MessageManager.getInstance().registerListener(this.oqs);
         MessageManager.getInstance().registerListener(this.oqv);
+        MessageManager.getInstance().registerListener(this.oqw);
+        MessageManager.getInstance().registerListener(this.oqt);
+        MessageManager.getInstance().registerListener(this.oqu);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ecQ() {
+    public void ecR() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
@@ -134,18 +134,18 @@ public class b extends com.baidu.tieba.yuyinala.liveroom.a {
     public void a(ViewGroup viewGroup, x xVar, int i) {
         if (viewGroup != null) {
             this.aGe = xVar;
-            if (this.oqr != null && this.oqr.getView().getParent() != null) {
-                ((ViewGroup) this.oqr.getView().getParent()).removeView(this.oqr.getView());
+            if (this.oqq != null && this.oqq.getView().getParent() != null) {
+                ((ViewGroup) this.oqq.getView().getParent()).removeView(this.oqq.getView());
             }
-            if (this.oqr == null) {
-                this.oqr = new a(this.mActivity);
+            if (this.oqq == null) {
+                this.oqq = new a(this.mActivity);
             }
-            this.oqr.setId(i);
-            this.oqr.getView().setOnClickListener(this.onClickListener);
+            this.oqq.setId(i);
+            this.oqq.getView().setOnClickListener(this.onClickListener);
             if (this.aGe != null) {
-                this.oqr.ad(this.aGe);
+                this.oqq.ad(this.aGe);
             }
-            this.oqr.getView().setVisibility(0);
+            this.oqq.getView().setVisibility(0);
             aK(viewGroup);
         }
     }
@@ -153,43 +153,43 @@ public class b extends com.baidu.tieba.yuyinala.liveroom.a {
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void DC() {
         super.DC();
-        if (this.oqr != null && this.oqr.getView() != null && this.oqr.getView().getParent() != null) {
-            ((ViewGroup) this.oqr.getView().getParent()).removeView(this.oqr.getView());
+        if (this.oqq != null && this.oqq.getView() != null && this.oqq.getView().getParent() != null) {
+            ((ViewGroup) this.oqq.getView().getParent()).removeView(this.oqq.getView());
         }
-        if (this.oqr != null) {
-            this.oqr.onDestroy();
-            this.oqr = null;
+        if (this.oqq != null) {
+            this.oqq.onDestroy();
+            this.oqq = null;
         }
     }
 
     private void aK(ViewGroup viewGroup) {
-        if (this.oqr.getView() == null || this.oqr.getView().getParent() == null) {
+        if (this.oqq.getView() == null || this.oqq.getView().getParent() == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, BdUtilHelper.getDimens(this.mActivity, a.d.sdk_ds72));
             layoutParams.leftMargin = BdUtilHelper.getDimens(this.mActivity, a.d.sdk_ds20);
             layoutParams.topMargin = BdUtilHelper.getDimens(this.mActivity, a.d.sdk_ds24) - (UtilHelper.canUseStyleImmersiveSticky() ? BdUtilHelper.getDimens(this.mActivity, a.d.sdk_ds12) : 0);
-            viewGroup.addView(this.oqr.getView(), 0, layoutParams);
+            viewGroup.addView(this.oqq.getView(), 0, layoutParams);
         }
     }
 
     public void M(x xVar) {
-        if (xVar != null && xVar.mLiveInfo != null && this.oqr != null) {
+        if (xVar != null && xVar.mLiveInfo != null && this.oqq != null) {
             this.aGe = xVar;
-            this.oqr.ae(xVar);
+            this.oqq.ae(xVar);
         }
     }
 
     public void a(x xVar, RelativeLayout relativeLayout) {
-        if (this.oqr == null) {
+        if (this.oqq == null) {
             e(relativeLayout, xVar);
         }
-        if (xVar != null && xVar.mLiveInfo != null && this.oqr != null) {
+        if (xVar != null && xVar.mLiveInfo != null && this.oqq != null) {
             this.aGe = xVar;
-            this.oqr.ad(this.aGe);
+            this.oqq.ad(this.aGe);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ecX() {
+    public void ecY() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
@@ -202,19 +202,19 @@ public class b extends com.baidu.tieba.yuyinala.liveroom.a {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        if (this.oqr != null) {
-            this.oqr.onDestroy();
+        if (this.oqq != null) {
+            this.oqq.onDestroy();
         }
-        MessageManager.getInstance().unRegisterListener(this.oqt);
-        MessageManager.getInstance().unRegisterListener(this.oqw);
-        MessageManager.getInstance().unRegisterListener(this.oqx);
-        MessageManager.getInstance().unRegisterListener(this.oqu);
+        MessageManager.getInstance().unRegisterListener(this.oqs);
         MessageManager.getInstance().unRegisterListener(this.oqv);
+        MessageManager.getInstance().unRegisterListener(this.oqw);
+        MessageManager.getInstance().unRegisterListener(this.oqt);
+        MessageManager.getInstance().unRegisterListener(this.oqu);
     }
 
-    public void Ip(String str) {
-        if (this.oqs != null) {
-            this.oqs.Ip(str);
+    public void Io(String str) {
+        if (this.oqr != null) {
+            this.oqr.Io(str);
         }
     }
 }

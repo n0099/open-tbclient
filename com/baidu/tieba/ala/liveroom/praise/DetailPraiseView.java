@@ -25,7 +25,7 @@ public class DetailPraiseView extends FrameLayout {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void cnb();
+        void cnc();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -208,11 +208,11 @@ public class DetailPraiseView extends FrameLayout {
         lottieAnimationView.bringToFront();
         lottieAnimationView.playAnimation();
         if (this.hNC != null) {
-            this.hNC.cnb();
+            this.hNC.cnc();
         }
     }
 
-    public void bZv() {
+    public void bZw() {
         int i = 0;
         while (true) {
             int i2 = i;

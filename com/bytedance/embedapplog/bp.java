@@ -12,10 +12,10 @@ import java.util.concurrent.CountDownLatch;
 final class bp<SERVICE, RESULT> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final CountDownLatch f6106a = new CountDownLatch(1);
+    private final CountDownLatch f6107a = new CountDownLatch(1);
 
     /* renamed from: b  reason: collision with root package name */
-    private final Intent f6107b;
+    private final Intent f6108b;
     private final Context d;
     private final b<SERVICE, RESULT> phm;
 
@@ -29,7 +29,7 @@ final class bp<SERVICE, RESULT> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public bp(Context context, Intent intent, b<SERVICE, RESULT> bVar) {
         this.d = context;
-        this.f6107b = intent;
+        this.f6108b = intent;
         this.phm = bVar;
     }
 
@@ -39,15 +39,15 @@ final class bp<SERVICE, RESULT> {
         RESULT result = null;
         if (Looper.getMainLooper() != Looper.myLooper()) {
             try {
-                aVar = new a(this.f6106a, this.phm);
-                this.d.bindService(this.f6107b, aVar, 1);
-                this.f6106a.await();
+                aVar = new a(this.f6107a, this.phm);
+                this.d.bindService(this.f6108b, aVar, 1);
+                this.f6107a.await();
             } catch (Throwable th) {
                 th = th;
                 aVar = null;
             }
             try {
-                result = this.phm.a(aVar.f6108a);
+                result = this.phm.a(aVar.f6109a);
                 a(aVar);
             } catch (Throwable th2) {
                 th = th2;
@@ -79,7 +79,7 @@ final class bp<SERVICE, RESULT> {
         @Nullable
 
         /* renamed from: a  reason: collision with root package name */
-        SERVICE f6108a;
+        SERVICE f6109a;
         private final CountDownLatch c;
         private final b<SERVICE, RESULT> phn;
 
@@ -91,13 +91,13 @@ final class bp<SERVICE, RESULT> {
         /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, IGET, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            bb.b(bh.f6098a, "ServiceBlockBinder#onServiceConnected " + componentName);
+            bb.b(bh.f6099a, "ServiceBlockBinder#onServiceConnected " + componentName);
             try {
-                this.f6108a = this.phn.e(iBinder);
+                this.f6109a = this.phn.e(iBinder);
             } catch (Throwable th) {
                 try {
                     th.printStackTrace();
-                    bb.b(bh.f6098a, "ServiceBlockBinder#onServiceConnected", th);
+                    bb.b(bh.f6099a, "ServiceBlockBinder#onServiceConnected", th);
                     try {
                         this.c.countDown();
                     } catch (Exception e) {
@@ -115,7 +115,7 @@ final class bp<SERVICE, RESULT> {
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            bb.b(bh.f6098a, "ServiceBlockBinder#onServiceDisconnected" + componentName);
+            bb.b(bh.f6099a, "ServiceBlockBinder#onServiceDisconnected" + componentName);
             try {
                 this.c.countDown();
             } catch (Exception e) {

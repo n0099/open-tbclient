@@ -18,25 +18,25 @@ import com.qq.e.comm.plugin.ab.e;
 import com.qq.e.comm.plugin.ab.h;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a implements ACTD, b, c {
 
     /* renamed from: a  reason: collision with root package name */
-    private h f11885a;
+    private h f11886a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Activity f11886b;
+    private Activity f11887b;
 
     public a(Activity activity) {
-        this.f11886b = activity;
+        this.f11887b = activity;
     }
 
     private void d() {
-        this.f11886b.finish();
+        this.f11887b.finish();
     }
 
     private void e() {
-        this.f11885a.a(f());
+        this.f11886a.a(f());
     }
 
     private String f() {
@@ -46,7 +46,7 @@ public class a implements ACTD, b, c {
     }
 
     private void g() {
-        this.f11885a = new e(this.f11886b.getApplicationContext(), this).a(this).a();
+        this.f11886a = new e(this.f11887b.getApplicationContext(), this).a(this).a();
         ArrayList arrayList = new ArrayList();
         arrayList.add(i.a());
         arrayList.add(m.a());
@@ -54,7 +54,7 @@ public class a implements ACTD, b, c {
         arrayList.add(l.a());
         arrayList.add(o.a());
         arrayList.add(p.a());
-        this.f11885a.a(arrayList);
+        this.f11886a.a(arrayList);
     }
 
     @Override // com.qq.e.comm.plugin.ab.c
@@ -90,10 +90,10 @@ public class a implements ACTD, b, c {
     @Override // com.qq.e.comm.pi.ACTD
     public void onAfterCreate(Bundle bundle) {
         g();
-        if (this.f11885a.a().getParent() != null) {
-            ((ViewGroup) this.f11885a.a().getParent()).removeView(this.f11885a.a());
+        if (this.f11886a.a().getParent() != null) {
+            ((ViewGroup) this.f11886a.a().getParent()).removeView(this.f11886a.a());
         }
-        this.f11886b.setContentView(this.f11885a.a());
+        this.f11887b.setContentView(this.f11886a.a());
         e();
     }
 
@@ -113,8 +113,8 @@ public class a implements ACTD, b, c {
 
     @Override // com.qq.e.comm.pi.ACTD
     public void onDestroy() {
-        if (this.f11885a != null) {
-            this.f11885a.c();
+        if (this.f11886a != null) {
+            this.f11886a.c();
         }
     }
 

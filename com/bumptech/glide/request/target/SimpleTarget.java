@@ -3,7 +3,7 @@ package com.bumptech.glide.request.target;
 import androidx.annotation.NonNull;
 import com.bumptech.glide.util.Util;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class SimpleTarget<Z> extends BaseTarget<Z> {
     private final int height;
     private final int width;

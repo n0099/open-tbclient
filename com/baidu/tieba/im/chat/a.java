@@ -233,7 +233,7 @@ public class a {
         kwt.put("#(白眼)", "image_emoticon124");
     }
 
-    private static String ML(String str) {
+    private static String MK(String str) {
         return kwt.get(str);
     }
 
@@ -274,8 +274,8 @@ public class a {
                             break;
                         }
                     }
-                    String ML = ML(str2);
-                    if (TextUtils.isEmpty(ML)) {
+                    String MK = MK(str2);
+                    if (TextUtils.isEmpty(MK)) {
                         str3 = str4 + str2;
                     } else {
                         if (TextUtils.isEmpty(str4)) {
@@ -291,7 +291,7 @@ public class a {
                             }
                             str3 = "";
                         }
-                        SpannableString a2 = a(tbRichTextData.bLb(), ML, str2);
+                        SpannableString a2 = a(tbRichTextData.bLc(), MK, str2);
                         if (a2 != null) {
                             tbRichTextData.q(a2);
                         }
@@ -320,16 +320,16 @@ public class a {
 
     private static SpannableString a(ArrayList<com.baidu.tbadk.widget.richText.d> arrayList, String str, String str2) {
         SpannableString spannableString = null;
-        int DH = TbFaceManager.bGo().DH(str);
-        if (DH != 0) {
+        int DG = TbFaceManager.bGp().DG(str);
+        if (DG != 0) {
             spannableString = new SpannableString(str2 + " ");
-            com.baidu.tbadk.widget.richText.d dVar = new com.baidu.tbadk.widget.richText.d(TbadkCoreApplication.getInst(), DH);
+            com.baidu.tbadk.widget.richText.d dVar = new com.baidu.tbadk.widget.richText.d(TbadkCoreApplication.getInst(), DG);
             if (arrayList != null) {
                 arrayList.add(dVar);
             }
-            a.C0596a Ec = TbFaceManager.bGo().Ec(str);
-            if (Ec != null) {
-                int width = (int) (0.5d * Ec.getWidth());
+            a.C0596a Eb = TbFaceManager.bGp().Eb(str);
+            if (Eb != null) {
+                int width = (int) (0.5d * Eb.getWidth());
                 dVar.setBounds(new Rect(0, 0, width, width));
             } else {
                 dVar.setBounds(new Rect(0, 0, 0, 0));

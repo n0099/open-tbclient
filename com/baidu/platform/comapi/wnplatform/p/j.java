@@ -2,23 +2,23 @@ package com.baidu.platform.comapi.wnplatform.p;
 
 import android.media.MediaPlayer;
 import android.text.TextUtils;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static j f4694a;
+    private static j f4695a;
 
     /* renamed from: b  reason: collision with root package name */
-    private MediaPlayer f4695b = null;
+    private MediaPlayer f4696b = null;
     private boolean c = false;
 
     public static synchronized j a() {
         j jVar;
         synchronized (j.class) {
-            if (f4694a == null) {
-                f4694a = new j();
+            if (f4695a == null) {
+                f4695a = new j();
             }
-            jVar = f4694a;
+            jVar = f4695a;
         }
         return jVar;
     }
@@ -31,15 +31,15 @@ public class j {
     }
 
     private void c() {
-        if (this.f4695b == null) {
-            this.f4695b = new MediaPlayer();
+        if (this.f4696b == null) {
+            this.f4696b = new MediaPlayer();
         }
     }
 
     private void d() {
-        if (this.f4695b != null) {
-            this.f4695b.release();
-            this.f4695b = null;
+        if (this.f4696b != null) {
+            this.f4696b.release();
+            this.f4696b = null;
         }
     }
 
@@ -57,10 +57,10 @@ public class j {
             com.baidu.platform.comapi.wnplatform.n.d.a().a(false);
         }
         if (com.baidu.platform.comapi.walknavi.b.a().g() != null) {
-            this.f4695b.setDataSource(str);
-            this.f4695b.prepare();
-            this.f4695b.start();
-            this.f4695b.setOnCompletionListener(new k(this));
+            this.f4696b.setDataSource(str);
+            this.f4696b.prepare();
+            this.f4696b.start();
+            this.f4696b.setOnCompletionListener(new k(this));
             return z;
         }
         z = false;
@@ -74,10 +74,10 @@ public class j {
         try {
             this.c = true;
             if (com.baidu.platform.comapi.walknavi.b.a().g() != null) {
-                this.f4695b.setDataSource(str);
-                this.f4695b.prepare();
-                this.f4695b.start();
-                this.f4695b.setOnCompletionListener(new l(this));
+                this.f4696b.setDataSource(str);
+                this.f4696b.prepare();
+                this.f4696b.start();
+                this.f4696b.setOnCompletionListener(new l(this));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -91,10 +91,10 @@ public class j {
         try {
             this.c = true;
             if (com.baidu.platform.comapi.walknavi.b.a().g() != null) {
-                this.f4695b.setDataSource(str);
-                this.f4695b.prepare();
-                this.f4695b.start();
-                this.f4695b.setOnCompletionListener(new m(this));
+                this.f4696b.setDataSource(str);
+                this.f4696b.prepare();
+                this.f4696b.start();
+                this.f4696b.setOnCompletionListener(new m(this));
             }
         } catch (Exception e) {
             e.printStackTrace();

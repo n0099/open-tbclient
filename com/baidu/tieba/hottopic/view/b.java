@@ -44,12 +44,12 @@ public class b {
     private View.OnClickListener ksV = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.cVm()) {
-                b.this.bNI();
+            if (b.this.cVn()) {
+                b.this.bNJ();
                 view.setContentDescription("展开");
                 return;
             }
-            b.this.cwm();
+            b.this.cwn();
             view.setContentDescription("折叠");
         }
     };
@@ -67,9 +67,9 @@ public class b {
     };
     private c.a ksW = new c.a() { // from class: com.baidu.tieba.hottopic.view.b.3
         @Override // com.baidu.tieba.hottopic.view.indicator.c.a
-        public void cVr() {
+        public void cVs() {
             if (b.this.ksP != null) {
-                b.this.ksP.cVJ();
+                b.this.ksP.cVK();
             }
             if (b.this.ksS != null) {
                 b.this.ksS.a((c.a) null);
@@ -79,7 +79,7 @@ public class b {
         }
     };
 
-    public boolean cVm() {
+    public boolean cVn() {
         return this.ksS != null && this.ksS.isShowing();
     }
 
@@ -91,7 +91,7 @@ public class b {
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(this.ksO.getPageContext(), i);
         ao.setImageResource(this.jQR, R.drawable.icon_nav_hot_share_selector);
-        SvgManager.bwq().a(this.jQR, R.drawable.icon_pure_topbar_share44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bwr().a(this.jQR, R.drawable.icon_pure_topbar_share44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         this.ksP.onChangeSkinType(i);
         this.ksO.getLayoutMode().setNightMode(i == 1);
         this.ksO.getLayoutMode().onModeChanged(this.rootView);
@@ -115,7 +115,7 @@ public class b {
                         b.this.ksO.showToast(R.string.topic_share_no_network);
                     } else if (ShareSwitch.isOn() || bg.checkUpIsLogin(b.this.ksO)) {
                         TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dX("obj_param1", "6"));
-                        b.this.ksO.cUB();
+                        b.this.ksO.cUC();
                     }
                 }
             });
@@ -131,7 +131,7 @@ public class b {
         }
     }
 
-    public void cVn() {
+    public void cVo() {
         this.ksP.setViewPager(this.fbv);
     }
 
@@ -152,22 +152,22 @@ public class b {
         return this.fbv.getCurrentItem();
     }
 
-    public void cwm() {
+    public void cwn() {
         com.baidu.tieba.hottopic.data.j jVar;
         if (this.ksS == null) {
             this.ksS = new com.baidu.tieba.hottopic.view.indicator.c(this.ksR);
             this.ksS.a(this.ksW);
         }
         this.ksS.DS(this.topHeight);
-        if (!this.ksS.isShowing() && (jVar = (com.baidu.tieba.hottopic.data.j) x.getItem(this.ksQ.cVI(), 0)) != null) {
+        if (!this.ksS.isShowing() && (jVar = (com.baidu.tieba.hottopic.data.j) x.getItem(this.ksQ.cVJ(), 0)) != null) {
             this.ksS.a(this.ksO.getActivity(), jVar.krs, this.fbv.getCurrentItem());
             if (this.ksP != null) {
-                this.ksP.bof();
+                this.ksP.bog();
             }
         }
     }
 
-    public void bNI() {
+    public void bNJ() {
         if (this.ksS != null) {
             this.ksS.go(this.ksO.getActivity());
         }
@@ -186,7 +186,7 @@ public class b {
         }
     }
 
-    public View cVo() {
+    public View cVp() {
         return this.ksR;
     }
 
@@ -194,7 +194,7 @@ public class b {
         this.ksQ.ek(list);
     }
 
-    public void cVp() {
+    public void cVq() {
         if (this.gzT != null && this.jct != null) {
             this.gzT.b(this.jct);
         }
@@ -210,21 +210,21 @@ public class b {
         }
     }
 
-    public void Zi() {
-        this.ksQ.Zi();
+    public void Zj() {
+        this.ksQ.Zj();
     }
 
     public void showLoadingView() {
         this.ksQ.showLoadingView();
     }
 
-    public void cVq() {
+    public void cVr() {
         this.ksQ.so(false);
     }
 
     public boolean onKeyBack() {
-        if (cVm()) {
-            bNI();
+        if (cVn()) {
+            bNJ();
             return true;
         }
         return false;

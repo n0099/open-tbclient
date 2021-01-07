@@ -30,7 +30,7 @@ public class d {
         }
 
         @Override // com.baidu.swan.apps.console.v8inspector.a.c.b
-        protected Map<String, String> apZ() {
+        protected Map<String, String> aqa() {
             HashMap hashMap = new HashMap();
             hashMap.put("Content-Type", "application/json; charset=UTF-8");
             hashMap.put("Accept-Ranges", "bytes");
@@ -39,7 +39,7 @@ public class d {
         }
 
         @Override // com.baidu.swan.apps.console.v8inspector.a.c.b
-        String aqa() {
+        String aqb() {
             return "200 OK";
         }
 
@@ -62,7 +62,7 @@ public class d {
         }
 
         @Override // com.baidu.swan.apps.console.v8inspector.a.c.b
-        Map<String, String> apZ() {
+        Map<String, String> aqa() {
             HashMap hashMap = new HashMap();
             hashMap.put("Upgrade", "websocket");
             hashMap.put(HTTP.CONN_DIRECTIVE, "Upgrade");
@@ -77,7 +77,7 @@ public class d {
         }
 
         @Override // com.baidu.swan.apps.console.v8inspector.a.c.b
-        String aqa() {
+        String aqb() {
             return "101 Switching Protocols";
         }
     }

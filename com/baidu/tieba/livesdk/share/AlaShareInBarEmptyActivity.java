@@ -23,7 +23,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         public void a(int i, String str, com.baidu.tieba.livesdk.share.b.a aVar) {
             AlaShareInBarEmptyActivity.this.closeLoadingDialog();
             if (i == 0 && aVar != null) {
-                BdToast.a(AlaShareInBarEmptyActivity.this.getPageContext().getPageActivity(), AlaShareInBarEmptyActivity.this.getPageContext().getPageActivity().getString(c.b.share_alert_success), c.a.icon_pure_toast_succeed40_svg, 3000, true).bud();
+                BdToast.a(AlaShareInBarEmptyActivity.this.getPageContext().getPageActivity(), AlaShareInBarEmptyActivity.this.getPageContext().getPageActivity().getString(c.b.share_alert_success), c.a.icon_pure_toast_succeed40_svg, 3000, true).bue();
             } else {
                 AlaShareInBarEmptyActivity.this.showToast(str);
             }
@@ -37,7 +37,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         initData(bundle);
-        dfq();
+        dfr();
     }
 
     private void initData(Bundle bundle) {
@@ -53,7 +53,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
     }
 
-    private void dfq() {
+    private void dfr() {
         if (!j.isNetWorkAvailable()) {
             showToast(c.b.neterror);
             finish();

@@ -4,15 +4,15 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.SearchResult;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class GeoCodeResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<GeoCodeResult> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f2987a;
+    private LatLng f2988a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f2988b;
+    private String f2989b;
     private int c;
     private int d;
     private String e;
@@ -22,8 +22,8 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public GeoCodeResult(Parcel parcel) {
-        this.f2987a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f2988b = parcel.readString();
+        this.f2988a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
+        this.f2989b = parcel.readString();
         this.c = parcel.readInt();
         this.d = parcel.readInt();
         this.e = parcel.readString();
@@ -36,7 +36,7 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
 
     @Deprecated
     public String getAddress() {
-        return this.f2988b;
+        return this.f2989b;
     }
 
     public int getConfidence() {
@@ -48,7 +48,7 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
     }
 
     public LatLng getLocation() {
-        return this.f2987a;
+        return this.f2988a;
     }
 
     public int getPrecise() {
@@ -57,7 +57,7 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
 
     @Deprecated
     public void setAddress(String str) {
-        this.f2988b = str;
+        this.f2989b = str;
     }
 
     public void setConfidence(int i) {
@@ -69,7 +69,7 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
     }
 
     public void setLocation(LatLng latLng) {
-        this.f2987a = latLng;
+        this.f2988a = latLng;
     }
 
     public void setPrecise(int i) {
@@ -78,7 +78,7 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("GeoCodeResult: \n");
-        stringBuffer.append("location = ").append(this.f2987a);
+        stringBuffer.append("location = ").append(this.f2988a);
         stringBuffer.append("; precise = ").append(this.c);
         stringBuffer.append("; confidence = ").append(this.d);
         stringBuffer.append("; level = ").append(this.e);
@@ -87,8 +87,8 @@ public class GeoCodeResult extends SearchResult implements Parcelable {
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeValue(this.f2987a);
-        parcel.writeString(this.f2988b);
+        parcel.writeValue(this.f2988a);
+        parcel.writeString(this.f2989b);
         parcel.writeInt(this.c);
         parcel.writeInt(this.d);
         parcel.writeString(this.e);

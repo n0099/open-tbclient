@@ -17,19 +17,19 @@ class p {
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        static final /* synthetic */ int[] f8275a = new int[JsonToken.values().length];
+        static final /* synthetic */ int[] f8276a = new int[JsonToken.values().length];
 
         static {
             try {
-                f8275a[JsonToken.NUMBER.ordinal()] = 1;
+                f8276a[JsonToken.NUMBER.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                f8275a[JsonToken.BEGIN_ARRAY.ordinal()] = 2;
+                f8276a[JsonToken.BEGIN_ARRAY.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                f8275a[JsonToken.BEGIN_OBJECT.ordinal()] = 3;
+                f8276a[JsonToken.BEGIN_OBJECT.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
         }
@@ -65,7 +65,7 @@ class p {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static float b(JsonReader jsonReader) {
         JsonToken peek = jsonReader.peek();
-        switch (AnonymousClass1.f8275a[peek.ordinal()]) {
+        switch (AnonymousClass1.f8276a[peek.ordinal()]) {
             case 1:
                 return (float) jsonReader.nextDouble();
             case 2:
@@ -83,7 +83,7 @@ class p {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static PointF b(JsonReader jsonReader, float f) {
-        switch (AnonymousClass1.f8275a[jsonReader.peek().ordinal()]) {
+        switch (AnonymousClass1.f8276a[jsonReader.peek().ordinal()]) {
             case 1:
                 return c(jsonReader, f);
             case 2:

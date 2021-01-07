@@ -10,10 +10,10 @@ import java.util.Set;
 public class b extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f9078a;
+    public c f9079a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SceneImpl f9079b;
+    public SceneImpl f9080b;
     public ViewPager c;
     public ProfileHomeParam d;
     public com.kwad.sdk.core.i.a e;

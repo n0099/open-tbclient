@@ -16,45 +16,45 @@ public abstract class b<ResultDataT> {
     private boolean dLC = false;
     private boolean dLD = false;
 
-    protected abstract void aOd();
+    protected abstract void aOe();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract ResultDataT bY(JSONObject jSONObject) throws JSONException;
 
-    private void aNW() {
+    private void aNX() {
         new d() { // from class: com.baidu.swan.apps.setting.oauth.b.1
             @Override // com.baidu.swan.apps.setting.oauth.d
-            protected boolean aOe() throws Exception {
-                if (b.this.aNY()) {
+            protected boolean aOf() throws Exception {
+                if (b.this.aNZ()) {
                     return true;
                 }
                 c.c("initialPrepare failed", true);
                 throw new OAuthException(10001);
             }
-        }.a(this).aOf();
+        }.a(this).aOg();
         this.dLC = true;
     }
 
-    private void aNX() {
+    private void aNY() {
         new d() { // from class: com.baidu.swan.apps.setting.oauth.b.2
             @Override // com.baidu.swan.apps.setting.oauth.d
-            protected boolean aOe() throws Exception {
-                if (b.this.aNZ()) {
+            protected boolean aOf() throws Exception {
+                if (b.this.aOa()) {
                     return true;
                 }
                 c.c("finalPrepare failed", true);
                 throw new OAuthException(10001);
             }
-        }.a(this).aOf();
+        }.a(this).aOg();
         this.dLD = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean aNY() {
+    public boolean aNZ() {
         return true;
     }
 
-    protected boolean aNZ() {
+    protected boolean aOa() {
         return true;
     }
 
@@ -65,7 +65,7 @@ public abstract class b<ResultDataT> {
         return this;
     }
 
-    private void aOa() {
+    private void aOb() {
         for (final com.baidu.swan.apps.ao.e.b<h<ResultDataT>> bVar : this.dcQ) {
             c.g(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.b.3
                 @Override // java.lang.Runnable
@@ -79,15 +79,15 @@ public abstract class b<ResultDataT> {
     }
 
     @NonNull
-    public b aOb() {
-        if (TaskState.INIT == aOc()) {
+    public b aOc() {
+        if (TaskState.INIT == aOd()) {
             a(TaskState.CALLING);
             prepare();
         }
         return this;
     }
 
-    public TaskState aOc() {
+    public TaskState aOd() {
         return this.dLA.dMr;
     }
 
@@ -113,23 +113,23 @@ public abstract class b<ResultDataT> {
     }
 
     private void prepare() {
-        if (!TaskState.CALLING.equals(aOc())) {
+        if (!TaskState.CALLING.equals(aOd())) {
             if (DEBUG) {
                 c.c("IllegalState on prepare", false);
             }
         } else if (!this.dLC) {
-            aNW();
-        } else if (!this.dLB.isEmpty()) {
-            this.dLB.poll().aOf();
-        } else if (!this.dLD) {
             aNX();
+        } else if (!this.dLB.isEmpty()) {
+            this.dLB.poll().aOg();
+        } else if (!this.dLD) {
+            aNY();
         } else {
             exec();
         }
     }
 
     private synchronized void exec() {
-        aOd();
+        aOe();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -158,7 +158,7 @@ public abstract class b<ResultDataT> {
         }
         a(TaskState.FINISHED);
         c.c(toString(), false);
-        aOa();
+        aOb();
         this.dcQ.clear();
     }
 }

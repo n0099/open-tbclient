@@ -32,25 +32,6 @@ public class a {
         this.dTi.a(activity, swanAppBearInfo, this);
     }
 
-    public void aSn() {
-        if (SwanAppNetworkUtils.isNetworkConnected(this.mActivity)) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("type", "media");
-            linkedHashMap.put("sfrom", "searchpaws");
-            linkedHashMap.put("store", "uid_cuid");
-            linkedHashMap.put("source", "dusite_na_subbar");
-            linkedHashMap.put("third_id", this.dTj.bearId);
-            linkedHashMap.put("op_type", IMTrack.DbBuilder.ACTION_ADD);
-            String ala = com.baidu.swan.apps.t.a.aAD().ala();
-            if (!TextUtils.isEmpty(ala)) {
-                com.baidu.swan.a.c.a.bfE().getRequest().url(ala).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.t.a.aAQ().alT()).build().executeAsyncOnUIBack(new C0496a(this.dTi.getCallback(), false));
-                return;
-            }
-            return;
-        }
-        com.baidu.swan.apps.res.widget.b.d.u(this.mActivity, a.h.aiapps_net_error).aLS();
-    }
-
     public void aSo() {
         if (SwanAppNetworkUtils.isNetworkConnected(this.mActivity)) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
@@ -59,9 +40,28 @@ public class a {
             linkedHashMap.put("store", "uid_cuid");
             linkedHashMap.put("source", "dusite_na_subbar");
             linkedHashMap.put("third_id", this.dTj.bearId);
-            String akZ = com.baidu.swan.apps.t.a.aAD().akZ();
-            if (!TextUtils.isEmpty(akZ)) {
-                com.baidu.swan.a.c.a.bfE().getRequest().url(akZ).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.t.a.aAQ().alT()).build().executeAsyncOnUIBack(new C0496a(this.dTi.getCallback(), true));
+            linkedHashMap.put("op_type", IMTrack.DbBuilder.ACTION_ADD);
+            String alb = com.baidu.swan.apps.t.a.aAE().alb();
+            if (!TextUtils.isEmpty(alb)) {
+                com.baidu.swan.a.c.a.bfF().getRequest().url(alb).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.t.a.aAR().alU()).build().executeAsyncOnUIBack(new C0496a(this.dTi.getCallback(), false));
+                return;
+            }
+            return;
+        }
+        com.baidu.swan.apps.res.widget.b.d.u(this.mActivity, a.h.aiapps_net_error).aLT();
+    }
+
+    public void aSp() {
+        if (SwanAppNetworkUtils.isNetworkConnected(this.mActivity)) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("type", "media");
+            linkedHashMap.put("sfrom", "searchpaws");
+            linkedHashMap.put("store", "uid_cuid");
+            linkedHashMap.put("source", "dusite_na_subbar");
+            linkedHashMap.put("third_id", this.dTj.bearId);
+            String ala = com.baidu.swan.apps.t.a.aAE().ala();
+            if (!TextUtils.isEmpty(ala)) {
+                com.baidu.swan.a.c.a.bfF().getRequest().url(ala).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(com.baidu.swan.apps.t.a.aAR().alU()).build().executeAsyncOnUIBack(new C0496a(this.dTi.getCallback(), true));
             }
         }
     }

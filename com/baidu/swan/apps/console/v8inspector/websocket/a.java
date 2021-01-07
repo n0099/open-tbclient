@@ -60,10 +60,10 @@ public class a {
         if (this.cRc != null) {
             this.cRc.onOpen();
         }
-        aqb();
+        aqc();
     }
 
-    private void aqb() {
+    private void aqc() {
         while (this.mState == 2) {
             try {
                 b(WebSocketFrame.n(this.mInputStream));
@@ -74,26 +74,26 @@ public class a {
                 c.e("V8WebSocket", "parse web socket frame fail", e);
                 return;
             } finally {
-                aqc();
+                aqd();
             }
         }
     }
 
     private void b(WebSocketFrame webSocketFrame) throws IOException {
-        if (webSocketFrame.aqd() == WebSocketFrame.OpCode.Close) {
+        if (webSocketFrame.aqe() == WebSocketFrame.OpCode.Close) {
             d(webSocketFrame);
-        } else if (webSocketFrame.aqd() == WebSocketFrame.OpCode.Ping) {
-            e(new WebSocketFrame(WebSocketFrame.OpCode.Pong, true, webSocketFrame.aqf()));
-        } else if (webSocketFrame.aqd() == WebSocketFrame.OpCode.Pong) {
+        } else if (webSocketFrame.aqe() == WebSocketFrame.OpCode.Ping) {
+            e(new WebSocketFrame(WebSocketFrame.OpCode.Pong, true, webSocketFrame.aqg()));
+        } else if (webSocketFrame.aqe() == WebSocketFrame.OpCode.Pong) {
             if (DEBUG) {
                 Log.i("V8WebSocket", "A pong request has received.");
             }
-        } else if (!webSocketFrame.aqe() || webSocketFrame.aqd() == WebSocketFrame.OpCode.Continuation) {
+        } else if (!webSocketFrame.aqf() || webSocketFrame.aqe() == WebSocketFrame.OpCode.Continuation) {
             c(webSocketFrame);
         } else if (this.cRd != null) {
             throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence not completed.");
         } else {
-            if (webSocketFrame.aqd() == WebSocketFrame.OpCode.Text || webSocketFrame.aqd() == WebSocketFrame.OpCode.Binary) {
+            if (webSocketFrame.aqe() == WebSocketFrame.OpCode.Text || webSocketFrame.aqe() == WebSocketFrame.OpCode.Binary) {
                 this.cRc.a(webSocketFrame);
                 return;
             }
@@ -102,14 +102,14 @@ public class a {
     }
 
     private void c(WebSocketFrame webSocketFrame) throws IOException {
-        if (webSocketFrame.aqd() != WebSocketFrame.OpCode.Continuation) {
+        if (webSocketFrame.aqe() != WebSocketFrame.OpCode.Continuation) {
             if (this.cRd != null && DEBUG) {
                 throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Previous continuous frame sequence not completed.");
             }
-            this.cRd = webSocketFrame.aqd();
+            this.cRd = webSocketFrame.aqe();
             this.cRe.clear();
             this.cRe.add(webSocketFrame);
-        } else if (webSocketFrame.aqe()) {
+        } else if (webSocketFrame.aqf()) {
             if (this.cRd == null) {
                 throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
             }
@@ -128,11 +128,11 @@ public class a {
         WebSocketFrame.CloseCode closeCode = WebSocketFrame.CloseCode.NormalClosure;
         String str = "";
         if (webSocketFrame instanceof WebSocketFrame.a) {
-            closeCode = ((WebSocketFrame.a) webSocketFrame).aqj();
+            closeCode = ((WebSocketFrame.a) webSocketFrame).aqk();
             str = ((WebSocketFrame.a) webSocketFrame).getCloseReason();
         }
         if (this.mState == 3) {
-            aqc();
+            aqd();
         } else {
             a(closeCode, str);
         }
@@ -142,7 +142,7 @@ public class a {
         webSocketFrame.write(this.mOutputStream);
     }
 
-    private void aqc() {
+    private void aqd() {
         if (this.mState != 4) {
             d.closeSafely(this.mInputStream);
             d.closeSafely(this.mOutputStream);
@@ -157,7 +157,7 @@ public class a {
         if (i == 2) {
             e(new WebSocketFrame.a(closeCode, str));
         } else {
-            aqc();
+            aqd();
         }
     }
 }

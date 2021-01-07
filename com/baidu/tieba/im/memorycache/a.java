@@ -10,15 +10,15 @@ public class a {
 
     /* renamed from: com.baidu.tieba.im.memorycache.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0765a {
+    public interface InterfaceC0774a {
         void a(Iterator<ImMessageCenterPojo> it);
     }
 
-    public void a(InterfaceC0765a interfaceC0765a) {
-        interfaceC0765a.a(this.kEl.values().iterator());
+    public void a(InterfaceC0774a interfaceC0774a) {
+        interfaceC0774a.a(this.kEl.values().iterator());
     }
 
-    public void cYw() {
+    public void cYx() {
         this.kEl.clear();
     }
 
@@ -28,14 +28,14 @@ public class a {
         }
     }
 
-    public ImMessageCenterPojo Nr(String str) {
+    public ImMessageCenterPojo Nq(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         return this.kEl.get(str);
     }
 
-    public boolean Ns(String str) {
+    public boolean Nr(String str) {
         return (TextUtils.isEmpty(str) || this.kEl.remove(str) == null) ? false : true;
     }
 }

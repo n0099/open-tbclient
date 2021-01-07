@@ -27,7 +27,7 @@ public class GameSpecialTopicAdapter extends k<h, CardFrsGameSpecialTopicHolder>
         this.jqL = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<CardFrsGameSpecialTopicItemView>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.GameSpecialTopicAdapter.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cKH */
+            /* renamed from: cKI */
             public CardFrsGameSpecialTopicItemView makeObject() {
                 CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView = new CardFrsGameSpecialTopicItemView(GameSpecialTopicAdapter.this.mContext);
                 cardFrsGameSpecialTopicItemView.setForumId(GameSpecialTopicAdapter.this.mForumId);
@@ -71,12 +71,12 @@ public class GameSpecialTopicAdapter extends k<h, CardFrsGameSpecialTopicHolder>
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, h hVar, CardFrsGameSpecialTopicHolder cardFrsGameSpecialTopicHolder) {
-        if (hVar != null && hVar.cwA() != null) {
+        if (hVar != null && hVar.cwB() != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            cardFrsGameSpecialTopicHolder.jyA.setText(hVar.cwA().title);
+            cardFrsGameSpecialTopicHolder.jyA.setText(hVar.cwB().title);
             cardFrsGameSpecialTopicHolder.jyA.setTextColor(ao.getColor(skinType, R.color.CAM_X0105));
             cardFrsGameSpecialTopicHolder.jyC.setPageContext(this.mPageContext);
-            cardFrsGameSpecialTopicHolder.jyC.setData(hVar.cwA().sub_nodes);
+            cardFrsGameSpecialTopicHolder.jyC.setData(hVar.cwB().sub_nodes);
             cardFrsGameSpecialTopicHolder.jyB.setMaxOverScrollDistance(cardFrsGameSpecialTopicHolder.jyC.getChildItemWidth());
             cardFrsGameSpecialTopicHolder.jyz.setBackgroundColor(ao.getColor(skinType, R.color.CAM_X0201));
             ao.setBackgroundResource(cardFrsGameSpecialTopicHolder.jyn, R.color.CAM_X0205);

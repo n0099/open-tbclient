@@ -69,10 +69,10 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
             public void onClick(View view) {
                 if (view.getId() == a.f.id_ala_liveroom_attention_guide_cancel_btn) {
                     a.this.hqu = 2;
-                    a.this.ccQ();
+                    a.this.ccR();
                 } else if (view.getId() == a.f.id_ala_liveroom_attention_guide_open_btn) {
                     a.this.hqu = 1;
-                    a.this.ccQ();
+                    a.this.ccR();
                 } else if (view.getId() == a.f.id_ala_attention_guide_selectbox_wrapper) {
                     a.this.hqo.setSelected(a.this.hqo.isSelected() ? false : true);
                 }
@@ -82,7 +82,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                a.this.ccQ();
+                a.this.ccR();
             }
         };
         this.hqw = new CustomMessageListener(2913092) { // from class: com.baidu.tieba.ala.liveroom.c.a.5
@@ -92,7 +92,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
                     a.this.hqr = ((Integer) customResponsedMessage.getData()).intValue();
                 }
-                a.this.ccP();
+                a.this.ccQ();
             }
         };
         this.mTbPageContext = tbPageContext;
@@ -118,7 +118,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         this.hqs.a(this.hqv);
     }
 
-    public void Ie(String str) {
+    public void Id(String str) {
         this.hqt = str;
     }
 
@@ -130,7 +130,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    public void ccP() {
+    public void ccQ() {
         if (this.hqm == null || !this.hqm.isShowing()) {
             this.hqo.setSelected(true);
             if (this.hqm == null) {
@@ -149,7 +149,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ccQ() {
+    public void ccR() {
         if (this.hqm != null && this.hqm.isShowing()) {
             this.hqm.dismiss();
         }
@@ -158,7 +158,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
         super.onDestroy();
-        ccQ();
+        ccR();
         if (this.hqs != null) {
             this.hqs.onDestroy();
         }

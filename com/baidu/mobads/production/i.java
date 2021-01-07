@@ -6,23 +6,23 @@ import com.baidu.mobads.production.b;
 class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f3492a;
+    final /* synthetic */ h f3493a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.f3492a = hVar;
+        this.f3493a = hVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            if (b.f3466a != null) {
-                IXMonitorActivation xMonitorActivation = b.f3466a.getXMonitorActivation(this.f3492a.f3489a, this.f3492a.f3490b.s);
-                xMonitorActivation.setIXActivateListener(new b.a(this.f3492a.f3490b.f));
+            if (b.f3467a != null) {
+                IXMonitorActivation xMonitorActivation = b.f3467a.getXMonitorActivation(this.f3493a.f3490a, this.f3493a.f3491b.s);
+                xMonitorActivation.setIXActivateListener(new b.a(this.f3493a.f3491b.f));
                 xMonitorActivation.startMonitor();
             }
         } catch (Exception e) {
-            this.f3492a.f3490b.s.e(e);
+            this.f3493a.f3491b.s.e(e);
         }
     }
 }

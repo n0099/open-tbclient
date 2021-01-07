@@ -16,7 +16,7 @@ public class d implements c {
     private String mSrc;
     private float mVolume;
     private SwanAudioPlayer efG = SwanAudioPlayer.getInstance();
-    private Handler efM = b.aXK().aXM();
+    private Handler efM = b.aXL().aXN();
 
     @Override // com.baidu.swan.games.audio.a
     public void play() {
@@ -192,7 +192,7 @@ public class d implements c {
     }
 
     @Override // com.baidu.swan.games.audio.b.c
-    public boolean aXO() {
+    public boolean aXP() {
         return false;
     }
 }

@@ -20,12 +20,12 @@ public class UpdateInfoService extends BdBaseService {
                     if (address != null) {
                         float longitude = (float) address.getLongitude();
                         float latitude = (float) address.getLatitude();
-                        com.baidu.tieba.recapp.c.a.dFN().RQ(String.valueOf(longitude));
-                        com.baidu.tieba.recapp.c.a.dFN().RR(String.valueOf(latitude));
-                        com.baidu.tieba.recapp.c.a.dFN().hw(System.currentTimeMillis());
+                        com.baidu.tieba.recapp.c.a.dFO().RP(String.valueOf(longitude));
+                        com.baidu.tieba.recapp.c.a.dFO().RQ(String.valueOf(latitude));
+                        com.baidu.tieba.recapp.c.a.dFO().hw(System.currentTimeMillis());
                         if (UpdateInfoService.this.mModel.Ni() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                             UpdateInfoService.this.mModel.a(1, longitude, latitude);
-                            UpdateInfoService.this.mModel.dit();
+                            UpdateInfoService.this.mModel.diu();
                             return;
                         }
                         return;
@@ -50,7 +50,7 @@ public class UpdateInfoService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mModel = new ReportUserInfoModel(null);
-        this.mModel.diu();
+        this.mModel.div();
         this.mModel.hg(540000L);
         this.mModel.a(new ReportUserInfoModel.a() { // from class: com.baidu.tieba.service.UpdateInfoService.1
             @Override // com.baidu.tieba.model.ReportUserInfoModel.a

@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class x extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String azr() {
+    public String azs() {
         return "setRemoteAudioPlayState";
     }
 

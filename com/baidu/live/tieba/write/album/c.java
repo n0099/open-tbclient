@@ -31,11 +31,11 @@ public class c {
         this.bMM = videoFileInfo;
     }
 
-    public boolean WO() {
-        return !ListUtils.isEmpty(WR());
+    public boolean WP() {
+        return !ListUtils.isEmpty(WS());
     }
 
-    public boolean WP() {
+    public boolean WQ() {
         return this.bMM != null;
     }
 
@@ -60,7 +60,7 @@ public class c {
         }
     }
 
-    public void WQ() {
+    public void WR() {
         if (this.bML != null) {
             this.bML.clear();
         }
@@ -73,14 +73,14 @@ public class c {
         return this.bML.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> WR() {
+    public List<ImageFileInfo> WS() {
         if (this.bML != null) {
             return this.bML.getChosedFiles();
         }
         return null;
     }
 
-    public WriteImagesInfo WS() {
+    public WriteImagesInfo WT() {
         return this.bML;
     }
 
@@ -109,7 +109,7 @@ public class c {
         return 0;
     }
 
-    public String WT() {
+    public String WU() {
         return this.bMF;
     }
 
@@ -136,11 +136,11 @@ public class c {
         }
     }
 
-    public List<ImageFileInfo> WU() {
+    public List<ImageFileInfo> WV() {
         return this.bMO;
     }
 
-    public List<AlbumData> WV() {
+    public List<AlbumData> WW() {
         return this.bMP;
     }
 

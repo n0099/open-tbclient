@@ -7,14 +7,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f2594a = new Object();
+    private static Object f2595a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    private static ac f2595b = null;
+    private static ac f2596b = null;
     private HandlerThread c;
     private Handler d;
     private boolean e = false;
@@ -24,11 +24,11 @@ public class ac {
 
     public static ac a() {
         ac acVar;
-        synchronized (f2594a) {
-            if (f2595b == null) {
-                f2595b = new ac();
+        synchronized (f2595a) {
+            if (f2596b == null) {
+                f2596b = new ac();
             }
-            acVar = f2595b;
+            acVar = f2596b;
         }
         return acVar;
     }

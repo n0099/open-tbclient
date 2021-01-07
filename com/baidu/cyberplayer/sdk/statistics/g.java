@@ -9,27 +9,27 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private c f1893a = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
+    private c f1894a = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
 
     /* renamed from: b  reason: collision with root package name */
-    private List<f> f1894b = new ArrayList();
+    private List<f> f1895b = new ArrayList();
 
     public JSONObject a() throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        if (this.f1893a != null) {
-            this.f1893a.a(jSONObject);
+        if (this.f1894a != null) {
+            this.f1894a.a(jSONObject);
         }
-        if (this.f1894b != null) {
+        if (this.f1895b != null) {
             JSONArray jSONArray = new JSONArray();
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.f1894b.size()) {
+                if (i2 >= this.f1895b.size()) {
                     break;
                 }
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("type", this.f1894b.get(i2).a());
-                if (this.f1894b.get(i2).a(jSONObject2) != null) {
+                jSONObject2.put("type", this.f1895b.get(i2).a());
+                if (this.f1895b.get(i2).a(jSONObject2) != null) {
                     jSONArray.put(jSONObject2);
                 }
                 i = i2 + 1;
@@ -42,21 +42,21 @@ public class g {
     }
 
     public void a(int i, String str, String str2) {
-        if (this.f1893a != null && i == 24322) {
-            this.f1893a.a(new e(i, str, str2));
-        } else if (this.f1894b == null) {
+        if (this.f1894a != null && i == 24322) {
+            this.f1894a.a(new e(i, str, str2));
+        } else if (this.f1895b == null) {
         } else {
             e eVar = new e(i, str, str2);
             int i2 = 0;
             while (true) {
                 int i3 = i2;
-                if (i3 >= this.f1894b.size()) {
+                if (i3 >= this.f1895b.size()) {
                     f fVar = new f(i);
                     fVar.a(eVar);
-                    this.f1894b.add(fVar);
+                    this.f1895b.add(fVar);
                     return;
                 }
-                f fVar2 = this.f1894b.get(i3);
+                f fVar2 = this.f1895b.get(i3);
                 if (fVar2.a() == i) {
                     fVar2.a(eVar);
                     return;
@@ -67,11 +67,11 @@ public class g {
     }
 
     public void b() {
-        if (this.f1893a != null) {
-            this.f1893a.b();
+        if (this.f1894a != null) {
+            this.f1894a.b();
         }
-        if (this.f1894b != null) {
-            this.f1894b.clear();
+        if (this.f1895b != null) {
+            this.f1895b.clear();
         }
     }
 }

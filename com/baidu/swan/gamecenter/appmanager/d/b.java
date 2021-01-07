@@ -14,12 +14,12 @@ public class b extends f {
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
         this.dOf = com.baidu.swan.apps.swancore.b.lg(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
-        this.dOh = SwanAppNetworkUtils.aGC().type;
+        this.dOh = SwanAppNetworkUtils.aGD().type;
         if (this.dOd == null) {
             this.dOd = new JSONObject();
         }
         try {
-            this.dOd.put("host", com.baidu.swan.apps.t.a.aBd().getHostName());
+            this.dOd.put("host", com.baidu.swan.apps.t.a.aBe().getHostName());
             this.dOd.put("package", this.packageName);
         } catch (JSONException e) {
             if (DEBUG) {

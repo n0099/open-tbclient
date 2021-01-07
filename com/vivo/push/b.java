@@ -14,14 +14,14 @@ import com.vivo.vms.IPCInvoke;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class b implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f13862a = new Object();
+    private static final Object f13863a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    private static Map<String, b> f13863b = new HashMap();
+    private static Map<String, b> f13864b = new HashMap();
     private boolean c;
     private String d;
     private Context e;
@@ -48,13 +48,13 @@ public final class b implements ServiceConnection {
     }
 
     public static b a(Context context, String str) {
-        b bVar = f13863b.get(str);
+        b bVar = f13864b.get(str);
         if (bVar == null) {
-            synchronized (f13862a) {
-                bVar = f13863b.get(str);
+            synchronized (f13863a) {
+                bVar = f13864b.get(str);
                 if (bVar == null) {
                     bVar = new b(context, str);
-                    f13863b.put(str, bVar);
+                    f13864b.put(str, bVar);
                 }
             }
         }

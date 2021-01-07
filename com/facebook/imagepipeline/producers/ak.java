@@ -2,23 +2,23 @@ package com.facebook.imagepipeline.producers;
 
 import com.facebook.imagepipeline.common.Priority;
 import com.facebook.imagepipeline.request.ImageRequest;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public interface ak {
     void a(al alVar);
 
-    ImageRequest eAd();
+    ImageRequest eAH();
 
-    am eAe();
+    am eAI();
 
-    ImageRequest.RequestLevel eAf();
+    ImageRequest.RequestLevel eAJ();
 
-    boolean eAg();
+    boolean eAK();
 
-    Priority eAh();
+    Priority eAL();
 
-    boolean eAi();
+    boolean eAM();
 
-    Object evp();
+    Object evw();
 
     String getId();
 }

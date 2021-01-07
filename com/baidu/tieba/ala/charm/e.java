@@ -26,7 +26,7 @@ public class e implements com.baidu.live.liveroom.d.d {
                     e.this.gPO.dM(true);
                     return;
                 }
-                e.this.gPO.Zi();
+                e.this.gPO.Zj();
                 e.this.gPO.a(rVar.getList(), alaLiveUserInfoData, j2);
                 int size = rVar.getList().size();
                 if (size <= 0) {
@@ -101,12 +101,12 @@ public class e implements com.baidu.live.liveroom.d.d {
         }
     }
 
-    public e Hb(String str) {
+    public e Ha(String str) {
         this.mGroupId = str;
         return this;
     }
 
-    public e Hc(String str) {
+    public e Hb(String str) {
         this.mLiveId = str;
         return this;
     }
@@ -116,17 +116,17 @@ public class e implements com.baidu.live.liveroom.d.d {
         return this;
     }
 
-    public e Hd(String str) {
+    public e Hc(String str) {
         this.aGB = str;
         return this;
     }
 
-    public e He(String str) {
+    public e Hd(String str) {
         this.gPQ = str;
         return this;
     }
 
-    public e Hf(String str) {
+    public e He(String str) {
         this.beR = str;
         return this;
     }

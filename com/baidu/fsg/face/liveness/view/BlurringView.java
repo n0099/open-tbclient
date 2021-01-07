@@ -16,10 +16,10 @@ import android.view.View;
 public class BlurringView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2369a;
+    private int f2370a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f2370b;
+    private int f2371b;
     private View c;
     private int d;
     private int e;
@@ -63,11 +63,11 @@ public class BlurringView extends View {
                 blur();
                 canvas.save();
                 canvas.translate(this.c.getX() - getX(), this.c.getY() - getY());
-                canvas.scale(this.f2369a, this.f2369a);
+                canvas.scale(this.f2370a, this.f2370a);
                 canvas.drawBitmap(this.h, 0.0f, 0.0f, (Paint) null);
                 canvas.restore();
             }
-            canvas.drawColor(this.f2370b);
+            canvas.drawColor(this.f2371b);
         }
     }
 
@@ -79,14 +79,14 @@ public class BlurringView extends View {
         if (i <= 0) {
             throw new IllegalArgumentException("Downsample factor must be greater than 0.");
         }
-        if (this.f2369a != i) {
-            this.f2369a = i;
+        if (this.f2370a != i) {
+            this.f2370a = i;
             this.f = true;
         }
     }
 
     public void setOverlayColor(int i) {
-        this.f2370b = i;
+        this.f2371b = i;
     }
 
     private void a(Context context) {
@@ -101,8 +101,8 @@ public class BlurringView extends View {
             this.f = false;
             this.d = width;
             this.e = height;
-            int i = width / this.f2369a;
-            int i2 = height / this.f2369a;
+            int i = width / this.f2370a;
+            int i2 = height / this.f2370a;
             int i3 = (i - (i % 4)) + 4;
             int i4 = (i2 - (i2 % 4)) + 4;
             if (this.h == null || this.h.getWidth() != i3 || this.h.getHeight() != i4) {
@@ -116,7 +116,7 @@ public class BlurringView extends View {
                 }
             }
             this.i = new Canvas(this.g);
-            this.i.scale(1.0f / this.f2369a, 1.0f / this.f2369a);
+            this.i.scale(1.0f / this.f2370a, 1.0f / this.f2370a);
             this.l = Allocation.createFromBitmap(this.j, this.g, Allocation.MipmapControl.MIPMAP_NONE, 1);
             this.m = Allocation.createTyped(this.j, this.l.getType());
         }

@@ -10,7 +10,7 @@ public class h extends n<com.ksad.lottie.model.content.h, Path> {
 
     @Override // com.ksad.lottie.model.a.m
     public com.ksad.lottie.a.b.a<com.ksad.lottie.model.content.h, Path> a() {
-        return new com.ksad.lottie.a.b.l(this.f8347a);
+        return new com.ksad.lottie.a.b.l(this.f8348a);
     }
 
     @Override // com.ksad.lottie.model.a.n

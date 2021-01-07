@@ -9,7 +9,7 @@ import com.qq.e.comm.adevent.ADEvent;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface NativeUnifiedADData {
     public static final int AD_CLICKED = 2;
     public static final int AD_ERROR = 3;

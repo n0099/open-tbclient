@@ -12,18 +12,18 @@ public class d extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.b> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = d.class.getSimpleName();
 
-    public static d beh() {
+    public static d bei() {
         return new d();
     }
 
     private boolean a(Context context, com.baidu.swan.apps.w.a.b bVar, com.baidu.swan.apps.w.b bVar2, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.i("map", "IncludePointsAction start");
-        com.baidu.swan.apps.adaptation.b.e ob = com.baidu.swan.apps.v.f.aDG().ob(bVar.cNP);
+        com.baidu.swan.apps.adaptation.b.e ob = com.baidu.swan.apps.v.f.aDH().ob(bVar.cNP);
         if (!(ob instanceof com.baidu.swan.apps.adaptation.b.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        com.baidu.swan.impl.map.item.c yF = com.baidu.swan.impl.map.c.bdZ().h((com.baidu.swan.apps.adaptation.b.c) ob).yF(bVar.cNO);
+        com.baidu.swan.impl.map.item.c yF = com.baidu.swan.impl.map.c.bea().h((com.baidu.swan.apps.adaptation.b.c) ob).yF(bVar.cNO);
         if (yF == null) {
             com.baidu.swan.apps.console.c.e("map", "can not find map by id " + bVar.cNO);
             return false;

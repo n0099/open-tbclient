@@ -42,9 +42,9 @@ public class h extends g {
             public void onClick(View view) {
                 if (h.this.hxb != null) {
                     if (h.this.hxn) {
-                        h.this.hxb.cgw();
+                        h.this.hxb.cgx();
                     } else {
-                        h.this.hxb.cgt();
+                        h.this.hxb.cgu();
                     }
                 }
             }
@@ -73,13 +73,13 @@ public class h extends g {
                 return;
             }
             this.hxn = true;
-            cgC();
+            cgD();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
-    public int cgi() {
+    public int cgj() {
         return this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds510);
     }
 
@@ -87,7 +87,7 @@ public class h extends g {
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
     public void onShow() {
         super.onShow();
-        cgB();
+        cgC();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -100,7 +100,7 @@ public class h extends g {
         if (this.hwp != null) {
             this.hwp.endAnimation();
         }
-        bWQ();
+        bWR();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -110,14 +110,14 @@ public class h extends g {
             return false;
         }
         if (this.hxm) {
-            this.hxb.cgt();
+            this.hxb.cgu();
         } else {
             this.hxb.removeView();
         }
         return true;
     }
 
-    private void cgB() {
+    private void cgC() {
         this.hxm = true;
         this.hxd.setText(a.h.ala_challenge_panel_random_wait_title);
         this.mTipView.setText("");
@@ -146,7 +146,7 @@ public class h extends g {
             public void onFinish() {
                 BdUtilHelper.showToast(h.this.mContext, "没有匹配上哦，请稍后再试");
                 if (h.this.hxb != null) {
-                    h.this.hxb.cgt();
+                    h.this.hxb.cgu();
                 }
             }
         };
@@ -167,10 +167,10 @@ public class h extends g {
         this.hwp.setEndWaveArray(hxl);
         this.hwo.endAnimation();
         this.hwp.endAnimation();
-        bWQ();
+        bWR();
     }
 
-    private void cgC() {
+    private void cgD() {
         this.hxd.setText(a.h.ala_challenge_panel_random_fail_title);
         this.mTipView.setText(a.h.ala_challenge_panel_random_fail_tip);
         this.hxe.setVisibility(0);
@@ -181,10 +181,10 @@ public class h extends g {
         this.hwp.setEndWaveArray(hxk);
         this.hwo.endAnimation();
         this.hwp.endAnimation();
-        bWQ();
+        bWR();
     }
 
-    private void bWQ() {
+    private void bWR() {
         if (this.gPY != null) {
             this.gPY.cancel();
         }

@@ -5,16 +5,16 @@ import java.security.SecureRandom;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.ShortBufferException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private byte[] f1688a;
+    private byte[] f1689a;
     private i aof;
     private f aog;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f1689b;
+    private int f1690b;
     private int c;
     private int f;
     private int d = 0;
@@ -23,18 +23,18 @@ public final class e {
     private boolean j = false;
 
     public e(b bVar, int i) {
-        this.f1688a = null;
-        this.f1689b = 0;
+        this.f1689a = null;
+        this.f1690b = 0;
         this.c = 0;
         this.f = 0;
         this.aof = null;
         this.aog = null;
-        this.f1689b = i;
+        this.f1690b = i;
         this.c = i;
         this.f = i;
-        this.f1688a = new byte[this.f1689b * 2];
+        this.f1689a = new byte[this.f1690b * 2];
         this.aog = new d(bVar);
-        this.aof = new h(this.f1689b);
+        this.aof = new h(this.f1690b);
     }
 
     private int a(byte[] bArr, int i, byte[] bArr2, int i2, int i3) {
@@ -57,7 +57,7 @@ public final class e {
 
     int a(int i) {
         int i2 = this.d + i;
-        return (this.aof == null || this.j) ? i2 : this.c != this.f1689b ? i2 < this.f ? this.f : (this.f1689b + i2) - ((i2 - this.f) % this.f1689b) : i2 + this.aof.a(i2);
+        return (this.aof == null || this.j) ? i2 : this.c != this.f1690b ? i2 < this.f ? this.f : (this.f1690b + i2) - ((i2 - this.f) % this.f1690b) : i2 + this.aof.a(i2);
     }
 
     public void a(int i, byte[] bArr, byte[] bArr2, SecureRandom secureRandom) {
@@ -73,11 +73,11 @@ public final class e {
             if (secureRandom == null) {
                 secureRandom = c.afc;
             }
-            bArr2 = new byte[this.f1689b];
+            bArr2 = new byte[this.f1690b];
             secureRandom.nextBytes(bArr2);
         }
         this.d = 0;
-        this.f = this.f1689b;
+        this.f = this.f1690b;
         this.aog.a(this.j, "", bArr, bArr2);
     }
 
@@ -86,14 +86,14 @@ public final class e {
         byte[] bArr3;
         int a2;
         int i5 = this.d + i2;
-        int a3 = this.c != this.f1689b ? i5 < this.f ? this.f - i5 : this.f1689b - ((i5 - this.f) % this.f1689b) : this.aof != null ? this.aof.a(i5) : 0;
-        if (a3 <= 0 || a3 == this.f1689b || this.aof == null || !this.j) {
+        int a3 = this.c != this.f1690b ? i5 < this.f ? this.f - i5 : this.f1690b - ((i5 - this.f) % this.f1690b) : this.aof != null ? this.aof.a(i5) : 0;
+        if (a3 <= 0 || a3 == this.f1690b || this.aof == null || !this.j) {
             int i6 = (this.j || this.aof == null) ? i5 : i5 + a3;
             if (bArr2 == null) {
                 throw new ShortBufferException("Output buffer is null");
             }
             int length = bArr2.length - i3;
-            if (((!this.j || this.aof == null) && length < i6) || (this.j && length < i6 - this.f1689b)) {
+            if (((!this.j || this.aof == null) && length < i6) || (this.j && length < i6 - this.f1690b)) {
                 throw new ShortBufferException("Output buffer too short: " + length + " bytes given, " + i6 + " bytes needed");
             }
             if (this.d == 0 && (this.j || this.aof == null)) {
@@ -103,7 +103,7 @@ public final class e {
                 i4 = 0;
                 bArr3 = new byte[i6];
                 if (this.d != 0) {
-                    System.arraycopy(this.f1688a, 0, bArr3, 0, this.d);
+                    System.arraycopy(this.f1689a, 0, bArr3, 0, this.d);
                 }
                 if (i2 != 0) {
                     System.arraycopy(bArr, i, bArr3, this.d, i2);
@@ -132,13 +132,13 @@ public final class e {
                 a2 = a(bArr3, i4, bArr2, i3, i6);
             }
             this.d = 0;
-            this.f = this.f1689b;
+            this.f = this.f1690b;
             if (this.i != 0) {
                 this.aog.b();
             }
             return a2;
         }
-        throw new IllegalBlockSizeException("Input length must be multiple of " + this.f1689b + " when decrypting with padded cipher");
+        throw new IllegalBlockSizeException("Input length must be multiple of " + this.f1690b + " when decrypting with padded cipher");
     }
 
     public byte[] m(byte[] bArr, int i, int i2) {

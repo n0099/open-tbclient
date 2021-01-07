@@ -49,14 +49,14 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
     private FrameLayout hLw;
     private long hLz;
     private Handler handler;
-    private AlaLiveBottomOperationView orR;
-    private com.baidu.tieba.yuyinala.liveroom.data.a orS;
-    private InterfaceC0906a orT;
+    private AlaLiveBottomOperationView orQ;
+    private com.baidu.tieba.yuyinala.liveroom.data.a orR;
+    private InterfaceC0944a orS;
     private String otherParams;
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.operation.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0906a {
+    public interface InterfaceC0944a {
     }
 
     public a(TbPageContext tbPageContext) {
@@ -91,9 +91,9 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 String str = null;
                 int i = 3000;
-                if (com.baidu.tieba.yuyinala.liveroom.p.b.edp().bwr != null) {
-                    str = com.baidu.tieba.yuyinala.liveroom.p.b.edp().bwr.aKL;
-                    i = com.baidu.tieba.yuyinala.liveroom.p.b.edp().bwr.duration;
+                if (com.baidu.tieba.yuyinala.liveroom.p.b.edq().bwr != null) {
+                    str = com.baidu.tieba.yuyinala.liveroom.p.b.edq().bwr.aKL;
+                    i = com.baidu.tieba.yuyinala.liveroom.p.b.edq().bwr.duration;
                 }
                 if (!TextUtils.isEmpty(str)) {
                     a.this.b(str, 1000L, i);
@@ -114,8 +114,8 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && "refreshInfo".equals(customResponsedMessage.getData())) {
                     BdLog.d("--refreshInfo--");
                     x xVar = null;
-                    if (a.this.orS != null && a.this.orS.ooR != null) {
-                        xVar = a.this.orS.ooR.HR();
+                    if (a.this.orR != null && a.this.orR.ooQ != null) {
+                        xVar = a.this.orR.ooQ.HR();
                     }
                     if (xVar == null || xVar.aKQ == null) {
                         a.this.zC(false);
@@ -136,7 +136,7 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
             public CustomResponsedMessage<String> run(CustomMessage customMessage) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    if (a.this.orR != null) {
+                    if (a.this.orQ != null) {
                         int[] iArr = new int[2];
                         jSONObject.putOpt("turn_tab_x", Integer.valueOf(iArr[0]));
                         jSONObject.putOpt("turn_tab_y", Integer.valueOf(iArr[1]));
@@ -151,7 +151,7 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                a.this.cmL();
+                a.this.cmM();
             }
         };
         MessageManager.getInstance().registerListener(this.hLB);
@@ -166,42 +166,42 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
     }
 
     public void nO(boolean z) {
-        if (this.orR != null) {
-            this.orR.nO(z);
+        if (this.orQ != null) {
+            this.orQ.nO(z);
         }
     }
 
     public void b(boolean z, int i, int i2, String str) {
-        if (this.orR != null) {
-            this.orR.b(z, i, i2, str);
+        if (this.orQ != null) {
+            this.orQ.b(z, i, i2, str);
         }
     }
 
     public void a(com.baidu.tieba.yuyinala.liveroom.data.a aVar, ViewGroup viewGroup, AlaLiveInfoData alaLiveInfoData, boolean z, final b bVar) {
         if (aVar != null && viewGroup != null) {
-            this.orS = aVar;
+            this.orR = aVar;
             ViewGroup viewGroup2 = (ViewGroup) viewGroup.getParent();
             this.bRX = viewGroup2;
-            if (this.orR == null) {
-                this.orR = new AlaLiveBottomOperationView(getPageContext());
+            if (this.orQ == null) {
+                this.orQ = new AlaLiveBottomOperationView(getPageContext());
             }
-            this.orR.VI();
-            this.orR.registerListeners();
-            this.orR.setOnLiveViewOperationBtnClickListener(bVar);
-            this.orR.getRootView().setId(a.f.ala_liveroom_bottom_operation);
-            if (viewGroup2.indexOfChild(this.orR.getRootView()) >= 0) {
-                viewGroup2.removeView(this.orR.getRootView());
+            this.orQ.VI();
+            this.orQ.registerListeners();
+            this.orQ.setOnLiveViewOperationBtnClickListener(bVar);
+            this.orQ.getRootView().setId(a.f.ala_liveroom_bottom_operation);
+            if (viewGroup2.indexOfChild(this.orQ.getRootView()) >= 0) {
+                viewGroup2.removeView(this.orQ.getRootView());
             }
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
             if (z) {
                 layoutParams.height = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds120);
-                this.orR.getRootView().setBackgroundResource(a.e.ala_live_room_im_bg_shape);
+                this.orQ.getRootView().setBackgroundResource(a.e.ala_live_room_im_bg_shape);
             } else {
                 layoutParams.height = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds120);
-                this.orR.getRootView().setBackgroundResource(a.c.sdk_transparent);
+                this.orQ.getRootView().setBackgroundResource(a.c.sdk_transparent);
             }
-            u.a(viewGroup2, this.orR.getRootView(), layoutParams, 400);
+            u.a(viewGroup2, this.orQ.getRootView(), layoutParams, 400);
             if (this.hLw == null) {
                 this.hLw = (FrameLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.g.ala_liveroom_bottom_back_layout, (ViewGroup) null);
                 this.hLw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.operation.a.1
@@ -214,10 +214,10 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
                 });
             }
             if (TbadkCoreApplication.sAlaLiveSwitchData == null || TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isRotaryTableUnabled()) {
-                cmF();
+                cmG();
             }
             if (z) {
-                if ((TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) && this.orR.hIy != null) {
+                if ((TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) && this.orQ.hIy != null) {
                     FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds68));
                     layoutParams2.rightMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds22);
                     layoutParams2.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds28);
@@ -225,11 +225,11 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
                         layoutParams2.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds10) + UtilHelper.getStatusBarHeight();
                     }
                     layoutParams2.gravity = 53;
-                    this.orR.hIy.setVisibility(8);
-                    if (this.orR.hIy.getParent() != null && (this.orR.hIy.getParent() instanceof ViewGroup)) {
-                        ((ViewGroup) this.orR.hIy.getParent()).removeView(this.orR.hIy);
+                    this.orQ.hIy.setVisibility(8);
+                    if (this.orQ.hIy.getParent() != null && (this.orQ.hIy.getParent() instanceof ViewGroup)) {
+                        ((ViewGroup) this.orQ.hIy.getParent()).removeView(this.orQ.hIy);
                     }
-                    aVar.hBO.getLiveContainerView().addView(this.orR.hIy, layoutParams2);
+                    aVar.hBO.getLiveContainerView().addView(this.orQ.hIy, layoutParams2);
                 } else {
                     FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds96));
                     layoutParams3.gravity = 83;
@@ -240,41 +240,41 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
                 }
             }
             if (alaLiveInfoData != null && alaLiveInfoData.mAlaLiveSwitchData != null && alaLiveInfoData.mAlaLiveSwitchData.isGiftPanelUnabled()) {
-                this.orR.setGiftBtnVisible(false);
+                this.orQ.setGiftBtnVisible(false);
             } else {
-                this.orR.setGiftBtnVisible(true);
+                this.orQ.setGiftBtnVisible(true);
             }
             if (alaLiveInfoData != null && alaLiveInfoData.mAlaLiveSwitchData != null && alaLiveInfoData.mAlaLiveSwitchData.isQuickChatUnabled()) {
-                this.orR.setQuickImInputVisible(false);
+                this.orQ.setQuickImInputVisible(false);
             } else {
-                this.orR.setQuickImInputVisible(true);
+                this.orQ.setQuickImInputVisible(true);
             }
-            this.orR.setChatBtnVisible(com.baidu.live.af.b.SP().SQ());
+            this.orQ.setChatBtnVisible(com.baidu.live.af.b.SP().SQ());
         }
     }
 
-    private void cmF() {
+    private void cmG() {
     }
 
-    public void cmH() {
+    public void cmI() {
         this.hLz = 0L;
-        if (this.bRX != null && this.orR != null && this.bRX.indexOfChild(this.orR.getRootView()) > 0) {
-            this.bRX.removeView(this.orR.getRootView());
+        if (this.bRX != null && this.orQ != null && this.bRX.indexOfChild(this.orQ.getRootView()) > 0) {
+            this.bRX.removeView(this.orQ.getRootView());
         }
         if (this.hLw != null && (this.hLw.getParent() instanceof ViewGroup)) {
             ((ViewGroup) this.hLw.getParent()).removeView(this.hLw);
         }
-        if (this.orR != null && this.orR.hIy != null && (this.orR.hIy.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.orR.hIy.getParent()).removeView(this.orR.hIy);
+        if (this.orQ != null && this.orQ.hIy != null && (this.orQ.hIy.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.orQ.hIy.getParent()).removeView(this.orQ.hIy);
         }
-        if (this.orR != null) {
-            this.orR.cft();
+        if (this.orQ != null) {
+            this.orQ.cfu();
         }
     }
 
     public void setVisibility(int i) {
-        if (this.orR != null && this.orR.getRootView() != null) {
-            this.orR.getRootView().setVisibility(i);
+        if (this.orQ != null && this.orQ.getRootView() != null) {
+            this.orQ.getRootView().setVisibility(i);
         }
         if (this.hLw != null) {
             this.hLw.setVisibility(i);
@@ -282,7 +282,7 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
     }
 
     public void a(o oVar, x xVar) {
-        if (this.orR != null) {
+        if (this.orQ != null) {
             if (xVar != null && xVar.aKQ != null) {
                 zC(xVar.aKQ.isNewUser);
             } else {
@@ -309,18 +309,18 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
         this.otherParams = str;
     }
 
-    public void a(InterfaceC0906a interfaceC0906a) {
+    public void a(InterfaceC0944a interfaceC0944a) {
     }
 
     public void No(int i) {
-        if (this.orR != null && this.orR.hIy != null) {
-            this.orR.hIy.setVisibility(i);
+        if (this.orQ != null && this.orQ.hIy != null) {
+            this.orQ.hIy.setVisibility(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str, long j, int i) {
-        if (getPageContext() != null && getPageContext().getPageActivity() != null && this.orR != null && this.orR.hLN != null) {
+        if (getPageContext() != null && getPageContext().getPageActivity() != null && this.orQ != null && this.orQ.hLN != null) {
             final View inflate = getPageContext().getPageActivity().getLayoutInflater().inflate(a.g.toast_gift_guide, (ViewGroup) null);
             TextView textView = (TextView) inflate.findViewById(a.f.textView);
             ImageView imageView = (ImageView) inflate.findViewById(a.f.arrow_imageView);
@@ -339,7 +339,7 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
                     public void run() {
                         Activity pageActivity;
                         if (frameLayout != null && (pageActivity = a.this.getPageContext().getPageActivity()) != null && !pageActivity.isFinishing()) {
-                            FrameLayout frameLayout2 = a.this.orR.hLN;
+                            FrameLayout frameLayout2 = a.this.orQ.hLN;
                             int[] iArr = new int[2];
                             frameLayout2.getLocationOnScreen(iArr);
                             int dimensionPixelSize = ((BdUtilHelper.getScreenSize(pageActivity).widthPixels - iArr[0]) - pageActivity.getResources().getDimensionPixelSize(a.d.sdk_ds44)) - (frameLayout2.getWidth() / 2);
@@ -375,20 +375,20 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
         MessageManager.getInstance().unRegisterListener(this.hLF);
         MessageManager.getInstance().unRegisterListener(this.hLG);
         MessageManager.getInstance().unRegisterTask(2501066);
-        this.orT = null;
-        if (this.orR != null) {
-            this.orR.onDestory();
+        this.orS = null;
+        if (this.orQ != null) {
+            this.orQ.onDestory();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cmL() {
+    public void cmM() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void zC(boolean z) {
         boolean z2 = true;
-        am amVar = com.baidu.tieba.yuyinala.liveroom.p.b.edp().bwr;
+        am amVar = com.baidu.tieba.yuyinala.liveroom.p.b.edq().bwr;
         z2 = (amVar == null || amVar.aMl == 1 || StringUtils.isNull(amVar.aMm, true)) ? false : false;
         HashMap hashMap = new HashMap(2);
         hashMap.put("is_new_user", Boolean.valueOf(z));

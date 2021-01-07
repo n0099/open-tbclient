@@ -6,20 +6,20 @@ import java.util.HashMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f4032a = null;
+    private static a f4033a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f4033b = "request_data";
+    public static final String f4034b = "request_data";
     private HashMap<String, PassBiometricDto> c = new HashMap<>();
 
     private a() {
     }
 
     public static a a() {
-        if (f4032a == null) {
-            f4032a = new a();
+        if (f4033a == null) {
+            f4033a = new a();
         }
-        return f4032a;
+        return f4033a;
     }
 
     public void b() {

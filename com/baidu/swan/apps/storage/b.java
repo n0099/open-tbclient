@@ -174,7 +174,7 @@ public final class b {
         return cG;
     }
 
-    public static String aPp() {
+    public static String aPq() {
         if (Environment.getExternalStorageState().equals("mounted")) {
             if (DEBUG) {
                 Log.d("StorageUtil", "——> getSwanAppStoreDirectory: " + AppRuntime.getAppContext().getExternalFilesDir(null));
@@ -229,13 +229,13 @@ public final class b {
 
     @Nullable
     private static String tT(@NonNull String str) {
-        e aMk = e.aMk();
-        if (aMk == null) {
+        e aMl = e.aMl();
+        if (aMl == null) {
             return null;
         }
         String str2 = "";
-        if (aMk.aMx() != null) {
-            str2 = aMk.aMx().ajJ();
+        if (aMl.aMy() != null) {
+            str2 = aMl.aMy().ajK();
         }
         if (!TextUtils.isEmpty(str2)) {
             String md5 = com.baidu.swan.c.e.toMd5(str2.getBytes(), false);
@@ -247,14 +247,14 @@ public final class b {
                 return md5;
             }
         }
-        String cd = com.baidu.swan.apps.t.a.aAw().cd(AppRuntime.getAppContext());
+        String cd = com.baidu.swan.apps.t.a.aAx().cd(AppRuntime.getAppContext());
         if (!TextUtils.isEmpty(cd)) {
             cd = cd.replace("|", "");
         }
         return com.baidu.swan.c.e.toMd5(cd.getBytes(), false);
     }
 
-    public static String aPq() {
+    public static String aPr() {
         if (DEBUG) {
             Log.d("StorageUtil", "——> getSwanAppTmpDirectory: " + AppRuntime.getAppContext().getExternalCacheDir());
         }
@@ -288,11 +288,11 @@ public final class b {
         if (eVar == null) {
             return null;
         }
-        b.a aju = eVar.aju();
-        boolean z = aju != null && aju.isDebug();
+        b.a ajv = eVar.ajv();
+        boolean z = ajv != null && ajv.isDebug();
         if (DEBUG && z) {
             Log.d("StorageUtil", "relative path : " + str);
-            bS = d.a.apt();
+            bS = d.a.apu();
         } else if (TextUtils.isEmpty(eVar.id) || TextUtils.isEmpty(str2) || tW(str) != PathType.RELATIVE) {
             return null;
         } else {
@@ -366,9 +366,9 @@ public final class b {
     }
 
     public static String f(e eVar) {
-        b.a aju = eVar.aju();
-        if (aju != null && !TextUtils.isEmpty(aju.getAppKey()) && aju.getType() == 1) {
-            return aju.getAppKey() + "_dev";
+        b.a ajv = eVar.ajv();
+        if (ajv != null && !TextUtils.isEmpty(ajv.getAppKey()) && ajv.getType() == 1) {
+            return ajv.getAppKey() + "_dev";
         }
         return eVar.id;
     }

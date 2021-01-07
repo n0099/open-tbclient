@@ -15,18 +15,18 @@ import java.util.ArrayList;
 public class bg {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f3787a;
+    private static volatile boolean f3788a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile boolean f3788b;
+    private static volatile boolean f3789b;
     private static volatile boolean c;
 
     private static boolean a(int i) {
         switch (i) {
             case 0:
-                return f3787a;
+                return f3788a;
             case 1:
-                return f3788b;
+                return f3789b;
             case 2:
                 return c;
             default:
@@ -37,10 +37,10 @@ public class bg {
     private static void a(int i, boolean z) {
         switch (i) {
             case 0:
-                f3787a = z;
+                f3788a = z;
                 return;
             case 1:
-                f3788b = z;
+                f3789b = z;
                 return;
             case 2:
                 c = z;

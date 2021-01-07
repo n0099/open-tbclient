@@ -28,18 +28,18 @@ public class VideoPlatformStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.tieba.u.e.dTf().dTb();
-            com.baidu.tieba.u.b.dTa().dTb();
+            com.baidu.tieba.u.e.dTg().dTc();
+            com.baidu.tieba.u.b.dTb().dTc();
         }
     };
 
     static {
-        bOg();
-        MessageManager.getInstance().registerListener(gic);
         bOh();
+        MessageManager.getInstance().registerListener(gic);
+        bOi();
     }
 
-    private static void bOg() {
+    private static void bOh() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, new CustomMessageTask.CustomRunnable<k>() { // from class: com.baidu.tieba.VideoPlatformStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -51,7 +51,7 @@ public class VideoPlatformStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bOh() {
+    private static void bOi() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003388, TbConfig.SERVER_ADDRESS + TbConfig.URL_MOOV_REPORT);
         tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
@@ -72,7 +72,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static String Fj(String str) {
+    public static String Fi(String str) {
         if (TextUtils.equals(str, "1")) {
             return "index";
         }
@@ -100,7 +100,7 @@ public class VideoPlatformStatic {
         return str;
     }
 
-    public static JSONObject bOi() {
+    public static JSONObject bOj() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("appVer", TbConfig.getVersion());

@@ -63,7 +63,7 @@ public class ReportUserInfoModel extends BdBaseModel {
         return Math.abs(System.currentTimeMillis() - TbadkCoreApplication.getInst().getReporyUserInfoLastTime()) >= this.timeInterval;
     }
 
-    public void dit() {
+    public void diu() {
         TbadkCoreApplication.getInst().setReporyUserInfoCurrentTime();
     }
 
@@ -71,7 +71,7 @@ public class ReportUserInfoModel extends BdBaseModel {
         this.timeInterval = j;
     }
 
-    public void diu() {
+    public void div() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001522, TbConfig.SERVER_ADDRESS + Config.REPORT_USER_INFO);
         tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);

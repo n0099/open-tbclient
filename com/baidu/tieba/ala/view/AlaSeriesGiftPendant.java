@@ -96,7 +96,7 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
         this.isHost = z;
         this.ijQ = true;
         initView();
-        csn();
+        cso();
         getSpinTime();
         if (str != null) {
             try {
@@ -133,7 +133,7 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
         setCanVisible(false);
     }
 
-    private void csn() {
+    private void cso() {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.ijD, "alpha", 1.0f, 0.0f);
         ofFloat.setDuration(750L);
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.ijD, "alpha", 0.0f, 1.0f);
@@ -190,7 +190,7 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
     }
 
     /* JADX WARN: Type inference failed for: r0v0, types: [com.baidu.tieba.ala.view.AlaSeriesGiftPendant$3] */
-    public void cso() {
+    public void csp() {
         new Thread() { // from class: com.baidu.tieba.ala.view.AlaSeriesGiftPendant.3
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
@@ -279,13 +279,13 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csp() {
+    public void csq() {
         this.ijM.setText(" ");
         this.ijB = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csq() {
+    public void csr() {
         if (this.ijO) {
             this.ijO = false;
             this.ijK.start();
@@ -296,7 +296,7 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csr() {
+    public void css() {
         if (this.ijO) {
             this.ijK.start();
             this.ijO = false;
@@ -309,7 +309,7 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
         if (jSONObject != null) {
             this.ijT = new com.baidu.tieba.ala.data.j();
             this.ijT.parserJson(jSONObject);
-            this.ijU = this.ijT.bXy();
+            this.ijU = this.ijT.bXz();
             JSONObject jSONObject2 = new JSONObject();
             try {
                 JSONObject jSONObject3 = new JSONObject();
@@ -320,9 +320,9 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
                 e.printStackTrace();
             }
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_TYING_GIFT, UbcStatConstant.ContentType.UBC_TYPE_TYING_GIFT, this.isHost ? "author_liveroom" : "liveroom", UbcStatConstant.Value.VALUE_TYING_IM_REC).setContentExt(null, null, jSONObject2));
-            this.ijz = this.ijT.bXw();
-            if (this.ijT.bXx()) {
-                csp();
+            this.ijz = this.ijT.bXx();
+            if (this.ijT.bXy()) {
+                csq();
             } else {
                 setCountDownNum(this.ijz);
             }
@@ -349,7 +349,7 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
                     headImageView.setBorderColor(this.context.getResources().getColor(a.c.sdk_black_alpha10));
                     headImageView.setAutoChangeStyle(false);
                     headImageView.stopLoad();
-                    headImageView.startLoad(this.ijU[i].bXz(), 12, false, false);
+                    headImageView.startLoad(this.ijU[i].bXA(), 12, false, false);
                 } else if (this.ijU[i].getStatus() == 1) {
                     HeadImageView headImageView2 = this.ijV.get(Integer.valueOf(i));
                     headImageView2.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -361,7 +361,7 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
                 }
             }
             setCanVisible(true);
-            if (this.ijT.bXx()) {
+            if (this.ijT.bXy()) {
                 JSONObject jSONObject4 = new JSONObject();
                 try {
                     JSONObject jSONObject5 = new JSONObject();
@@ -380,7 +380,7 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
             if (!this.ijA && !this.ijB) {
                 startCountDown();
                 if (!this.isHost) {
-                    cso();
+                    csp();
                 }
             }
             if (this.isHost) {
@@ -406,11 +406,11 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
         this.ijN.setClickable(true);
     }
 
-    private void css() {
+    private void cst() {
         if (this.ijT.HA() == null) {
-            BdUtilHelper.showToast(this.context, "每" + this.ijT.bXw() + "s内送出1个套系礼物，集齐全部获得惊喜特效，尊享全站广播哟！");
+            BdUtilHelper.showToast(this.context, "每" + this.ijT.bXx() + "s内送出1个套系礼物，集齐全部获得惊喜特效，尊享全站广播哟！");
         } else {
-            BdUtilHelper.showToast(this.context, "每" + this.ijT.bXw() + "s内送出1个" + this.ijT.HA() + "系列礼物，集齐全部获得惊喜特效，尊享全站广播哟！");
+            BdUtilHelper.showToast(this.context, "每" + this.ijT.bXx() + "s内送出1个" + this.ijT.HA() + "系列礼物，集齐全部获得惊喜特效，尊享全站广播哟！");
         }
     }
 
@@ -418,11 +418,11 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
     public void onClick(View view) {
         int i = 0;
         if (this.isHost || this.ijU == null) {
-            css();
+            cst();
         } else if (this.ijG == view) {
             if (this.ijU[0].getStatus() == 1) {
-                AlaPersonCardActivityConfig alaPersonCardActivityConfig = new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.ijU[0].bXA()));
-                alaPersonCardActivityConfig.setExtInfo(this.ijU[0].bXB());
+                AlaPersonCardActivityConfig alaPersonCardActivityConfig = new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.ijU[0].bXB()));
+                alaPersonCardActivityConfig.setExtInfo(this.ijU[0].bXC());
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig));
                 return;
             }
@@ -431,8 +431,8 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, akVar));
         } else if (this.ijH == view) {
             if (this.ijU[1].getStatus() == 1) {
-                AlaPersonCardActivityConfig alaPersonCardActivityConfig2 = new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.ijU[1].bXA()));
-                alaPersonCardActivityConfig2.setExtInfo(this.ijU[1].bXB());
+                AlaPersonCardActivityConfig alaPersonCardActivityConfig2 = new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.ijU[1].bXB()));
+                alaPersonCardActivityConfig2.setExtInfo(this.ijU[1].bXC());
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig2));
                 return;
             }
@@ -441,8 +441,8 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, akVar2));
         } else if (this.ijI == view) {
             if (this.ijU[2].getStatus() == 1) {
-                AlaPersonCardActivityConfig alaPersonCardActivityConfig3 = new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.ijU[2].bXA()));
-                alaPersonCardActivityConfig3.setExtInfo(this.ijU[2].bXB());
+                AlaPersonCardActivityConfig alaPersonCardActivityConfig3 = new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.ijU[2].bXB()));
+                alaPersonCardActivityConfig3.setExtInfo(this.ijU[2].bXC());
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig3));
                 return;
             }
@@ -451,8 +451,8 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, akVar3));
         } else if (this.ijJ == view) {
             if (this.ijU[3].getStatus() == 1) {
-                AlaPersonCardActivityConfig alaPersonCardActivityConfig4 = new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.ijU[3].bXA()));
-                alaPersonCardActivityConfig4.setExtInfo(this.ijU[3].bXB());
+                AlaPersonCardActivityConfig alaPersonCardActivityConfig4 = new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.ijU[3].bXB()));
+                alaPersonCardActivityConfig4.setExtInfo(this.ijU[3].bXC());
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig4));
                 return;
             }
@@ -483,7 +483,7 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void cst() {
+    public synchronized void csu() {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.mView, "alpha", 1.0f, 0.0f);
         ofFloat.setDuration(750L);
         ofFloat.start();
@@ -511,15 +511,15 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
         public void handleMessage(@NonNull Message message) {
             if (this.ijY.get() != null) {
                 if (message.what == 1 && !AlaSeriesGiftPendant.ijy) {
-                    this.ijY.get().csq();
+                    this.ijY.get().csr();
                 } else if (message.what == 2) {
                     this.ijY.get().setCountDownNum(this.ijY.get().ijz);
                 } else if (message.what == 3) {
-                    this.ijY.get().cst();
+                    this.ijY.get().csu();
                 } else if (message.what == 4) {
-                    this.ijY.get().csr();
+                    this.ijY.get().css();
                 } else if (message.what == 5) {
-                    this.ijY.get().csp();
+                    this.ijY.get().csq();
                 }
             }
         }

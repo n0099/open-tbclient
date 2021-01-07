@@ -66,21 +66,21 @@ public class SplashChatAcitity extends ActivityChat {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat
-    protected void elJ() {
+    protected void elK() {
         b bVar = new b(this, ChatInfo.mUid, this.oVg, this.mPaid);
-        bVar.a(new b.InterfaceC0955b() { // from class: com.baidu.yuyinala.privatemessage.session.activity.SplashChatAcitity.1
-            @Override // com.baidu.yuyinala.privatemessage.session.view.b.InterfaceC0955b
-            public void eos() {
+        bVar.a(new b.InterfaceC0993b() { // from class: com.baidu.yuyinala.privatemessage.session.activity.SplashChatAcitity.1
+            @Override // com.baidu.yuyinala.privatemessage.session.view.b.InterfaceC0993b
+            public void eot() {
                 BIMManager.deleteMsgs(SplashChatAcitity.this.getApplicationContext(), 0, ChatInfo.mContacter, false);
                 a.ib(ChatInfo.mContacter);
-                c Yu = d.emC().Yu(d.emC().emD());
-                if (Yu != null) {
-                    Yu.ema();
+                c Yt = d.emD().Yt(d.emD().emE());
+                if (Yt != null) {
+                    Yt.emb();
                 }
                 SplashChatAcitity.this.showToast("操作成功");
             }
 
-            @Override // com.baidu.yuyinala.privatemessage.session.view.b.InterfaceC0955b
+            @Override // com.baidu.yuyinala.privatemessage.session.view.b.InterfaceC0993b
             public void Pr(int i) {
                 if (SplashChatAcitity.this.mPaid > 0) {
                     SplashChatAcitity.this.j(SplashChatAcitity.this.mPaid, i, 7);
@@ -89,7 +89,7 @@ public class SplashChatAcitity extends ActivityChat {
                 }
             }
 
-            @Override // com.baidu.yuyinala.privatemessage.session.view.b.InterfaceC0955b
+            @Override // com.baidu.yuyinala.privatemessage.session.view.b.InterfaceC0993b
             public void onCancel() {
             }
         });
@@ -126,18 +126,18 @@ public class SplashChatAcitity extends ActivityChat {
     public void a(String str, final com.baidu.yuyinala.privatemessage.implugin.ui.activity.b bVar) {
         if (!TextUtils.isEmpty(str)) {
             final String encryptionUserId = ExtraParamsManager.getEncryptionUserId(str);
-            String Yz = h.eou().Yz(encryptionUserId);
-            if (!TextUtils.isEmpty(Yz)) {
-                bVar.Yg(Yz);
+            String Yy = h.eov().Yy(encryptionUserId);
+            if (!TextUtils.isEmpty(Yy)) {
+                bVar.Yf(Yy);
             }
-            h.eou().a(BdBaseApplication.getInst(), encryptionUserId, 3, new g() { // from class: com.baidu.yuyinala.privatemessage.session.activity.SplashChatAcitity.3
+            h.eov().a(BdBaseApplication.getInst(), encryptionUserId, 3, new g() { // from class: com.baidu.yuyinala.privatemessage.session.activity.SplashChatAcitity.3
                 @Override // com.baidu.yuyinala.privatemessage.session.b.g
-                public void aXI() {
+                public void aXJ() {
                     SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.session.activity.SplashChatAcitity.3.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (bVar != null) {
-                                bVar.Yg(encryptionUserId);
+                                bVar.Yf(encryptionUserId);
                             }
                         }
                     });
@@ -152,12 +152,12 @@ public class SplashChatAcitity extends ActivityChat {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat
-    protected void elL() {
+    protected void elM() {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat, com.baidu.yuyinala.privatemessage.implugin.ui.activity.c
-    public void Yo(String str) {
-        super.Yo(str);
+    public void Yn(String str) {
+        super.Yn(str);
         char c = 65535;
         switch (str.hashCode()) {
             case -1503905936:

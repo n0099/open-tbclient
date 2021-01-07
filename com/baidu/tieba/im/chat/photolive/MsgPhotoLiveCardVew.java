@@ -82,8 +82,8 @@ public class MsgPhotoLiveCardVew extends e {
                         }
                     } else {
                         TiebaStatic.log(TbadkCoreStatisticKey.PHOTO_LIVE_GREATCALL_MSG);
-                        if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.TJ(String.valueOf(MsgPhotoLiveCardVew.this.threadId)) > 0) {
-                            MsgPhotoLiveCardVew.this.postId = photoLiveReadThreadHistory.TJ(String.valueOf(MsgPhotoLiveCardVew.this.threadId));
+                        if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.TI(String.valueOf(MsgPhotoLiveCardVew.this.threadId)) > 0) {
+                            MsgPhotoLiveCardVew.this.postId = photoLiveReadThreadHistory.TI(String.valueOf(MsgPhotoLiveCardVew.this.threadId));
                         }
                     }
                     MsgPhotoLiveCardVew.this.Ed(MsgPhotoLiveCardVew.this.messageType);
@@ -112,22 +112,22 @@ public class MsgPhotoLiveCardVew extends e {
         int i;
         int i2 = -1;
         if (chatMessage != null) {
-            a.C0761a MQ = a.MQ(chatMessage.getContent());
-            if (MQ == null) {
+            a.C0770a MP = a.MP(chatMessage.getContent());
+            if (MP == null) {
                 this.threadId = 0L;
                 return;
             }
-            this.threadId = MQ.threadId;
-            this.postId = MQ.postId;
-            this.messageType = MQ.msgType;
-            int i3 = MQ.kAO;
+            this.threadId = MP.threadId;
+            this.postId = MP.postId;
+            this.messageType = MP.msgType;
+            int i3 = MP.kAO;
             ViewGroup.LayoutParams layoutParams = this.kAJ.getLayoutParams();
             if (this.messageType == 1 || this.messageType == 6) {
                 if (this.messageType == 1) {
-                    decode = MQ.threadTitle;
+                    decode = MP.threadTitle;
                     i = R.string.look_live_thread;
                 } else {
-                    decode = URLDecoder.decode(MQ.threadTitle);
+                    decode = URLDecoder.decode(MP.threadTitle);
                     i = R.string.look_god_thread;
                     i2 = 0;
                 }
@@ -141,26 +141,26 @@ public class MsgPhotoLiveCardVew extends e {
                         MsgPhotoLiveCardVew.this.dq(view2);
                     }
                 });
-                this.kAD.setTag(MQ.userId);
+                this.kAD.setTag(MP.userId);
                 this.kAD.setGodIconMargin(i2);
                 this.kAI.setVisibility(8);
                 this.kAE.setVisibility(0);
-                this.kAE.setText(MQ.userName);
-                this.kAG.setText(MQ.kAN);
+                this.kAE.setText(MP.userName);
+                this.kAG.setText(MP.kAN);
                 this.kAE.setTextSize(0, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.fontsize28));
                 this.kAK.setText(i);
             } else if (this.messageType == 3) {
-                this.kAH.setText(MQ.threadTitle);
+                this.kAH.setText(MP.threadTitle);
                 layoutParams.height = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds80);
                 this.kAJ.setPadding(0, 0, 0, 0);
                 this.kAD.setVisibility(8);
                 this.kAI.setVisibility(0);
                 this.kAE.setVisibility(8);
                 this.kAI.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.fans_urge_tips));
-                if (MQ.kAN != null && MQ.kAN.indexOf(String.valueOf(i3)) != -1) {
-                    this.kAG.setText(bg(MQ.kAN, i3));
+                if (MP.kAN != null && MP.kAN.indexOf(String.valueOf(i3)) != -1) {
+                    this.kAG.setText(bg(MP.kAN, i3));
                 } else {
-                    this.kAG.setText(MQ.kAN);
+                    this.kAG.setText(MP.kAN);
                 }
             } else {
                 layoutParams.height = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds80);
@@ -168,22 +168,22 @@ public class MsgPhotoLiveCardVew extends e {
                 this.kAD.setVisibility(8);
                 this.kAI.setVisibility(0);
                 this.kAE.setVisibility(8);
-                this.kAG.setText(MQ.kAN);
+                this.kAG.setText(MP.kAN);
                 if (this.messageType == 4) {
-                    this.kAH.setText(MQ.threadTitle);
+                    this.kAH.setText(MP.threadTitle);
                     this.kAI.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.upgrade_to_photo_live_tips));
                 } else if (this.messageType == 5) {
-                    this.kAH.setText(MQ.threadTitle);
+                    this.kAH.setText(MP.threadTitle);
                     this.kAK.setText(R.string.look_normal_thread);
                     this.kAI.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.change_to_old_thread_msg_tips));
                 }
             }
-            if (!TextUtils.isEmpty(MQ.portrait)) {
-                this.kAD.startLoad(MQ.portrait, 12, false);
+            if (!TextUtils.isEmpty(MP.portrait)) {
+                this.kAD.startLoad(MP.portrait, 12, false);
             } else {
                 this.kAD.startLoad(null, 12, false);
             }
-            this.kAF.setText(at.getFormatTime(MQ.kAM));
+            this.kAF.setText(at.getFormatTime(MP.kAM));
         }
     }
 

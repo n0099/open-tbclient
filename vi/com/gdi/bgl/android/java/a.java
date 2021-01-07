@@ -1,12 +1,12 @@
 package vi.com.gdi.bgl.android.java;
 
 import android.graphics.Typeface;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 class a {
 
     /* renamed from: a  reason: collision with root package name */
-    Typeface f14964a = null;
+    Typeface f15047a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    int f14965b = 0;
+    int f15048b = 0;
 }

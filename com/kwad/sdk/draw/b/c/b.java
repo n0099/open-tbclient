@@ -9,14 +9,14 @@ import com.kwad.sdk.core.webview.jshandler.a;
 public class b extends com.kwad.sdk.draw.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private FrameLayout f10006b;
+    private FrameLayout f10007b;
     @Nullable
     private c c;
     private a.b d = new a.b() { // from class: com.kwad.sdk.draw.b.c.b.1
         @Override // com.kwad.sdk.core.webview.jshandler.a.b
         public void a() {
-            if (b.this.f9972a.f9973a != null) {
-                b.this.f9972a.f9973a.onAdClicked();
+            if (b.this.f9973a.f9974a != null) {
+                b.this.f9973a.f9974a.onAdClicked();
             }
         }
     };
@@ -25,12 +25,12 @@ public class b extends com.kwad.sdk.draw.a.a {
     @Override // com.kwad.sdk.draw.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.c = this.f9972a.g;
+        this.c = this.f9973a.g;
         if (this.c == null) {
             return;
         }
         this.c.a(this.d);
-        this.c.a(this.f10006b, this.f9972a.f9974b, this.f9972a.c, this.f9972a.d);
+        this.c.a(this.f10007b, this.f9973a.f9975b, this.f9973a.c, this.f9973a.d);
         this.c.g();
     }
 
@@ -47,6 +47,6 @@ public class b extends com.kwad.sdk.draw.a.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f10006b = (FrameLayout) b(R.id.ksad_play_end_web_card_container);
+        this.f10007b = (FrameLayout) b(R.id.ksad_play_end_web_card_container);
     }
 }

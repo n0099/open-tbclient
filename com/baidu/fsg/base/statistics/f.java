@@ -10,10 +10,10 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1991a = f.class.getSimpleName();
+    private static final String f1992a = f.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private JSONArray f1992b;
+    private JSONArray f1993b;
     private byte[] c;
     private byte[] d;
     private byte[] e;
@@ -23,28 +23,28 @@ public class f {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static f f1995a = new f();
+        private static f f1996a = new f();
 
         private b() {
         }
     }
 
     private f() {
-        this.f1992b = new JSONArray();
+        this.f1993b = new JSONArray();
         this.c = new byte[0];
         this.d = new byte[0];
         this.e = new byte[0];
     }
 
     public static f a() {
-        return b.f1995a;
+        return b.f1996a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(JSONObject jSONObject) {
         synchronized (this.d) {
             try {
-                this.f1992b.put(this.f1992b.length(), jSONObject);
+                this.f1993b.put(this.f1993b.length(), jSONObject);
             } catch (JSONException e) {
             }
         }
@@ -73,7 +73,7 @@ public class f {
                         long currentTimeMillis = System.currentTimeMillis();
                         for (int i = 0; i < jSONArray.length(); i++) {
                             JSONObject jSONObject = (JSONObject) jSONArray.get(i);
-                            if (currentTimeMillis - jSONObject.getLong(c.f1985a) <= 604800000) {
+                            if (currentTimeMillis - jSONObject.getLong(c.f1986a) <= 604800000) {
                                 a().a(jSONObject);
                             }
                         }
@@ -89,10 +89,10 @@ public class f {
     static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1993a;
+        public int f1994a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f1994b;
+        public String f1995b;
         public h[] c;
 
         a() {
@@ -103,7 +103,7 @@ public class f {
     public boolean c() {
         boolean z;
         synchronized (this.d) {
-            z = this.f1992b.length() == 0;
+            z = this.f1993b.length() == 0;
         }
         return z;
     }
@@ -112,7 +112,7 @@ public class f {
     public void a(String str) {
         if (com.baidu.fsg.base.statistics.b.o.equals(str)) {
             synchronized (this.d) {
-                this.f1992b = new JSONArray();
+                this.f1993b = new JSONArray();
             }
             com.baidu.fsg.base.statistics.a.a(RimStatisticsUtil.getAppContext(), com.baidu.fsg.base.statistics.b.n, "{}", false);
         }
@@ -120,6 +120,6 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public JSONArray d() {
-        return this.f1992b;
+        return this.f1993b;
     }
 }

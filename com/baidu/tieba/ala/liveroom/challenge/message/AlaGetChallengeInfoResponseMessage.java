@@ -70,27 +70,27 @@ public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage
         this.aQx = bgVar;
     }
 
-    public bc cfN() {
+    public bc cfO() {
         return this.aQv;
     }
 
-    public bg cfO() {
+    public bg cfP() {
         return this.aQw;
     }
 
-    public bg cfP() {
+    public bg cfQ() {
         return this.aQx;
     }
 
-    public ay cfQ() {
+    public ay cfR() {
         return this.hvD;
     }
 
-    public be cfR() {
+    public be cfS() {
         return this.hvE;
     }
 
-    public bf cfS() {
+    public bf cfT() {
         return this.hvF;
     }
 }

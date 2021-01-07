@@ -12,7 +12,7 @@ public class ai extends SharedPrefsWrapper {
         private static final ai oNP = new ai();
     }
 
-    public static ai ejs() {
+    public static ai ejt() {
         return a.oNP;
     }
 }

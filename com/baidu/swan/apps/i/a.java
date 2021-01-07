@@ -7,15 +7,15 @@ public class a {
         return BaseUrlManager.ONLINE_URL;
     }
 
-    public static String aoR() {
+    public static String aoS() {
         return String.format("%s/smtapp/ad/similar", getSearchboxHostForHttps());
     }
 
-    public static String aoS() {
+    public static String aoT() {
         return String.format("%s/smtapp/ad/auto", getSearchboxHostForHttps());
     }
 
-    public static String aoT() {
+    public static String aoU() {
         return String.format("%s/searchbox?action=userx&type=attribute", getSearchboxHostForHttps());
     }
 

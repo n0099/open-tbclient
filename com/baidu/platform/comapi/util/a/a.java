@@ -4,14 +4,14 @@ import android.content.Context;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import com.baidu.vi.VIContext;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4380a = -1;
+    private int f4381a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f4381b = -1;
+    private int f4382b = -1;
     private float c = -1.0f;
     private int d = -1;
     private int e = -1;
@@ -19,16 +19,16 @@ public class a {
     private double g = -1.0d;
 
     public int a() {
-        if (this.f4380a == -1) {
+        if (this.f4381a == -1) {
             a(VIContext.getContext());
         }
-        return this.f4380a;
+        return this.f4381a;
     }
 
     public void a(Context context) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        this.f4380a = displayMetrics.widthPixels;
-        this.f4381b = displayMetrics.heightPixels;
+        this.f4381a = displayMetrics.widthPixels;
+        this.f4382b = displayMetrics.heightPixels;
         this.c = displayMetrics.density;
         this.d = (int) displayMetrics.xdpi;
         this.e = (int) displayMetrics.ydpi;
@@ -47,10 +47,10 @@ public class a {
     }
 
     public int b() {
-        if (this.f4381b == -1) {
+        if (this.f4382b == -1) {
             a(VIContext.getContext());
         }
-        return this.f4381b;
+        return this.f4382b;
     }
 
     public float c() {

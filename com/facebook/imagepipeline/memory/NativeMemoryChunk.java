@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.memory;
 import android.util.Log;
 import java.io.Closeable;
 @com.facebook.common.internal.d
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class NativeMemoryChunk implements Closeable {
     private boolean mClosed;
     private final long mNativePtr;
@@ -61,26 +61,26 @@ public class NativeMemoryChunk implements Closeable {
     }
 
     public synchronized int d(int i, byte[] bArr, int i2, int i3) {
-        int eb;
+        int ed;
         com.facebook.common.internal.g.checkNotNull(bArr);
         com.facebook.common.internal.g.checkState(!isClosed());
-        eb = eb(i, i3);
-        R(i, bArr.length, i2, eb);
-        nativeCopyFromByteArray(this.mNativePtr + i, bArr, i2, eb);
-        return eb;
+        ed = ed(i, i3);
+        R(i, bArr.length, i2, ed);
+        nativeCopyFromByteArray(this.mNativePtr + i, bArr, i2, ed);
+        return ed;
     }
 
     public synchronized int c(int i, byte[] bArr, int i2, int i3) {
-        int eb;
+        int ed;
         com.facebook.common.internal.g.checkNotNull(bArr);
         com.facebook.common.internal.g.checkState(!isClosed());
-        eb = eb(i, i3);
-        R(i, bArr.length, i2, eb);
-        nativeCopyToByteArray(this.mNativePtr + i, bArr, i2, eb);
-        return eb;
+        ed = ed(i, i3);
+        R(i, bArr.length, i2, ed);
+        nativeCopyToByteArray(this.mNativePtr + i, bArr, i2, ed);
+        return ed;
     }
 
-    public synchronized byte Qb(int i) {
+    public synchronized byte Qg(int i) {
         byte nativeReadByte;
         synchronized (this) {
             com.facebook.common.internal.g.checkState(!isClosed());
@@ -112,6 +112,10 @@ public class NativeMemoryChunk implements Closeable {
         }
     }
 
+    public long euh() {
+        return this.mNativePtr;
+    }
+
     private void b(int i, NativeMemoryChunk nativeMemoryChunk, int i2, int i3) {
         com.facebook.common.internal.g.checkState(!isClosed());
         com.facebook.common.internal.g.checkState(nativeMemoryChunk.isClosed() ? false : true);
@@ -130,7 +134,7 @@ public class NativeMemoryChunk implements Closeable {
         }
     }
 
-    private int eb(int i, int i2) {
+    private int ed(int i, int i2) {
         return Math.min(Math.max(0, this.mSize - i), i2);
     }
 

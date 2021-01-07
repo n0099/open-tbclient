@@ -76,7 +76,7 @@ public final class h {
                     if (!jSONObject3.isNull("param")) {
                         JSONObject jSONObject4 = jSONObject3.getJSONObject("param");
                         if (!jSONObject4.isNull("url")) {
-                            iVar.f1467a = jSONObject4.getString("url");
+                            iVar.f1468a = jSONObject4.getString("url");
                         }
                         if (!jSONObject4.isNull("intentUri")) {
                             iVar.c = jSONObject4.getString("intentUri");
@@ -92,7 +92,7 @@ public final class h {
                     if (!jSONObject5.isNull("param")) {
                         JSONObject jSONObject6 = jSONObject5.getJSONObject("param");
                         if (!jSONObject6.isNull("url")) {
-                            iVar.f1468b = jSONObject6.getString("url");
+                            iVar.f1469b = jSONObject6.getString("url");
                         }
                         if (!jSONObject6.isNull("intentUri")) {
                             iVar.d = jSONObject6.getString("intentUri");
@@ -140,10 +140,10 @@ public final class h {
                 crossPushMessage.mPkgContent = jSONObject.getString("pkg_content");
             }
             if (!jSONObject.isNull("dest_pkg")) {
-                crossPushMessage.f1441a = jSONObject.getString("dest_pkg");
+                crossPushMessage.f1442a = jSONObject.getString("dest_pkg");
             }
             if (!jSONObject.isNull("dest_icon")) {
-                crossPushMessage.f1442b = jSONObject.getString("dest_icon");
+                crossPushMessage.f1443b = jSONObject.getString("dest_icon");
             }
         } catch (Exception e) {
             new b.c(context).a(Log.getStackTraceString(e)).a();

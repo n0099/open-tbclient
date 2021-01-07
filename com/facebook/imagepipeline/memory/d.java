@@ -5,13 +5,13 @@ import java.util.Queue;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 class d<V> {
     public final int lxy;
     public final int mItemSize;
-    final Queue pDm;
-    private final boolean pDn;
-    private int pDo;
+    final Queue pET;
+    private final boolean pEU;
+    private int pEV;
 
     public d(int i, int i2, int i3, boolean z) {
         com.facebook.common.internal.g.checkState(i > 0);
@@ -19,57 +19,57 @@ class d<V> {
         com.facebook.common.internal.g.checkState(i3 >= 0);
         this.mItemSize = i;
         this.lxy = i2;
-        this.pDm = new LinkedList();
-        this.pDo = i3;
-        this.pDn = z;
+        this.pET = new LinkedList();
+        this.pEV = i3;
+        this.pEU = z;
     }
 
-    public boolean ezy() {
-        return this.pDo + ezz() > this.lxy;
+    public boolean eAc() {
+        return this.pEV + eAd() > this.lxy;
     }
 
-    int ezz() {
-        return this.pDm.size();
+    int eAd() {
+        return this.pET.size();
     }
 
     @Nullable
     public V get() {
         V pop = pop();
         if (pop != null) {
-            this.pDo++;
+            this.pEV++;
         }
         return pop;
     }
 
     @Nullable
     public V pop() {
-        return (V) this.pDm.poll();
+        return (V) this.pET.poll();
     }
 
-    public void ezA() {
-        this.pDo++;
+    public void eAe() {
+        this.pEV++;
     }
 
     public void release(V v) {
         com.facebook.common.internal.g.checkNotNull(v);
-        if (this.pDn) {
-            com.facebook.common.internal.g.checkState(this.pDo > 0);
-            this.pDo--;
-            by(v);
-        } else if (this.pDo > 0) {
-            this.pDo--;
-            by(v);
+        if (this.pEU) {
+            com.facebook.common.internal.g.checkState(this.pEV > 0);
+            this.pEV--;
+            bz(v);
+        } else if (this.pEV > 0) {
+            this.pEV--;
+            bz(v);
         } else {
             com.facebook.common.c.a.e("BUCKET", "Tried to release value %s from an empty bucket!", v);
         }
     }
 
-    void by(V v) {
-        this.pDm.add(v);
+    void bz(V v) {
+        this.pET.add(v);
     }
 
-    public void ezB() {
-        com.facebook.common.internal.g.checkState(this.pDo > 0);
-        this.pDo--;
+    public void eAf() {
+        com.facebook.common.internal.g.checkState(this.pEV > 0);
+        this.pEV--;
     }
 }

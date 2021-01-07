@@ -5,14 +5,14 @@ import com.qq.e.comm.util.GDTLogger;
 import com.tencent.smtt.sdk.QbSdk;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class bi {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f12878a = 0;
+    private static int f12879a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Class<?> f12879b;
+    private static Class<?> f12880b;
     private static Method c;
     private static volatile boolean d;
     private static Boolean e;
@@ -32,20 +32,20 @@ public class bi {
             a(false);
             return false;
         }
-        switch (f12878a) {
+        switch (f12879a) {
             case 0:
                 try {
-                    if (f12879b == null) {
-                        f12879b = Class.forName("com.tencent.smtt.sdk.QbSdk");
+                    if (f12880b == null) {
+                        f12880b = Class.forName("com.tencent.smtt.sdk.QbSdk");
                     }
                     if (c == null) {
-                        c = f12879b.getDeclaredMethod("isTbsCoreInited", new Class[0]);
+                        c = f12880b.getDeclaredMethod("isTbsCoreInited", new Class[0]);
                     }
-                    Object invoke = c.invoke(f12879b, new Object[0]);
+                    Object invoke = c.invoke(f12880b, new Object[0]);
                     if (!(invoke instanceof Boolean)) {
-                        f12878a = 2;
+                        f12879a = 2;
                     } else if (((Boolean) invoke).booleanValue()) {
-                        f12878a = 1;
+                        f12879a = 1;
                         ai.a("gdt_tag_x5", "isTbsCoreInited = true");
                         a(true);
                         return true;
@@ -53,13 +53,13 @@ public class bi {
                         c();
                     }
                 } catch (ClassNotFoundException e2) {
-                    f12878a = 2;
+                    f12879a = 2;
                 } catch (IllegalAccessException e3) {
-                    f12878a = 2;
+                    f12879a = 2;
                 } catch (NoSuchMethodException e4) {
-                    f12878a = 2;
+                    f12879a = 2;
                 } catch (InvocationTargetException e5) {
-                    f12878a = 2;
+                    f12879a = 2;
                 }
                 ai.a("gdt_tag_x5", "isTbsCoreInited = false");
                 a(false);
@@ -84,14 +84,14 @@ public class bi {
         synchronized (bi.class) {
             try {
                 if (e == null) {
-                    if (f12879b == null) {
+                    if (f12880b == null) {
                         try {
-                            f12879b = Class.forName("com.tencent.smtt.sdk.QbSdk");
+                            f12880b = Class.forName("com.tencent.smtt.sdk.QbSdk");
                         } catch (ClassNotFoundException e2) {
                             GDTLogger.i("no QbSdk Environment");
                         }
                     }
-                    e = Boolean.valueOf(f12879b != null);
+                    e = Boolean.valueOf(f12880b != null);
                 }
                 booleanValue = e.booleanValue();
             } catch (Throwable th) {

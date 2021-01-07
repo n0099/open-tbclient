@@ -3,15 +3,15 @@ package com.bytedance.tea.crash.b.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7919a;
+    public String f7920a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f7920b;
+    public long f7921b;
 
-    public static a YY(String str) {
+    public static a YX(String str) {
         a aVar = new a();
-        aVar.f7919a = str;
-        aVar.f7920b = System.currentTimeMillis();
+        aVar.f7920a = str;
+        aVar.f7921b = System.currentTimeMillis();
         return aVar;
     }
 }

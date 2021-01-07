@@ -38,8 +38,8 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements y {
         super.a(i, view, viewGroup, (ViewGroup) gVar, (g) frsPageAlaInsertRecLiveHolder);
         if (gVar != null) {
             int topThreadSize = this.jeH != null ? this.jeH.getTopThreadSize() : 0;
-            if (gVar.npg != null && gVar.npg.get(0) != null) {
-                gVar.npg.get(0).eQR = (i + 1) - topThreadSize;
+            if (gVar.npf != null && gVar.npf.get(0) != null) {
+                gVar.npf.get(0).eQR = (i + 1) - topThreadSize;
             }
             frsPageAlaInsertRecLiveHolder.hnv.setForumName(this.mForumName);
             frsPageAlaInsertRecLiveHolder.hnv.a(gVar);

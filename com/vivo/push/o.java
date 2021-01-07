@@ -3,11 +3,11 @@ package com.vivo.push;
 import android.content.Intent;
 import com.vivo.push.c.ab;
 import com.vivo.push.c.ai;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class o implements IPushClientFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    private ai f13960a = new ai();
+    private ai f13961a = new ai();
 
     @Override // com.vivo.push.IPushClientFactory
     public final y createReceiverCommand(Intent intent) {

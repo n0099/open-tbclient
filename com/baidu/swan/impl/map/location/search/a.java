@@ -63,20 +63,20 @@ public class a extends c implements TextWatcher, View.OnClickListener, View.OnFo
         return aVar;
     }
 
-    public void beq() {
-        f ajs = com.baidu.swan.apps.v.f.aDG().ajs();
-        if (ajs != null) {
-            ajs.nv("navigateTo").ai(f.cUY, f.cVa).f(this).ate();
+    public void ber() {
+        f ajt = com.baidu.swan.apps.v.f.aDH().ajt();
+        if (ajt != null) {
+            ajt.nv("navigateTo").ai(f.cUY, f.cVa).f(this).atf();
         }
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        com.baidu.swan.impl.map.a.bdS();
+        com.baidu.swan.impl.map.a.bdT();
         SDKInitializer.setCoordType(CoordType.GCJ02);
         View inflate = layoutInflater.inflate(R.layout.ai_apps_location_search, viewGroup, false);
         init(inflate);
-        if (ase()) {
+        if (asf()) {
             inflate = az(inflate);
             im(-1);
         }
@@ -97,11 +97,11 @@ public class a extends c implements TextWatcher, View.OnClickListener, View.OnFo
         this.esg = (RecyclerView) view.findViewById(R.id.location_list);
         this.ett = view.findViewById(R.id.no_result_tip);
         this.bYR = (TextView) view.findViewById(R.id.cancel_search);
-        this.etu = new LinearLayoutManager(com.baidu.swan.apps.v.f.aDG().aDq());
+        this.etu = new LinearLayoutManager(com.baidu.swan.apps.v.f.aDH().aDr());
         this.esg.setLayoutManager(this.etu);
-        this.esv = new LocationDetailAdapter(com.baidu.swan.apps.v.f.aDG().aDq(), this.esg, this);
+        this.esv = new LocationDetailAdapter(com.baidu.swan.apps.v.f.aDH().aDr(), this.esg, this);
         this.esg.setAdapter(this.esv);
-        this.esg.addItemDecoration(new LocationItemDecoration(com.baidu.swan.apps.v.f.aDG().aDq()));
+        this.esg.addItemDecoration(new LocationItemDecoration(com.baidu.swan.apps.v.f.aDH().aDr()));
         this.esg.setOnTouchListener(this);
         this.bYR.setOnClickListener(this);
         this.etv = PoiSearch.newInstance();
@@ -113,10 +113,10 @@ public class a extends c implements TextWatcher, View.OnClickListener, View.OnFo
         this.esg.addOnScrollListener(new RecyclerView.OnScrollListener() { // from class: com.baidu.swan.impl.map.location.search.a.1
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                int beP;
+                int beQ;
                 super.onScrollStateChanged(recyclerView, i);
-                if (i == 0 && (beP = a.this.beP()) >= 0 && beP + 1 == a.this.esv.getItemCount()) {
-                    a.this.beR();
+                if (i == 0 && (beQ = a.this.beQ()) >= 0 && beQ + 1 == a.this.esv.getItemCount()) {
+                    a.this.beS();
                 }
             }
         });
@@ -130,7 +130,7 @@ public class a extends c implements TextWatcher, View.OnClickListener, View.OnFo
 
     public void d(View view, boolean z) {
         if (this.mImm == null) {
-            this.mImm = (InputMethodManager) com.baidu.swan.apps.v.f.aDG().aDq().getApplicationContext().getSystemService("input_method");
+            this.mImm = (InputMethodManager) com.baidu.swan.apps.v.f.aDH().aDr().getApplicationContext().getSystemService("input_method");
         }
         if (this.mImm != null) {
             if (z) {
@@ -142,7 +142,7 @@ public class a extends c implements TextWatcher, View.OnClickListener, View.OnFo
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int beP() {
+    public int beQ() {
         if (this.etu != null) {
             return this.etu.findLastVisibleItemPosition();
         }
@@ -150,14 +150,14 @@ public class a extends c implements TextWatcher, View.OnClickListener, View.OnFo
     }
 
     private View getLastItemView() {
-        int beP = beP();
-        if (beP == -1) {
+        int beQ = beQ();
+        if (beQ == -1) {
             return null;
         }
-        return this.etu.findViewByPosition(beP);
+        return this.etu.findViewByPosition(beQ);
     }
 
-    private void beQ() {
+    private void beR() {
         if (!TextUtils.isEmpty(this.etx)) {
             this.bMx = 0;
             yI(this.etx);
@@ -169,14 +169,14 @@ public class a extends c implements TextWatcher, View.OnClickListener, View.OnFo
         this.etv.searchInCity(new PoiCitySearchOption().cityLimit(false).scope(2).city(this.etz).keyword(str).pageCapacity(13).pageNum(this.bMx));
     }
 
-    public void beR() {
+    public void beS() {
         if (!this.mIsLoading) {
             if (this.bMx < this.etw) {
                 yI(this.etx);
                 this.mIsLoading = true;
                 return;
             }
-            beS();
+            beT();
         }
     }
 
@@ -188,12 +188,12 @@ public class a extends c implements TextWatcher, View.OnClickListener, View.OnFo
             intent.putExtra(SelectedLocationInfo.LOCATION_KEY, new SelectedLocationInfo(poiInfo.name, poiInfo.address, poiInfo.location));
         }
         B(intent);
-        beD();
+        beE();
     }
 
     private void B(Intent intent) {
-        if (bhz() != null) {
-            bhz().onActivityResult(getTargetRequestCode(), 0, intent);
+        if (bhA() != null) {
+            bhA().onActivityResult(getTargetRequestCode(), 0, intent);
         }
     }
 
@@ -216,19 +216,19 @@ public class a extends c implements TextWatcher, View.OnClickListener, View.OnFo
                     this.est.clear();
                     this.esv.setData(this.est);
                 }
-                beS();
+                beT();
             }
             if (this.bMx == 0 && this.est.size() == 0) {
                 z = true;
             }
             iz(z);
             if (this.est.size() <= 0) {
-                beS();
+                beT();
             }
         }
     }
 
-    private void beS() {
+    private void beT() {
         View lastItemView = getLastItemView();
         if (lastItemView != null) {
             RecyclerView.ViewHolder childViewHolder = this.esg.getChildViewHolder(lastItemView);
@@ -242,7 +242,7 @@ public class a extends c implements TextWatcher, View.OnClickListener, View.OnFo
         this.ett.setVisibility(z ? 0 : 8);
     }
 
-    private void beD() {
+    private void beE() {
         if (this.mActivity != null) {
             this.mActivity.onBackPressed();
         }
@@ -281,14 +281,14 @@ public class a extends c implements TextWatcher, View.OnClickListener, View.OnFo
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.cancel_search) {
-            beD();
+            beE();
         }
     }
 
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
         if (i == 66) {
-            beQ();
+            beR();
             return true;
         }
         return false;
@@ -311,25 +311,25 @@ public class a extends c implements TextWatcher, View.OnClickListener, View.OnFo
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean arC() {
+    public boolean arD() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean aml() {
+    public boolean amm() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void amS() {
+    protected void amT() {
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void arB() {
+    protected void arC() {
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected boolean amM() {
+    protected boolean amN() {
         return true;
     }
 

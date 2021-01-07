@@ -8,7 +8,7 @@ import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class JSONWriter implements Closeable, Flushable {
     private JSONStreamContext context;
     private JSONSerializer serializer;

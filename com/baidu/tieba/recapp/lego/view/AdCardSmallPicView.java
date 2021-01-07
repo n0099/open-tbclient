@@ -8,8 +8,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes8.dex */
 public class AdCardSmallPicView extends AdSimpleCardBaseView {
-    private XfremodeRoundLayout mPT;
-    private TbImageView mPU;
+    private XfremodeRoundLayout mPS;
+    private TbImageView mPT;
 
     public AdCardSmallPicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -23,25 +23,25 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
     protected void ec(View view) {
         float dimensionPixelSize = this.eXu.getResources().getDimensionPixelSize(R.dimen.tbds10);
-        this.mPT = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
-        this.mPU = (TbImageView) view.findViewById(R.id.ad_img);
-        this.mPU.setPlaceHolder(3);
-        this.mPT.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
+        this.mPS = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
+        this.mPT = (TbImageView) view.findViewById(R.id.ad_img);
+        this.mPT.setPlaceHolder(3);
+        this.mPS.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
     protected void a(AdCard adCard) {
         if (adCard == null || adCard.threadPicList == null || adCard.threadPicList.length < 1) {
-            this.mOy.setVisibility(8);
+            this.mOx.setVisibility(8);
             return;
         }
         String str = adCard.threadPicList[0].pic;
         if (!TextUtils.isEmpty(str)) {
-            this.mOy.setVisibility(0);
-            this.mPU.startLoad(str, 17, false);
+            this.mOx.setVisibility(0);
+            this.mPT.startLoad(str, 17, false);
             return;
         }
-        this.mOy.setVisibility(8);
+        this.mOx.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView

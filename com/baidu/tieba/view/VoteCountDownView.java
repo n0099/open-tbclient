@@ -16,15 +16,15 @@ import com.kwad.sdk.collector.AppStatusRules;
 public class VoteCountDownView extends LinearLayout {
     private CountDownTimer gSu;
     private Context mContext;
-    private a maC;
+    private a maB;
+    private View nTX;
     private View nTY;
-    private View nTZ;
+    private TextView nUa;
     private TextView nUb;
-    private TextView nUc;
 
     /* loaded from: classes.dex */
     public interface a {
-        void clr();
+        void cls();
     }
 
     public VoteCountDownView(Context context) {
@@ -58,7 +58,7 @@ public class VoteCountDownView extends LinearLayout {
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
                     VoteCountDownView.this.setContent(0L, 0L);
-                    VoteCountDownView.this.bRN();
+                    VoteCountDownView.this.bRO();
                 }
             };
             this.gSu.start();
@@ -66,29 +66,29 @@ public class VoteCountDownView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRN() {
-        if (this.maC != null) {
-            this.maC.clr();
+    public void bRO() {
+        if (this.maB != null) {
+            this.maB.cls();
         }
     }
 
     private void tN() {
-        this.nTY = findViewById(R.id.hour_num_container);
-        this.nTZ = findViewById(R.id.minute_num_container);
-        this.nUb = (TextView) findViewById(R.id.hour_num_count_down_view);
-        this.nUc = (TextView) findViewById(R.id.minute_num_count_down_view);
+        this.nTX = findViewById(R.id.hour_num_container);
+        this.nTY = findViewById(R.id.minute_num_container);
+        this.nUa = (TextView) findViewById(R.id.hour_num_count_down_view);
+        this.nUb = (TextView) findViewById(R.id.minute_num_count_down_view);
     }
 
     public void setContent(long j, long j2) {
-        this.nUc.setText(String.valueOf(j2));
-        this.nUb.setText(String.valueOf(j));
+        this.nUb.setText(String.valueOf(j2));
+        this.nUa.setText(String.valueOf(j));
     }
 
     public void vU(int i) {
+        ao.setBackgroundResource(this.nTX, R.drawable.bg_gradient_round, i);
         ao.setBackgroundResource(this.nTY, R.drawable.bg_gradient_round, i);
-        ao.setBackgroundResource(this.nTZ, R.drawable.bg_gradient_round, i);
-        ao.setViewTextColor(this.nUb, R.color.CAM_X0101, 1, i);
-        ao.setViewTextColor(this.nUb, R.color.CAM_X0101, 1, i);
+        ao.setViewTextColor(this.nUa, R.color.CAM_X0101, 1, i);
+        ao.setViewTextColor(this.nUa, R.color.CAM_X0101, 1, i);
     }
 
     public void setData(long j) {
@@ -98,6 +98,6 @@ public class VoteCountDownView extends LinearLayout {
     }
 
     public void setOnCountDownFinished(a aVar) {
-        this.maC = aVar;
+        this.maB = aVar;
     }
 }

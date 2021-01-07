@@ -15,25 +15,25 @@ import tbclient.User;
 public class c {
     private TextView eKc;
     private View iwu;
-    private View lFb;
+    private View lFa;
+    private b lFb;
     private b lFc;
     private b lFd;
-    private b lFe;
     private View rootView;
 
     /* loaded from: classes8.dex */
     public interface a {
-        void Py(String str);
+        void Px(String str);
     }
 
     public c(Context context, a aVar) {
         this.rootView = LayoutInflater.from(context).inflate(R.layout.chosen_pb_comment_layout, (ViewGroup) null);
         this.eKc = (TextView) this.rootView.findViewById(R.id.chosen_pb_comment_title);
         this.iwu = this.rootView.findViewById(R.id.chosen_pb_comment_line);
-        this.lFb = this.rootView.findViewById(R.id.comment_layout_blank_view);
-        this.lFc = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_first), aVar);
-        this.lFd = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_second), aVar);
-        this.lFe = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_third), aVar);
+        this.lFa = this.rootView.findViewById(R.id.comment_layout_blank_view);
+        this.lFb = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_first), aVar);
+        this.lFc = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_second), aVar);
+        this.lFd = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_third), aVar);
     }
 
     public void a(Context context, List<Post> list, List<User> list2) {
@@ -42,31 +42,31 @@ public class c {
         boolean z3;
         if (list == null || list.isEmpty()) {
             this.eKc.setVisibility(8);
+            this.lFb.uu(false);
             this.lFc.uu(false);
             this.lFd.uu(false);
-            this.lFe.uu(false);
             this.iwu.setVisibility(8);
             return;
         }
         this.iwu.setVisibility(0);
         int size = list.size();
         if (size == 1) {
-            boolean a2 = this.lFc.a(context, list.get(0), a(list.get(0), list2));
+            boolean a2 = this.lFb.a(context, list.get(0), a(list.get(0), list2));
+            this.lFc.uu(false);
             this.lFd.uu(false);
-            this.lFe.uu(false);
             z = false;
             z2 = false;
             z3 = a2;
         } else if (size == 2) {
-            boolean a3 = this.lFc.a(context, list.get(0), a(list.get(0), list2));
-            z2 = this.lFd.a(context, list.get(1), a(list.get(1), list2));
-            this.lFe.uu(false);
+            boolean a3 = this.lFb.a(context, list.get(0), a(list.get(0), list2));
+            z2 = this.lFc.a(context, list.get(1), a(list.get(1), list2));
+            this.lFd.uu(false);
             z = false;
             z3 = a3;
         } else if (size >= 3) {
-            z3 = this.lFc.a(context, list.get(0), a(list.get(0), list2));
-            boolean a4 = this.lFd.a(context, list.get(1), a(list.get(1), list2));
-            z = this.lFe.a(context, list.get(2), a(list.get(2), list2));
+            z3 = this.lFb.a(context, list.get(0), a(list.get(0), list2));
+            boolean a4 = this.lFc.a(context, list.get(1), a(list.get(1), list2));
+            z = this.lFd.a(context, list.get(2), a(list.get(2), list2));
             z2 = a4;
         } else {
             z = false;
@@ -98,12 +98,12 @@ public class c {
 
     public void onChangeSkinType() {
         ao.setBackgroundResource(this.rootView, R.color.common_color_10187);
-        ao.setBackgroundColor(this.lFb, R.color.CAM_X0201);
+        ao.setBackgroundColor(this.lFa, R.color.CAM_X0201);
         ao.setViewTextColor(this.eKc, R.color.CAM_X0106, 1);
         ao.setBackgroundColor(this.iwu, R.color.CAM_X0204);
+        this.lFb.onChangeSkinType();
         this.lFc.onChangeSkinType();
         this.lFd.onChangeSkinType();
-        this.lFe.onChangeSkinType();
     }
 
     public View getView() {

@@ -3,29 +3,29 @@ package kotlin.jvm.internal;
 /* loaded from: classes5.dex */
 public final class r implements l {
     private final String kqq;
-    private final Class<?> qmh;
+    private final Class<?> qnP;
 
     public r(Class<?> cls, String str) {
         p.o(cls, "jClass");
         p.o(str, "moduleName");
-        this.qmh = cls;
+        this.qnP = cls;
         this.kqq = str;
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> eMg() {
-        return this.qmh;
+    public Class<?> eMK() {
+        return this.qnP;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof r) && p.l(eMg(), ((r) obj).eMg());
+        return (obj instanceof r) && p.l(eMK(), ((r) obj).eMK());
     }
 
     public int hashCode() {
-        return eMg().hashCode();
+        return eMK().hashCode();
     }
 
     public String toString() {
-        return eMg().toString() + " (Kotlin reflection is not available)";
+        return eMK().toString() + " (Kotlin reflection is not available)";
     }
 }

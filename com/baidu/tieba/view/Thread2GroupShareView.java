@@ -53,10 +53,10 @@ public final class Thread2GroupShareView extends LinearLayout {
         ao.setViewTextColor(this.kuu, R.color.CAM_X0106, 1);
         this.jOV.setHintTextColor(ao.getColor(R.color.CAM_X0110));
         this.jOV.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
-        cPk();
+        cPl();
     }
 
-    public void cPk() {
+    public void cPl() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();

@@ -8,11 +8,11 @@ import java.util.List;
 public class ShapeStroke implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8358a;
+    private final String f8359a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.ksad.lottie.model.a.b f8359b;
+    private final com.ksad.lottie.model.a.b f8360b;
     private final List<com.ksad.lottie.model.a.b> c;
     private final com.ksad.lottie.model.a.a d;
     private final com.ksad.lottie.model.a.d e;
@@ -60,8 +60,8 @@ public class ShapeStroke implements b {
     }
 
     public ShapeStroke(String str, @Nullable com.ksad.lottie.model.a.b bVar, List<com.ksad.lottie.model.a.b> list, com.ksad.lottie.model.a.a aVar, com.ksad.lottie.model.a.d dVar, com.ksad.lottie.model.a.b bVar2, LineCapType lineCapType, LineJoinType lineJoinType, float f) {
-        this.f8358a = str;
-        this.f8359b = bVar;
+        this.f8359a = str;
+        this.f8360b = bVar;
         this.c = list;
         this.d = aVar;
         this.e = dVar;
@@ -77,7 +77,7 @@ public class ShapeStroke implements b {
     }
 
     public String a() {
-        return this.f8358a;
+        return this.f8359a;
     }
 
     public com.ksad.lottie.model.a.a b() {
@@ -97,7 +97,7 @@ public class ShapeStroke implements b {
     }
 
     public com.ksad.lottie.model.a.b f() {
-        return this.f8359b;
+        return this.f8360b;
     }
 
     public LineCapType g() {

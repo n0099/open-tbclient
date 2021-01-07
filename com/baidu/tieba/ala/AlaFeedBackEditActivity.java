@@ -122,7 +122,7 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
             super.finish();
             return;
         }
-        Xj();
+        Xk();
         setContentView(this.mRootView);
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
             i.ae(this.mRootView);
@@ -216,12 +216,12 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
                 i.af(this.mRootView);
                 r.e(getActivity(), true);
             }
-            Xj();
             Xk();
+            Xl();
         }
     }
 
-    private void Xj() {
+    private void Xk() {
         if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
             this.mRootView.setBackgroundResource(a.e.ala_choose_feedback_act_bg_land);
         } else {
@@ -242,10 +242,10 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Xk();
+        Xl();
     }
 
-    private void Xk() {
+    private void Xl() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());

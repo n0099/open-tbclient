@@ -24,7 +24,7 @@ public class ThemeManager {
 
     public static int U(Context context, int i) {
         try {
-            if (enQ() != ThemeMode.DAY && context != null) {
+            if (enR() != ThemeMode.DAY && context != null) {
                 String resourceEntryName = context.getResources().getResourceEntryName(i);
                 String resourceTypeName = context.getResources().getResourceTypeName(i);
                 HashMap<String, Integer> hashMap = pbf.get(resourceTypeName);
@@ -62,7 +62,7 @@ public class ThemeManager {
         }
     }
 
-    public static ThemeMode enQ() {
+    public static ThemeMode enR() {
         return pbd;
     }
 }

@@ -9,14 +9,14 @@ public class h {
     public h(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c e = com.baidu.swan.games.binding.model.c.e(jsObject);
         if (e != null) {
-            com.baidu.swan.apps.runtime.e aMk = com.baidu.swan.apps.runtime.e.aMk();
-            if (aMk == null) {
+            com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
+            if (aMl == null) {
                 a(e, false, wN("internal error"));
                 return;
             }
             try {
                 boolean optBoolean = e.optBoolean("mixWithOther", false);
-                aMk.aMC().a("key_audio_is_mix_with_other", Boolean.valueOf(optBoolean));
+                aMl.aMD().a("key_audio_is_mix_with_other", Boolean.valueOf(optBoolean));
                 if (DEBUG) {
                     Log.d("InnerAudioOptionApi", "Audio Mix Changed to " + optBoolean);
                 }

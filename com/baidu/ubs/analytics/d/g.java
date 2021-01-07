@@ -14,7 +14,7 @@ public final class g {
     public static synchronized boolean b(String str, String str2, String str3) {
         boolean z = false;
         synchronized (g.class) {
-            if (ejS() && f(str2, str3)) {
+            if (ejT() && f(str2, str3)) {
                 try {
                     oOT = new File(str2 + str3);
                     RandomAccessFile randomAccessFile = new RandomAccessFile(oOT, "rwd");
@@ -34,8 +34,8 @@ public final class g {
     public static synchronized String e(String str, String str2) {
         String str3;
         synchronized (g.class) {
-            if (ejS()) {
-                if (XQ(str + str2)) {
+            if (ejT()) {
+                if (XP(str + str2)) {
                     try {
                         oOT = new File(str + str2);
                         oOU = new RandomAccessFile(oOT, "r");
@@ -70,18 +70,18 @@ public final class g {
         return str3;
     }
 
-    private static boolean ejS() {
+    private static boolean ejT() {
         String externalStorageState = Environment.getExternalStorageState();
-        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.ejy().getContext().checkCallingOrSelfPermission(oOS[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
+        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.ejz().getContext().checkCallingOrSelfPermission(oOS[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
     }
 
-    public static boolean XQ(String str) {
+    public static boolean XP(String str) {
         File file = new File(str);
         oOT = file;
         return file.exists();
     }
 
-    public static boolean XR(String str) {
+    public static boolean XQ(String str) {
         File file = new File(str);
         oOT = file;
         return file.delete();
@@ -90,7 +90,7 @@ public final class g {
     private static boolean f(String str, String str2) {
         try {
             oOT = new File(str);
-            if (!XQ(str)) {
+            if (!XP(str)) {
                 oOT.mkdirs();
             }
         } catch (Exception e) {

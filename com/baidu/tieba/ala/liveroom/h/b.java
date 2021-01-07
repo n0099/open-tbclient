@@ -183,7 +183,7 @@ public class b {
         }
     }
 
-    public void chk() {
+    public void chl() {
         if (this.bFB != null) {
             this.bFB.CR();
         }

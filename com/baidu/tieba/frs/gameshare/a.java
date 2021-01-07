@@ -29,7 +29,7 @@ public class a {
     private TbImageView icl;
     private TextView jzA;
     private TextView jzB;
-    private InterfaceC0739a jzC;
+    private InterfaceC0746a jzC;
     private BlurDrawable jzD;
     private ImageView jza;
     private FrameLayout jzb;
@@ -61,7 +61,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.frs.gameshare.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0739a {
+    public interface InterfaceC0746a {
         void A(Bitmap bitmap);
 
         void B(Bitmap bitmap);
@@ -73,8 +73,8 @@ public class a {
         void onCancel();
     }
 
-    public a(Context context, InterfaceC0739a interfaceC0739a) {
-        this.jzC = interfaceC0739a;
+    public a(Context context, InterfaceC0746a interfaceC0746a) {
+        this.jzC = interfaceC0746a;
         this.ajW = (FrameLayout) LayoutInflater.from(context).inflate(R.layout.activity_game_share_layout, (ViewGroup) null);
         this.mContentLayout = (FrameLayout) this.ajW.findViewById(R.id.game_share_content_layout);
         this.jza = (ImageView) this.ajW.findViewById(R.id.game_share_content_bg_view);
@@ -128,9 +128,9 @@ public class a {
         this.jzx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Bitmap bon = a.this.bon();
-                if (bon != null && a.this.jzC != null) {
-                    a.this.jzC.A(bon);
+                Bitmap boo = a.this.boo();
+                if (boo != null && a.this.jzC != null) {
+                    a.this.jzC.A(boo);
                 }
             }
         });
@@ -138,9 +138,9 @@ public class a {
         this.jzy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Bitmap bon = a.this.bon();
-                if (bon != null && a.this.jzC != null) {
-                    a.this.jzC.B(bon);
+                Bitmap boo = a.this.boo();
+                if (boo != null && a.this.jzC != null) {
+                    a.this.jzC.B(boo);
                 }
             }
         });
@@ -148,9 +148,9 @@ public class a {
         this.jzz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Bitmap bon = a.this.bon();
-                if (bon != null && a.this.jzC != null) {
-                    a.this.jzC.C(bon);
+                Bitmap boo = a.this.boo();
+                if (boo != null && a.this.jzC != null) {
+                    a.this.jzC.C(boo);
                 }
             }
         });
@@ -158,9 +158,9 @@ public class a {
         this.jzA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gameshare.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Bitmap bon = a.this.bon();
-                if (bon != null && a.this.jzC != null) {
-                    a.this.jzC.D(bon);
+                Bitmap boo = a.this.boo();
+                if (boo != null && a.this.jzC != null) {
+                    a.this.jzC.D(boo);
                 }
             }
         });
@@ -249,12 +249,12 @@ public class a {
         }
     }
 
-    public Bitmap bon() {
+    public Bitmap boo() {
         this.mContentLayout.buildDrawingCache();
         return this.mContentLayout.getDrawingCache();
     }
 
-    public int cKM() {
+    public int cKN() {
         return this.hoh.getBottom();
     }
 

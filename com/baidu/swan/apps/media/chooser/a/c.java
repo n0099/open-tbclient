@@ -27,7 +27,7 @@ public class c extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        if (eVar != null && eVar.ank()) {
+        if (eVar != null && eVar.anl()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
@@ -88,7 +88,7 @@ public class c extends aa {
                     if (c.DEBUG) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
-                            Log.d("chooseVideo", "tempPath = " + ((MediaModel) it.next()).aEU());
+                            Log.d("chooseVideo", "tempPath = " + ((MediaModel) it.next()).aEV());
                         }
                     }
                     com.baidu.swan.apps.console.c.i("chooseVideo", "choose success");
@@ -103,11 +103,11 @@ public class c extends aa {
                 com.baidu.swan.apps.console.c.i("chooseVideo", "capture success");
                 com.baidu.swan.apps.media.chooser.b.e.e(com.baidu.swan.apps.media.chooser.b.b.H(file));
                 Bundle bundle = new Bundle();
-                bundle.putString("swanTmpPath", com.baidu.swan.apps.v.f.aDG().aDm().aPB());
+                bundle.putString("swanTmpPath", com.baidu.swan.apps.v.f.aDH().aDn().aPC());
                 bundle.putBoolean("compressed", fVar.dnM);
                 bundle.putString("swanAppId", eVar.id);
-                bundle.putParcelableArrayList("mediaModels", com.baidu.swan.apps.media.chooser.b.e.aEO());
-                com.baidu.swan.apps.media.chooser.b.d.b(eVar.aMe(), bundle, dVar);
+                bundle.putParcelableArrayList("mediaModels", com.baidu.swan.apps.media.chooser.b.e.aEP());
+                com.baidu.swan.apps.media.chooser.b.d.b(eVar.aMf(), bundle, dVar);
             }
 
             @Override // com.baidu.swan.apps.media.chooser.listener.b
@@ -115,7 +115,7 @@ public class c extends aa {
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), fVar.callback);
             }
         };
-        com.baidu.swan.apps.media.chooser.b.b.a(eVar.aMe(), eVar.id, fVar.dnO, TextUtils.equals(fVar.dnN, "front"), bVar);
+        com.baidu.swan.apps.media.chooser.b.b.a(eVar.aMf(), eVar.id, fVar.dnO, TextUtils.equals(fVar.dnN, "front"), bVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -129,7 +129,7 @@ public class c extends aa {
         bundle.putString(UbcStatConstant.KEY_CONTENT_EXT_MODE, "single");
         bundle.putBoolean("compressed", fVar.dnM);
         bundle.putString("swanAppId", eVar.id);
-        bundle.putString("swanTmpPath", com.baidu.swan.apps.v.f.aDG().aDm().aPB());
+        bundle.putString("swanTmpPath", com.baidu.swan.apps.v.f.aDH().aDn().aPC());
         com.baidu.swan.apps.media.chooser.b.d.a(context, bundle, new com.baidu.swan.apps.media.chooser.listener.c() { // from class: com.baidu.swan.apps.media.chooser.a.c.5
             @Override // com.baidu.swan.apps.media.chooser.listener.c
             public void aN(List list) {

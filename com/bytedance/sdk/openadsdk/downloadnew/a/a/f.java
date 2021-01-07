@@ -21,10 +21,10 @@ import org.apache.http.protocol.HTTP;
 public class f implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final WeakReference<Context> f7379a;
+    protected final WeakReference<Context> f7380a;
 
     public f(Context context) {
-        this.f7379a = new WeakReference<>(context);
+        this.f7380a = new WeakReference<>(context);
     }
 
     @Override // com.ss.android.socialbase.downloader.i.h

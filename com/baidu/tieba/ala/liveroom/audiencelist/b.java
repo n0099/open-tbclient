@@ -97,14 +97,14 @@ public class b {
             j = 0;
         }
         if (this.count == 0 && j > 0 && !this.htZ) {
-            cfl();
+            cfm();
         }
         this.count = j;
         this.htW.setText(j.numFormatOverWanNaForAudienceNum(j));
         this.htZ = false;
     }
 
-    private void cfl() {
+    private void cfm() {
         if (this.isHost && !this.hua) {
             int[] iArr = new int[2];
             this.htW.getLocationInWindow(iArr);

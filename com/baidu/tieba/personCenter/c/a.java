@@ -15,7 +15,7 @@ public class a implements com.baidu.tbadk.core.flow.a.a {
         }
     }
 
-    public String bpl() {
+    public String bpm() {
         return this.eOR;
     }
 
@@ -25,7 +25,7 @@ public class a implements com.baidu.tbadk.core.flow.a.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String bpm() {
+    public String bpn() {
         return this.eOR;
     }
 }

@@ -28,7 +28,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public final void addRequestProperty(String str, String str2) {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             this.oLu.addRequestProperty(str, str2);
         } else {
             this.oLt.addRequestProperty(str, str2);
@@ -38,7 +38,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
     @Override // java.net.URLConnection
     public void connect() throws IOException {
         com.baidu.turbonet.base.a.d("ProxyURLConn", "connect by libtype: " + this.oKD.toString());
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             this.oLu.connect();
             return;
         }
@@ -52,12 +52,12 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public int getConnectTimeout() {
-        return !this.oKD.ehI() ? this.oLu.getConnectTimeout() : this.oLt.getConnectTimeout();
+        return !this.oKD.ehJ() ? this.oLu.getConnectTimeout() : this.oLt.getConnectTimeout();
     }
 
     @Override // java.net.URLConnection
     public Object getContent() throws IOException {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             return this.oLu.getContent();
         }
         try {
@@ -73,7 +73,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public Object getContent(Class[] clsArr) throws IOException {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             return this.oLu.getContent(clsArr);
         }
         try {
@@ -89,57 +89,57 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public String getContentEncoding() {
-        return !this.oKD.ehI() ? this.oLu.getContentEncoding() : this.oLt.getContentEncoding();
+        return !this.oKD.ehJ() ? this.oLu.getContentEncoding() : this.oLt.getContentEncoding();
     }
 
     @Override // java.net.URLConnection
     public int getContentLength() {
-        return !this.oKD.ehI() ? this.oLu.getContentLength() : this.oLt.getContentLength();
+        return !this.oKD.ehJ() ? this.oLu.getContentLength() : this.oLt.getContentLength();
     }
 
     @Override // java.net.URLConnection
     public String getContentType() {
-        return !this.oKD.ehI() ? this.oLu.getContentType() : this.oLt.getContentType();
+        return !this.oKD.ehJ() ? this.oLu.getContentType() : this.oLt.getContentType();
     }
 
     @Override // java.net.URLConnection
     public long getDate() {
-        return !this.oKD.ehI() ? this.oLu.getDate() : this.oLt.getDate();
+        return !this.oKD.ehJ() ? this.oLu.getDate() : this.oLt.getDate();
     }
 
     @Override // java.net.URLConnection
     public boolean getDefaultUseCaches() {
-        return !this.oKD.ehI() ? this.oLu.getDefaultUseCaches() : this.oLt.getDefaultUseCaches();
+        return !this.oKD.ehJ() ? this.oLu.getDefaultUseCaches() : this.oLt.getDefaultUseCaches();
     }
 
     @Override // java.net.URLConnection
     public boolean getDoInput() {
-        return !this.oKD.ehI() ? this.oLu.getDoInput() : this.oLt.getDoInput();
+        return !this.oKD.ehJ() ? this.oLu.getDoInput() : this.oLt.getDoInput();
     }
 
     @Override // java.net.URLConnection
     public boolean getDoOutput() {
-        return !this.oKD.ehI() ? this.oLu.getDoOutput() : this.oLt.getDoOutput();
+        return !this.oKD.ehJ() ? this.oLu.getDoOutput() : this.oLt.getDoOutput();
     }
 
     @Override // java.net.URLConnection
     public long getExpiration() {
-        return !this.oKD.ehI() ? this.oLu.getExpiration() : this.oLt.getExpiration();
+        return !this.oKD.ehJ() ? this.oLu.getExpiration() : this.oLt.getExpiration();
     }
 
     @Override // java.net.URLConnection
     public final String getHeaderField(String str) {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             return this.oLu.getHeaderField(str);
         }
         String headerField = this.oLt.getHeaderField(str);
-        this.oLs.ehJ();
+        this.oLs.ehK();
         return headerField;
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public final String getHeaderField(int i) {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             return this.oLu.getHeaderField(i);
         }
         return this.oLt.getHeaderField(i);
@@ -147,22 +147,22 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public int getHeaderFieldInt(String str, int i) {
-        return !this.oKD.ehI() ? this.oLu.getHeaderFieldInt(str, i) : this.oLt.getHeaderFieldInt(str, i);
+        return !this.oKD.ehJ() ? this.oLu.getHeaderFieldInt(str, i) : this.oLt.getHeaderFieldInt(str, i);
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public long getHeaderFieldDate(String str, long j) {
-        return !this.oKD.ehI() ? this.oLu.getHeaderFieldDate(str, j) : this.oLt.getHeaderFieldDate(str, j);
+        return !this.oKD.ehJ() ? this.oLu.getHeaderFieldDate(str, j) : this.oLt.getHeaderFieldDate(str, j);
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public final String getHeaderFieldKey(int i) {
-        return !this.oKD.ehI() ? this.oLu.getHeaderFieldKey(i) : this.oLt.getHeaderFieldKey(i);
+        return !this.oKD.ehJ() ? this.oLu.getHeaderFieldKey(i) : this.oLt.getHeaderFieldKey(i);
     }
 
     @Override // java.net.URLConnection
     public Map<String, List<String>> getHeaderFields() {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             return this.oLu.getHeaderFields();
         }
         return this.oLt.getHeaderFields();
@@ -170,13 +170,13 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public long getIfModifiedSince() {
-        return !this.oKD.ehI() ? this.oLu.getIfModifiedSince() : this.oLt.getIfModifiedSince();
+        return !this.oKD.ehJ() ? this.oLu.getIfModifiedSince() : this.oLt.getIfModifiedSince();
     }
 
     @Override // java.net.URLConnection
     public InputStream getInputStream() throws IOException {
         com.baidu.turbonet.base.a.d("ProxyURLConn", "getInputStream by libtype: " + this.oKD.toString());
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             return this.oLu.getInputStream();
         }
         try {
@@ -189,47 +189,47 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public OutputStream getOutputStream() throws IOException {
-        return !this.oKD.ehI() ? this.oLu.getOutputStream() : this.oLt.getOutputStream();
+        return !this.oKD.ehJ() ? this.oLu.getOutputStream() : this.oLt.getOutputStream();
     }
 
     @Override // java.net.URLConnection
     public long getLastModified() {
-        return !this.oKD.ehI() ? this.oLu.getLastModified() : this.oLt.getLastModified();
+        return !this.oKD.ehJ() ? this.oLu.getLastModified() : this.oLt.getLastModified();
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public Permission getPermission() throws IOException {
-        return !this.oKD.ehI() ? this.oLu.getPermission() : this.oLt.getPermission();
+        return !this.oKD.ehJ() ? this.oLu.getPermission() : this.oLt.getPermission();
     }
 
     @Override // java.net.URLConnection
     public int getReadTimeout() {
-        return !this.oKD.ehI() ? this.oLu.getReadTimeout() : this.oLt.getReadTimeout();
+        return !this.oKD.ehJ() ? this.oLu.getReadTimeout() : this.oLt.getReadTimeout();
     }
 
     @Override // java.net.URLConnection
     public Map<String, List<String>> getRequestProperties() {
-        return !this.oKD.ehI() ? this.oLu.getRequestProperties() : this.oLt.getRequestProperties();
+        return !this.oKD.ehJ() ? this.oLu.getRequestProperties() : this.oLt.getRequestProperties();
     }
 
     @Override // java.net.URLConnection
     public String getRequestProperty(String str) {
-        return !this.oKD.ehI() ? this.oLu.getRequestProperty(str) : this.oLt.getRequestProperty(str);
+        return !this.oKD.ehJ() ? this.oLu.getRequestProperty(str) : this.oLt.getRequestProperty(str);
     }
 
     @Override // java.net.URLConnection
     public URL getURL() {
-        return !this.oKD.ehI() ? this.oLu.getURL() : this.oLt.getURL();
+        return !this.oKD.ehJ() ? this.oLu.getURL() : this.oLt.getURL();
     }
 
     @Override // java.net.URLConnection
     public boolean getUseCaches() {
-        return !this.oKD.ehI() ? this.oLu.getUseCaches() : this.oLt.getUseCaches();
+        return !this.oKD.ehJ() ? this.oLu.getUseCaches() : this.oLt.getUseCaches();
     }
 
     @Override // java.net.URLConnection
     public void setConnectTimeout(int i) {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             this.oLu.setConnectTimeout(i);
         } else {
             this.oLt.setConnectTimeout(i);
@@ -238,7 +238,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public void setDefaultUseCaches(boolean z) {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             this.oLu.setDefaultUseCaches(z);
         } else {
             this.oLt.setDefaultUseCaches(z);
@@ -247,7 +247,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public void setDoInput(boolean z) {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             this.oLu.setDoInput(z);
         } else {
             this.oLt.setDoInput(z);
@@ -256,7 +256,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public void setDoOutput(boolean z) {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             this.oLu.setDoOutput(z);
         } else {
             this.oLt.setDoOutput(z);
@@ -265,7 +265,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public void setIfModifiedSince(long j) {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             this.oLu.setIfModifiedSince(j);
         } else {
             this.oLt.setIfModifiedSince(j);
@@ -274,7 +274,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public void setReadTimeout(int i) {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             this.oLu.setReadTimeout(i);
         } else {
             this.oLt.setReadTimeout(i);
@@ -283,7 +283,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public final void setRequestProperty(String str, String str2) {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             this.oLu.setRequestProperty(str, str2);
         } else {
             this.oLt.setRequestProperty(str, str2);
@@ -292,7 +292,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public void setUseCaches(boolean z) {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             this.oLu.setUseCaches(z);
         } else {
             this.oLt.setUseCaches(z);
@@ -302,7 +302,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
     @Override // java.net.HttpURLConnection
     public void disconnect() {
         com.baidu.turbonet.base.a.d("ProxyURLConn", "disconnect by libtype: " + this.oKD.toString());
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             this.oLu.disconnect();
         } else {
             this.oLt.disconnect();
@@ -311,29 +311,29 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.HttpURLConnection
     public InputStream getErrorStream() {
-        return !this.oKD.ehI() ? this.oLu.getErrorStream() : this.oLt.getErrorStream();
+        return !this.oKD.ehJ() ? this.oLu.getErrorStream() : this.oLt.getErrorStream();
     }
 
     @Override // java.net.HttpURLConnection
     public boolean getInstanceFollowRedirects() {
-        return !this.oKD.ehI() ? this.oLu.getInstanceFollowRedirects() : this.oLt.getInstanceFollowRedirects();
+        return !this.oKD.ehJ() ? this.oLu.getInstanceFollowRedirects() : this.oLt.getInstanceFollowRedirects();
     }
 
     @Override // java.net.HttpURLConnection
     public String getRequestMethod() {
-        return !this.oKD.ehI() ? this.oLu.getRequestMethod() : this.oLt.getRequestMethod();
+        return !this.oKD.ehJ() ? this.oLu.getRequestMethod() : this.oLt.getRequestMethod();
     }
 
     @Override // java.net.HttpURLConnection
     public int getResponseCode() throws IOException {
         int responseCode;
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             responseCode = this.oLu.getResponseCode();
         } else {
             try {
                 responseCode = this.oLt.getResponseCode();
                 this.oLs.mHttpStatusCode = responseCode;
-                this.oLs.ehJ();
+                this.oLs.ehK();
                 if (responseCode != 200) {
                     onComplete(0L);
                 }
@@ -349,7 +349,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
     @Override // java.net.HttpURLConnection
     public String getResponseMessage() throws IOException {
         String responseMessage;
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             responseMessage = this.oLu.getResponseMessage();
         } else {
             responseMessage = this.oLt.getResponseMessage();
@@ -360,7 +360,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.HttpURLConnection
     public void setChunkedStreamingMode(int i) {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             this.oLu.setChunkedStreamingMode(i);
         } else {
             this.oLt.setChunkedStreamingMode(i);
@@ -369,7 +369,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.HttpURLConnection
     public void setFixedLengthStreamingMode(int i) {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             this.oLu.setFixedLengthStreamingMode(i);
         } else {
             this.oLt.setFixedLengthStreamingMode(i);
@@ -379,7 +379,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
     @Override // java.net.HttpURLConnection
     @TargetApi(19)
     public void setFixedLengthStreamingMode(long j) {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             this.oLu.setFixedLengthStreamingMode(j);
         } else {
             this.oLt.setFixedLengthStreamingMode(j);
@@ -388,7 +388,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.HttpURLConnection
     public void setInstanceFollowRedirects(boolean z) {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             this.oLu.setInstanceFollowRedirects(z);
         } else {
             this.oLt.setInstanceFollowRedirects(z);
@@ -397,7 +397,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.HttpURLConnection
     public void setRequestMethod(String str) throws ProtocolException {
-        if (!this.oKD.ehI()) {
+        if (!this.oKD.ehJ()) {
             this.oLu.setRequestMethod(str);
             return;
         }
@@ -407,7 +407,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.HttpURLConnection
     public boolean usingProxy() {
-        return !this.oKD.ehI() ? this.oLu.usingProxy() : this.oLt.usingProxy();
+        return !this.oKD.ehJ() ? this.oLu.usingProxy() : this.oLt.usingProxy();
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
@@ -483,7 +483,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
     @Override // com.baidu.turbonet.net.proxy.b
     public void b(Exception exc, long j) {
         this.oLs.oKP = j;
-        this.oLs.ehK();
+        this.oLs.ehL();
         this.oLs.A(exc);
         this.oLs.a(this.oLf);
     }
@@ -491,7 +491,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
     @Override // com.baidu.turbonet.net.proxy.b
     public void onComplete(long j) {
         this.oLs.oKP = j;
-        this.oLs.ehK();
+        this.oLs.ehL();
         this.oLs.oKO = 0;
         this.oLs.a(this.oLf);
     }
@@ -499,7 +499,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
     @Override // com.baidu.turbonet.net.proxy.b
     public void hP(long j) {
         this.oLs.oKP = j;
-        this.oLs.ehK();
+        this.oLs.ehL();
         this.oLs.oKO = -12;
         this.oLs.a(this.oLf);
     }

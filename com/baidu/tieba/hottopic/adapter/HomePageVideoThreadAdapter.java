@@ -24,7 +24,7 @@ public class HomePageVideoThreadAdapter extends com.baidu.adp.widget.ListView.a<
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, l lVar) {
-                if (lVar != null && lVar.boO() != null && !StringUtils.isNull(lVar.boO().getTid()) && !StringUtils.isNull(lVar.cvo()) && HomePageVideoThreadAdapter.this.mPageContext != null && (HomePageVideoThreadAdapter.this.mPageContext.getOrignalPage() instanceof com.baidu.tieba.hottopic.controller.a)) {
+                if (lVar != null && lVar.boP() != null && !StringUtils.isNull(lVar.boP().getTid()) && !StringUtils.isNull(lVar.cvp()) && HomePageVideoThreadAdapter.this.mPageContext != null && (HomePageVideoThreadAdapter.this.mPageContext.getOrignalPage() instanceof com.baidu.tieba.hottopic.controller.a)) {
                     ((HotTopicActivity) HomePageVideoThreadAdapter.this.mPageContext.getOrignalPage()).t(lVar);
                 }
             }

@@ -6,7 +6,7 @@ import com.baidu.adp.widget.ListView.n;
 public abstract class a implements n {
     public static final BdUniqueId frA = BdUniqueId.gen();
 
-    public abstract Object bzb();
+    public abstract Object bzc();
 
     public abstract String getImageUrl();
 

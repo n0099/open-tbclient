@@ -37,15 +37,15 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.Locale;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class l {
     public static double[] aI;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f2733a = false;
+    public static boolean f2734a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f2734b = false;
+    public static boolean f2735b = false;
     public static boolean c = false;
     public static int d = 0;
     private static String aM = "http://loc.map.baidu.com/sdk.php";

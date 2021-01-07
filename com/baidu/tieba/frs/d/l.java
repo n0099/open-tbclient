@@ -43,7 +43,7 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class l {
-    private static void LH(String str) {
+    private static void LG(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
@@ -91,11 +91,11 @@ public class l {
             Matcher matcher = Pattern.compile(".*fr=(.*)&kw=(.*)").matcher(decode);
             if (matcher.find()) {
                 if (!"mpush".equals(matcher.group(1)) && "bpush".equals(matcher.group(1))) {
-                    LH(decode);
+                    LG(decode);
                 }
                 gVar.forumName = matcher.group(2);
             } else {
-                LH(decode);
+                LG(decode);
                 int indexOf = decode.indexOf("kw=");
                 if (indexOf >= 0 && (length = indexOf + "kw=".length()) <= decode.length()) {
                     gVar.forumName = decode.substring(length);
@@ -163,7 +163,7 @@ public class l {
 
     public static void a(FrsFragment frsFragment, String str, bz bzVar, boolean z) {
         if (frsFragment != null && bzVar != null && str != null) {
-            if (!(bzVar == null || bzVar.bsw())) {
+            if (!(bzVar == null || bzVar.bsx())) {
                 PbActivityConfig createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bzVar, frsFragment.getForumName(), "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, true, z);
                 createFromThreadCfg.setVideo_source("frs");
                 createFromThreadCfg.setStartFrom(3);
@@ -223,8 +223,8 @@ public class l {
                 str = bzVar.eVM.id;
                 str2 = valueOf;
             }
-            if (bzVar.brM() > 0 && com.baidu.tieba.tbadkCore.util.e.dQt()) {
-                createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(bzVar.getTid(), String.valueOf(bzVar.brM()), false, true, "frs_page");
+            if (bzVar.brN() > 0 && com.baidu.tieba.tbadkCore.util.e.dQu()) {
+                createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(bzVar.getTid(), String.valueOf(bzVar.brN()), false, true, "frs_page");
             } else {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bzVar, frsFragment.getForumName(), "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, z);
             }
@@ -233,13 +233,13 @@ public class l {
             } else {
                 createFromThreadCfg.setVideo_source("frs");
             }
-            createFromThreadCfg.setFromSmartFrs(bzVar.bsI());
+            createFromThreadCfg.setFromSmartFrs(bzVar.bsJ());
             createFromThreadCfg.setSmartFrsPosition(i);
             createFromThreadCfg.setForumId(str);
             createFromThreadCfg.setFromForumId(str2);
             createFromThreadCfg.setStartFrom(3);
             createFromThreadCfg.setFrom("from_frs");
-            if (bzVar.bsz() && createFromThreadCfg.getIntent() != null) {
+            if (bzVar.bsA() && createFromThreadCfg.getIntent() != null) {
                 createFromThreadCfg.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
             }
             if (TbSingleton.getInstance().isPbPreloadSwitchOn() && w(bzVar)) {
@@ -258,6 +258,6 @@ public class l {
         if (i == 0 || i == 11 || i == 40) {
             return true;
         }
-        return bzVar.bpZ();
+        return bzVar.bqa();
     }
 }

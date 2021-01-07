@@ -100,7 +100,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             this.fYU = this.tbds264;
             si(true);
             sh(true);
-            cRo();
+            cRp();
             return;
         }
         this.fYU = this.tbds150;
@@ -115,7 +115,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         this.kao = aVar;
     }
 
-    private void cRo() {
+    private void cRp() {
         final String missionEntranceUrl = TbSingleton.getInstance().getMissionEntranceUrl();
         String missionEntranceIcon = TbSingleton.getInstance().getMissionEntranceIcon();
         if (TextUtils.isEmpty(missionEntranceUrl) || TextUtils.isEmpty(missionEntranceIcon)) {
@@ -162,9 +162,9 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             if (tag instanceof String) {
                 String str = (String) tag;
                 if (!TextUtils.isEmpty(str)) {
-                    cRp();
+                    cRq();
                     if (this.kao != null) {
-                        this.kao.Mr(str);
+                        this.kao.Mq(str);
                     }
                 }
             }
@@ -181,9 +181,9 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         }
     }
 
-    public boolean cRA() {
+    public boolean cRB() {
         if (this.kiW != null) {
-            return this.kiW.cRA();
+            return this.kiW.cRB();
         }
         return false;
     }
@@ -194,9 +194,9 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         }
     }
 
-    public boolean cRB() {
+    public boolean cRC() {
         if (this.kiW != null) {
-            return this.kiW.cRB();
+            return this.kiW.cRC();
         }
         return false;
     }
@@ -213,7 +213,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         this.kiW.notifyDataSetChanged();
     }
 
-    public void cTJ() {
+    public void cTK() {
         this.kiW.OH();
     }
 
@@ -317,7 +317,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         }
     }
 
-    private void cRp() {
+    private void cRq() {
         aq aqVar = new aq("c13422");
         aqVar.an("obj_type", 2);
         aqVar.an("obj_locate", 1);
@@ -326,7 +326,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         TiebaStatic.log(aqVar);
     }
 
-    public void cRR() {
+    public void cRS() {
         aq aqVar = new aq("c13422");
         aqVar.an("obj_type", 1);
         aqVar.an("obj_locate", 1);

@@ -13,8 +13,6 @@ public interface e extends c {
 
     void N(int i, String str);
 
-    void Yk();
-
     void Yl();
 
     void Ym();
@@ -22,6 +20,8 @@ public interface e extends c {
     void Yn();
 
     void Yo();
+
+    void Yp();
 
     void a(com.baidu.live.videochat.b.a aVar);
 }

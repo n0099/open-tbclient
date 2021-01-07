@@ -21,7 +21,7 @@ public class h extends HttpMessage {
         this.gVg = j;
     }
 
-    public void Hp(String str) {
+    public void Ho(String str) {
         this.gVh = str;
     }
 

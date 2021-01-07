@@ -179,16 +179,16 @@ public class NeutralRefreshAnimView extends View {
         }
     }
 
-    public void aKJ() {
+    public void aKK() {
         if (DEBUG) {
             Log.e("NeutralRefreshAnimView", "onRefreshingAnim");
         }
         ki(2);
-        aKK();
+        aKL();
     }
 
-    private void aKK() {
-        aKI();
+    private void aKL() {
+        aKJ();
         this.dBi = ValueAnimator.ofFloat(1.0f, -1.0f);
         this.dBi.setDuration(480L);
         this.dBi.setRepeatMode(2);
@@ -262,16 +262,16 @@ public class NeutralRefreshAnimView extends View {
         }
     }
 
-    public void aKL() {
+    public void aKM() {
         if (DEBUG) {
             Log.e("NeutralRefreshAnimView", "onRefreshCompleteAnim");
         }
         stopAnim();
         ki(3);
-        aKM();
+        aKN();
     }
 
-    private void aKM() {
+    private void aKN() {
         this.dBl = ValueAnimator.ofInt(26, 0);
         this.dBl.setDuration(300L);
         this.dBl.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.NeutralRefreshAnimView.5
@@ -327,7 +327,7 @@ public class NeutralRefreshAnimView extends View {
     }
 
     public void stopAnim() {
-        aKI();
+        aKJ();
         clearAnimation();
         ki(1);
         postInvalidate();
@@ -348,7 +348,7 @@ public class NeutralRefreshAnimView extends View {
         }
     }
 
-    private void aKI() {
+    private void aKJ() {
         a(this.dBh, true);
         a(this.dBi, true);
         a(this.dBl, false);

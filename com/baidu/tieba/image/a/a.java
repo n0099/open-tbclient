@@ -30,7 +30,7 @@ public class a extends e {
             @Override // com.baidu.tbadk.editortools.b
             public void a(com.baidu.tbadk.editortools.a aVar) {
                 if (aVar.data instanceof u) {
-                    if (((u) aVar.data).bzW() == EmotionGroupType.BIG_EMOTION || ((u) aVar.data).bzW() == EmotionGroupType.USER_COLLECT) {
+                    if (((u) aVar.data).bzX() == EmotionGroupType.BIG_EMOTION || ((u) aVar.data).bzX() == EmotionGroupType.USER_COLLECT) {
                         if (a.this.mPermissionJudgePolicy == null) {
                             a.this.mPermissionJudgePolicy = new PermissionJudgePolicy();
                         }
@@ -49,44 +49,44 @@ public class a extends e {
     @Override // com.baidu.tbadk.editortools.pb.e
     public void a(String str, WriteData writeData) {
         boolean z = true;
-        if (this.fGa.dco() == null) {
-            this.fGa.f(dco());
+        if (this.fGa.dcp() == null) {
+            this.fGa.f(dcp());
         }
-        if (this.fGa.dco() != null) {
+        if (this.fGa.dcp() != null) {
             this.fGa.setSpanGroupManager(this.mSpanGroupManager);
-            this.fGa.dco().setIsBJHPost(this.isBJH);
-            this.fGa.dco().setWriteImagesInfo(this.writeImagesInfo);
+            this.fGa.dcp().setIsBJHPost(this.isBJH);
+            this.fGa.dcp().setWriteImagesInfo(this.writeImagesInfo);
             this.fGa.yp(this.writeImagesInfo.size() > 0);
-            WriteData dco = this.fGa.dco();
-            if (this.fFZ == null || !this.fFZ.cot()) {
+            WriteData dcp = this.fGa.dcp();
+            if (this.fFZ == null || !this.fFZ.cou()) {
                 z = false;
             }
-            dco.setHasLocationData(z);
+            dcp.setHasLocationData(z);
             if (str == null) {
-                this.fGa.dco().setContent(this.mPostContent);
+                this.fGa.dcp().setContent(this.mPostContent);
             }
             if (this.mVoiceModel != null) {
                 if (this.mVoiceModel.getId() != null) {
-                    this.fGa.dco().setVoice(this.mVoiceModel.getId());
-                    this.fGa.dco().setVoiceDuringTime(this.mVoiceModel.duration);
+                    this.fGa.dcp().setVoice(this.mVoiceModel.getId());
+                    this.fGa.dcp().setVoiceDuringTime(this.mVoiceModel.duration);
                 } else {
-                    this.fGa.dco().setVoice(null);
-                    this.fGa.dco().setVoiceDuringTime(-1);
+                    this.fGa.dcp().setVoice(null);
+                    this.fGa.dcp().setVoiceDuringTime(-1);
                 }
             } else {
-                this.fGa.dco().setVoice(null);
-                this.fGa.dco().setVoiceDuringTime(-1);
+                this.fGa.dcp().setVoice(null);
+                this.fGa.dcp().setVoiceDuringTime(-1);
             }
-            if (!this.fGa.dQD()) {
+            if (!this.fGa.dQE()) {
                 this.eXu.showToast(R.string.write_img_limit);
                 return;
             }
-            if ((this.fGi == null || !this.fGi.bFm()) && !this.fGa.dQB()) {
+            if ((this.fGi == null || !this.fGi.bFn()) && !this.fGa.dQC()) {
             }
         }
     }
 
-    public WriteData dco() {
+    public WriteData dcp() {
         WriteData writeData = new WriteData();
         if (this.fGd != null) {
             if (this.fGj && !this.kSC) {
@@ -143,7 +143,7 @@ public class a extends e {
     }
 
     @Override // com.baidu.tbadk.editortools.pb.e
-    public void DS(String str) {
+    public void DR(String str) {
         if (this.kSC) {
             y.e(this.postId, this);
         } else {
@@ -152,25 +152,25 @@ public class a extends e {
     }
 
     @Override // com.baidu.tbadk.editortools.pb.e
-    public void DR(String str) {
-        WriteData dco = this.fGa.dco();
-        if (dco == null) {
+    public void DQ(String str) {
+        WriteData dcp = this.fGa.dcp();
+        if (dcp == null) {
             WriteData writeData = new WriteData(this.kSC ? 2 : 1);
             writeData.setThreadId(str);
             writeData.setWriteImagesInfo(this.writeImagesInfo);
-            dco = writeData;
+            dcp = writeData;
         }
         if (!at.isEmpty(this.kRG)) {
-            dco.setFromForumId(this.kRG);
+            dcp.setFromForumId(this.kRG);
         }
-        dco.setContent(this.mPostContent);
-        dco.setVoiceModel(this.mVoiceModel);
+        dcp.setContent(this.mPostContent);
+        dcp.setVoiceModel(this.mVoiceModel);
         if (this.kSC) {
-            dco.setReplyId(this.kSD);
-            dco.setThreadId(this.postId);
-            y.f(this.postId, dco);
+            dcp.setReplyId(this.kSD);
+            dcp.setThreadId(this.postId);
+            y.f(this.postId, dcp);
             return;
         }
-        y.b(str, dco);
+        y.b(str, dcp);
     }
 }

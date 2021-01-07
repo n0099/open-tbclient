@@ -77,7 +77,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
                             RecommendButtonApiProxy.this.eqB = RecommendButtonState.HIDE;
                             RecommendButtonApiProxy.this.epG = com.baidu.swan.games.view.recommend.model.b.cK(yA.data);
                             RecommendButtonApiProxy.this.eqz.a(RecommendButtonApiProxy.this.epG);
-                            RecommendButtonApiProxy.this.bdK();
+                            RecommendButtonApiProxy.this.bdL();
                             return;
                         }
                         RecommendButtonApiProxy.this.eqB = RecommendButtonState.IDLE;
@@ -132,11 +132,11 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
     @Override // com.baidu.swan.games.view.recommend.a
     @JavascriptInterface
     public void destroy() {
-        bdI();
+        bdJ();
         com.baidu.swan.games.view.c.b(this);
     }
 
-    private void bdI() {
+    private void bdJ() {
         if (DEBUG) {
             Log.d("RecommendButtonApiProxy", "destroy: state-" + this.eqB);
         }
@@ -169,7 +169,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
 
     @Override // com.baidu.swan.games.view.recommend.a.a.InterfaceC0550a
     @UiThread
-    public void bdB() {
+    public void bdC() {
         if (this.epG != null) {
             a(this.epG.eqj, "game_center");
         }
@@ -177,12 +177,12 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
 
     @Override // com.baidu.swan.games.view.recommend.a.a.InterfaceC0550a
     @UiThread
-    public void bdC() {
+    public void bdD() {
         this.eqq.i(this.eqA, "list", c.epN);
     }
 
     private void gb(boolean z) {
-        if (bdJ()) {
+        if (bdK()) {
             this.eqz.gb(z);
         }
     }
@@ -286,17 +286,17 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
         }
     }
 
-    private boolean bdJ() {
+    private boolean bdK() {
         return this.eqB == RecommendButtonState.HIDE || this.eqB == RecommendButtonState.SHOW;
     }
 
     private void yC(String str) {
         this.efi.throwJSException(JSExceptionType.Error, str);
-        bdI();
+        bdJ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bdK() {
+    public void bdL() {
         dispatchEvent(new JSEvent(TrackLoadSettingsAtom.TYPE));
     }
 
@@ -308,18 +308,18 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
     }
 
     @Override // com.baidu.swan.games.view.a
-    public void aWC() {
+    public void aWD() {
         gb(true);
     }
 
     @Override // com.baidu.swan.games.view.a
-    public void aWD() {
+    public void aWE() {
         gb(false);
     }
 
     @Override // com.baidu.swan.games.view.a
-    public void aWE() {
-        bdI();
+    public void aWF() {
+        bdJ();
     }
 
     /* loaded from: classes9.dex */

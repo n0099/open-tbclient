@@ -35,11 +35,11 @@ public final class f {
         this.egd = bVar;
     }
 
-    public final String aYG() {
+    public final String aYH() {
         return this.egc;
     }
 
-    public final com.baidu.swan.games.bdtls.b.b aYH() {
+    public final com.baidu.swan.games.bdtls.b.b aYI() {
         return this.egd;
     }
 }

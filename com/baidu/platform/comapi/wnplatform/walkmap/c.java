@@ -1,4 +1,4 @@
 package com.baidu.platform.comapi.wnplatform.walkmap;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public interface c {
 }

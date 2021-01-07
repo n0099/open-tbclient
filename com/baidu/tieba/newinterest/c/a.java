@@ -34,7 +34,7 @@ public class a implements View.OnClickListener, InterestSelectionFragment.a {
     public a(BaseFragmentActivity baseFragmentActivity) {
         this.iJr = baseFragmentActivity;
         initUI();
-        cJp();
+        cJq();
     }
 
     private void initUI() {
@@ -56,7 +56,7 @@ public class a implements View.OnClickListener, InterestSelectionFragment.a {
         TiebaStatic.log(new aq("c13681"));
     }
 
-    private void cJp() {
+    private void cJq() {
         this.lBQ.setOnClickListener(this);
         this.jhI.setOnClickListener(this);
         this.lBS.a(this);
@@ -72,14 +72,14 @@ public class a implements View.OnClickListener, InterestSelectionFragment.a {
             if (this.lBR != null && this.lBR.isVisible()) {
                 getFragmentManager().popBackStack();
             } else {
-                dlo();
+                dlp();
             }
         } else if (view == this.lBQ) {
-            dlo();
+            dlp();
         }
     }
 
-    private void dlo() {
+    private void dlp() {
         aq aqVar = new aq("c13682");
         aqVar.an("obj_type", 1);
         TiebaStatic.log(aqVar);

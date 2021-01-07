@@ -114,11 +114,11 @@ public class MagicProgressCircle extends View {
     }
 
     private void sa() {
+        caO();
         caN();
-        caM();
     }
 
-    private void caM() {
+    private void caN() {
         if (this.dYL == null) {
             this.dYL = new Paint();
             this.dYL.setColor(this.mProgressColor);
@@ -129,7 +129,7 @@ public class MagicProgressCircle extends View {
         }
     }
 
-    private void caN() {
+    private void caO() {
         if (this.dYM == null) {
             this.dYM = new Paint();
             this.dYM.setColor(this.hjA);
@@ -143,7 +143,7 @@ public class MagicProgressCircle extends View {
     private void g(Canvas canvas) {
         if (this.mDuration != -1) {
             if (this.mProgress / this.hjB < 3000.0f / this.mDuration) {
-                caM();
+                caN();
                 this.dYL.setColor(this.dYW);
             } else {
                 this.dYL.setColor(this.mProgressColor);
@@ -176,11 +176,11 @@ public class MagicProgressCircle extends View {
     /* JADX INFO: Access modifiers changed from: private */
     public MagicProgressCircle az(float f) {
         this.mProgress = f;
-        caL();
+        caM();
         return this;
     }
 
-    private void caL() {
+    private void caM() {
         if (isMainThread()) {
             invalidate();
         } else {

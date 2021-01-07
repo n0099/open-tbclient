@@ -21,7 +21,7 @@ public final class b {
             } else {
                 switch (searchFlowEvent.dOs) {
                     case START:
-                        aPn();
+                        aPo();
                         if (dOt != null) {
                             dOt.a(searchFlowEvent);
                             break;
@@ -31,7 +31,7 @@ public final class b {
                         if (dOt != null) {
                             dOt.a(searchFlowEvent);
                         }
-                        apC();
+                        apD();
                         break;
                     case NORMAL:
                         if (dOt != null) {
@@ -50,10 +50,10 @@ public final class b {
     public static synchronized void p(com.baidu.swan.apps.u.c.b bVar) {
         synchronized (b.class) {
             if (bVar != null) {
-                f(bVar.aCA(), bVar.aCv());
+                f(bVar.aCB(), bVar.aCw());
                 if (dOt != null) {
                     dOt.setAppId(bVar.getAppId());
-                    dOt.setSource(bVar.aCv());
+                    dOt.setSource(bVar.aCw());
                 }
             }
         }
@@ -62,16 +62,16 @@ public final class b {
     public static synchronized void e(e eVar) {
         synchronized (b.class) {
             if (eVar != null) {
-                f(eVar.aCB(), eVar.aCv());
+                f(eVar.aCC(), eVar.aCw());
                 if (dOt != null) {
                     dOt.setAppId(eVar.getAppId());
-                    dOt.setSource(eVar.aCv());
+                    dOt.setSource(eVar.aCw());
                 }
             }
         }
     }
 
-    private static void aPn() {
+    private static void aPo() {
         if (dOt != null) {
             dOt.destroy();
             dOt = null;
@@ -79,7 +79,7 @@ public final class b {
         dOt = new a("772");
     }
 
-    private static void apC() {
+    private static void apD() {
         if (dOt != null) {
             dOt.send();
         }

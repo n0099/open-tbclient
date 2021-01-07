@@ -12,7 +12,7 @@ import tbclient.StarTrends.StarTrendsReqIdl;
 public class FrsDynamicRequestData extends OrmObject implements e, h {
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f5614common;
+    public CommonReq f5615common;
     public long forumId;
     public long lastThreadId;
     public int qType;
@@ -21,12 +21,12 @@ public class FrsDynamicRequestData extends OrmObject implements e, h {
     public int scrW;
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String bGH() {
+    public String bGI() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean bGI() {
+    public boolean bGJ() {
         return false;
     }
 
@@ -41,12 +41,12 @@ public class FrsDynamicRequestData extends OrmObject implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> bGK() {
+    public HashMap<String, Object> bGL() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> bGL() {
+    public HashMap<String, String> bGM() {
         return null;
     }
 

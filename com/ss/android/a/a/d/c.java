@@ -8,10 +8,10 @@ import android.view.View;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f13196a;
+    public Context f13197a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13197b;
+    public String f13198b;
     public String c;
     public String d;
     public String e;
@@ -19,7 +19,7 @@ public class c {
     public Drawable g;
     public View i;
     public int j;
-    public b pTl;
+    public b pUT;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -32,26 +32,26 @@ public class c {
 
     private c(a aVar) {
         this.f = true;
-        this.f13196a = aVar.c;
-        this.f13197b = aVar.d;
+        this.f13197a = aVar.c;
+        this.f13198b = aVar.d;
         this.c = aVar.e;
         this.d = aVar.f;
         this.e = aVar.g;
         this.f = aVar.h;
         this.g = aVar.i;
-        this.pTl = aVar.pTm;
-        this.i = aVar.f13198a;
-        this.j = aVar.f13199b;
+        this.pUT = aVar.pUU;
+        this.i = aVar.f13199a;
+        this.j = aVar.f13200b;
     }
 
     /* loaded from: classes4.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f13198a;
+        public View f13199a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f13199b;
+        public int f13200b;
         private Context c;
         private String d;
         private String e;
@@ -59,28 +59,28 @@ public class c {
         private String g;
         private boolean h;
         private Drawable i;
-        private b pTm;
+        private b pUU;
 
         public a(Context context) {
             this.c = context;
         }
 
-        public a aak(String str) {
+        public a aal(String str) {
             this.d = str;
             return this;
         }
 
-        public a aal(String str) {
+        public a aam(String str) {
             this.e = str;
             return this;
         }
 
-        public a aam(String str) {
+        public a aan(String str) {
             this.f = str;
             return this;
         }
 
-        public a aan(String str) {
+        public a aao(String str) {
             this.g = str;
             return this;
         }
@@ -96,16 +96,16 @@ public class c {
         }
 
         public a a(b bVar) {
-            this.pTm = bVar;
+            this.pUU = bVar;
             return this;
         }
 
-        public a RH(int i) {
-            this.f13199b = i;
+        public a RX(int i) {
+            this.f13200b = i;
             return this;
         }
 
-        public c eEY() {
+        public c eFC() {
             return new c(this);
         }
     }

@@ -14,7 +14,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CouponEntranceView extends FrameLayout {
     private ImageView cqV;
     private TextView cqW;
@@ -71,7 +71,7 @@ public class CouponEntranceView extends FrameLayout {
             return;
         }
         setVisibility(0);
-        com.baidu.poly.a.d.b.aft().b(this.cqV, this.crb.icon);
+        com.baidu.poly.a.d.b.afu().b(this.cqV, this.crb.icon);
         this.cqW.setText(this.crb.crf);
         a.C0325a c0325a = this.crb;
         if (c0325a.type == -1) {

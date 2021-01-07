@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.c;
 
 import com.qq.e.comm.plugin.y.u;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g {
     private static com.qq.e.comm.plugin.y.d a(f fVar) {
         return null;

@@ -155,7 +155,7 @@ public class HttpUtils {
                 try {
                     try {
                         openUrl2 = openUrl2(context, str4, str2, bundle);
-                        jSONObject = j.d(openUrl2.f13745a);
+                        jSONObject = j.d(openUrl2.f13746a);
                     } catch (JSONException e) {
                         e.printStackTrace();
                         com.tencent.open.b.g.a().a(str3, j3, 0L, 0L, -4);
@@ -174,7 +174,7 @@ public class HttpUtils {
                     } catch (JSONException e4) {
                         i2 = -4;
                     }
-                    j = openUrl2.f13746b;
+                    j = openUrl2.f13747b;
                     j2 = openUrl2.c;
                     break;
                 } catch (SocketTimeoutException e5) {
@@ -563,7 +563,7 @@ public class HttpUtils {
         DefaultHttpClient defaultHttpClient = new DefaultHttpClient(new ThreadSafeClientConnManager(basicHttpParams, schemeRegistry), basicHttpParams);
         c proxy = getProxy(context);
         if (proxy != null) {
-            defaultHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(proxy.f13719a, proxy.f13720b));
+            defaultHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(proxy.f13720a, proxy.f13721b));
         }
         return defaultHttpClient;
     }
@@ -651,14 +651,14 @@ public class HttpUtils {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f13719a;
+        public final String f13720a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f13720b;
+        public final int f13721b;
 
         private c(String str, int i) {
-            this.f13719a = str;
-            this.f13720b = i;
+            this.f13720a = str;
+            this.f13721b = i;
         }
     }
 
@@ -702,28 +702,28 @@ public class HttpUtils {
     public static class a extends SSLSocketFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        private final SSLContext f13717a;
+        private final SSLContext f13718a;
 
         public a(KeyStore keyStore) throws NoSuchAlgorithmException, KeyManagementException, KeyStoreException, UnrecoverableKeyException {
             super(keyStore);
             b bVar;
-            this.f13717a = SSLContext.getInstance("TLS");
+            this.f13718a = SSLContext.getInstance("TLS");
             try {
                 bVar = new b();
             } catch (Exception e) {
                 bVar = null;
             }
-            this.f13717a.init(null, new TrustManager[]{bVar}, null);
+            this.f13718a.init(null, new TrustManager[]{bVar}, null);
         }
 
         @Override // org.apache.http.conn.ssl.SSLSocketFactory, org.apache.http.conn.scheme.LayeredSocketFactory
         public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException, UnknownHostException {
-            return this.f13717a.getSocketFactory().createSocket(socket, str, i, z);
+            return this.f13718a.getSocketFactory().createSocket(socket, str, i, z);
         }
 
         @Override // org.apache.http.conn.ssl.SSLSocketFactory, org.apache.http.conn.scheme.SocketFactory
         public Socket createSocket() throws IOException {
-            return this.f13717a.getSocketFactory().createSocket();
+            return this.f13718a.getSocketFactory().createSocket();
         }
     }
 
@@ -731,7 +731,7 @@ public class HttpUtils {
     public static class b implements X509TrustManager {
 
         /* renamed from: a  reason: collision with root package name */
-        X509TrustManager f13718a;
+        X509TrustManager f13719a;
 
         b() throws Exception {
             KeyStore keyStore;
@@ -773,7 +773,7 @@ public class HttpUtils {
             }
             for (int i = 0; i < trustManagers.length; i++) {
                 if (trustManagers[i] instanceof X509TrustManager) {
-                    this.f13718a = (X509TrustManager) trustManagers[i];
+                    this.f13719a = (X509TrustManager) trustManagers[i];
                     return;
                 }
             }
@@ -782,17 +782,17 @@ public class HttpUtils {
 
         @Override // javax.net.ssl.X509TrustManager
         public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            this.f13718a.checkClientTrusted(x509CertificateArr, str);
+            this.f13719a.checkClientTrusted(x509CertificateArr, str);
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            this.f13718a.checkServerTrusted(x509CertificateArr, str);
+            this.f13719a.checkServerTrusted(x509CertificateArr, str);
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public X509Certificate[] getAcceptedIssuers() {
-            return this.f13718a.getAcceptedIssuers();
+            return this.f13719a.getAcceptedIssuers();
         }
     }
 }

@@ -13,13 +13,13 @@ public class PersonTabView extends LinearLayout {
     private int fhI;
     private int fhJ;
     private int jCC;
+    private TextView mBB;
     private TextView mBC;
-    private TextView mBD;
+    private View mBD;
     private View mBE;
     private View mBF;
     private View mBG;
-    private View mBH;
-    private a mBI;
+    private a mBH;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -41,8 +41,8 @@ public class PersonTabView extends LinearLayout {
                 } else if (view.getId() == R.id.reply_btn) {
                     PersonTabView.this.setCurrentTab(1);
                 }
-                if (PersonTabView.this.mBI != null) {
-                    PersonTabView.this.mBI.onTabSelect(PersonTabView.this.jCC);
+                if (PersonTabView.this.mBH != null) {
+                    PersonTabView.this.mBH.onTabSelect(PersonTabView.this.jCC);
                 }
             }
         };
@@ -62,8 +62,8 @@ public class PersonTabView extends LinearLayout {
                 } else if (view.getId() == R.id.reply_btn) {
                     PersonTabView.this.setCurrentTab(1);
                 }
-                if (PersonTabView.this.mBI != null) {
-                    PersonTabView.this.mBI.onTabSelect(PersonTabView.this.jCC);
+                if (PersonTabView.this.mBH != null) {
+                    PersonTabView.this.mBH.onTabSelect(PersonTabView.this.jCC);
                 }
             }
         };
@@ -83,8 +83,8 @@ public class PersonTabView extends LinearLayout {
                 } else if (view.getId() == R.id.reply_btn) {
                     PersonTabView.this.setCurrentTab(1);
                 }
-                if (PersonTabView.this.mBI != null) {
-                    PersonTabView.this.mBI.onTabSelect(PersonTabView.this.jCC);
+                if (PersonTabView.this.mBH != null) {
+                    PersonTabView.this.mBH.onTabSelect(PersonTabView.this.jCC);
                 }
             }
         };
@@ -94,14 +94,14 @@ public class PersonTabView extends LinearLayout {
     private void init(Context context) {
         this.mContext = context;
         LayoutInflater.from(this.mContext).inflate(R.layout.person_button_header_view, this);
-        this.mBC = (TextView) findViewById(R.id.main_thread_btn);
+        this.mBB = (TextView) findViewById(R.id.main_thread_btn);
+        this.mBB.setOnClickListener(this.mOnClickListener);
+        this.mBC = (TextView) findViewById(R.id.reply_btn);
         this.mBC.setOnClickListener(this.mOnClickListener);
-        this.mBD = (TextView) findViewById(R.id.reply_btn);
-        this.mBD.setOnClickListener(this.mOnClickListener);
-        this.mBE = findViewById(R.id.main_thread_divider);
-        this.mBF = findViewById(R.id.reply_btn_divider);
-        this.mBG = findViewById(R.id.main_thread_bottom_divider);
-        this.mBH = findViewById(R.id.reply_btn_bottom_divider);
+        this.mBD = findViewById(R.id.main_thread_divider);
+        this.mBE = findViewById(R.id.reply_btn_divider);
+        this.mBF = findViewById(R.id.main_thread_bottom_divider);
+        this.mBG = findViewById(R.id.reply_btn_bottom_divider);
         setCurrentTab(0);
     }
 
@@ -109,20 +109,20 @@ public class PersonTabView extends LinearLayout {
         if (i != this.jCC) {
             this.jCC = i;
             if (i == 0) {
-                this.mBE.setVisibility(0);
-                this.mBF.setVisibility(4);
-                this.mBC.setTextColor(this.fhI);
-                this.mBD.setTextColor(this.fhJ);
-            } else if (i == 1) {
+                this.mBD.setVisibility(0);
                 this.mBE.setVisibility(4);
-                this.mBF.setVisibility(0);
+                this.mBB.setTextColor(this.fhI);
                 this.mBC.setTextColor(this.fhJ);
-                this.mBD.setTextColor(this.fhI);
+            } else if (i == 1) {
+                this.mBD.setVisibility(4);
+                this.mBE.setVisibility(0);
+                this.mBB.setTextColor(this.fhJ);
+                this.mBC.setTextColor(this.fhI);
             }
         }
     }
 
     public void setOnTabSelectListener(a aVar) {
-        this.mBI = aVar;
+        this.mBH = aVar;
     }
 }

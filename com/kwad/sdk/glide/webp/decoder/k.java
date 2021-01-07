@@ -20,10 +20,10 @@ import java.util.List;
 public class k extends Drawable implements Animatable, Animatable2Compat, o.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final a f10683a;
+    private final a f10684a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f10684b;
+    private boolean f10685b;
     private boolean c;
     private boolean d;
     private boolean e;
@@ -39,14 +39,14 @@ public class k extends Drawable implements Animatable, Animatable2Compat, o.b {
     public static class a extends Drawable.ConstantState {
 
         /* renamed from: a  reason: collision with root package name */
-        final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f10685a;
+        final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f10686a;
 
         /* renamed from: b  reason: collision with root package name */
-        final o f10686b;
+        final o f10687b;
 
         public a(com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, o oVar) {
-            this.f10685a = eVar;
-            this.f10686b = oVar;
+            this.f10686a = eVar;
+            this.f10687b = oVar;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
@@ -74,7 +74,7 @@ public class k extends Drawable implements Animatable, Animatable2Compat, o.b {
         this.g = -1;
         this.e = true;
         this.g = -1;
-        this.f10683a = (a) com.kwad.sdk.glide.g.j.a(aVar);
+        this.f10684a = (a) com.kwad.sdk.glide.g.j.a(aVar);
     }
 
     private void i() {
@@ -83,19 +83,19 @@ public class k extends Drawable implements Animatable, Animatable2Compat, o.b {
 
     private void j() {
         com.kwad.sdk.glide.g.j.a(!this.d, "You cannot start a recycled Drawable. Ensure thatyou clear any references to the Drawable when clearing the corresponding request.");
-        if (this.f10683a.f10686b.g() == 1) {
+        if (this.f10684a.f10687b.g() == 1) {
             invalidateSelf();
-        } else if (this.f10684b) {
+        } else if (this.f10685b) {
         } else {
-            this.f10684b = true;
-            this.f10683a.f10686b.a(this);
+            this.f10685b = true;
+            this.f10684a.f10687b.a(this);
             invalidateSelf();
         }
     }
 
     private void k() {
-        this.f10684b = false;
-        this.f10683a.f10686b.b(this);
+        this.f10685b = false;
+        this.f10684a.f10687b.b(this);
     }
 
     private Rect l() {
@@ -130,19 +130,19 @@ public class k extends Drawable implements Animatable, Animatable2Compat, o.b {
     }
 
     public int a() {
-        return this.f10683a.f10686b.d();
+        return this.f10684a.f10687b.d();
     }
 
     public void a(com.kwad.sdk.glide.load.h<Bitmap> hVar, Bitmap bitmap) {
-        this.f10683a.f10686b.a(hVar, bitmap);
+        this.f10684a.f10687b.a(hVar, bitmap);
     }
 
     public Bitmap b() {
-        return this.f10683a.f10686b.a();
+        return this.f10684a.f10687b.a();
     }
 
     public ByteBuffer c() {
-        return this.f10683a.f10686b.f();
+        return this.f10684a.f10687b.f();
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
@@ -153,7 +153,7 @@ public class k extends Drawable implements Animatable, Animatable2Compat, o.b {
     }
 
     public int d() {
-        return this.f10683a.f10686b.g();
+        return this.f10684a.f10687b.g();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -165,11 +165,11 @@ public class k extends Drawable implements Animatable, Animatable2Compat, o.b {
             Gravity.apply(119, getIntrinsicWidth(), getIntrinsicHeight(), getBounds(), l());
             this.h = false;
         }
-        canvas.drawBitmap(this.f10683a.f10686b.i(), (Rect) null, l(), m());
+        canvas.drawBitmap(this.f10684a.f10687b.i(), (Rect) null, l(), m());
     }
 
     public int e() {
-        return this.f10683a.f10686b.e();
+        return this.f10684a.f10687b.e();
     }
 
     @Override // com.kwad.sdk.glide.webp.decoder.o.b
@@ -192,22 +192,22 @@ public class k extends Drawable implements Animatable, Animatable2Compat, o.b {
 
     public void g() {
         this.d = true;
-        this.f10683a.f10686b.h();
+        this.f10684a.f10687b.h();
     }
 
     @Override // android.graphics.drawable.Drawable
     public Drawable.ConstantState getConstantState() {
-        return this.f10683a;
+        return this.f10684a;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.f10683a.f10686b.c();
+        return this.f10684a.f10687b.c();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.f10683a.f10686b.b();
+        return this.f10684a.f10687b.b();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -222,7 +222,7 @@ public class k extends Drawable implements Animatable, Animatable2Compat, o.b {
 
     @Override // android.graphics.drawable.Animatable
     public boolean isRunning() {
-        return this.f10684b;
+        return this.f10685b;
     }
 
     @Override // android.graphics.drawable.Drawable

@@ -11,10 +11,10 @@ import java.util.List;
 public class d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f10742a;
+    public volatile boolean f10743a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final ListUpdateCallback f10743b;
+    private final ListUpdateCallback f10744b;
     private final b<T> c;
     private final RecyclerView.Adapter d;
     @Nullable
@@ -24,7 +24,7 @@ public class d<T> {
     private int g;
 
     public d(@NonNull ListUpdateCallback listUpdateCallback, @NonNull b<T> bVar, @NonNull RecyclerView.Adapter adapter) {
-        this.f10743b = listUpdateCallback;
+        this.f10744b = listUpdateCallback;
         this.c = bVar;
         this.d = adapter;
     }
@@ -33,8 +33,8 @@ public class d<T> {
     public void a(@NonNull List<T> list, @NonNull DiffUtil.DiffResult diffResult) {
         this.e = list;
         this.f = Collections.unmodifiableList(list);
-        diffResult.dispatchUpdatesTo(this.f10743b);
-        this.f10742a = false;
+        diffResult.dispatchUpdatesTo(this.f10744b);
+        this.f10743a = false;
         if (this.c.d() != null) {
             this.c.d().run();
         }
@@ -52,15 +52,15 @@ public class d<T> {
         final int i = this.g + 1;
         this.g = i;
         if (list == null) {
-            this.f10743b.onRemoved(0, this.e.size());
+            this.f10744b.onRemoved(0, this.e.size());
             this.e = null;
             this.f = Collections.emptyList();
         } else if (this.e == null) {
-            this.f10743b.onInserted(0, list.size());
+            this.f10744b.onInserted(0, list.size());
             this.e = list;
             this.f = Collections.unmodifiableList(list);
         } else {
-            this.f10742a = true;
+            this.f10743a = true;
             final List<T> list2 = this.e;
             this.c.b().execute(new Runnable() { // from class: com.kwad.sdk.lib.widget.recycler.a.d.1
                 @Override // java.lang.Runnable

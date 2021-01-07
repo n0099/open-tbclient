@@ -32,8 +32,8 @@ public class SwanAppErrorActivity extends FragmentActivity {
         ak.fixedOrientation(this, releaseFixedOrientation);
         setContentView(a.g.aiapps_error_activity);
         k(getIntent());
-        ajF();
-        ajI();
+        ajG();
+        ajJ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -41,14 +41,14 @@ public class SwanAppErrorActivity extends FragmentActivity {
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         k(intent);
-        ajF();
+        ajG();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        eH(com.baidu.swan.apps.t.a.aAN().alD());
+        eH(com.baidu.swan.apps.t.a.aAO().alE());
     }
 
     public void eH(boolean z) {
@@ -71,9 +71,9 @@ public class SwanAppErrorActivity extends FragmentActivity {
         }
     }
 
-    private void ajF() {
+    private void ajG() {
         d dVar;
-        m bhH = bhE().bhH();
+        m bhI = bhF().bhI();
         if (getIntent() != null) {
             dVar = d.a(this.cEB, this.cEA);
         } else if (this.cEz == null) {
@@ -85,8 +85,8 @@ public class SwanAppErrorActivity extends FragmentActivity {
         } else {
             dVar = new d();
         }
-        bhH.a(a.f.ai_apps_error_layout, dVar);
-        bhH.commit();
+        bhI.a(a.f.ai_apps_error_layout, dVar);
+        bhI.commit();
     }
 
     private void k(Intent intent) {
@@ -100,7 +100,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
         }
     }
 
-    public com.baidu.swan.apps.u.c.b ajG() {
+    public com.baidu.swan.apps.u.c.b ajH() {
         return this.cEz;
     }
 
@@ -109,7 +109,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
         this.cED = i2;
     }
 
-    private void ajH() {
+    private void ajI() {
         if (this.cEC != 0 || this.cED != 0) {
             overridePendingTransition(this.cEC, this.cED);
             this.cEC = 0;
@@ -120,10 +120,10 @@ public class SwanAppErrorActivity extends FragmentActivity {
     @Override // android.app.Activity
     public void finish() {
         super.finish();
-        ajH();
+        ajI();
     }
 
-    private void ajI() {
+    private void ajJ() {
         com.baidu.swan.apps.statistic.search.b.a(new SearchFlowEvent("nreach", System.currentTimeMillis(), "swan_error", "", SearchFlowEvent.EventType.END));
     }
 }

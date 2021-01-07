@@ -40,7 +40,7 @@ public class a {
             com.baidu.swan.apps.statistic.a tA = h.tA("770");
             for (UbcFlowEvent ubcFlowEvent : list) {
                 if (ubcFlowEvent != null) {
-                    com.baidu.swan.apps.statistic.b.a(tA, ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.aHD());
+                    com.baidu.swan.apps.statistic.b.a(tA, ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.aHE());
                 }
             }
             JSONObject jSONObject = new JSONObject();
@@ -49,8 +49,8 @@ public class a {
                 jSONObject.put("from", GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME);
                 jSONObject.put("type", str2);
                 jSONObject2.put("appid", str);
-                jSONObject2.put("mobile", l.aRn());
-                jSONObject2.put("net", SwanAppNetworkUtils.aGC().type);
+                jSONObject2.put("mobile", l.aRo());
+                jSONObject2.put("net", SwanAppNetworkUtils.aGD().type);
                 if (TextUtils.isEmpty(str3)) {
                     str3 = "0";
                 }
@@ -75,8 +75,8 @@ public class a {
             sb.append("\n").append("小程序ID：").append(str);
             for (UbcFlowEvent ubcFlowEvent : list) {
                 if (ubcFlowEvent != null) {
-                    sb.append("\n").append(ubcFlowEvent.aHD()).append(" : ").append(ubcFlowEvent.id);
-                    hashMap.put(ubcFlowEvent.id, Long.valueOf(ubcFlowEvent.aHD()));
+                    sb.append("\n").append(ubcFlowEvent.aHE()).append(" : ").append(ubcFlowEvent.id);
+                    hashMap.put(ubcFlowEvent.id, Long.valueOf(ubcFlowEvent.aHE()));
                 }
             }
             sb.append("\n").append("耗时计算开始：>>>>>>>>>>>>");

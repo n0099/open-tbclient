@@ -44,7 +44,7 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
         }
         int action = motionEvent.getAction() & 255;
         int i2 = this.fUF;
-        axl();
+        axm();
         switch (action) {
             case 0:
                 if (this.fUI.isRunning()) {
@@ -97,7 +97,7 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
         return super.onTouchEvent(motionEvent);
     }
 
-    private void axl() {
+    private void axm() {
         if (this.fUI == null) {
             this.fUI = new ValueAnimator();
             this.fUI.setDuration(200L);

@@ -30,7 +30,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<a> {
             j jVar = (j) view.getTag();
             if (jVar != null) {
                 if (!jVar.fCz) {
-                    SelectForumItemAdapter.this.gkl.Fd(jVar.fCA);
+                    SelectForumItemAdapter.this.gkl.Fc(jVar.fCA);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921507, jVar.fCA));
                     return;
                 }

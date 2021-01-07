@@ -78,7 +78,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 a(linearLayout, context, cQu.get(aVar.tag), aVar.tag);
             }
         }
-        apU();
+        apV();
     }
 
     private void a(LinearLayout linearLayout, Context context, String str, String str2) {
@@ -109,12 +109,12 @@ public class SwanAppPropertyWindow extends FrameLayout {
         }
     }
 
-    private void apU() {
+    private void apV() {
         if (DEBUG) {
             Log.d("SwanAppPropertyWindow", "Start system monitor");
         }
         if (this.mData == null) {
-            this.mData = com.baidu.swan.apps.console.property.b.apS().apT();
+            this.mData = com.baidu.swan.apps.console.property.b.apT().apU();
         }
         if (this.cQw == null) {
             this.cQw = new b();
@@ -122,12 +122,12 @@ public class SwanAppPropertyWindow extends FrameLayout {
         }
     }
 
-    private void apV() {
+    private void apW() {
         if (DEBUG) {
             Log.d("SwanAppPropertyWindow", "Stop system monitor");
         }
         if (this.mData != null) {
-            com.baidu.swan.apps.console.property.b.apS().recycle();
+            com.baidu.swan.apps.console.property.b.apT().recycle();
             this.mData = null;
         }
         if (this.cQw != null) {
@@ -170,21 +170,21 @@ public class SwanAppPropertyWindow extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        apV();
+        apW();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        apU();
+        apV();
     }
 
     @Override // android.view.View
     protected void onVisibilityChanged(View view, int i) {
         if (i == 0) {
-            apU();
-        } else {
             apV();
+        } else {
+            apW();
         }
     }
 

@@ -56,7 +56,7 @@ public class j implements AbsListView.OnScrollListener, d.a {
         public void onClick(View view) {
             if (j.this.bMd != null) {
                 if (view == j.this.bNi) {
-                    j.this.bNj.c(j.this.bMd.WV(), j.this.bMd.WT());
+                    j.this.bNj.c(j.this.bMd.WW(), j.this.bMd.WU());
                     j.this.bNj.O(j.this.bNn);
                     j.this.bNi.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(a.e.sdk_ph_icon_album_retract), (Drawable) null);
                 } else if (view == j.this.bMu) {
@@ -95,7 +95,7 @@ public class j implements AbsListView.OnScrollListener, d.a {
             if (j.this.bMd != null && albumData != null) {
                 String albumId = albumData.getAlbumId();
                 String name = albumData.getName();
-                if (albumId != null && !albumId.equals(j.this.bMd.WT()) && (iK = j.this.bMd.iK(albumId)) != null) {
+                if (albumId != null && !albumId.equals(j.this.bMd.WU()) && (iK = j.this.bMd.iK(albumId)) != null) {
                     j.this.bMd.iI(albumId);
                     j.this.bNl.setData(iK);
                     if (j.this.bNl.getCount() <= 0) {
@@ -116,7 +116,7 @@ public class j implements AbsListView.OnScrollListener, d.a {
                 return true;
             }
             if (mediaFileInfo instanceof ImageFileInfo) {
-                if (j.this.bMd.WP()) {
+                if (j.this.bMd.WQ()) {
                     j.this.bMr.showToast(a.h.sdk_ph_album_choose_switch_tip);
                     return true;
                 }
@@ -128,10 +128,10 @@ public class j implements AbsListView.OnScrollListener, d.a {
                 }
                 j.this.bMd.a((VideoFileInfo) null);
                 j.this.bNl.notifyDataSetChanged();
-                j.this.WZ();
+                j.this.Xa();
                 return true;
             } else if (mediaFileInfo instanceof VideoFileInfo) {
-                if (j.this.bMd.WO()) {
+                if (j.this.bMd.WP()) {
                     j.this.bMr.showToast(a.h.sdk_ph_album_choose_switch_tip);
                     return true;
                 }
@@ -142,9 +142,9 @@ public class j implements AbsListView.OnScrollListener, d.a {
                     } else {
                         j.this.bMd.a(videoFileInfo);
                     }
-                    j.this.bMd.WQ();
+                    j.this.bMd.WR();
                     j.this.bNl.notifyDataSetChanged();
-                    j.this.WZ();
+                    j.this.Xa();
                     return true;
                 }
                 return true;
@@ -157,8 +157,8 @@ public class j implements AbsListView.OnScrollListener, d.a {
     public j(TbPageContext tbPageContext, AlbumActivity albumActivity) {
         this.tbPageContext = tbPageContext;
         this.bMr = albumActivity;
-        this.bMd = this.bMr.Wz();
-        d.WW().a(this);
+        this.bMd = this.bMr.WA();
+        d.WX().a(this);
         this.bNe = new MediaStoreLoader(this.bMr);
         this.bNj = new com.baidu.live.tieba.write.a.a(this.bMr);
         this.bNj.setOnDismissListener(this.mOnDismissListener);
@@ -198,7 +198,7 @@ public class j implements AbsListView.OnScrollListener, d.a {
         this.bMw.setOnClickListener(this.bMr);
         this.bNi.setOnClickListener(this.mOnClickListener);
         this.bMu.setOnClickListener(this.mOnClickListener);
-        WZ();
+        Xa();
         showLoadingView();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return this.mView;
@@ -224,16 +224,16 @@ public class j implements AbsListView.OnScrollListener, d.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void WZ() {
+    public void Xa() {
         int count;
         String string;
         if (this.bMd != null && this.bMv != null) {
-            if (this.bMd.WP()) {
-                int i = this.bMd.WP() ? 1 : 0;
+            if (this.bMd.WQ()) {
+                int i = this.bMd.WQ() ? 1 : 0;
                 string = this.bMr.getString(a.h.sdk_ph_image_selected_list_count_max, new Object[]{Integer.valueOf(i), 1});
                 count = i;
             } else {
-                count = ListUtils.getCount(this.bMd.WR());
+                count = ListUtils.getCount(this.bMd.WS());
                 string = this.bMr.getString(a.h.sdk_ph_image_selected_list_count_max, new Object[]{Integer.valueOf(count), Integer.valueOf(this.bMd.getMaxImagesAllowed())});
             }
             this.bMv.setText(string);
@@ -243,24 +243,24 @@ public class j implements AbsListView.OnScrollListener, d.a {
 
     public void onResume() {
         this.isPaused = false;
-        WE();
+        WF();
     }
 
-    private void WD() {
+    private void WE() {
         if (this.bMd == null && this.bMr != null) {
-            this.bMd = this.bMr.Wz();
+            this.bMd = this.bMr.WA();
         }
         if (this.bMd != null) {
-            Xa();
+            Xb();
             dj(this.bMd.isOriginalImg());
         }
     }
 
-    private void Xa() {
+    private void Xb() {
         if (this.bNe == null) {
             this.bNe = new MediaStoreLoader(this.bMr);
         }
-        this.bNe.loadAll(this.bMr.Wy() == 1 ? 0 : 2, new MediaStoreLoadCallback() { // from class: com.baidu.live.tieba.write.album.j.6
+        this.bNe.loadAll(this.bMr.Wz() == 1 ? 0 : 2, new MediaStoreLoadCallback() { // from class: com.baidu.live.tieba.write.album.j.6
             @Override // com.baidu.live.tbadk.album.MediaStoreLoadCallback
             public void onPreLoad() {
             }
@@ -275,18 +275,18 @@ public class j implements AbsListView.OnScrollListener, d.a {
                 }
                 if (j.this.bMd != null && resutMediaStore != null) {
                     j.this.bMd.a(resutMediaStore);
-                    String WT = j.this.bMd.WT();
-                    j.this.bMd.iI(WT);
-                    j.this.bNl.setData(j.this.bMd.iK(WT));
+                    String WU = j.this.bMd.WU();
+                    j.this.bMd.iI(WU);
+                    j.this.bNl.setData(j.this.bMd.iK(WU));
                     if (j.this.bNl.getCount() <= 0) {
                         j.this.bNm.setVisibility(0);
                     } else {
                         j.this.bNm.setVisibility(8);
                     }
                     j.this.bNk.smoothScrollToPosition(0);
-                    j.this.WZ();
+                    j.this.Xa();
                 }
-                j.this.bNk.Xc();
+                j.this.bNk.Xd();
             }
         });
     }
@@ -295,7 +295,7 @@ public class j implements AbsListView.OnScrollListener, d.a {
         SkinUtil.onModeChanged(this.tbPageContext, this.mView);
         SkinManager.setBackgroundColor(this.bNo, a.c.sdk_cp_bg_line_b, i);
         SkinManager.setViewTextColor(this.bNi, a.c.sdk_cp_cont_b, i);
-        if (this.bMr.Wy() == 1) {
+        if (this.bMr.Wz() == 1) {
             SkinManager.setImageResource(this.bNg, a.e.sdk_ph_icon_topbar_close_n, i);
             this.bNh.setVisibility(8);
         } else {
@@ -317,22 +317,22 @@ public class j implements AbsListView.OnScrollListener, d.a {
         return this.mView;
     }
 
-    public View WX() {
-        return this.bMr.Wy() == 1 ? this.bNg : this.bNh;
+    public View WY() {
+        return this.bMr.Wz() == 1 ? this.bNg : this.bNh;
     }
 
-    public View Xb() {
+    public View Xc() {
         return this.bMv;
     }
 
     @Override // com.baidu.live.tieba.write.album.d.a
     public void dl(boolean z) {
-        WE();
+        WF();
     }
 
-    private void WE() {
+    private void WF() {
         if (!this.isPaused) {
-            WD();
+            WE();
         }
     }
 
@@ -364,7 +364,7 @@ public class j implements AbsListView.OnScrollListener, d.a {
                 return;
             }
         }
-        WZ();
+        Xa();
     }
 
     public void c(ImageFileInfo imageFileInfo, boolean z) {
@@ -373,7 +373,7 @@ public class j implements AbsListView.OnScrollListener, d.a {
         }
     }
 
-    public View WK() {
+    public View WL() {
         return this.bMw;
     }
 

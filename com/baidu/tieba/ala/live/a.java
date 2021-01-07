@@ -23,7 +23,7 @@ public class a implements IChannelPayController {
         this.mPayController = c.c(this.bWu);
         this.mPayController.a(new a.InterfaceC0663a() { // from class: com.baidu.tieba.ala.live.a.1
             @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0663a
-            public void HM(String str) {
+            public void HL(String str) {
             }
 
             @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0663a
@@ -67,7 +67,7 @@ public class a implements IChannelPayController {
         String liveId = payChannelData.getLiveId();
         Log.d(IChannelPayController.TAG, "-->mPayController  pay--- propsId:" + iconId + ", money:" + str + ", propsMon:1, tBeanNum:" + str2 + ", from:" + from);
         this.mCurPayConfig = new PayConfig(payType, "0", iconId, str, "1", true, str2, false, PageDialogHelper.PayForm.NOT_SET, null, null, from, liveId);
-        this.mPayController.HQ(payChannelData.getChannel());
+        this.mPayController.HP(payChannelData.getChannel());
         this.mPayController.setShowToast(payChannelData.getShowToast());
         this.mPayController.d(this.mCurPayConfig);
     }

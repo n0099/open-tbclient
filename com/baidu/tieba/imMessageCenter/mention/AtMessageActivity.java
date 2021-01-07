@@ -33,7 +33,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
                 if (AtMessageActivity.this.kNi != null) {
-                    AtMessageActivity.this.kNi.cvJ();
+                    AtMessageActivity.this.kNi.cvK();
                 }
             }
         }
@@ -52,22 +52,22 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         } else {
             this.kNi.aj(null);
         }
-        this.kNh.bYm();
-        bHi().addEventDelegate(this);
-        this.kNi.cvJ();
+        this.kNh.bYn();
+        bHj().addEventDelegate(this);
+        this.kNi.cvK();
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        this.kNi.cLE();
+        this.kNi.cLF();
     }
 
-    public void cIc() {
-        this.kNi.cvK();
+    public void cId() {
+        this.kNi.cvL();
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean bGM() {
+    public boolean bGN() {
         return false;
     }
 
@@ -76,20 +76,20 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (bVar == null) {
             return true;
         }
-        if (bVar.bGN() == 9484) {
-            com.baidu.tbadk.mvc.b.a bGO = bVar.bGO();
-            if (bGO instanceof FeedData) {
-                return d((FeedData) bGO);
+        if (bVar.bGO() == 9484) {
+            com.baidu.tbadk.mvc.b.a bGP = bVar.bGP();
+            if (bGP instanceof FeedData) {
+                return d((FeedData) bGP);
             }
-        } else if (bVar.bGN() == 9483) {
-            com.baidu.tbadk.mvc.b.a bGO2 = bVar.bGO();
-            if (bGO2 instanceof FeedData) {
-                return c((FeedData) bGO2);
+        } else if (bVar.bGO() == 9483) {
+            com.baidu.tbadk.mvc.b.a bGP2 = bVar.bGP();
+            if (bGP2 instanceof FeedData) {
+                return c((FeedData) bGP2);
             }
-        } else if (bVar.bGN() == 9489) {
-            com.baidu.tbadk.mvc.b.a bGO3 = bVar.bGO();
-            if (bGO3 instanceof FeedData) {
-                this.kNh.b((FeedData) bGO3);
+        } else if (bVar.bGO() == 9489) {
+            com.baidu.tbadk.mvc.b.a bGP3 = bVar.bGP();
+            if (bGP3 instanceof FeedData) {
+                this.kNh.b((FeedData) bGP3);
                 return true;
             }
         }
@@ -154,15 +154,15 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         return false;
     }
 
-    public ViewEventCenter bHi() {
+    public ViewEventCenter bHj() {
         if (this.kNj == null) {
             this.kNj = new ViewEventCenter();
         }
         return this.kNj;
     }
 
-    public void daU() {
-        this.kNh.daU();
+    public void daV() {
+        this.kNh.daV();
     }
 
     public void c(com.baidu.tbadk.mvc.d.b bVar) {
@@ -173,8 +173,8 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         this.kNh.a(aVar);
     }
 
-    public void daV() {
-        this.kNh.daV();
+    public void daW() {
+        this.kNh.daW();
     }
 
     public void a(ErrorData errorData) {
@@ -202,11 +202,11 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     public void onNetRefreshButtonClicked() {
         super.onNetRefreshButtonClicked();
         if (com.baidu.adp.lib.util.l.isNetOk() && this.kNi != null) {
-            this.kNi.cLE();
+            this.kNi.cLF();
         }
     }
 
-    public void Zi() {
+    public void Zj() {
         if (this.kNh != null) {
             if (this.kNh.kNd != null) {
                 this.kNh.kNd.setVisibility(0);

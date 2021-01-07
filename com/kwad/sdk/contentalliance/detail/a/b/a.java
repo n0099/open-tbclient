@@ -15,7 +15,7 @@ import com.kwad.sdk.utils.p;
 public class a extends b {
 
     /* renamed from: b  reason: collision with root package name */
-    private LottieAnimationView f8602b;
+    private LottieAnimationView f8603b;
     private ViewGroup c;
     private TextView d;
     private Handler e;
@@ -24,12 +24,12 @@ public class a extends b {
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void j() {
             super.j();
-            if (com.ksad.download.d.b.a(a.this.o()) || a.this.f8692a.m.a()) {
+            if (com.ksad.download.d.b.a(a.this.o()) || a.this.f8693a.m.a()) {
                 a.this.c.setVisibility(8);
             } else {
                 a.this.g();
             }
-            if (a.this.f8692a.m.b() && !a.this.f) {
+            if (a.this.f8693a.m.b() && !a.this.f) {
                 a.this.h();
             }
             a.this.f = true;
@@ -108,11 +108,11 @@ public class a extends b {
         if (!com.ksad.download.d.b.a(o())) {
             f();
             this.c.setVisibility(0);
-        } else if (this.f8602b.getVisibility() == 0 && this.f8602b.c()) {
+        } else if (this.f8603b.getVisibility() == 0 && this.f8603b.c()) {
         } else {
-            this.f8602b.setVisibility(0);
-            if (!this.f8602b.c()) {
-                this.f8602b.b();
+            this.f8603b.setVisibility(0);
+            if (!this.f8603b.c()) {
+                this.f8603b.b();
             }
             this.c.setVisibility(8);
         }
@@ -120,19 +120,19 @@ public class a extends b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        if (this.f8602b == null) {
+        if (this.f8603b == null) {
             return;
         }
-        if (this.f8602b.c()) {
-            this.f8602b.d();
+        if (this.f8603b.c()) {
+            this.f8603b.d();
         }
-        this.f8602b.setVisibility(8);
+        this.f8603b.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        this.f8602b.d();
-        this.f8602b.setVisibility(8);
+        this.f8603b.d();
+        this.f8603b.setVisibility(8);
         p.a(o(), "网络错误");
     }
 
@@ -157,14 +157,14 @@ public class a extends b {
             public void onClick(View view) {
                 if (!com.ksad.download.d.b.a(a.this.o())) {
                     p.a(a.this.o(), "网络错误");
-                } else if (a.this.f8692a.m.a()) {
+                } else if (a.this.f8693a.m.a()) {
                 } else {
-                    a.this.f8692a.m.f();
+                    a.this.f8693a.m.f();
                 }
             }
         });
-        this.f8692a.f8702b.add(this.g);
-        this.f8692a.m.a(this.j);
+        this.f8693a.f8703b.add(this.g);
+        this.f8693a.m.a(this.j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -174,9 +174,9 @@ public class a extends b {
         if (this.e != null) {
             this.e.removeCallbacksAndMessages(null);
         }
-        this.f8692a.f8702b.remove(this.g);
-        if (this.f8692a.m != null) {
-            this.f8692a.m.b(this.j);
+        this.f8693a.f8703b.remove(this.g);
+        if (this.f8693a.m != null) {
+            this.f8693a.m.b(this.j);
         }
     }
 
@@ -191,11 +191,11 @@ public class a extends b {
         int i = R.raw.ksad_detail_loading_amin_bottom;
         ((LottieAnimationView) b(R.id.ksad_center_loading_animation_view)).setVisibility(8);
         lottieAnimationView.setVisibility(0);
-        this.f8602b = lottieAnimationView;
-        this.f8602b.setRepeatMode(1);
-        this.f8602b.setRepeatCount(-1);
-        this.f8602b.setAnimation(i);
-        this.f8602b.setRepeatMode(1);
-        this.f8602b.setRepeatCount(-1);
+        this.f8603b = lottieAnimationView;
+        this.f8603b.setRepeatMode(1);
+        this.f8603b.setRepeatCount(-1);
+        this.f8603b.setAnimation(i);
+        this.f8603b.setRepeatMode(1);
+        this.f8603b.setRepeatCount(-1);
     }
 }

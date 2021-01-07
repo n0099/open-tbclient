@@ -16,10 +16,10 @@ public class d {
 
     public d(Context context) {
         this.mContext = context;
-        ap(cbf());
+        ap(cbg());
     }
 
-    public View cbf() {
+    public View cbg() {
         if (this.mRootView == null) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.sdk_prc_person_center_guardian_header, (ViewGroup) null);
         }
@@ -31,7 +31,7 @@ public class d {
         this.hmo = (TextView) view.findViewById(a.f.ala_guardian_header_title);
     }
 
-    public void HS(String str) {
+    public void HR(String str) {
         this.hmo.setText(str);
     }
 

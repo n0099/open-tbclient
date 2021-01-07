@@ -7,7 +7,7 @@ import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.LoadAdParams;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.mediation.interfaces.BaseSplashAd;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class ANSplashAdViewAdapter extends BaseSplashAd implements com.qq.e.comm.plugin.r.a {
     private b mSplashAdView;
 

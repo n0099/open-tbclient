@@ -14,11 +14,11 @@ import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 /* loaded from: classes11.dex */
 public class RightLadderTextView extends TextView {
     private int height;
-    private Path onp;
-    private float onq;
-    private LinearGradient ont;
-    private BgColor onv;
-    private LinearGradient onw;
+    private Path ono;
+    private float onp;
+    private LinearGradient ons;
+    private BgColor onu;
+    private LinearGradient onv;
     private Paint paint;
     private int width;
 
@@ -30,29 +30,29 @@ public class RightLadderTextView extends TextView {
 
     public RightLadderTextView(Context context) {
         super(context);
-        this.onq = 0.5f;
-        this.onv = BgColor.BLUE;
+        this.onp = 0.5f;
+        this.onu = BgColor.BLUE;
         init();
     }
 
     public RightLadderTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.onq = 0.5f;
-        this.onv = BgColor.BLUE;
+        this.onp = 0.5f;
+        this.onu = BgColor.BLUE;
         init();
     }
 
     public RightLadderTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.onq = 0.5f;
-        this.onv = BgColor.BLUE;
+        this.onp = 0.5f;
+        this.onu = BgColor.BLUE;
         init();
     }
 
     private void init() {
         Log.v("LadderView", OneKeyLoginSdkCall.l);
         this.paint = new Paint();
-        this.onp = new Path();
+        this.ono = new Path();
         this.paint.setAntiAlias(true);
         this.paint.setStyle(Paint.Style.FILL_AND_STROKE);
         this.paint.setStrokeJoin(Paint.Join.ROUND);
@@ -63,8 +63,8 @@ public class RightLadderTextView extends TextView {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = getWidth();
         this.height = getHeight();
-        this.onw = new LinearGradient(0.0f, 0.0f, this.width, 0.0f, getResources().getColor(a.c.sdk_color_64daf5), getResources().getColor(a.c.sdk_color_0a48f3), Shader.TileMode.CLAMP);
-        this.ont = new LinearGradient(0.0f, 0.0f, this.width, 0.0f, getResources().getColor(a.c.sdk_color_A2A2A2), getResources().getColor(a.c.sdk_color_717171), Shader.TileMode.CLAMP);
+        this.onv = new LinearGradient(0.0f, 0.0f, this.width, 0.0f, getResources().getColor(a.c.sdk_color_64daf5), getResources().getColor(a.c.sdk_color_0a48f3), Shader.TileMode.CLAMP);
+        this.ons = new LinearGradient(0.0f, 0.0f, this.width, 0.0f, getResources().getColor(a.c.sdk_color_A2A2A2), getResources().getColor(a.c.sdk_color_717171), Shader.TileMode.CLAMP);
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -72,23 +72,23 @@ public class RightLadderTextView extends TextView {
         super.onDraw(canvas);
         Log.v("LadderView", "onDraw");
         this.paint.reset();
-        switch (this.onv) {
+        switch (this.onu) {
             case BLUE:
-                this.paint.setShader(this.onw);
+                this.paint.setShader(this.onv);
                 break;
             case GRAY:
-                this.paint.setShader(this.ont);
+                this.paint.setShader(this.ons);
                 break;
         }
-        this.onp.moveTo((this.onq * this.height) + 0.0f, 0.0f);
-        this.onp.lineTo(this.width, 0.0f);
-        this.onp.lineTo(this.width, this.height);
-        this.onp.lineTo(0.0f, this.height);
-        this.onp.close();
-        canvas.drawPath(this.onp, this.paint);
+        this.ono.moveTo((this.onp * this.height) + 0.0f, 0.0f);
+        this.ono.lineTo(this.width, 0.0f);
+        this.ono.lineTo(this.width, this.height);
+        this.ono.lineTo(0.0f, this.height);
+        this.ono.close();
+        canvas.drawPath(this.ono, this.paint);
     }
 
     public void setBgColor(BgColor bgColor) {
-        this.onv = bgColor;
+        this.onu = bgColor;
     }
 }

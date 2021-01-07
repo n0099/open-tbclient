@@ -73,7 +73,7 @@ class SystemMessageHandler extends Handler {
             if (Build.VERSION.SDK_INT >= 22) {
                 oJf = new b();
             } else {
-                oJf = new C0923a();
+                oJf = new C0961a();
             }
         }
 
@@ -91,10 +91,10 @@ class SystemMessageHandler extends Handler {
 
         /* renamed from: com.baidu.turbonet.base.SystemMessageHandler$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        static class C0923a implements c {
+        static class C0961a implements c {
             private Method oJg;
 
-            C0923a() {
+            C0961a() {
                 try {
                     this.oJg = Class.forName("android.os.Message").getMethod("setAsynchronous", Boolean.TYPE);
                 } catch (ClassNotFoundException e) {

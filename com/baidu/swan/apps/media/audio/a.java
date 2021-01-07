@@ -31,7 +31,7 @@ public class a {
             aVar2.dkT = jSONObject.optString("audioId", aVar.dkT);
             aVar2.cGy = jSONObject.optString("slaveId", aVar.cGy);
             aVar2.mUrl = jSONObject.optString("src", aVar.mUrl);
-            aVar2.dla = e.aMk() != null && com.baidu.swan.apps.storage.b.tN(aVar2.mUrl);
+            aVar2.dla = e.aMl() != null && com.baidu.swan.apps.storage.b.tN(aVar2.mUrl);
             aVar2.mTitle = jSONObject.optString("title", aVar.mTitle);
             aVar2.dkU = jSONObject.optString("epname", aVar.dkU);
             aVar2.dkV = jSONObject.optString("singer", aVar.dkV);
@@ -42,19 +42,19 @@ public class a {
             aVar2.dkZ = jSONObject.optString("cb", aVar.dkZ);
             aVar2.dkY = jSONObject.optString("param", aVar.dkY);
             aVar2.dlb = TextUtils.isEmpty(jSONObject.optString("src"));
-            String avY = com.baidu.swan.apps.core.turbo.d.avA().avY();
-            if (!TextUtils.isEmpty(avY)) {
-                aVar2.mUserAgent = avY;
+            String avZ = com.baidu.swan.apps.core.turbo.d.avB().avZ();
+            if (!TextUtils.isEmpty(avZ)) {
+                aVar2.mUserAgent = avZ;
             }
-            String aRy = ab.aRy();
-            if (!TextUtils.isEmpty(aRy) && ab.uQ(aVar2.mUrl)) {
-                aVar2.mReferer = aRy;
+            String aRz = ab.aRz();
+            if (!TextUtils.isEmpty(aRz) && ab.uQ(aVar2.mUrl)) {
+                aVar2.mReferer = aRz;
             }
         }
         return aVar2;
     }
 
-    public boolean aEc() {
+    public boolean aEd() {
         return this.dlb;
     }
 
@@ -69,7 +69,7 @@ public class a {
             jSONObject.putOpt("coverImgUrl", this.mCoverUrl);
             jSONObject.putOpt("lrcURL", this.dkW);
             jSONObject.putOpt("isLocal", Boolean.valueOf(this.dla));
-            jSONObject.putOpt("appid", e.aMm());
+            jSONObject.putOpt("appid", e.aMn());
             jSONObject.putOpt("user-agent", this.mUserAgent);
             jSONObject.putOpt("refer", this.mReferer);
         } catch (JSONException e) {

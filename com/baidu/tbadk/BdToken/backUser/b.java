@@ -20,8 +20,8 @@ public class b {
                     aVar = ((BackUserSocketResMsg) responsedMessage).getData();
                 }
                 if (aVar != null && aVar.eHX) {
-                    com.baidu.tbadk.core.sharedPref.b.bvq().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("pref_key_last_request_mission"), System.currentTimeMillis());
-                    com.baidu.tbadk.core.f.a.bvm().bvn();
+                    com.baidu.tbadk.core.sharedPref.b.bvr().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("pref_key_last_request_mission"), System.currentTimeMillis());
+                    com.baidu.tbadk.core.f.a.bvn().bvo();
                 }
             }
         }
@@ -30,13 +30,13 @@ public class b {
 
     public b(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        bmf();
+        bmg();
         this.eFZ.setTag(this.mBdUniqueId);
         MessageManager.getInstance().registerListener(this.eFZ);
     }
 
-    public void bmg() {
-        if (bmh()) {
+    public void bmh() {
+        if (bmi()) {
             BackUserReqMsg backUserReqMsg = new BackUserReqMsg();
             backUserReqMsg.setTag(this.mBdUniqueId);
             MessageManager.getInstance().sendMessage(backUserReqMsg);
@@ -47,7 +47,7 @@ public class b {
         return this.mBdUniqueId;
     }
 
-    private void bmf() {
+    private void bmg() {
         com.baidu.tieba.tbadkCore.a.a.a(309689, BackUserSocketResMsg.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BACK_USER, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.URL_BACK_USER, 309689));
         tbHttpMessageTask.setResponsedClass(BackUserHTTPResMsg.class);
@@ -55,7 +55,7 @@ public class b {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private boolean bmh() {
-        return !UtilHelper.isSameDay(com.baidu.tbadk.core.sharedPref.b.bvq().getLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("pref_key_last_request_mission"), 0L), System.currentTimeMillis());
+    private boolean bmi() {
+        return !UtilHelper.isSameDay(com.baidu.tbadk.core.sharedPref.b.bvr().getLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("pref_key_last_request_mission"), 0L), System.currentTimeMillis());
     }
 }

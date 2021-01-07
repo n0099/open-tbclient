@@ -13,16 +13,16 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f7995a;
+    private String f7996a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f7996b;
+    private String f7997b;
 
     public c a(c cVar, b bVar, com.cmic.sso.sdk.a aVar) {
         List<String> list;
         Map<String, List<String>> b2 = bVar.b();
-        if (TextUtils.isEmpty(this.f7995a) && (list = b2.get("pplocation")) != null && list.size() > 0) {
-            this.f7995a = list.get(0);
+        if (TextUtils.isEmpty(this.f7996a) && (list = b2.get("pplocation")) != null && list.size() > 0) {
+            this.f7996a = list.get(0);
         }
         s.b(aVar, String.valueOf(bVar.a()));
         List<String> list2 = b2.get(Headers.LOCATION);
@@ -30,8 +30,8 @@ public class a {
             list2 = b2.get(Headers.LOCATION.toLowerCase());
         }
         if (list2 != null && list2.size() > 0) {
-            this.f7996b = list2.get(0);
-            if (!TextUtils.isEmpty(this.f7996b)) {
+            this.f7997b = list2.get(0);
+            if (!TextUtils.isEmpty(this.f7997b)) {
                 String b3 = aVar.b("operatortype", "0");
                 if ("2".equals(b3)) {
                     s.a(aVar, "getUnicomMobile");
@@ -42,8 +42,8 @@ public class a {
                 }
             }
         }
-        c a2 = a(this.f7996b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.esR().a()));
-        a2.d(cVar.esQ());
+        c a2 = a(this.f7997b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.esS().a()));
+        a2.d(cVar.esR());
         return a2;
     }
 
@@ -57,9 +57,9 @@ public class a {
             s.a(aVar, "NONE");
         }
         s.b(aVar, String.valueOf(bVar.a()));
-        c a2 = a("http://www.cmpassport.com/unisdk" + this.f7995a, cVar.f(), "POST", new d(cVar.esR().a(), "1.0", bVar.c()));
-        a2.d(cVar.esQ());
-        this.f7995a = null;
+        c a2 = a("http://www.cmpassport.com/unisdk" + this.f7996a, cVar.f(), "POST", new d(cVar.esS().a(), "1.0", bVar.c()));
+        a2.d(cVar.esR());
+        this.f7996a = null;
         return a2;
     }
 
@@ -72,6 +72,6 @@ public class a {
     }
 
     public String a() {
-        return this.f7995a;
+        return this.f7996a;
     }
 }

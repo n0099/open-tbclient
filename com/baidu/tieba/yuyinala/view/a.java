@@ -32,16 +32,16 @@ public class a {
     private BarImageView oIc;
     private b.a oId;
     private FrameLayout oIe;
-    private AlaRankListActivity ojJ;
+    private AlaRankListActivity ojI;
 
     public a(AlaRankListActivity alaRankListActivity, String str) {
-        this.ojJ = alaRankListActivity;
+        this.ojI = alaRankListActivity;
         this.mRoomId = str;
         initView();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.ojJ).inflate(a.g.yuyin_ala_rank_list_hot_bottom_layout, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.ojI).inflate(a.g.yuyin_ala_rank_list_hot_bottom_layout, (ViewGroup) null);
         this.contentView = this.mRootView.findViewById(a.f.content_view);
         this.iin = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_rank);
         this.oIc = (BarImageView) this.mRootView.findViewById(a.f.ala_rank_list_user_header);
@@ -56,7 +56,7 @@ public class a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (a.this.oId != null) {
-                    a.this.ojJ.finish();
+                    a.this.ojI.finish();
                     a.this.oId.ep(view);
                 }
             }
@@ -81,7 +81,7 @@ public class a {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             this.oIe.setVisibility(8);
             if (gVar.aJz <= 0) {
-                spannableStringBuilder.append((CharSequence) this.ojJ.getString(a.h.yuyin_bottom_rank_list_bottom_no_money));
+                spannableStringBuilder.append((CharSequence) this.ojI.getString(a.h.yuyin_bottom_rank_list_bottom_no_money));
                 spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 2, 5, 34);
                 this.iin.setText("未上榜");
                 this.iin.setTextSize(10.0f);
@@ -95,7 +95,7 @@ public class a {
                     if (gVar.aJC) {
                         this.iiq.setVisibility(8);
                     } else {
-                        String format = String.format(this.ojJ.getString(a.h.yuyin_bottom_rank_list_bottom_1), StringHelper.formatYuyinValue(gVar.aJz - gVar.aJB) + "");
+                        String format = String.format(this.ojI.getString(a.h.yuyin_bottom_rank_list_bottom_1), StringHelper.formatYuyinValue(gVar.aJz - gVar.aJB) + "");
                         spannableStringBuilder.append((CharSequence) format);
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 6, format.length(), 34);
                         this.iiq.setVisibility(0);
@@ -103,12 +103,12 @@ public class a {
                     }
                 } else if (gVar.aJy >= 2 && gVar.aJy <= 10) {
                     String str = StringHelper.formatYuyinValue((gVar.aJA - gVar.aJz) + 1) + "";
-                    spannableStringBuilder.append((CharSequence) String.format(this.ojJ.getString(a.h.yuyin_bottom_rank_list_bottom__in), str));
+                    spannableStringBuilder.append((CharSequence) String.format(this.ojI.getString(a.h.yuyin_bottom_rank_list_bottom__in), str));
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 2, str.length() + 4, 34);
                     this.iiq.setVisibility(0);
                     this.iiq.setText(spannableStringBuilder);
                 } else if (gVar.aJy > 10) {
-                    String format2 = String.format(this.ojJ.getString(a.h.yuyin_bottom_rank_list_bottom_out), Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, StringHelper.formatYuyinValue((gVar.aJD - gVar.aJz) + 1) + "");
+                    String format2 = String.format(this.ojI.getString(a.h.yuyin_bottom_rank_list_bottom_out), Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, StringHelper.formatYuyinValue((gVar.aJD - gVar.aJz) + 1) + "");
                     spannableStringBuilder.append((CharSequence) format2);
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), Constants.VIA_REPORT_TYPE_SHARE_TO_QQ.length() + 4, format2.length(), 34);
                     this.iiq.setVisibility(0);
@@ -123,7 +123,7 @@ public class a {
                 int textLengthWithEmoji = TextHelper.getTextLengthWithEmoji(gVar.getNameShow());
                 i = (this.iip == null || StringUtils.isNull(this.iip.getText().toString().trim())) ? 16 : 16;
                 if (textLengthWithEmoji > i) {
-                    nameShow = String.format(this.ojJ.getString(a.h.yuyin_ala_rank_list_bottom_user_name_limit), TextHelper.subStringWithEmoji(gVar.getNameShow(), i));
+                    nameShow = String.format(this.ojI.getString(a.h.yuyin_ala_rank_list_bottom_user_name_limit), TextHelper.subStringWithEmoji(gVar.getNameShow(), i));
                 }
                 this.icj.setText(nameShow);
             }

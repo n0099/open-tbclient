@@ -24,10 +24,10 @@ import java.util.ArrayList;
 public class KSNativeAdVideoH5OpenView extends o1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f8134a;
+    public TextView f8135a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f8135b;
+    public FrameLayout f8136b;
     public ImageView c;
     public TextView d;
     public Button e;
@@ -49,17 +49,17 @@ public class KSNativeAdVideoH5OpenView extends o1 {
         ArrayList arrayList = new ArrayList();
         arrayList.add(this);
         ksNativeAd.registerViewForInteraction(this, arrayList, adInteractionListener);
-        View videoView = ksNativeAd.getVideoView(activity, new KsAdVideoPlayConfig.Builder().videoSoundEnable(d.f8075b).dataFlowAutoStart(d.c).build());
+        View videoView = ksNativeAd.getVideoView(activity, new KsAdVideoPlayConfig.Builder().videoSoundEnable(d.f8076b).dataFlowAutoStart(d.c).build());
         m.a("KSNativeAd video videoView: " + videoView);
         if (videoView != null && videoView.getParent() != null) {
             ((ViewGroup) videoView.getParent()).removeView(videoView);
         }
         if (videoView != null) {
-            this.f8135b.removeAllViews();
-            this.f8135b.addView(videoView);
+            this.f8136b.removeAllViews();
+            this.f8136b.addView(videoView);
         }
         this.c.setImageBitmap(ksNativeAd.getSdkLogo());
-        this.f8134a.setText(ksNativeAd.getAdDescription());
+        this.f8135a.setText(ksNativeAd.getAdDescription());
         this.d.setText(ksNativeAd.getAdSource());
         this.e.setText(ksNativeAd.getActionDescription());
         ksNativeAd.setDownloadListener(new ai(ksNativeAd, this.e, str, FunAdType.KS_NATIVE, str2));
@@ -68,8 +68,8 @@ public class KSNativeAdVideoH5OpenView extends o1 {
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f8134a = (TextView) findViewById(R.id.ad_description);
-        this.f8135b = (FrameLayout) findViewById(R.id.ad_video);
+        this.f8135a = (TextView) findViewById(R.id.ad_description);
+        this.f8136b = (FrameLayout) findViewById(R.id.ad_video);
         this.c = (ImageView) findViewById(R.id.ad_logo);
         this.d = (TextView) findViewById(R.id.ad_h5_description);
         this.e = (Button) findViewById(R.id.ad_h5_open);
@@ -78,10 +78,10 @@ public class KSNativeAdVideoH5OpenView extends o1 {
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f8135b.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f8136b.getLayoutParams();
         int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
         layoutParams.width = i5;
         layoutParams.height = (int) (i5 / 1.78f);
-        this.f8135b.setLayoutParams(layoutParams);
+        this.f8136b.setLayoutParams(layoutParams);
     }
 }

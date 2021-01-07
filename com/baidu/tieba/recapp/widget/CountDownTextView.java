@@ -12,8 +12,8 @@ public class CountDownTextView extends TextView {
     private int cUw;
     private Runnable gng;
     private Handler mHandler;
-    private b mUT;
-    private boolean mUU;
+    private b mUS;
+    private boolean mUT;
 
     /* loaded from: classes8.dex */
     public interface b {
@@ -23,12 +23,12 @@ public class CountDownTextView extends TextView {
     public CountDownTextView(Context context) {
         super(context);
         this.mHandler = null;
-        this.mUT = null;
-        this.mUU = true;
-        dGr();
+        this.mUS = null;
+        this.mUT = true;
+        dGs();
     }
 
-    private void dGr() {
+    private void dGs() {
         this.gng = new a();
         this.mHandler = new Handler();
     }
@@ -36,17 +36,17 @@ public class CountDownTextView extends TextView {
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mHandler = null;
-        this.mUT = null;
-        this.mUU = true;
-        dGr();
+        this.mUS = null;
+        this.mUT = true;
+        dGs();
     }
 
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mHandler = null;
-        this.mUT = null;
-        this.mUU = true;
-        dGr();
+        this.mUS = null;
+        this.mUT = true;
+        dGs();
     }
 
     public void update(int i) {
@@ -58,11 +58,11 @@ public class CountDownTextView extends TextView {
     }
 
     public void setTimeoutListener(b bVar) {
-        this.mUT = bVar;
+        this.mUS = bVar;
     }
 
     public void setEnableTimeoutListener(boolean z) {
-        this.mUU = z;
+        this.mUT = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -87,8 +87,8 @@ public class CountDownTextView extends TextView {
     public void uH(int i) {
         if (i > 0) {
             if (this.cUw == 0) {
-                if (this.mUT != null && this.mUU && getVisibility() == 0) {
-                    this.mUT.cj(this);
+                if (this.mUS != null && this.mUT && getVisibility() == 0) {
+                    this.mUS.cj(this);
                 }
                 setText(String.valueOf(this.cUw));
                 this.mHandler.removeCallbacksAndMessages(null);
@@ -112,10 +112,10 @@ public class CountDownTextView extends TextView {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bPX();
+        bPY();
     }
 
-    private void bPX() {
+    private void bPY() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 

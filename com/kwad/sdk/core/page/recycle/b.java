@@ -13,10 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 public class b extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    private Rect f9653a;
+    private Rect f9654a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f9654b;
+    private int f9655b;
     private int c;
     private boolean d;
     private int e;
@@ -73,16 +73,16 @@ public class b extends g {
     }
 
     private void b() {
-        if (this.f9653a == null) {
-            this.f9653a = new Rect();
+        if (this.f9654a == null) {
+            this.f9654a = new Rect();
         } else {
-            this.f9653a.setEmpty();
+            this.f9654a.setEmpty();
         }
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
             if (childAt.getVisibility() == 0) {
-                this.f9653a.union(childAt.getLeft(), childAt.getTop(), childAt.getRight(), childAt.getBottom());
+                this.f9654a.union(childAt.getLeft(), childAt.getTop(), childAt.getRight(), childAt.getBottom());
             }
         }
     }
@@ -107,12 +107,12 @@ public class b extends g {
 
     @Override // androidx.recyclerview.widget.RecyclerView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.f9654b != 0) {
+        if (this.f9655b != 0) {
             b();
-            if (this.f9653a != null && !this.f9653a.isEmpty()) {
+            if (this.f9654a != null && !this.f9654a.isEmpty()) {
                 canvas.save();
-                canvas.clipRect(this.f9653a);
-                canvas.drawColor(this.f9654b);
+                canvas.clipRect(this.f9654a);
+                canvas.drawColor(this.f9655b);
                 canvas.restore();
             }
         }
@@ -174,7 +174,7 @@ public class b extends g {
     }
 
     public void setUnderneathColor(int i) {
-        this.f9654b = i;
+        this.f9655b = i;
         b();
         invalidate();
     }

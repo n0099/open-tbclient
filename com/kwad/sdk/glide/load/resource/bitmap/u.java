@@ -10,10 +10,10 @@ public final class u implements com.kwad.sdk.glide.load.f<Bitmap, Bitmap> {
     public static final class a implements com.kwad.sdk.glide.load.engine.s<Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Bitmap f10599a;
+        private final Bitmap f10600a;
 
         a(@NonNull Bitmap bitmap) {
-            this.f10599a = bitmap;
+            this.f10600a = bitmap;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.s
@@ -27,12 +27,12 @@ public final class u implements com.kwad.sdk.glide.load.f<Bitmap, Bitmap> {
         @NonNull
         /* renamed from: b */
         public Bitmap e() {
-            return this.f10599a;
+            return this.f10600a;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.s
         public int c() {
-            return com.kwad.sdk.glide.g.k.a(this.f10599a);
+            return com.kwad.sdk.glide.g.k.a(this.f10600a);
         }
 
         @Override // com.kwad.sdk.glide.load.engine.s

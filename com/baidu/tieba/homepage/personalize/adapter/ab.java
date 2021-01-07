@@ -73,7 +73,7 @@ public class ab {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                ab.this.cTn();
+                ab.this.cTo();
                 if (ab.this.kgE != null) {
                     ab.this.cC(ab.this.kgE);
                 }
@@ -118,11 +118,11 @@ public class ab {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.afd.videopaster.data.b LL;
+            com.baidu.afd.videopaster.data.b LK;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (!StringUtils.isNull(str, true) && (LL = ab.this.LL(str)) != null) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921395, LL));
+                if (!StringUtils.isNull(str, true) && (LK = ab.this.LK(str)) != null) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921395, LK));
                 }
             }
         }
@@ -200,23 +200,23 @@ public class ab {
         this.jVU.add(this.khh);
         this.jVU.add(this.kgV);
         this.jVU.add(this.jWy);
-        cTm();
-        cQy();
-        Fm("page_recommend");
+        cTn();
+        cQz();
+        Fl("page_recommend");
     }
 
-    private void cQy() {
+    private void cQz() {
         if (!bz.eTz.get()) {
             AdvertAppInfo.eNR.set(false);
             return;
         }
-        this.khi = com.baidu.tieba.recapp.r.dEV().a(this.mPageContext, AdvertAppInfo.eNF, "INDEX");
-        this.khj = com.baidu.tieba.recapp.r.dEV().a(this.mPageContext, AdvertAppInfo.eNI, "INDEX");
-        this.khk = com.baidu.tieba.recapp.r.dEV().a(this.mPageContext, AdvertAppInfo.eNM, "INDEX");
-        this.khl = com.baidu.tieba.recapp.r.dEV().a(this.mPageContext, AdvertAppInfo.eNN, "INDEX");
-        this.khm = com.baidu.tieba.recapp.r.dEV().a(this.mPageContext, AdvertAppInfo.eNO, "INDEX");
-        this.khn = com.baidu.tieba.recapp.r.dEV().a(this.mPageContext, AdvertAppInfo.eNQ, "INDEX");
-        this.kho = com.baidu.tieba.recapp.r.dEV().a(this.mPageContext, AdvertAppInfo.eNP, "INDEX");
+        this.khi = com.baidu.tieba.recapp.r.dEW().a(this.mPageContext, AdvertAppInfo.eNF, "INDEX");
+        this.khj = com.baidu.tieba.recapp.r.dEW().a(this.mPageContext, AdvertAppInfo.eNI, "INDEX");
+        this.khk = com.baidu.tieba.recapp.r.dEW().a(this.mPageContext, AdvertAppInfo.eNM, "INDEX");
+        this.khl = com.baidu.tieba.recapp.r.dEW().a(this.mPageContext, AdvertAppInfo.eNN, "INDEX");
+        this.khm = com.baidu.tieba.recapp.r.dEW().a(this.mPageContext, AdvertAppInfo.eNO, "INDEX");
+        this.khn = com.baidu.tieba.recapp.r.dEW().a(this.mPageContext, AdvertAppInfo.eNQ, "INDEX");
+        this.kho = com.baidu.tieba.recapp.r.dEW().a(this.mPageContext, AdvertAppInfo.eNP, "INDEX");
         this.jVU.add(this.khi);
         this.jVU.add(this.khj);
         this.jVU.add(this.khk);
@@ -447,21 +447,21 @@ public class ab {
         }
     }
 
-    private void cTm() {
-        this.khq = cTn();
+    private void cTn() {
+        this.khq = cTo();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cTn() {
+    public boolean cTo() {
         if (this.jCN == null || this.jCN.size() <= 0) {
             this.jCN = new ArrayList();
-            ArrayList<BdUniqueId> dOr = com.baidu.tieba.tbadkCore.v.dOr();
-            if (dOr == null || dOr.size() <= 0) {
+            ArrayList<BdUniqueId> dOs = com.baidu.tieba.tbadkCore.v.dOs();
+            if (dOs == null || dOs.size() <= 0) {
                 return false;
             }
-            int size = dOr.size();
+            int size = dOs.size();
             for (int i = 0; i < size; i++) {
-                com.baidu.tieba.lego.card.adapter.a a2 = com.baidu.tieba.lego.d.b.deM().a(this.mPageContext, dOr.get(i), 2);
+                com.baidu.tieba.lego.card.adapter.a a2 = com.baidu.tieba.lego.d.b.deN().a(this.mPageContext, dOs.get(i), 2);
                 if (this.khp) {
                     a2.setBusinessType(3);
                 }
@@ -532,11 +532,11 @@ public class ab {
         }
     }
 
-    private void Fm(String str) {
+    private void Fl(String str) {
         if (this.jVU != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.jVU) {
                 if (aVar instanceof com.baidu.tieba.a.f) {
-                    ((com.baidu.tieba.a.f) aVar).Fm(str);
+                    ((com.baidu.tieba.a.f) aVar).Fl(str);
                 }
             }
         }
@@ -544,11 +544,11 @@ public class ab {
 
     private boolean g(com.baidu.adp.widget.ListView.n nVar) {
         AdvertAppInfo advertAppInfo;
-        return nVar != null && (nVar instanceof com.baidu.tieba.homepage.personalize.data.a) && (advertAppInfo = ((com.baidu.tieba.homepage.personalize.data.a) nVar).izk) != null && advertAppInfo.bpe() == 0;
+        return nVar != null && (nVar instanceof com.baidu.tieba.homepage.personalize.data.a) && (advertAppInfo = ((com.baidu.tieba.homepage.personalize.data.a) nVar).izk) != null && advertAppInfo.bpf() == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.afd.videopaster.data.b LL(String str) {
+    public com.baidu.afd.videopaster.data.b LK(String str) {
         int i;
         com.baidu.tieba.card.data.l lVar;
         if (this.kgE == null || this.kgE.isEmpty() || str == null) {

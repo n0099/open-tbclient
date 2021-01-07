@@ -87,16 +87,16 @@ public class AutoBannerView extends RelativeLayout {
     public void dj(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                be.bwu().b((TbPageContext) j.K(getContext()), new String[]{str});
+                be.bwv().b((TbPageContext) j.K(getContext()), new String[]{str});
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void byV() {
+    public void byW() {
         if (this.akC != null) {
-            this.akC.buJ();
+            this.akC.buK();
         }
     }
 

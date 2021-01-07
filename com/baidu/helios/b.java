@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class b {
     private static volatile b avU;
     private ExecutorService avX;
@@ -50,7 +50,7 @@ public class b {
         return bVar;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class c {
         public final String aid;
         public final String packageName;
@@ -68,7 +68,7 @@ public class b {
     }
 
     /* renamed from: com.baidu.helios.b$b  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class C0128b {
         private List<c> awb = new ArrayList();
 
@@ -167,7 +167,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class a<T> extends Handler {
         private com.baidu.helios.c<T> awa;
 

@@ -41,93 +41,93 @@ public class a {
     public boolean hGR;
     public String mForumId;
     public String mForumName;
-    private d orj;
-    private YuyinAlaCreateLiveRoomActivity orl;
-    private b orm;
-    private com.baidu.tieba.yuyinala.liveroom.data.d orn;
-    private d.b oro = new d.b() { // from class: com.baidu.tieba.yuyinala.liveroom.master.a.1
+    private d ori;
+    private YuyinAlaCreateLiveRoomActivity ork;
+    private b orl;
+    private com.baidu.tieba.yuyinala.liveroom.data.d orm;
+    private d.b orn = new d.b() { // from class: com.baidu.tieba.yuyinala.liveroom.master.a.1
         @Override // com.baidu.tieba.yuyinala.liveroom.views.d.b
-        public void clh() {
-            a.this.ckd();
+        public void cli() {
+            a.this.cke();
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.views.d.b
-        public void cli() {
-            a.this.hGQ = a.this.orm.cho();
+        public void clj() {
+            a.this.hGQ = a.this.orl.chp();
             com.baidu.tieba.yuyinala.liveroom.data.d dVar = new com.baidu.tieba.yuyinala.liveroom.data.d();
             dVar.hCa = false;
             dVar.forumId = null;
             dVar.forumName = null;
-            dVar.title = a.this.orm.getLiveTitle().trim();
+            dVar.title = a.this.orl.getLiveTitle().trim();
             dVar.clarity = 0;
             dVar.gameId = null;
             dVar.gameName = null;
-            dVar.hCb = a.this.orm.chp();
+            dVar.hCb = a.this.orl.chq();
             dVar.hCe = a.this.hGQ;
-            dVar.hCd = a.this.orm.chm();
-            dVar.hCc = a.this.orm.chr();
-            dVar.hCf = a.this.orm.chn();
+            dVar.hCd = a.this.orl.chn();
+            dVar.hCc = a.this.orl.chs();
+            dVar.hCf = a.this.orl.cho();
             if (!dVar.hCf) {
-                a.this.orl.showToast(a.h.yuyin_ala_live_not_agree_licence_toast);
+                a.this.ork.showToast(a.h.yuyin_ala_live_not_agree_licence_toast);
                 return;
             }
-            a.this.orn = dVar;
+            a.this.orm = dVar;
             if (FinishLiveManager.getInstance().getFinishListener() != null) {
                 FinishLiveManager.getInstance().getFinishListener().onStartLive();
             }
-            a.this.a(a.this.orn);
+            a.this.a(a.this.orm);
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.views.d.b
         public void onCloseClicked() {
-            a.this.edd();
+            a.this.ede();
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.views.d.b
-        public void cll() {
-            BrowserHelper.startWebActivity(a.this.orl, "https://sv.baidu.com/cashliveui/statictHtml.html#/protocol");
+        public void clm() {
+            BrowserHelper.startWebActivity(a.this.ork, "https://sv.baidu.com/cashliveui/statictHtml.html#/protocol");
         }
     };
-    private d.a orp = new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.master.a.2
+    private d.a oro = new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.master.a.2
     };
-    private a.InterfaceC0901a orq = new a.InterfaceC0901a() { // from class: com.baidu.tieba.yuyinala.liveroom.master.a.3
-        @Override // com.baidu.tieba.yuyinala.liveroom.k.a.InterfaceC0901a
+    private a.InterfaceC0939a orp = new a.InterfaceC0939a() { // from class: com.baidu.tieba.yuyinala.liveroom.master.a.3
+        @Override // com.baidu.tieba.yuyinala.liveroom.k.a.InterfaceC0939a
         public void a(int i, String str, int i2, Object obj) {
             if (i2 == 6) {
-                as cmm = a.this.orj.cmm();
-                if (!a.this.a(cmm)) {
-                    if (cmm.aPU != 1) {
-                        a.this.orl.showToast(cmm.aPV);
-                    } else if (cmm.mErrorCode != 0) {
-                        a.this.orl.showToast(str);
-                        if (cmm.mErrorCode == 110000) {
-                            ViewHelper.skipToLoginActivity(a.this.orl.getActivity());
+                as cmn = a.this.ori.cmn();
+                if (!a.this.a(cmn)) {
+                    if (cmn.aPU != 1) {
+                        a.this.ork.showToast(cmn.aPV);
+                    } else if (cmn.mErrorCode != 0) {
+                        a.this.ork.showToast(str);
+                        if (cmn.mErrorCode == 110000) {
+                            ViewHelper.skipToLoginActivity(a.this.ork.getActivity());
                         }
                     } else {
-                        a.this.d(cmm);
+                        a.this.d(cmn);
                     }
                 }
             } else if (i2 == 7 && (obj instanceof AlaGetVerifyStrategyResponseHttpMessage)) {
                 AlaGetVerifyStrategyResponseHttpMessage alaGetVerifyStrategyResponseHttpMessage = (AlaGetVerifyStrategyResponseHttpMessage) obj;
                 if (alaGetVerifyStrategyResponseHttpMessage.getError() != 0) {
-                    BdUtilHelper.showToast(a.this.orl.getActivity(), alaGetVerifyStrategyResponseHttpMessage.getErrorString());
+                    BdUtilHelper.showToast(a.this.ork.getActivity(), alaGetVerifyStrategyResponseHttpMessage.getErrorString());
                 } else if (alaGetVerifyStrategyResponseHttpMessage.hJE == 1 && alaGetVerifyStrategyResponseHttpMessage.hJG == 1 && alaGetVerifyStrategyResponseHttpMessage.hJJ == 1) {
-                    a.this.chu();
+                    a.this.chv();
                 }
             }
         }
     };
 
     public a(YuyinAlaCreateLiveRoomActivity yuyinAlaCreateLiveRoomActivity) {
-        this.orl = yuyinAlaCreateLiveRoomActivity;
+        this.ork = yuyinAlaCreateLiveRoomActivity;
     }
 
     public void a(com.baidu.tieba.yuyinala.liveroom.k.d dVar) {
-        this.orj = dVar;
-        if (this.orj == null) {
-            this.orj = new com.baidu.tieba.yuyinala.liveroom.k.d(this.orl.getPageContext());
+        this.ori = dVar;
+        if (this.ori == null) {
+            this.ori = new com.baidu.tieba.yuyinala.liveroom.k.d(this.ork.getPageContext());
         }
-        this.orj.a(this.orq);
+        this.ori.a(this.orp);
     }
 
     public void a(String str, String str2, String str3, Bundle bundle) {
@@ -135,12 +135,12 @@ public class a {
         this.mForumId = str2;
         this.hGP = str3;
         this.hGR = false;
-        if (this.orm == null) {
-            this.orm = new b(this.orl.getPageContext());
-            this.orl.setContentView(this.orm.getView(), new FrameLayout.LayoutParams(-1, -1));
+        if (this.orl == null) {
+            this.orl = new b(this.ork.getPageContext());
+            this.ork.setContentView(this.orl.getView(), new FrameLayout.LayoutParams(-1, -1));
         }
-        this.orm.a(this.oro);
-        this.orm.a(this.orp);
+        this.orl.a(this.orn);
+        this.orl.a(this.oro);
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
@@ -150,36 +150,36 @@ public class a {
                 Q(intent);
             }
         } else if (i == 12001 && i2 == -1) {
-            IC(P(intent));
+            IB(P(intent));
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.orm != null) {
-            this.orm.onKeyboardVisibilityChanged(z);
+        if (this.orl != null) {
+            this.orl.onKeyboardVisibilityChanged(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void edd() {
-        this.orl.cjI();
+    public void ede() {
+        this.ork.cjJ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chu() {
+    public void chv() {
         if (TbadkCoreApplication.getInst().isOther()) {
-            cld();
-        } else if (this.orm != null) {
-            this.orm.chu();
+            cle();
+        } else if (this.orl != null) {
+            this.orl.chv();
         }
     }
 
-    private void cld() {
-        if (this.orn != null) {
-            this.mForumName = this.orn.forumName;
-            this.mForumId = this.orn.forumId;
-            this.hGQ = this.orn.hCe;
-            a(this.orn);
+    private void cle() {
+        if (this.orm != null) {
+            this.mForumName = this.orm.forumName;
+            this.mForumId = this.orm.forumId;
+            this.hGQ = this.orm.hCe;
+            a(this.orm);
         }
     }
 
@@ -188,9 +188,9 @@ public class a {
         if (asVar == null) {
             return false;
         }
-        this.orl.closeLoadingDialog();
+        this.ork.closeLoadingDialog();
         if (asVar.mErrorCode == 6) {
-            this.orl.showToast(asVar.mErrorMsg);
+            this.ork.showToast(asVar.mErrorMsg);
             return true;
         }
         return false;
@@ -219,22 +219,22 @@ public class a {
                 d2 = locationInfo.longitude;
                 str = str3;
             }
-            this.orj.b(dVar.forumName, dVar.forumId, dVar.title, z ? 2 : 1, d, d2, str2, str, 1, dVar.hCc, "", "", dVar.hCd ? 1 : 0, 1, this.hGQ ? 2 : 1, 1, dVar.gameId, dVar.gameName);
+            this.ori.b(dVar.forumName, dVar.forumId, dVar.title, z ? 2 : 1, d, d2, str2, str, 1, dVar.hCc, "", "", dVar.hCd ? 1 : 0, 1, this.hGQ ? 2 : 1, 1, dVar.gameId, dVar.gameName);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ckd() {
-        if (this.orj != null) {
-            this.orj.cmf();
+    public void cke() {
+        if (this.ori != null) {
+            this.ori.cmg();
         }
     }
 
-    private void IC(String str) {
+    private void IB(String str) {
         Log.i("CreateAudioRoom", "editLiveCoverFromCamera:" + str);
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
             Log.i("CreateAudioRoom", "editLiveCoverFromCamera1:" + str);
-            EditHeadActivityConfig editHeadActivityConfig = new EditHeadActivityConfig((Context) this.orl.getActivity(), 12002, (int) RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW, (Uri) null, 3, str, 1.0f, false);
+            EditHeadActivityConfig editHeadActivityConfig = new EditHeadActivityConfig((Context) this.ork.getActivity(), 12002, (int) RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW, (Uri) null, 3, str, 1.0f, false);
             editHeadActivityConfig.setPreviewImageHeightScale(1.0f);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, editHeadActivityConfig));
         }
@@ -259,19 +259,19 @@ public class a {
 
     private void Q(Intent intent) {
         PhotoUrlData fromJson;
-        if (intent != null && (fromJson = PhotoUrlData.fromJson(intent.getStringExtra(EditHeadActivityConfig.PIC_INFO))) != null && this.orm != null) {
-            this.orm.Ip(fromJson.getBigurl());
+        if (intent != null && (fromJson = PhotoUrlData.fromJson(intent.getStringExtra(EditHeadActivityConfig.PIC_INFO))) != null && this.orl != null) {
+            this.orl.Io(fromJson.getBigurl());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(as asVar) {
-        if (this.orl != null && asVar != null && asVar.mLiveInfo != null && asVar.mLiveInfo.live_id != 0) {
+        if (this.ork != null && asVar != null && asVar.mLiveInfo != null && asVar.mLiveInfo.live_id != 0) {
             try {
-                YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(this.orl.getPageContext().getPageActivity());
+                YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(this.ork.getPageContext().getPageActivity());
                 yuyinAlaLiveRoomActivityConfig.addExtraByLiveId(asVar.mLiveInfo.live_id, String.valueOf(asVar.mLiveInfo.room_id), "live_sdk");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2501018, yuyinAlaLiveRoomActivityConfig));
-                this.orl.cjI();
+                this.ork.cjJ();
             } catch (Throwable th) {
             }
         }

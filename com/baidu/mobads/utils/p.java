@@ -58,10 +58,10 @@ public class p implements IXAdSystemUtils {
     private String m;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f3544a = new JSONArray();
+    public JSONArray f3545a = new JSONArray();
 
     /* renamed from: b  reason: collision with root package name */
-    private String f3545b = "";
+    private String f3546b = "";
     private String c = "";
     private int h = -1;
 
@@ -73,7 +73,7 @@ public class p implements IXAdSystemUtils {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public String getSnFrom(Context context) {
-        return this.f3545b + this.c;
+        return this.f3546b + this.c;
     }
 
     private boolean a(String str) {
@@ -99,19 +99,19 @@ public class p implements IXAdSystemUtils {
             if (a(deviceId)) {
                 String string = Settings.System.getString(context.getContentResolver(), "bd_setting_i");
                 if (a(string)) {
-                    this.f3545b = "2";
+                    this.f3546b = "2";
                     return "";
                 }
-                this.f3545b = "1";
+                this.f3546b = "1";
                 return string;
             }
-            this.f3545b = "0";
+            this.f3546b = "0";
             return deviceId;
         }
-        this.f3545b = "1";
+        this.f3546b = "1";
         String string2 = Settings.System.getString(context.getContentResolver(), "bd_setting_i");
         if (a(string2)) {
-            this.f3545b = "2";
+            this.f3546b = "2";
             string2 = "";
         }
         try {
@@ -814,7 +814,7 @@ public class p implements IXAdSystemUtils {
                 if (packageManager.getLaunchIntentForPackage(runningAppProcessInfo.processName) != null && packageManager.getApplicationInfo(runningAppProcessInfo.processName, 128) != null) {
                     for (String str : supportedBrowsers) {
                         if (runningAppProcessInfo.processName.equals(str)) {
-                            this.f3544a.put(runningAppProcessInfo.processName);
+                            this.f3545a.put(runningAppProcessInfo.processName);
                         }
                     }
                 }
@@ -822,8 +822,8 @@ public class p implements IXAdSystemUtils {
         } catch (Exception e) {
             adLogger.d(e);
         }
-        adLogger.d("bgBrowsers:" + this.f3544a);
-        return this.f3544a;
+        adLogger.d("bgBrowsers:" + this.f3545a);
+        return this.f3545a;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils

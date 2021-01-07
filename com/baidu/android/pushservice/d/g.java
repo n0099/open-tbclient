@@ -7,10 +7,10 @@ import java.util.List;
 public class g extends com.baidu.android.pushservice.g.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1262a;
+    private Context f1263a;
 
     /* renamed from: b  reason: collision with root package name */
-    private a f1263b;
+    private a f1264b;
     private String c;
     private List<String> d;
 
@@ -20,9 +20,9 @@ public class g extends com.baidu.android.pushservice.g.c {
     }
 
     public g(Context context, String str, a aVar) {
-        this.f1262a = context;
+        this.f1263a = context;
         this.c = str;
-        this.f1263b = aVar;
+        this.f1264b = aVar;
         c("PushService-PushService-SearchboxDNS");
         a((short) 100);
     }
@@ -34,9 +34,9 @@ public class g extends com.baidu.android.pushservice.g.c {
 
     protected void b() {
         try {
-            this.d = new DnsHelper(this.f1262a).getIpListForceHttp(this.c);
+            this.d = new DnsHelper(this.f1263a).getIpListForceHttp(this.c);
         } catch (Throwable th) {
         }
-        this.f1263b.a(this.d);
+        this.f1264b.a(this.d);
     }
 }

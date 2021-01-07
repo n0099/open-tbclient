@@ -10,7 +10,7 @@ public class a {
     private static final boolean DEBUG = b.DEBUG;
     private static volatile a ddK;
 
-    public static a axU() {
+    public static a axV() {
         if (ddK == null) {
             synchronized (a.class) {
                 if (ddK == null) {
@@ -53,7 +53,7 @@ public class a {
     }
 
     private void b(@Nullable final com.baidu.swan.apps.ao.e.b<Exception> bVar, final int i) {
-        com.baidu.swan.apps.swancore.c.b.aPU().c(new com.baidu.swan.apps.ao.e.b<Exception>() { // from class: com.baidu.swan.apps.extcore.cores.a.2
+        com.baidu.swan.apps.swancore.c.b.aPV().c(new com.baidu.swan.apps.ao.e.b<Exception>() { // from class: com.baidu.swan.apps.extcore.cores.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: q */
@@ -79,19 +79,19 @@ public class a {
         }, i);
     }
 
-    public void axV() {
+    public void axW() {
         ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.extcore.cores.a.3
             @Override // java.lang.Runnable
             public void run() {
-                a.this.axW();
+                a.this.axX();
             }
         }, "tryUpdateAllPresetCoresAsync", 2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void axW() {
-        com.baidu.swan.apps.swancore.c.b.aPU().c(null, 0);
-        com.baidu.swan.apps.swancore.c.b.aPU().c(null, 1);
+    public void axX() {
+        com.baidu.swan.apps.swancore.c.b.aPV().c(null, 0);
+        com.baidu.swan.apps.swancore.c.b.aPV().c(null, 1);
         com.baidu.swan.apps.extcore.b.a(0, (com.baidu.swan.apps.ao.e.b<Exception>) null);
         com.baidu.swan.apps.extcore.b.a(1, (com.baidu.swan.apps.ao.e.b<Exception>) null);
     }

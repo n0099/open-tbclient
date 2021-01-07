@@ -9,7 +9,7 @@ public class f {
     private String emo;
     private String emp;
 
-    public static f bbr() {
+    public static f bbs() {
         if (emm == null) {
             synchronized (f.class) {
                 if (emm == null) {
@@ -23,7 +23,7 @@ public class f {
     private f() {
     }
 
-    public boolean bbs() {
+    public boolean bbt() {
         return this.emn;
     }
 
@@ -31,7 +31,7 @@ public class f {
         this.emn = z;
     }
 
-    public String bbt() {
+    public String bbu() {
         return TextUtils.isEmpty(this.emp) ? "" : this.emp + File.separator + "index.js";
     }
 

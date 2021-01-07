@@ -16,7 +16,7 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
     @Override // com.baidu.tieba.im.chat.a.c
     protected BasicNameValuePair a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         int i2 = 0;
-        if (!com.baidu.tbadk.coreExtra.messageCenter.d.bBF().bBZ()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.d.bBG().bCa()) {
             str = "";
             i = 0;
         }

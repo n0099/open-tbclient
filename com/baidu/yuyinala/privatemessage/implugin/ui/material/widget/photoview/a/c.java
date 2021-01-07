@@ -34,7 +34,7 @@ public class c extends b {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.a, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
-    public boolean enh() {
+    public boolean eni() {
         return this.pah.isInProgress();
     }
 

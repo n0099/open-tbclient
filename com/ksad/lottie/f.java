@@ -30,11 +30,11 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    com.ksad.lottie.a f8308a;
+    com.ksad.lottie.a f8309a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    m f8309b;
+    m f8310b;
     private d e;
     @Nullable
     private com.ksad.lottie.b.b j;
@@ -107,7 +107,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
             return null;
         }
         if (this.m == null) {
-            this.m = new com.ksad.lottie.b.a(getCallback(), this.f8308a);
+            this.m = new com.ksad.lottie.b.a(getCallback(), this.f8309a);
         }
         return this.m;
     }
@@ -161,7 +161,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void a(com.ksad.lottie.a aVar) {
-        this.f8308a = aVar;
+        this.f8309a = aVar;
         if (this.m != null) {
             this.m.a(aVar);
         }
@@ -175,7 +175,7 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
     }
 
     public void a(m mVar) {
-        this.f8309b = mVar;
+        this.f8310b = mVar;
     }
 
     public void a(@Nullable String str) {
@@ -472,11 +472,11 @@ public class f extends Drawable implements Animatable, Drawable.Callback {
 
     @Nullable
     public m o() {
-        return this.f8309b;
+        return this.f8310b;
     }
 
     public boolean p() {
-        return this.f8309b == null && this.e.h().size() > 0;
+        return this.f8310b == null && this.e.h().size() > 0;
     }
 
     public float q() {

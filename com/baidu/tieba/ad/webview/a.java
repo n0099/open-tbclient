@@ -388,7 +388,7 @@ public final class a {
         return dRK.get(str);
     }
 
-    public static String FD(String str) {
+    public static String FC(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -404,7 +404,7 @@ public final class a {
         if (0 != 0 || str2 == null) {
             str4 = null;
         } else {
-            str4 = FE(str2);
+            str4 = FD(str2);
             if (str4 != null && (lastIndexOf2 = str4.lastIndexOf(File.separator) + 1) > 0) {
                 str4 = str4.substring(lastIndexOf2);
             }
@@ -451,10 +451,10 @@ public final class a {
         } else {
             if (str3 != null) {
                 String substring = str4.substring(str4.lastIndexOf(".") + 1);
-                String FD = FD(str3);
+                String FC = FC(str3);
                 String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str3);
                 String lowerCase = !TextUtils.isEmpty(substring) ? substring.toLowerCase() : "";
-                String lowerCase2 = !TextUtils.isEmpty(FD) ? FD.toLowerCase() : "";
+                String lowerCase2 = !TextUtils.isEmpty(FC) ? FC.toLowerCase() : "";
                 String lowerCase3 = !TextUtils.isEmpty(extensionFromMimeType) ? extensionFromMimeType.toLowerCase() : "";
                 String uL = uL(lowerCase);
                 String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lowerCase);
@@ -502,7 +502,7 @@ public final class a {
         return null;
     }
 
-    static String FE(String str) {
+    static String FD(String str) {
         try {
             Matcher matcher = dRM.matcher(str);
             if (matcher.find()) {

@@ -16,17 +16,17 @@ import java.util.Map;
 public final class ReflectUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Object f2040a;
+    private final Object f2041a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final boolean f2041b = true;
+    private final boolean f2042b = true;
 
     private ReflectUtils(Class<?> cls) {
-        this.f2040a = cls;
+        this.f2041a = cls;
     }
 
     private ReflectUtils(Object obj) {
-        this.f2040a = obj;
+        this.f2041a = obj;
     }
 
     public static ReflectUtils on(String str) throws RuntimeException {
@@ -169,14 +169,14 @@ public final class ReflectUtils {
     }
 
     public <T> T get() {
-        return (T) this.f2040a;
+        return (T) this.f2041a;
     }
 
     public ReflectUtils set(String str, Object obj) throws RuntimeException {
         try {
             Field d = d(str);
             d.setAccessible(true);
-            d.set(this.f2040a, a(obj));
+            d.set(this.f2041a, a(obj));
             return this;
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -189,7 +189,7 @@ public final class ReflectUtils {
 
     public ReflectUtils field(String str) throws RuntimeException {
         try {
-            return on(d(str).get(this.f2040a));
+            return on(d(str).get(this.f2041a));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -221,7 +221,7 @@ public final class ReflectUtils {
         Class<?> type = type();
         do {
             for (Field field : type.getDeclaredFields()) {
-                if ((!this.f2041b) ^ Modifier.isStatic(field.getModifiers())) {
+                if ((!this.f2042b) ^ Modifier.isStatic(field.getModifiers())) {
                     String name = field.getName();
                     if (!linkedHashMap.containsKey(name)) {
                         linkedHashMap.put(name, field(name));
@@ -240,10 +240,10 @@ public final class ReflectUtils {
     public ReflectUtils call(String str, Object... objArr) throws RuntimeException {
         Class<?>[] a2 = a(objArr);
         try {
-            return a(a(str, a2), this.f2040a, objArr);
+            return a(a(str, a2), this.f2041a, objArr);
         } catch (NoSuchMethodException e) {
             try {
-                return a(b(str, a2), this.f2040a, objArr);
+                return a(b(str, a2), this.f2041a, objArr);
             } catch (NoSuchMethodException e2) {
                 throw new RuntimeException(e2);
             }
@@ -313,16 +313,16 @@ public final class ReflectUtils {
     }
 
     public <P> P as(Class<P> cls) {
-        final boolean z = this.f2040a instanceof Map;
+        final boolean z = this.f2041a instanceof Map;
         return (P) Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new InvocationHandler() { // from class: com.baidu.fsg.base.utils.ReflectUtils.1
             @Override // java.lang.reflect.InvocationHandler
             public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
                 String name = method.getName();
                 try {
-                    return ReflectUtils.on(ReflectUtils.this.f2040a).call(name, objArr).get();
+                    return ReflectUtils.on(ReflectUtils.this.f2041a).call(name, objArr).get();
                 } catch (RuntimeException e) {
                     if (z) {
-                        Map map = (Map) ReflectUtils.this.f2040a;
+                        Map map = (Map) ReflectUtils.this.f2041a;
                         int length = objArr == null ? 0 : objArr.length;
                         if (length == 0 && name.startsWith("get")) {
                             return map.get(ReflectUtils.b(name.substring(3)));
@@ -354,22 +354,22 @@ public final class ReflectUtils {
     }
 
     public int hashCode() {
-        return this.f2040a.hashCode();
+        return this.f2041a.hashCode();
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof ReflectUtils) {
-            return this.f2040a.equals(((ReflectUtils) obj).get());
+            return this.f2041a.equals(((ReflectUtils) obj).get());
         }
         return false;
     }
 
     public String toString() {
-        return this.f2040a.toString();
+        return this.f2041a.toString();
     }
 
     public Class<?> type() {
-        return this.f2041b ? (Class) this.f2040a : this.f2040a.getClass();
+        return this.f2042b ? (Class) this.f2041a : this.f2041a.getClass();
     }
 
     /* loaded from: classes6.dex */

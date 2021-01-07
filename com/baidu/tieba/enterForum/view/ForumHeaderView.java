@@ -80,17 +80,17 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void onChangeSkinType() {
         if (this.iFO != null && this.iFO.iGq) {
             if (this.iFO.iGs > 0) {
-                SvgManager.bwq().a(this.iPC, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+                SvgManager.bwr().a(this.iPC, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
                 ao.setViewTextColor(this.iPB, R.color.white_alpha50);
                 ao.setBackgroundResource(this.iPA, R.drawable.enter_forum_search_ad_bg);
                 return;
             }
-            SvgManager.bwq().a(this.iPC, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+            SvgManager.bwr().a(this.iPC, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
             ao.setViewTextColor(this.iPB, R.color.CAM_X0109);
             ao.setBackgroundResource(this.iPA, R.drawable.enter_forum_search_bg);
             return;
         }
-        SvgManager.bwq().a(this.iPC, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+        SvgManager.bwr().a(this.iPC, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
         ao.setViewTextColor(this.iPB, R.color.CAM_X0109);
         ao.setBackgroundResource(this.iPA, R.drawable.enter_forum_search_bg);
     }

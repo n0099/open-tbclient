@@ -6,7 +6,7 @@ import com.baidu.prologue.a.c.k;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f {
     public static void h(e eVar) {
         k.setLong("last_show_time", System.currentTimeMillis() / 1000);
@@ -46,7 +46,7 @@ public class f {
         }
     }
 
-    public static JSONArray agW() {
+    public static JSONArray agX() {
         int i = 0;
         String string = k.getString("today_show_list", "");
         JSONArray jSONArray = new JSONArray();

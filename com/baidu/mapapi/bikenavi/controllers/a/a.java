@@ -13,15 +13,15 @@ import com.baidu.mapapi.bikenavi.controllers.UnsupportedBikeNaviException;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 import com.baidu.platform.comapi.wnplatform.walkmap.WNaviBaiduMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static IBTTSPlayer f2753b;
+    private static IBTTSPlayer f2754b;
     private static com.baidu.platform.comapi.wnplatform.n.c d = new d();
 
     /* renamed from: a  reason: collision with root package name */
-    FrameLayout f2754a;
+    FrameLayout f2755a;
     private MapView c = null;
 
     public void a(Activity activity, IBEngineInitListener iBEngineInitListener) {
@@ -50,7 +50,7 @@ public class a {
     }
 
     public void a(IBTTSPlayer iBTTSPlayer) {
-        f2753b = iBTTSPlayer;
+        f2754b = iBTTSPlayer;
     }
 
     public void a(WLocData wLocData) {
@@ -59,12 +59,12 @@ public class a {
 
     public View a(Activity activity) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        this.f2754a = new FrameLayout(activity);
-        this.f2754a.setLayoutParams(layoutParams);
+        this.f2755a = new FrameLayout(activity);
+        this.f2755a.setLayoutParams(layoutParams);
         View b2 = BNavigatorWrapper.getWNavigator().b(activity);
-        this.f2754a.addView(this.c);
-        this.f2754a.addView(b2);
-        return this.f2754a;
+        this.f2755a.addView(this.c);
+        this.f2755a.addView(b2);
+        return this.f2755a;
     }
 
     public void b() {
@@ -80,18 +80,18 @@ public class a {
     }
 
     public void d() {
-        if (f2753b != null) {
-            f2753b = null;
+        if (f2754b != null) {
+            f2754b = null;
         }
         if (this.c != null) {
             this.c.getMap().clear();
             this.c.onDestroy();
         }
         this.c = null;
-        if (this.f2754a != null && this.f2754a.getParent() != null) {
-            ((ViewGroup) this.f2754a.getParent()).removeAllViews();
+        if (this.f2755a != null && this.f2755a.getParent() != null) {
+            ((ViewGroup) this.f2755a.getParent()).removeAllViews();
         }
-        this.f2754a = null;
+        this.f2755a = null;
     }
 
     private void b(com.baidu.platform.comapi.walknavi.e.a aVar, IBRoutePlanListener iBRoutePlanListener) {

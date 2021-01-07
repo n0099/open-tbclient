@@ -6,7 +6,7 @@ public class c {
     private c() {
     }
 
-    public static c dcT() {
+    public static c dcU() {
         return a.kVT;
     }
 

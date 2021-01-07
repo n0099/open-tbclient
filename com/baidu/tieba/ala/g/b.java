@@ -45,7 +45,7 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void IL(String str) {
+    public void IK(String str) {
         HttpMessage httpMessage = new HttpMessage(1021118);
         httpMessage.addParam("portrait", str);
         httpMessage.addParam(Config.PACKAGE_NAME, 1);

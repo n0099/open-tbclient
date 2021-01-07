@@ -8,21 +8,21 @@ import com.qq.e.comm.util.GDTLogger;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class h implements e {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final h f12038a = new h();
+        static final h f12039a = new h();
     }
 
     private h() {
     }
 
     public static h a() {
-        return a.f12038a;
+        return a.f12039a;
     }
 
     private com.qq.e.comm.plugin.ad.b a(com.qq.e.comm.plugin.ad.e eVar, JSONObject jSONObject, String str) {

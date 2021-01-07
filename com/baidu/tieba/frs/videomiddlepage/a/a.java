@@ -7,7 +7,7 @@ import java.util.Set;
 public class a {
     private int jMF = -1;
     private long jMG = -1;
-    private int jMC = b.bvq().getInt("nani_key_download_show_position", 3);
+    private int jMC = b.bvr().getInt("nani_key_download_show_position", 3);
     private Set<Integer> jMD = new HashSet();
     private Set<String> jME = new HashSet();
 
@@ -18,7 +18,7 @@ public class a {
         }
     }
 
-    public int cOV() {
+    public int cOW() {
         return this.jMF;
     }
 
@@ -26,10 +26,10 @@ public class a {
         this.jMG = j;
     }
 
-    public void cOW() {
-        int i = b.bvq().getInt("nani_key_download_show_rate", 2);
+    public void cOX() {
+        int i = b.bvr().getInt("nani_key_download_show_rate", 2);
         if (this.jMG > 0 && i != 1) {
-            b.bvq().putLong("key_horizontal_shown_time", this.jMG);
+            b.bvr().putLong("key_horizontal_shown_time", this.jMG);
         }
     }
 }

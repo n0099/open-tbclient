@@ -34,13 +34,13 @@ public class c extends com.kwad.sdk.feed.a.b.a {
     @Override // com.kwad.sdk.feed.a.b.a, com.kwad.sdk.lib.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.g = this.f10133a.f10135b;
+        this.g = this.f10134a.f10136b;
         if (this.g == null) {
             return;
         }
         this.g.a(this.h);
-        this.f = this.f10133a.f10134a;
-        this.e = String.valueOf(this.f10133a.e.hashCode());
+        this.f = this.f10134a.f10135a;
+        this.e = String.valueOf(this.f10134a.e.hashCode());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

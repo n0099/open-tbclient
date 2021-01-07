@@ -43,17 +43,17 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabYanzhiModel.a
         public void f(boolean z, List<n> list) {
             if (z) {
-                LiveTabYanzhiSubFragment.this.bUE();
+                LiveTabYanzhiSubFragment.this.bUF();
             } else {
-                LiveTabYanzhiSubFragment.this.bUD();
+                LiveTabYanzhiSubFragment.this.bUE();
             }
-            LiveTabYanzhiSubFragment.this.bUO();
+            LiveTabYanzhiSubFragment.this.bUP();
             LiveTabYanzhiSubFragment.this.setData(list);
         }
 
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabYanzhiModel.a
         public void h(int i, String str, boolean z) {
-            LiveTabYanzhiSubFragment.this.bUO();
+            LiveTabYanzhiSubFragment.this.bUP();
             if (z) {
                 LiveTabYanzhiSubFragment.this.showToast(R.string.data_load_error);
             }
@@ -65,7 +65,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
             if (j.isNetWorkAvailable()) {
                 LiveTabYanzhiSubFragment.this.gDu.refresh();
             } else {
-                LiveTabYanzhiSubFragment.this.bUO();
+                LiveTabYanzhiSubFragment.this.bUP();
             }
         }
     };
@@ -75,7 +75,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
             if (!l.isNetOk()) {
                 LiveTabYanzhiSubFragment.this.hideLoadingView();
             } else {
-                LiveTabYanzhiSubFragment.this.gDu.bUp();
+                LiveTabYanzhiSubFragment.this.gDu.bUq();
             }
         }
     };
@@ -85,23 +85,23 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
             super.onScrolled(recyclerView, i, i2);
             Log.e("D444", "dy" + i2 + ", dx" + i);
             if (i2 >= 4 && !LiveTabYanzhiSubFragment.this.gDb) {
-                LiveTabYanzhiSubFragment.this.bUM();
+                LiveTabYanzhiSubFragment.this.bUN();
             }
         }
     };
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLoad() {
-        bwn();
+        bwo();
     }
 
-    private void bwn() {
+    private void bwo() {
         com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c13008");
         aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
         aqVar.dX("fid", this.fPy);
         aqVar.an("obj_locate", 2);
         aqVar.an("obj_type", 15);
-        aqVar.bwn();
+        aqVar.bwo();
     }
 
     public static LiveTabYanzhiSubFragment mA(boolean z) {
@@ -163,7 +163,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
         this.Yc.addOnScrollListener(this.mOnScrollListener);
         setListPullRefreshListener(this.gDk);
         a(this.gDl);
-        if (boV()) {
+        if (boW()) {
             this.gDf.setEnabled(false);
             this.gDf.interruptRefresh();
         }
@@ -194,7 +194,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
     }
 
     private void startPullRefresh() {
-        if (boV()) {
+        if (boW()) {
             t tVar = new t();
             tVar.tabId = 1120;
             tVar.geO = true;
@@ -205,8 +205,8 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUO() {
-        if (boV()) {
+    public void bUP() {
+        if (boW()) {
             t tVar = new t();
             tVar.tabId = 1120;
             tVar.geO = false;
@@ -217,7 +217,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUD() {
+    public void bUE() {
         if (this.gCf != null) {
             if (this.gCf.getView().getParent() == null) {
                 this.Yc.setNextPage(this.gCf);
@@ -229,7 +229,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUE() {
+    public void bUF() {
         if (this.gCf != null) {
             if (this.gCf.getView().getParent() == null) {
                 this.Yc.setNextPage(this.gCf);
@@ -284,28 +284,28 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
     }
 
     @Override // com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment
-    public void WE() {
+    public void WF() {
         this.Yc.setSelection(0);
         startPullRefresh();
     }
 
     @Override // com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment
-    public void bUN() {
+    public void bUO() {
         if (this.gDg != null) {
             this.gDg.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bxL() {
+    public void bxM() {
         if (j.isNetWorkAvailable()) {
             this.gDu.refresh();
         } else {
-            bUO();
+            bUP();
         }
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bxM() {
+    public void bxN() {
     }
 }

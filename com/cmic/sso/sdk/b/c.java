@@ -17,11 +17,11 @@ public class c {
     private static c pqN = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f7994b;
-    private com.cmic.sso.sdk.c.c.a pqM = com.cmic.sso.sdk.c.c.a.esP();
+    private Context f7995b;
+    private com.cmic.sso.sdk.c.c.a pqM = com.cmic.sso.sdk.c.c.a.esQ();
 
     private c(Context context) {
-        this.f7994b = context.getApplicationContext();
+        this.f7995b = context.getApplicationContext();
     }
 
     public static c ie(Context context) {
@@ -54,8 +54,8 @@ public class c {
 
     private void b(final com.cmic.sso.sdk.a aVar, final d dVar) {
         com.cmic.sso.sdk.e.c.b("AuthnBusiness", "getPrePhonescrip start");
-        String packageName = this.f7994b.getPackageName();
-        String a2 = com.cmic.sso.sdk.e.d.a(l.a(this.f7994b, packageName));
+        String packageName = this.f7995b.getPackageName();
+        String a2 = com.cmic.sso.sdk.e.d.a(l.a(this.f7995b, packageName));
         aVar.a("apppackage", packageName);
         aVar.a("appsign", a2);
         byte[] bArr = new byte[0];
@@ -70,7 +70,7 @@ public class c {
                 e.printStackTrace();
             }
         }
-        aVar.a(b.a.f7989a, bArr);
+        aVar.a(b.a.f7990a, bArr);
         aVar.a("authtype", "3");
         this.pqM.a(aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.b.c.1
             /* JADX WARN: Removed duplicated region for block: B:21:0x00ca  */
@@ -92,7 +92,7 @@ public class c {
                     if (TextUtils.isEmpty(optString)) {
                         b2 = jSONObject.toString();
                     } else {
-                        b2 = com.cmic.sso.sdk.e.a.b(aVar.a(b.a.f7989a), optString);
+                        b2 = com.cmic.sso.sdk.e.a.b(aVar.a(b.a.f7990a), optString);
                     }
                     try {
                         jSONObject2 = new JSONObject(b2);
@@ -105,10 +105,10 @@ public class c {
                                     str3 = aVar.b("imsi", "");
                                 }
                                 try {
-                                    k.a esV = k.esV();
+                                    k.a esW = k.esW();
                                     str6 = jSONObject2.optString("securityphone");
                                     try {
-                                        esV.a("securityphone", str6);
+                                        esW.a("securityphone", str6);
                                         str5 = jSONObject2.optString("openId");
                                         try {
                                             if (TextUtils.isEmpty(str5)) {
@@ -125,9 +125,9 @@ public class c {
                                         str5 = null;
                                     }
                                     try {
-                                        esV.a("sourceid", str4);
-                                        esV.a("allcapaids", jSONObject2.optString("capaids", "acd"));
-                                        esV.b();
+                                        esW.a("sourceid", str4);
+                                        esW.a("allcapaids", jSONObject2.optString("capaids", "acd"));
+                                        esW.b();
                                     } catch (JSONException e4) {
                                         e = e4;
                                         e.printStackTrace();
@@ -180,7 +180,7 @@ public class c {
                     }
                     com.cmic.sso.sdk.e.c.a("AuthnBusiness", "预取号==>");
                     if (jSONObject2 != null) {
-                        h.a(c.this.f7994b, str7, jSONObject2.optLong("phonescripED"), str3);
+                        h.a(c.this.f7995b, str7, jSONObject2.optLong("phonescripED"), str3);
                     }
                     dVar.b("103000", "true", aVar, e.a(str6));
                     return;
@@ -206,9 +206,9 @@ public class c {
                     long optLong = jSONObject.optLong("phonescripED");
                     String optString = jSONObject.optString("phonescrip");
                     if (aVar.b("keyIsSimKeyICCID", false)) {
-                        h.a(c.this.f7994b, optString, optLong, aVar.b("iccid", ""));
+                        h.a(c.this.f7995b, optString, optLong, aVar.b("iccid", ""));
                     } else {
-                        h.a(c.this.f7994b, optString, optLong, aVar.b("imsi", ""));
+                        h.a(c.this.f7995b, optString, optLong, aVar.b("imsi", ""));
                     }
                     aVar.a("openId", jSONObject.optString("openId"));
                 }

@@ -10,10 +10,10 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f11591a = b.class.getSimpleName();
+    private static String f11592a = b.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private HashMap<String, String> f11592b;
+    private HashMap<String, String> f11593b;
     private HashMap<String, Object> c;
     private HashMap<String, String> d;
 
@@ -21,10 +21,10 @@ public class b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f11593a = null;
+        private Context f11594a = null;
 
         public a a(Context context) {
-            this.f11593a = context;
+            this.f11594a = context;
             return this;
         }
 
@@ -34,17 +34,17 @@ public class b {
     }
 
     private b(a aVar) {
-        this.f11592b = new HashMap<>();
+        this.f11593b = new HashMap<>();
         this.c = new HashMap<>();
         this.d = new HashMap<>();
         d();
         e();
         f();
         g();
-        if (aVar.f11593a != null) {
-            a(aVar.f11593a);
+        if (aVar.f11594a != null) {
+            a(aVar.f11594a);
         }
-        com.meizu.cloud.pushsdk.c.f.c.c(f11591a, "Subject created successfully.", new Object[0]);
+        com.meizu.cloud.pushsdk.c.f.c.c(f11592a, "Subject created successfully.", new Object[0]);
     }
 
     private void a(String str, Object obj) {
@@ -93,7 +93,7 @@ public class b {
     public void b(Context context) {
         Location c = e.c(context);
         if (c == null) {
-            com.meizu.cloud.pushsdk.c.f.c.a(f11591a, "Location information not available.", new Object[0]);
+            com.meizu.cloud.pushsdk.c.f.c.a(f11592a, "Location information not available.", new Object[0]);
             return;
         }
         a("la", Double.valueOf(c.getLatitude()));
@@ -105,7 +105,7 @@ public class b {
     }
 
     public Map<String, String> c() {
-        return this.f11592b;
+        return this.f11593b;
     }
 
     public void c(Context context) {

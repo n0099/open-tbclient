@@ -8,15 +8,15 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class e {
     public String logoUrl;
+    public String nkO;
     public String nkP;
     public String nkQ;
-    public String nkR;
-    public ArrayList<e> nmV;
+    public ArrayList<e> nmU;
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
-        this.nkQ = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
-        this.nkP = jSONObject.optString("menu_name");
-        this.nkR = jSONObject.optString("menu_id");
+        this.nkP = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
+        this.nkO = jSONObject.optString("menu_name");
+        this.nkQ = jSONObject.optString("menu_id");
         this.logoUrl = jSONObject.optString("default_logo_url", null);
         this.logoUrl = this.logoUrl != null ? this.logoUrl + "?v=2" : null;
         if (jSONObject.has("child_menu_list")) {
@@ -27,7 +27,7 @@ public class e {
                 eVar.parserJson(optJSONArray.getJSONObject(i));
                 arrayList.add(eVar);
             }
-            this.nmV = arrayList;
+            this.nmU = arrayList;
         }
     }
 }

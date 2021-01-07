@@ -24,7 +24,7 @@ public class e {
                         }
                     }
                 }
-                com.baidu.tbadk.core.sharedPref.b.bvq().putString("pref_key_fun_ad_density", jSONObject.toString());
+                com.baidu.tbadk.core.sharedPref.b.bvr().putString("pref_key_fun_ad_density", jSONObject.toString());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -36,19 +36,19 @@ public class e {
             try {
                 int optInt = jSONObject.optInt("frs_bear_first_floor", 2);
                 int optInt2 = jSONObject.optInt("frs_bear_density", 5);
-                com.baidu.tbadk.core.sharedPref.b.bvq().putInt("pref_key_fun_ad_frs_first_floor", optInt);
-                com.baidu.tbadk.core.sharedPref.b.bvq().putInt("pref_key_fun_ad_frs_density", optInt2);
+                com.baidu.tbadk.core.sharedPref.b.bvr().putInt("pref_key_fun_ad_frs_first_floor", optInt);
+                com.baidu.tbadk.core.sharedPref.b.bvr().putInt("pref_key_fun_ad_frs_density", optInt2);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public static int bzF() {
-        return com.baidu.tbadk.core.sharedPref.b.bvq().getInt("pref_key_fun_ad_frs_first_floor", 2);
+    public static int bzG() {
+        return com.baidu.tbadk.core.sharedPref.b.bvr().getInt("pref_key_fun_ad_frs_first_floor", 2);
     }
 
-    public static int bzG() {
-        return com.baidu.tbadk.core.sharedPref.b.bvq().getInt("pref_key_fun_ad_frs_density", 5);
+    public static int bzH() {
+        return com.baidu.tbadk.core.sharedPref.b.bvr().getInt("pref_key_fun_ad_frs_density", 5);
     }
 }

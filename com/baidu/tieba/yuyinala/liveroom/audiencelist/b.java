@@ -16,7 +16,7 @@ public class b {
     private ImageView hHW;
     private TextView htW;
     private Context mContext;
-    private com.baidu.tieba.yuyinala.liveroom.operation.b ooo;
+    private com.baidu.tieba.yuyinala.liveroom.operation.b oon;
     private View mView = null;
     private boolean gNK = true;
 
@@ -36,8 +36,8 @@ public class b {
             this.hHW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.audiencelist.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.ooo != null) {
-                        b.this.ooo.a(view, 8, null);
+                    if (b.this.oon != null) {
+                        b.this.oon.a(view, 8, null);
                     }
                 }
             });
@@ -47,8 +47,8 @@ public class b {
         this.htW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.audiencelist.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.ooo != null) {
-                    b.this.ooo.a(view, 14, null);
+                if (b.this.oon != null) {
+                    b.this.oon.a(view, 14, null);
                 }
             }
         });
@@ -88,6 +88,6 @@ public class b {
     }
 
     public void a(com.baidu.tieba.yuyinala.liveroom.operation.b bVar) {
-        this.ooo = bVar;
+        this.oon = bVar;
     }
 }

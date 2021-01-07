@@ -11,15 +11,15 @@ import com.kwad.sdk.api.core.ResContext;
 public class m extends ContextThemeWrapper implements ResContext {
 
     /* renamed from: a  reason: collision with root package name */
-    private final ContextThemeWrapper f8535a;
+    private final ContextThemeWrapper f8536a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Resources.Theme f8536b;
+    private Resources.Theme f8537b;
     private int c;
 
     public m(ContextThemeWrapper contextThemeWrapper) {
         super(contextThemeWrapper, contextThemeWrapper.getThemeResId());
-        this.f8535a = contextThemeWrapper;
+        this.f8536a = contextThemeWrapper;
         this.c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
     }
 
@@ -41,7 +41,7 @@ public class m extends ContextThemeWrapper implements ResContext {
 
     @Override // com.kwad.sdk.api.core.ResContext
     public Context getDelegatedContext() {
-        return this.f8535a;
+        return this.f8536a;
     }
 
     @Override // androidx.appcompat.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
@@ -64,22 +64,22 @@ public class m extends ContextThemeWrapper implements ResContext {
         Resources.Theme theme = super.getTheme();
         Resources externalResource = Loader.get().getExternalResource();
         if (externalResource != null) {
-            if (this.f8536b == null) {
-                this.f8536b = externalResource.newTheme();
-                this.f8536b.applyStyle(this.c, true);
+            if (this.f8537b == null) {
+                this.f8537b = externalResource.newTheme();
+                this.f8537b.applyStyle(this.c, true);
             }
-            return this.f8536b;
+            return this.f8537b;
         }
         return theme;
     }
 
     @Override // android.content.Context
     public void registerComponentCallbacks(ComponentCallbacks componentCallbacks) {
-        this.f8535a.registerComponentCallbacks(componentCallbacks);
+        this.f8536a.registerComponentCallbacks(componentCallbacks);
     }
 
     @Override // android.content.Context
     public void unregisterComponentCallbacks(ComponentCallbacks componentCallbacks) {
-        this.f8535a.unregisterComponentCallbacks(componentCallbacks);
+        this.f8536a.unregisterComponentCallbacks(componentCallbacks);
     }
 }

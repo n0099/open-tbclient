@@ -72,9 +72,9 @@ public class ah extends com.baidu.tieba.frs.k<bz, ThreadCardViewHolder<bz>> impl
                         com.baidu.tieba.frs.b.a.a(bzVar, 1, ah.this.mPageId, ah.this.jpq, ah.this.getTbPageTag());
                     }
                     if (view.getId() == R.id.user_name || view.getId() == R.id.user_avatar) {
-                        com.baidu.tieba.frs.b.c.cMI().a(ah.this.jpq, bzVar, 2);
+                        com.baidu.tieba.frs.b.c.cMJ().a(ah.this.jpq, bzVar, 2);
                     } else if (view.getId() != R.id.card_home_page_normal_thread_user_icon) {
-                        com.baidu.tieba.frs.b.c.cMI().a(ah.this.jpq, bzVar, 1);
+                        com.baidu.tieba.frs.b.c.cMJ().a(ah.this.jpq, bzVar, 1);
                     } else {
                         TiebaStatic.log(new aq(CommonStatisticKey.USER_ICON_VISIT).an("obj_type", 3));
                     }
@@ -112,7 +112,7 @@ public class ah extends com.baidu.tieba.frs.k<bz, ThreadCardViewHolder<bz>> impl
                     if (sb.length() > 0) {
                         sb.deleteCharAt(sb.length() - 1);
                     }
-                    TiebaStatic.log(new aq("c11974").dX("obj_locate", sb.toString()).dX("fid", atVar.getFid()).dX("tid", atVar.getTid()).dX(IntentConfig.NID, atVar.bpO()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("source", atVar.source).dX("weight", atVar.weight).dX("ab_tag", atVar.abTag).dX("extra", atVar.extra).an(IntentConfig.CARD_TYPE, atVar.cardType).an("obj_floor", atVar.eQR));
+                    TiebaStatic.log(new aq("c11974").dX("obj_locate", sb.toString()).dX("fid", atVar.getFid()).dX("tid", atVar.getTid()).dX(IntentConfig.NID, atVar.bpP()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("source", atVar.source).dX("weight", atVar.weight).dX("ab_tag", atVar.abTag).dX("extra", atVar.extra).an(IntentConfig.CARD_TYPE, atVar.cardType).an("obj_floor", atVar.eQR));
                 }
             }
         };
@@ -212,8 +212,8 @@ public class ah extends com.baidu.tieba.frs.k<bz, ThreadCardViewHolder<bz>> impl
         if (this.jeH != null && this.jeH.getForum() != null && !StringUtils.isNull(this.jeH.getForum().getTopic_special_icon()) && !StringUtils.isNull(this.jeH.getForum().getTopic_special_icon_right())) {
             bzVar.dK(this.jeH.getForum().getTopic_special_icon(), this.jeH.getForum().getTopic_special_icon_right());
         }
-        boolean z = (bzVar.brq() == null || bzVar.brq().getUserId() == null || !bzVar.brq().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
-        if (bzVar.bsI() && bzVar.getFeedBackReasonMap() != null && !z) {
+        boolean z = (bzVar.brr() == null || bzVar.brr().getUserId() == null || !bzVar.brr().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+        if (bzVar.bsJ() && bzVar.getFeedBackReasonMap() != null && !z) {
             threadCardViewHolder.aK(true).a(this.hnM);
         }
         threadCardViewHolder.tA();
@@ -223,12 +223,12 @@ public class ah extends com.baidu.tieba.frs.k<bz, ThreadCardViewHolder<bz>> impl
         if (this.jpq != null) {
             bzVar.eQR = (i + 1) - (this.jeH != null ? this.jeH.getTopThreadSize() : 0);
         }
-        com.baidu.tieba.frs.b.c.cMI().a(this.jpq, bzVar);
+        com.baidu.tieba.frs.b.c.cMJ().a(this.jpq, bzVar);
         aq(bzVar);
-        bzVar.bsE();
+        bzVar.bsF();
         com.baidu.tieba.frs.b.a.a(bzVar, this.mPageId, this.jpq, getTbPageTag());
         if (bzVar != null) {
-            bzVar.bsE();
+            bzVar.bsF();
         }
         return threadCardViewHolder.getView();
     }
@@ -237,7 +237,7 @@ public class ah extends com.baidu.tieba.frs.k<bz, ThreadCardViewHolder<bz>> impl
         if (this.jpo == null) {
             this.jpo = new HashSet<>();
         }
-        com.baidu.tieba.frs.b.c.cMI().a(bzVar, this.jpo);
+        com.baidu.tieba.frs.b.c.cMJ().a(bzVar, this.jpo);
     }
 
     @Override // com.baidu.tieba.card.y
@@ -251,7 +251,7 @@ public class ah extends com.baidu.tieba.frs.k<bz, ThreadCardViewHolder<bz>> impl
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 

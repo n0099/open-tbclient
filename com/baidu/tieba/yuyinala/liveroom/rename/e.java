@@ -12,7 +12,7 @@ public class e extends BdBaseModel {
     private final HttpMessageListener bCn;
     private Context bOy;
     private BdUniqueId bwz = BdUniqueId.gen();
-    private a ote;
+    private a otd;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -22,7 +22,7 @@ public class e extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.ote = aVar;
+        this.otd = aVar;
     }
 
     public e(Context context) {
@@ -37,12 +37,12 @@ public class e extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomNameRenameHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.getUniqueId() && e.this.ote != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomNameRenameHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.getUniqueId() && e.this.otd != null) {
                     AlaGetRoomNameRenameHttpResponseMessage alaGetRoomNameRenameHttpResponseMessage = (AlaGetRoomNameRenameHttpResponseMessage) httpResponsedMessage;
                     if (alaGetRoomNameRenameHttpResponseMessage.getError() != 0 || !alaGetRoomNameRenameHttpResponseMessage.isSuccess()) {
-                        e.this.ote.n(alaGetRoomNameRenameHttpResponseMessage.getError(), alaGetRoomNameRenameHttpResponseMessage.getErrorString(), alaGetRoomNameRenameHttpResponseMessage.edk().usermsg);
+                        e.this.otd.n(alaGetRoomNameRenameHttpResponseMessage.getError(), alaGetRoomNameRenameHttpResponseMessage.getErrorString(), alaGetRoomNameRenameHttpResponseMessage.edl().usermsg);
                     } else {
-                        e.this.ote.a(alaGetRoomNameRenameHttpResponseMessage);
+                        e.this.otd.a(alaGetRoomNameRenameHttpResponseMessage);
                     }
                 }
             }

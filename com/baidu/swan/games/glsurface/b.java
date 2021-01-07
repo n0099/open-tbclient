@@ -9,7 +9,7 @@ public class b {
     private static volatile b ejW;
     private Queue<DuMixGameSurfaceView> ejX = new ArrayDeque();
 
-    public static b baF() {
+    public static b baG() {
         if (ejW == null) {
             synchronized (b.class) {
                 if (ejW == null) {

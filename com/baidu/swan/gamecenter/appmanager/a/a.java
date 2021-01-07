@@ -15,7 +15,7 @@ public class a extends com.baidu.swan.gamecenter.c.a {
             bVar.onFail(202, "params may be error");
         } else {
             if (jSONObject.has("wifiResumeDownloadFlag")) {
-                com.baidu.swan.gamecenter.appmanager.download.b.aWQ().hW(jSONObject.optBoolean("wifiResumeDownloadFlag", true));
+                com.baidu.swan.gamecenter.appmanager.download.b.aWR().hW(jSONObject.optBoolean("wifiResumeDownloadFlag", true));
             }
             if (jSONObject.has("install_guide_switch")) {
                 com.baidu.swan.gamecenter.appmanager.install.a.hX(jSONObject.optBoolean("install_guide_switch"));

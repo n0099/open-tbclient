@@ -75,7 +75,7 @@ public class RoundedImageView extends ImageView {
             this.borderWidth = 0.0f;
         }
         this.oYQ = obtainStyledAttributes.getColorStateList(a.j.RoundedImageView_border_color);
-        if (ThemeManager.enQ() == ThemeManager.ThemeMode.NIGHT) {
+        if (ThemeManager.enR() == ThemeManager.ThemeMode.NIGHT) {
             this.oYQ = ColorStateList.valueOf(8351342);
         } else if (this.oYQ == null) {
             this.oYQ = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
@@ -90,7 +90,7 @@ public class RoundedImageView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (ThemeManager.enQ() == ThemeManager.ThemeMode.NIGHT) {
+        if (ThemeManager.enR() == ThemeManager.ThemeMode.NIGHT) {
             canvas.drawCircle(getWidth() / 2, getHeight() / 2, getWidth() / 2, this.mPaint);
         }
     }
@@ -191,7 +191,7 @@ public class RoundedImageView extends ImageView {
     public void setImageResource(int i) {
         if (this.oYT != i) {
             this.oYT = i;
-            this.mDrawable = emS();
+            this.mDrawable = emT();
             updateDrawableAttrs();
             super.setImageDrawable(this.mDrawable);
         }
@@ -203,7 +203,7 @@ public class RoundedImageView extends ImageView {
         setImageDrawable(getDrawable());
     }
 
-    private Drawable emS() {
+    private Drawable emT() {
         Drawable drawable = null;
         Resources resources = getResources();
         if (resources == null) {

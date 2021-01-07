@@ -7,13 +7,13 @@ import com.ksad.lottie.a.b.a;
 import com.ksad.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class e implements j, l, a.InterfaceC1037a {
+public class e implements j, l, a.InterfaceC1078a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Path f8234a = new Path();
+    private final Path f8235a = new Path();
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f8235b;
+    private final String f8236b;
     private final com.ksad.lottie.f c;
     private final com.ksad.lottie.a.b.a<?, PointF> d;
     private final com.ksad.lottie.a.b.a<?, PointF> e;
@@ -23,7 +23,7 @@ public class e implements j, l, a.InterfaceC1037a {
     private boolean h;
 
     public e(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, com.ksad.lottie.model.content.a aVar2) {
-        this.f8235b = aVar2.a();
+        this.f8236b = aVar2.a();
         this.c = fVar;
         this.d = aVar2.c().a();
         this.e = aVar2.b().a();
@@ -39,7 +39,7 @@ public class e implements j, l, a.InterfaceC1037a {
         this.c.invalidateSelf();
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1037a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1078a
     public void a() {
         b();
     }
@@ -64,33 +64,33 @@ public class e implements j, l, a.InterfaceC1037a {
     @Override // com.ksad.lottie.a.a.l
     public Path d() {
         if (this.h) {
-            return this.f8234a;
+            return this.f8235a;
         }
-        this.f8234a.reset();
+        this.f8235a.reset();
         PointF e = this.d.e();
         float f = e.x / 2.0f;
         float f2 = e.y / 2.0f;
         float f3 = f * 0.55228f;
         float f4 = f2 * 0.55228f;
-        this.f8234a.reset();
+        this.f8235a.reset();
         if (this.f.d()) {
-            this.f8234a.moveTo(0.0f, -f2);
-            this.f8234a.cubicTo(0.0f - f3, -f2, -f, 0.0f - f4, -f, 0.0f);
-            this.f8234a.cubicTo(-f, 0.0f + f4, 0.0f - f3, f2, 0.0f, f2);
-            this.f8234a.cubicTo(0.0f + f3, f2, f, 0.0f + f4, f, 0.0f);
-            this.f8234a.cubicTo(f, 0.0f - f4, 0.0f + f3, -f2, 0.0f, -f2);
+            this.f8235a.moveTo(0.0f, -f2);
+            this.f8235a.cubicTo(0.0f - f3, -f2, -f, 0.0f - f4, -f, 0.0f);
+            this.f8235a.cubicTo(-f, 0.0f + f4, 0.0f - f3, f2, 0.0f, f2);
+            this.f8235a.cubicTo(0.0f + f3, f2, f, 0.0f + f4, f, 0.0f);
+            this.f8235a.cubicTo(f, 0.0f - f4, 0.0f + f3, -f2, 0.0f, -f2);
         } else {
-            this.f8234a.moveTo(0.0f, -f2);
-            this.f8234a.cubicTo(0.0f + f3, -f2, f, 0.0f - f4, f, 0.0f);
-            this.f8234a.cubicTo(f, 0.0f + f4, 0.0f + f3, f2, 0.0f, f2);
-            this.f8234a.cubicTo(0.0f - f3, f2, -f, 0.0f + f4, -f, 0.0f);
-            this.f8234a.cubicTo(-f, 0.0f - f4, 0.0f - f3, -f2, 0.0f, -f2);
+            this.f8235a.moveTo(0.0f, -f2);
+            this.f8235a.cubicTo(0.0f + f3, -f2, f, 0.0f - f4, f, 0.0f);
+            this.f8235a.cubicTo(f, 0.0f + f4, 0.0f + f3, f2, 0.0f, f2);
+            this.f8235a.cubicTo(0.0f - f3, f2, -f, 0.0f + f4, -f, 0.0f);
+            this.f8235a.cubicTo(-f, 0.0f - f4, 0.0f - f3, -f2, 0.0f, -f2);
         }
         PointF e2 = this.e.e();
-        this.f8234a.offset(e2.x, e2.y);
-        this.f8234a.close();
-        com.ksad.lottie.d.f.a(this.f8234a, this.g);
+        this.f8235a.offset(e2.x, e2.y);
+        this.f8235a.close();
+        com.ksad.lottie.d.f.a(this.f8235a, this.g);
         this.h = true;
-        return this.f8234a;
+        return this.f8235a;
     }
 }

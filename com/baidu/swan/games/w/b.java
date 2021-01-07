@@ -18,57 +18,57 @@ public class b {
     private SharedPreferences mPref;
 
     public b() {
-        String bbW = bbW();
+        String bbX = bbX();
         if (DEBUG) {
-            Log.i("SwanGameStorageManager", "preferencesName:" + bbW);
+            Log.i("SwanGameStorageManager", "preferencesName:" + bbX);
         }
-        if (bbW != null) {
-            this.mPref = com.baidu.swan.apps.t.a.aAr().getSharedPreferences(bbW, 0);
-            this.enM = new File(bca(), bbW + ".xml");
+        if (bbX != null) {
+            this.mPref = com.baidu.swan.apps.t.a.aAs().getSharedPreferences(bbX, 0);
+            this.enM = new File(bcb(), bbX + ".xml");
         }
         e.dQM.a(new c.a<Long>() { // from class: com.baidu.swan.games.w.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.al.c.a
-            /* renamed from: aPv */
-            public Long aPw() throws IllegalStateException {
-                return Long.valueOf(b.this.aPt());
+            /* renamed from: aPw */
+            public Long aPx() throws IllegalStateException {
+                return Long.valueOf(b.this.aPu());
             }
         });
     }
 
     @Nullable
-    private String bbW() {
-        String aMm = com.baidu.swan.apps.runtime.e.aMm();
-        if (TextUtils.isEmpty(aMm)) {
+    private String bbX() {
+        String aMn = com.baidu.swan.apps.runtime.e.aMn();
+        if (TextUtils.isEmpty(aMn)) {
             return null;
         }
-        return String.format("aigame_storage_%s_anonymous", aMm);
+        return String.format("aigame_storage_%s_anonymous", aMn);
     }
 
-    private boolean bbX() {
+    private boolean bbY() {
         return this.mPref != null;
     }
 
-    public long aPt() {
+    public long aPu() {
         if (this.enM != null) {
             return this.enM.length();
         }
         return 0L;
     }
 
-    public long aPu() {
+    public long aPv() {
         return 10485760L;
     }
 
     public String getString(String str, String str2) {
-        if (bbX()) {
+        if (bbY()) {
             return this.mPref.getString(str, str2);
         }
         return null;
     }
 
-    public String[] bbY() {
-        if (!bbX()) {
+    public String[] bbZ() {
+        if (!bbY()) {
             return new String[0];
         }
         Set<String> keySet = this.mPref.getAll().keySet();
@@ -79,21 +79,21 @@ public class b {
 
     @SuppressLint({"ApplySharedPref"})
     public boolean putString(String str, String str2) {
-        return bbX() && this.mPref.edit().putString(str, str2).commit();
+        return bbY() && this.mPref.edit().putString(str, str2).commit();
     }
 
     @SuppressLint({"ApplySharedPref"})
     public boolean remove(String str) {
-        return bbX() && this.mPref.edit().remove(str).commit();
+        return bbY() && this.mPref.edit().remove(str).commit();
     }
 
     @SuppressLint({"ApplySharedPref"})
-    public boolean bbZ() {
-        return bbX() && this.mPref.edit().clear().commit();
+    public boolean bca() {
+        return bbY() && this.mPref.edit().clear().commit();
     }
 
     @NonNull
-    public static File bca() {
+    public static File bcb() {
         return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs");
     }
 
@@ -101,13 +101,13 @@ public class b {
         yf(String.format("aigame_storage_%s_anonymous", str, ""));
     }
 
-    public static void bcb() {
+    public static void bcc() {
         yf("aigame_storage_");
     }
 
     private static void yf(String str) {
         File[] listFiles;
-        if (str != null && str.startsWith("aigame_storage_") && (listFiles = bca().listFiles()) != null) {
+        if (str != null && str.startsWith("aigame_storage_") && (listFiles = bcb().listFiles()) != null) {
             for (File file : listFiles) {
                 if (file.getName().startsWith(str)) {
                     file.delete();

@@ -18,12 +18,12 @@ public class e implements com.baidu.swan.apps.ao.e.b<HybridUbcFlow> {
     public synchronized void L(HybridUbcFlow hybridUbcFlow) {
         if (dus) {
             if (dut == -1) {
-                dut = com.baidu.swan.apps.t.a.aAu().getSwitch("swan_next_env_delay", 600);
+                dut = com.baidu.swan.apps.t.a.aAv().getSwitch("swan_next_env_delay", 600);
             }
             ak.c(new Runnable() { // from class: com.baidu.swan.apps.performance.c.e.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    ak.aRM();
+                    ak.aRN();
                 }
             }, dut);
         }

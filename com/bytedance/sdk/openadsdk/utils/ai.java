@@ -8,10 +8,10 @@ import java.io.FileReader;
 public class ai {
 
     /* renamed from: a  reason: collision with root package name */
-    private FileReader f7847a;
+    private FileReader f7848a;
 
     /* renamed from: b  reason: collision with root package name */
-    private BufferedReader f7848b;
+    private BufferedReader f7849b;
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET] complete} */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [39=4, 40=4, 42=4, 43=4, 45=4, 46=4] */
@@ -22,11 +22,11 @@ public class ai {
                 File file = new File("data/data/com.union_test.toutiao/" + str);
                 if (!file.exists()) {
                     try {
-                        if (this.f7847a != null) {
-                            this.f7847a.close();
+                        if (this.f7848a != null) {
+                            this.f7848a.close();
                         }
-                        if (this.f7848b != null) {
-                            this.f7848b.close();
+                        if (this.f7849b != null) {
+                            this.f7849b.close();
                             return null;
                         }
                         return null;
@@ -35,10 +35,10 @@ public class ai {
                         return null;
                     }
                 }
-                this.f7847a = new FileReader(file);
-                this.f7848b = new BufferedReader(this.f7847a);
+                this.f7848a = new FileReader(file);
+                this.f7849b = new BufferedReader(this.f7848a);
                 while (true) {
-                    String readLine = this.f7848b.readLine();
+                    String readLine = this.f7849b.readLine();
                     if (readLine == null) {
                         break;
                     }
@@ -46,11 +46,11 @@ public class ai {
                 }
                 String sb2 = sb.toString();
                 try {
-                    if (this.f7847a != null) {
-                        this.f7847a.close();
+                    if (this.f7848a != null) {
+                        this.f7848a.close();
                     }
-                    if (this.f7848b != null) {
-                        this.f7848b.close();
+                    if (this.f7849b != null) {
+                        this.f7849b.close();
                         return sb2;
                     }
                     return sb2;
@@ -61,11 +61,11 @@ public class ai {
             } catch (Exception e3) {
                 e3.printStackTrace();
                 try {
-                    if (this.f7847a != null) {
-                        this.f7847a.close();
+                    if (this.f7848a != null) {
+                        this.f7848a.close();
                     }
-                    if (this.f7848b != null) {
-                        this.f7848b.close();
+                    if (this.f7849b != null) {
+                        this.f7849b.close();
                     }
                 } catch (Exception e4) {
                     e4.printStackTrace();
@@ -74,11 +74,11 @@ public class ai {
             }
         } catch (Throwable th) {
             try {
-                if (this.f7847a != null) {
-                    this.f7847a.close();
+                if (this.f7848a != null) {
+                    this.f7848a.close();
                 }
-                if (this.f7848b != null) {
-                    this.f7848b.close();
+                if (this.f7849b != null) {
+                    this.f7849b.close();
                 }
             } catch (Exception e5) {
                 e5.printStackTrace();

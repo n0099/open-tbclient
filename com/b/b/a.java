@@ -16,42 +16,42 @@ public class a {
     /* renamed from: com.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     static class C0011a {
-        private static Object pQR;
-        private static Method pQS;
-        private static Method pQT;
-        private static Method pQU;
-        private static Method pQV;
+        private static Method pSA;
+        private static Method pSB;
+        private static Method pSC;
+        private static Method pSD;
+        private static Object pSz;
         private static Class<?> sClass;
 
         static {
-            pQS = null;
-            pQT = null;
-            pQU = null;
-            pQV = null;
+            pSA = null;
+            pSB = null;
+            pSC = null;
+            pSD = null;
             try {
                 sClass = Class.forName("com.android.id.impl.IdProviderImpl");
-                pQR = sClass.newInstance();
-                pQS = sClass.getMethod("getUDID", Context.class);
-                pQT = sClass.getMethod("getOAID", Context.class);
-                pQU = sClass.getMethod("getVAID", Context.class);
-                pQV = sClass.getMethod("getAAID", Context.class);
+                pSz = sClass.newInstance();
+                pSA = sClass.getMethod("getUDID", Context.class);
+                pSB = sClass.getMethod("getOAID", Context.class);
+                pSC = sClass.getMethod("getVAID", Context.class);
+                pSD = sClass.getMethod("getAAID", Context.class);
             } catch (Throwable th) {
                 Log.e("XiaomiId", "xiaomi init error", th);
             }
         }
 
         public static boolean isSupported() {
-            return (sClass == null || pQR == null) ? false : true;
+            return (sClass == null || pSz == null) ? false : true;
         }
 
         public static String cg(Context context) {
-            return b(context, pQT);
+            return b(context, pSB);
         }
 
         private static String b(Context context, Method method) {
-            if (pQR != null && method != null) {
+            if (pSz != null && method != null) {
                 try {
-                    Object invoke = method.invoke(pQR, context);
+                    Object invoke = method.invoke(pSz, context);
                     if (invoke != null) {
                         return (String) invoke;
                     }

@@ -44,7 +44,7 @@ public final class CSJNativeAdLargeImgView extends f0 {
         this.g.setLayoutParams(new LinearLayout.LayoutParams(this.f, (this.f * tTImage.getHeight()) / tTImage.getWidth()));
         m.a("CSJNativeAdView ttImage width: " + tTImage.getWidth() + ", height: " + tTImage.getHeight());
         this.h = (tTImage.getWidth() * 1.0f) / (tTImage.getHeight() * 1.0f);
-        ap.a.pId.a(getContext(), tTImage.getImageUrl(), this.g);
+        ap.a.pJL.a(getContext(), tTImage.getImageUrl(), this.g);
         m.a("CSJNativeAdView ttImage url: " + tTImage.getImageUrl());
     }
 

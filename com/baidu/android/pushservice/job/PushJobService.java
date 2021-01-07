@@ -18,17 +18,17 @@ import com.baidu.android.pushservice.i.m;
 public class PushJobService extends JobService {
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f1435a;
+    private Handler f1436a;
 
     /* loaded from: classes3.dex */
     private static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private final JobService f1436a;
+        private final JobService f1437a;
 
         a(JobService jobService) {
             super(jobService.getMainLooper());
-            this.f1436a = jobService;
+            this.f1437a = jobService;
         }
 
         @Override // android.os.Handler
@@ -36,12 +36,12 @@ public class PushJobService extends JobService {
             if (message.what == 1) {
                 JobParameters jobParameters = (JobParameters) message.obj;
                 try {
-                    this.f1436a.jobFinished(jobParameters, true);
+                    this.f1437a.jobFinished(jobParameters, true);
                     if (jobParameters.getJobId() == 1) {
-                        com.baidu.android.pushservice.job.a.a(this.f1436a, false);
+                        com.baidu.android.pushservice.job.a.a(this.f1437a, false);
                     }
                 } catch (Throwable th) {
-                    new b.c(this.f1436a.getApplicationContext()).a(Log.getStackTraceString(th)).a();
+                    new b.c(this.f1437a.getApplicationContext()).a(Log.getStackTraceString(th)).a();
                 }
             }
         }
@@ -69,10 +69,10 @@ public class PushJobService extends JobService {
             } catch (Exception e) {
             }
         }
-        if (this.f1435a == null) {
-            this.f1435a = new a(this);
+        if (this.f1436a == null) {
+            this.f1436a = new a(this);
         }
-        this.f1435a.sendMessageDelayed(Message.obtain(this.f1435a, 1, jobParameters), 2000L);
+        this.f1436a.sendMessageDelayed(Message.obtain(this.f1436a, 1, jobParameters), 2000L);
         return true;
     }
 

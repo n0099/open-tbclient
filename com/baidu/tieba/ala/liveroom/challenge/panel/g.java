@@ -36,7 +36,7 @@ public abstract class g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int cgi() {
+    public int cgj() {
         return this.hxa;
     }
 
@@ -47,7 +47,7 @@ public abstract class g {
                 ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
             }
             if (this.mRootView.getLayoutParams() == null) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, cgi());
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, cgj());
                 layoutParams.gravity = 80;
                 frameLayout.addView(this.mRootView, layoutParams);
             } else {
@@ -70,8 +70,8 @@ public abstract class g {
                     }
                 });
                 this.mRootView.startAnimation(loadAnimation);
-            } else if (i != cgi()) {
-                ValueAnimator ofInt = ValueAnimator.ofInt(i, cgi());
+            } else if (i != cgj()) {
+                ValueAnimator ofInt = ValueAnimator.ofInt(i, cgj());
                 ofInt.setDuration(300L);
                 ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.g.3
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -113,7 +113,7 @@ public abstract class g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cgA() {
+    public void cgB() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

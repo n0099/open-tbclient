@@ -15,7 +15,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.gml = a.bPi();
+        this.gml = a.bPj();
     }
 
     public void a(a.InterfaceC0613a interfaceC0613a) {
@@ -26,15 +26,15 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         this.gml.b(interfaceC0613a);
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> bPB() {
-        return this.gml.bPj();
+    public List<com.baidu.tbadk.coreExtra.relationship.a> bPC() {
+        return this.gml.bPk();
     }
 
-    public void bPC() {
+    public void bPD() {
         sendMessage(new CustomMessage(CmdConfigCustom.CMD_QUERY_LOCAL_ADDRESSLIST));
     }
 
-    public void bPy() {
+    public void bPz() {
         super.sendMessage(new RequestGetAddressListMessage(CmdConfigSocket.CMD_GET_ADDRESSLIST));
     }
 
@@ -50,14 +50,14 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         this.gml.eM(j);
     }
 
-    public int FS(String str) {
+    public int FR(String str) {
         int i;
-        if (c.Df(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.a> bPj = this.gml.bPj();
-            if (bPj != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.a aVar : bPj) {
-                    if (str.equals(aVar.bCA())) {
-                        i = bPj.indexOf(aVar);
+        if (c.De(str)) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> bPk = this.gml.bPk();
+            if (bPk != null) {
+                for (com.baidu.tbadk.coreExtra.relationship.a aVar : bPk) {
+                    if (str.equals(aVar.bCB())) {
+                        i = bPk.indexOf(aVar);
                         break;
                     }
                 }

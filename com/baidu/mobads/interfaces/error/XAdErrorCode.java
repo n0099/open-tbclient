@@ -34,21 +34,21 @@ public enum XAdErrorCode {
     public static final String ERROR_CODE_MESSAGE = "msg";
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3412a;
+    private int f3413a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f3413b;
+    private String f3414b;
 
     XAdErrorCode(int i, String str) {
-        this.f3412a = i;
-        this.f3413b = str;
+        this.f3413a = i;
+        this.f3414b = str;
     }
 
     public int getCode() {
-        return this.f3412a;
+        return this.f3413a;
     }
 
     public String getMessage() {
-        return this.f3413b;
+        return this.f3414b;
     }
 }

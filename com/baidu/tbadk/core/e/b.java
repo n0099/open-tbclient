@@ -30,18 +30,18 @@ public class b {
         }
     }
 
-    public static Class<?> bvg() {
-        if (faK == null) {
-            return null;
-        }
-        return faK.bvg();
-    }
-
-    public static String bvh() {
+    public static Class<?> bvh() {
         if (faK == null) {
             return null;
         }
         return faK.bvh();
+    }
+
+    public static String bvi() {
+        if (faK == null) {
+            return null;
+        }
+        return faK.bvi();
     }
 
     public static void a(a aVar) {

@@ -39,7 +39,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
 
         @Override // java.lang.Runnable
         public final void run() {
-            SwanLoadingTipsView.this.bbe();
+            SwanLoadingTipsView.this.bbf();
         }
     }
 
@@ -130,7 +130,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void bbe() {
+    public final void bbf() {
         if (this.els != null) {
             ObjectAnimator objectAnimator = this.els;
             if (objectAnimator != null) {

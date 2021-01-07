@@ -7,11 +7,11 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 class e implements IOAdEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaiduHybridAdManager f3354a;
+    final /* synthetic */ BaiduHybridAdManager f3355a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(BaiduHybridAdManager baiduHybridAdManager) {
-        this.f3354a = baiduHybridAdManager;
+        this.f3355a = baiduHybridAdManager;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener

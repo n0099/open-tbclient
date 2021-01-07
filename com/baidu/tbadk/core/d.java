@@ -37,12 +37,12 @@ public class d {
 
     public boolean isRequestSuccess() {
         if (this.cmJ != null) {
-            return this.cmJ.bvQ().bwA().isRequestSuccess();
+            return this.cmJ.bvR().bwB().isRequestSuccess();
         }
         return false;
     }
 
-    public String bos() {
+    public String bot() {
         if (this.cmJ != null) {
             return this.cmJ.getErrorString();
         }

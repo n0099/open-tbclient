@@ -11,26 +11,26 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
+    private boolean mDQ;
     private boolean mDR;
-    private boolean mDS;
-    private HashMap<String, Integer> mDT;
+    private HashMap<String, Integer> mDS;
 
     public void eG(JSONObject jSONObject) {
         if (jSONObject != null) {
-            boolean z = this.mDR;
-            this.mDR = jSONObject.optInt("switch", 0) == 1;
-            this.mDS = jSONObject.optInt("p2p_config", 0) == 1;
+            boolean z = this.mDQ;
+            this.mDQ = jSONObject.optInt("switch", 0) == 1;
+            this.mDR = jSONObject.optInt("p2p_config", 0) == 1;
             JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
             if (optJSONArray != null) {
-                this.mDT = new HashMap<>();
+                this.mDS = new HashMap<>();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     String optString = optJSONArray.optString(i);
                     if (!StringUtils.isNull(optString)) {
-                        this.mDT.put(optString, 0);
+                        this.mDS.put(optString, 0);
                     }
                 }
             }
-            if (this.mDR) {
+            if (this.mDQ) {
                 c.init();
                 if (!z) {
                     Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
@@ -47,21 +47,21 @@ public class a {
         }
     }
 
-    public boolean dBR() {
-        if (this.mDR) {
+    public boolean dBS() {
+        if (this.mDQ) {
             c.init();
         }
+        return this.mDQ;
+    }
+
+    public boolean dBT() {
         return this.mDR;
     }
 
-    public boolean dBS() {
-        return this.mDS;
-    }
-
     public boolean B(Uri uri) {
-        if (this.mDT == null || uri == null) {
+        if (this.mDS == null || uri == null) {
             return false;
         }
-        return this.mDT.containsKey(uri.getHost());
+        return this.mDS.containsKey(uri.getHost());
     }
 }

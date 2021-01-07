@@ -28,7 +28,7 @@ public class c {
         return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_tbds27);
     }
 
-    public static int Xu() {
+    public static int Xv() {
         return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds168);
     }
 }

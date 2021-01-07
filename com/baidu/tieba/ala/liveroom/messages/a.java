@@ -22,7 +22,7 @@ public class a extends HttpMessage {
         this.aZe = d2;
     }
 
-    public void Bb(String str) {
+    public void Ba(String str) {
         this.bvZ = str;
     }
 
@@ -38,7 +38,7 @@ public class a extends HttpMessage {
         this.roomId = str;
     }
 
-    public void IE(String str) {
+    public void ID(String str) {
         this.hJC = str;
     }
 

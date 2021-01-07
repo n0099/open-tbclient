@@ -9,7 +9,7 @@ public final class b extends i {
         super("aiapp_open_stat");
     }
 
-    public static b bje() {
+    public static b bjf() {
         if (eCd == null) {
             synchronized (b.class) {
                 if (eCd == null) {

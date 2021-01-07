@@ -10,10 +10,10 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class JsCallback {
     private String java;
-    private WeakReference<WebView> qcv;
+    private WeakReference<WebView> qed;
 
     private JsCallback(WebView webView, String str) {
-        this.qcv = new WeakReference<>(webView);
+        this.qed = new WeakReference<>(webView);
         this.java = str;
     }
 
@@ -22,7 +22,7 @@ public class JsCallback {
     }
 
     public void b(boolean z, JSONObject jSONObject, String str) {
-        final WebView webView = this.qcv.get();
+        final WebView webView = this.qed.get();
         if (webView == null) {
             throw new JsCallbackException("The WebView related to the JsCallback has been recycled!");
         }

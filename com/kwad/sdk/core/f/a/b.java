@@ -11,16 +11,16 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f9428a;
+    private Context f9429a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final LinkedBlockingQueue<IBinder> f9429b = new LinkedBlockingQueue<>(1);
+    private final LinkedBlockingQueue<IBinder> f9430b = new LinkedBlockingQueue<>(1);
     private ServiceConnection c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.a.b.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
                 com.kwad.sdk.core.d.a.b("HWDeviceIDHelper", "onServiceConnected");
-                b.this.f9429b.put(iBinder);
+                b.this.f9430b.put(iBinder);
             } catch (Exception e) {
                 com.kwad.sdk.core.d.a.a(e);
             }
@@ -32,7 +32,7 @@ public class b {
     };
 
     public b(Context context) {
-        this.f9428a = context;
+        this.f9429a = context;
     }
 
     public String a() {
@@ -43,25 +43,25 @@ public class b {
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
             try {
-                if (this.f9428a.bindService(intent, this.c, 1)) {
+                if (this.f9429a.bindService(intent, this.c, 1)) {
                     try {
-                        b.a aVar = new b.a(this.f9429b.take());
+                        b.a aVar = new b.a(this.f9430b.take());
                         str = aVar.a();
                         try {
                             try {
                                 com.kwad.sdk.core.d.a.b("HWDeviceIDHelper", "getOAID oaid:" + str + "--boos:" + aVar.b());
-                                this.f9428a.unbindService(this.c);
+                                this.f9429a.unbindService(this.c);
                             } catch (Exception e) {
                                 e = e;
                                 com.kwad.sdk.core.d.a.a(e);
-                                this.f9428a.unbindService(this.c);
+                                this.f9429a.unbindService(this.c);
                                 return str;
                             }
                         } catch (Throwable th2) {
                             th = th2;
                             str2 = str;
                             try {
-                                this.f9428a.unbindService(this.c);
+                                this.f9429a.unbindService(this.c);
                                 throw th;
                             } catch (Exception e2) {
                                 e = e2;
@@ -77,7 +77,7 @@ public class b {
                     } catch (Throwable th3) {
                         th = th3;
                         str2 = "";
-                        this.f9428a.unbindService(this.c);
+                        this.f9429a.unbindService(this.c);
                         throw th;
                     }
                     return str;

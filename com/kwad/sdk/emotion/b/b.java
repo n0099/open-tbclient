@@ -8,10 +8,10 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile b f10044a;
+    private static volatile b f10045a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<String, String> f10045b = new ConcurrentHashMap();
+    private Map<String, String> f10046b = new ConcurrentHashMap();
     private Map<String, String> c = new ConcurrentHashMap();
     private String d;
 
@@ -19,18 +19,18 @@ public final class b {
     }
 
     public static b a() {
-        if (f10044a == null) {
+        if (f10045a == null) {
             synchronized (b.class) {
-                if (f10044a == null) {
-                    f10044a = new b();
+                if (f10045a == null) {
+                    f10045a = new b();
                 }
             }
         }
-        return f10044a;
+        return f10045a;
     }
 
     public String a(String str, boolean z) {
-        return z ? this.c.get(str) : this.f10045b.get(str);
+        return z ? this.c.get(str) : this.f10046b.get(str);
     }
 
     public void a(String str) {
@@ -46,7 +46,7 @@ public final class b {
             for (File file3 : listFiles2) {
                 int lastIndexOf = file3.getName().lastIndexOf(46);
                 if (lastIndexOf > 0) {
-                    this.f10045b.put(file3.getName().substring(0, lastIndexOf), file3.getAbsolutePath());
+                    this.f10046b.put(file3.getName().substring(0, lastIndexOf), file3.getAbsolutePath());
                 }
             }
         }
@@ -66,7 +66,7 @@ public final class b {
         if (z) {
             this.c.put(str, c() + File.separator + str2);
         } else {
-            this.f10045b.put(str, b() + File.separator + str2);
+            this.f10046b.put(str, b() + File.separator + str2);
         }
     }
 
@@ -76,7 +76,7 @@ public final class b {
     }
 
     public boolean b(String str, boolean z) {
-        return z ? this.c.containsKey(str) : this.f10045b.containsKey(str);
+        return z ? this.c.containsKey(str) : this.f10046b.containsKey(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

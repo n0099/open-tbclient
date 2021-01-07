@@ -30,9 +30,9 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public void start(String str) {
-        c aUS = aUS();
-        aUS.mSrc = str;
-        this.cFR.d(aUS);
+        c aUT = aUT();
+        aUT.mSrc = str;
+        this.cFR.d(aUT);
         this.cFR.fT(false);
     }
 
@@ -52,9 +52,9 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     private void initPlayer() {
-        e aMk = e.aMk();
-        if (aMk != null) {
-            this.cFR = new a(aMk.aMe(), aUS());
+        e aMl = e.aMl();
+        if (aMl != null) {
+            this.cFR = new a(aMl.aMf(), aUT());
             FrameLayout frameLayout = new FrameLayout(this.mContext);
             addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
             this.cFR.f(frameLayout);
@@ -67,7 +67,7 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     @NonNull
-    private c aUS() {
+    private c aUT() {
         c cVar = new c();
         cVar.dkT = "SwanAdPlayer";
         cVar.cNO = "SwanAdPlayer";

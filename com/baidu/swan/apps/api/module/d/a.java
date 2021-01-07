@@ -36,8 +36,8 @@ public class a extends d {
     }
 
     private com.baidu.swan.apps.api.c.b f(final String str, String str2, int i) {
-        final e aMk = e.aMk();
-        if (aMk == null) {
+        final e aMl = e.aMl();
+        if (aMl == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "swan app is null");
         }
         final int i2 = (i < 0 || i > 100) ? 80 : i;
@@ -48,9 +48,9 @@ public class a extends d {
         PathType tW = com.baidu.swan.apps.storage.b.tW(str2);
         String str3 = null;
         if (tW == PathType.BD_FILE) {
-            str3 = com.baidu.swan.apps.storage.b.cE(str2, aMk.id);
+            str3 = com.baidu.swan.apps.storage.b.cE(str2, aMl.id);
         } else if (tW == PathType.RELATIVE) {
-            str3 = com.baidu.swan.apps.storage.b.a(str2, aMk, aMk.getVersion());
+            str3 = com.baidu.swan.apps.storage.b.a(str2, aMl, aMl.getVersion());
         }
         if (TextUtils.isEmpty(str3)) {
             c.e("Api-Image", "file path error");
@@ -72,7 +72,7 @@ public class a extends d {
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("tempFilePath", com.baidu.swan.apps.storage.b.cH(uO.getAbsolutePath(), aMk.id));
+                    jSONObject.put("tempFilePath", com.baidu.swan.apps.storage.b.cH(uO.getAbsolutePath(), aMl.id));
                 } catch (JSONException e) {
                     c.e("Api-Image", e.toString());
                 }

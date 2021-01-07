@@ -33,11 +33,11 @@ public final class b {
     }
 
     public static void a(bz bzVar, int[] iArr) {
-        if (iArr != null && iArr.length == 2 && bzVar != null && d.bmE()) {
+        if (iArr != null && iArr.length == 2 && bzVar != null && d.bmF()) {
             int size = View.MeasureSpec.getSize(l.getScreenDimensions(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
             int i = dimensionPixelSize + (((int) ((size - (dimensionPixelSize * 2)) / 3.0f)) * 2);
-            MediaData mediaData = (MediaData) x.getItem(bzVar.brz(), 0);
+            MediaData mediaData = (MediaData) x.getItem(bzVar.brA(), 0);
             if (mediaData != null && mediaData.picWidth > 0 && mediaData.picHeight > 0) {
                 if (mediaData.picWidth == mediaData.picHeight) {
                     iArr[0] = i;
@@ -55,7 +55,7 @@ public final class b {
 
     public static int[] c(MediaData mediaData) {
         int[] iArr = new int[2];
-        if (mediaData != null && d.bmE()) {
+        if (mediaData != null && d.bmF()) {
             int size = View.MeasureSpec.getSize(l.getScreenDimensions(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
             int i = (((int) ((size - (dimensionPixelSize * 2)) / 3.0f)) * 2) + dimensionPixelSize;
@@ -77,7 +77,7 @@ public final class b {
 
     public static void g(TextView textView) {
         if (textView != null) {
-            if (d.bmE()) {
+            if (d.bmF()) {
                 textView.setTypeface(Typeface.DEFAULT);
                 textView.setTextSize(0, textView.getResources().getDimension(R.dimen.tbds39));
                 return;
@@ -89,7 +89,7 @@ public final class b {
 
     public static void h(TextView textView) {
         if (textView != null) {
-            if (d.bmE()) {
+            if (d.bmF()) {
                 ao.setViewTextColor(textView, R.color.CAM_X0105);
             } else {
                 ao.setViewTextColor(textView, R.color.CAM_X0106);
@@ -99,7 +99,7 @@ public final class b {
 
     public static void m(View view, int i) {
         if (view != null) {
-            if (d.bmE()) {
+            if (d.bmF()) {
                 view.setBackgroundResource(R.drawable.bg_img_mask);
             } else if (i > 0) {
                 view.setBackgroundResource(i);
@@ -112,7 +112,7 @@ public final class b {
     public static void j(View view, int i, int i2) {
         if (view != null) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-            if (d.bmE()) {
+            if (d.bmF()) {
                 marginLayoutParams.topMargin = l.getDimens(TbadkCoreApplication.getInst(), i2);
             } else {
                 marginLayoutParams.topMargin = l.getDimens(TbadkCoreApplication.getInst(), i);
@@ -122,12 +122,12 @@ public final class b {
     }
 
     public static int aK(int i, int i2) {
-        return d.bmE() ? i2 : i;
+        return d.bmF() ? i2 : i;
     }
 
     public static void a(TextView textView, int i, int i2) {
         if (textView != null && Build.VERSION.SDK_INT >= 16) {
-            if (d.bmE()) {
+            if (d.bmF()) {
                 textView.setLineSpacing(l.getDimens(textView.getContext(), i2), textView.getLineSpacingMultiplier());
             } else {
                 textView.setLineSpacing(l.getDimens(textView.getContext(), i), textView.getLineSpacingMultiplier());
@@ -136,7 +136,7 @@ public final class b {
     }
 
     public static boolean a(ViewGroup.LayoutParams layoutParams, boolean z, com.baidu.tieba.play.operableVideoView.a aVar, int i, int i2) {
-        if (layoutParams != null && d.bmE()) {
+        if (layoutParams != null && d.bmF()) {
             int size = View.MeasureSpec.getSize(l.getScreenDimensions(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004) * 2);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X005);
             int i3 = (((int) ((size - (dimensionPixelSize * 2)) / 3.0f)) * 2) + dimensionPixelSize;
@@ -151,7 +151,7 @@ public final class b {
     }
 
     public static boolean a(ViewGroup.LayoutParams layoutParams, ViewGroup.LayoutParams layoutParams2, int i, int i2, boolean z) {
-        if (layoutParams != null && layoutParams2 != null && d.bmE()) {
+        if (layoutParams != null && layoutParams2 != null && d.bmF()) {
             int size = View.MeasureSpec.getSize(l.getScreenDimensions(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
             int i3 = (((int) ((size - (dimensionPixelSize * 2)) / 3.0f)) * 2) + dimensionPixelSize;
@@ -164,7 +164,7 @@ public final class b {
         return z;
     }
 
-    public static int bnj() {
+    public static int bnk() {
         return UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
     }
 }

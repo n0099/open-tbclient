@@ -11,7 +11,7 @@ import java.io.File;
 public class b extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final IXAdLogger f3343a;
+    protected final IXAdLogger f3344a;
     private a d;
     private String e;
     private File f;
@@ -19,7 +19,7 @@ public class b extends d {
 
     public b(Context context, String str, File file, boolean z) {
         super(context);
-        this.f3343a = XAdSDKFoundationFacade.getInstance().getAdLogger();
+        this.f3344a = XAdSDKFoundationFacade.getInstance().getAdLogger();
         this.e = str;
         this.f = file;
         this.g = Boolean.valueOf(z);
@@ -34,11 +34,11 @@ public class b extends d {
             if (this.e != null) {
                 IntentFilter intentFilter = new IntentFilter("android.intent.action.PACKAGE_ADDED");
                 intentFilter.addDataScheme("package");
-                this.f3428b.registerReceiver(this.d, intentFilter);
+                this.f3429b.registerReceiver(this.d, intentFilter);
             }
-            XAdSDKFoundationFacade.getInstance().getPackageUtils().b(this.f3428b, this.f);
+            XAdSDKFoundationFacade.getInstance().getPackageUtils().b(this.f3429b, this.f);
         } catch (Exception e) {
-            this.f3343a.e("XAdInstallController", "");
+            this.f3344a.e("XAdInstallController", "");
         }
     }
 }

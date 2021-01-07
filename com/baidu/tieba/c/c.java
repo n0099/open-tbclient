@@ -12,5 +12,5 @@ public interface c {
 
     void a(a aVar);
 
-    void cwb();
+    void cwc();
 }

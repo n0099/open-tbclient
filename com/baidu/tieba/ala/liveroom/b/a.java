@@ -39,7 +39,7 @@ public class a {
     public void d(ViewGroup viewGroup, x xVar) {
         if (viewGroup != null && this.mTbPageContext != null && xVar != null) {
             this.hqa = new c(this.mTbPageContext);
-            ccK();
+            ccL();
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(11);
             layoutParams.addRule(3, a.f.anthor_task_viewpager_id);
@@ -62,7 +62,7 @@ public class a {
         return (this.hqa == null || this.hqa.getView() == null || viewGroup.indexOfChild(this.hqa.getView()) <= -1) ? false : true;
     }
 
-    public void ccK() {
+    public void ccL() {
         if (this.hqa != null && this.hqa.getView() != null && this.hqa.getView().getParent() != null) {
             ((ViewGroup) this.hqa.getView().getParent()).removeView(this.hqa.getView());
         }

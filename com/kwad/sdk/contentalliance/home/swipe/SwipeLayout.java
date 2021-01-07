@@ -13,10 +13,10 @@ import java.util.List;
 public class SwipeLayout extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f9043a;
+    private int f9044a;
 
     /* renamed from: b  reason: collision with root package name */
-    private float f9044b;
+    private float f9045b;
     private float c;
     private int d;
     private d e;
@@ -51,26 +51,26 @@ public class SwipeLayout extends FrameLayout {
     }
 
     private void a(Context context) {
-        this.f9043a = ViewConfiguration.get(context).getScaledPagingTouchSlop();
+        this.f9044a = ViewConfiguration.get(context).getScaledPagingTouchSlop();
     }
 
     private boolean a(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.f9044b = motionEvent.getX();
+                this.f9045b = motionEvent.getX();
                 this.c = motionEvent.getY();
                 this.d = 0;
-                com.kwad.sdk.core.d.a.a("SwipeLayout", "onInterceptTouchEvent ACTION_DOWN mInitialMotionX=" + this.f9044b);
+                com.kwad.sdk.core.d.a.a("SwipeLayout", "onInterceptTouchEvent ACTION_DOWN mInitialMotionX=" + this.f9045b);
                 break;
             case 1:
                 this.d = 0;
                 com.kwad.sdk.core.d.a.a("SwipeLayout", "onInterceptTouchEvent ACTION_UP");
                 break;
             case 2:
-                float x = motionEvent.getX() - this.f9044b;
+                float x = motionEvent.getX() - this.f9045b;
                 float abs = Math.abs(x);
                 float abs2 = Math.abs(motionEvent.getY() - this.c);
-                if (abs > this.f9043a && abs > abs2) {
+                if (abs > this.f9044a && abs > abs2) {
                     if (x > 0.0f) {
                         this.d = 1;
                     } else {
@@ -95,7 +95,7 @@ public class SwipeLayout extends FrameLayout {
     private boolean b(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                com.kwad.sdk.core.d.a.a("SwipeLayout", "onTouchEvent ACTION_DOWN mInitialMotionX=" + this.f9044b);
+                com.kwad.sdk.core.d.a.a("SwipeLayout", "onTouchEvent ACTION_DOWN mInitialMotionX=" + this.f9045b);
                 break;
             case 1:
                 com.kwad.sdk.core.d.a.a("SwipeLayout", "onTouchEvent ACTION_UP mDragState=" + this.d);
@@ -109,10 +109,10 @@ public class SwipeLayout extends FrameLayout {
                 this.d = 0;
                 break;
             case 2:
-                float x = motionEvent.getX() - this.f9044b;
+                float x = motionEvent.getX() - this.f9045b;
                 float abs = Math.abs(x);
                 float abs2 = Math.abs(motionEvent.getY() - this.c);
-                if (this.d == 0 && abs > this.f9043a && abs > abs2) {
+                if (this.d == 0 && abs > this.f9044a && abs > abs2) {
                     if (x > 0.0f) {
                         this.d = 1;
                     } else {

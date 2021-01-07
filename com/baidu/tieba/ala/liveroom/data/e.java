@@ -24,7 +24,7 @@ public class e {
     public TbPageContext pageContext;
     public ViewGroup rootView;
 
-    public int bUl() {
+    public int bUm() {
         return this.liveType;
     }
 
@@ -41,15 +41,9 @@ public class e {
         }
     }
 
-    public void Zr() {
+    public void Zs() {
         if (this.hCk != null) {
-            this.hCk.Zr();
-        }
-    }
-
-    public void chw() {
-        if (this.hCk != null) {
-            this.hCk.chw();
+            this.hCk.Zs();
         }
     }
 
@@ -68,6 +62,12 @@ public class e {
     public void chz() {
         if (this.hCk != null) {
             this.hCk.chz();
+        }
+    }
+
+    public void chA() {
+        if (this.hCk != null) {
+            this.hCk.chA();
         }
     }
 }

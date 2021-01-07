@@ -46,11 +46,11 @@ public class b extends BaseCardInfo {
         return this.eRJ;
     }
 
-    public String cDK() {
+    public String cDL() {
         return this.jds;
     }
 
-    public String cDL() {
+    public String cDM() {
         return this.jdr;
     }
 
@@ -62,11 +62,11 @@ public class b extends BaseCardInfo {
         return this.mForumId;
     }
 
-    public String cDM() {
+    public String cDN() {
         return this.jcX;
     }
 
-    public List<FrsTabInfo> cDN() {
+    public List<FrsTabInfo> cDO() {
         return this.jdv;
     }
 }

@@ -20,9 +20,9 @@ import java.util.List;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    private static long f7986b = 0;
+    private static long f7987b = 0;
     private static b pqx;
-    private C1011b pqy = null;
+    private C1049b pqy = null;
 
     /* loaded from: classes7.dex */
     public static class a extends Exception {
@@ -33,13 +33,13 @@ public class b {
 
     /* renamed from: com.cmic.sso.sdk.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C1011b {
+    public static class C1049b {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f7987a = "";
+        private String f7988a = "";
 
         /* renamed from: b  reason: collision with root package name */
-        private String f7988b = "";
+        private String f7989b = "";
         private String c = "";
         private String d = "";
         private String e = "";
@@ -84,10 +84,10 @@ public class b {
 
         public String a(int i) {
             if (this.i == i) {
-                return this.f7987a;
+                return this.f7988a;
             }
             if (this.j == i) {
-                return this.f7988b;
+                return this.f7989b;
             }
             return "";
         }
@@ -204,20 +204,20 @@ public class b {
     private b() {
     }
 
-    public static b esL() {
+    public static b esM() {
         if (pqx == null) {
             pqx = new b();
         }
         return pqx;
     }
 
-    public C1011b esM() {
-        return this.pqy == null ? new C1011b() : this.pqy;
+    public C1049b esN() {
+        return this.pqy == null ? new C1049b() : this.pqy;
     }
 
     public void a(Context context, boolean z) {
-        if (System.currentTimeMillis() - f7986b >= 5000) {
-            this.pqy = new C1011b();
+        if (System.currentTimeMillis() - f7987b >= 5000) {
+            this.pqy = new C1049b();
             if (n.a(context)) {
                 b(context, z);
                 if (n.e() && n.d()) {
@@ -240,7 +240,7 @@ public class b {
                 if (Build.VERSION.SDK_INT >= 21) {
                     b(context);
                 }
-                f7986b = System.currentTimeMillis();
+                f7987b = System.currentTimeMillis();
             }
         }
     }
@@ -327,7 +327,7 @@ public class b {
                                 this.pqy.p = i2;
                             }
                             if (i == 0) {
-                                this.pqy.f7987a = string;
+                                this.pqy.f7988a = string;
                                 this.pqy.k = i2;
                                 if (this.pqy.i == -1) {
                                     this.pqy.i = i;
@@ -351,7 +351,7 @@ public class b {
                                     this.pqy.m = string2 + string3;
                                 }
                             } else if (i == 1) {
-                                this.pqy.f7988b = string;
+                                this.pqy.f7989b = string;
                                 this.pqy.l = i2;
                                 if (this.pqy.j == -1) {
                                     this.pqy.j = i;
@@ -617,11 +617,11 @@ public class b {
         } else {
             return;
         }
-        this.pqy.f7987a = A.getIccId();
+        this.pqy.f7988a = A.getIccId();
         this.pqy.c(A.getSimSlotIndex());
         this.pqy.e(A.getSubscriptionId());
-        this.pqy.m = b(this.pqy.f7987a);
-        c.b("UMCTelephonyManagement", "readSim1Info1 iccid1 = " + this.pqy.f7987a);
+        this.pqy.m = b(this.pqy.f7988a);
+        c.b("UMCTelephonyManagement", "readSim1Info1 iccid1 = " + this.pqy.f7988a);
         if (this.pqy.o == -1 && this.pqy.p == A.getSubscriptionId()) {
             this.pqy.o = A.getSimSlotIndex();
             c.b("UMCTelephonyManagement", "readSim1Info1 dataSlotId = " + this.pqy.o);
@@ -672,9 +672,9 @@ public class b {
             SubscriptionInfo A = A(list, 1);
             this.pqy.d(A.getSimSlotIndex());
             this.pqy.f(A.getSubscriptionId());
-            this.pqy.f7988b = A.getIccId();
-            this.pqy.n = b(this.pqy.f7988b);
-            c.b("UMCTelephonyManagement", "readSim1Info2 iccid2 = " + this.pqy.f7988b);
+            this.pqy.f7989b = A.getIccId();
+            this.pqy.n = b(this.pqy.f7989b);
+            c.b("UMCTelephonyManagement", "readSim1Info2 iccid2 = " + this.pqy.f7989b);
             if (this.pqy.o == -1 && this.pqy.p == A.getSubscriptionId()) {
                 this.pqy.o = A.getSimSlotIndex();
                 c.b("UMCTelephonyManagement", "readSim1Info2 dataSlotId = " + this.pqy.o);

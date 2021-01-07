@@ -127,14 +127,14 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                 BdLog.e(e);
                                 str4 = str5;
                             }
-                            if (VF(str4)) {
+                            if (VE(str4)) {
                                 MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
                                 mainTabActivityConfig.setTargetScheme(str4);
                                 mainTabActivityConfig.setPushFollowUpAction(optInt);
                                 mainTabActivityConfig.setPushDesPage(str3);
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig));
                             } else {
-                                be.bwu().b(getPageContext(), new String[]{str4, "yun_push_tag"});
+                                be.bwv().b(getPageContext(), new String[]{str4, "yun_push_tag"});
                             }
                             if (str4.contains("ForumGradePage")) {
                                 aq w = new aq("c13782").w("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -192,7 +192,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
         finish();
     }
 
-    private boolean VF(String str) {
+    private boolean VE(String str) {
         return Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(str).find() || str.startsWith("http://tieba.baidu.com/mo/q/newtopic/detail") || str.startsWith("https://tieba.baidu.com/mo/q/newtopic/detail") || str.startsWith("flt://") || str.startsWith("bdtiebalive://") || str.startsWith("tiebachushou://") || str.contains("achievement=");
     }
 }

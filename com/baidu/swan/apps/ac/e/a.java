@@ -53,7 +53,7 @@ public class a {
             h hVar = new h();
             hVar.ewI = str;
             hVar.versionName = b.cS(j);
-            com.baidu.swan.pms.database.a.bgb().f(hVar);
+            com.baidu.swan.pms.database.a.bgc().f(hVar);
         }
     }
 }

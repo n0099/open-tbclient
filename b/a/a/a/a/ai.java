@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ai extends ah implements Runnable {
     private HandlerThread Az;
     private w Bm;
@@ -32,7 +32,7 @@ public final class ai extends ah implements Runnable {
     public ai(w wVar) {
         this.Bm = null;
         this.Bm = wVar;
-        this.c = new File(this.Bm.f1081a.getExternalFilesDir("data").getAbsolutePath() + "/f_c");
+        this.c = new File(this.Bm.f1082a.getExternalFilesDir("data").getAbsolutePath() + "/f_c");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -125,7 +125,7 @@ public final class ai extends ah implements Runnable {
         this.h = currentTimeMillis;
         a(5);
         try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) this.Bm.f1081a.getSystemService("connectivity");
+            ConnectivityManager connectivityManager = (ConnectivityManager) this.Bm.f1082a.getSystemService("connectivity");
             NetworkInfo activeNetworkInfo = connectivityManager == null ? null : connectivityManager.getActiveNetworkInfo();
             if (activeNetworkInfo != null && activeNetworkInfo.isConnected() && 1 == activeNetworkInfo.getType()) {
                 if ((Build.VERSION.SDK_INT < 16 || !connectivityManager.isActiveNetworkMetered()) && e() && (listFiles = this.c.listFiles()) != null && listFiles.length != 0) {
@@ -147,7 +147,7 @@ public final class ai extends ah implements Runnable {
     }
 
     public final void a(aa aaVar, af afVar, List list) {
-        if (!this.f1054b || aaVar == null || System.currentTimeMillis() - aaVar.c > 10000) {
+        if (!this.f1055b || aaVar == null || System.currentTimeMillis() - aaVar.c > 10000) {
             return;
         }
         synchronized (this.i) {

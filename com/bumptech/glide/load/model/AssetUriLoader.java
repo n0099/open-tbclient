@@ -11,7 +11,7 @@ import com.bumptech.glide.load.data.StreamAssetPathFetcher;
 import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.signature.ObjectKey;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AssetUriLoader<Data> implements ModelLoader<Uri, Data> {
     private static final String ASSET_PATH_SEGMENT = "android_asset";
     private static final String ASSET_PREFIX = "file:///android_asset/";
@@ -19,7 +19,7 @@ public class AssetUriLoader<Data> implements ModelLoader<Uri, Data> {
     private final AssetManager assetManager;
     private final AssetFetcherFactory<Data> factory;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface AssetFetcherFactory<Data> {
         DataFetcher<Data> buildFetcher(AssetManager assetManager, String str);
     }
@@ -41,7 +41,7 @@ public class AssetUriLoader<Data> implements ModelLoader<Uri, Data> {
         return "file".equals(uri.getScheme()) && !uri.getPathSegments().isEmpty() && ASSET_PATH_SEGMENT.equals(uri.getPathSegments().get(0));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class StreamFactory implements AssetFetcherFactory<InputStream>, ModelLoaderFactory<Uri, InputStream> {
         private final AssetManager assetManager;
 
@@ -65,7 +65,7 @@ public class AssetUriLoader<Data> implements ModelLoader<Uri, Data> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class FileDescriptorFactory implements AssetFetcherFactory<ParcelFileDescriptor>, ModelLoaderFactory<Uri, ParcelFileDescriptor> {
         private final AssetManager assetManager;
 

@@ -60,15 +60,15 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!StringUtils.isNull(this.eMv.bru())) {
+        if (!StringUtils.isNull(this.eMv.brv())) {
             view.setTag(this.eMv);
             if (this.mFrom == 0) {
-                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.mContext).createNormalCfg(this.eMv.bru(), FrsActivityConfig.FROM_PB_OR_PERSON);
+                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.mContext).createNormalCfg(this.eMv.brv(), FrsActivityConfig.FROM_PB_OR_PERSON);
                 createNormalCfg.setCallFrom(14);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
             } else if (this.mFrom == 1) {
                 au("c13967", 2);
-                FrsActivityConfig createNormalCfg2 = new FrsActivityConfig(this.mContext).createNormalCfg(this.eMv.bru(), FrsActivityConfig.FROM_PB_OR_PERSON);
+                FrsActivityConfig createNormalCfg2 = new FrsActivityConfig(this.mContext).createNormalCfg(this.eMv.brv(), FrsActivityConfig.FROM_PB_OR_PERSON);
                 createNormalCfg2.setCallFrom(14);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg2));
             } else if (this.mFrom == 2) {
@@ -95,7 +95,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             if (this.mIconDrawable != null) {
                 this.mIconDrawable.setBounds(0, 0, com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.T_X09), com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.T_X09));
             }
-            byg();
+            byh();
         }
     }
 
@@ -108,17 +108,17 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
                 return;
             }
             setVisibility(0);
-            byg();
+            byh();
             this.fmZ.setText(string);
             this.fmZ.setVisibility(0);
             onChangeSkinType();
-            byh();
+            byi();
             return;
         }
         setVisibility(8);
     }
 
-    private void byh() {
+    private void byi() {
         if (this.mFrom == 2) {
             au("c13966", 1);
         } else if (this.mFrom == 1) {
@@ -130,10 +130,10 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
     }
 
     private void au(String str, int i) {
-        TiebaStatic.log(new aq(str).an("obj_locate", i).w("fid", this.eMv.getFid()).dX("fname", this.eMv.bru()).dX("tid", this.eMv.getTid()));
+        TiebaStatic.log(new aq(str).an("obj_locate", i).w("fid", this.eMv.getFid()).dX("fname", this.eMv.brv()).dX("tid", this.eMv.getTid()));
     }
 
-    private void byg() {
+    private void byh() {
         this.fmZ.setCompoundDrawables(this.mIconDrawable, null, null, null);
     }
 

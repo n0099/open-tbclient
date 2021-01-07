@@ -76,24 +76,24 @@ public class g {
     }
 
     public void b(com.baidu.tieba.ala.alasquare.a.e eVar) {
-        if (eVar == null || eVar.gAx == null || eVar.gAx.brq() == null) {
+        if (eVar == null || eVar.gAx == null || eVar.gAx.brr() == null) {
             getView().setVisibility(4);
             return;
         }
         getView().setVisibility(0);
         this.gEV = eVar;
         this.gFs = eVar.gAG;
-        this.userId = eVar.gAx.brq().getUserId();
-        this.gFo.startLoad(eVar.gAx.brq().getPortrait(), 25, false, false);
-        String name_show = eVar.gAx.brq().getName_show();
+        this.userId = eVar.gAx.brr().getUserId();
+        this.gFo.startLoad(eVar.gAx.brr().getPortrait(), 25, false, false);
+        String name_show = eVar.gAx.brr().getName_show();
         if (!StringUtils.isNull(name_show)) {
             if (k.byteLength(name_show) > 16) {
                 name_show = at.cutChineseAndEnglishWithSuffix(name_show, 16, StringHelper.STRING_MORE);
             }
             this.gFp.setText(name_show);
         }
-        if (eVar.gAx.brJ() != null) {
-            this.gFq.setText(String.format(this.mTbPageContext.getPageActivity().getResources().getString(R.string.live_tab_audience_watch_label), at.dV(eVar.gAx.brJ().audience_count)));
+        if (eVar.gAx.brK() != null) {
+            this.gFq.setText(String.format(this.mTbPageContext.getPageActivity().getResources().getString(R.string.live_tab_audience_watch_label), at.dV(eVar.gAx.brK().audience_count)));
         }
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }

@@ -11,14 +11,14 @@ public class a {
     public static void c(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         g gVar = new g();
         gVar.mData = e(str, str2, str3, str4, jSONObject);
-        f.aDG().a(str, gVar);
+        f.aDH().a(str, gVar);
     }
 
     /* JADX WARN: Type inference failed for: r1v0, types: [org.json.JSONObject, T] */
     public static void d(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         g gVar = new g();
         gVar.mData = e(str, str2, str3, str4, jSONObject);
-        f.aDG().b(gVar);
+        f.aDH().b(gVar);
     }
 
     public static JSONObject e(String str, String str2, String str3, String str4, JSONObject jSONObject) {

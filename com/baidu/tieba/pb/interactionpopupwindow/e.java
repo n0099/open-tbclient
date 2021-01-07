@@ -20,14 +20,14 @@ import com.baidu.tieba.pb.b;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 /* loaded from: classes.dex */
 public class e extends b<CustomDialogData> implements View.OnClickListener {
-    private CustomDialogData lHK;
-    private f lHL;
-    private TbImageView lHM;
+    private CustomDialogData lHJ;
+    private f lHK;
+    private TbImageView lHL;
+    private TextView lHM;
     private TextView lHN;
-    private TextView lHO;
+    private View lHO;
     private View lHP;
-    private View lHQ;
-    private LinearLayout lHR;
+    private LinearLayout lHQ;
     private TextView noButton;
     private TextView yesButton;
 
@@ -36,7 +36,7 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
     }
 
     public void a(f fVar) {
-        this.lHL = fVar;
+        this.lHK = fVar;
     }
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.g
@@ -49,16 +49,16 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
     /* renamed from: b */
     public void a(CustomDialogData customDialogData) {
         if (customDialogData != null) {
-            this.lHK = customDialogData;
+            this.lHJ = customDialogData;
             CustomDialogData.Head head = customDialogData.head;
             if (!TextUtils.isEmpty(head.imageUrl)) {
-                this.lHM.startLoad(head.imageUrl, 10, false);
+                this.lHL.startLoad(head.imageUrl, 10, false);
             }
             if (!TextUtils.isEmpty(head.text)) {
-                this.lHN.setText(head.text);
+                this.lHM.setText(head.text);
             }
             if (!TextUtils.isEmpty(customDialogData.body)) {
-                this.lHO.setText(customDialogData.body);
+                this.lHN.setText(customDialogData.body);
             }
             if (customDialogData.leftButton != null && !StringUtils.isNull(customDialogData.leftButton.text)) {
                 this.noButton.setText(customDialogData.leftButton.text);
@@ -71,44 +71,44 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.g
     public void initView() {
-        this.lHM = (TbImageView) getViewGroup().findViewById(R.id.dialog_image);
-        this.lHN = (TextView) getViewGroup().findViewById(R.id.dialog_title);
-        this.lHO = (TextView) getViewGroup().findViewById(R.id.dialog_body);
+        this.lHL = (TbImageView) getViewGroup().findViewById(R.id.dialog_image);
+        this.lHM = (TextView) getViewGroup().findViewById(R.id.dialog_title);
+        this.lHN = (TextView) getViewGroup().findViewById(R.id.dialog_body);
         this.yesButton = (TextView) getViewGroup().findViewById(R.id.yes);
         this.noButton = (TextView) getViewGroup().findViewById(R.id.no);
-        this.lHP = getViewGroup().findViewById(R.id.bdDialog_divider_line);
-        this.lHQ = getViewGroup().findViewById(R.id.divider_yes_no_button);
-        this.lHR = (LinearLayout) getViewGroup().findViewById(R.id.real_view);
+        this.lHO = getViewGroup().findViewById(R.id.bdDialog_divider_line);
+        this.lHP = getViewGroup().findViewById(R.id.divider_yes_no_button);
+        this.lHQ = (LinearLayout) getViewGroup().findViewById(R.id.real_view);
         this.yesButton.setOnClickListener(this);
         this.noButton.setOnClickListener(this);
         ao.setBackgroundResource(this.yesButton, R.drawable.dialog_single_button_bg_selector);
         ao.setViewTextColor(this.yesButton, R.color.CAM_X0302);
         ao.setViewTextColor(this.noButton, R.color.CAM_X0302);
-        ao.setViewTextColor(this.lHN, R.color.CAM_X0105);
-        ao.setViewTextColor(this.lHO, R.color.common_color_10122);
+        ao.setViewTextColor(this.lHM, R.color.CAM_X0105);
+        ao.setViewTextColor(this.lHN, R.color.common_color_10122);
+        ao.setBackgroundColor(this.lHO, R.color.CAM_X0204);
         ao.setBackgroundColor(this.lHP, R.color.CAM_X0204);
-        ao.setBackgroundColor(this.lHQ, R.color.CAM_X0204);
-        ao.setBackgroundResource(this.lHR, R.drawable.dialog_background);
+        ao.setBackgroundResource(this.lHQ, R.drawable.dialog_background);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.yesButton) {
-            if (this.lHK != null && this.lHK.rightButton != null && !StringUtils.isNull(this.lHK.rightButton.action)) {
-                be.bwu().b(getTbPageContext(), new String[]{this.lHK.rightButton.action});
+            if (this.lHJ != null && this.lHJ.rightButton != null && !StringUtils.isNull(this.lHJ.rightButton.action)) {
+                be.bwv().b(getTbPageContext(), new String[]{this.lHJ.rightButton.action});
             }
-            if (this.lHL != null) {
-                this.lHL.dismiss();
+            if (this.lHK != null) {
+                this.lHK.dismiss();
             }
             aq aqVar = new aq(b.a.CLICK);
             aqVar.an("obj_locate", 2);
             TiebaStatic.log(aqVar);
         } else if (view == this.noButton) {
-            if (this.lHK != null && this.lHK.leftButton != null && !StringUtils.isNull(this.lHK.leftButton.action)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.mTbPageContext.getPageActivity(), null, this.lHK.leftButton.action, true)));
+            if (this.lHJ != null && this.lHJ.leftButton != null && !StringUtils.isNull(this.lHJ.leftButton.action)) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.mTbPageContext.getPageActivity(), null, this.lHJ.leftButton.action, true)));
             }
-            if (this.lHL != null) {
-                this.lHL.dismiss();
+            if (this.lHK != null) {
+                this.lHK.dismiss();
             }
             aq aqVar2 = new aq(b.a.CLICK);
             aqVar2.an("obj_locate", 1);

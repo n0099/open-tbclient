@@ -7,7 +7,7 @@ import java.io.File;
 public class e {
     private static File gtV = null;
 
-    public static File bSx() {
+    public static File bSy() {
         if (gtV == null) {
             gtV = getPrivateCaptureRootChildDir("duMakeup");
         }

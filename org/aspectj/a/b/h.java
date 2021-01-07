@@ -1,66 +1,66 @@
 package org.aspectj.a.b;
 
 import java.lang.reflect.Modifier;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 class h {
-    static h qnI = new h();
-    static h qnJ;
-    static h qnK;
-    int qnH;
-    boolean qnz = true;
-    boolean qnA = true;
-    boolean qnB = false;
-    boolean qnC = false;
-    boolean qnD = false;
-    boolean qnE = true;
-    boolean qnF = true;
-    boolean qnG = true;
+    static h qpq = new h();
+    static h qpr;
+    static h qps;
+    boolean qph = true;
+    boolean qpi = true;
+    boolean qpj = false;
+    boolean qpk = false;
+    boolean qpl = false;
+    boolean qpm = true;
+    boolean qpn = true;
+    boolean qpo = true;
+    int qpp;
 
     h() {
     }
 
     static {
-        qnI.qnz = true;
-        qnI.qnA = false;
-        qnI.qnB = false;
-        qnI.qnC = false;
-        qnI.qnD = true;
-        qnI.qnE = false;
-        qnI.qnF = false;
-        qnI.qnH = 0;
-        qnJ = new h();
-        qnJ.qnz = true;
-        qnJ.qnA = true;
-        qnJ.qnB = false;
-        qnJ.qnC = false;
-        qnJ.qnD = false;
-        qnI.qnH = 1;
-        qnK = new h();
-        qnK.qnz = false;
-        qnK.qnA = true;
-        qnK.qnB = false;
-        qnK.qnC = true;
-        qnK.qnD = false;
-        qnK.qnG = false;
-        qnK.qnH = 2;
+        qpq.qph = true;
+        qpq.qpi = false;
+        qpq.qpj = false;
+        qpq.qpk = false;
+        qpq.qpl = true;
+        qpq.qpm = false;
+        qpq.qpn = false;
+        qpq.qpp = 0;
+        qpr = new h();
+        qpr.qph = true;
+        qpr.qpi = true;
+        qpr.qpj = false;
+        qpr.qpk = false;
+        qpr.qpl = false;
+        qpq.qpp = 1;
+        qps = new h();
+        qps.qph = false;
+        qps.qpi = true;
+        qps.qpj = false;
+        qps.qpk = true;
+        qps.qpl = false;
+        qps.qpo = false;
+        qps.qpp = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String acp(String str) {
+    public String acq(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String Tx(int i) {
-        if (this.qnC) {
+    public String TN(int i) {
+        if (this.qpk) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
         return "";
     }
 
-    String acq(String str) {
+    String acr(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -73,18 +73,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return acq(str).replace('$', '.');
+            return acr(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
     public String H(Class cls) {
-        return b(cls, cls.getName(), this.qnz);
+        return b(cls, cls.getName(), this.qph);
     }
 
     public String l(Class cls, String str) {
-        return b(cls, str, this.qnD);
+        return b(cls, str, this.qpl);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.qnA) {
+            if (!this.qpi) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.qnB && clsArr != null && clsArr.length != 0) {
+        if (this.qpj && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

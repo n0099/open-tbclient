@@ -105,7 +105,7 @@ public abstract class a extends aa {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 public void call(final rx.j<? super com.baidu.swan.bdprivate.extensions.g.b.b> jVar) {
-                    com.baidu.swan.apps.t.a.aAJ().a(BDLocation.BDLOCATION_GCJ02_TO_BD09, true, false, new d.a() { // from class: com.baidu.swan.bdprivate.extensions.g.a.a.3.1
+                    com.baidu.swan.apps.t.a.aAK().a(BDLocation.BDLOCATION_GCJ02_TO_BD09, true, false, new d.a() { // from class: com.baidu.swan.bdprivate.extensions.g.a.a.3.1
                         @Override // com.baidu.swan.apps.t.b.d.a
                         public void a(com.baidu.swan.apps.scheme.actions.f.b bVar) {
                             com.baidu.swan.bdprivate.extensions.g.b.b bVar2 = new com.baidu.swan.bdprivate.extensions.g.b.b();

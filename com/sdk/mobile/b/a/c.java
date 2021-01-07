@@ -7,20 +7,20 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 public final class c implements com.sdk.base.framework.b.a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ String f13176a;
+    private /* synthetic */ String f13177a;
 
     /* renamed from: b  reason: collision with root package name */
-    private /* synthetic */ a f13177b;
+    private /* synthetic */ a f13178b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, String str) {
-        this.f13177b = aVar;
-        this.f13176a = str;
+        this.f13178b = aVar;
+        this.f13177a = str;
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i, int i2, String str) {
-        this.f13177b.a(i, i2, str);
+        this.f13178b.a(i, i2, str);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r10v0, resolved type: T */
@@ -29,16 +29,16 @@ public final class c implements com.sdk.base.framework.b.a<T> {
     public final void a(int i, String str, int i2, T t, String str2) {
         String str3;
         Context context;
-        if (i == 0 && com.sdk.base.framework.a.a.c.a(this.f13176a).booleanValue()) {
-            context = this.f13177b.d;
+        if (i == 0 && com.sdk.base.framework.a.a.c.a(this.f13177a).booleanValue()) {
+            context = this.f13178b.d;
             str3 = com.sdk.base.framework.f.l.a.a(context, String.valueOf(t));
             if (str3 == null) {
-                this.f13177b.a(1, "SDK解密异常", CmdConfigSocket.CMD_PB_PAGE, str3, str2);
+                this.f13178b.a(1, "SDK解密异常", CmdConfigSocket.CMD_PB_PAGE, str3, str2);
                 return;
             }
         } else {
             str3 = t;
         }
-        this.f13177b.a(i, str, i2, str3, str2);
+        this.f13178b.a(i, str, i2, str3, str2);
     }
 }

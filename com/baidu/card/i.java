@@ -83,16 +83,16 @@ public class i extends a<com.baidu.tbadk.core.data.a> {
             this.mLastScreenWidth = equipmentWidth;
         }
         this.ahi = aVar;
-        if (this.ahi != null && this.ahi.boO() != null && this.ahi.boO().brH() != null) {
-            this.ahD.setData(aVar.boO());
+        if (this.ahi != null && this.ahi.boP() != null && this.ahi.boP().brI() != null) {
+            this.ahD.setData(aVar.boP());
             final ViewGroup.LayoutParams layoutParams = this.ahC.getLayoutParams();
             int i = layoutParams.width;
             int i2 = layoutParams.height;
-            if (this.ahi.boO().brH().is_vertical.intValue() == 1) {
+            if (this.ahi.boP().brI().is_vertical.intValue() == 1) {
                 int i3 = (ahA / 9) * 16;
                 int i4 = ahB;
-                int intValue = this.ahi.boO().brH().video_width.intValue();
-                int intValue2 = this.ahi.boO().brH().video_height.intValue();
+                int intValue = this.ahi.boP().brI().video_width.intValue();
+                int intValue2 = this.ahi.boP().brI().video_height.intValue();
                 layoutParams.width = ahA;
                 boolean z4 = i != layoutParams.width;
                 if (intValue == 0 || intValue2 == 0) {
@@ -122,7 +122,7 @@ public class i extends a<com.baidu.tbadk.core.data.a> {
                 z = (i2 == layoutParams.height && i == layoutParams.width) ? false : true;
             }
             if (z) {
-                if (this.ahi.boO().brH().is_vertical.intValue() == 1) {
+                if (this.ahi.boP().brI().is_vertical.intValue() == 1) {
                     this.ahC.setLayoutParams(layoutParams);
                 } else {
                     this.ahC.post(new Runnable() { // from class: com.baidu.card.i.1
@@ -135,12 +135,12 @@ public class i extends a<com.baidu.tbadk.core.data.a> {
                     });
                 }
             }
-            if (this.ahi.boO().btp()) {
+            if (this.ahi.boP().btq()) {
                 this.mTitle.setMaxLines(5);
-                ay.a(this.mTitle, this.ahi.boO(), ahz, this.ahF);
+                ay.a(this.mTitle, this.ahi.boP(), ahz, this.ahF);
             } else {
                 this.mTitle.setMaxLines(2);
-                ay.a(this.mTitle, this.ahi.boO(), 0, this.ahF);
+                ay.a(this.mTitle, this.ahi.boP(), 0, this.ahF);
             }
             if (this.mTitle != null && this.mTitle.getVisibility() == 0) {
                 z3 = false;
@@ -151,8 +151,8 @@ public class i extends a<com.baidu.tbadk.core.data.a> {
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.ahi != null && this.ahi.boO() != null) {
-            com.baidu.tieba.card.m.a(this.mTitle, this.ahi.boO().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+        if (this.ahi != null && this.ahi.boP() != null) {
+            com.baidu.tieba.card.m.a(this.mTitle, this.ahi.boP().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             this.ahC.onChangeSkinType(i);
             this.ahC.setBackgroundColor(com.baidu.tbadk.core.util.ao.getColor(R.color.CAM_X0209));
         }

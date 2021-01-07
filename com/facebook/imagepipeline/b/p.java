@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.b;
 
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface p<K, V> {
     @Nullable
     com.facebook.common.references.a<V> a(K k, com.facebook.common.references.a<V> aVar);

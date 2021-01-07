@@ -111,15 +111,15 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean(SharedPrefConfig.SHOW_NEW_ICON_FOR_NEW_FRIEND + TbadkCoreApplication.getCurrentAccount(), true)) {
-            com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(SharedPrefConfig.SHOW_NEW_ICON_FOR_NEW_FRIEND + TbadkCoreApplication.getCurrentAccount(), false);
+        if (com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean(SharedPrefConfig.SHOW_NEW_ICON_FOR_NEW_FRIEND + TbadkCoreApplication.getCurrentAccount(), true)) {
+            com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(SharedPrefConfig.SHOW_NEW_ICON_FOR_NEW_FRIEND + TbadkCoreApplication.getCurrentAccount(), false);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
-        bPf();
+        bPg();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -158,18 +158,18 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
         return this.mParent;
     }
 
-    private void bPe() {
-        this.gks.bPC();
+    private void bPf() {
+        this.gks.bPD();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
         this.gks.a(this);
-        bPe();
+        bPf();
     }
 
-    private void bPf() {
+    private void bPg() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestUnreadPointNum());
     }
 
@@ -212,7 +212,7 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
             this.gkA.completePullRefreshPostDelayed(0L);
         } else if (l.isNetOk()) {
             this.gkx = System.currentTimeMillis();
-            this.gks.bPy();
+            this.gks.bPz();
         } else {
             this.gkA.completePullRefreshPostDelayed(0L);
             showToast(R.string.no_network_guide);
@@ -255,16 +255,16 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
     }
 
     @Override // com.baidu.tieba.addresslist.view.AssortView.a
-    public void FF(String str) {
-        int FS;
-        List<com.baidu.tbadk.coreExtra.relationship.a> bPB = this.gks.bPB();
-        if (bPB != null && bPB.size() != 0 && (FS = this.gks.FS(str)) >= 0) {
-            this.gkA.setSelection(FS + 5);
+    public void FE(String str) {
+        int FR;
+        List<com.baidu.tbadk.coreExtra.relationship.a> bPC = this.gks.bPC();
+        if (bPC != null && bPC.size() != 0 && (FR = this.gks.FR(str)) >= 0) {
+            this.gkA.setSelection(FR + 5);
         }
     }
 
     @Override // com.baidu.tieba.addresslist.view.AssortView.a
-    public void bPg() {
+    public void bPh() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -290,7 +290,7 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
                         List<com.baidu.tbadk.coreExtra.relationship.a> contacts = eVar.getContacts();
                         if (contacts.size() > 0) {
                             com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
-                            aVar.Dd(eVar.getKey());
+                            aVar.Dc(eVar.getKey());
                             arrayList.add(aVar);
                         }
                         for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : contacts) {
@@ -313,7 +313,7 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (!com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), true)) {
+            if (!com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean(SharedPrefConfig.GET_ADDRESSLIST_SWITCH + TbadkCoreApplication.getCurrentAccount(), true)) {
                 AddressListFragment.this.gkA.completePullRefreshPostDelayed(0L);
             }
             if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
@@ -341,7 +341,7 @@ public class AddressListFragment extends BaseFragment implements f.c, a.Interfac
                 if (responseNewFriendUpdateUiMsg.getAction() == 0) {
                     if (!StringUtils.isNull(responseNewFriendUpdateUiMsg.getKey()) && !StringUtils.isNull(responseNewFriendUpdateUiMsg.getName())) {
                         com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
-                        aVar.Dd(responseNewFriendUpdateUiMsg.getKey());
+                        aVar.Dc(responseNewFriendUpdateUiMsg.getKey());
                         aVar.setQuanpin(responseNewFriendUpdateUiMsg.getQuanping());
                         aVar.setUserId(responseNewFriendUpdateUiMsg.getFriendId());
                         aVar.setUserName(responseNewFriendUpdateUiMsg.getName());

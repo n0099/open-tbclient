@@ -38,18 +38,18 @@ public class f extends h<c> {
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aNZ() {
+    protected boolean aOa() {
         JSONObject jSONObject = new JSONObject();
         try {
             boolean isEmpty = TextUtils.isEmpty(this.dMu);
-            jSONObject.put("ma_id", isEmpty ? aOz().id : this.dMu);
+            jSONObject.put("ma_id", isEmpty ? aOA().id : this.dMu);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", isEmpty ? aOz().getAppKey() : this.dMu);
+            jSONObject2.put("app_key", isEmpty ? aOA().getAppKey() : this.dMu);
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            String alK = com.baidu.swan.apps.t.a.aAD().alK();
-            if (!TextUtils.isEmpty(alK)) {
-                jSONObject2.put("host_api_key", alK);
+            String alL = com.baidu.swan.apps.t.a.aAE().alL();
+            if (!TextUtils.isEmpty(alL)) {
+                jSONObject2.put("host_api_key", alL);
             }
             jSONObject.put("open", jSONObject2);
         } catch (JSONException e) {
@@ -61,17 +61,17 @@ public class f extends h<c> {
 
     @Override // com.baidu.swan.apps.setting.oauth.a.h
     protected HttpRequest a(h hVar) {
-        return com.baidu.swan.apps.t.a.aAD().e(this.mActivity, hVar.aOA());
+        return com.baidu.swan.apps.t.a.aAE().e(this.mActivity, hVar.aOB());
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aNY() {
-        a(aOw());
-        return super.aNY();
+    protected boolean aNZ() {
+        a(aOx());
+        return super.aNZ();
     }
 
     @NonNull
-    protected com.baidu.swan.apps.setting.oauth.d aOw() {
+    protected com.baidu.swan.apps.setting.oauth.d aOx() {
         return new a();
     }
 
@@ -110,14 +110,14 @@ public class f extends h<c> {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean aOe() throws Exception {
-            com.baidu.swan.apps.a.b aMx = f.this.aOz().aMx();
-            boolean isLogin = aMx.isLogin(f.this.mActivity);
+        protected boolean aOf() throws Exception {
+            com.baidu.swan.apps.a.b aMy = f.this.aOA().aMy();
+            boolean isLogin = aMy.isLogin(f.this.mActivity);
             if (f.DEBUG) {
                 Log.d("LoginRequest", "LoginPreparation isLogin : " + isLogin + " call stack:" + Log.getStackTraceString(new Exception()));
             }
             if (!isLogin) {
-                aMx.a(f.this.mActivity, f.this.dMI, this);
+                aMy.a(f.this.mActivity, f.this.dMI, this);
             } else if (f.this.dMG != null && f.this.dMG.cHR) {
                 long j = f.this.dMG.cHS;
                 if (f.DEBUG) {
@@ -143,7 +143,7 @@ public class f extends h<c> {
                     return;
                 case 0:
                     com.baidu.swan.apps.setting.oauth.c.c("Login Preparation ok, is already login", false);
-                    aOg();
+                    aOh();
                     return;
             }
         }

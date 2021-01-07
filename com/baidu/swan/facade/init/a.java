@@ -56,7 +56,7 @@ public class a {
         edit.apply();
     }
 
-    public void aTN() {
+    public void aTO() {
         int ey = ey(this.mContext);
         int ex = ex(this.mContext);
         if (DEBUG) {
@@ -75,13 +75,13 @@ public class a {
             x(this.mContext, ey);
             y(this.mContext, ex);
         } else {
-            aTO();
+            aTP();
         }
     }
 
     private void ar(int i, int i2) {
         com.baidu.swan.apps.an.a.ar(i2, i);
-        com.baidu.swan.d.a.bkd();
+        com.baidu.swan.d.a.bke();
     }
 
     private void au(int i, int i2) {
@@ -91,7 +91,7 @@ public class a {
         com.baidu.swan.apps.an.a.ar(0, i);
     }
 
-    private void aTO() {
+    private void aTP() {
         if (DEBUG) {
             Log.d(TAG, "新旧版本一样:" + ex(this.mContext));
         }

@@ -24,7 +24,7 @@ public class g {
         }
     }
 
-    public static g bwQ() {
+    public static g bwR() {
         if (ffn == null) {
             ffn = new g();
         }
@@ -39,7 +39,7 @@ public class g {
         if (this.ffo.size() > 5) {
             this.ffo.poll();
         }
-        if (bwR()) {
+        if (bwS()) {
             int i2 = 0;
             for (a aVar2 : this.ffo) {
                 i2 = j > 0 ? (int) ((aVar2.ffs / aVar2.fft) + i2) : i2;
@@ -48,7 +48,7 @@ public class g {
         }
     }
 
-    public boolean bwR() {
+    public boolean bwS() {
         return this.ffo.size() == 5;
     }
 
@@ -56,7 +56,7 @@ public class g {
         if (!com.baidu.adp.lib.util.j.is4GNet()) {
             return null;
         }
-        if (bwR() && this.ffr < 20.0f) {
+        if (bwS() && this.ffr < 20.0f) {
             if (this.ffp == null) {
                 this.ffp = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
             }

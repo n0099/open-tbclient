@@ -11,14 +11,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.mapapi.common.SysOSUtil;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class ab extends LinearLayout implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f3167a;
+    private ImageView f3168a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f3168b;
+    private ImageView f3169b;
     private Context c;
     private Bitmap d;
     private Bitmap e;
@@ -42,23 +42,23 @@ public class ab extends LinearLayout implements View.OnTouchListener {
         if (this.d == null || this.e == null || this.f == null || this.g == null) {
             return;
         }
-        this.f3167a = new ImageView(this.c);
-        this.f3168b = new ImageView(this.c);
-        this.f3167a.setImageBitmap(this.d);
-        this.f3168b.setImageBitmap(this.f);
+        this.f3168a = new ImageView(this.c);
+        this.f3169b = new ImageView(this.c);
+        this.f3168a.setImageBitmap(this.d);
+        this.f3169b.setImageBitmap(this.f);
         this.l = a(this.f.getHeight() / 6);
-        a(this.f3167a, "main_topbtn_up.9.png");
-        a(this.f3168b, "main_bottombtn_up.9.png");
-        this.f3167a.setId(0);
-        this.f3168b.setId(1);
-        this.f3167a.setClickable(true);
-        this.f3168b.setClickable(true);
-        this.f3167a.setOnTouchListener(this);
-        this.f3168b.setOnTouchListener(this);
+        a(this.f3168a, "main_topbtn_up.9.png");
+        a(this.f3169b, "main_bottombtn_up.9.png");
+        this.f3168a.setId(0);
+        this.f3169b.setId(1);
+        this.f3168a.setClickable(true);
+        this.f3169b.setClickable(true);
+        this.f3168a.setOnTouchListener(this);
+        this.f3169b.setOnTouchListener(this);
         setOrientation(1);
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        addView(this.f3167a);
-        addView(this.f3168b);
+        addView(this.f3168a);
+        addView(this.f3169b);
         this.n = true;
     }
 
@@ -68,17 +68,17 @@ public class ab extends LinearLayout implements View.OnTouchListener {
         this.n = false;
         this.c = context;
         this.m = z;
-        this.f3167a = new ImageView(this.c);
-        this.f3168b = new ImageView(this.c);
+        this.f3168a = new ImageView(this.c);
+        this.f3169b = new ImageView(this.c);
         if (z) {
             d();
             if (this.h == null || this.i == null || this.j == null || this.k == null) {
                 return;
             }
-            this.f3167a.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            this.f3168b.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            this.f3167a.setImageBitmap(this.h);
-            this.f3168b.setImageBitmap(this.j);
+            this.f3168a.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            this.f3169b.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            this.f3168a.setImageBitmap(this.h);
+            this.f3169b.setImageBitmap(this.j);
             setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
             setOrientation(0);
         } else {
@@ -86,22 +86,22 @@ public class ab extends LinearLayout implements View.OnTouchListener {
             if (this.d == null || this.e == null || this.f == null || this.g == null) {
                 return;
             }
-            this.f3167a.setImageBitmap(this.d);
-            this.f3168b.setImageBitmap(this.f);
+            this.f3168a.setImageBitmap(this.d);
+            this.f3169b.setImageBitmap(this.f);
             this.l = a(this.f.getHeight() / 6);
-            a(this.f3167a, "main_topbtn_up.9.png");
-            a(this.f3168b, "main_bottombtn_up.9.png");
+            a(this.f3168a, "main_topbtn_up.9.png");
+            a(this.f3169b, "main_bottombtn_up.9.png");
             setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
             setOrientation(1);
         }
-        this.f3167a.setId(0);
-        this.f3168b.setId(1);
-        this.f3167a.setClickable(true);
-        this.f3168b.setClickable(true);
-        this.f3167a.setOnTouchListener(this);
-        this.f3168b.setOnTouchListener(this);
-        addView(this.f3167a);
-        addView(this.f3168b);
+        this.f3168a.setId(0);
+        this.f3169b.setId(1);
+        this.f3168a.setClickable(true);
+        this.f3169b.setClickable(true);
+        this.f3168a.setOnTouchListener(this);
+        this.f3169b.setOnTouchListener(this);
+        addView(this.f3168a);
+        addView(this.f3169b);
         this.n = true;
     }
 
@@ -149,15 +149,15 @@ public class ab extends LinearLayout implements View.OnTouchListener {
     }
 
     public void a(View.OnClickListener onClickListener) {
-        this.f3167a.setOnClickListener(onClickListener);
+        this.f3168a.setOnClickListener(onClickListener);
     }
 
     public void a(boolean z) {
-        this.f3167a.setEnabled(z);
+        this.f3168a.setEnabled(z);
         if (z) {
-            this.f3167a.setImageBitmap(this.d);
+            this.f3168a.setImageBitmap(this.d);
         } else {
-            this.f3167a.setImageBitmap(this.e);
+            this.f3168a.setImageBitmap(this.e);
         }
     }
 
@@ -202,15 +202,15 @@ public class ab extends LinearLayout implements View.OnTouchListener {
     }
 
     public void b(View.OnClickListener onClickListener) {
-        this.f3168b.setOnClickListener(onClickListener);
+        this.f3169b.setOnClickListener(onClickListener);
     }
 
     public void b(boolean z) {
-        this.f3168b.setEnabled(z);
+        this.f3169b.setEnabled(z);
         if (z) {
-            this.f3168b.setImageBitmap(this.f);
+            this.f3169b.setImageBitmap(this.f);
         } else {
-            this.f3168b.setImageBitmap(this.g);
+            this.f3169b.setImageBitmap(this.g);
         }
     }
 
@@ -221,17 +221,17 @@ public class ab extends LinearLayout implements View.OnTouchListener {
                 case 0:
                     if (motionEvent.getAction() == 0) {
                         if (this.m) {
-                            this.f3167a.setImageBitmap(this.i);
+                            this.f3168a.setImageBitmap(this.i);
                             return false;
                         }
-                        a(this.f3167a, "main_topbtn_down.9.png");
+                        a(this.f3168a, "main_topbtn_down.9.png");
                         return false;
                     } else if (motionEvent.getAction() == 1) {
                         if (this.m) {
-                            this.f3167a.setImageBitmap(this.h);
+                            this.f3168a.setImageBitmap(this.h);
                             return false;
                         }
-                        a(this.f3167a, "main_topbtn_up.9.png");
+                        a(this.f3168a, "main_topbtn_up.9.png");
                         return false;
                     } else {
                         return false;
@@ -239,17 +239,17 @@ public class ab extends LinearLayout implements View.OnTouchListener {
                 case 1:
                     if (motionEvent.getAction() == 0) {
                         if (this.m) {
-                            this.f3168b.setImageBitmap(this.k);
+                            this.f3169b.setImageBitmap(this.k);
                             return false;
                         }
-                        a(this.f3168b, "main_bottombtn_down.9.png");
+                        a(this.f3169b, "main_bottombtn_down.9.png");
                         return false;
                     } else if (motionEvent.getAction() == 1) {
                         if (this.m) {
-                            this.f3168b.setImageBitmap(this.j);
+                            this.f3169b.setImageBitmap(this.j);
                             return false;
                         }
-                        a(this.f3168b, "main_bottombtn_up.9.png");
+                        a(this.f3169b, "main_bottombtn_up.9.png");
                         return false;
                     } else {
                         return false;

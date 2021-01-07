@@ -35,11 +35,11 @@ public class f<T> implements Runnable {
         return (fVar == null || fVar.exj == null || fVar.exj.exi == null || this.exj == null || this.exj.exi == null || !this.exj.exi.equals(fVar.exj.exi)) ? false : true;
     }
 
-    public com.baidu.swan.pms.a.c<T> bgD() {
+    public com.baidu.swan.pms.a.c<T> bgE() {
         return this.exm;
     }
 
-    public T bgE() {
+    public T bgF() {
         return this.exk;
     }
 
@@ -47,26 +47,26 @@ public class f<T> implements Runnable {
         return this.exj.exi.state;
     }
 
-    public void bgF() {
+    public void bgG() {
         ny(1);
         this.exm.S(this.exk);
     }
 
-    public void bgG() {
+    public void bgH() {
         this.exm.R(this.exk);
     }
 
-    public void bgH() {
+    public void bgI() {
         ny(2);
         this.exm.ak(this.exk);
     }
 
-    public void axx() {
+    public void axy() {
         ny(10);
         this.exm.Q(this.exk);
     }
 
-    public void bgI() {
+    public void bgJ() {
         ny(3);
         this.exm.a((c<T>) this.exk, this.exj.exh);
     }
@@ -87,37 +87,37 @@ public class f<T> implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         if (com.baidu.swan.pms.d.DEBUG) {
-            Log.d("ThunderInfoTask", com.baidu.swan.pms.d.bfV().getProcessName() + ": run:" + this.exj.exi.downloadUrl);
+            Log.d("ThunderInfoTask", com.baidu.swan.pms.d.bfW().getProcessName() + ": run:" + this.exj.exi.downloadUrl);
         }
         j jVar = new j(this);
         while (true) {
             if (this.exj.exh == null || this.exj.exh.errorNo != 2200) {
                 if (this.exl.get()) {
                     if (com.baidu.swan.pms.d.DEBUG) {
-                        Log.d("ThunderInfoTask", com.baidu.swan.pms.d.bfV().getProcessName() + ": stopped:" + this.exj.exi.downloadUrl);
+                        Log.d("ThunderInfoTask", com.baidu.swan.pms.d.bfW().getProcessName() + ": stopped:" + this.exj.exi.downloadUrl);
                     }
-                    bgH();
+                    bgI();
                     return;
                 }
-                jVar.bgP();
+                jVar.bgQ();
                 if (this.exj.exh != null) {
                     switch (this.exj.exh.errorNo) {
                         case 2200:
                             if (com.baidu.swan.pms.d.DEBUG) {
-                                Log.d("ThunderInfoTask", com.baidu.swan.pms.d.bfV().getProcessName() + ": success download:" + this.exj.exi.downloadUrl);
+                                Log.d("ThunderInfoTask", com.baidu.swan.pms.d.bfW().getProcessName() + ": success download:" + this.exj.exi.downloadUrl);
                             }
-                            axx();
+                            axy();
                             return;
                         default:
                             if (this.exl.get()) {
                                 if (com.baidu.swan.pms.d.DEBUG) {
-                                    Log.d("ThunderInfoTask", com.baidu.swan.pms.d.bfV().getProcessName() + ": stopped:" + this.exj.exi.downloadUrl);
+                                    Log.d("ThunderInfoTask", com.baidu.swan.pms.d.bfW().getProcessName() + ": stopped:" + this.exj.exi.downloadUrl);
                                 }
-                                bgH();
+                                bgI();
                                 return;
                             }
                             if (com.baidu.swan.pms.d.DEBUG) {
-                                Log.d("ThunderInfoTask", com.baidu.swan.pms.d.bfV().getProcessName() + ": retry download:" + this.exj.exi.downloadUrl);
+                                Log.d("ThunderInfoTask", com.baidu.swan.pms.d.bfW().getProcessName() + ": retry download:" + this.exj.exi.downloadUrl);
                             }
                             this.exm.mRetryCount++;
                             if (this.exm.mRetryCount < 3) {
@@ -132,7 +132,7 @@ public class f<T> implements Runnable {
                                     break;
                                 }
                             } else {
-                                bgI();
+                                bgJ();
                                 a(this.exj.exh.errorNo, this.exj.exi);
                                 return;
                             }
@@ -145,7 +145,7 @@ public class f<T> implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean bgJ() {
+    public boolean bgK() {
         if (TextUtils.isEmpty(this.exj.exi.filePath)) {
             this.cld = com.baidu.swan.pms.utils.d.dz(this.exm.U(this.exk), this.exj.exi.md5);
             if (this.cld == null) {
@@ -172,7 +172,7 @@ public class f<T> implements Runnable {
                 }
             } catch (Throwable th) {
                 if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.d("ThunderInfoTask", com.baidu.swan.pms.d.bfV().getProcessName() + ": path exception or no space left." + th.toString());
+                    Log.d("ThunderInfoTask", com.baidu.swan.pms.d.bfW().getProcessName() + ": path exception or no space left." + th.toString());
                 }
             }
         }
@@ -213,29 +213,29 @@ public class f<T> implements Runnable {
         return Objects.hash(this.exj.exi);
     }
 
-    public int bgK() {
-        return new com.baidu.swan.pms.c.a.b.a().C(this.exm.bfX()).intValue();
+    public int bgL() {
+        return new com.baidu.swan.pms.c.a.b.a().C(this.exm.bfY()).intValue();
     }
 
     public String toString() {
         return "downloadUrl:" + this.exj.exi.downloadUrl + ",versionName:" + this.exj.exi.versionName + ",versionCode:" + this.exj.exi.versionCode + "md5:" + this.exj.exi.md5 + "bundleId:" + this.exj.exi.ewI;
     }
 
-    public void bgL() {
+    public void bgM() {
         if (com.baidu.swan.pms.d.DEBUG) {
-            Log.d("ThunderInfoTask", com.baidu.swan.pms.d.bfV().getProcessName() + ": onNotifyPending" + this);
+            Log.d("ThunderInfoTask", com.baidu.swan.pms.d.bfW().getProcessName() + ": onNotifyPending" + this);
         }
         this.exn = true;
         iG(true);
     }
 
-    public boolean bgM() {
+    public boolean bgN() {
         return this.exn;
     }
 
     public void iH(boolean z) {
         if (com.baidu.swan.pms.d.DEBUG) {
-            Log.d("ThunderInfoTask", com.baidu.swan.pms.d.bfV().getProcessName() + ": onResetPending" + this);
+            Log.d("ThunderInfoTask", com.baidu.swan.pms.d.bfW().getProcessName() + ": onResetPending" + this);
         }
         if (z) {
             this.exj.exi.currentSize = 0L;

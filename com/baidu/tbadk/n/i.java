@@ -6,13 +6,13 @@ public class i extends j {
     public static int fMc = 100;
     public static int fMd = 10;
 
-    public static void bHD() {
-        if (k.bHF().isSmallFlow()) {
+    public static void bHE() {
+        if (k.bHG().isSmallFlow()) {
             if (b.fMh > fMd) {
-                b.bHB();
+                b.bHC();
             }
             if (a.fMe > fMd) {
-                a.bHB();
+                a.bHC();
             }
         }
     }
@@ -25,12 +25,12 @@ public class i extends j {
             a.fMg++;
         }
         if (a.fMe > fMc) {
-            a.bHB();
+            a.bHC();
         }
     }
 
     public void c(f fVar) {
-        if (k.bHF().isSmallFlow()) {
+        if (k.bHG().isSmallFlow()) {
             if (b.fMh < fMc) {
                 b.fMi += fVar.LQ;
                 b.fMj += fVar.fLA;
@@ -41,7 +41,7 @@ public class i extends j {
                 b.fMh++;
                 return;
             }
-            b.bHB();
+            b.bHC();
         }
     }
 
@@ -52,7 +52,7 @@ public class i extends j {
         public static int fMf;
         public static int fMg;
 
-        public static void bHB() {
+        public static void bHC() {
             com.baidu.adp.lib.stats.a pi = j.pi();
             pi.append("action", "imbusy");
             pi.append("totalNum", String.valueOf(fMe));
@@ -80,7 +80,7 @@ public class i extends j {
         public static int fMm;
         public static long fMn;
 
-        public static void bHB() {
+        public static void bHC() {
             com.baidu.adp.lib.stats.a pi = j.pi();
             pi.append("action", "imcost");
             pi.append("dect", String.valueOf(fMi));
@@ -91,10 +91,10 @@ public class i extends j {
             pi.append("cpu", String.valueOf(fMm));
             pi.append("totalNum", String.valueOf(fMh));
             BdStatisticsManager.getInstance().performance("im", pi);
-            bHE();
+            bHF();
         }
 
-        public static void bHE() {
+        public static void bHF() {
             fMh = 0;
             fMi = 0L;
             fMj = 0L;

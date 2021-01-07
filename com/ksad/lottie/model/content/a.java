@@ -6,16 +6,16 @@ import com.ksad.lottie.model.a.m;
 public class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8364a;
+    private final String f8365a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final m<PointF, PointF> f8365b;
+    private final m<PointF, PointF> f8366b;
     private final com.ksad.lottie.model.a.f c;
     private final boolean d;
 
     public a(String str, m<PointF, PointF> mVar, com.ksad.lottie.model.a.f fVar, boolean z) {
-        this.f8364a = str;
-        this.f8365b = mVar;
+        this.f8365a = str;
+        this.f8366b = mVar;
         this.c = fVar;
         this.d = z;
     }
@@ -26,11 +26,11 @@ public class a implements b {
     }
 
     public String a() {
-        return this.f8364a;
+        return this.f8365a;
     }
 
     public m<PointF, PointF> b() {
-        return this.f8365b;
+        return this.f8366b;
     }
 
     public com.ksad.lottie.model.a.f c() {

@@ -10,17 +10,17 @@ public interface a extends IInterface {
 
     /* renamed from: com.kwai.filedownloader.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static abstract class AbstractBinderC1128a extends Binder implements a {
+    public static abstract class AbstractBinderC1169a extends Binder implements a {
 
         /* renamed from: com.kwai.filedownloader.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        private static class C1129a implements a {
+        private static class C1170a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f11180a;
+            private IBinder f11181a;
 
-            C1129a(IBinder iBinder) {
-                this.f11180a = iBinder;
+            C1170a(IBinder iBinder) {
+                this.f11181a = iBinder;
             }
 
             @Override // com.kwai.filedownloader.c.a
@@ -34,7 +34,7 @@ public interface a extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f11180a.transact(1, obtain, null, 1);
+                    this.f11181a.transact(1, obtain, null, 1);
                 } finally {
                     obtain.recycle();
                 }
@@ -42,11 +42,11 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f11180a;
+                return this.f11181a;
             }
         }
 
-        public AbstractBinderC1128a() {
+        public AbstractBinderC1169a() {
             attachInterface(this, "com.kwai.filedownloader.i.IFileDownloadIPCCallback");
         }
 
@@ -55,7 +55,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.kwai.filedownloader.i.IFileDownloadIPCCallback");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1129a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1170a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.IInterface

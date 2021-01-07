@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static final a bkp() {
+    public static final a bkq() {
         return C0570a.eEu;
     }
 
@@ -48,7 +48,7 @@ public class a {
             if (bVar != null) {
                 SQLiteDatabase openedDatabase = TiebaDatabase.getInstance().getMainDBDatabaseManager().getOpenedDatabase();
                 openedDatabase.beginTransaction();
-                int delete = openedDatabase.delete("activity_mission_info", "activityid = ? and missionid = ?", new String[]{String.valueOf(bVar.getActivityId()), String.valueOf(bVar.bkD())});
+                int delete = openedDatabase.delete("activity_mission_info", "activityid = ? and missionid = ?", new String[]{String.valueOf(bVar.getActivityId()), String.valueOf(bVar.bkE())});
                 openedDatabase.setTransactionSuccessful();
                 openedDatabase.endTransaction();
                 z = delete >= 0;
@@ -57,7 +57,7 @@ public class a {
         return z;
     }
 
-    public synchronized List<b> bkq() {
+    public synchronized List<b> bkr() {
         LinkedList linkedList;
         SQLiteDatabase openedDatabase = TiebaDatabase.getInstance().getMainDBDatabaseManager().getOpenedDatabase();
         openedDatabase.beginTransaction();
@@ -110,26 +110,26 @@ public class a {
         }
         ContentValues contentValues = new ContentValues();
         contentValues.put("activityid", Integer.valueOf(bVar.getActivityId()));
-        contentValues.put("missionid", Integer.valueOf(bVar.bkD()));
-        contentValues.put("activitysource", bVar.bkE());
-        contentValues.put("calltype", Integer.valueOf(bVar.bkG()));
+        contentValues.put("missionid", Integer.valueOf(bVar.bkE()));
+        contentValues.put("activitysource", bVar.bkF());
+        contentValues.put("calltype", Integer.valueOf(bVar.bkH()));
         contentValues.put(DownloadDataConstants.Columns.COLUMN_TASK_TYPE, Integer.valueOf(bVar.getTaskType()));
-        contentValues.put("browsetimepage", bVar.bkH());
-        contentValues.put("browsetime", Long.valueOf(bVar.bkJ()));
+        contentValues.put("browsetimepage", bVar.bkI());
+        contentValues.put("browsetime", Long.valueOf(bVar.bkK()));
         contentValues.put("threadnum", Integer.valueOf(bVar.getThreadNum()));
-        contentValues.put("forumnum", Integer.valueOf(bVar.bkK()));
-        contentValues.put("cleartype", Integer.valueOf(bVar.bkL()));
-        contentValues.put("cleartime", Long.valueOf(bVar.bkM()));
-        contentValues.put("specificcleartime", Long.valueOf(bVar.bkN()));
+        contentValues.put("forumnum", Integer.valueOf(bVar.bkL()));
+        contentValues.put("cleartype", Integer.valueOf(bVar.bkM()));
+        contentValues.put("cleartime", Long.valueOf(bVar.bkN()));
+        contentValues.put("specificcleartime", Long.valueOf(bVar.bkO()));
         contentValues.put("tid", Long.valueOf(bVar.getTid()));
         contentValues.put("fid", Long.valueOf(bVar.getFid()));
-        contentValues.put("threadtext", bVar.bkO());
-        contentValues.put("threadimg", bVar.bkP());
-        contentValues.put("threadforum", Long.valueOf(bVar.bkQ()));
-        contentValues.put("totalLimit", Integer.valueOf(bVar.bkR()));
+        contentValues.put("threadtext", bVar.bkP());
+        contentValues.put("threadimg", bVar.bkQ());
+        contentValues.put("threadforum", Long.valueOf(bVar.bkR()));
+        contentValues.put("totalLimit", Integer.valueOf(bVar.bkS()));
         contentValues.put("completedLimitCount", Integer.valueOf(bVar.getTag()));
         contentValues.put("token", bVar.getToken());
-        contentValues.put("executingMissionList", bVar.bkv());
+        contentValues.put("executingMissionList", bVar.bkw());
         return contentValues;
     }
 
@@ -144,7 +144,7 @@ public class a {
 
     private long b(SQLiteDatabase sQLiteDatabase, b bVar) {
         try {
-            return sQLiteDatabase.update("activity_mission_info", d(bVar), "activityid = ? and missionid = ?", new String[]{String.valueOf(bVar.getActivityId()), String.valueOf(bVar.bkD())});
+            return sQLiteDatabase.update("activity_mission_info", d(bVar), "activityid = ? and missionid = ?", new String[]{String.valueOf(bVar.getActivityId()), String.valueOf(bVar.bkE())});
         } catch (Throwable th) {
             th.printStackTrace();
             return -1L;

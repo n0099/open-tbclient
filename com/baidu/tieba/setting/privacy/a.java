@@ -19,34 +19,34 @@ import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
 /* loaded from: classes8.dex */
 public class a extends d<PrivacyMarkActivity> {
     private NavigationBar glZ;
-    private BdSwitchView.a ndU;
-    private f<?> nec;
+    private BdSwitchView.a ndT;
+    private f<?> neb;
+    private TextView nec;
     private TextView ned;
-    private TextView nee;
-    private BdSwitchView nef;
+    private BdSwitchView nee;
+    private TextView nef;
     private TextView neg;
-    private TextView neh;
-    private BdSwitchView nei;
+    private BdSwitchView neh;
+    private boolean nei;
     private boolean nej;
-    private boolean nek;
     private View rootView;
 
     public a(f<PrivacyMarkActivity> fVar, int i) {
         super(fVar);
-        this.ndU = new BdSwitchView.a() { // from class: com.baidu.tieba.setting.privacy.a.1
+        this.ndT = new BdSwitchView.a() { // from class: com.baidu.tieba.setting.privacy.a.1
             @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
             public void a(View view, BdSwitchView.SwitchState switchState) {
-                if (view == a.this.nef) {
-                    a.this.nek = switchState == BdSwitchView.SwitchState.ON;
-                    a.this.nec.sendMessage(new PrivacySettingMessage(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE, switchState == BdSwitchView.SwitchState.ON ? 1 : 3));
-                } else if (view == a.this.nei) {
+                if (view == a.this.nee) {
                     a.this.nej = switchState == BdSwitchView.SwitchState.ON;
-                    a.this.nec.sendMessage(new PrivacySettingMessage(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE, switchState == BdSwitchView.SwitchState.ON ? 1 : 3));
+                    a.this.neb.sendMessage(new PrivacySettingMessage(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE, switchState == BdSwitchView.SwitchState.ON ? 1 : 3));
+                } else if (view == a.this.neh) {
+                    a.this.nei = switchState == BdSwitchView.SwitchState.ON;
+                    a.this.neb.sendMessage(new PrivacySettingMessage(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE, switchState == BdSwitchView.SwitchState.ON ? 1 : 3));
                 }
-                TiebaStatic.log(new aq("c14003").dX("uid", TbadkCoreApplication.getCurrentAccount()).an("obj_type", view != a.this.nef ? 2 : 1));
+                TiebaStatic.log(new aq("c14003").dX("uid", TbadkCoreApplication.getCurrentAccount()).an("obj_type", view != a.this.nee ? 2 : 1));
             }
         };
-        this.nec = fVar;
+        this.neb = fVar;
         P(fVar.getPageActivity(), i);
         onChangeSkinType();
     }
@@ -57,61 +57,61 @@ public class a extends d<PrivacyMarkActivity> {
         this.glZ.setCenterTextTitle(context.getString(R.string.privacy_mark_setting));
         this.glZ.showBottomLine();
         this.glZ.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.ned = (TextView) this.rootView.findViewById(R.id.inside_text);
-        this.nee = (TextView) this.rootView.findViewById(R.id.inside_desc);
-        this.nef = (BdSwitchView) this.rootView.findViewById(R.id.inside_switch);
-        this.neg = (TextView) this.rootView.findViewById(R.id.outside_text);
-        this.neh = (TextView) this.rootView.findViewById(R.id.outside_desc);
-        this.nei = (BdSwitchView) this.rootView.findViewById(R.id.outside_switch);
-        this.ned.setText(R.string.mark_show_inside);
-        this.nee.setText(R.string.mark_show_everywhere);
-        this.neg.setText(R.string.mark_show_outside);
-        this.neh.setText(R.string.mark_show_somewhere);
+        this.nec = (TextView) this.rootView.findViewById(R.id.inside_text);
+        this.ned = (TextView) this.rootView.findViewById(R.id.inside_desc);
+        this.nee = (BdSwitchView) this.rootView.findViewById(R.id.inside_switch);
+        this.nef = (TextView) this.rootView.findViewById(R.id.outside_text);
+        this.neg = (TextView) this.rootView.findViewById(R.id.outside_desc);
+        this.neh = (BdSwitchView) this.rootView.findViewById(R.id.outside_switch);
+        this.nec.setText(R.string.mark_show_inside);
+        this.ned.setText(R.string.mark_show_everywhere);
+        this.nef.setText(R.string.mark_show_outside);
+        this.neg.setText(R.string.mark_show_somewhere);
         int i2 = i & 3;
         int i3 = (i >> 2) & 3;
         if (i2 == 3) {
-            this.nei.turnOffNoCallback();
+            this.neh.turnOffNoCallback();
         } else {
-            this.nei.turnOnNoCallback();
+            this.neh.turnOnNoCallback();
         }
         if (i3 == 3) {
-            this.nef.turnOffNoCallback();
+            this.nee.turnOffNoCallback();
         } else {
-            this.nef.turnOnNoCallback();
+            this.nee.turnOnNoCallback();
         }
-        this.nej = i2 != 3;
-        this.nek = i3 != 3;
-        this.nef.setOnSwitchStateChangeListener(this.ndU);
-        this.nei.setOnSwitchStateChangeListener(this.ndU);
+        this.nei = i2 != 3;
+        this.nej = i3 != 3;
+        this.nee.setOnSwitchStateChangeListener(this.ndT);
+        this.neh.setOnSwitchStateChangeListener(this.ndT);
     }
 
     public void onChangeSkinType() {
-        ao.setViewTextColor(this.ned, R.color.CAM_X0105);
-        ao.setViewTextColor(this.nee, R.color.CAM_X0109);
-        ao.setViewTextColor(this.neg, R.color.CAM_X0105);
-        ao.setViewTextColor(this.neh, R.color.CAM_X0109);
-        this.glZ.onChangeSkinType(this.nec, TbadkCoreApplication.getInst().getSkinType());
+        ao.setViewTextColor(this.nec, R.color.CAM_X0105);
+        ao.setViewTextColor(this.ned, R.color.CAM_X0109);
+        ao.setViewTextColor(this.nef, R.color.CAM_X0105);
+        ao.setViewTextColor(this.neg, R.color.CAM_X0109);
+        this.glZ.onChangeSkinType(this.neb, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public View getView() {
         return this.rootView;
     }
 
-    public void dKw() {
-        this.nek = !this.nek;
-        if (this.nek) {
-            this.nef.turnOnNoCallback();
-        } else {
-            this.nef.turnOffNoCallback();
-        }
-    }
-
     public void dKx() {
         this.nej = !this.nej;
         if (this.nej) {
-            this.nei.turnOnNoCallback();
+            this.nee.turnOnNoCallback();
         } else {
-            this.nei.turnOffNoCallback();
+            this.nee.turnOffNoCallback();
+        }
+    }
+
+    public void dKy() {
+        this.nei = !this.nei;
+        if (this.nei) {
+            this.neh.turnOnNoCallback();
+        } else {
+            this.neh.turnOffNoCallback();
         }
     }
 }

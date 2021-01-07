@@ -60,7 +60,7 @@ public class OpenLocationMenuItem {
         this.esb = aVar;
     }
 
-    public MenuItemType bey() {
+    public MenuItemType bez() {
         return this.esa;
     }
 
@@ -72,7 +72,7 @@ public class OpenLocationMenuItem {
         this.mTitle = str;
     }
 
-    public TextView bez() {
+    public TextView beA() {
         return this.esc;
     }
 }

@@ -8,7 +8,7 @@ import com.xiaomi.push.ba;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f14133a = -1;
+    private static int f14134a = -1;
 
     public static ah a(Context context) {
         try {
@@ -33,25 +33,25 @@ public class m {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m137a(Context context) {
+    public static boolean m148a(Context context) {
         Object a2 = ba.a(ba.a("com.google.android.gms.common.GoogleApiAvailability", "getInstance", new Object[0]), "isGooglePlayServicesAvailable", context);
         Object a3 = ba.a("com.google.android.gms.common.ConnectionResult", "SUCCESS");
         if (a3 == null || !(a3 instanceof Integer)) {
             com.xiaomi.channel.commonutils.logger.b.c("google service is not avaliable");
-            f14133a = 0;
+            f14134a = 0;
             return false;
         }
         int intValue = ((Integer) Integer.class.cast(a3)).intValue();
         if (a2 != null) {
             if (a2 instanceof Integer) {
-                f14133a = ((Integer) Integer.class.cast(a2)).intValue() == intValue ? 1 : 0;
+                f14134a = ((Integer) Integer.class.cast(a2)).intValue() == intValue ? 1 : 0;
             } else {
-                f14133a = 0;
+                f14134a = 0;
                 com.xiaomi.channel.commonutils.logger.b.c("google service is not avaliable");
             }
         }
-        com.xiaomi.channel.commonutils.logger.b.c("is google service can be used" + (f14133a > 0));
-        return f14133a > 0;
+        com.xiaomi.channel.commonutils.logger.b.c("is google service can be used" + (f14134a > 0));
+        return f14134a > 0;
     }
 
     public static boolean b(Context context) {

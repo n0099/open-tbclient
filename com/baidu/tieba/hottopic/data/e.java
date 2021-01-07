@@ -73,7 +73,7 @@ public class e {
                         kVar = kVar3;
                     }
                     if (kVar != null && kVar.isValid()) {
-                        kVar.Jr("c10814");
+                        kVar.Jq("c10814");
                         this.kqQ.add(kVar);
                     }
                 }
@@ -89,18 +89,18 @@ public class e {
                     this.kqH.title = dataRes.relate_forum_title;
                 }
                 this.kqH.eRL = R.color.CAM_X0108;
-                ArrayList<bl> bqw = this.kqH.bqw();
+                ArrayList<bl> bqx = this.kqH.bqx();
                 for (RelateForum relateForum : dataRes.relate_forum) {
                     if (!StringUtils.isNull(relateForum.forum_name)) {
                         bl blVar = new bl();
                         blVar.dE(relateForum.forum_id.intValue());
-                        blVar.AW(relateForum.forum_name);
-                        blVar.AV(relateForum.avatar);
-                        blVar.AX(relateForum.desc);
+                        blVar.AV(relateForum.forum_name);
+                        blVar.AU(relateForum.avatar);
+                        blVar.AW(relateForum.desc);
                         blVar.oJ(relateForum.thread_num.intValue());
                         blVar.oI(relateForum.member_num.intValue());
                         blVar.setLike(relateForum.is_liked.intValue() != 0);
-                        bqw.add(blVar);
+                        bqx.add(blVar);
                     }
                 }
             }
@@ -132,7 +132,7 @@ public class e {
                 if (dataRes.hot_thread.page != null) {
                     this.pageData = new ax();
                     this.pageData.a(dataRes.hot_thread.page);
-                    this.kqT = this.pageData.bqf() != 0;
+                    this.kqT = this.pageData.bqg() != 0;
                 }
                 this.kqS = dataRes.is_global_block.intValue();
             }
@@ -166,7 +166,7 @@ public class e {
                     }
                 }
             }
-            cVi();
+            cVj();
         }
     }
 
@@ -187,39 +187,39 @@ public class e {
         }
     }
 
-    public f cUZ() {
+    public f cVa() {
         return this.kqF;
     }
 
-    public i cVa() {
+    public i cVb() {
         return this.kqJ;
     }
 
-    public a cVb() {
+    public a cVc() {
         return this.kqK;
     }
 
-    public a cVc() {
+    public a cVd() {
         return this.kqL;
     }
 
-    public a cVd() {
+    public a cVe() {
         return this.kqM;
     }
 
-    public n cVe() {
+    public n cVf() {
         return this.kqG;
     }
 
-    public bm cVf() {
+    public bm cVg() {
         return this.kqH;
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.n> cVg() {
+    public ArrayList<com.baidu.adp.widget.ListView.n> cVh() {
         return this.kqE;
     }
 
-    public List<com.baidu.adp.widget.ListView.n> cVh() {
+    public List<com.baidu.adp.widget.ListView.n> cVi() {
         return this.kqR;
     }
 
@@ -231,11 +231,11 @@ public class e {
         this.pageData = axVar;
     }
 
-    public boolean czK() {
+    public boolean czL() {
         return this.iNJ;
     }
 
-    private ArrayList<com.baidu.adp.widget.ListView.n> cVi() {
+    private ArrayList<com.baidu.adp.widget.ListView.n> cVj() {
         if (this.kqJ != null) {
             this.kqE.add(this.kqJ);
         }
@@ -263,7 +263,7 @@ public class e {
         return this.kqE;
     }
 
-    public int cVj() {
+    public int cVk() {
         return this.kqS;
     }
 }

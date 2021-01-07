@@ -9,15 +9,15 @@ import java.util.Map;
 public class g<T, Y> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<T, Y> f10323a = new LinkedHashMap(100, 0.75f, true);
+    private final Map<T, Y> f10324a = new LinkedHashMap(100, 0.75f, true);
 
     /* renamed from: b  reason: collision with root package name */
-    private final long f10324b;
+    private final long f10325b;
     private long c;
     private long d;
 
     public g(long j) {
-        this.f10324b = j;
+        this.f10325b = j;
         this.c = j;
     }
 
@@ -37,7 +37,7 @@ public class g<T, Y> {
     /* JADX INFO: Access modifiers changed from: protected */
     public synchronized void a(long j) {
         while (this.d > j) {
-            Iterator<Map.Entry<T, Y>> it = this.f10323a.entrySet().iterator();
+            Iterator<Map.Entry<T, Y>> it = this.f10324a.entrySet().iterator();
             Map.Entry<T, Y> next = it.next();
             Y value = next.getValue();
             this.d -= a((g<T, Y>) value);
@@ -56,7 +56,7 @@ public class g<T, Y> {
 
     @Nullable
     public synchronized Y b(@NonNull T t) {
-        return this.f10323a.get(t);
+        return this.f10324a.get(t);
     }
 
     @Nullable
@@ -70,7 +70,7 @@ public class g<T, Y> {
             if (y != null) {
                 this.d = a2 + this.d;
             }
-            put = this.f10323a.put(t, y);
+            put = this.f10324a.put(t, y);
             if (put != null) {
                 this.d -= a((g<T, Y>) put);
                 if (!put.equals(y)) {
@@ -85,7 +85,7 @@ public class g<T, Y> {
     @Nullable
     public synchronized Y c(@NonNull T t) {
         Y remove;
-        remove = this.f10323a.remove(t);
+        remove = this.f10324a.remove(t);
         if (remove != null) {
             this.d -= a((g<T, Y>) remove);
         }

@@ -16,9 +16,9 @@ public class ChooseColorView extends View {
     private float mBorderWidth;
     private Paint mPaint;
     private int mRadius;
-    private int mmA;
-    private boolean mmB;
-    private Bitmap mmC;
+    private boolean mmA;
+    private Bitmap mmB;
+    private int mmz;
 
     public ChooseColorView(Context context) {
         this(context, null);
@@ -30,7 +30,7 @@ public class ChooseColorView extends View {
 
     public ChooseColorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mmA = ViewCompat.MEASURED_STATE_MASK;
+        this.mmz = ViewCompat.MEASURED_STATE_MASK;
         this.mBorderColor = -1;
         this.mBorderWidth = getResources().getDimensionPixelSize(R.dimen.ds4);
         init();
@@ -39,18 +39,18 @@ public class ChooseColorView extends View {
     private void init() {
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.mPaint.setColor(this.mmA);
+        this.mPaint.setColor(this.mmz);
         this.mBorderPaint = new Paint();
         this.mBorderPaint.setColor(this.mBorderColor);
         this.mBorderPaint.setAntiAlias(true);
         this.mBorderPaint.setStyle(Paint.Style.STROKE);
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
-        this.mmC = BitmapFactory.decodeResource(getResources(), R.drawable.icon_select_n);
+        this.mmB = BitmapFactory.decodeResource(getResources(), R.drawable.icon_select_n);
     }
 
     public void setChooseColor(int i) {
-        this.mmA = i;
-        this.mPaint.setColor(this.mmA);
+        this.mmz = i;
+        this.mPaint.setColor(this.mmz);
     }
 
     public void setRadius(int i) {
@@ -58,11 +58,11 @@ public class ChooseColorView extends View {
     }
 
     public int getChooseColor() {
-        return this.mmA;
+        return this.mmz;
     }
 
     public void setIsChooseView(boolean z) {
-        this.mmB = z;
+        this.mmA = z;
         invalidate();
     }
 
@@ -71,8 +71,8 @@ public class ChooseColorView extends View {
         super.onDraw(canvas);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mPaint);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mBorderPaint);
-        if (this.mmB) {
-            canvas.drawBitmap(this.mmC, getWidth() - this.mmC.getWidth(), 0.0f, (Paint) null);
+        if (this.mmA) {
+            canvas.drawBitmap(this.mmB, getWidth() - this.mmB.getWidth(), 0.0f, (Paint) null);
         }
     }
 }

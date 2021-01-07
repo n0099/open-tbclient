@@ -13,7 +13,7 @@ public class a {
     private a() {
     }
 
-    public static a cRi() {
+    public static a cRj() {
         return jZF;
     }
 

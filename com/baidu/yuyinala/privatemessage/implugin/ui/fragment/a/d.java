@@ -12,7 +12,7 @@ public class d {
     private ConcurrentHashMap<String, c> oXJ = new ConcurrentHashMap<>(4);
     private AtomicInteger mOpenCounter = new AtomicInteger();
 
-    public static d emC() {
+    public static d emD() {
         if (oXE == null) {
             synchronized (d.class) {
                 if (oXE == null) {
@@ -23,11 +23,11 @@ public class d {
         return oXE;
     }
 
-    public c Yu(String str) {
+    public c Yt(String str) {
         return this.oXJ.get(str);
     }
 
-    public String emD() {
+    public String emE() {
         return this.oXI;
     }
 
@@ -38,13 +38,13 @@ public class d {
         }
     }
 
-    public void Yv(String str) {
+    public void Yu(String str) {
         if (this.oXJ.containsKey(str)) {
             this.oXJ.remove(str);
         }
     }
 
-    public b emE() {
+    public b emF() {
         return this.oXF;
     }
 
@@ -52,7 +52,7 @@ public class d {
         this.oXF = bVar;
     }
 
-    public b emF() {
+    public b emG() {
         return this.oXG;
     }
 
@@ -60,11 +60,11 @@ public class d {
         this.oXG = bVar;
     }
 
-    public static void emG() {
+    public static void emH() {
         oXE = null;
     }
 
-    public a emH() {
+    public a emI() {
         return this.oXH;
     }
 }

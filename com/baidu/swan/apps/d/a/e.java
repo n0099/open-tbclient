@@ -10,12 +10,12 @@ import com.baidu.swan.support.v4.app.FragmentActivity;
 /* loaded from: classes9.dex */
 public class e extends com.baidu.swan.apps.core.d.i {
     @Override // com.baidu.swan.apps.core.d.i
-    public com.baidu.swan.apps.adaptation.b.f amk() {
-        return com.baidu.swan.apps.core.turbo.d.avA().avB().cl(getContext());
+    public com.baidu.swan.apps.adaptation.b.f aml() {
+        return com.baidu.swan.apps.core.turbo.d.avB().avC().cl(getContext());
     }
 
     @Override // com.baidu.swan.apps.core.d.i
-    protected com.baidu.swan.apps.core.f.d amL() {
+    protected com.baidu.swan.apps.core.f.d amM() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.d.a.e.1
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
             public boolean jh(String str) {
@@ -31,16 +31,16 @@ public class e extends com.baidu.swan.apps.core.d.i {
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
-    protected void amS() {
-        FragmentActivity bhA = bhA();
-        if (bhA != null && this.cUg == null) {
-            this.cUg = new com.baidu.swan.menu.g(bhA, this.cUf, amT(), com.baidu.swan.apps.t.a.aAv(), new com.baidu.swan.apps.view.c.b());
-            new com.baidu.swan.apps.menu.a(this.cUg, this).aFx();
+    protected void amT() {
+        FragmentActivity bhB = bhB();
+        if (bhB != null && this.cUg == null) {
+            this.cUg = new com.baidu.swan.menu.g(bhB, this.cUf, amU(), com.baidu.swan.apps.t.a.aAw(), new com.baidu.swan.apps.view.c.b());
+            new com.baidu.swan.apps.menu.a(this.cUg, this).aFy();
         }
     }
 
-    private int amT() {
-        return asr() ? 18 : 12;
+    private int amU() {
+        return ass() ? 18 : 12;
     }
 
     /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.swan.apps.adaptation.b.d] */
@@ -48,41 +48,41 @@ public class e extends com.baidu.swan.apps.core.d.i {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
         av(inflate);
-        this.cVp = amk();
-        this.cVp.a(amL());
-        this.cEG = this.cVp.amr();
+        this.cVp = aml();
+        this.cVp.a(amM());
+        this.cEG = this.cVp.ams();
         this.cVp.loadUrl(this.mUrl);
         FrameLayout frameLayout = (FrameLayout) inflate.findViewById(a.f.aiapps_webView_container);
         this.cVp.b(frameLayout, this.cEG.covertToView());
         e(frameLayout);
-        return ase() ? az(inflate) : inflate;
+        return asf() ? az(inflate) : inflate;
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
-    protected boolean amM() {
+    protected boolean amN() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
-    public boolean aml() {
+    public boolean amm() {
         if (this.cEG != null && this.cEG.canGoBack()) {
             this.cEG.goBack();
             return true;
         }
-        amU();
+        amV();
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.support.v4.app.Fragment
     public void onDestroy() {
-        amU();
+        amV();
         super.onDestroy();
     }
 
-    private void amU() {
-        com.baidu.swan.apps.a.a amV;
-        if (!f.cGI.amX() && (amV = f.cGI.amV()) != null) {
-            amV.onResult(-2);
+    private void amV() {
+        com.baidu.swan.apps.a.a amW;
+        if (!f.cGI.amY() && (amW = f.cGI.amW()) != null) {
+            amW.onResult(-2);
         }
     }
 }

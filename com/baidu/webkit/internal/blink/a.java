@@ -8,30 +8,30 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
 import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    WebKitFactory.WebkitInstallListener f5948a;
+    WebKitFactory.WebkitInstallListener f5949a;
 
     /* renamed from: b  reason: collision with root package name */
-    EngineManager f5949b;
+    EngineManager f5950b;
     private int c = 13;
 
     public a(EngineManager engineManager, WebKitFactory.WebkitInstallListener webkitInstallListener) {
-        this.f5949b = engineManager;
-        this.f5948a = webkitInstallListener;
+        this.f5950b = engineManager;
+        this.f5949a = webkitInstallListener;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final boolean a() {
         String[] strArr;
         boolean unZip;
-        if (this.f5949b != null) {
-            this.f5949b.onInstallStart();
+        if (this.f5950b != null) {
+            this.f5950b.onInstallStart();
         }
-        if (this.f5948a != null) {
-            this.f5948a.onInstallStart();
+        if (this.f5949a != null) {
+            this.f5949a.onInstallStart();
         }
         if (!b()) {
             Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install init failed");
@@ -68,15 +68,15 @@ public abstract class a {
             this.c = 0;
             ZeusWebViewPreloadClass.getInstance().deleteSavingClassesFile();
         }
-        if (this.f5948a != null) {
+        if (this.f5949a != null) {
             if (this.c == 0) {
-                this.f5948a.onInstallFinish(this.c, UtilsBlink.getDownloadLibPath(WebKitFactory.getContext()));
+                this.f5949a.onInstallFinish(this.c, UtilsBlink.getDownloadLibPath(WebKitFactory.getContext()));
             } else {
-                this.f5948a.onInstallFinish(this.c, null);
+                this.f5949a.onInstallFinish(this.c, null);
             }
         }
-        if (this.f5949b != null) {
-            this.f5949b.onInstallFinish(this.c == 0);
+        if (this.f5950b != null) {
+            this.f5950b.onInstallFinish(this.c == 0);
         }
         return unZip;
     }

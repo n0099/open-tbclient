@@ -53,10 +53,10 @@ public class i {
         }
     }
 
-    public void KO(String str) {
+    public void KN(String str) {
         this.st_type = str;
         if (this.jnq != null) {
-            this.jnq.KO(str);
+            this.jnq.KN(str);
         }
     }
 
@@ -67,19 +67,19 @@ public class i {
         }
     }
 
-    public void cIa() {
+    public void cIb() {
         if (this.jnq != null) {
-            this.jnq.cIa();
+            this.jnq.cIb();
         }
     }
 
-    public void cIc() {
+    public void cId() {
         if (this.jnq != null && this.mHasMore) {
             this.jnq.LoadData();
         }
     }
 
-    public void cIb() {
+    public void cIc() {
         if (this.jnq != null) {
             this.jnq.cancelLoadData();
         }

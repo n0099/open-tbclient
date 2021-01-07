@@ -32,7 +32,7 @@ public class c extends EventTargetImpl {
         }
         b.a(this.enW, new b.a() { // from class: com.baidu.swan.games.y.c.1
             @Override // com.baidu.swan.games.y.b.a
-            public void bcg() {
+            public void bch() {
                 c.this.ik(c.this.yl(c.this.enW));
             }
 
@@ -110,8 +110,8 @@ public class c extends EventTargetImpl {
         if (this.efi == null) {
             return false;
         }
-        String str2 = f.aDG().aDn() + a.bcf().af(str, 2);
-        String af = a.bcf().af(str, 3);
+        String str2 = f.aDH().aDo() + a.bcg().af(str, 2);
+        String af = a.bcg().af(str, 3);
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(af)) {
             return false;
         }

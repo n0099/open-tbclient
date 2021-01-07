@@ -6,25 +6,25 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile ScheduledExecutorService f11912a;
+    private volatile ScheduledExecutorService f11913a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final b f11913b;
+    private final b f11914b;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        private final String f11916b;
+        private final String f11917b;
         private final long c;
 
         public a(String str, long j) {
-            this.f11916b = str;
+            this.f11917b = str;
             this.c = j;
         }
 
@@ -37,21 +37,21 @@ public final class e {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (e.this.f11913b == null || !e.this.f11913b.b(this.f11916b)) {
+            if (e.this.f11914b == null || !e.this.f11914b.b(this.f11917b)) {
                 return;
             }
-            if (com.qq.e.comm.plugin.a.d.d.a(com.qq.e.comm.plugin.a.d.b.a().a(GDTADManager.getInstance().getAppContext(), this.f11916b))) {
-                e.this.f11913b.a(this.f11916b);
+            if (com.qq.e.comm.plugin.a.d.d.a(com.qq.e.comm.plugin.a.d.b.a().a(GDTADManager.getInstance().getAppContext(), this.f11917b))) {
+                e.this.f11914b.a(this.f11917b);
                 return;
             }
             long a2 = a();
             if (a2 > 0) {
-                e.this.a(this.f11916b, a2 * 2);
+                e.this.a(this.f11917b, a2 * 2);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     interface b {
         void a(String str);
 
@@ -60,7 +60,7 @@ public final class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.f11913b = bVar;
+        this.f11914b = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -72,8 +72,8 @@ public final class e {
 
     void a(String str, long j) {
         synchronized (this) {
-            if (this.f11912a == null) {
-                this.f11912a = Executors.newSingleThreadScheduledExecutor(new ThreadFactory() { // from class: com.qq.e.comm.plugin.a.e.1
+            if (this.f11913a == null) {
+                this.f11913a = Executors.newSingleThreadScheduledExecutor(new ThreadFactory() { // from class: com.qq.e.comm.plugin.a.e.1
                     @Override // java.util.concurrent.ThreadFactory
                     public Thread newThread(Runnable runnable) {
                         Thread thread = new Thread(runnable);
@@ -83,7 +83,7 @@ public final class e {
                     }
                 });
             }
-            this.f11912a.schedule(new a(str, j), j, TimeUnit.MILLISECONDS);
+            this.f11913a.schedule(new a(str, j), j, TimeUnit.MILLISECONDS);
         }
     }
 }

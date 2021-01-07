@@ -20,7 +20,7 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class ReplyLinearLayout extends LinearLayout {
     private static ViewGroup.LayoutParams ikc;
-    private List<TextView> mBK;
+    private List<TextView> mBJ;
     private boolean mIsHost;
     private View.OnClickListener mOnItemClickListener;
 
@@ -49,7 +49,7 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
             }
         };
-        this.mBK = new ArrayList();
+        this.mBJ = new ArrayList();
     }
 
     public void setContent(ArrayList<String[]> arrayList) {
@@ -59,14 +59,14 @@ public class ReplyLinearLayout extends LinearLayout {
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.mBK.size();
+        int size2 = size - this.mBJ.size();
         for (int i2 = 0; i2 < size2; i2++) {
             TextView textView = new TextView(getContext());
-            this.mBK.add(textView);
+            this.mBJ.add(textView);
             addView(textView);
         }
-        for (int i3 = 0; i3 < this.mBK.size(); i3++) {
-            TextView textView2 = this.mBK.get(i3);
+        for (int i3 = 0; i3 < this.mBJ.size(); i3++) {
+            TextView textView2 = this.mBJ.get(i3);
             if (i3 < size) {
                 if (i3 == 0 || i3 == 1) {
                     i = 0;

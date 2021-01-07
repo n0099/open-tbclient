@@ -20,14 +20,14 @@ import androidx.appcompat.widget.ActivityChooserView;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class z extends ac {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f1084a = 0;
+    public int f1085a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f1085b = 0;
+    public int f1086b = 0;
     public int c = 0;
     public int d = 0;
     public int e = 0;
@@ -51,7 +51,7 @@ public final class z extends ac {
             if (cellInfo instanceof CellInfoCdma) {
                 CellInfoCdma cellInfoCdma = (CellInfoCdma) cellInfo;
                 CellIdentityCdma cellIdentity = cellInfoCdma.getCellIdentity();
-                zVar.f1084a = 2;
+                zVar.f1085a = 2;
                 zVar.c(telephonyManager);
                 zVar.c = cellIdentity.getSystemId();
                 zVar.d = cellIdentity.getNetworkId();
@@ -65,11 +65,11 @@ public final class z extends ac {
                 zVar.f = i;
             } else if (cellInfo instanceof CellInfoGsm) {
                 CellInfoGsm cellInfoGsm = (CellInfoGsm) cellInfo;
-                zVar.f1084a = 1;
+                zVar.f1085a = 1;
                 CellIdentityGsm cellIdentity2 = cellInfoGsm.getCellIdentity();
                 zVar.d = cellIdentity2.getLac();
                 zVar.e = cellIdentity2.getCid();
-                zVar.f1085b = cellIdentity2.getMcc();
+                zVar.f1086b = cellIdentity2.getMcc();
                 zVar.c = cellIdentity2.getMnc();
                 int dbm2 = cellInfoGsm.getCellSignalStrength().getDbm();
                 if (dbm2 > -110 && dbm2 < -40) {
@@ -78,11 +78,11 @@ public final class z extends ac {
                 zVar.f = i;
             } else if (cellInfo instanceof CellInfoWcdma) {
                 CellInfoWcdma cellInfoWcdma = (CellInfoWcdma) cellInfo;
-                zVar.f1084a = 1;
+                zVar.f1085a = 1;
                 CellIdentityWcdma cellIdentity3 = cellInfoWcdma.getCellIdentity();
                 zVar.d = cellIdentity3.getLac();
                 zVar.e = cellIdentity3.getCid();
-                zVar.f1085b = cellIdentity3.getMcc();
+                zVar.f1086b = cellIdentity3.getMcc();
                 zVar.c = cellIdentity3.getMnc();
                 int dbm3 = cellInfoWcdma.getCellSignalStrength().getDbm();
                 if (dbm3 > -110 && dbm3 < -40) {
@@ -91,11 +91,11 @@ public final class z extends ac {
                 zVar.f = i;
             } else if (cellInfo instanceof CellInfoLte) {
                 CellInfoLte cellInfoLte = (CellInfoLte) cellInfo;
-                zVar.f1084a = 1;
+                zVar.f1085a = 1;
                 CellIdentityLte cellIdentity4 = cellInfoLte.getCellIdentity();
                 zVar.d = cellIdentity4.getTac();
                 zVar.e = cellIdentity4.getCi();
-                zVar.f1085b = cellIdentity4.getMcc();
+                zVar.f1086b = cellIdentity4.getMcc();
                 zVar.c = cellIdentity4.getMnc();
                 int dbm4 = cellInfoLte.getCellSignalStrength().getDbm();
                 if (dbm4 <= -110 || dbm4 >= -40) {
@@ -118,7 +118,7 @@ public final class z extends ac {
             zVar.c(telephonyManager);
             if (cellLocation instanceof CdmaCellLocation) {
                 CdmaCellLocation cdmaCellLocation = (CdmaCellLocation) cellLocation;
-                zVar.f1084a = 2;
+                zVar.f1085a = 2;
                 zVar.c = cdmaCellLocation.getSystemId();
                 zVar.d = cdmaCellLocation.getNetworkId();
                 zVar.e = cdmaCellLocation.getBaseStationId();
@@ -131,7 +131,7 @@ public final class z extends ac {
                 }
             } else {
                 GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
-                zVar.f1084a = 1;
+                zVar.f1085a = 1;
                 zVar.d = gsmCellLocation.getLac();
                 zVar.e = gsmCellLocation.getCid();
                 if (signalStrength == null) {
@@ -190,26 +190,26 @@ public final class z extends ac {
         if (iArr[0] <= 0 || iArr[1] < 0) {
             return;
         }
-        this.f1085b = iArr[0];
+        this.f1086b = iArr[0];
         this.c = iArr[1];
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0005: IGET  (r1v0 int A[REMOVE]) = (r2v0 'this' b.a.a.a.a.z A[IMMUTABLE_TYPE, THIS]) b.a.a.a.a.z.b int), (wrap: int : 0x000b: IGET  (r1v1 int A[REMOVE]) = (r2v0 'this' b.a.a.a.a.z A[IMMUTABLE_TYPE, THIS]) b.a.a.a.a.z.c int), (wrap: int : 0x0011: IGET  (r1v2 int A[REMOVE]) = (r2v0 'this' b.a.a.a.a.z A[IMMUTABLE_TYPE, THIS]) b.a.a.a.a.z.d int), (wrap: int : 0x0017: IGET  (r1v3 int A[REMOVE]) = (r2v0 'this' b.a.a.a.a.z A[IMMUTABLE_TYPE, THIS]) b.a.a.a.a.z.e int)] */
     public final String a() {
-        return new StringBuilder().append(this.f1085b).append(this.c).append(this.d).append(this.e).toString();
+        return new StringBuilder().append(this.f1086b).append(this.c).append(this.d).append(this.e).toString();
     }
 
     public final String a(boolean z) {
         ArrayList arrayList = new ArrayList();
         if (c.a(this)) {
-            arrayList.add(a(this.f1085b, this.c, this.d, this.e, this.f, this.g, this.h, z, true));
+            arrayList.add(a(this.f1086b, this.c, this.d, this.e, this.f, this.g, this.h, z, true));
         }
         try {
             for (NeighboringCellInfo neighboringCellInfo : b()) {
                 int lac = neighboringCellInfo.getLac();
                 int cid = neighboringCellInfo.getCid();
-                if (c.a(this.f1084a, this.f1085b, this.c, lac, cid)) {
-                    arrayList.add(a(this.f1085b, this.c, lac, cid, (neighboringCellInfo.getRssi() << 1) - 113, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, false, false));
+                if (c.a(this.f1085a, this.f1086b, this.c, lac, cid)) {
+                    arrayList.add(a(this.f1086b, this.c, lac, cid, (neighboringCellInfo.getRssi() << 1) - 113, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, false, false));
                 }
             }
         } catch (Throwable th) {
@@ -236,6 +236,6 @@ public final class z extends ac {
     }
 
     public final String toString() {
-        return "TxCellInfo [PhoneType=" + this.f1084a + ", MCC=" + this.f1085b + ", MNC=" + this.c + ", LAC=" + this.d + ", CID=" + this.e + ", RSSI=" + this.f + ", LAT=" + this.g + ", LNG=" + this.h + ", mTime=" + this.i + "]";
+        return "TxCellInfo [PhoneType=" + this.f1085a + ", MCC=" + this.f1086b + ", MNC=" + this.c + ", LAC=" + this.d + ", CID=" + this.e + ", RSSI=" + this.f + ", LAT=" + this.g + ", LNG=" + this.h + ", mTime=" + this.i + "]";
     }
 }

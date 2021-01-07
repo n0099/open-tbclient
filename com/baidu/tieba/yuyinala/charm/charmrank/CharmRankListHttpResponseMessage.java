@@ -5,22 +5,22 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class CharmRankListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private j ola;
+    private j okZ;
 
     public CharmRankListHttpResponseMessage() {
         super(1031035);
     }
 
-    public j ebO() {
-        return this.ola;
+    public j ebP() {
+        return this.okZ;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0) {
-            this.ola = new j();
-            this.ola.parserJson(jSONObject);
+            this.okZ = new j();
+            this.okZ.parserJson(jSONObject);
         }
     }
 }

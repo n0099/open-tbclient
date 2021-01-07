@@ -55,8 +55,8 @@ public class e extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (cuC() != null) {
-            cuC().a(view, this.gFg);
+        if (cuD() != null) {
+            cuD().a(view, this.gFg);
         }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static MapStatusUpdate a(MapStatus mapStatus) {
         return MapStatusUpdateFactory.newMapStatus(mapStatus);

@@ -17,9 +17,9 @@ public class a extends BaseAdapter {
     private ArrayList<MetaData> eYq;
     private TbCheckBox.a kLG;
     private final Context mContext;
-    private AtListActivity odk;
-    private boolean odm;
-    private b odl = null;
+    private AtListActivity odj;
+    private boolean odl;
+    private b odk = null;
     private ViewGroup mParent = null;
 
     /* loaded from: classes8.dex */
@@ -29,14 +29,14 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        this.odl = bVar;
+        this.odk = bVar;
     }
 
     public a(AtListActivity atListActivity, boolean z) {
-        this.odm = true;
-        this.odk = atListActivity;
-        this.mContext = this.odk.getPageContext().getContext();
-        this.odm = z;
+        this.odl = true;
+        this.odj = atListActivity;
+        this.mContext = this.odj.getPageContext().getContext();
+        this.odl = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -74,74 +74,74 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0880a c0880a;
+        C0918a c0918a;
         if (this.mParent == null) {
             this.mParent = viewGroup;
         }
         MetaData item = getItem(i);
         if (item != null) {
-            c0880a = a(view != null ? view.getTag() : null, item);
+            c0918a = a(view != null ? view.getTag() : null, item);
         } else {
-            c0880a = null;
+            c0918a = null;
         }
-        if (c0880a != null) {
-            return c0880a.rootView;
+        if (c0918a != null) {
+            return c0918a.rootView;
         }
         return null;
     }
 
-    private C0880a a(Object obj, MetaData metaData) {
-        C0880a c0880a;
+    private C0918a a(Object obj, MetaData metaData) {
+        C0918a c0918a;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (obj == null) {
-            c0880a = dZm();
+            c0918a = dZn();
         } else {
-            c0880a = (C0880a) obj;
+            c0918a = (C0918a) obj;
         }
-        if (this.odl != null) {
-            this.odl.a(c0880a.rootView, metaData);
+        if (this.odk != null) {
+            this.odk.a(c0918a.rootView, metaData);
         }
         String avater = metaData.getAvater();
-        c0880a.hYe.setText(metaData.getName_show());
-        c0880a.kLJ.setTagData(metaData);
-        c0880a.kLo.setTag(avater);
-        if (this.odm) {
-            c0880a.kLJ.setVisibility(0);
+        c0918a.hYe.setText(metaData.getName_show());
+        c0918a.kLJ.setTagData(metaData);
+        c0918a.kLo.setTag(avater);
+        if (this.odl) {
+            c0918a.kLJ.setVisibility(0);
         } else {
-            c0880a.kLJ.setVisibility(8);
+            c0918a.kLJ.setVisibility(8);
         }
-        c0880a.kLo.startLoad(avater, 12, false);
-        this.odk.getPageContext().getLayoutMode().setNightMode(skinType == 1);
-        this.odk.getPageContext().getLayoutMode().onModeChanged(c0880a.rootView);
-        return c0880a;
+        c0918a.kLo.startLoad(avater, 12, false);
+        this.odj.getPageContext().getLayoutMode().setNightMode(skinType == 1);
+        this.odj.getPageContext().getLayoutMode().onModeChanged(c0918a.rootView);
+        return c0918a;
     }
 
-    private C0880a dZm() {
-        C0880a c0880a = new C0880a();
-        c0880a.rootView = LayoutInflater.from(this.mContext).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
-        c0880a.kLo = (HeadImageView) c0880a.rootView.findViewById(R.id.photo);
-        c0880a.kLo.setIsRound(false);
-        c0880a.hYe = (TextView) c0880a.rootView.findViewById(R.id.txt_user_name);
-        c0880a.kLJ = (TbCheckBox) c0880a.rootView.findViewById(R.id.ckb_select);
-        c0880a.kLJ.setBackgroundDrawableIdIsWebP(true);
-        c0880a.kLJ.setBackgroundDrawableId(R.drawable.icon_pure_strok324_select, R.drawable.icon_pure_strok324);
+    private C0918a dZn() {
+        C0918a c0918a = new C0918a();
+        c0918a.rootView = LayoutInflater.from(this.mContext).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
+        c0918a.kLo = (HeadImageView) c0918a.rootView.findViewById(R.id.photo);
+        c0918a.kLo.setIsRound(false);
+        c0918a.hYe = (TextView) c0918a.rootView.findViewById(R.id.txt_user_name);
+        c0918a.kLJ = (TbCheckBox) c0918a.rootView.findViewById(R.id.ckb_select);
+        c0918a.kLJ.setBackgroundDrawableIdIsWebP(true);
+        c0918a.kLJ.setBackgroundDrawableId(R.drawable.icon_pure_strok324_select, R.drawable.icon_pure_strok324);
         if (this.kLG != null) {
-            c0880a.kLJ.setStatedChangedListener(this.kLG);
+            c0918a.kLJ.setStatedChangedListener(this.kLG);
         }
-        c0880a.rootView.setTag(c0880a);
-        return c0880a;
+        c0918a.rootView.setTag(c0918a);
+        return c0918a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.write.write.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0880a {
+    public class C0918a {
         public TextView hYe;
         public TbCheckBox kLJ;
         public HeadImageView kLo;
         public View rootView;
 
-        private C0880a() {
+        private C0918a() {
         }
     }
 }

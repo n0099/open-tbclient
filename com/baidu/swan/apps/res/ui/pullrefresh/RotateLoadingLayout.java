@@ -78,7 +78,7 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onReset() {
-        aKY();
+        aKZ();
         this.dAy.setText(a.h.aiapps_pull_to_refresh_header_hint_normal);
     }
 
@@ -89,8 +89,8 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void aKF() {
-        super.aKF();
+    public void aKG() {
+        super.aKG();
         this.dAy.setText(a.h.aiapps_pull_to_refresh_header_hint_go_home);
     }
 
@@ -101,7 +101,7 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onRefreshing() {
-        aKY();
+        aKZ();
         this.bUf.startAnimation(this.dCC);
         this.dAy.setText(a.h.aiapps_pull_to_refresh_header_hint_loading);
     }
@@ -113,7 +113,7 @@ public class RotateLoadingLayout extends LoadingLayout {
         }
     }
 
-    private void aKY() {
+    private void aKZ() {
         this.bUf.clearAnimation();
         if (c.hasHoneycomb()) {
             this.bUf.setRotation(0.0f);

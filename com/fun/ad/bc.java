@@ -16,14 +16,14 @@ import org.json.JSONObject;
 public class bc implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f8061a;
+    public Context f8062a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8062b;
+    public String f8063b;
 
     public bc(Context context, String str) {
-        this.f8061a = context.getApplicationContext();
-        this.f8062b = str;
+        this.f8062a = context.getApplicationContext();
+        this.f8063b = str;
     }
 
     public static void a(Context context, String str) {
@@ -35,8 +35,8 @@ public class bc implements Runnable {
         JSONObject optJSONObject;
         try {
             Uri.Builder buildUpon = Uri.parse("https://cd.xdplt.com/v1/z").buildUpon();
-            buildUpon.appendQueryParameter("lic", this.f8062b);
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(bn.a(this.f8061a, buildUpon)).openConnection();
+            buildUpon.appendQueryParameter("lic", this.f8063b);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(bn.a(this.f8062a, buildUpon)).openConnection();
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setRequestProperty("Accept", HttpHelper.CONTENT_JSON);
             m.a("Download online ad config response code: " + httpURLConnection.getResponseCode());
@@ -50,14 +50,14 @@ public class bc implements Runnable {
                     return;
                 }
                 String optString = optJSONObject.optString("content");
-                m.a("Download online ad config decrypt key: " + this.f8062b);
-                String a3 = m.a(optString, this.f8062b);
+                m.a("Download online ad config decrypt key: " + this.f8063b);
+                String a3 = m.a(optString, this.f8063b);
                 m.a("Download online ad config response adConfigJson: " + a3);
-                if (TextUtils.equals(optString, this.f8061a.getSharedPreferences("fun_ad_sdk", 0).getString("key_ad_online_config", null))) {
+                if (TextUtils.equals(optString, this.f8062a.getSharedPreferences("fun_ad_sdk", 0).getString("key_ad_online_config", null))) {
                     return;
                 }
-                a(this.f8061a, optString);
-                ((FunAdSdk.a) bq.pIG).a(a3);
+                a(this.f8062a, optString);
+                ((FunAdSdk.a) bq.pKo).a(a3);
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();

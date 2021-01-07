@@ -50,7 +50,7 @@ public class a {
         this.boM.add(new GameCompetitionAdapter(this.mPageContext, com.baidu.tieba.e.c.iCR, this.mPageContext.getUniqueId(), this.mForumId));
         this.boM.add(new GameRecommendGameAdapter(this.mPageContext, com.baidu.tieba.e.f.iCZ, this.mPageContext.getUniqueId(), this.mForumId));
         FrsUserRecommendAdapter frsUserRecommendAdapter = new FrsUserRecommendAdapter(this.mPageContext, w.jjg, this.mPageContext.getUniqueId());
-        frsUserRecommendAdapter.cJd();
+        frsUserRecommendAdapter.cJe();
         frsUserRecommendAdapter.setForumId(this.mForumId);
         this.boM.add(frsUserRecommendAdapter);
         this.gAY.addAdapters(this.boM);

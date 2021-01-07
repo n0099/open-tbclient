@@ -10,7 +10,7 @@ public class a {
             aqVar.an("obj_locate", i);
             aqVar.w("topic_id", ((com.baidu.tieba.newlist.b.b) obj).topicId);
             aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar.bwn();
+            aqVar.bwo();
         }
     }
 }

@@ -40,7 +40,7 @@ public class a {
         private static final a cLg = new a();
     }
 
-    public static a anZ() {
+    public static a aoa() {
         return C0407a.cLg;
     }
 
@@ -103,14 +103,14 @@ public class a {
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 if (bVar != null) {
-                    bVar.aoc();
+                    bVar.aod();
                 }
-                a.this.aoa();
+                a.this.aob();
             }
         }, i);
     }
 
-    public void aoa() {
+    public void aob() {
         this.cLd = null;
         if (this.mTimer != null) {
             this.mTimer.cancel();
@@ -121,7 +121,7 @@ public class a {
         if (this.cLd != null) {
             this.cLd.cancel();
         }
-        aoa();
+        aob();
     }
 
     public void eU(boolean z) {
@@ -136,7 +136,7 @@ public class a {
             hashMap.put("wvID", str);
             hashMap.put("cameraId", str2);
             hashMap.put("eType", z ? BdStatsConstant.StatsType.ERROR : "stop");
-            f.aDG().b(new com.baidu.swan.apps.event.a.b(PixelReadParams.DEFAULT_FILTER_ID, hashMap));
+            f.aDH().b(new com.baidu.swan.apps.event.a.b(PixelReadParams.DEFAULT_FILTER_ID, hashMap));
             return;
         }
         JSONObject jSONObject = new JSONObject();

@@ -25,7 +25,7 @@ public class o extends BaseCardInfo implements p {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean cvw() {
+    public boolean cvx() {
         return false;
     }
 

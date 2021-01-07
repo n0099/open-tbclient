@@ -108,7 +108,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = e.bvy();
+        this.customToast = e.bvz();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new a();
@@ -237,7 +237,8 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
         }
     }
 
-    protected void closeActivity() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void closeActivity() {
         finish();
     }
 
@@ -361,19 +362,19 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.b(getActivity(), str, i, false).bud();
+        BdToast.b(getActivity(), str, i, false).bue();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getActivity(), str, i, i2, false).bud();
+        BdToast.a(getActivity(), str, i, i2, false).bue();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).bud();
+        BdToast.a(getActivity(), str, defaultIcon).bue();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).bud();
+        BdToast.a(getActivity(), str, defaultIcon, i).bue();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity
@@ -471,8 +472,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         this.customToast.onPause();
         TbadkCoreApplication.getInst().setCurrentActivity(null);

@@ -6,7 +6,7 @@ import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.platform.comjni.tools.ParcelItem;
 import java.util.ArrayList;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static double a(Point point, Point point2) {
         Bundle bundle = new Bundle();
@@ -30,7 +30,7 @@ public class a {
         if (bundle2 != null) {
             Bundle bundle3 = bundle2.getBundle("ll");
             if (bundle3 != null) {
-                aVar.f4193b = new Point((int) bundle3.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTX), (int) bundle3.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTY));
+                aVar.f4194b = new Point((int) bundle3.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTX), (int) bundle3.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTY));
             }
             Bundle bundle4 = bundle2.getBundle("ru");
             if (bundle4 != null) {
@@ -56,7 +56,7 @@ public class a {
             }
         }
         aVar.d.trimToSize();
-        aVar.f4192a = (int) bundle.getDouble("type");
+        aVar.f4193a = (int) bundle.getDouble("type");
         return aVar;
     }
 

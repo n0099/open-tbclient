@@ -9,28 +9,28 @@ import kotlin.jvm.internal.p;
 /* loaded from: classes5.dex */
 public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
     public static final a Companion = new a(null);
-    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> qlB = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
+    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> qnj = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
     private volatile Object _value;
 
     /* renamed from: final  reason: not valid java name */
-    private final Object f1023final;
+    private final Object f1024final;
     private volatile kotlin.jvm.a.a<? extends T> initializer;
 
     public SafePublicationLazyImpl(kotlin.jvm.a.a<? extends T> aVar) {
         p.o(aVar, "initializer");
         this.initializer = aVar;
-        this._value = g.qlC;
-        this.f1023final = g.qlC;
+        this._value = g.qnk;
+        this.f1024final = g.qnk;
     }
 
     @Override // kotlin.c
     public T getValue() {
         T t = (T) this._value;
-        if (t == g.qlC) {
+        if (t == g.qnk) {
             kotlin.jvm.a.a<? extends T> aVar = this.initializer;
             if (aVar != null) {
                 T invoke = aVar.invoke();
-                if (Companion.eLM().compareAndSet(this, g.qlC, invoke)) {
+                if (Companion.eMq().compareAndSet(this, g.qnk, invoke)) {
                     this.initializer = null;
                     return invoke;
                 }
@@ -41,7 +41,7 @@ public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
     }
 
     public boolean isInitialized() {
-        return this._value != g.qlC;
+        return this._value != g.qnk;
     }
 
     public String toString() {
@@ -63,8 +63,8 @@ public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> eLM() {
-            return SafePublicationLazyImpl.qlB;
+        public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> eMq() {
+            return SafePublicationLazyImpl.qnj;
         }
     }
 }

@@ -40,7 +40,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.b.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (eVar.aMe() != null && !eVar.aMe().isFinishing() && !eVar.aMe().isDestroyed()) {
+                    if (eVar.aMf() != null && !eVar.aMf().isFinishing() && !eVar.aMf().isDestroyed()) {
                         g.a aVar = new g.a(b.this.getContext());
                         aVar.f(jSONObject.optString("title")).sp(jSONObject.optString("content")).a(new com.baidu.swan.apps.view.c.a()).gV(false);
                         if (jSONObject.optBoolean("showCancel", true)) {
@@ -81,7 +81,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
                                 }
                             }
                         });
-                        aVar.aLx();
+                        aVar.aLy();
                     }
                 }
             });

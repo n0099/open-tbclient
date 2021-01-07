@@ -117,7 +117,7 @@ public class i {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                i.this.bxO();
+                i.this.bxP();
             }
         }
     };
@@ -139,7 +139,7 @@ public class i {
         this.mAnchor = view;
         this.ggW = hVar;
         this.mUserData = userData;
-        bNV();
+        bNW();
         init();
     }
 
@@ -154,14 +154,14 @@ public class i {
         }
     }
 
-    private void bNV() {
+    private void bNW() {
         if (this.ggW != null) {
-            if (this.ggW.bNR() == 1) {
+            if (this.ggW.bNS() == 1) {
                 this.ggX = false;
             } else {
                 this.ggX = true;
             }
-            if (this.ggW.bNQ() == 1) {
+            if (this.ggW.bNR() == 1) {
                 this.ggY = false;
             } else {
                 this.ggY = true;
@@ -198,7 +198,7 @@ public class i {
         this.ggn.setDefaultReasonArray(strArr);
     }
 
-    public void bNI() {
+    public void bNJ() {
         if (this.mPopupWindow != null) {
             this.mPopupWindow.dismiss();
             this.mPopupWindow = null;
@@ -216,7 +216,7 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bxO() {
+    public void bxP() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             ao.setViewTextColor(this.ggQ, R.color.CAM_X0105, 1);
@@ -270,13 +270,13 @@ public class i {
             this.ggP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.i.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    JSONObject bNN = i.this.bNN();
+                    JSONObject bNO = i.this.bNO();
                     if (i.this.mFrom == "3" || i.this.mFrom == "4" || i.this.mFrom == "1") {
-                        i.this.bNI();
-                    } else if (bNN != null) {
+                        i.this.bNJ();
+                    } else if (bNO != null) {
                         i.this.showLoadingView();
                         CustomMessage customMessage = new CustomMessage(2016489, i.this.mPageContext.getUniqueId());
-                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2016489, bNN);
+                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2016489, bNO);
                         customResponsedMessage.setOrginalMessage(customMessage);
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                     }
@@ -300,7 +300,7 @@ public class i {
                 this.gha = new ClickableSpan() { // from class: com.baidu.tieba.NEGFeedBack.i.6
                     @Override // android.text.style.ClickableSpan
                     public void onClick(@NonNull View view) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumRuleEditActivityConfig(i.this.mContext, i.this.ggW.getForumId(), i.this.ggW.getForumName(), i.this.ggW.bNT(), i.this.ggW.bNU(), ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_FRS)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumRuleEditActivityConfig(i.this.mContext, i.this.ggW.getForumId(), i.this.ggW.getForumName(), i.this.ggW.bNU(), i.this.ggW.bNV(), ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_FRS)));
                         if (i.this.ggj != null) {
                             i.this.ggj.dismiss();
                             i.this.ggj = null;
@@ -329,7 +329,7 @@ public class i {
         }
         this.ggS.setClickable(false);
         this.ggS.setBackgroundDrawable(ao.getDrawable(R.drawable.pic_popup_guide));
-        bxO();
+        bxP();
         return this.mContentView;
     }
 
@@ -346,7 +346,7 @@ public class i {
         this.fOA.setDialogVisiable(true);
     }
 
-    public void Fh(String str) {
+    public void Fg(String str) {
         if (this.mContext != null) {
             this.mFrom = str;
             View view = getView();
@@ -359,7 +359,7 @@ public class i {
                 gradientDrawable.setColor(ao.getColor(R.color.CAM_X0205));
                 gradientDrawable.setCornerRadius(l.getDimens(this.mContext, R.dimen.tbds31));
                 view.setBackgroundDrawable(gradientDrawable);
-                bxO();
+                bxP();
                 this.mWindowHeight = getWindowMeasuredHeight();
                 this.mPopupWindow = new PopupWindow(view, this.mWindowWidth, this.mWindowHeight);
                 this.mPopupWindow.setFocusable(true);
@@ -382,7 +382,7 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject bNN() {
+    public JSONObject bNO() {
         int i;
         JSONObject jSONObject = new JSONObject();
         if (this.ggc == null) {
@@ -407,8 +407,8 @@ public class i {
         }
         try {
             jSONObject.put(TiebaInitialize.LogFields.REASON, jSONArray);
-            jSONObject.put("thread_ids", this.ggc.bpM());
-            jSONObject.put("type", this.ggc.bpL());
+            jSONObject.put("thread_ids", this.ggc.bpN());
+            jSONObject.put("type", this.ggc.bpM());
             jSONObject.put("forum_id", this.ggc.getFid());
         } catch (Exception e) {
             e.printStackTrace();

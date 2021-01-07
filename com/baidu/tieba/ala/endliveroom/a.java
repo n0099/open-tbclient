@@ -119,7 +119,7 @@ public class a {
                 fVar.setPageId(a.this.mId);
                 fVar.setIsAttention(z ? false : true);
                 fVar.setFrom("source_audience_end_page");
-                com.baidu.live.view.a.Zx().a(valueOf, fVar);
+                com.baidu.live.view.a.Zy().a(valueOf, fVar);
                 if (!z && TbadkCoreApplication.getInst().isHaokan()) {
                     AlaStaticItem alaStaticItem = new AlaStaticItem(HKStaticKeys.HK_STATIC_FOLLOW_CLICK);
                     if (a.this.mLiveInfo != null) {
@@ -172,7 +172,7 @@ public class a {
                 }
                 a.this.isFollowed = updateAttentionMessage.getData().isAttention ? false : true;
                 Message<?> message2 = updateAttentionMessage.getmOrginalMessage();
-                if (message2 != null && message2.getTag() != null && message2.getTag().equals(a.this.mId) && !com.baidu.live.view.a.Zx().a(updateAttentionMessage.getData(), (BdPageContext<?>) a.this.mTbPageContext, false)) {
+                if (message2 != null && message2.getTag() != null && message2.getTag().equals(a.this.mId) && !com.baidu.live.view.a.Zy().a(updateAttentionMessage.getData(), (BdPageContext<?>) a.this.mTbPageContext, false)) {
                     a.this.mTbPageContext.showToast(updateAttentionMessage.getData().errorString);
                 }
             }
@@ -207,7 +207,7 @@ public class a {
             if (this.mLiveInfo == null) {
                 this.mLiveInfo = new AlaLiveInfoData();
             }
-            bXP();
+            bXQ();
             TiebaInitialize.log(new StatisticItem("c11888"));
             JSONObject jSONObject = new JSONObject();
             try {
@@ -225,7 +225,7 @@ public class a {
             if (this.mView instanceof AlaLiveAudienceEndView) {
                 ((AlaLiveAudienceEndView) this.mView).setCallback(this.gVi);
                 ((AlaLiveAudienceEndView) this.mView).setData(this.mTbPageContext, xVar, z, this.isFollowed, this.mPortrait, NL());
-                bXO();
+                bXP();
             }
             if (this.mView != null) {
                 int[] screenFullSize = ViewCommonUtil.getScreenFullSize(this.mTbPageContext.getPageActivity());
@@ -238,19 +238,19 @@ public class a {
         }
     }
 
-    public void bXO() {
+    public void bXP() {
         if (this.mView instanceof AlaLiveAudienceEndView) {
-            ((AlaLiveAudienceEndView) this.mView).bXS();
+            ((AlaLiveAudienceEndView) this.mView).bXT();
         }
     }
 
-    public void bXP() {
+    public void bXQ() {
         if (this.mView != null && this.mView.getParent() != null) {
             ((ViewGroup) this.mView).removeView(this.mView);
         }
     }
 
-    public boolean bXQ() {
+    public boolean bXR() {
         return (getView() == null || getView().getParent() == null) ? false : true;
     }
 

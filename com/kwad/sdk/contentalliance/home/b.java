@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static AtomicBoolean f8968a = new AtomicBoolean(false);
+    private static AtomicBoolean f8969a = new AtomicBoolean(false);
 
     @Nullable
     private static com.kwai.video.ksvodplayerkit.d.b a(AdTemplate adTemplate, int i) {
@@ -36,15 +36,15 @@ public class b {
     }
 
     public static void a(List<KsScene> list) {
-        if (list == null || list.isEmpty() || f8968a.get()) {
+        if (list == null || list.isEmpty() || f8969a.get()) {
             return;
         }
-        f8968a.set(true);
+        f8969a.set(true);
         h.a aVar = new h.a();
         for (KsScene ksScene : list) {
-            aVar.f9560a.add(new com.kwad.sdk.core.g.a.f(ksScene));
+            aVar.f9561a.add(new com.kwad.sdk.core.g.a.f(ksScene));
         }
-        aVar.f9561b = new com.kwad.sdk.core.g.a.c();
+        aVar.f9562b = new com.kwad.sdk.core.g.a.c();
         aVar.d = new j(1);
         i.a(aVar, new e.a() { // from class: com.kwad.sdk.contentalliance.home.b.1
             @Override // com.kwad.sdk.core.g.e.a

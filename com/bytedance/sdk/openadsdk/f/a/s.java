@@ -3,10 +3,10 @@ package com.bytedance.sdk.openadsdk.f.a;
 final class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f7436a;
+    private String f7437a;
 
     /* renamed from: b  reason: collision with root package name */
-    private w f7437b;
+    private w f7438b;
     private a c;
     private boolean d = true;
 
@@ -16,8 +16,8 @@ final class s {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(String str, w wVar, a aVar) {
-        this.f7436a = str;
-        this.f7437b = wVar;
+        this.f7437a = str;
+        this.f7438b = wVar;
         this.c = aVar;
     }
 }

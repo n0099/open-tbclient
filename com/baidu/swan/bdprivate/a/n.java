@@ -15,29 +15,29 @@ public class n extends com.baidu.swan.apps.setting.oauth.a.a {
     public n(Activity activity, boolean z, String str, String str2) {
         super(activity, z, str, str2);
         if (z) {
-            aOB();
+            aOC();
         }
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aNY() {
+    protected boolean aNZ() {
         a(new a());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.a, com.baidu.swan.apps.setting.oauth.b
-    protected boolean aNZ() {
+    protected boolean aOa() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", aOz().id);
+            jSONObject.put("ma_id", aOA().id);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", aOz().getAppKey());
+            jSONObject2.put("app_key", aOA().getAppKey());
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
             jSONObject2.put("stoken", this.mStoken);
-            String alK = com.baidu.swan.apps.t.a.aAD().alK();
-            if (!TextUtils.isEmpty(alK)) {
-                jSONObject2.put("host_api_key", alK);
+            String alL = com.baidu.swan.apps.t.a.aAE().alL();
+            if (!TextUtils.isEmpty(alL)) {
+                jSONObject2.put("host_api_key", alL);
             }
             jSONObject.put("open", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
@@ -63,9 +63,9 @@ public class n extends com.baidu.swan.apps.setting.oauth.a.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.a.a, com.baidu.swan.apps.setting.oauth.a.h
-    public void aOu() {
-        super.aOu();
-        com.baidu.swan.apps.network.c.b.a.aGO();
+    public void aOv() {
+        super.aOv();
+        com.baidu.swan.apps.network.c.b.a.aGP();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -75,7 +75,7 @@ public class n extends com.baidu.swan.apps.setting.oauth.a.a {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean aOe() throws Exception {
+        protected boolean aOf() throws Exception {
             com.baidu.swan.bdprivate.a.a.a(n.this.mActivity, new com.baidu.swan.apps.ao.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.a.n.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
@@ -88,7 +88,7 @@ public class n extends com.baidu.swan.apps.setting.oauth.a.a {
                     String string = bundle.getString("dev", "");
                     if (!TextUtils.isEmpty(string)) {
                         n.this.mStoken = string;
-                        a.this.aOg();
+                        a.this.aOh();
                         return;
                     }
                     a.this.x(new OAuthException("empty stoken", 10001));

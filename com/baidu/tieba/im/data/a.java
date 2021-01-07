@@ -48,7 +48,7 @@ public class a {
         this.status = i;
     }
 
-    public int cXc() {
+    public int cXd() {
         return this.kAX;
     }
 

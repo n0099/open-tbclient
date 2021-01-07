@@ -21,10 +21,10 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f11412a = b.class.getSimpleName();
+    private static final String f11413a = b.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Object f11413b = new Object();
+    private static final Object f11414b = new Object();
     private static b c;
     private Context d;
 
@@ -40,7 +40,7 @@ public class b {
 
     public static b a(Context context) {
         if (c == null) {
-            synchronized (f11413b) {
+            synchronized (f11414b) {
                 if (c == null) {
                     c = new b(context);
                 }
@@ -58,12 +58,12 @@ public class b {
             byte[] b2 = a.a().b();
             if (b2 != null && b2.length > 0) {
                 String str = new String(a.a().b());
-                com.meizu.cloud.a.a.d(f11412a, "attach x_a_key: " + str);
+                com.meizu.cloud.a.a.d(f11413a, "attach x_a_key: " + str);
                 map.put("X-A-Key", str);
             }
         } else {
             String str2 = new String(c2);
-            com.meizu.cloud.a.a.d(f11412a, "attach x_s_key: " + str2);
+            com.meizu.cloud.a.a.d(f11413a, "attach x_s_key: " + str2);
             map.put("X-S-Key", str2);
         }
         return map;
@@ -101,7 +101,7 @@ public class b {
     private void a(URLConnection uRLConnection) {
         try {
             String headerField = uRLConnection.getHeaderField("X-S-Key");
-            com.meizu.cloud.a.a.d(f11412a, "get x_s_key = " + headerField);
+            com.meizu.cloud.a.a.d(f11413a, "get x_s_key = " + headerField);
             if (TextUtils.isEmpty(headerField)) {
                 return;
             }
@@ -201,7 +201,7 @@ public class b {
                             }
                             a(httpURLConnection, str3.getBytes());
                             int responseCode = httpURLConnection.getResponseCode();
-                            com.meizu.cloud.a.a.d(f11412a, "code = " + responseCode);
+                            com.meizu.cloud.a.a.d(f11413a, "code = " + responseCode);
                             a(httpURLConnection);
                             b(httpURLConnection);
                             inputStream = httpURLConnection.getInputStream();
@@ -210,7 +210,7 @@ public class b {
                                     a2 = a(inputStream);
                                     if (a2 != null) {
                                         String str6 = new String(a2);
-                                        com.meizu.cloud.a.a.d(f11412a, "body = " + str6);
+                                        com.meizu.cloud.a.a.d(f11413a, "body = " + str6);
                                         try {
                                             if (new JSONObject(str6).getInt("code") == 198003) {
                                             }
@@ -220,7 +220,7 @@ public class b {
                                     }
                                 } catch (Exception e2) {
                                     e = e2;
-                                    com.meizu.cloud.a.a.e(f11412a, "realStringPartRequest error " + e.getMessage());
+                                    com.meizu.cloud.a.a.e(f11413a, "realStringPartRequest error " + e.getMessage());
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
@@ -256,7 +256,7 @@ public class b {
                     }
                     a(httpURLConnection, str3.getBytes());
                     int responseCode2 = httpURLConnection.getResponseCode();
-                    com.meizu.cloud.a.a.d(f11412a, "code = " + responseCode2);
+                    com.meizu.cloud.a.a.d(f11413a, "code = " + responseCode2);
                     a(httpURLConnection);
                     b(httpURLConnection);
                     inputStream = httpURLConnection.getInputStream();
@@ -293,7 +293,7 @@ public class b {
 
     private void b(URLConnection uRLConnection) {
         try {
-            com.meizu.cloud.a.a.d(f11412a, "get keyTimeout = " + uRLConnection.getHeaderField("Key-Timeout"));
+            com.meizu.cloud.a.a.d(f11413a, "get keyTimeout = " + uRLConnection.getHeaderField("Key-Timeout"));
         } catch (NullPointerException e) {
         }
     }

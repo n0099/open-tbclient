@@ -37,7 +37,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListener, MapRenderModeChangeListener, MapViewInterface, af {
     private static int s = 0;
     private static final ExecutorService y = Executors.newSingleThreadExecutor();
@@ -45,10 +45,10 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
     private int B;
 
     /* renamed from: a  reason: collision with root package name */
-    protected MapController f4277a;
+    protected MapController f4278a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected ac f4278b;
+    protected ac f4279b;
     protected k c;
     protected m d;
     protected volatile boolean e;
@@ -71,14 +71,14 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
     private boolean x;
     private int z;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     private class a implements f.InterfaceC0292f {
 
         /* renamed from: b  reason: collision with root package name */
-        private int f4280b;
+        private int f4281b;
 
         private a() {
-            this.f4280b = 12440;
+            this.f4281b = 12440;
         }
 
         /* synthetic */ a(MapSurfaceView mapSurfaceView, q qVar) {
@@ -128,7 +128,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
         @Override // com.baidu.platform.comapi.map.f.InterfaceC0292f
         public EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
-            return egl10.eglCreateContext(eGLDisplay, eGLConfig, EGL10.EGL_NO_CONTEXT, new int[]{this.f4280b, 2, 12344});
+            return egl10.eglCreateContext(eGLDisplay, eGLConfig, EGL10.EGL_NO_CONTEXT, new int[]{this.f4281b, 2, 12344});
         }
 
         public void a(String str, int i) {
@@ -149,7 +149,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     private class b extends GestureDetector.SimpleOnGestureListener {
         private b() {
         }
@@ -161,24 +161,24 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public void onLongPress(MotionEvent motionEvent) {
             super.onLongPress(motionEvent);
-            if (MapSurfaceView.this.f4277a == null || MapSurfaceView.this.f4277a.getBaseMap() == null || !MapSurfaceView.this.f4277a.mIsMapLoadFinish) {
+            if (MapSurfaceView.this.f4278a == null || MapSurfaceView.this.f4278a.getBaseMap() == null || !MapSurfaceView.this.f4278a.mIsMapLoadFinish) {
                 return;
             }
-            String GetNearlyObjID = MapSurfaceView.this.f4277a.getBaseMap().GetNearlyObjID(-1L, (int) motionEvent.getX(), (int) motionEvent.getY(), MapSurfaceView.this.f4277a.nearlyRadius);
+            String GetNearlyObjID = MapSurfaceView.this.f4278a.getBaseMap().GetNearlyObjID(-1L, (int) motionEvent.getX(), (int) motionEvent.getY(), MapSurfaceView.this.f4278a.nearlyRadius);
             if (GetNearlyObjID == null || GetNearlyObjID.equals("")) {
-                if (MapSurfaceView.this.f4277a.mListeners != null) {
-                    for (ag agVar : MapSurfaceView.this.f4277a.mListeners) {
+                if (MapSurfaceView.this.f4278a.mListeners != null) {
+                    for (ag agVar : MapSurfaceView.this.f4278a.mListeners) {
                         GeoPoint fromPixels = MapSurfaceView.this.getProjection().fromPixels((int) motionEvent.getX(), (int) motionEvent.getY());
                         if (agVar != null) {
                             agVar.c(fromPixels);
                         }
                     }
                 }
-            } else if (MapSurfaceView.this.f4277a.mListeners != null) {
-                for (ag agVar2 : MapSurfaceView.this.f4277a.mListeners) {
+            } else if (MapSurfaceView.this.f4278a.mListeners != null) {
+                for (ag agVar2 : MapSurfaceView.this.f4278a.mListeners) {
                     if (agVar2 != null) {
                         if (agVar2.b(GetNearlyObjID)) {
-                            MapSurfaceView.this.f4277a.mHasMapObjDraging = true;
+                            MapSurfaceView.this.f4278a.mHasMapObjDraging = true;
                         } else {
                             agVar2.c(MapSurfaceView.this.getProjection().fromPixels((int) motionEvent.getX(), (int) motionEvent.getY()));
                         }
@@ -196,8 +196,8 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
         this.o = true;
         this.p = true;
         this.q = true;
-        this.f4277a = null;
-        this.f4278b = null;
+        this.f4278a = null;
+        this.f4279b = null;
         this.c = null;
         this.e = false;
         this.t = new ArrayList();
@@ -220,8 +220,8 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
         this.o = true;
         this.p = true;
         this.q = true;
-        this.f4277a = null;
-        this.f4278b = null;
+        this.f4278a = null;
+        this.f4279b = null;
         this.c = null;
         this.e = false;
         this.t = new ArrayList();
@@ -244,8 +244,8 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
         this.o = true;
         this.p = true;
         this.q = true;
-        this.f4277a = null;
-        this.f4278b = null;
+        this.f4278a = null;
+        this.f4279b = null;
         this.c = null;
         this.e = false;
         this.t = new ArrayList();
@@ -275,11 +275,11 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
     }
 
     protected void a() {
-        if (this.f4277a == null || this.f4277a.getBaseMap() == null || this.f4278b == null) {
+        if (this.f4278a == null || this.f4278a.getBaseMap() == null || this.f4279b == null) {
             return;
         }
         this.t.clear();
-        this.f4278b.a();
+        this.f4279b.a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -300,8 +300,8 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
     public synchronized boolean addOverlay(Overlay overlay) {
         boolean z;
         if (overlay != null) {
-            if (this.f4277a != null) {
-                AppBaseMap baseMap = this.f4277a.getBaseMap();
+            if (this.f4278a != null) {
+                AppBaseMap baseMap = this.f4278a.getBaseMap();
                 if (baseMap == null) {
                     z = false;
                 } else if (overlay instanceof aj) {
@@ -313,7 +313,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
                     if (((InnerOverlay) overlay).addedToMapView()) {
                         synchronized (this) {
                             this.t.add(overlay);
-                            this.f4278b.a((InnerOverlay) overlay);
+                            this.f4279b.a((InnerOverlay) overlay);
                             z = true;
                         }
                     } else {
@@ -353,19 +353,19 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
     }
 
     public void animateTo(MapStatus mapStatus, int i) {
-        if (this.f4277a != null) {
-            this.f4277a.setMapStatusWithAnimation(mapStatus, i);
+        if (this.f4278a != null) {
+            this.f4278a.setMapStatusWithAnimation(mapStatus, i);
         }
     }
 
     public void animateTo(MapStatus mapStatus, int i, int i2) {
-        if (this.f4277a != null) {
-            this.f4277a.setMapStatusWithAnimation(mapStatus, i, i2);
+        if (this.f4278a != null) {
+            this.f4278a.setMapStatusWithAnimation(mapStatus, i, i2);
         }
     }
 
     protected void b() {
-        if (this.f4277a == null || this.f4277a.getBaseMap() == null) {
+        if (this.f4278a == null || this.f4278a.getBaseMap() == null) {
             return;
         }
         a();
@@ -418,7 +418,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
     }
 
     public void forceSetTraffic(boolean z) {
-        if (this.f4277a != null) {
+        if (this.f4278a != null) {
             this.l = z;
         }
         y.submit(new r(this));
@@ -430,21 +430,21 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public MapController getController() {
-        return this.f4277a;
+        return this.f4278a;
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public MapStatus getCurrentMapStatus() {
-        if (this.f4277a != null) {
-            return this.f4277a.getCurrentMapStatus();
+        if (this.f4278a != null) {
+            return this.f4278a.getCurrentMapStatus();
         }
         return null;
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public float getCurrentZoomLevel() {
-        if (this.f4277a != null) {
-            return this.f4277a.getCurrentZoomLevel();
+        if (this.f4278a != null) {
+            return this.f4278a.getCurrentZoomLevel();
         }
         return 0.0f;
     }
@@ -454,7 +454,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
     }
 
     public float getFZoomToBoundF(MapBound mapBound, MapBound mapBound2) {
-        if (this.f4277a == null) {
+        if (this.f4278a == null) {
             return 0.0f;
         }
         Bundle bundle = new Bundle();
@@ -467,15 +467,15 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
         bundle2.putInt("bottom", mapBound2.leftBottomPt.getIntY());
         bundle2.putInt(HorizontalTranslateLayout.DIRECTION_RIGHT, mapBound2.rightTopPt.getIntX());
         bundle2.putInt(VerticalTranslateLayout.TOP, mapBound2.rightTopPt.getIntY());
-        return this.f4277a.GetFZoomToBoundF(bundle, bundle2);
+        return this.f4278a.GetFZoomToBoundF(bundle, bundle2);
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public MapStatus.GeoBound getGeoRound() {
-        if (this.f4277a == null) {
+        if (this.f4278a == null) {
             return null;
         }
-        return this.f4277a.getMapStatus().geoRound;
+        return this.f4278a.getMapStatus().geoRound;
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
@@ -492,32 +492,32 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public GeoPoint getMapCenter() {
-        if (this.f4277a == null) {
+        if (this.f4278a == null) {
             return null;
         }
-        MapStatus mapStatus = this.f4277a.getMapStatus();
+        MapStatus mapStatus = this.f4278a.getMapStatus();
         return new GeoPoint(mapStatus.centerPtY, mapStatus.centerPtX);
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public int getMapRotation() {
-        if (this.f4277a == null) {
+        if (this.f4278a == null) {
             return 0;
         }
-        return this.f4277a.getMapStatus().rotation;
+        return this.f4278a.getMapStatus().rotation;
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public MapStatus getMapStatus() {
-        if (this.f4277a != null) {
-            return this.f4277a.getMapStatus();
+        if (this.f4278a != null) {
+            return this.f4278a.getMapStatus();
         }
         return null;
     }
 
     public MapViewListener getMapViewListener() {
-        if (this.f4277a != null) {
-            return this.f4277a.getMapViewListener();
+        if (this.f4278a != null) {
+            return this.f4278a.getMapViewListener();
         }
         return null;
     }
@@ -569,10 +569,10 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public int getOverlooking() {
-        if (this.f4277a == null) {
+        if (this.f4278a == null) {
             return 0;
         }
-        return this.f4277a.getMapStatus().overlooking;
+        return this.f4278a.getMapStatus().overlooking;
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
@@ -586,16 +586,16 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public MapStatus.WinRound getWinRound() {
-        if (this.f4277a == null) {
+        if (this.f4278a == null) {
             return null;
         }
-        return this.f4277a.getMapStatus().winRound;
+        return this.f4278a.getMapStatus().winRound;
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public float getZoomLevel() {
-        if (this.f4277a != null) {
-            return this.f4277a.getZoomLevel();
+        if (this.f4278a != null) {
+            return this.f4278a.getZoomLevel();
         }
         return 0.0f;
     }
@@ -608,7 +608,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public float getZoomToBound(MapBound mapBound, int i, int i2) {
-        if (this.f4277a == null) {
+        if (this.f4278a == null) {
             return 0.0f;
         }
         Bundle bundle = new Bundle();
@@ -616,7 +616,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
         bundle.putInt("bottom", mapBound.leftBottomPt.getIntY());
         bundle.putInt(HorizontalTranslateLayout.DIRECTION_RIGHT, mapBound.rightTopPt.getIntX());
         bundle.putInt(VerticalTranslateLayout.TOP, mapBound.rightTopPt.getIntY());
-        return this.f4277a.getZoomToBound(bundle, i, i2);
+        return this.f4278a.getZoomToBound(bundle, i, i2);
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
@@ -627,7 +627,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public float getZoomToBoundF(MapBound mapBound, int i, int i2) {
-        if (this.f4277a == null) {
+        if (this.f4278a == null) {
             return 0.0f;
         }
         Bundle bundle = new Bundle();
@@ -635,7 +635,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
         bundle.putInt("bottom", mapBound.leftBottomPt.getIntY());
         bundle.putInt(HorizontalTranslateLayout.DIRECTION_RIGHT, mapBound.rightTopPt.getIntX());
         bundle.putInt(VerticalTranslateLayout.TOP, mapBound.rightTopPt.getIntY());
-        return this.f4277a.getZoomToBoundF(bundle);
+        return this.f4278a.getZoomToBoundF(bundle);
     }
 
     public boolean inRangeOfView(float f, float f2) {
@@ -643,12 +643,12 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
     }
 
     public synchronized boolean insertOverlay(Overlay overlay, int i) {
-        if ((overlay instanceof InnerOverlay) && this.f4277a != null) {
+        if ((overlay instanceof InnerOverlay) && this.f4278a != null) {
             if (((InnerOverlay) overlay).mBaseMap == null) {
-                ((InnerOverlay) overlay).mBaseMap = this.f4277a.getBaseMap();
+                ((InnerOverlay) overlay).mBaseMap = this.f4278a.getBaseMap();
             }
             this.t.add(overlay);
-            this.f4278b.a((InnerOverlay) overlay);
+            this.f4279b.a((InnerOverlay) overlay);
         }
         return false;
     }
@@ -680,8 +680,8 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
     @Override // com.baidu.platform.comapi.map.RenderSurfaceView, android.view.SurfaceView, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.f4277a != null) {
-            this.f4277a.updateDrawFPS();
+        if (this.f4278a != null) {
+            this.f4278a.updateDrawFPS();
         }
         if (Build.VERSION.SDK_INT < 14) {
             this.f = false;
@@ -692,16 +692,16 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
         if (this.q) {
             return;
         }
-        if (this.f4277a != null && this.f4277a.getBaseMap() != null) {
-            this.f4277a.getBaseMap().OnBackground();
+        if (this.f4278a != null && this.f4278a.getBaseMap() != null) {
+            this.f4278a.getBaseMap().OnBackground();
         }
         this.q = true;
     }
 
     @Override // com.baidu.platform.comapi.map.RenderSurfaceView, android.view.SurfaceView, android.view.View
     public void onDetachedFromWindow() {
-        if (this.f4277a != null) {
-            this.f4277a.updateDrawFPS();
+        if (this.f4278a != null) {
+            this.f4278a.updateDrawFPS();
         }
         super.onDetachedFromWindow();
         if (Build.VERSION.SDK_INT < 14) {
@@ -711,8 +711,8 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     public void onForeground() {
         if (this.q) {
-            if (this.f4277a != null && this.f4277a.getBaseMap() != null) {
-                this.f4277a.getBaseMap().OnForeground();
+            if (this.f4278a != null && this.f4278a.getBaseMap() != null) {
+                this.f4278a.getBaseMap().OnForeground();
             }
             this.q = false;
         }
@@ -723,16 +723,16 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
         if (this == view && keyEvent.getAction() == 0) {
             switch (i) {
                 case 19:
-                    this.f4277a.scrollBy(0, -50);
+                    this.f4278a.scrollBy(0, -50);
                     break;
                 case 20:
-                    this.f4277a.scrollBy(0, 50);
+                    this.f4278a.scrollBy(0, 50);
                     break;
                 case 21:
-                    this.f4277a.scrollBy(-50, 0);
+                    this.f4278a.scrollBy(-50, 0);
                     break;
                 case 22:
-                    this.f4277a.scrollBy(50, 0);
+                    this.f4278a.scrollBy(50, 0);
                     break;
                 default:
                     return false;
@@ -764,8 +764,8 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
         if (this.d != null) {
             this.d.b();
         }
-        if (this.f4277a != null) {
-            this.f4277a.onPause();
+        if (this.f4278a != null) {
+            this.f4278a.onPause();
         }
         Iterator<y> it = this.w.iterator();
         while (it.hasNext()) {
@@ -776,10 +776,10 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
     }
 
     public void onRecycle() {
-        if (this.f4277a == null || this.f4277a.getBaseMap() == null) {
+        if (this.f4278a == null || this.f4278a.getBaseMap() == null) {
             return;
         }
-        this.f4277a.getBaseMap().ResetImageRes();
+        this.f4278a.getBaseMap().ResetImageRes();
     }
 
     @Override // com.baidu.platform.comapi.map.MapRenderModeChangeListener
@@ -793,8 +793,8 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
             if (this.d != null) {
                 this.d.a();
             }
-            if (this.f4277a != null) {
-                this.f4277a.onResume();
+            if (this.f4278a != null) {
+                this.f4278a.onResume();
             }
             Iterator<y> it = this.w.iterator();
             while (it.hasNext()) {
@@ -810,8 +810,8 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
     public boolean onTouchEvent(MotionEvent motionEvent) {
         try {
             if (this.h == null || !this.h.onTouchEvent(motionEvent)) {
-                if (this.f4277a != null) {
-                    if (this.f4277a.handleTouchEvent(motionEvent)) {
+                if (this.f4278a != null) {
+                    if (this.f4278a.handleTouchEvent(motionEvent)) {
                         return true;
                     }
                 }
@@ -825,24 +825,24 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void refresh(Overlay overlay) {
-        if (overlay == null || this.f4277a == null) {
+        if (overlay == null || this.f4278a == null) {
             return;
         }
         if ((overlay instanceof ItemizedOverlay) && ((ItemizedOverlay) overlay).b()) {
             if (((ItemizedOverlay) overlay).getAllItem().size() <= 0) {
-                this.f4277a.getBaseMap().ClearLayer(overlay.mLayerID);
-                this.f4277a.getBaseMap().ShowLayers(overlay.mLayerID, false);
-                this.f4277a.getBaseMap().UpdateLayers(overlay.mLayerID);
+                this.f4278a.getBaseMap().ClearLayer(overlay.mLayerID);
+                this.f4278a.getBaseMap().ShowLayers(overlay.mLayerID, false);
+                this.f4278a.getBaseMap().UpdateLayers(overlay.mLayerID);
             } else {
-                this.f4277a.getBaseMap().ShowLayers(overlay.mLayerID, true);
-                this.f4277a.getBaseMap().UpdateLayers(overlay.mLayerID);
+                this.f4278a.getBaseMap().ShowLayers(overlay.mLayerID, true);
+                this.f4278a.getBaseMap().UpdateLayers(overlay.mLayerID);
             }
             ((ItemizedOverlay) overlay).a(false);
         }
-        if (this.f4277a == null || this.f4277a.getBaseMap() == null) {
+        if (this.f4278a == null || this.f4278a.getBaseMap() == null) {
             return;
         }
-        this.f4277a.getBaseMap().UpdateLayers(overlay.mLayerID);
+        this.f4278a.getBaseMap().UpdateLayers(overlay.mLayerID);
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
@@ -851,7 +851,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
         boolean z = false;
         synchronized (this) {
             if (overlay != null) {
-                if (this.f4277a != null && (baseMap = this.f4277a.getBaseMap()) != null) {
+                if (this.f4278a != null && (baseMap = this.f4278a.getBaseMap()) != null) {
                     baseMap.ClearLayer(overlay.mLayerID);
                     baseMap.ShowLayers(overlay.mLayerID, false);
                     baseMap.UpdateLayers(overlay.mLayerID);
@@ -861,7 +861,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
                             this.t.remove(overlay);
                         } else if (overlay instanceof InnerOverlay) {
                             this.t.remove(overlay);
-                            this.f4278b.a(overlay);
+                            this.f4279b.a(overlay);
                         }
                         overlay.mLayerID = 0L;
                         z = true;
@@ -884,8 +884,8 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void saveScreenToLocal(String str) {
-        if (this.f4277a != null) {
-            this.f4277a.saveScreenToLocal(str);
+        if (this.f4278a != null) {
+            this.f4278a.saveScreenToLocal(str);
         }
     }
 
@@ -934,7 +934,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void setBaseIndoorMap(boolean z) {
-        if (this.f4277a != null) {
+        if (this.f4278a != null) {
             this.o = z;
         }
         y.submit(new u(this, z));
@@ -963,7 +963,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
         if (this.z == i && this.A == i2 && this.B == i3) {
             return true;
         }
-        if (this.f4277a == null || (baseMap = this.f4277a.getBaseMap()) == null) {
+        if (this.f4278a == null || (baseMap = this.f4278a.getBaseMap()) == null) {
             return false;
         }
         this.z = i;
@@ -974,29 +974,29 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void setMapCenter(GeoPoint geoPoint) {
-        if (this.f4277a != null) {
-            MapStatus mapStatus = this.f4277a.getMapStatus();
+        if (this.f4278a != null) {
+            MapStatus mapStatus = this.f4278a.getMapStatus();
             mapStatus.centerPtX = geoPoint.getLongitude();
             mapStatus.centerPtY = geoPoint.getLatitude();
-            this.f4277a.setMapStatus(mapStatus);
+            this.f4278a.setMapStatus(mapStatus);
         }
     }
 
     public void setMapController(MapController mapController) {
-        if (this.f4277a != null) {
+        if (this.f4278a != null) {
             return;
         }
-        this.f4277a = mapController;
-        this.d.a(this.f4277a.getBaseMap());
+        this.f4278a = mapController;
+        this.d.a(this.f4278a.getBaseMap());
         this.d.a(true);
-        this.f4278b = new ac(this.f4277a.getBaseMap());
-        this.f4277a.setOverlayMapCallBack(this.f4278b);
-        this.f4277a.setMapViewInterface(this);
+        this.f4279b = new ac(this.f4278a.getBaseMap());
+        this.f4278a.setOverlayMapCallBack(this.f4279b);
+        this.f4278a.setMapViewInterface(this);
         b();
-        this.f4277a.setMapRenderModeChangeListener(this);
+        this.f4278a.setMapRenderModeChangeListener(this);
         this.e = true;
-        this.c = new k(this.f4277a);
-        this.g.a(this.f4277a);
+        this.c = new k(this.f4278a);
+        this.g.a(this.f4278a);
     }
 
     public void setMapRenderStableListener(z zVar) {
@@ -1005,8 +1005,8 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void setMapStatus(MapStatus mapStatus) {
-        if (this.f4277a != null) {
-            this.f4277a.setMapStatus(mapStatus);
+        if (this.f4278a != null) {
+            this.f4278a.setMapStatus(mapStatus);
         }
     }
 
@@ -1020,10 +1020,10 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void setOverlooking(int i) {
-        if (this.f4277a != null) {
-            MapStatus mapStatus = this.f4277a.getMapStatus();
+        if (this.f4278a != null) {
+            MapStatus mapStatus = this.f4278a.getMapStatus();
             mapStatus.overlooking = i;
-            this.f4277a.setMapStatus(mapStatus);
+            this.f4278a.setMapStatus(mapStatus);
         }
     }
 
@@ -1037,16 +1037,16 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void setRotation(int i) {
-        if (this.f4277a != null) {
-            MapStatus mapStatus = this.f4277a.getMapStatus();
+        if (this.f4278a != null) {
+            MapStatus mapStatus = this.f4278a.getMapStatus();
             mapStatus.rotation = i;
-            this.f4277a.setMapStatus(mapStatus);
+            this.f4278a.setMapStatus(mapStatus);
         }
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void setSatellite(boolean z) {
-        if (this.f4277a != null) {
+        if (this.f4278a != null) {
             this.m = z;
         }
         y.submit(new q(this));
@@ -1054,7 +1054,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void setStreetRoad(boolean z) {
-        if (this.f4277a != null) {
+        if (this.f4278a != null) {
             this.n = z;
         }
         y.submit(new t(this));
@@ -1065,7 +1065,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
         if (this.l == z) {
             return;
         }
-        if (this.f4277a != null) {
+        if (this.f4278a != null) {
             this.l = z;
         }
         y.submit(new s(this));
@@ -1073,16 +1073,16 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void setWinRound(MapStatus.WinRound winRound) {
-        if (this.f4277a != null) {
-            MapStatus mapStatus = this.f4277a.getMapStatus();
+        if (this.f4278a != null) {
+            MapStatus mapStatus = this.f4278a.getMapStatus();
             mapStatus.winRound = winRound;
-            this.f4277a.setMapStatus(mapStatus);
+            this.f4278a.setMapStatus(mapStatus);
         }
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void setZoomLevel(float f) {
-        if (this.f4277a == null) {
+        if (this.f4278a == null) {
             return;
         }
         int i = getController().getFocusedBaseIndoorMapInfo() != null ? 22 : 21;
@@ -1105,18 +1105,18 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     @Override // com.baidu.platform.comapi.map.RenderSurfaceView, android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        if (this.f4277a != null) {
-            this.f4277a.updateDrawFPS();
+        if (this.f4278a != null) {
+            this.f4278a.updateDrawFPS();
         }
         if (this.d != null) {
-            this.d.f4352a = i2;
-            this.d.f4353b = i3;
+            this.d.f4353a = i2;
+            this.d.f4354b = i3;
             this.d.c = 0;
         }
         this.u = i2;
         this.v = i3;
         super.surfaceChanged(surfaceHolder, i, i2, i3);
-        if (this.f4277a != null) {
+        if (this.f4278a != null) {
             MapStatus mapStatus = getMapStatus();
             if (mapStatus != null) {
                 mapStatus.winRound.left = 0;
@@ -1125,9 +1125,9 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
                 mapStatus.winRound.right = i2;
                 setMapStatus(mapStatus);
             }
-            this.f4277a.setScreenSize(this.u, this.v);
-            if (this.f4277a.isNaviMode() && this.f4277a.getNaviMapViewListener() != null) {
-                this.f4277a.getNaviMapViewListener().resizeScreen(i2, i3);
+            this.f4278a.setScreenSize(this.u, this.v);
+            if (this.f4278a.isNaviMode() && this.f4278a.getNaviMapViewListener() != null) {
+                this.f4278a.getNaviMapViewListener().resizeScreen(i2, i3);
             }
         }
         if (this.j != null) {
@@ -1137,8 +1137,8 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     @Override // com.baidu.platform.comapi.map.RenderSurfaceView, android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        if (this.f4277a != null) {
-            this.f4277a.updateDrawFPS();
+        if (this.f4278a != null) {
+            this.f4278a.updateDrawFPS();
         }
         super.surfaceCreated(surfaceHolder);
         if (surfaceHolder == null || surfaceHolder.getSurface().isValid()) {
@@ -1149,8 +1149,8 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
 
     @Override // com.baidu.platform.comapi.map.RenderSurfaceView, android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        if (this.f4277a != null) {
-            this.f4277a.updateDrawFPS();
+        if (this.f4278a != null) {
+            this.f4278a.updateDrawFPS();
         }
         super.surfaceDestroyed(surfaceHolder);
         if (this.x) {
@@ -1162,7 +1162,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public boolean switchOverlay(Overlay overlay, Overlay overlay2) {
         AppBaseMap baseMap;
-        if (overlay == null || overlay2 == null || this.f4277a == null || (baseMap = this.f4277a.getBaseMap()) == null) {
+        if (overlay == null || overlay2 == null || this.f4278a == null || (baseMap = this.f4278a.getBaseMap()) == null) {
             return false;
         }
         return baseMap.SwitchLayer(overlay.mLayerID, overlay2.mLayerID);
@@ -1180,10 +1180,10 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
             this.j.I();
             this.j = null;
         }
-        this.f4277a.unInit();
-        this.f4277a = null;
-        this.f4278b.a();
-        this.f4278b = null;
+        this.f4278a.unInit();
+        this.f4278a = null;
+        this.f4279b.a();
+        this.f4279b = null;
         this.c = null;
         this.d = null;
     }

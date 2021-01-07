@@ -6,7 +6,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class f extends ag implements LocationListener, Runnable {
     public long c;
     private HandlerThread d;
@@ -70,7 +70,7 @@ public final class f extends ag implements LocationListener, Runnable {
             }
         } catch (Throwable th) {
         }
-        return location == null ? aa.f1048a : location;
+        return location == null ? aa.f1049a : location;
     }
 
     @Override // android.location.LocationListener

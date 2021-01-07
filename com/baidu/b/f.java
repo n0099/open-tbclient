@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1612a;
+    public String f1613a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1613b;
+    public String f1614b;
     public int c = 2;
     private int d = 0;
 
@@ -20,13 +20,13 @@ public class f {
             return null;
         }
         f fVar = new f();
-        fVar.f1612a = str;
+        fVar.f1613a = str;
         fVar.d = TextUtils.isEmpty(str2) ? 0 : str2.length();
         if (fVar.d < 14) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "0";
             }
-            fVar.f1613b = str2;
+            fVar.f1614b = str2;
         }
         return fVar;
     }
@@ -62,14 +62,14 @@ public class f {
             int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
             if (!TextUtils.isEmpty(string)) {
                 f fVar = new f();
-                fVar.f1612a = string;
+                fVar.f1613a = string;
                 fVar.c = i;
                 fVar.d = length;
                 if (fVar.d < 14) {
                     if (TextUtils.isEmpty(str2)) {
                         str2 = "0";
                     }
-                    fVar.f1613b = str2;
+                    fVar.f1614b = str2;
                 }
                 fVar.c();
                 return fVar;
@@ -98,7 +98,7 @@ public class f {
     }
 
     boolean a() {
-        return a(this.f1613b);
+        return a(this.f1614b);
     }
 
     boolean b() {
@@ -108,10 +108,10 @@ public class f {
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean c() {
         if (b()) {
-            this.f1613b = "O";
+            this.f1614b = "O";
             return true;
         } else if (a()) {
-            this.f1613b = "0";
+            this.f1614b = "0";
             return true;
         } else {
             return false;

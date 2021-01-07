@@ -59,7 +59,7 @@ public class m {
                     com.baidu.tbadk.core.dialog.a.this.dismiss();
                 }
             });
-            aVar.b(tbPageContext).btX();
+            aVar.b(tbPageContext).btY();
         }
     }
 
@@ -104,13 +104,13 @@ public class m {
             com.baidu.tbadk.core.util.ao.setImageResource(tbImageView, R.drawable.backguard_mask_apity);
             com.baidu.tbadk.core.util.ao.setViewTextColor(textView, R.color.CAM_X0107);
             com.baidu.tbadk.core.util.ao.setViewTextColor(textView2, R.color.CAM_X0304);
-            SvgManager.bwq().a(imageView, R.drawable.ic_icon_popup_close_n, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bwr().a(imageView, R.drawable.ic_icon_popup_close_n, SvgManager.SvgResourceStateType.NORMAL);
             textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.m.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     com.baidu.tbadk.core.dialog.a.this.dismiss();
                     if (intValue == 1) {
-                        be.bwu().b(tbPageContext, new String[]{String.format("https://tieba.baidu.com/mo/q/bawu/taskinfoview?fn=%1$s&fid=%2$s&noshare=1", str2, str)});
+                        be.bwv().b(tbPageContext, new String[]{String.format("https://tieba.baidu.com/mo/q/bawu/taskinfoview?fn=%1$s&fid=%2$s&noshare=1", str2, str)});
                     }
                 }
             });
@@ -120,7 +120,7 @@ public class m {
                     com.baidu.tbadk.core.dialog.a.this.dismiss();
                 }
             });
-            aVar.b(tbPageContext).btX();
+            aVar.b(tbPageContext).btY();
         }
     }
 }

@@ -25,10 +25,10 @@ public class Download implements Serializable {
     public List mRequestHeaders = new ArrayList();
 
     /* renamed from: a  reason: collision with root package name */
-    long f1733a = 0;
+    long f1734a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    long f1734b = 0;
+    long f1735b = 0;
     int c = 0;
     boolean d = true;
 

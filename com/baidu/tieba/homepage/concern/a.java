@@ -141,23 +141,23 @@ public class a {
         this.jVU.add(this.jWt);
         this.jVU.add(this.jWx);
         this.jVU.add(this.jWy);
-        Fm("page_concern");
-        cQy();
+        Fl("page_concern");
+        cQz();
     }
 
-    private void cQy() {
+    private void cQz() {
         if (!bz.eTz.get()) {
             AdvertAppInfo.eNR.set(false);
             return;
         }
         this.jWz = new ArrayList<>();
-        com.baidu.adp.widget.ListView.a<?, ?> a2 = com.baidu.tieba.recapp.r.dEV().a(this.mPageContext, AdvertAppInfo.eNF, "CONCERN");
-        com.baidu.adp.widget.ListView.a<?, ?> a3 = com.baidu.tieba.recapp.r.dEV().a(this.mPageContext, AdvertAppInfo.eNI, "CONCERN");
-        com.baidu.adp.widget.ListView.a<?, ?> a4 = com.baidu.tieba.recapp.r.dEV().a(this.mPageContext, AdvertAppInfo.eNM, "CONCERN");
-        com.baidu.adp.widget.ListView.a<?, ?> a5 = com.baidu.tieba.recapp.r.dEV().a(this.mPageContext, AdvertAppInfo.eNN, "CONCERN");
-        com.baidu.adp.widget.ListView.a<?, ?> a6 = com.baidu.tieba.recapp.r.dEV().a(this.mPageContext, AdvertAppInfo.eNO, "CONCERN");
-        com.baidu.adp.widget.ListView.a<?, ?> a7 = com.baidu.tieba.recapp.r.dEV().a(this.mPageContext, AdvertAppInfo.eNQ, "CONCERN");
-        com.baidu.adp.widget.ListView.a<?, ?> a8 = com.baidu.tieba.recapp.r.dEV().a(this.mPageContext, AdvertAppInfo.eNP, "CONCERN");
+        com.baidu.adp.widget.ListView.a<?, ?> a2 = com.baidu.tieba.recapp.r.dEW().a(this.mPageContext, AdvertAppInfo.eNF, "CONCERN");
+        com.baidu.adp.widget.ListView.a<?, ?> a3 = com.baidu.tieba.recapp.r.dEW().a(this.mPageContext, AdvertAppInfo.eNI, "CONCERN");
+        com.baidu.adp.widget.ListView.a<?, ?> a4 = com.baidu.tieba.recapp.r.dEW().a(this.mPageContext, AdvertAppInfo.eNM, "CONCERN");
+        com.baidu.adp.widget.ListView.a<?, ?> a5 = com.baidu.tieba.recapp.r.dEW().a(this.mPageContext, AdvertAppInfo.eNN, "CONCERN");
+        com.baidu.adp.widget.ListView.a<?, ?> a6 = com.baidu.tieba.recapp.r.dEW().a(this.mPageContext, AdvertAppInfo.eNO, "CONCERN");
+        com.baidu.adp.widget.ListView.a<?, ?> a7 = com.baidu.tieba.recapp.r.dEW().a(this.mPageContext, AdvertAppInfo.eNQ, "CONCERN");
+        com.baidu.adp.widget.ListView.a<?, ?> a8 = com.baidu.tieba.recapp.r.dEW().a(this.mPageContext, AdvertAppInfo.eNP, "CONCERN");
         this.jWz.add(a2);
         this.jWz.add(a3);
         this.jWz.add(a4);
@@ -201,11 +201,11 @@ public class a {
         this.jWy.fJu = bdUniqueId;
     }
 
-    private void Fm(String str) {
+    private void Fl(String str) {
         if (this.jVU != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.jVU) {
                 if (aVar instanceof com.baidu.tieba.a.f) {
-                    ((com.baidu.tieba.a.f) aVar).Fm(str);
+                    ((com.baidu.tieba.a.f) aVar).Fl(str);
                 }
             }
         }

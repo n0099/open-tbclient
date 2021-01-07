@@ -21,7 +21,7 @@ class a extends com.baidu.swan.apps.inlinewidget.b<c> {
             }
 
             @Override // com.baidu.swan.apps.inlinewidget.a.c.a
-            public void aoK() {
+            public void aoL() {
                 if (a.this.dfU != null) {
                     a.this.dfU.onCallback(a.this, "onCustomKeyboardHide", null);
                 }
@@ -35,7 +35,7 @@ class a extends com.baidu.swan.apps.inlinewidget.b<c> {
             }
 
             @Override // com.baidu.swan.apps.inlinewidget.a.c.a
-            public void azu() {
+            public void azv() {
                 if (a.this.dfU != null) {
                     a.this.dfU.onCallback(a.this, "deletebutton", new KeyEvent(0, 67));
                 }

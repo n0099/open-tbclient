@@ -44,28 +44,28 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0935a c0935a;
+        C0973a c0973a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.item_ala_audio_mode, viewGroup, false);
-            C0935a c0935a2 = new C0935a();
-            c0935a2.oPV = (TbImageView) view.findViewById(a.f.thumbnail_iv);
-            c0935a2.oPW = (ImageView) view.findViewById(a.f.chosen_iv);
-            c0935a2.gOO = (TextView) view.findViewById(a.f.mode_name_tv);
-            c0935a2.oPV.setDefaultResource(a.e.loading_ala_audio_mode);
-            c0935a2.oPV.setDefaultErrorResource(a.e.loading_ala_audio_mode);
-            c0935a2.oPV.setDefaultBgResource(a.e.loading_ala_audio_mode);
-            view.setTag(c0935a2);
-            c0935a = c0935a2;
+            C0973a c0973a2 = new C0973a();
+            c0973a2.oPV = (TbImageView) view.findViewById(a.f.thumbnail_iv);
+            c0973a2.oPW = (ImageView) view.findViewById(a.f.chosen_iv);
+            c0973a2.gOO = (TextView) view.findViewById(a.f.mode_name_tv);
+            c0973a2.oPV.setDefaultResource(a.e.loading_ala_audio_mode);
+            c0973a2.oPV.setDefaultErrorResource(a.e.loading_ala_audio_mode);
+            c0973a2.oPV.setDefaultBgResource(a.e.loading_ala_audio_mode);
+            view.setTag(c0973a2);
+            c0973a = c0973a2;
         } else {
-            c0935a = (C0935a) view.getTag();
+            c0973a = (C0973a) view.getTag();
         }
         com.baidu.yuyinala.mode.b.a item = getItem(i);
         if (item != null) {
             view.setVisibility(0);
-            c0935a.gOO.setText(item.getTitle());
-            c0935a.oPV.startLoad(item.getIconUrl(), 10, false);
-            c0935a.oPV.setVisibility(0);
-            c0935a.oPW.setVisibility(item.eku() ? 0 : 8);
+            c0973a.gOO.setText(item.getTitle());
+            c0973a.oPV.startLoad(item.getIconUrl(), 10, false);
+            c0973a.oPV.setVisibility(0);
+            c0973a.oPW.setVisibility(item.ekv() ? 0 : 8);
         } else {
             view.setVisibility(8);
         }
@@ -74,12 +74,12 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.yuyinala.mode.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    private class C0935a {
+    private class C0973a {
         private TextView gOO;
         private TbImageView oPV;
         private ImageView oPW;
 
-        private C0935a() {
+        private C0973a() {
         }
     }
 }

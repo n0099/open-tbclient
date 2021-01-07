@@ -4,7 +4,7 @@ import android.net.Uri;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g implements Cloneable {
     public static final String UNITED_SCHEME = c.getSchemeHead() + "://";
     g cvf;
@@ -35,7 +35,7 @@ public class g implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: ahq */
+    /* renamed from: ahr */
     public g clone() {
         g gVar = new g(this.mUri, this.mSource, j.getPaths(this.mUri), (HashMap) this.mParams.clone());
         gVar.cvf = this;

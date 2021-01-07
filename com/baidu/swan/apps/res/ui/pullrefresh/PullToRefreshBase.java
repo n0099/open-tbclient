@@ -124,7 +124,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase.1
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
-                PullToRefreshBase.this.aKN();
+                PullToRefreshBase.this.aKO();
                 PullToRefreshBase.this.getViewTreeObserver().removeGlobalOnLayoutListener(this);
             }
         });
@@ -136,7 +136,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aKN() {
+    public void aKO() {
         int contentSize = this.dBA != null ? this.dBA.getContentSize() : 0;
         int contentSize2 = this.dBB != null ? this.dBB.getContentSize() : 0;
         int i = contentSize < 0 ? 0 : contentSize;
@@ -154,7 +154,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     @Override // android.view.View
     protected final void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        aKN();
+        aKO();
         refreshRefreshableViewSize(i, i2);
         post(new Runnable() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase.2
             @Override // java.lang.Runnable
@@ -176,7 +176,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         int i;
         boolean z = false;
-        if (aKP()) {
+        if (aKQ()) {
             if (isPullLoadEnabled() || isPullRefreshEnabled()) {
                 int action = motionEvent.getAction();
                 if (action == 3 || action == 1) {
@@ -204,7 +204,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                                         z = true;
                                     }
                                     this.dBI = z;
-                                    if (this.dBI && aKO()) {
+                                    if (this.dBI && aKP()) {
                                         this.dBL.onTouchEvent(motionEvent);
                                         break;
                                     }
@@ -433,12 +433,12 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         a(z, j, (Runnable) null);
     }
 
-    protected boolean aKO() {
+    protected boolean aKP() {
         return true;
     }
 
     protected LoadingLayout f(Context context, AttributeSet attributeSet) {
-        aKQ();
+        aKR();
         LoadingLayout loadingLayout = null;
         switch (this.dBy) {
             case STANDARD_HEADER:
@@ -685,11 +685,11 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         this.dBH = z;
     }
 
-    private boolean aKP() {
+    private boolean aKQ() {
         return this.dBH;
     }
 
-    protected void aKQ() {
+    protected void aKR() {
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
@@ -700,6 +700,6 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     public static boolean getNgWebViewHeightSwitch() {
-        return com.baidu.swan.apps.performance.b.b.aHP() ? com.baidu.swan.apps.performance.b.b.getNgWebViewHeightSwitch() : com.baidu.swan.apps.t.a.aAu().getSwitch("swan_app_refresh_ngwebview_height_switch", false);
+        return com.baidu.swan.apps.performance.b.b.aHQ() ? com.baidu.swan.apps.performance.b.b.getNgWebViewHeightSwitch() : com.baidu.swan.apps.t.a.aAv().getSwitch("swan_app_refresh_ngwebview_height_switch", false);
     }
 }

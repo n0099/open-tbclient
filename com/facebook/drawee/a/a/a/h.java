@@ -9,56 +9,56 @@ public class h {
     @Nullable
     private String mRequestId;
     @Nullable
-    private String puR;
+    private String puY;
     @Nullable
-    private Object puT;
+    private Object pva;
     @Nullable
-    private ImageRequest puU;
+    private ImageRequest pvb;
     @Nullable
-    private com.facebook.imagepipeline.f.f puV;
-    private boolean pve;
-    private long puW = -1;
-    private long puX = -1;
-    private long puY = -1;
-    private long puZ = -1;
-    private long pva = -1;
-    private long pvb = -1;
-    private long pvc = -1;
-    private int pvd = -1;
-    private int pvf = -1;
-    private int pvg = -1;
-    private int pvp = -1;
+    private com.facebook.imagepipeline.f.f pvc;
+    private boolean pvl;
+    private long pvd = -1;
+    private long pve = -1;
+    private long pvf = -1;
+    private long pvg = -1;
+    private long pvh = -1;
+    private long pvi = -1;
+    private long pvj = -1;
+    private int pvk = -1;
+    private int pvm = -1;
+    private int pvn = -1;
+    private int pvw = -1;
 
     public void reset() {
         this.mRequestId = null;
-        this.puU = null;
-        this.puT = null;
-        this.puV = null;
-        this.puW = -1L;
-        this.puY = -1L;
-        this.puZ = -1L;
-        this.pva = -1L;
-        this.pvb = -1L;
-        this.pvc = -1L;
-        this.pvd = -1;
+        this.pvb = null;
+        this.pva = null;
+        this.pvc = null;
+        this.pvd = -1L;
+        this.pvf = -1L;
+        this.pvg = -1L;
+        this.pvh = -1L;
+        this.pvi = -1L;
+        this.pvj = -1L;
+        this.pvk = -1;
         this.mIsCanceled = false;
         this.VI = false;
-        this.pve = false;
-        this.pvf = -1;
-        this.pvg = -1;
-        this.pvp = -1;
+        this.pvl = false;
+        this.pvm = -1;
+        this.pvn = -1;
+        this.pvw = -1;
     }
 
-    public void Qg(int i) {
-        this.pvp = i;
+    public void Ql(int i) {
+        this.pvw = i;
     }
 
-    public int eva() {
-        return this.pvp;
+    public int evh() {
+        return this.pvw;
     }
 
-    public void Zx(@Nullable String str) {
-        this.puR = str;
+    public void Zw(@Nullable String str) {
+        this.puY = str;
     }
 
     public void setRequestId(@Nullable String str) {
@@ -66,43 +66,43 @@ public class h {
     }
 
     public void setImageRequest(@Nullable ImageRequest imageRequest) {
-        this.puU = imageRequest;
+        this.pvb = imageRequest;
     }
 
     public void bl(@Nullable Object obj) {
-        this.puT = obj;
+        this.pva = obj;
     }
 
     public void iA(long j) {
-        this.puW = j;
+        this.pvd = j;
     }
 
     public void iB(long j) {
-        this.puX = j;
+        this.pve = j;
     }
 
     public void iC(long j) {
-        this.puY = j;
+        this.pvf = j;
     }
 
     public void iD(long j) {
-        this.puZ = j;
+        this.pvg = j;
     }
 
     public void iE(long j) {
-        this.pva = j;
+        this.pvh = j;
     }
 
     public void iF(long j) {
-        this.pvb = j;
+        this.pvi = j;
     }
 
     public void iG(long j) {
-        this.pvc = j;
+        this.pvj = j;
     }
 
-    public void Qh(int i) {
-        this.pvd = i;
+    public void Qm(int i) {
+        this.pvk = i;
     }
 
     public void AS(boolean z) {
@@ -114,22 +114,22 @@ public class h {
     }
 
     public void AU(boolean z) {
-        this.pve = z;
+        this.pvl = z;
     }
 
     public void a(@Nullable com.facebook.imagepipeline.f.f fVar) {
-        this.puV = fVar;
+        this.pvc = fVar;
     }
 
-    public void Qi(int i) {
-        this.pvf = i;
+    public void Qn(int i) {
+        this.pvm = i;
     }
 
-    public void Qj(int i) {
-        this.pvg = i;
+    public void Qo(int i) {
+        this.pvn = i;
     }
 
-    public e evb() {
-        return new e(this.puR, this.mRequestId, this.puU, this.puT, this.puV, this.puW, this.puX, this.puY, this.puZ, this.pva, this.pvb, this.pvc, this.pvd, this.mIsCanceled, this.VI, this.pve, this.pvf, this.pvg);
+    public e evi() {
+        return new e(this.puY, this.mRequestId, this.pvb, this.pva, this.pvc, this.pvd, this.pve, this.pvf, this.pvg, this.pvh, this.pvi, this.pvj, this.pvk, this.mIsCanceled, this.VI, this.pvl, this.pvm, this.pvn);
     }
 }

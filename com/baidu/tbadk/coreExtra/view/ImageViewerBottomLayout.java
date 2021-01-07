@@ -51,12 +51,12 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
 
     /* loaded from: classes.dex */
     public interface b {
-        void bCV();
+        void bCW();
     }
 
     /* loaded from: classes.dex */
     public interface c {
-        void bCW();
+        void bCX();
     }
 
     public ImageViewerBottomLayout(Context context) {
@@ -190,21 +190,21 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
             if (bV != null) {
                 aqVar2.dX("obj_cur_page", bV.getCurrentPageKey());
             }
-            if (com.baidu.tbadk.pageExtra.d.bHm() != null) {
-                aqVar2.dX("obj_pre_page", com.baidu.tbadk.pageExtra.d.bHm());
+            if (com.baidu.tbadk.pageExtra.d.bHn() != null) {
+                aqVar2.dX("obj_pre_page", com.baidu.tbadk.pageExtra.d.bHn());
             }
             TiebaStatic.log(aqVar2);
-            bCL();
+            bCM();
         } else if (view == this.fmu) {
             if (this.fzs != null) {
-                this.fzs.bCW();
+                this.fzs.bCX();
             }
             if (this.fxZ != null) {
                 TiebaStatic.log(new aq("c13857").dX("obj_type", "9").w("post_id", this.fxZ.threadId).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("fid", this.fxZ.forumId));
             }
         } else if (view == this.fzr) {
             if (this.fzt != null) {
-                this.fzt.bCV();
+                this.fzt.bCW();
             }
             if (this.fxZ != null) {
                 TiebaStatic.log(new aq("c13857").dX("obj_type", "2").w("post_id", this.fxZ.threadId).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("fid", this.fxZ.forumId));
@@ -233,7 +233,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
         return true;
     }
 
-    private void bCL() {
+    private void bCM() {
         if (this.fxZ != null) {
             String valueOf = String.valueOf(this.fxZ.threadId);
             String valueOf2 = String.valueOf(this.fxZ.postId);

@@ -26,7 +26,7 @@ public class AlaActiveWebView extends FrameLayout implements c {
     private SchemeCallback bWJ;
     private String ePk;
     private boolean hmR;
-    private a omC;
+    private a omB;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -54,7 +54,7 @@ public class AlaActiveWebView extends FrameLayout implements c {
     }
 
     public void setCallback(a aVar) {
-        this.omC = aVar;
+        this.omB = aVar;
     }
 
     public void addJavascriptInterface(Object obj, String str) {
@@ -75,7 +75,7 @@ public class AlaActiveWebView extends FrameLayout implements c {
         return this.bWG != null ? this.bWG.getOriginalUrl() : "";
     }
 
-    public boolean cbD() {
+    public boolean cbE() {
         return this.hmR;
     }
 
@@ -105,7 +105,7 @@ public class AlaActiveWebView extends FrameLayout implements c {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.activeview.c
     public void release() {
-        this.omC = null;
+        this.omB = null;
         this.hmR = false;
         removeAllViews();
         if (this.bWG != null) {
@@ -139,8 +139,8 @@ public class AlaActiveWebView extends FrameLayout implements c {
                         @Override // android.webkit.ValueCallback
                         public void onReceiveValue(String str2) {
                             AlaActiveWebView.this.hmR = Boolean.valueOf(str2).booleanValue();
-                            if (AlaActiveWebView.this.omC != null) {
-                                AlaActiveWebView.this.omC.nz(Boolean.valueOf(str2).booleanValue());
+                            if (AlaActiveWebView.this.omB != null) {
+                                AlaActiveWebView.this.omB.nz(Boolean.valueOf(str2).booleanValue());
                             }
                         }
                     });

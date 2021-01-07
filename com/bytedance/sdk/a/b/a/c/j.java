@@ -24,17 +24,17 @@ import org.apache.http.client.methods.HttpHead;
 public final class j implements x {
 
     /* renamed from: a  reason: collision with root package name */
-    private final z f6181a;
+    private final z f6182a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final boolean f6182b;
+    private final boolean f6183b;
     private Object d;
     private volatile boolean e;
     private com.bytedance.sdk.a.b.a.b.g pjD;
 
     public j(z zVar, boolean z) {
-        this.f6181a = zVar;
-        this.f6182b = z;
+        this.f6182a = zVar;
+        this.f6183b = z;
     }
 
     public boolean a() {
@@ -49,20 +49,20 @@ public final class j implements x {
     public com.bytedance.sdk.a.b.b a(x.a aVar) throws IOException {
         com.bytedance.sdk.a.b.b a2;
         ab f;
-        ab eqN = aVar.eqN();
+        ab eqO = aVar.eqO();
         g gVar = (g) aVar;
-        com.bytedance.sdk.a.b.h eqL = gVar.eqL();
-        t eqM = gVar.eqM();
-        this.pjD = new com.bytedance.sdk.a.b.a.b.g(this.f6181a.erO(), c(eqN.eqk()), eqL, eqM, this.d);
+        com.bytedance.sdk.a.b.h eqM = gVar.eqM();
+        t eqN = gVar.eqN();
+        this.pjD = new com.bytedance.sdk.a.b.a.b.g(this.f6182a.erP(), c(eqO.eql()), eqM, eqN, this.d);
         com.bytedance.sdk.a.b.b bVar = null;
         int i = 0;
-        ab abVar = eqN;
+        ab abVar = eqO;
         while (!this.e) {
             try {
                 try {
                     a2 = gVar.a(abVar, this.pjD, null, null);
                     if (bVar != null) {
-                        a2 = a2.erh().j(bVar.erh().a((com.bytedance.sdk.a.b.c) null).erk()).erk();
+                        a2 = a2.eri().j(bVar.eri().a((com.bytedance.sdk.a.b.c) null).erl()).erl();
                     }
                     f = f(a2);
                 } catch (com.bytedance.sdk.a.b.a.b.e e) {
@@ -75,24 +75,24 @@ public final class j implements x {
                     }
                 }
                 if (f == null) {
-                    if (!this.f6182b) {
+                    if (!this.f6183b) {
                         this.pjD.c();
                     }
                     return a2;
                 }
-                com.bytedance.sdk.a.b.a.c.a(a2.erg());
+                com.bytedance.sdk.a.b.a.c.a(a2.erh());
                 int i2 = i + 1;
                 if (i2 > 20) {
                     this.pjD.c();
                     throw new ProtocolException("Too many follow-up requests: " + i2);
-                } else if (f.erW() instanceof l) {
+                } else if (f.erX() instanceof l) {
                     this.pjD.c();
                     throw new HttpRetryException("Cannot retry streamed HTTP body", a2.c());
                 } else {
-                    if (!a(a2, f.eqk())) {
+                    if (!a(a2, f.eql())) {
                         this.pjD.c();
-                        this.pjD = new com.bytedance.sdk.a.b.a.b.g(this.f6181a.erO(), c(f.eqk()), eqL, eqM, this.d);
-                    } else if (this.pjD.eqE() != null) {
+                        this.pjD = new com.bytedance.sdk.a.b.a.b.g(this.f6182a.erP(), c(f.eql()), eqM, eqN, this.d);
+                    } else if (this.pjD.eqF() != null) {
                         throw new IllegalStateException("Closing the body of " + a2 + " didn't close its backing stream. Bad interceptor?");
                     }
                     bVar = a2;
@@ -114,21 +114,21 @@ public final class j implements x {
         HostnameVerifier hostnameVerifier;
         SSLSocketFactory sSLSocketFactory;
         if (sVar.c()) {
-            sSLSocketFactory = this.f6181a.erJ();
-            hostnameVerifier = this.f6181a.erK();
-            jVar = this.f6181a.erL();
+            sSLSocketFactory = this.f6182a.erK();
+            hostnameVerifier = this.f6182a.erL();
+            jVar = this.f6182a.erM();
         } else {
             jVar = null;
             hostnameVerifier = null;
             sSLSocketFactory = null;
         }
-        return new com.bytedance.sdk.a.b.a(sVar.f(), sVar.g(), this.f6181a.erH(), this.f6181a.erI(), sSLSocketFactory, hostnameVerifier, jVar, this.f6181a.erN(), this.f6181a.eqB(), this.f6181a.t(), this.f6181a.u(), this.f6181a.erE());
+        return new com.bytedance.sdk.a.b.a(sVar.f(), sVar.g(), this.f6182a.erI(), this.f6182a.erJ(), sSLSocketFactory, hostnameVerifier, jVar, this.f6182a.erO(), this.f6182a.eqC(), this.f6182a.t(), this.f6182a.u(), this.f6182a.erF());
     }
 
     private boolean a(IOException iOException, boolean z, ab abVar) {
         this.pjD.a(iOException);
-        if (this.f6181a.r()) {
-            return !(z && (abVar.erW() instanceof l)) && a(iOException, z) && this.pjD.e();
+        if (this.f6182a.r()) {
+            return !(z && (abVar.erX() instanceof l)) && a(iOException, z) && this.pjD.e();
         }
         return false;
     }
@@ -150,15 +150,15 @@ public final class j implements x {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     private ab f(com.bytedance.sdk.a.b.b bVar) throws IOException {
         String a2;
-        s YN;
-        Proxy eqB;
+        s YM;
+        Proxy eqC;
         if (bVar == null) {
             throw new IllegalStateException();
         }
-        com.bytedance.sdk.a.b.a.b.c eqG = this.pjD.eqG();
-        com.bytedance.sdk.a.b.d eqx = eqG != null ? eqG.eqx() : null;
+        com.bytedance.sdk.a.b.a.b.c eqH = this.pjD.eqH();
+        com.bytedance.sdk.a.b.d eqy = eqH != null ? eqH.eqy() : null;
         int c = bVar.c();
-        String b2 = bVar.eqN().b();
+        String b2 = bVar.eqO().b();
         switch (c) {
             case 300:
             case 301:
@@ -172,56 +172,56 @@ public final class j implements x {
                 }
                 break;
             case 401:
-                return this.f6181a.erM().a(eqx, bVar);
+                return this.f6182a.erN().a(eqy, bVar);
             case 407:
-                if (eqx != null) {
-                    eqB = eqx.ern();
+                if (eqy != null) {
+                    eqC = eqy.ero();
                 } else {
-                    eqB = this.f6181a.eqB();
+                    eqC = this.f6182a.eqC();
                 }
-                if (eqB.type() != Proxy.Type.HTTP) {
+                if (eqC.type() != Proxy.Type.HTTP) {
                     throw new ProtocolException("Received HTTP_PROXY_AUTH (407) code while not using proxy");
                 }
-                return this.f6181a.erN().a(eqx, bVar);
+                return this.f6182a.erO().a(eqy, bVar);
             case 408:
-                if (!this.f6181a.r() || (bVar.eqN().erW() instanceof l)) {
+                if (!this.f6182a.r() || (bVar.eqO().erX() instanceof l)) {
                     return null;
                 }
-                if (bVar.eri() == null || bVar.eri().c() != 408) {
-                    return bVar.eqN();
+                if (bVar.erj() == null || bVar.erj().c() != 408) {
+                    return bVar.eqO();
                 }
                 return null;
             default:
                 return null;
         }
-        if (!this.f6181a.q() || (a2 = bVar.a(Headers.LOCATION)) == null || (YN = bVar.eqN().eqk().YN(a2)) == null) {
+        if (!this.f6182a.q() || (a2 = bVar.a(Headers.LOCATION)) == null || (YM = bVar.eqO().eql().YM(a2)) == null) {
             return null;
         }
-        if (YN.b().equals(bVar.eqN().eqk().b()) || this.f6181a.p()) {
-            ab.a erX = bVar.eqN().erX();
+        if (YM.b().equals(bVar.eqO().eql().b()) || this.f6182a.p()) {
+            ab.a erY = bVar.eqO().erY();
             if (f.c(b2)) {
                 boolean d = f.d(b2);
                 if (f.e(b2)) {
-                    erX.a("GET", null);
+                    erY.a("GET", null);
                 } else {
-                    erX.a(b2, d ? bVar.eqN().erW() : null);
+                    erY.a(b2, d ? bVar.eqO().erX() : null);
                 }
                 if (!d) {
-                    erX.YW("Transfer-Encoding");
-                    erX.YW("Content-Length");
-                    erX.YW("Content-Type");
+                    erY.YV("Transfer-Encoding");
+                    erY.YV("Content-Length");
+                    erY.YV("Content-Type");
                 }
             }
-            if (!a(bVar, YN)) {
-                erX.YW("Authorization");
+            if (!a(bVar, YM)) {
+                erY.YV("Authorization");
             }
-            return erX.f(YN).esc();
+            return erY.f(YM).esd();
         }
         return null;
     }
 
     private boolean a(com.bytedance.sdk.a.b.b bVar, s sVar) {
-        s eqk = bVar.eqN().eqk();
-        return eqk.f().equals(sVar.f()) && eqk.g() == sVar.g() && eqk.b().equals(sVar.b());
+        s eql = bVar.eqO().eql();
+        return eql.f().equals(sVar.f()) && eql.g() == sVar.g() && eql.b().equals(sVar.b());
     }
 }

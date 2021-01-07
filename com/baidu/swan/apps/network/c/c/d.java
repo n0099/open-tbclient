@@ -30,7 +30,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aGT() {
+    public long aGU() {
         return this.dsv;
     }
 

@@ -59,7 +59,7 @@ public class r extends aa {
         }
         switch (c) {
             case 0:
-                com.baidu.swan.apps.performance.i.aHz().aS(v(optParamsAsJo.optJSONArray("data"))).aHg();
+                com.baidu.swan.apps.performance.i.aHA().aS(v(optParamsAsJo.optJSONArray("data"))).aHh();
                 break;
             case 1:
                 w(optParamsAsJo.optJSONArray("data"));
@@ -123,8 +123,8 @@ public class r extends aa {
 
     private void x(JSONArray jSONArray) {
         long longValue;
-        com.baidu.swan.apps.core.d.e asU = com.baidu.swan.apps.v.f.aDG().asU();
-        if (asU != null) {
+        com.baidu.swan.apps.core.d.e asV = com.baidu.swan.apps.v.f.aDH().asV();
+        if (asV != null) {
             try {
                 JSONObject jSONObject = jSONArray.getJSONObject(0);
                 if (jSONObject != null) {
@@ -136,10 +136,10 @@ public class r extends aa {
                         } catch (NumberFormatException e) {
                             e.printStackTrace();
                         }
-                        asU.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
+                        asV.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                     }
                     longValue = 0;
-                    asU.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
+                    asV.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();

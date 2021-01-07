@@ -26,14 +26,14 @@ import org.json.JSONObject;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f7926a = {"version_code", "manifest_version_code", "aid", "update_version_code"};
+    private static final String[] f7927a = {"version_code", "manifest_version_code", "aid", "update_version_code"};
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f7927b;
+    private Context f7928b;
     private JSONObject c = new JSONObject();
 
     public b(Context context) {
-        this.f7927b = context;
+        this.f7928b = context;
     }
 
     public static b hZ(Context context) {
@@ -53,9 +53,9 @@ public final class b {
     private void a(JSONObject jSONObject) {
         int i;
         try {
-            PackageInfo packageInfo = this.f7927b.getPackageManager().getPackageInfo(this.f7927b.getPackageName(), 0);
+            PackageInfo packageInfo = this.f7928b.getPackageManager().getPackageInfo(this.f7928b.getPackageName(), 0);
             if (packageInfo.applicationInfo != null && (i = packageInfo.applicationInfo.labelRes) > 0) {
-                jSONObject.put("display_name", this.f7927b.getString(i));
+                jSONObject.put("display_name", this.f7928b.getString(i));
             }
             jSONObject.put(SapiContext.KEY_SDK_VERSION, 22130);
             jSONObject.put(HttpConstants.SDK_VERSION_NAME, "2.2.1-alpha.30");
@@ -96,8 +96,8 @@ public final class b {
     private void b(JSONObject jSONObject) {
         Map<String, Object> b2;
         Object obj;
-        com.bytedance.tea.crash.e.a esE = h.esE();
-        if (esE != null && jSONObject != null && (b2 = esE.b()) != null) {
+        com.bytedance.tea.crash.e.a esF = h.esF();
+        if (esF != null && jSONObject != null && (b2 = esF.b()) != null) {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 for (String str : b2.keySet()) {
@@ -120,7 +120,7 @@ public final class b {
     private void c(JSONObject jSONObject) {
         String str;
         try {
-            DisplayMetrics displayMetrics = this.f7927b.getResources().getDisplayMetrics();
+            DisplayMetrics displayMetrics = this.f7928b.getResources().getDisplayMetrics();
             int i = displayMetrics.densityDpi;
             switch (i) {
                 case 120:
@@ -145,7 +145,7 @@ public final class b {
 
     private void d(JSONObject jSONObject) {
         try {
-            String language = this.f7927b.getResources().getConfiguration().locale.getLanguage();
+            String language = this.f7928b.getResources().getConfiguration().locale.getLanguage();
             if (!TextUtils.isEmpty(language)) {
                 jSONObject.put(KsMediaMeta.KSM_KEY_LANGUAGE, language);
             }
@@ -187,7 +187,7 @@ public final class b {
 
     private void f(JSONObject jSONObject) {
         try {
-            jSONObject.put("access", i.a(this.f7927b));
+            jSONObject.put("access", i.a(this.f7928b));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -195,7 +195,7 @@ public final class b {
 
     private void g(JSONObject jSONObject) {
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) this.f7927b.getSystemService("phone");
+            TelephonyManager telephonyManager = (TelephonyManager) this.f7928b.getSystemService("phone");
             if (telephonyManager != null) {
                 String networkOperatorName = telephonyManager.getNetworkOperatorName();
                 if (!TextUtils.isEmpty(networkOperatorName)) {
@@ -221,7 +221,7 @@ public final class b {
                 this.c.put(entry.getKey(), entry.getValue());
             }
         }
-        for (String str : f7926a) {
+        for (String str : f7927a) {
             if (map.containsKey(str)) {
                 try {
                     this.c.put(str, Integer.parseInt((String) map.get(str)));

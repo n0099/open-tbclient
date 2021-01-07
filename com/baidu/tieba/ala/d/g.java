@@ -42,14 +42,14 @@ public class g implements com.baidu.live.u.a {
         if (viewGroup != null) {
             if (viewGroup instanceof PendantParentView) {
                 this.gqh = (PendantParentView) viewGroup;
-                bRi();
+                bRj();
             }
             if (this.gTH == null || (this.gqi != null && this.gqi.indexOfChild(this.gTH) < 0)) {
                 this.gTH = new PkRankView(this.gqi.getContext(), this.isHost, xVar);
                 this.gqi.addView(this.gTH, new FrameLayout.LayoutParams(-2, -2));
             }
             if (this.aSw) {
-                this.gTH.ctb();
+                this.gTH.ctc();
                 if (xVar.aKX) {
                     this.gTH.setInSeason(true);
                 } else {
@@ -68,7 +68,7 @@ public class g implements com.baidu.live.u.a {
         }
     }
 
-    private void bRi() {
+    private void bRj() {
         this.gqi = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.d.g.1
             @Override // com.baidu.live.pendantview.PendantChildView
             public PendantParentView.Position getVerticalPosition() {
@@ -121,7 +121,7 @@ public class g implements com.baidu.live.u.a {
             this.aMh = xVar;
             if (xVar != null && xVar.mLiveInfo != null) {
                 if (!this.isHost) {
-                    this.gTH.ctb();
+                    this.gTH.ctc();
                 }
                 if (xVar.aKX) {
                     this.gTH.setInSeason(true);

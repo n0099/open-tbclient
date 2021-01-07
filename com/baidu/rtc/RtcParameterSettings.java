@@ -81,7 +81,7 @@ public class RtcParameterSettings {
         RTC_VIDEO_RENDER_MODE_EXTERNAL
     }
 
-    public static RtcParameterSettings aiq() {
+    public static RtcParameterSettings air() {
         return new RtcParameterSettings();
     }
 }

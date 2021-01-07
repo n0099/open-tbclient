@@ -32,36 +32,36 @@ import java.lang.ref.WeakReference;
 public class WDownLoadService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f14043a;
+    private String f14044a;
 
     /* renamed from: case  reason: not valid java name */
-    private String f51case;
+    private String f52case;
     private Notification java;
 
     /* renamed from: java  reason: collision with other field name */
-    private NotificationManager f52java;
+    private NotificationManager f53java;
 
     /* renamed from: java  reason: collision with other field name */
-    private String f53java;
+    private String f54java;
 
     @Override // android.app.Service
     public void onCreate() {
-        this.f52java = (NotificationManager) getSystemService(ActionJsonData.TAG_NOTIFICATION);
+        this.f53java = (NotificationManager) getSystemService(ActionJsonData.TAG_NOTIFICATION);
     }
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
         final Info info = null;
         try {
-            this.f51case = intent.getStringExtra("down_load_apk_url");
-            this.f14043a = intent.getStringExtra("down_load_pkg_name");
-            this.f53java = bv.iR(getApplicationContext()) + File.separator + "win" + File.separator + bv.abN(this.f51case);
-            File parentFile = new File(this.f53java).getParentFile();
+            this.f52case = intent.getStringExtra("down_load_apk_url");
+            this.f14044a = intent.getStringExtra("down_load_pkg_name");
+            this.f54java = bv.iR(getApplicationContext()) + File.separator + "win" + File.separator + bv.abO(this.f52case);
+            File parentFile = new File(this.f54java).getParentFile();
             if (!parentFile.exists()) {
                 parentFile.mkdirs();
             }
             try {
-                info = (Info) az.bM(getApplicationContext(), this.f14043a);
+                info = (Info) az.bM(getApplicationContext(), this.f14044a);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -70,22 +70,22 @@ public class WDownLoadService extends Service {
             } else {
                 java(info, getString(d.e.wdownload_start), getString(d.e.wdownload_start), 0);
             }
-            w.iM(getApplicationContext()).b(new x(info), this.f51case).hu("desc", w.abN(this.f53java)).eJL();
+            w.iM(getApplicationContext()).b(new x(info), this.f52case).hv("desc", w.abO(this.f54java)).eKp();
             try {
                 z.a(info, 300);
                 if (info != null && !TextUtils.isEmpty(info.getVv_downs_urls())) {
-                    z.abK(info.getVv_downs_urls());
+                    z.abL(info.getVv_downs_urls());
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            bu eKm = bu.eKm();
-            String str = this.f51case;
-            String str2 = this.f53java;
+            bu eKQ = bu.eKQ();
+            String str = this.f52case;
+            String str2 = this.f54java;
             bt btVar = new bt() { // from class: com.win.opensdk.downloader.WDownLoadService.1
                 @Override // com.win.opensdk.bt
-                public final void Ta(int i3) {
-                    bu.eKm().qbE = true;
+                public final void Tq(int i3) {
+                    bu.eKQ().qdm = true;
                     if (info != null) {
                         WDownLoadService.this.java(info, info.getDl_name(), WDownLoadService.this.getString(d.e.wdownload_processing), i3);
                     } else {
@@ -94,35 +94,35 @@ public class WDownLoadService extends Service {
                 }
 
                 @Override // com.win.opensdk.bt
-                public final void eJL() {
-                    bu.eKm().qbE = false;
+                public final void eKp() {
+                    bu.eKQ().qdm = false;
                     if (info != null) {
                         WDownLoadService.this.java(info, info.getDl_name(), WDownLoadService.this.getString(d.e.wdownload_failed_msg), 0);
                     } else {
                         WDownLoadService.this.java(info, WDownLoadService.this.getString(d.e.wdownload_failed), WDownLoadService.this.getString(d.e.wdownload_failed_msg), 0);
                     }
-                    WDownLoadService.m70java(WDownLoadService.this);
+                    WDownLoadService.m81java(WDownLoadService.this);
                     WDownLoadService.this.stopSelf();
-                    w.iM(WDownLoadService.this.getApplicationContext()).b(new x(info), 1).eJL();
+                    w.iM(WDownLoadService.this.getApplicationContext()).b(new x(info), 1).eKp();
                 }
 
                 @Override // com.win.opensdk.bt
-                public final void eJM() {
-                    bu.eKm().qbE = false;
-                    w.iM(WDownLoadService.this.getApplicationContext()).b(new x(info), 200).eJL();
+                public final void eKq() {
+                    bu.eKQ().qdm = false;
+                    w.iM(WDownLoadService.this.getApplicationContext()).b(new x(info), 200).eKp();
                     Info info2 = info;
                     try {
                         z.a(info2, 301);
                         if (info2 != null && !TextUtils.isEmpty(info2.getVv_downf_urls())) {
-                            z.abK(info2.getVv_downf_urls());
+                            z.abL(info2.getVv_downf_urls());
                         }
                     } catch (Exception e3) {
                         e3.printStackTrace();
                     }
                     WDownLoadService.java(WDownLoadService.this, info);
                     WDownLoadService.this.stopSelf();
-                    w.iM(WDownLoadService.this.getApplicationContext()).g(new x(info), WDownLoadService.this.f53java).eJL();
-                    bv.a(info, WDownLoadService.this.getApplicationContext(), WDownLoadService.this.f53java);
+                    w.iM(WDownLoadService.this.getApplicationContext()).g(new x(info), WDownLoadService.this.f54java).eKp();
+                    bv.a(info, WDownLoadService.this.getApplicationContext(), WDownLoadService.this.f54java);
                 }
 
                 @Override // com.win.opensdk.bt
@@ -133,22 +133,22 @@ public class WDownLoadService extends Service {
                             Toast.makeText(WDownLoadService.this.getApplicationContext(), d.e.win_toast_network_error2, 0).show();
                         }
                     });
-                    bu.eKm().qbE = false;
-                    w.iM(WDownLoadService.this.getApplicationContext()).b(new x(info), 2).eJL();
+                    bu.eKQ().qdm = false;
+                    w.iM(WDownLoadService.this.getApplicationContext()).b(new x(info), 2).eKp();
                     if (info != null) {
                         WDownLoadService.this.java(info, info.getDl_name(), WDownLoadService.this.getString(d.e.wdownload_failed_msg), 0);
                     } else {
                         WDownLoadService.this.java(info, WDownLoadService.this.getString(d.e.wdownload_failed), WDownLoadService.this.getString(d.e.wdownload_failed_msg), 0);
                     }
                     try {
-                        WDownLoadService.m70java(WDownLoadService.this);
+                        WDownLoadService.m81java(WDownLoadService.this);
                     } catch (Exception e3) {
                         e3.printStackTrace();
                     }
                     WDownLoadService.this.stopSelf();
                 }
             };
-            if (!eKm.qbE) {
+            if (!eKQ.qdm) {
                 File file = new File(str2.substring(0, str2.lastIndexOf("/") + 1));
                 File file2 = new File(str2);
                 if (!file.exists()) {
@@ -161,13 +161,13 @@ public class WDownLoadService extends Service {
                         e3.printStackTrace();
                     }
                 }
-                eKm.qdq = new i(str, str2, btVar);
-                new WeakReference(eKm.qdb.submit(eKm.qdq));
+                eKQ.qeY = new i(str, str2, btVar);
+                new WeakReference(eKQ.qeJ.submit(eKQ.qeY));
             }
         } catch (Exception e4) {
             e4.printStackTrace();
             if (info != null) {
-                w.iM(getApplicationContext()).a(new x(info), 3).hu("desc", e4.getMessage()).eJL();
+                w.iM(getApplicationContext()).a(new x(info), 3).hv("desc", e4.getMessage()).eKp();
             }
         }
         return super.onStartCommand(intent, i, i2);
@@ -180,14 +180,14 @@ public class WDownLoadService extends Service {
 
     public final void java(Info info, String str, String str2, int i) {
         if (Build.VERSION.SDK_INT >= 26) {
-            m69case(info, str, str2, i);
+            m80case(info, str, str2, i);
         } else {
             a(info, str, str2, i);
         }
     }
 
     /* renamed from: case  reason: not valid java name */
-    private void m69case(Info info, String str, String str2, int i) {
+    private void m80case(Info info, String str, String str2, int i) {
         NotificationManager notificationManager = (NotificationManager) getSystemService(ActionJsonData.TAG_NOTIFICATION);
         if (Build.VERSION.SDK_INT >= 26) {
             notificationManager.createNotificationChannel(new NotificationChannel("win_download_id", "win_download", 2));
@@ -219,20 +219,20 @@ public class WDownLoadService extends Service {
         builder.setTicker(str);
         builder.setContentIntent(i >= 100 ? java(info) : PendingIntent.getActivity(this, 0, new Intent(), 134217728));
         this.java = builder.build();
-        this.f52java.notify(232, this.java);
+        this.f53java.notify(232, this.java);
     }
 
     private PendingIntent java(Info info) {
-        return PendingIntent.getActivity(this, 0, bv.b(info, getApplicationContext(), this.f53java), 134217728);
+        return PendingIntent.getActivity(this, 0, bv.b(info, getApplicationContext(), this.f54java), 134217728);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
         try {
-            bu.eKm().qbE = false;
-            if (this.f52java != null) {
-                this.f52java.cancel(232);
+            bu.eKQ().qdm = false;
+            if (this.f53java != null) {
+                this.f53java.cancel(232);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -240,8 +240,8 @@ public class WDownLoadService extends Service {
     }
 
     /* renamed from: java  reason: collision with other method in class */
-    static /* synthetic */ boolean m70java(WDownLoadService wDownLoadService) {
-        File file = new File(wDownLoadService.f53java);
+    static /* synthetic */ boolean m81java(WDownLoadService wDownLoadService) {
+        File file = new File(wDownLoadService.f54java);
         if (file.exists() && file.isFile()) {
             return file.delete();
         }

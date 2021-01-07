@@ -10,16 +10,16 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class b implements a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static AtomicBoolean f14634b = new AtomicBoolean(false);
+    private static AtomicBoolean f14635b = new AtomicBoolean(false);
 
     /* renamed from: a  reason: collision with root package name */
-    private a f14635a;
+    private a f14636a;
     private CountDownLatch c;
-    private com.yxcorp.kuaishou.addfp.a.b.a qem;
+    private com.yxcorp.kuaishou.addfp.a.b.a qfU;
 
     private b() {
         this.c = null;
-        this.qem = null;
+        this.qfU = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,15 +32,15 @@ public final class b implements a {
         return !TextUtils.isEmpty(Build.MANUFACTURER) ? Build.MANUFACTURER.toLowerCase() : "";
     }
 
-    public static final b eKr() {
+    public static final b eKV() {
         b bVar;
-        bVar = d.qeo;
+        bVar = d.qfW;
         return bVar;
     }
 
     public final void a(Context context, a aVar) {
         try {
-            if (!f14634b.compareAndSet(false, true)) {
+            if (!f14635b.compareAndSet(false, true)) {
                 com.yxcorp.kuaishou.addfp.android.b.b.b("OaHelper has been initialized,return");
                 return;
             }
@@ -57,8 +57,8 @@ public final class b implements a {
     @Override // com.yxcorp.kuaishou.addfp.a.a.a
     public final void a(boolean z, com.yxcorp.kuaishou.addfp.a.b.a aVar) {
         try {
-            if (this.f14635a != null) {
-                this.f14635a.a(z, aVar);
+            if (this.f14636a != null) {
+                this.f14636a.a(z, aVar);
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);

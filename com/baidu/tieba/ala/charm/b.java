@@ -47,7 +47,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tieba.ala.charm.c
-    public void bIm() {
+    public void bIn() {
         if (this.gPp == null) {
             this.gPp = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUserId, new a.InterfaceC0641a() { // from class: com.baidu.tieba.ala.charm.b.1
                 @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0641a

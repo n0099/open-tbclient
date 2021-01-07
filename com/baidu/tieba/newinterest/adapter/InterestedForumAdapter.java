@@ -71,7 +71,7 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
         final com.baidu.tieba.newinterest.data.a aVar = this.lAJ.get(i);
         interestedForumViewHolder.lAH.setText(aVar.class_name);
         if (aVar.class_id.intValue() > 0) {
-            SvgManager.bwq().a(interestedForumViewHolder.lAG, com.baidu.tieba.newinterest.b.a.Gy(aVar.class_id.intValue()), (SvgManager.SvgResourceStateType) null);
+            SvgManager.bwr().a(interestedForumViewHolder.lAG, com.baidu.tieba.newinterest.b.a.Gy(aVar.class_id.intValue()), (SvgManager.SvgResourceStateType) null);
         }
         if (aVar.forum_info != null && aVar.forum_info.size() != 0) {
             if (aVar.lBt == 0) {
@@ -109,7 +109,7 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
                     InterestedForumAdapter.this.b(interestedForumViewHolder, aVar.forum_info.get(aVar.lBt));
                     InterestedForumAdapter.this.a(size2, aVar);
                     InterestedForumAdapter.this.c(interestedForumViewHolder, aVar.forum_info.get(aVar.lBt));
-                    InterestedForumAdapter.this.lAL = InterestedForumAdapter.this.dlf();
+                    InterestedForumAdapter.this.lAL = InterestedForumAdapter.this.dlg();
                     InterestedForumAdapter.this.notifyItemChanged(i);
                     if (InterestedForumAdapter.this.lAK != null) {
                         InterestedForumAdapter.this.lAK.ac(InterestedForumAdapter.this.lAA, InterestedForumAdapter.this.lAL);
@@ -223,7 +223,7 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
                     tBSpecificationBtn.setText("已选择");
                     bVar.ru(R.color.CAM_X0109);
                     tBSpecificationBtn.setConfig(bVar);
-                    InterestedForumAdapter.this.lAL = InterestedForumAdapter.this.dlf();
+                    InterestedForumAdapter.this.lAL = InterestedForumAdapter.this.dlg();
                 }
                 if (InterestedForumAdapter.this.lAK != null) {
                     InterestedForumAdapter.this.lAK.ac(InterestedForumAdapter.this.lAA, InterestedForumAdapter.this.lAL);
@@ -237,11 +237,11 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
         });
     }
 
-    public List<com.baidu.tieba.newinterest.data.a> dld() {
+    public List<com.baidu.tieba.newinterest.data.a> dle() {
         return this.lAJ;
     }
 
-    public void dle() {
+    public void dlf() {
         if (this.lAJ != null && this.lAJ.size() != 0) {
             for (com.baidu.tieba.newinterest.data.a aVar : this.lAJ) {
                 int i = aVar.lBt;
@@ -268,7 +268,7 @@ public class InterestedForumAdapter extends RecyclerView.Adapter<InterestedForum
         }
     }
 
-    public boolean dlf() {
+    public boolean dlg() {
         for (com.baidu.tieba.newinterest.data.a aVar : this.lAJ) {
             int i = aVar.lBt;
             if (!aVar.forum_info.get(i).selected) {

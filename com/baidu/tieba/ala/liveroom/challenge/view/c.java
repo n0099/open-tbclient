@@ -28,7 +28,7 @@ public class c {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void cgZ();
+        void cha();
 
         void onScrollToBottom();
     }
@@ -86,7 +86,7 @@ public class c {
         return this.mRootView;
     }
 
-    public void bUD() {
+    public void bUE() {
         if (this.gPy != null) {
             if (this.gPy.getView().getParent() == null) {
                 this.mListView.setNextPage(this.gPy);
@@ -97,7 +97,7 @@ public class c {
         }
     }
 
-    public void bUE() {
+    public void bUF() {
         if (this.gPy != null) {
             if (this.gPy.getView().getParent() == null) {
                 this.mListView.setNextPage(this.gPy);
@@ -109,7 +109,7 @@ public class c {
         }
     }
 
-    public void bUP() {
+    public void bUQ() {
         if (this.mListView != null) {
             this.mListView.setNextPage(null);
         }
@@ -130,7 +130,7 @@ public class c {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (c.this.hAA != null) {
-                            c.this.hAA.cgZ();
+                            c.this.hAA.cha();
                         }
                     }
                 });

@@ -16,16 +16,16 @@ public class b extends com.baidu.swan.games.view.button.base.b {
                     b.this.eoQ.setButtonText(b.this.text);
                     b.this.eoQ.setImageUrl(b.this.image);
                     b.this.eoQ.setApiButtonStyle(b.this.style);
-                    b.this.bdl();
-                    b.this.bdp();
+                    b.this.bdm();
+                    b.this.bdq();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bdp() {
-        if (!d.bbU()) {
+    public void bdq() {
+        if (!d.bbV()) {
             com.baidu.swan.games.v.c.yc("Button shows early.");
         }
     }

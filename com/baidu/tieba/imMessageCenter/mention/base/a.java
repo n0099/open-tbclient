@@ -65,11 +65,11 @@ public class a extends BaseCardInfo {
             bz bzVar = new bz();
             bzVar.a(agreeList.thread_info);
             this.originalThreadInfo = OriginalThreadInfo.t(bzVar);
-            this.threadAuthor = bzVar.brq();
-            this.fname = bzVar.bru();
+            this.threadAuthor = bzVar.brr();
+            this.fname = bzVar.brv();
             this.thread_id = bzVar.getId();
             this.threadType = bzVar.threadType;
-            this.isBjh = bzVar.bpZ();
+            this.isBjh = bzVar.bqa();
             this.mBaijiahao = bzVar.getBaijiahaoData();
             this.kPD = "c12927";
             if (agreeList.type.intValue() == 3) {
@@ -139,7 +139,7 @@ public class a extends BaseCardInfo {
                 }
                 this.kPC = kPB;
             }
-            this.originalThreadInfo.bpT();
+            this.originalThreadInfo.bpU();
         }
     }
 
@@ -183,11 +183,11 @@ public class a extends BaseCardInfo {
         return this.msgId;
     }
 
-    public boolean dbt() {
+    public boolean dbu() {
         return this.eWD;
     }
 
-    public String dbu() {
+    public String dbv() {
         return this.quote_pid;
     }
 
@@ -199,7 +199,7 @@ public class a extends BaseCardInfo {
         this.isNew = z;
     }
 
-    public String dbv() {
+    public String dbw() {
         return this.kPD;
     }
 

@@ -3,10 +3,10 @@ package com.kwad.sdk.crash.model;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9939a;
+    public String f9940a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9940b;
+    public String f9941b;
     public int c;
     public String d;
     public int e;

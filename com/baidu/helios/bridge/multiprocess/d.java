@@ -2,14 +2,14 @@ package com.baidu.helios.bridge.multiprocess;
 
 import android.database.AbstractCursor;
 import android.os.Bundle;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class d extends AbstractCursor {
 
     /* renamed from: a  reason: collision with root package name */
-    private Bundle f2457a;
+    private Bundle f2458a;
 
     public d(Bundle bundle) {
-        this.f2457a = bundle;
+        this.f2458a = bundle;
     }
 
     @Override // android.database.AbstractCursor, android.database.Cursor
@@ -29,7 +29,7 @@ public class d extends AbstractCursor {
 
     @Override // android.database.AbstractCursor, android.database.Cursor
     public Bundle getExtras() {
-        return this.f2457a;
+        return this.f2458a;
     }
 
     @Override // android.database.AbstractCursor, android.database.Cursor

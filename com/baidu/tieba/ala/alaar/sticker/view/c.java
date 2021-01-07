@@ -42,20 +42,20 @@ public class c extends Dialog {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void bTB();
-
         void bTC();
 
         void bTD();
+
+        void bTE();
     }
 
     /* loaded from: classes11.dex */
     public interface b {
         void a(FuFaceItem fuFaceItem, String str);
 
-        boolean bTt();
+        boolean bTu();
 
-        void bTu();
+        void bTv();
 
         void onCompleted();
     }
@@ -65,17 +65,17 @@ public class c extends Dialog {
         this.gwx = new LinkedList<>();
         this.gwA = new a() { // from class: com.baidu.tieba.ala.alaar.sticker.view.c.2
             @Override // com.baidu.tieba.ala.alaar.sticker.view.c.a
-            public void bTB() {
+            public void bTC() {
                 com.baidu.tieba.ala.alaar.sticker.a.g.a(c.this.gwz, "text", 1, 50);
             }
 
             @Override // com.baidu.tieba.ala.alaar.sticker.view.c.a
-            public void bTC() {
+            public void bTD() {
                 com.baidu.tieba.ala.alaar.sticker.a.g.a(c.this.gwy, SocialConstants.PARAM_AVATAR_URI, 1, 50);
             }
 
             @Override // com.baidu.tieba.ala.alaar.sticker.view.c.a
-            public void bTD() {
+            public void bTE() {
                 com.baidu.tieba.ala.alaar.sticker.a.g.SZ();
             }
         };
@@ -125,14 +125,14 @@ public class c extends Dialog {
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
-        bTz();
+        bTA();
         setContentView(a.g.ala_master_sticker_layout);
         ViewGroup.LayoutParams layoutParams = findViewById(a.f.ala_master_sticker_root_view).getLayoutParams();
         if (layoutParams != null) {
             layoutParams.width = BdUtilHelper.getScreenDimensions(getContext())[0];
         }
         this.gwt = (AlaStickerTabHost) findViewById(a.f.ala_master_sticker_view_pager);
-        bTA();
+        bTB();
         MessageManager.getInstance().registerListener(this.gwB);
         MessageManager.getInstance().registerListener(this.gwg);
     }
@@ -147,11 +147,11 @@ public class c extends Dialog {
                 if (i2 < this.gwx.size()) {
                     com.baidu.live.view.tabhost.a aVar = this.gwx.get(i2);
                     if (this.gwv == aVar) {
-                        GA("texttab_show");
+                        Gz("texttab_show");
                     } else if (this.gwu == aVar) {
-                        GA("pictab_show");
+                        Gz("pictab_show");
                     } else if (this.gww == aVar) {
-                        GA("arstab_show");
+                        Gz("arstab_show");
                     }
                     i = i2 + 1;
                 } else {
@@ -169,7 +169,7 @@ public class c extends Dialog {
         super.dismiss();
     }
 
-    private void GA(String str) {
+    private void Gz(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "sticker");
@@ -179,7 +179,7 @@ public class c extends Dialog {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "author_liveroom", str).setContentExt(jSONObject));
     }
 
-    public void bTy() {
+    public void bTz() {
         com.baidu.tieba.ala.alaar.sticker.a.g.a(this.gwy, SocialConstants.PARAM_AVATAR_URI, 1, 50);
         com.baidu.tieba.ala.alaar.sticker.a.g.a(this.gwz, "text", 1, 50);
     }
@@ -189,7 +189,7 @@ public class c extends Dialog {
         MessageManager.getInstance().unRegisterListener(this.gwg);
     }
 
-    private void bTz() {
+    private void bTA() {
         Window window = getWindow();
         if (window != null) {
             WindowManager.LayoutParams attributes = window.getAttributes();
@@ -198,7 +198,7 @@ public class c extends Dialog {
         }
     }
 
-    private void bTA() {
+    private void bTB() {
         this.gwu = new com.baidu.tieba.ala.alaar.sticker.view.a(getContext(), 1, this.gvK, this.gwA);
         this.gwx.add(this.gwu);
         this.gwv = new com.baidu.tieba.ala.alaar.sticker.view.a(getContext(), 2, this.gvK, this.gwA);

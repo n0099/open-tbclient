@@ -20,11 +20,11 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f6012a;
+    private static String f6013a;
 
     public static int a(String str) {
         String[] split = str.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
@@ -35,22 +35,22 @@ public final class c {
     }
 
     public static String a() {
-        if (TextUtils.isEmpty(f6012a)) {
+        if (TextUtils.isEmpty(f6013a)) {
             Context d = com.baidu.webkit.logsdk.a.b.d();
             if (d == null || d.getFilesDir() == null) {
                 return "";
             }
             String str = d.getFilesDir().getAbsolutePath() + "/bdlogs";
             if (str.endsWith(File.separator)) {
-                f6012a = str.substring(0, str.length() - 1);
+                f6013a = str.substring(0, str.length() - 1);
             } else {
-                f6012a = str;
+                f6013a = str;
             }
-            new File(f6012a).mkdirs();
-            e("BdLogSDK", "Workspace = " + f6012a);
-            return f6012a;
+            new File(f6013a).mkdirs();
+            e("BdLogSDK", "Workspace = " + f6013a);
+            return f6013a;
         }
-        return f6012a;
+        return f6013a;
     }
 
     public static String a(com.baidu.webkit.logsdk.b.b bVar, String str) {
@@ -187,16 +187,16 @@ public final class c {
     }
 
     public static void a(String str, String str2, String str3) {
-        if (com.baidu.webkit.logsdk.a.f5984b && !TextUtils.isEmpty(str3)) {
+        if (com.baidu.webkit.logsdk.a.f5985b && !TextUtils.isEmpty(str3)) {
             Log.d(str, str2 + " = " + str3);
-        } else if (com.baidu.webkit.logsdk.a.f5983a) {
+        } else if (com.baidu.webkit.logsdk.a.f5984a) {
             Log.i(str, str2);
         }
     }
 
     public static void a(Throwable th) {
         th.printStackTrace();
-        if (com.baidu.webkit.logsdk.a.f5984b) {
+        if (com.baidu.webkit.logsdk.a.f5985b) {
             System.exit(0);
         }
     }
@@ -378,7 +378,7 @@ public final class c {
     }
 
     public static void e(String str, String str2) {
-        if (com.baidu.webkit.logsdk.a.f5983a) {
+        if (com.baidu.webkit.logsdk.a.f5984a) {
             Log.w(str, str2);
         }
     }

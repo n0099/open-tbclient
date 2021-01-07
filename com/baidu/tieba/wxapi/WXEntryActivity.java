@@ -30,8 +30,8 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 /* loaded from: classes.dex */
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
     private NavigationBar mNavigationBar;
-    private IWXAPI oji;
-    private Intent ojj;
+    private IWXAPI ojh;
+    private Intent oji;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -42,13 +42,13 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getResources().getString(R.string.login));
         try {
-            this.oji = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
+            this.ojh = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.ojj = getIntent();
-        if (this.ojj != null && this.oji != null) {
-            this.oji.handleIntent(getIntent(), this);
+        this.oji = getIntent();
+        if (this.oji != null && this.ojh != null) {
+            this.ojh.handleIntent(getIntent(), this);
         }
     }
 
@@ -56,9 +56,9 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        this.ojj = intent;
-        if (this.ojj != null && this.oji != null) {
-            this.oji.handleIntent(intent, this);
+        this.oji = intent;
+        if (this.oji != null && this.ojh != null) {
+            this.ojh.handleIntent(intent, this);
         }
     }
 
@@ -149,7 +149,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
                 if (str.startsWith(f.eGb) && f.r(Uri.parse(str))) {
                     UtilHelper.dealOneScheme(getPageContext().getPageActivity(), str);
                 } else {
-                    be.bwu().b(getPageContext(), new String[]{str});
+                    be.bwv().b(getPageContext(), new String[]{str});
                 }
             } finally {
                 closeActivity();

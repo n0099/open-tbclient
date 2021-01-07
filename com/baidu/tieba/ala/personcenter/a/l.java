@@ -36,36 +36,36 @@ public class l extends com.baidu.adp.widget.ListView.a<o, CardViewHolder<com.bai
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, final o oVar, CardViewHolder<com.baidu.tieba.ala.personcenter.e.a> cardViewHolder) {
-        if (cardViewHolder.cvG() == null) {
+        if (cardViewHolder.cvH() == null) {
             return null;
         }
-        a(oVar, cardViewHolder.cvG());
-        cardViewHolder.cvG().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.l.1
+        a(oVar, cardViewHolder.cvH());
+        cardViewHolder.cvH().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.l.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 l.this.a(oVar);
             }
         });
-        return cardViewHolder.cvG().getView();
+        return cardViewHolder.cvH().getView();
     }
 
     private void a(o oVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData = oVar.getPersonCenterData();
-        if (personCenterData != null && personCenterData.cpI() != null) {
+        if (personCenterData != null && personCenterData.cpJ() != null) {
             aVar.xQ(0);
             aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_real_authen));
-            AlaUserInfoData cpI = personCenterData.cpI();
-            if (cpI.certify_status == 0) {
-                aVar.IZ(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_unauthorized));
+            AlaUserInfoData cpJ = personCenterData.cpJ();
+            if (cpJ.certify_status == 0) {
+                aVar.IY(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_unauthorized));
                 aVar.xR(0);
-            } else if (1 == cpI.certify_status) {
-                aVar.IZ(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_in_review));
+            } else if (1 == cpJ.certify_status) {
+                aVar.IY(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_in_review));
                 aVar.xR(4);
-            } else if (2 == cpI.certify_status) {
-                aVar.IZ(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_authenticated));
+            } else if (2 == cpJ.certify_status) {
+                aVar.IY(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_authenticated));
                 aVar.xR(4);
-            } else if (3 == cpI.certify_status) {
-                aVar.IZ(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_denied));
+            } else if (3 == cpJ.certify_status) {
+                aVar.IY(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_denied));
                 aVar.xR(0);
             }
             aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -74,10 +74,10 @@ public class l extends com.baidu.adp.widget.ListView.a<o, CardViewHolder<com.bai
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(o oVar) {
-        if (oVar != null && oVar.getPersonCenterData() != null && oVar.getPersonCenterData().cpI() != null) {
-            AlaUserInfoData cpI = oVar.getPersonCenterData().cpI();
-            if (1 != cpI.certify_status && 2 != cpI.certify_status) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterRealAuthenConfig(this.mContext, cpI.user_id, cpI.certify_status + "")));
+        if (oVar != null && oVar.getPersonCenterData() != null && oVar.getPersonCenterData().cpJ() != null) {
+            AlaUserInfoData cpJ = oVar.getPersonCenterData().cpJ();
+            if (1 != cpJ.certify_status && 2 != cpJ.certify_status) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterRealAuthenConfig(this.mContext, cpJ.user_id, cpJ.certify_status + "")));
                 if (this.hZj != null) {
                     this.hZj.xM(1);
                 }

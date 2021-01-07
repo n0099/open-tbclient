@@ -8,16 +8,16 @@ import android.util.Base64;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences.Editor f5479a;
+    public SharedPreferences.Editor f5480a;
 
     /* renamed from: b  reason: collision with root package name */
-    private SharedPreferences f5480b;
+    private SharedPreferences f5481b;
     private long c = 86400000;
 
     public c(Context context) {
         try {
-            this.f5480b = context.getSharedPreferences("leroadcfg", 4);
-            this.f5479a = this.f5480b.edit();
+            this.f5481b = context.getSharedPreferences("leroadcfg", 4);
+            this.f5480a = this.f5481b.edit();
         } catch (Throwable th) {
         }
     }
@@ -40,10 +40,10 @@ public final class c {
 
     public final String a() {
         try {
-            if (System.currentTimeMillis() - Long.valueOf(this.f5480b.getLong("dd_v_d_t", System.currentTimeMillis())).longValue() > this.c) {
+            if (System.currentTimeMillis() - Long.valueOf(this.f5481b.getLong("dd_v_d_t", System.currentTimeMillis())).longValue() > this.c) {
                 return "";
             }
-            String string = this.f5480b.getString("dd_v_d", "");
+            String string = this.f5481b.getString("dd_v_d", "");
             return !TextUtils.isEmpty(string) ? b(string) : "";
         } catch (Throwable th) {
             return "";

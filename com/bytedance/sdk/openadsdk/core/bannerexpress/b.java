@@ -32,10 +32,10 @@ import java.util.Map;
 public class b extends l implements am.a {
 
     /* renamed from: a  reason: collision with root package name */
-    TTDislikeDialogAbstract f6761a;
+    TTDislikeDialogAbstract f6762a;
 
     /* renamed from: b  reason: collision with root package name */
-    private a f6762b;
+    private a f6763b;
     private final Context c;
     private com.bytedance.sdk.openadsdk.core.d.l d;
     private AdSlot f;
@@ -52,13 +52,13 @@ public class b extends l implements am.a {
         this.c = context;
         this.d = lVar;
         this.f = adSlot;
-        this.f6762b = new a(context, lVar, adSlot);
-        b(this.f6762b.c(), this.d);
+        this.f6763b = new a(context, lVar, adSlot);
+        b(this.f6763b.c(), this.d);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public View getExpressAdView() {
-        return this.f6762b;
+        return this.f6763b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
@@ -80,13 +80,13 @@ public class b extends l implements am.a {
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public void setExpressInteractionListener(TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener) {
         this.g = expressAdInteractionListener;
-        this.f6762b.a(expressAdInteractionListener);
+        this.f6763b.a(expressAdInteractionListener);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public void setExpressInteractionListener(TTNativeExpressAd.AdInteractionListener adInteractionListener) {
         this.g = adInteractionListener;
-        this.f6762b.a(adInteractionListener);
+        this.f6763b.a(adInteractionListener);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
@@ -104,13 +104,13 @@ public class b extends l implements am.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public void render() {
-        this.f6762b.a();
+        this.f6763b.a();
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public void destroy() {
-        if (this.f6762b != null) {
-            this.f6762b.b();
+        if (this.f6763b != null) {
+            this.f6763b.b();
         }
     }
 
@@ -128,10 +128,10 @@ public class b extends l implements am.a {
             u.b("dialog is null, please check");
             return;
         }
-        this.f6761a = tTDislikeDialogAbstract;
+        this.f6762a = tTDislikeDialogAbstract;
         tTDislikeDialogAbstract.setMaterialMeta(this.d);
-        if (this.f6762b != null && this.f6762b.c() != null) {
-            this.f6762b.c().setOuterDislike(tTDislikeDialogAbstract);
+        if (this.f6763b != null && this.f6763b.c() != null) {
+            this.f6763b.c().setOuterDislike(tTDislikeDialogAbstract);
         }
     }
 
@@ -141,8 +141,8 @@ public class b extends l implements am.a {
         }
         this.m = activity;
         this.i.setDislikeInteractionCallback(dislikeInteractionCallback);
-        if (this.f6762b != null && this.f6762b.c() != null) {
-            this.f6762b.c().setDislike(this.i);
+        if (this.f6763b != null && this.f6763b.c() != null) {
+            this.f6763b.c().setDislike(this.i);
         }
     }
 
@@ -175,9 +175,9 @@ public class b extends l implements am.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(@NonNull com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        if (this.f6762b.d() != null && this.f6762b.f()) {
-            a(this.f6762b.d(), lVar);
-            b(this.f6762b.d(), lVar);
+        if (this.f6763b.d() != null && this.f6763b.f()) {
+            a(this.f6763b.d(), lVar);
+            b(this.f6763b.d(), lVar);
         }
     }
 
@@ -189,10 +189,10 @@ public class b extends l implements am.a {
                     nativeExpressView.setDislike(this.i);
                 }
             }
-            if (this.f6761a != null) {
-                this.f6761a.setMaterialMeta(lVar);
+            if (this.f6762a != null) {
+                this.f6762a.setMaterialMeta(lVar);
                 if (nativeExpressView != null) {
-                    nativeExpressView.setOuterDislike(this.f6761a);
+                    nativeExpressView.setOuterDislike(this.f6762a);
                 }
             }
         }
@@ -211,7 +211,7 @@ public class b extends l implements am.a {
                         BannerExpressBackupView bannerExpressBackupView = new BannerExpressBackupView(nativeExpressView2.getContext());
                         bannerExpressBackupView.a(b.this.d, nativeExpressView2, a2);
                         bannerExpressBackupView.setDislikeInner(b.this.i);
-                        bannerExpressBackupView.setDislikeOuter(b.this.f6761a);
+                        bannerExpressBackupView.setDislikeOuter(b.this.f6762a);
                         return true;
                     } catch (Exception e) {
                         return false;
@@ -285,12 +285,12 @@ public class b extends l implements am.a {
                         aj.a(lVar, view);
                     }
                     b.this.a();
-                    if (!b.this.e.getAndSet(true) && b.this.f6762b != null && b.this.f6762b.c() != null) {
-                        ak.a(b.this.c, b.this.d, b.this.n, b.this.f6762b.c().getWebView());
+                    if (!b.this.e.getAndSet(true) && b.this.f6763b != null && b.this.f6763b.c() != null) {
+                        ak.a(b.this.c, b.this.d, b.this.n, b.this.f6763b.c().getWebView());
                     }
-                    if (b.this.f6762b != null && b.this.f6762b.c() != null) {
-                        b.this.f6762b.c().i();
-                        b.this.f6762b.c().g();
+                    if (b.this.f6763b != null && b.this.f6763b.c() != null) {
+                        b.this.f6763b.c().i();
+                        b.this.f6763b.c().g();
                     }
                 }
             });
@@ -338,8 +338,8 @@ public class b extends l implements am.a {
     public void setSlideIntervalTime(int i) {
         if (i > 0) {
             this.n = "slide_banner_ad";
-            b(this.f6762b.c(), this.d);
-            this.f6762b.a(1000);
+            b(this.f6763b.c(), this.d);
+            this.f6763b.a(1000);
             if (i < 30000) {
                 i = 30000;
             } else if (i > 120000) {
@@ -355,9 +355,9 @@ public class b extends l implements am.a {
             @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.b.a
             public void a(List<com.bytedance.sdk.openadsdk.core.d.l> list) {
                 com.bytedance.sdk.openadsdk.core.d.l lVar = list == null ? null : list.get(0);
-                b.this.f6762b.a(lVar, b.this.f);
+                b.this.f6763b.a(lVar, b.this.f);
                 b.this.b(lVar);
-                b.this.f6762b.e();
+                b.this.f6763b.e();
                 b.this.a();
             }
 

@@ -130,8 +130,8 @@ public class e extends com.baidu.adp.base.c<MsglistActivity<?>> {
                     if (!TextUtils.isEmpty(text)) {
                         if (text.toString().contains("删贴") || text.toString().contains("删除")) {
                             if (text.toString().contains("http://") || text.toString().contains(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
-                                be.bwu().b((TbPageContext) j.K(view.getContext()), new String[]{"http://tieba.baidu.com/mo/q/wise-bawu-core/recycle-station#/recycle-post?noshare=1"});
-                                com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.KEY_PERSON_POST_RECYCLE_BIN_RED_TIP_SHOW), false);
+                                be.bwv().b((TbPageContext) j.K(view.getContext()), new String[]{"http://tieba.baidu.com/mo/q/wise-bawu-core/recycle-station#/recycle-post?noshare=1"});
+                                com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.KEY_PERSON_POST_RECYCLE_BIN_RED_TIP_SHOW), false);
                                 TiebaStatic.log(new aq("c14050").dX("uid", TbadkCoreApplication.getCurrentAccount()));
                             }
                         }

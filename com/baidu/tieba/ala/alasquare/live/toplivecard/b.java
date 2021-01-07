@@ -63,7 +63,7 @@ public class b {
         this.fWA = new TbCyberVideoView.a() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.b.1
             @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.a
             public void onSurfaceDestroyed() {
-                b.this.bUy();
+                b.this.bUz();
             }
         };
         this.eDg = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.b.2
@@ -101,7 +101,7 @@ public class b {
                         b.this.bD(b.this.gBU.getCyberPlayer().getVideoHeight(), b.this.gBU.getCyberPlayer().getVideoWidth());
                     }
                     if (b.this.gBT != null) {
-                        b.this.gBT.bUs();
+                        b.this.gBT.bUt();
                     }
                 }
             }
@@ -146,12 +146,12 @@ public class b {
     }
 
     public void a(c cVar) {
-        if (cVar != null && cVar.alW != null && cVar.alW.brJ() != null) {
+        if (cVar != null && cVar.alW != null && cVar.alW.brK() != null) {
             if (this.gBP == null || (this.gBP.alW != null && !this.gBP.alW.getTid().equals(cVar.alW.getTid()))) {
-                vi(cVar.alW.brJ().screen_direction);
+                vi(cVar.alW.brK().screen_direction);
             }
             this.gBP = cVar;
-            this.aMj = this.gBP.alW.brJ().screen_direction;
+            this.aMj = this.gBP.alW.brK().screen_direction;
             this.gBT.setData(this.gBP.alW);
         }
     }
@@ -250,7 +250,7 @@ public class b {
         }
     }
 
-    public void bUx() {
+    public void bUy() {
         this.gBW = l.getEquipmentWidth(this.eXu.getPageActivity());
         this.gBX = l.getEquipmentHeight(this.eXu.getPageActivity());
         this.gBY = (int) ((this.gBW / 16.0d) * 9.0d);
@@ -258,31 +258,31 @@ public class b {
         this.gCc = (int) ((this.gBX / 3.0d) - (this.gBZ / 2.0d));
         if (this.gBP != null) {
             boolean isPlaying = this.gBU == null ? false : this.gBU.isPlaying();
-            vi(this.gBP.alW.brJ().screen_direction);
-            vh(this.gBP.alW.brJ().screen_direction);
-            bUy();
+            vi(this.gBP.alW.brK().screen_direction);
+            vh(this.gBP.alW.brK().screen_direction);
+            bUz();
             if (isPlaying) {
-                GK(this.gCa);
+                GJ(this.gCa);
             }
         }
     }
 
-    public void bUy() {
+    public void bUz() {
         mv(true);
     }
 
     public void mv(boolean z) {
         if (z) {
-            bUz();
+            bUA();
         }
         if (this.gBU != null) {
             this.gBU.stopPlayback();
         }
-        this.gBT.bUt();
         this.gBT.bUu();
+        this.gBT.bUv();
     }
 
-    private void bUz() {
+    private void bUA() {
         if (this.gBV != null) {
             this.gBV.setPlayer(null);
             this.gBV.stop();
@@ -290,7 +290,7 @@ public class b {
         }
         if (this.gBU != null) {
             this.gBU.stopPlayback();
-            this.gBU.dCa();
+            this.gBU.dCb();
             if (this.gBU.getMediaProgressObserver() != null) {
                 this.gBU.getMediaProgressObserver().setPlayer(null);
                 this.gBU.getMediaProgressObserver().stop();
@@ -299,10 +299,10 @@ public class b {
         }
     }
 
-    private void bUA() {
-        if (this.gBP != null && this.gBP.alW != null && this.gBP.alW.brJ() != null) {
+    private void bUB() {
+        if (this.gBP != null && this.gBP.alW != null && this.gBP.alW.brK() != null) {
             if (this.gBU != null && this.gBU.getParent() != null) {
-                bUz();
+                bUA();
             }
             this.gBV = new f();
             this.gBU = new TbCyberVideoView(this.eXu.getPageActivity());
@@ -314,24 +314,24 @@ public class b {
             this.gBV.setPlayer(this.gBU);
             this.gBV.a(new f.c() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.b.4
                 @Override // com.baidu.tieba.play.f.c
-                public void bUB() {
+                public void bUC() {
                 }
             });
             if (this.gBU.getParent() == null) {
                 this.ajW.addView(this.gBU, 0, new FrameLayout.LayoutParams(-1, -1));
             }
-            vh(this.gBP.alW.brJ().screen_direction);
+            vh(this.gBP.alW.brK().screen_direction);
         }
     }
 
-    public void GK(String str) {
-        if (!StringUtils.isNull(str) && this.gBP != null && this.gBP.alW != null && this.gBP.alW.brJ() != null) {
+    public void GJ(String str) {
+        if (!StringUtils.isNull(str) && this.gBP != null && this.gBP.alW != null && this.gBP.alW.brK() != null) {
             if (!str.equals(this.gCa) || (this.gBU != null && !this.gBU.isPlaying())) {
                 this.gCa = str;
-                bUy();
+                bUz();
             }
             if (this.gBU == null) {
-                bUA();
+                bUB();
             }
             if (this.gBU != null && !this.gBU.isPlaying()) {
                 o oVar = new o();
@@ -340,7 +340,7 @@ public class b {
                 oVar.anD = this.gBP.alW.getTid();
                 this.gBU.setVideoStatData(oVar);
                 if (this.gBU != null) {
-                    this.gBU.setVideoPath(this.gBP.alW.brJ().hls_url);
+                    this.gBU.setVideoPath(this.gBP.alW.brK().hls_url);
                 }
                 if (this.gBU != null) {
                     this.gBU.start();
@@ -357,7 +357,7 @@ public class b {
     }
 
     public void onDestroy() {
-        bUz();
+        bUA();
         if (this.gBT != null) {
             this.gBT.onDestroy();
         }
@@ -365,7 +365,7 @@ public class b {
 
     public void onChangeSkinType() {
         if (this.gBT != null) {
-            this.gBT.bCO();
+            this.gBT.bCP();
         }
         ao.setBackgroundColor(this.gBU, R.color.black_alpha100);
     }
@@ -373,7 +373,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(TbPageContext<?> tbPageContext, bz bzVar) {
         String str;
-        if (tbPageContext != null && bzVar != null && bzVar.brq() != null && bzVar.brJ() != null) {
+        if (tbPageContext != null && bzVar != null && bzVar.brr() != null && bzVar.brK() != null) {
             if (this.gBP != null && this.gBP.alW != null && !this.gBM) {
                 aq aqVar = new aq("c12645");
                 if (this.gBP.gBg == 0) {
@@ -387,7 +387,7 @@ public class b {
             boolean z = false;
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bzVar.brq().getUserId();
+                String userId = bzVar.brr().getUserId();
                 str2 = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str2);
             }
@@ -397,8 +397,8 @@ public class b {
                 str = "square_recommend_top_card";
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bzVar.brJ());
-            alaLiveInfoCoreData.userName = bzVar.brJ().user_info.user_name;
+            alaLiveInfoCoreData.fillWithInfoData(bzVar.brK());
+            alaLiveInfoCoreData.userName = bzVar.brK().user_info.user_name;
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, str, str2, z, "")));
         }
     }

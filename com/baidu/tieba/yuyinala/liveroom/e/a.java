@@ -9,29 +9,29 @@ import com.baidu.live.tbadk.ala.AlaLastLiveroomInfo;
 public class a extends com.baidu.tieba.yuyinala.liveroom.a {
     private boolean hur;
     private TbPageContext mTbPageContext;
-    private b ooy;
+    private b oox;
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.hur = false;
         this.mTbPageContext = tbPageContext;
-        this.ooy = new b(this.mTbPageContext);
+        this.oox = new b(this.mTbPageContext);
     }
 
     public void a(x xVar, AlaLastLiveroomInfo alaLastLiveroomInfo) {
-        if (xVar == null || xVar.mLiveInfo == null || alaLastLiveroomInfo == null || this.ooy == null || this.ooy.getView() == null || xVar.mLiveInfo.live_id == alaLastLiveroomInfo.getLastLiveId()) {
+        if (xVar == null || xVar.mLiveInfo == null || alaLastLiveroomInfo == null || this.oox == null || this.oox.getView() == null || xVar.mLiveInfo.live_id == alaLastLiveroomInfo.getLastLiveId()) {
             this.hur = false;
         } else if (alaLastLiveroomInfo.getLastLiveId() <= 0 && alaLastLiveroomInfo.getLastRoomId() <= 0) {
             this.hur = false;
         } else {
-            this.ooy.d(alaLastLiveroomInfo);
-            this.ooy.getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.e.a.1
+            this.oox.d(alaLastLiveroomInfo);
+            this.oox.getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.e.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.ooy.cfr();
+                    a.this.oox.cfs();
                 }
             });
-            this.ooy.show();
+            this.oox.show();
             this.hur = true;
         }
     }
@@ -39,27 +39,27 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void aF(ViewGroup viewGroup) {
         if (this.hur) {
-            this.ooy.aH(viewGroup);
+            this.oox.aH(viewGroup);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void DC() {
-        if (this.ooy != null) {
-            this.ooy.cft();
+        if (this.oox != null) {
+            this.oox.cfu();
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        if (this.ooy != null) {
-            this.ooy.onDestroy();
+        if (this.oox != null) {
+            this.oox.onDestroy();
         }
     }
 
     public void setId(int i) {
-        if (this.ooy != null && this.ooy.getView() != null) {
-            this.ooy.getView().setId(i);
+        if (this.oox != null && this.oox.getView() != null) {
+            this.oox.getView().setId(i);
         }
     }
 }

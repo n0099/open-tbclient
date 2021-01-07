@@ -344,7 +344,7 @@ public final class BIMLogPb {
             }
 
             public static a newBuilder() {
-                return a.bQv();
+                return a.bQw();
             }
 
             public static a newBuilder(AuthInfo authInfo) {
@@ -376,13 +376,13 @@ public final class BIMLogPb {
                 }
 
                 /* JADX INFO: Access modifiers changed from: private */
-                public static a bQv() {
+                public static a bQw() {
                     return new a();
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-                /* renamed from: bQw */
+                /* renamed from: bQx */
                 public a clear() {
                     super.clear();
                     this.token = "";
@@ -392,9 +392,9 @@ public final class BIMLogPb {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-                /* renamed from: bQx */
+                /* renamed from: bQy */
                 public a clone() {
-                    return bQv().mergeFrom(buildPartial());
+                    return bQw().mergeFrom(buildPartial());
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -405,7 +405,7 @@ public final class BIMLogPb {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.MessageLite.Builder
-                /* renamed from: bQy */
+                /* renamed from: bQz */
                 public AuthInfo build() {
                     AuthInfo buildPartial = buildPartial();
                     if (!buildPartial.isInitialized()) {
@@ -416,7 +416,7 @@ public final class BIMLogPb {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.MessageLite.Builder
-                /* renamed from: bQz */
+                /* renamed from: bQA */
                 public AuthInfo buildPartial() {
                     AuthInfo authInfo = new AuthInfo(this);
                     int i = (this.bitField0 & 1) != 1 ? 0 : 1;
@@ -680,7 +680,7 @@ public final class BIMLogPb {
         }
 
         public static a newBuilder() {
-            return a.bQB();
+            return a.bQC();
         }
 
         public static a newBuilder(LogRequest logRequest) {
@@ -717,13 +717,13 @@ public final class BIMLogPb {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a bQB() {
+            public static a bQC() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: bQC */
+            /* renamed from: bQD */
             public a clear() {
                 super.clear();
                 this.version = 0L;
@@ -743,9 +743,9 @@ public final class BIMLogPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: bQD */
+            /* renamed from: bQE */
             public a clone() {
-                return bQB().mergeFrom(buildPartial());
+                return bQC().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -756,7 +756,7 @@ public final class BIMLogPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: bQE */
+            /* renamed from: bQF */
             public LogRequest build() {
                 LogRequest buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -767,7 +767,7 @@ public final class BIMLogPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: bQF */
+            /* renamed from: bQG */
             public LogRequest buildPartial() {
                 LogRequest logRequest = new LogRequest(this);
                 int i = this.bitField0;
@@ -1135,7 +1135,7 @@ public final class BIMLogPb {
         }
 
         public static a newBuilder() {
-            return a.bQH();
+            return a.bQI();
         }
 
         public static a newBuilder(LogResponse logResponse) {
@@ -1169,13 +1169,13 @@ public final class BIMLogPb {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a bQH() {
+            public static a bQI() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: bQI */
+            /* renamed from: bQJ */
             public a clear() {
                 super.clear();
                 this.errorCode = 0;
@@ -1189,9 +1189,9 @@ public final class BIMLogPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: bQJ */
+            /* renamed from: bQK */
             public a clone() {
-                return bQH().mergeFrom(buildPartial());
+                return bQI().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1202,7 +1202,7 @@ public final class BIMLogPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: bQK */
+            /* renamed from: bQL */
             public LogResponse build() {
                 LogResponse buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -1213,7 +1213,7 @@ public final class BIMLogPb {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: bQL */
+            /* renamed from: bQM */
             public LogResponse buildPartial() {
                 LogResponse logResponse = new LogResponse(this);
                 int i = this.bitField0;

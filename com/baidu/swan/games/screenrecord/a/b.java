@@ -18,7 +18,7 @@ public class b {
         this.eni = j3;
     }
 
-    public a bbJ() {
+    public a bbK() {
         if (!isValid()) {
             return null;
         }

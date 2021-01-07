@@ -4,45 +4,45 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class z implements aj<com.facebook.imagepipeline.f.e> {
     private final Executor mExecutor;
-    private final com.facebook.common.memory.g pzv;
+    private final com.facebook.common.memory.g pBc;
 
-    protected abstract String eAo();
+    protected abstract String eAS();
 
     protected abstract com.facebook.imagepipeline.f.e g(ImageRequest imageRequest) throws IOException;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public z(Executor executor, com.facebook.common.memory.g gVar) {
         this.mExecutor = executor;
-        this.pzv = gVar;
+        this.pBc = gVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void a(k<com.facebook.imagepipeline.f.e> kVar, ak akVar) {
-        final am eAe = akVar.eAe();
+        final am eAI = akVar.eAI();
         final String id = akVar.getId();
-        final ImageRequest eAd = akVar.eAd();
-        final aq<com.facebook.imagepipeline.f.e> aqVar = new aq<com.facebook.imagepipeline.f.e>(kVar, eAe, eAo(), id) { // from class: com.facebook.imagepipeline.producers.z.1
+        final ImageRequest eAH = akVar.eAH();
+        final aq<com.facebook.imagepipeline.f.e> aqVar = new aq<com.facebook.imagepipeline.f.e>(kVar, eAI, eAS(), id) { // from class: com.facebook.imagepipeline.producers.z.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.facebook.common.b.e
-            /* renamed from: eAC */
+            @Override // com.facebook.common.b.h
+            /* renamed from: eBg */
             public com.facebook.imagepipeline.f.e getResult() throws Exception {
-                com.facebook.imagepipeline.f.e g = z.this.g(eAd);
+                com.facebook.imagepipeline.f.e g = z.this.g(eAH);
                 if (g == null) {
-                    eAe.M(id, z.this.eAo(), false);
+                    eAI.M(id, z.this.eAS(), false);
                     return null;
                 }
-                g.ezl();
-                eAe.M(id, z.this.eAo(), true);
+                g.ezP();
+                eAI.M(id, z.this.eAS(), true);
                 return g;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.e
+            @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.h
             /* renamed from: h */
             public void ba(com.facebook.imagepipeline.f.e eVar) {
                 com.facebook.imagepipeline.f.e.e(eVar);
@@ -50,7 +50,7 @@ public abstract class z implements aj<com.facebook.imagepipeline.f.e> {
         };
         akVar.a(new e() { // from class: com.facebook.imagepipeline.producers.z.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void eAk() {
+            public void eAO() {
                 aqVar.cancel();
             }
         });
@@ -62,9 +62,9 @@ public abstract class z implements aj<com.facebook.imagepipeline.f.e> {
         com.facebook.common.references.a aVar = null;
         try {
             if (i <= 0) {
-                aVar = com.facebook.common.references.a.f(this.pzv.v(inputStream));
+                aVar = com.facebook.common.references.a.f(this.pBc.v(inputStream));
             } else {
-                aVar = com.facebook.common.references.a.f(this.pzv.b(inputStream, i));
+                aVar = com.facebook.common.references.a.f(this.pBc.b(inputStream, i));
             }
             return new com.facebook.imagepipeline.f.e(aVar);
         } finally {

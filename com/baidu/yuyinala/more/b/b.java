@@ -14,7 +14,7 @@ public class b {
         return this.mTitle;
     }
 
-    public List<a> ekX() {
+    public List<a> ekY() {
         return this.oRu;
     }
 

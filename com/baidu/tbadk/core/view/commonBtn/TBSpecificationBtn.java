@@ -45,7 +45,7 @@ public class TBSpecificationBtn extends View {
         this.fpo = false;
         this.fpp = new TBSpecificationButtonConfig.a() { // from class: com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn.1
             @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig.a
-            public void byr() {
+            public void bys() {
                 int width = TBSpecificationBtn.this.getWidth();
                 if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + TBSpecificationBtn.this.fph.fpA + TBSpecificationBtn.this.fph.fpB != width) {
                     TBSpecificationBtn.this.requestLayout();
@@ -53,8 +53,8 @@ public class TBSpecificationBtn extends View {
             }
 
             @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig.a
-            public void bys() {
-                TBSpecificationBtn.this.byq();
+            public void byt() {
+                TBSpecificationBtn.this.byr();
                 int width = TBSpecificationBtn.this.getWidth();
                 if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + TBSpecificationBtn.this.fph.fpA + TBSpecificationBtn.this.fph.fpB != width) {
                     TBSpecificationBtn.this.requestLayout();
@@ -64,7 +64,7 @@ public class TBSpecificationBtn extends View {
             }
 
             @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig.a
-            public void byt() {
+            public void byu() {
                 TBSpecificationBtn.this.rm(TBSpecificationBtn.this.akW);
                 TBSpecificationBtn.this.invalidate();
             }
@@ -84,7 +84,7 @@ public class TBSpecificationBtn extends View {
         this.fpo = false;
         this.fpp = new TBSpecificationButtonConfig.a() { // from class: com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn.1
             @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig.a
-            public void byr() {
+            public void bys() {
                 int width = TBSpecificationBtn.this.getWidth();
                 if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + TBSpecificationBtn.this.fph.fpA + TBSpecificationBtn.this.fph.fpB != width) {
                     TBSpecificationBtn.this.requestLayout();
@@ -92,8 +92,8 @@ public class TBSpecificationBtn extends View {
             }
 
             @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig.a
-            public void bys() {
-                TBSpecificationBtn.this.byq();
+            public void byt() {
+                TBSpecificationBtn.this.byr();
                 int width = TBSpecificationBtn.this.getWidth();
                 if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + TBSpecificationBtn.this.fph.fpA + TBSpecificationBtn.this.fph.fpB != width) {
                     TBSpecificationBtn.this.requestLayout();
@@ -103,7 +103,7 @@ public class TBSpecificationBtn extends View {
             }
 
             @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig.a
-            public void byt() {
+            public void byu() {
                 TBSpecificationBtn.this.rm(TBSpecificationBtn.this.akW);
                 TBSpecificationBtn.this.invalidate();
             }
@@ -123,7 +123,7 @@ public class TBSpecificationBtn extends View {
         this.fpo = false;
         this.fpp = new TBSpecificationButtonConfig.a() { // from class: com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn.1
             @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig.a
-            public void byr() {
+            public void bys() {
                 int width = TBSpecificationBtn.this.getWidth();
                 if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + TBSpecificationBtn.this.fph.fpA + TBSpecificationBtn.this.fph.fpB != width) {
                     TBSpecificationBtn.this.requestLayout();
@@ -131,8 +131,8 @@ public class TBSpecificationBtn extends View {
             }
 
             @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig.a
-            public void bys() {
-                TBSpecificationBtn.this.byq();
+            public void byt() {
+                TBSpecificationBtn.this.byr();
                 int width = TBSpecificationBtn.this.getWidth();
                 if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + TBSpecificationBtn.this.fph.fpA + TBSpecificationBtn.this.fph.fpB != width) {
                     TBSpecificationBtn.this.requestLayout();
@@ -142,7 +142,7 @@ public class TBSpecificationBtn extends View {
             }
 
             @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig.a
-            public void byt() {
+            public void byu() {
                 TBSpecificationBtn.this.rm(TBSpecificationBtn.this.akW);
                 TBSpecificationBtn.this.invalidate();
             }
@@ -223,9 +223,9 @@ public class TBSpecificationBtn extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byq() {
-        this.fpi = this.fph.byu();
-        this.fpj = this.fph.byv();
+    public void byr() {
+        this.fpi = this.fph.byv();
+        this.fpj = this.fph.byw();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -280,7 +280,7 @@ public class TBSpecificationBtn extends View {
         int width;
         if (this.fpl) {
             rm(this.akW);
-            byq();
+            byr();
             this.fpl = false;
         }
         if (this.eYP != null) {
@@ -344,14 +344,14 @@ public class TBSpecificationBtn extends View {
         super.drawableStateChanged();
     }
 
-    public void bxO() {
+    public void bxP() {
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void changeSkinType(int i) {
         this.akW = i;
         this.fph.akW = i;
-        byq();
+        byr();
         rm(i);
         invalidate();
     }

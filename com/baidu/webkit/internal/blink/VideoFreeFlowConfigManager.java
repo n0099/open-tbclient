@@ -6,7 +6,7 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public class VideoFreeFlowConfigManager implements INoProGuard {
     public static final String DIRECT = "DIRECT";
     public static final String HOST_MATCH = "HOSTMATCH";
@@ -25,21 +25,21 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
     private byte[] mListLock = new byte[0];
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f5946a;
+        String f5947a;
 
         /* renamed from: b  reason: collision with root package name */
-        String f5947b;
+        String f5948b;
         String c;
         int d;
         String e;
 
         public a(String str) {
-            this.f5946a = null;
-            this.f5947b = null;
+            this.f5947a = null;
+            this.f5948b = null;
             this.c = null;
             this.d = 2;
             this.e = null;
@@ -51,9 +51,9 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
             for (int i = 0; i < length; i++) {
                 if (!TextUtils.isEmpty(split[i])) {
                     if (i == 0) {
-                        this.f5946a = split[i];
+                        this.f5947a = split[i];
                     } else if (i == 1) {
-                        this.f5947b = split[i];
+                        this.f5948b = split[i];
                     } else if (i == 2) {
                         this.c = split[i];
                         String str2 = this.c;
@@ -116,23 +116,23 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
                 for (int i = 0; i < size; i++) {
                     a aVar = this.mPacRulesList.get(i);
                     if (!TextUtils.isEmpty(str)) {
-                        if (TextUtils.isEmpty(aVar.f5946a) || TextUtils.isEmpty(aVar.f5947b) || TextUtils.isEmpty(aVar.c)) {
+                        if (TextUtils.isEmpty(aVar.f5947a) || TextUtils.isEmpty(aVar.f5948b) || TextUtils.isEmpty(aVar.c)) {
                             z = false;
-                        } else if (aVar.f5947b.equals("*")) {
+                        } else if (aVar.f5948b.equals("*")) {
                             z = true;
-                        } else if (aVar.f5946a.equals(HOST_MATCH)) {
-                            if (!TextUtils.isEmpty(host) && host.length() >= aVar.f5947b.length() && host.substring(host.length() - aVar.f5947b.length()).equals(aVar.f5947b)) {
+                        } else if (aVar.f5947a.equals(HOST_MATCH)) {
+                            if (!TextUtils.isEmpty(host) && host.length() >= aVar.f5948b.length() && host.substring(host.length() - aVar.f5948b.length()).equals(aVar.f5948b)) {
                                 z = true;
                             }
-                        } else if (aVar.f5946a.equals(HOST_STR)) {
-                            if (host.indexOf(aVar.f5947b) != -1) {
+                        } else if (aVar.f5947a.equals(HOST_STR)) {
+                            if (host.indexOf(aVar.f5948b) != -1) {
                                 z = true;
                             }
-                        } else if (aVar.f5946a.equals(HOST_STR_MATCH)) {
-                            if (host.equals(aVar.f5947b)) {
+                        } else if (aVar.f5947a.equals(HOST_STR_MATCH)) {
+                            if (host.equals(aVar.f5948b)) {
                                 z = true;
                             }
-                        } else if (aVar.f5946a.equals(URL_MATCH) && str.indexOf(aVar.f5947b) != -1) {
+                        } else if (aVar.f5947a.equals(URL_MATCH) && str.indexOf(aVar.f5948b) != -1) {
                             z = true;
                         }
                         if (z) {

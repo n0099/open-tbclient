@@ -30,7 +30,7 @@ public class ProxyChangeListener {
 
     /* loaded from: classes5.dex */
     public interface Delegate {
-        void eia();
+        void eib();
     }
 
     @NativeClassQualifiedName
@@ -172,7 +172,7 @@ public class ProxyChangeListener {
     public void a(b bVar, a aVar) {
         if (sEnabled && bVar == this.oLp) {
             if (this.oLq != null) {
-                this.oLq.eia();
+                this.oLq.eib();
             }
             if (this.mNativePtr != 0) {
                 if (aVar != null) {

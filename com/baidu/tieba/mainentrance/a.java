@@ -34,7 +34,7 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void Oj(String str) {
+    public void Oi(String str) {
         this.esI = str;
     }
 
@@ -64,50 +64,50 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0791a c0791a;
+        C0804a c0804a;
         String str;
         if (view == null) {
             view = LayoutInflater.from(this.mActivity.getPageContext().getPageActivity()).inflate(R.layout.square_dialog_search_item, (ViewGroup) null);
-            C0791a c0791a2 = new C0791a();
-            c0791a2.leZ = (BarImageView) view.findViewById(R.id.forum_avatar);
-            c0791a2.leZ.setGifIconSupport(false);
-            c0791a2.fni = (TextView) view.findViewById(R.id.name);
-            c0791a2.lfa = (TextView) view.findViewById(R.id.forum_member_count);
-            c0791a2.lfb = (TextView) view.findViewById(R.id.forum_thread_count);
-            c0791a2.lfc = (TextView) view.findViewById(R.id.slogan);
-            c0791a2.leY = view.findViewById(R.id.offical_icon);
-            view.setTag(c0791a2);
-            c0791a = c0791a2;
+            C0804a c0804a2 = new C0804a();
+            c0804a2.leZ = (BarImageView) view.findViewById(R.id.forum_avatar);
+            c0804a2.leZ.setGifIconSupport(false);
+            c0804a2.fni = (TextView) view.findViewById(R.id.name);
+            c0804a2.lfa = (TextView) view.findViewById(R.id.forum_member_count);
+            c0804a2.lfb = (TextView) view.findViewById(R.id.forum_thread_count);
+            c0804a2.lfc = (TextView) view.findViewById(R.id.slogan);
+            c0804a2.leY = view.findViewById(R.id.offical_icon);
+            view.setTag(c0804a2);
+            c0804a = c0804a2;
         } else {
-            c0791a = (C0791a) view.getTag();
+            c0804a = (C0804a) view.getTag();
         }
         ForumSuggestModel.Forum item = getItem(i);
         if (item != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             String str2 = item.avatar;
-            c0791a.leZ.setTag(str2);
-            c0791a.leZ.startLoad(str2, 10, false);
-            c0791a.leZ.invalidate();
+            c0804a.leZ.setTag(str2);
+            c0804a.leZ.startLoad(str2, 10, false);
+            c0804a.leZ.invalidate();
             if (this.leW) {
                 str = this.mActivity.getPageContext().getPageActivity().getString(R.string.chosen_pb_original_bar, new Object[]{item.forum_name});
             } else {
                 str = item.forum_name;
             }
-            e(c0791a.fni, str);
-            c0791a.leZ.setTag(item.avatar);
-            c0791a.lfa.setText(this.mActivity.getPageContext().getString(R.string.attention) + " " + Fz(item.member_num));
-            c0791a.lfb.setText(this.mActivity.getPageContext().getString(R.string.text_post) + " " + Fz(item.thread_num));
+            e(c0804a.fni, str);
+            c0804a.leZ.setTag(item.avatar);
+            c0804a.lfa.setText(this.mActivity.getPageContext().getString(R.string.attention) + " " + Fz(item.member_num));
+            c0804a.lfb.setText(this.mActivity.getPageContext().getString(R.string.text_post) + " " + Fz(item.thread_num));
             if (this.leW || !TextUtils.isEmpty(item.slogan)) {
-                c0791a.lfc.setVisibility(0);
-                c0791a.lfc.setText(item.slogan);
+                c0804a.lfc.setVisibility(0);
+                c0804a.lfc.setText(item.slogan);
             } else {
-                c0791a.lfc.setVisibility(8);
+                c0804a.lfc.setVisibility(8);
             }
             if (item.is_offical == 1) {
-                c0791a.leY.setVisibility(0);
-                ao.setBackgroundResource(c0791a.leY, R.drawable.icon_search_official);
+                c0804a.leY.setVisibility(0);
+                ao.setBackgroundResource(c0804a.leY, R.drawable.icon_search_official);
             } else {
-                c0791a.leY.setVisibility(8);
+                c0804a.leY.setVisibility(8);
             }
             this.mActivity.getLayoutMode().setNightMode(skinType == 1);
             this.mActivity.getLayoutMode().onModeChanged(view);
@@ -140,7 +140,7 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.mainentrance.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    private class C0791a {
+    private class C0804a {
         TextView fni;
         View leY;
         BarImageView leZ;
@@ -148,7 +148,7 @@ public class a extends BaseAdapter {
         TextView lfb;
         TextView lfc;
 
-        private C0791a() {
+        private C0804a() {
         }
     }
 }

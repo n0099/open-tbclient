@@ -56,7 +56,7 @@ public class a implements f {
             return false;
         }
         if (swanAppDownloadType == SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP) {
-            aTY();
+            aTZ();
         }
         return com.baidu.swan.game.ad.downloader.c.a(context, jSONObject, swanAppDownloadType, new com.baidu.swan.apps.adlanding.download.a.a() { // from class: com.baidu.swan.facade.requred.a.a.a.1
             @Override // com.baidu.swan.apps.adlanding.download.a.a
@@ -82,13 +82,13 @@ public class a implements f {
                         a.this.vL(String.valueOf(i));
                         return;
                     case 4:
-                        a.this.aTW();
+                        a.this.aTX();
                         return;
                     case 5:
                         a.this.c(swanAdDownloadState, String.valueOf(i));
                         return;
                     case 6:
-                        a.this.aTX();
+                        a.this.aTY();
                         return;
                     default:
                         return;
@@ -110,14 +110,14 @@ public class a implements f {
             }
 
             @Override // com.baidu.swan.apps.adlanding.download.a.a
-            public void amN() {
+            public void amO() {
                 if (a.DEBUG) {
                     Log.d("SwanAdDownloadImpl", "onInstall:");
                 }
             }
 
             @Override // com.baidu.swan.apps.adlanding.download.a.a
-            public String amO() {
+            public String amP() {
                 if (a.DEBUG) {
                     Log.d("SwanAdDownloadImpl", "onAppOpen:");
                     return null;
@@ -198,7 +198,7 @@ public class a implements f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aTW() {
+    public void aTX() {
         this.det.handleSchemeDispatchCallback(this.dYu, a(SwanAdDownloadState.DOWNLOAD_FAILED, "0", this.dYt));
         this.det.handleSchemeDispatchCallback(this.mCallback, n(true, null));
         if (this.dYr != null) {
@@ -215,13 +215,13 @@ public class a implements f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aTX() {
+    public void aTY() {
         if (DEBUG) {
             Log.d("SwanAdDownloadImpl", "handleInstallApp");
         }
         String concat = new File(com.baidu.swan.game.ad.downloader.b.getDownloadDir()).getAbsolutePath().concat("/").concat(this.dYt + ".apk");
         if (new File(concat).exists()) {
-            aTY();
+            aTZ();
             if (!com.baidu.swan.game.ad.downloader.e.ak(concat, false)) {
                 this.det.handleSchemeDispatchCallback(this.mCallback, n(false, "install apk error"));
                 return;
@@ -267,7 +267,7 @@ public class a implements f {
         return UnitedSchemeUtility.wrapCallbackParams(jSONObject, z ? 0 : 1001, str).toString();
     }
 
-    private void aTY() {
+    private void aTZ() {
         if (this.dYs == null) {
             this.dYs = new C0516a();
             IntentFilter intentFilter = new IntentFilter();

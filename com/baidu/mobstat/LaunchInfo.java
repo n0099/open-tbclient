@@ -7,24 +7,24 @@ import org.json.JSONObject;
 public class LaunchInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3640a;
+    private String f3641a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f3641b;
+    private String f3642b;
     private String c;
 
     public String getPushLandingPage() {
-        if (TextUtils.isEmpty(this.f3640a)) {
+        if (TextUtils.isEmpty(this.f3641a)) {
             return "";
         }
-        return this.f3640a;
+        return this.f3641a;
     }
 
     public String getPushContent() {
-        if (TextUtils.isEmpty(this.f3641b)) {
+        if (TextUtils.isEmpty(this.f3642b)) {
             return "";
         }
-        return this.f3641b;
+        return this.f3642b;
     }
 
     public String getRefererPkgName() {
@@ -35,8 +35,8 @@ public class LaunchInfo {
     }
 
     public void setPushInfo(String str, String str2) {
-        this.f3640a = str;
-        this.f3641b = bx.a(str2, 1024);
+        this.f3641a = str;
+        this.f3642b = bx.a(str2, 1024);
     }
 
     public void setRefererPkgName(String str) {
@@ -44,7 +44,7 @@ public class LaunchInfo {
     }
 
     public int getLaunchType(Context context) {
-        if (!TextUtils.isEmpty(this.f3640a)) {
+        if (!TextUtils.isEmpty(this.f3641a)) {
             return 2;
         }
         String str = "";

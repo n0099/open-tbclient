@@ -13,9 +13,9 @@ public final class c<W extends d> {
 
     public void a(a<W> aVar) {
         if (DEBUG) {
-            Log.v("CommandDispatcher", aVar.azr() + " command added to supported command list");
+            Log.v("CommandDispatcher", aVar.azs() + " command added to supported command list");
         }
-        this.dga.put(aVar.azr(), aVar);
+        this.dga.put(aVar.azs(), aVar);
     }
 
     public void b(@Nullable ZeusPlugin.Command command, @Nullable W w) {

@@ -21,10 +21,10 @@ import java.util.List;
 public class KSNativeAdGroupImgH5OpenView extends o1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f8126a;
+    public TextView f8127a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f8127b;
+    public LinearLayout f8128b;
     public ImageView c;
     public ImageView d;
     public ImageView e;
@@ -53,19 +53,19 @@ public class KSNativeAdGroupImgH5OpenView extends o1 {
         if (imageList != null && imageList.size() >= 3) {
             KsImage ksImage = imageList.get(0);
             if (ksImage != null && ksImage.isValid()) {
-                ap.a.pId.a(getContext(), ksImage.getImageUrl(), this.c);
+                ap.a.pJL.a(getContext(), ksImage.getImageUrl(), this.c);
             }
             KsImage ksImage2 = imageList.get(1);
             if (ksImage2 != null && ksImage2.isValid()) {
-                ap.a.pId.a(getContext(), ksImage2.getImageUrl(), this.d);
+                ap.a.pJL.a(getContext(), ksImage2.getImageUrl(), this.d);
             }
             KsImage ksImage3 = imageList.get(2);
             if (ksImage3 != null && ksImage3.isValid()) {
-                ap.a.pId.a(getContext(), ksImage3.getImageUrl(), this.e);
+                ap.a.pJL.a(getContext(), ksImage3.getImageUrl(), this.e);
             }
         }
         this.f.setImageBitmap(ksNativeAd.getSdkLogo());
-        this.f8126a.setText(ksNativeAd.getAdDescription());
+        this.f8127a.setText(ksNativeAd.getAdDescription());
         this.g.setText(ksNativeAd.getAdSource());
         this.h.setText(ksNativeAd.getActionDescription());
         ksNativeAd.setDownloadListener(new ai(ksNativeAd, this.h, str, FunAdType.KS_NATIVE, str2));
@@ -74,8 +74,8 @@ public class KSNativeAdGroupImgH5OpenView extends o1 {
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f8126a = (TextView) findViewById(R.id.ad_description);
-        this.f8127b = (LinearLayout) findViewById(R.id.ad_img_container);
+        this.f8127a = (TextView) findViewById(R.id.ad_description);
+        this.f8128b = (LinearLayout) findViewById(R.id.ad_img_container);
         this.c = (ImageView) findViewById(R.id.ad_img_1);
         this.d = (ImageView) findViewById(R.id.ad_img_2);
         this.e = (ImageView) findViewById(R.id.ad_img_3);
@@ -87,13 +87,13 @@ public class KSNativeAdGroupImgH5OpenView extends o1 {
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f8127b.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f8128b.getLayoutParams();
         int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.c.getLayoutParams();
         LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.d.getLayoutParams();
         LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.e.getLayoutParams();
         layoutParams.width = i5;
         layoutParams.height = (int) (((((((i5 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.5f);
-        this.f8127b.setLayoutParams(layoutParams);
+        this.f8128b.setLayoutParams(layoutParams);
     }
 }

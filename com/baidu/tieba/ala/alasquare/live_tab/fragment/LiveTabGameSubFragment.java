@@ -42,17 +42,17 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabGameModel.a
         public void f(boolean z, List<n> list) {
             if (z) {
-                LiveTabGameSubFragment.this.bUE();
+                LiveTabGameSubFragment.this.bUF();
             } else {
-                LiveTabGameSubFragment.this.bUD();
+                LiveTabGameSubFragment.this.bUE();
             }
-            LiveTabGameSubFragment.this.bUO();
+            LiveTabGameSubFragment.this.bUP();
             LiveTabGameSubFragment.this.setData(list);
         }
 
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabGameModel.a
         public void h(int i, String str, boolean z) {
-            LiveTabGameSubFragment.this.bUO();
+            LiveTabGameSubFragment.this.bUP();
             if (z) {
                 LiveTabGameSubFragment.this.showToast(R.string.data_load_error);
             }
@@ -64,7 +64,7 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
             if (j.isNetWorkAvailable()) {
                 LiveTabGameSubFragment.this.gDo.refresh();
             } else {
-                LiveTabGameSubFragment.this.bUO();
+                LiveTabGameSubFragment.this.bUP();
             }
         }
     };
@@ -74,7 +74,7 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
             if (!l.isNetOk()) {
                 LiveTabGameSubFragment.this.hideLoadingView();
             } else {
-                LiveTabGameSubFragment.this.gDo.bUp();
+                LiveTabGameSubFragment.this.gDo.bUq();
             }
         }
     };
@@ -83,7 +83,7 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
         public void onScrolled(RecyclerView recyclerView, int i, int i2) {
             super.onScrolled(recyclerView, i, i2);
             if (i2 >= 4 && !LiveTabGameSubFragment.this.gDb) {
-                LiveTabGameSubFragment.this.bUM();
+                LiveTabGameSubFragment.this.bUN();
             }
         }
     };
@@ -134,7 +134,7 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
         this.Yc.setFadingEdgeLength(0);
         this.Yc.setOverScrollMode(2);
         this.gDn = new b(getPageContext(), this.Yc);
-        this.gDn.mw(boV());
+        this.gDn.mw(boW());
         this.gCf = new PbListView(this.mContext);
         this.gCf.createView();
         this.gCf.setContainerBackgroundColorResId(R.color.transparent);
@@ -148,7 +148,7 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
         this.Yc.addOnScrollListener(this.mOnScrollListener);
         setListPullRefreshListener(this.gDk);
         a(this.gDl);
-        if (boV()) {
+        if (boW()) {
             this.gDf.setEnabled(false);
             this.gDf.interruptRefresh();
         }
@@ -179,7 +179,7 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
     }
 
     private void startPullRefresh() {
-        if (boV()) {
+        if (boW()) {
             t tVar = new t();
             tVar.tabId = 1121;
             tVar.geO = true;
@@ -190,8 +190,8 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUO() {
-        if (boV()) {
+    public void bUP() {
+        if (boW()) {
             t tVar = new t();
             tVar.tabId = 1121;
             tVar.geO = false;
@@ -202,7 +202,7 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUD() {
+    public void bUE() {
         if (this.gCf != null) {
             if (this.gCf.getView().getParent() == null) {
                 this.Yc.setNextPage(this.gCf);
@@ -214,7 +214,7 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUE() {
+    public void bUF() {
         if (this.gCf != null) {
             if (this.gCf.getView().getParent() == null) {
                 this.Yc.setNextPage(this.gCf);
@@ -270,41 +270,41 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLoad() {
-        bwn();
+        bwo();
     }
 
-    private void bwn() {
+    private void bwo() {
         com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c13008");
         aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
         aqVar.dX("fid", this.fPy);
         aqVar.an("obj_locate", 2);
         aqVar.an("obj_type", 15);
-        aqVar.bwn();
+        aqVar.bwo();
     }
 
     @Override // com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment
-    public void WE() {
+    public void WF() {
         this.Yc.setSelection(0);
         startPullRefresh();
     }
 
     @Override // com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment
-    public void bUN() {
+    public void bUO() {
         if (this.gDn != null) {
             this.gDn.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bxL() {
+    public void bxM() {
         if (j.isNetWorkAvailable()) {
             this.gDo.refresh();
         } else {
-            bUO();
+            bUP();
         }
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bxM() {
+    public void bxN() {
     }
 }

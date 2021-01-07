@@ -76,7 +76,7 @@ public final class j {
         this((i & 1) != 0 ? null : num, (i & 2) != 0 ? null : num2, (i & 4) != 0 ? null : num3, (i & 8) != 0 ? null : num4, (i & 16) != 0 ? null : bArr, (i & 32) != 0 ? null : bArr2, (i & 64) != 0 ? 0L : j, (i & 128) != 0 ? null : bArr3);
     }
 
-    public final Integer aYW() {
+    public final Integer aYX() {
         return this.egu;
     }
 
@@ -84,7 +84,7 @@ public final class j {
         this.egu = num;
     }
 
-    public final Integer aYX() {
+    public final Integer aYY() {
         return this.egv;
     }
 
@@ -92,7 +92,7 @@ public final class j {
         this.egv = num;
     }
 
-    public final Integer aYY() {
+    public final Integer aYZ() {
         return this.egw;
     }
 
@@ -100,7 +100,7 @@ public final class j {
         this.egw = num;
     }
 
-    public final Integer aYZ() {
+    public final Integer aZa() {
         return this.egx;
     }
 
@@ -112,7 +112,7 @@ public final class j {
         this.egy = bArr;
     }
 
-    public final byte[] aZa() {
+    public final byte[] aZb() {
         return this.egy;
     }
 
@@ -120,7 +120,7 @@ public final class j {
         this.egz = bArr;
     }
 
-    public final byte[] aZb() {
+    public final byte[] aZc() {
         return this.egz;
     }
 
@@ -132,7 +132,7 @@ public final class j {
         this.egA = bArr;
     }
 
-    public final int aYR() {
+    public final int aYS() {
         return this.egs;
     }
 
@@ -140,14 +140,14 @@ public final class j {
         this.egs = i;
     }
 
-    public final void aYS() {
+    public final void aYT() {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("BDTLS", "Recovery: add recoveryCount: " + this.egt);
         }
         this.egt++;
     }
 
-    public final synchronized boolean aYT() {
+    public final synchronized boolean aYU() {
         boolean z = true;
         synchronized (this) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
@@ -161,11 +161,11 @@ public final class j {
         return z;
     }
 
-    public final boolean aYU() {
+    public final boolean aYV() {
         return this.egt < 3;
     }
 
-    public final void aYV() {
+    public final void aYW() {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("BDTLS", "Downgrade: reset downgrade count " + this.egt);
         }

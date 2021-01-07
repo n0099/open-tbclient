@@ -215,11 +215,11 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements com.baidu.
                     this.mRootView.addView(alaLiveView, childCount, alaLiveView.getLayoutParams());
                 }
             }
-            cnY();
+            cnZ();
         }
     }
 
-    public void cnV() {
+    public void cnW() {
         if (this.hGM != null) {
             this.mRootView.removeView(this.hGM);
         }
@@ -257,7 +257,7 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements com.baidu.
         }
     }
 
-    public void Zr() {
+    public void Zs() {
         if (this.hRc.getParent() != null) {
             ((ViewGroup) this.hRc.getParent()).removeView(this.hRc);
         }
@@ -286,17 +286,17 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements com.baidu.
         if (this.hRe != null) {
             this.mRootView.addView(this.hRe, childCount, layoutParams);
         }
-        cnY();
+        cnZ();
     }
 
-    public void cnW() {
+    public void cnX() {
         if (this.hRe != null) {
             this.mRootView.removeView(this.hRe);
         }
         this.hRe = null;
     }
 
-    public void cnX() {
+    public void cnY() {
         this.mHandler.removeCallbacks(this.hRh);
         this.hRb.clearAnimation();
         this.hRb.setAlpha(1.0f);
@@ -324,7 +324,7 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements com.baidu.
 
     public void a(SimpleDraweeView simpleDraweeView, String str, int i, int i2) {
         try {
-            simpleDraweeView.setController(com.facebook.drawee.a.a.c.euI().c(simpleDraweeView.getController()).bo(ImageRequestBuilder.aj(Uri.parse(str)).a(new com.facebook.imagepipeline.i.a(i, i2)).eBe()).evz());
+            simpleDraweeView.setController(com.facebook.drawee.a.a.c.euP().c(simpleDraweeView.getController()).bo(ImageRequestBuilder.aj(Uri.parse(str)).a(new com.facebook.imagepipeline.i.a(i, i2)).eBI()).evG());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -430,7 +430,7 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements com.baidu.
         }
     }
 
-    public void cnY() {
+    public void cnZ() {
         if (this.hRf != null && this.hRf.getParent() != null) {
             ((ViewGroup) this.hRf.getParent()).removeView(this.hRf);
         }
@@ -442,7 +442,7 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements com.baidu.
         }
     }
 
-    public boolean cnZ() {
+    public boolean coa() {
         return (this.hRf == null || this.hRf.getParent() == null) ? false : true;
     }
 
@@ -456,7 +456,7 @@ public class AlaLiveRoomBlurPageLayout extends FrameLayout implements com.baidu.
         return this.mPageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds160);
     }
 
-    public void coa() {
+    public void cob() {
         View findViewWithTag = findViewWithTag("AlaLivePraiseGuideController");
         if (findViewWithTag != null) {
             removeView(findViewWithTag);

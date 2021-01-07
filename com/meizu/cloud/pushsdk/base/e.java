@@ -16,10 +16,10 @@ public class e {
     private BufferedWriter d;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11537a = "EncryptionWriter";
+    private String f11538a = "EncryptionWriter";
 
     /* renamed from: b  reason: collision with root package name */
-    private SimpleDateFormat f11538b = new SimpleDateFormat("yyyy-MM-dd");
+    private SimpleDateFormat f11539b = new SimpleDateFormat("yyyy-MM-dd");
     private int e = 7;
     private String f = ".log.txt";
     private d c = new d("lo");
@@ -70,13 +70,13 @@ public class e {
         if (!file.exists() && !file.mkdirs()) {
             throw new IOException("create " + str + " dir failed!!!");
         }
-        String format = this.f11538b.format(new Date());
+        String format = this.f11539b.format(new Date());
         File file2 = new File(str, format + this.f);
         if (!file2.exists()) {
             if (file2.createNewFile()) {
                 a(file);
             } else {
-                Log.e(this.f11537a, "create new file " + format + " failed !!!");
+                Log.e(this.f11538a, "create new file " + format + " failed !!!");
             }
         }
         this.d = new BufferedWriter(new FileWriter(file2, true));

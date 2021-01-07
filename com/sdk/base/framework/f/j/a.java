@@ -10,10 +10,10 @@ import javax.crypto.spec.SecretKeySpec;
 public class a extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13152a = a.class.getName();
+    private static final String f13153a = a.class.getName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f13153b = f.f13118b;
+    private static boolean f13154b = f.f13119b;
     private static String c = "a6Hy5Hb8IfX46D1f";
 
     public static String a(int i) {
@@ -31,10 +31,10 @@ public class a extends com.sdk.base.framework.f.a {
     }
 
     public static String a(Context context) {
-        String b2 = com.sdk.base.framework.f.b.a.b(context, f.f13117a);
+        String b2 = com.sdk.base.framework.f.b.a.b(context, f.f13118a);
         if (com.sdk.base.framework.a.a.c.a(b2).booleanValue()) {
             String a2 = a(16);
-            com.sdk.base.framework.f.b.a.b(context, f.f13117a, a2);
+            com.sdk.base.framework.f.b.a.b(context, f.f13118a, a2);
             return a2;
         }
         return b2;
@@ -49,15 +49,15 @@ public class a extends com.sdk.base.framework.f.a {
         if (str != null) {
             try {
             } catch (Exception e) {
-                a(f13152a, "EncryptCbcIv", e.getMessage(), f13153b);
+                a(f13153a, "EncryptCbcIv", e.getMessage(), f13154b);
             }
             if (str.length() != 0 && str.trim().length() != 0) {
                 if (str2 == null) {
-                    a(f13152a, "EncryptCbcIv", "encrypt key is null", f13153b);
+                    a(f13153a, "EncryptCbcIv", "encrypt key is null", f13154b);
                 } else if (str2.length() != 16) {
-                    a(f13152a, "EncryptCbcIv", "encrypt key length error", f13153b);
+                    a(f13153a, "EncryptCbcIv", "encrypt key length error", f13154b);
                 } else if (str3.length() != 16) {
-                    a(f13152a, "EncryptCbcIv", "ivStr length error", f13153b);
+                    a(f13153a, "EncryptCbcIv", "ivStr length error", f13154b);
                 } else {
                     Cipher cipher = Cipher.getInstance(com.baidu.sapi2.utils.e.p);
                     cipher.init(1, new SecretKeySpec(str2.getBytes("utf-8"), com.baidu.sapi2.utils.e.q), new IvParameterSpec(str3.getBytes("utf-8")));
@@ -66,7 +66,7 @@ public class a extends com.sdk.base.framework.f.a {
                 return str4;
             }
         }
-        a(f13152a, "EncryptCbcIv", "encrypt content is null", f13153b);
+        a(f13153a, "EncryptCbcIv", "encrypt content is null", f13154b);
         return str4;
     }
 

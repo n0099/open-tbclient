@@ -13,24 +13,24 @@ import java.util.Map;
 import javax.crypto.BadPaddingException;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class f {
     private static final Map<String, byte[]> h = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f1607a;
+    private final int f1608a;
     private SecureRandom afo;
     private MessageDigest afp;
     private MessageDigest afq;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f1608b;
+    private final int f1609b;
     private final int d;
     private byte[] g;
 
     private f(int i, int i2, SecureRandom secureRandom, OAEPParameterSpec oAEPParameterSpec) {
-        this.f1607a = i;
-        this.f1608b = i2;
+        this.f1608a = i;
+        this.f1609b = i2;
         this.afo = secureRandom;
         if (i2 < 64) {
             throw new InvalidKeyException("Padded size must be at least 64");
@@ -142,13 +142,13 @@ public final class f {
         int i;
         int i2;
         int i3 = -1;
-        byte[] bArr2 = new byte[this.f1608b];
-        System.arraycopy(bArr, 0, bArr2, this.f1608b - bArr.length, bArr.length);
-        int length = (this.f1608b - 3) - bArr.length;
+        byte[] bArr2 = new byte[this.f1609b];
+        System.arraycopy(bArr, 0, bArr2, this.f1609b - bArr.length, bArr.length);
+        int length = (this.f1609b - 3) - bArr.length;
         bArr2[0] = 0;
         int i4 = 2;
-        bArr2[1] = (byte) this.f1607a;
-        if (this.f1607a != 1) {
+        bArr2[1] = (byte) this.f1608a;
+        if (this.f1608a != 1) {
             if (this.afo == null) {
                 this.afo = b.afc;
             }
@@ -196,7 +196,7 @@ public final class f {
             throw new BadPaddingException("Data must start with zero");
         }
         int i = 2;
-        if (bArr[1] != this.f1607a) {
+        if (bArr[1] != this.f1608a) {
             throw new BadPaddingException("Blocktype mismatch: " + ((int) bArr[1]));
         }
         while (true) {
@@ -213,7 +213,7 @@ public final class f {
             } else if (i2 == bArr.length) {
                 throw new BadPaddingException("Padding string not terminated");
             } else {
-                if (this.f1607a == 1 && i3 != 255) {
+                if (this.f1608a == 1 && i3 != 255) {
                     throw new BadPaddingException("Padding byte not 0xff: " + i3);
                 }
                 i = i2;
@@ -228,11 +228,11 @@ public final class f {
         int length = this.g.length;
         byte[] bArr2 = new byte[length];
         this.afo.nextBytes(bArr2);
-        byte[] bArr3 = new byte[this.f1608b];
+        byte[] bArr3 = new byte[this.f1609b];
         System.arraycopy(bArr2, 0, bArr3, 1, length);
         int i = length + 1;
         int length2 = bArr3.length - i;
-        int length3 = this.f1608b - bArr.length;
+        int length3 = this.f1609b - bArr.length;
         System.arraycopy(this.g, 0, bArr3, i, length);
         bArr3[length3 - 1] = 1;
         System.arraycopy(bArr, 0, bArr3, length3, bArr.length);
@@ -280,7 +280,7 @@ public final class f {
         if (bArr.length > this.d) {
             throw new BadPaddingException("Data must be shorter than " + (this.d + 1) + " bytes");
         }
-        switch (this.f1607a) {
+        switch (this.f1608a) {
             case 1:
             case 2:
                 return c(bArr);
@@ -294,10 +294,10 @@ public final class f {
     }
 
     public byte[] b(byte[] bArr) {
-        if (bArr.length != this.f1608b) {
-            throw new BadPaddingException("Padded length must be " + this.f1608b);
+        if (bArr.length != this.f1609b) {
+            throw new BadPaddingException("Padded length must be " + this.f1609b);
         }
-        switch (this.f1607a) {
+        switch (this.f1608a) {
             case 1:
             case 2:
                 return d(bArr);

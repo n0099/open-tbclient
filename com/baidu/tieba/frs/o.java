@@ -54,7 +54,7 @@ public class o {
         return layoutParams.height;
     }
 
-    public int cFR() {
+    public int cFS() {
         return this.jhz;
     }
 }

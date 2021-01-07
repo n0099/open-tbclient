@@ -55,7 +55,7 @@ public class f {
         this.mView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.c.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                f.this.cAz();
+                f.this.cAA();
             }
         });
         this.iQF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.c.f.2
@@ -68,9 +68,9 @@ public class f {
                 aqVar.an(TiebaInitialize.Params.OBJ_TO, f.this.akA.isLike() ? 2 : 1);
                 TiebaStatic.log(aqVar);
                 if (f.this.akA.isLike()) {
-                    f.this.cAB();
+                    f.this.cAC();
                 } else {
-                    f.this.cAA();
+                    f.this.cAB();
                 }
             }
         });
@@ -94,10 +94,10 @@ public class f {
                 forumName = "";
             }
             this.akv.setText(forumName);
-            this.iQD.setText(this.attention + " " + at.dZ(blVar.bqu()));
-            this.iQE.setText(this.iQG + " " + at.dZ(blVar.bqv()));
-            String boP = blVar.boP();
-            if (at.isEmpty(boP)) {
+            this.iQD.setText(this.attention + " " + at.dZ(blVar.bqv()));
+            this.iQE.setText(this.iQG + " " + at.dZ(blVar.bqw()));
+            String boQ = blVar.boQ();
+            if (at.isEmpty(boQ)) {
                 if (this.akw.getVisibility() != 8) {
                     this.akw.setVisibility(8);
                     if (this.akv.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
@@ -113,7 +113,7 @@ public class f {
                         this.akv.requestLayout();
                     }
                 }
-                this.akw.setText(boP);
+                this.akw.setText(boQ);
             }
             pS(this.akA.isLike());
             onChangeSkinType();
@@ -143,7 +143,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cAz() {
+    public void cAA() {
         if (this.akA != null) {
             String forumName = this.akA.getForumName();
             if (at.isForumName(forumName)) {
@@ -159,7 +159,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cAA() {
+    public void cAB() {
         if (!l.isNetOk()) {
             UtilHelper.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getString(R.string.neterror));
         } else if (this.akA != null && !StringUtils.isNull(this.akA.getForumName()) && this.akA.getForumId() > 0) {
@@ -186,14 +186,14 @@ public class f {
                 }
             });
             if (at.isForumName(this.akA.getForumName())) {
-                this.fpO.dOt();
+                this.fpO.dOu();
                 this.fpO.gr(this.akA.getForumName(), String.valueOf(this.akA.getForumId()));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cAB() {
+    public void cAC() {
         if (!l.isNetOk()) {
             UtilHelper.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getString(R.string.neterror));
         } else if (this.akA != null && !StringUtils.isNull(this.akA.getForumName()) && this.akA.getForumId() > 0) {

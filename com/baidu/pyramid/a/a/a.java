@@ -26,7 +26,7 @@ public class a<T> implements c<T> {
         this.t = null;
     }
 
-    public static a ahz() {
+    public static a ahA() {
         return new a();
     }
 }

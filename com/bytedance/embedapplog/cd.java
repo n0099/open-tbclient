@@ -31,36 +31,36 @@ public class cd extends bv {
     @Override // com.bytedance.embedapplog.bv
     long b() {
         long j = AppStatusRules.DEFAULT_GRANULARITY;
-        long epL = this.pgH.epL();
-        if (epL <= AppStatusRules.DEFAULT_GRANULARITY && epL > 0) {
-            j = epL;
+        long epM = this.pgH.epM();
+        if (epM <= AppStatusRules.DEFAULT_GRANULARITY && epM > 0) {
+            j = epM;
         }
         phA[0] = j;
         return j + this.f;
     }
 
     @Override // com.bytedance.embedapplog.bv
-    long[] epw() {
+    long[] epx() {
         return phA;
     }
 
     @Override // com.bytedance.embedapplog.bv
     public boolean d() {
-        ah epz;
-        if (System.currentTimeMillis() > this.g + this.pgH.epL()) {
+        ah epA;
+        if (System.currentTimeMillis() > this.g + this.pgH.epM()) {
             JSONObject b2 = this.phC.b();
-            ce epy = bx.epy();
-            if (epy != null && b2 != null && (epz = epy.epz()) != null) {
-                this.phE.a(b2, epz, epy.b());
+            ce epz = bx.epz();
+            if (epz != null && b2 != null && (epA = epz.epA()) != null) {
+                this.phE.a(b2, epA, epz.b());
                 this.g = System.currentTimeMillis();
             }
         }
         ArrayList<ai> a2 = this.phE.a();
         ArrayList<ai> arrayList = new ArrayList<>(a2.size());
         ArrayList<ai> arrayList2 = new ArrayList<>(a2.size());
-        this.phE.a(this.f6113a, this.phC.a());
-        this.phE.a(this.f6113a);
-        String[] m = ab.m(this.f6113a, this.phC.a());
+        this.phE.a(this.f6114a, this.phC.a());
+        this.phE.a(this.f6114a);
+        String[] m = ab.m(this.f6114a, this.phC.a());
         Iterator<ai> it = a2.iterator();
         while (it.hasNext()) {
             ai next = it.next();

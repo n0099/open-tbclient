@@ -9,14 +9,14 @@ import android.widget.ImageView;
 import com.baidu.tbadk.TbConfig;
 import com.qq.e.comm.util.GDTLogger;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g extends ImageView implements com.qq.e.comm.plugin.ac.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f12811a;
+    private int f12812a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f12812b;
+    private int f12813b;
     private int c;
     private int d;
     private int e;
@@ -41,11 +41,11 @@ public class g extends ImageView implements com.qq.e.comm.plugin.ac.g {
         }
         this.f.setTime(((int) (currentTimeMillis - this.h)) % this.g);
         if (this.i < 0.0f) {
-            if (Double.valueOf(this.d).doubleValue() / this.e < Double.valueOf(this.f12811a).doubleValue() / this.f12812b) {
-                this.i = this.e / this.f12812b;
+            if (Double.valueOf(this.d).doubleValue() / this.e < Double.valueOf(this.f12812a).doubleValue() / this.f12813b) {
+                this.i = this.e / this.f12813b;
             } else {
-                this.i = this.d / this.f12811a;
-                this.j = (-(((this.f12812b * this.i) - this.e) / 2.0f)) / this.i;
+                this.i = this.d / this.f12812a;
+                this.j = (-(((this.f12813b * this.i) - this.e) / 2.0f)) / this.i;
             }
         }
         canvas.scale(this.i, this.i);
@@ -68,8 +68,8 @@ public class g extends ImageView implements com.qq.e.comm.plugin.ac.g {
             this.g = TbConfig.NOTIFY_YUN_PUSH;
             GDTLogger.e("gif duration = 0, reset to 2500");
         }
-        this.f12812b = movie.width();
-        this.f12811a = movie.height();
+        this.f12813b = movie.width();
+        this.f12812a = movie.height();
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -77,17 +77,17 @@ public class g extends ImageView implements com.qq.e.comm.plugin.ac.g {
         if (this.k == null || !this.k.isRecycled()) {
             this.d = getHeight();
             this.e = getWidth();
-            if (this.e == 0 || this.f12812b == 0) {
+            if (this.e == 0 || this.f12813b == 0) {
                 super.onDraw(canvas);
             } else if (this.f != null) {
                 a(canvas);
                 super.onDraw(canvas);
             } else {
-                if (Double.valueOf(this.d).doubleValue() / this.e < Double.valueOf(this.f12811a).doubleValue() / this.f12812b) {
-                    this.c = (this.f12811a * this.e) / this.f12812b;
+                if (Double.valueOf(this.d).doubleValue() / this.e < Double.valueOf(this.f12812a).doubleValue() / this.f12813b) {
+                    this.c = (this.f12812a * this.e) / this.f12813b;
                     getDrawable().setBounds(0, 0, this.e, this.c);
                 } else {
-                    this.c = (((this.f12812b * this.d) / this.f12811a) - this.e) / 2;
+                    this.c = (((this.f12813b * this.d) / this.f12812a) - this.e) / 2;
                     getDrawable().setBounds(-this.c, 0, this.e + this.c, this.d);
                 }
                 super.onDraw(canvas);
@@ -98,8 +98,8 @@ public class g extends ImageView implements com.qq.e.comm.plugin.ac.g {
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
         if (bitmap != null) {
-            this.f12811a = bitmap.getHeight();
-            this.f12812b = bitmap.getWidth();
+            this.f12812a = bitmap.getHeight();
+            this.f12813b = bitmap.getWidth();
             this.k = bitmap;
             super.setImageBitmap(bitmap);
         }

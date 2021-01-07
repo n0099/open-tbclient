@@ -20,7 +20,7 @@ public class c extends EventTargetImpl implements com.baidu.mario.a.c {
         super(jSRuntime);
         this.ena = -1;
         this.enb = new b.C0547b();
-        d.bbE().bbF().setGameRecordCallback(this);
+        d.bbF().bbG().setGameRecordCallback(this);
     }
 
     private void u(String str, Object obj) {

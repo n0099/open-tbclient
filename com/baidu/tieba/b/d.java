@@ -21,20 +21,20 @@ public final class d extends b<d> {
 
     @Override // com.baidu.tieba.b.b
     public void start() {
-        ctq();
-        this.inN.A(cto());
+        ctr();
+        this.inN.A(ctp());
         super.start();
     }
 
-    private void ctq() {
+    private void ctr() {
         if (this.inN == null) {
             throw new UnsupportedOperationException("Incomplete SpringAnimation: Either final position or a spring force needs to be set.");
         }
-        double ctr = this.inN.ctr();
-        if (ctr > this.inH) {
+        double cts = this.inN.cts();
+        if (cts > this.inH) {
             throw new UnsupportedOperationException("Final position of the spring cannot be greater than the max value.");
         }
-        if (ctr < this.inI) {
+        if (cts < this.inI) {
             throw new UnsupportedOperationException("Final position of the spring cannot be less than the min value.");
         }
     }
@@ -46,13 +46,13 @@ public final class d extends b<d> {
                 this.inN.aE(this.inO);
                 this.inO = Float.MAX_VALUE;
             }
-            this.mValue = this.inN.ctr();
+            this.mValue = this.inN.cts();
             this.inD = 0.0f;
             this.inP = false;
             return true;
         }
         if (this.inO != Float.MAX_VALUE) {
-            this.inN.ctr();
+            this.inN.cts();
             b.a a2 = this.inN.a(this.mValue, this.inD, j / 2);
             this.inN.aE(this.inO);
             this.inO = Float.MAX_VALUE;
@@ -67,7 +67,7 @@ public final class d extends b<d> {
         this.mValue = Math.max(this.mValue, this.inI);
         this.mValue = Math.min(this.mValue, this.inH);
         if (C(this.mValue, this.inD)) {
-            this.mValue = this.inN.ctr();
+            this.mValue = this.inN.cts();
             this.inD = 0.0f;
             return true;
         }

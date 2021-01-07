@@ -83,7 +83,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                NewSquareSearchActivity.this.Om(customResponsedMessage.getData().toString());
+                NewSquareSearchActivity.this.Ol(customResponsedMessage.getData().toString());
             }
         }
     };
@@ -100,7 +100,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         registerListener(this.lfp);
         this.lfn = new SquareSearchViewController(this, this.lfl);
         this.lfm = new HotForumModel(getPageContext(), this);
-        dfE();
+        dfF();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -126,7 +126,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                 } else {
                     this.lfq.setName(stringExtra2);
                 }
-                this.lfq.Ol(stringExtra);
+                this.lfq.Ok(stringExtra);
             }
         }
     }
@@ -146,24 +146,24 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
             this.lfn.onDestroy();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921504, null));
-        com.baidu.tbadk.pageExtra.d.Ek(getCurrentPageKey());
+        com.baidu.tbadk.pageExtra.d.Ej(getCurrentPageKey());
     }
 
-    private void dfE() {
-        if (this.lfq != null && !TextUtils.isEmpty(this.lfq.cxL()) && !TextUtils.isEmpty(this.lfq.getName())) {
+    private void dfF() {
+        if (this.lfq != null && !TextUtils.isEmpty(this.lfq.cxM()) && !TextUtils.isEmpty(this.lfq.getName())) {
             this.lfn.b(this.lfq);
             return;
         }
-        this.mHotSearchInfo = (HotSearchInfoData) OrmObject.objectWithJsonStr(com.baidu.tbadk.core.sharedPref.b.bvq().getString(SharedPrefConfig.HOT_SEARCH_INFO, ""), HotSearchInfoData.class);
-        if (this.mHotSearchInfo != null && !TextUtils.isEmpty(this.mHotSearchInfo.cxL()) && !TextUtils.isEmpty(this.mHotSearchInfo.getName())) {
+        this.mHotSearchInfo = (HotSearchInfoData) OrmObject.objectWithJsonStr(com.baidu.tbadk.core.sharedPref.b.bvr().getString(SharedPrefConfig.HOT_SEARCH_INFO, ""), HotSearchInfoData.class);
+        if (this.mHotSearchInfo != null && !TextUtils.isEmpty(this.mHotSearchInfo.cxM()) && !TextUtils.isEmpty(this.mHotSearchInfo.getName())) {
             this.lfn.b(this.mHotSearchInfo);
         } else {
-            this.lfm.dfC();
+            this.lfm.dfD();
         }
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.a
-    public void Ok(String str) {
+    public void Oj(String str) {
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.a
@@ -187,9 +187,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            BaseWebView dgA = this.lfn.dgA();
-            if (i == 4 && dgA != null && dgA.canGoBack()) {
-                dgA.goBack();
+            BaseWebView dgB = this.lfn.dgB();
+            if (i == 4 && dgB != null && dgB.canGoBack()) {
+                dgB.goBack();
                 return true;
             }
             com.baidu.adp.lib.f.e.mB().postDelayed(new Runnable() { // from class: com.baidu.tieba.mainentrance.NewSquareSearchActivity.3
@@ -224,7 +224,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Om(String str) {
+    public void Ol(String str) {
         if (!j.isNetWorkAvailable()) {
             showToast(R.string.neterror);
         } else if (!StringUtils.isNull(str)) {

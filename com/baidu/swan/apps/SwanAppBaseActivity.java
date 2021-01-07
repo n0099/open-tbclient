@@ -19,9 +19,9 @@ public class SwanAppBaseActivity extends FragmentActivity {
     @Override // android.app.Activity
     public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        boolean alD = com.baidu.swan.apps.t.a.aAN().alD();
-        com.baidu.swan.apps.u.a.a.i(Boolean.valueOf(alD));
-        k(alD, false);
+        boolean alE = com.baidu.swan.apps.t.a.aAO().alE();
+        com.baidu.swan.apps.u.a.a.i(Boolean.valueOf(alE));
+        k(alE, false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -51,16 +51,16 @@ public class SwanAppBaseActivity extends FragmentActivity {
             this.cEx.K(viewGroup);
         }
         if (z2) {
-            com.baidu.swan.apps.process.messaging.a.aIX().a(new com.baidu.swan.apps.process.messaging.c(5).gH(true));
+            com.baidu.swan.apps.process.messaging.a.aIY().a(new com.baidu.swan.apps.process.messaging.c(5).gH(true));
         }
     }
 
-    public com.baidu.swan.apps.ai.b ajE() {
+    public com.baidu.swan.apps.ai.b ajF() {
         return this.cEx;
     }
 
     public void a(int i, @NonNull String[] strArr, c.a aVar) {
-        this.cEy = com.baidu.swan.apps.ab.c.aIj();
+        this.cEy = com.baidu.swan.apps.ab.c.aIk();
         this.cEy.a(this, i, strArr, aVar);
     }
 

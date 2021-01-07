@@ -10,7 +10,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class Request {
     private final Context context;
     protected final Map<String, String> cvt;
@@ -106,7 +106,7 @@ public final class Request {
         this.cvu.a(this, lVar);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         private final Context context;
         private final String cvC;
@@ -124,9 +124,9 @@ public final class Request {
             this.cvC = str;
         }
 
-        public Request ahv() {
+        public Request ahw() {
             if (this.method == null) {
-                ahw();
+                ahx();
             }
             if ("GET".equals(this.method)) {
                 try {
@@ -140,7 +140,7 @@ public final class Request {
             return new Request(this);
         }
 
-        public a ahw() {
+        public a ahx() {
             if (this.url != null) {
                 this.cvv = new RequestError("Method called twice");
             }
@@ -153,7 +153,7 @@ public final class Request {
             return this;
         }
 
-        public a ahx() {
+        public a ahy() {
             if (this.url != null) {
                 this.cvv = new RequestError("Method called twice");
             }
@@ -188,7 +188,7 @@ public final class Request {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class RequestError extends IOException {
         public RequestError() {
         }

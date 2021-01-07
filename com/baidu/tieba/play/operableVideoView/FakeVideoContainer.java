@@ -21,8 +21,8 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     private TbImageView ant;
     private ImageView anv;
     private bz eMv;
-    private View mED;
-    private EMTextView mEE;
+    private View mEC;
+    private EMTextView mED;
 
     public FakeVideoContainer(Context context) {
         super(context);
@@ -48,32 +48,32 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     protected void init() {
         inflate(getContext(), R.layout.fake_video_container, this);
         this.ant = (TbImageView) findViewById(R.id.video_thumbnail);
-        this.mED = findViewById(R.id.black_mask);
+        this.mEC = findViewById(R.id.black_mask);
         this.anv = (ImageView) findViewById(R.id.video_play);
-        this.mEE = (EMTextView) findViewById(R.id.fake_video_info);
+        this.mED = (EMTextView) findViewById(R.id.fake_video_info);
         this.anv.setImageDrawable(WebPManager.a(R.drawable.icon_pure_video_play44, ao.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.mEE).pC(R.color.CAM_X0101).pE(R.string.F_X01);
-        this.ant.bJL();
+        com.baidu.tbadk.core.elementsMaven.c.bv(this.mED).pC(R.color.CAM_X0101).pE(R.string.F_X01);
+        this.ant.bJM();
         this.ant.setDrawCorner(false);
         this.ant.setPlaceHolder(3);
         setOnClickListener(this);
     }
 
     public void setData(bz bzVar) {
-        if (bzVar != null && bzVar.brH() != null) {
-            this.anC = bzVar.brH().is_vertical.intValue() == 1;
+        if (bzVar != null && bzVar.brI() != null) {
+            this.anC = bzVar.brI().is_vertical.intValue() == 1;
             this.eMv = bzVar;
             this.ant.setPlaceHolder(3);
-            if (bzVar.brH().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) || bzVar.brH().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
-                this.ant.startLoad(bzVar.brH().thumbnail_url, 10, false);
+            if (bzVar.brI().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) || bzVar.brI().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
+                this.ant.startLoad(bzVar.brI().thumbnail_url, 10, false);
             } else {
-                this.ant.startLoad(bzVar.brH().thumbnail_url, 32, false);
+                this.ant.startLoad(bzVar.brI().thumbnail_url, 32, false);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        BdToast.b(getContext(), getContext().getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).bud();
+        BdToast.b(getContext(), getContext().getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).bue();
     }
 }

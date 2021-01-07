@@ -7,7 +7,7 @@ public class ForumBroadcastMajorResidueData extends OrmObject {
     private int kCj;
     private int kCk;
 
-    public int cXV() {
+    public int cXW() {
         return this.kCi;
     }
 
@@ -15,7 +15,7 @@ public class ForumBroadcastMajorResidueData extends OrmObject {
         this.kCi = i;
     }
 
-    public int cXW() {
+    public int cXX() {
         return this.kCj;
     }
 

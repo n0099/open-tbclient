@@ -5,7 +5,7 @@ import com.baidu.fsg.face.liveness.video.f;
 enum VideoCodecType {
     VP8("video/x-vnd.on2.vp8"),
     VP9("video/x-vnd.on2.vp9"),
-    H264(f.f2362b);
+    H264(f.f2363b);
     
     private final String mimeType;
 

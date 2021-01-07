@@ -15,7 +15,7 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public final class a {
     static {
-        String[] strArr = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "getNetworkIso", com.baidu.pass.biometrics.face.liveness.d.b.f4080a, "c", "d", "e", "f"};
+        String[] strArr = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "getNetworkIso", com.baidu.pass.biometrics.face.liveness.d.b.f4081a, "c", "d", "e", "f"};
     }
 
     public static boolean a() {

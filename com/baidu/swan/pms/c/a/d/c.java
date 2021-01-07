@@ -31,19 +31,19 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
             str = this.exe.U(t);
         }
         if (com.baidu.swan.pms.d.DEBUG) {
-            Log.d("PMSDownStreamGuard", bgB() + ": getDownloadPath:" + str);
+            Log.d("PMSDownStreamGuard", bgC() + ": getDownloadPath:" + str);
         }
         if (str == null) {
             try {
                 str = com.baidu.swan.pms.utils.d.eL(AppRuntime.getAppContext()).getAbsolutePath();
             } catch (Exception e) {
                 if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.e("PMSDownStreamGuard", bgB() + ": getDownloadPath error: e=" + Log.getStackTraceString(e));
+                    Log.e("PMSDownStreamGuard", bgC() + ": getDownloadPath error: e=" + Log.getStackTraceString(e));
                     throw e;
                 }
             }
             if (com.baidu.swan.pms.d.DEBUG) {
-                Log.d("PMSDownStreamGuard", bgB() + ": getDownloadPath failed, using default path:" + str);
+                Log.d("PMSDownStreamGuard", bgC() + ": getDownloadPath failed, using default path:" + str);
             }
         }
         return str;
@@ -56,8 +56,8 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
                 this.exe.T(t);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.e("PMSDownStreamGuard", bgB() + ": Except onDownloading t=" + t.toString());
-                    Log.e("PMSDownStreamGuard", bgB() + ": Except onDownloading e=" + Log.getStackTraceString(e));
+                    Log.e("PMSDownStreamGuard", bgC() + ": Except onDownloading t=" + t.toString());
+                    Log.e("PMSDownStreamGuard", bgC() + ": Except onDownloading e=" + Log.getStackTraceString(e));
                     throw e;
                 }
             }
@@ -71,8 +71,8 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
                 this.exe.S(t);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.e("PMSDownStreamGuard", bgB() + ": Except onDownloadStart t=" + t.toString());
-                    Log.e("PMSDownStreamGuard", bgB() + ": Except onDownloadStart e=" + Log.getStackTraceString(e));
+                    Log.e("PMSDownStreamGuard", bgC() + ": Except onDownloadStart t=" + t.toString());
+                    Log.e("PMSDownStreamGuard", bgC() + ": Except onDownloadStart e=" + Log.getStackTraceString(e));
                     throw e;
                 }
             }
@@ -86,8 +86,8 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
                 this.exe.R(t);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.e("PMSDownStreamGuard", bgB() + ": Except onDownloadProgress t=" + t.toString());
-                    Log.e("PMSDownStreamGuard", bgB() + ": Except onDownloadProgress e=" + Log.getStackTraceString(e));
+                    Log.e("PMSDownStreamGuard", bgC() + ": Except onDownloadProgress t=" + t.toString());
+                    Log.e("PMSDownStreamGuard", bgC() + ": Except onDownloadProgress e=" + Log.getStackTraceString(e));
                     throw e;
                 }
             }
@@ -101,8 +101,8 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
                 this.exe.ak(t);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.e("PMSDownStreamGuard", bgB() + ": Except onDownloadStop t=" + t.toString());
-                    Log.e("PMSDownStreamGuard", bgB() + ": Except onDownloadStop e=" + Log.getStackTraceString(e));
+                    Log.e("PMSDownStreamGuard", bgC() + ": Except onDownloadStop t=" + t.toString());
+                    Log.e("PMSDownStreamGuard", bgC() + ": Except onDownloadStop e=" + Log.getStackTraceString(e));
                     throw e;
                 }
             }
@@ -116,9 +116,9 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
                 this.exe.Q(t);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.e("PMSDownStreamGuard", bgB() + ": Except onDownloadFinish: t=" + t.toString());
-                    Log.e("PMSDownStreamGuard", bgB() + ": Except onDownloadFinish: cb=" + this.exe);
-                    Log.e("PMSDownStreamGuard", bgB() + ": Except onDownloadFinish: e=" + Log.getStackTraceString(e));
+                    Log.e("PMSDownStreamGuard", bgC() + ": Except onDownloadFinish: t=" + t.toString());
+                    Log.e("PMSDownStreamGuard", bgC() + ": Except onDownloadFinish: cb=" + this.exe);
+                    Log.e("PMSDownStreamGuard", bgC() + ": Except onDownloadFinish: e=" + Log.getStackTraceString(e));
                     throw e;
                 }
             }
@@ -132,8 +132,8 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
                 this.exe.a((com.baidu.swan.pms.a.c<T>) t, aVar);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.e("PMSDownStreamGuard", bgB() + ": notify onDownloadError t=" + t.toString());
-                    Log.e("PMSDownStreamGuard", bgB() + ": notify onDownloadError e=" + Log.getStackTraceString(e));
+                    Log.e("PMSDownStreamGuard", bgC() + ": notify onDownloadError t=" + t.toString());
+                    Log.e("PMSDownStreamGuard", bgC() + ": notify onDownloadError e=" + Log.getStackTraceString(e));
                     throw e;
                 }
             }
@@ -141,8 +141,8 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
     }
 
     @Override // com.baidu.swan.pms.a.c
-    public Map<String, Object> bfX() {
-        return this.exe.bfX();
+    public Map<String, Object> bfY() {
+        return this.exe.bfY();
     }
 
     @Override // com.baidu.swan.pms.a.c
@@ -150,7 +150,7 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
         return this.exe != null ? this.exe.a(t, bufferedSource, file, j) : new com.baidu.swan.pms.model.a(2302, "业务层默认不处理下载流");
     }
 
-    private String bgB() {
-        return com.baidu.swan.pms.d.bfV().getProcessName();
+    private String bgC() {
+        return com.baidu.swan.pms.d.bfW().getProcessName();
     }
 }

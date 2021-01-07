@@ -3,7 +3,7 @@ package okio;
 import java.io.IOException;
 import java.util.zip.Deflater;
 import org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public final class DeflaterSink implements Sink {
     private boolean closed;
     private final Deflater deflater;

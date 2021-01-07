@@ -60,7 +60,7 @@ public class l extends BaseAdapter {
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.mTipView.setText(mVar.bus());
+        aVar.mTipView.setText(mVar.but());
         if (StringUtils.isNull(mVar.getDesc())) {
             aVar.mDescView.setVisibility(8);
         } else {

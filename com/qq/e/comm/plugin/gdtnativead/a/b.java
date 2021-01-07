@@ -24,14 +24,14 @@ import com.qq.e.comm.plugin.util.ak;
 import com.qq.e.comm.util.GDTLogger;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f12297a = Color.parseColor("#909090");
+    private static final int f12298a = Color.parseColor("#909090");
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int f12298b = Color.parseColor("#909090");
+    private static final int f12299b = Color.parseColor("#909090");
     private static final int c = Color.parseColor("#D5D5D6");
     private static final int d = Color.parseColor("#00C634");
     private static final int e = Color.parseColor("#3185FC");
@@ -56,7 +56,7 @@ public class b extends FrameLayout {
     private a x;
     private r y;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void c(boolean z);
     }
@@ -204,7 +204,7 @@ public class b extends FrameLayout {
             layoutParams4.addRule(11);
             layoutParams4.addRule(3, 33335);
             this.l.setText(this.v.optString("desc"));
-            this.l.setTextColor(f12297a);
+            this.l.setTextColor(f12298a);
             this.l.setTextSize(2, 15.0f);
             this.l.setMaxLines(2);
             relativeLayout.addView(this.l, layoutParams4);
@@ -240,14 +240,14 @@ public class b extends FrameLayout {
             layoutParams8.topMargin = ak.a(this.p, 12);
             layoutParams8.leftMargin = ak.a(this.p, 16);
             this.i.setText("版本");
-            this.i.setTextColor(f12298b);
+            this.i.setTextColor(f12299b);
             this.i.setTextSize(2, 15.0f);
             this.g.addView(this.i, layoutParams8);
         }
         if (this.m == null) {
             this.m = new TextView(getContext());
             this.m.setText(this.w.a());
-            this.m.setTextColor(f12297a);
+            this.m.setTextColor(f12298a);
             this.m.setTextSize(2, 15.0f);
             LinearLayout.LayoutParams layoutParams9 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams9.leftMargin = ak.a(this.p, 16);
@@ -326,7 +326,7 @@ public class b extends FrameLayout {
             layoutParams3.topMargin = ak.a(this.p, 24);
             layoutParams3.leftMargin = ak.a(this.p, 16);
             this.j.setText("描述");
-            this.j.setTextColor(f12298b);
+            this.j.setTextColor(f12299b);
             this.j.setTextSize(2, 15.0f);
             this.g.addView(this.j, layoutParams3);
         }
@@ -337,7 +337,7 @@ public class b extends FrameLayout {
             layoutParams4.leftMargin = ak.a(this.p, 16);
             layoutParams4.rightMargin = ak.a(this.p, 16);
             this.l.setText(this.v.optString("desc"));
-            this.l.setTextColor(f12297a);
+            this.l.setTextColor(f12298a);
             this.l.setTextSize(2, 15.0f);
             this.g.addView(this.l, layoutParams4);
         }
@@ -347,14 +347,14 @@ public class b extends FrameLayout {
             layoutParams5.topMargin = ak.a(this.p, 12);
             layoutParams5.leftMargin = ak.a(this.p, 16);
             this.i.setText("版本");
-            this.i.setTextColor(f12298b);
+            this.i.setTextColor(f12299b);
             this.i.setTextSize(2, 15.0f);
             this.g.addView(this.i, layoutParams5);
         }
         if (this.m == null) {
             this.m = new TextView(getContext());
             this.m.setText(this.w.a());
-            this.m.setTextColor(f12297a);
+            this.m.setTextColor(f12298a);
             this.m.setTextSize(2, 15.0f);
             LinearLayout.LayoutParams layoutParams6 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams6.leftMargin = ak.a(this.p, 16);

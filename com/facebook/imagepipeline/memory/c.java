@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class c extends BasePool<Bitmap> {
     public c(com.facebook.common.memory.c cVar, r rVar, s sVar) {
         super(cVar, rVar, sVar);
@@ -15,8 +15,8 @@ public class c extends BasePool<Bitmap> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: QT */
-    public Bitmap QK(int i) {
+    /* renamed from: Rk */
+    public Bitmap Rb(int i) {
         return Bitmap.createBitmap(1, (int) Math.ceil(i / 2.0d), Bitmap.Config.RGB_565);
     }
 
@@ -24,13 +24,13 @@ public class c extends BasePool<Bitmap> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
     /* renamed from: ae */
-    public void bv(Bitmap bitmap) {
+    public void bw(Bitmap bitmap) {
         com.facebook.common.internal.g.checkNotNull(bitmap);
         bitmap.recycle();
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    protected int QL(int i) {
+    protected int Rc(int i) {
         return i;
     }
 
@@ -38,13 +38,13 @@ public class c extends BasePool<Bitmap> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
     /* renamed from: af */
-    public int bw(Bitmap bitmap) {
+    public int bx(Bitmap bitmap) {
         com.facebook.common.internal.g.checkNotNull(bitmap);
         return bitmap.getAllocationByteCount();
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    protected int QM(int i) {
+    protected int Rd(int i) {
         return i;
     }
 
@@ -52,7 +52,7 @@ public class c extends BasePool<Bitmap> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
     /* renamed from: ag */
-    public boolean bx(Bitmap bitmap) {
+    public boolean by(Bitmap bitmap) {
         com.facebook.common.internal.g.checkNotNull(bitmap);
         return !bitmap.isRecycled() && bitmap.isMutable();
     }

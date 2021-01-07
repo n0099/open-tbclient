@@ -12,7 +12,7 @@ public class a {
         this.fNg = str;
     }
 
-    public void bHQ() {
+    public void bHR() {
         if (Build.VERSION.SDK_INT >= 16) {
             if (this.fNf == null) {
                 this.fNf = new c();
@@ -21,7 +21,7 @@ public class a {
         }
     }
 
-    public void bHR() {
+    public void bHS() {
         if (this.fNf != null && Build.VERSION.SDK_INT >= 16) {
             this.fNf.stop();
             ay(this.fNg, this.fNf.getFps());

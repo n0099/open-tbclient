@@ -22,7 +22,7 @@ public class GetPkInfoResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public PkInfoData coM() {
+    public PkInfoData coN() {
         return this.hTI;
     }
 }

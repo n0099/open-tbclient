@@ -18,10 +18,10 @@ import java.util.concurrent.locks.ReentrantLock;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1887a = null;
+    private String f1888a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f1888b = null;
+    private String f1889b = null;
     private String c;
 
     public d() {
@@ -170,15 +170,15 @@ public class d {
     }
 
     public void a() {
-        if (TextUtils.isEmpty(this.f1887a) || TextUtils.isEmpty(this.f1888b)) {
+        if (TextUtils.isEmpty(this.f1888a) || TextUtils.isEmpty(this.f1889b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            String str = this.f1887a;
+            String str = this.f1888a;
             if (b(str)) {
-                String str2 = this.f1888b;
+                String str2 = this.f1889b;
                 a(str2);
                 if (b(str, str2)) {
                     a(str);
@@ -201,18 +201,18 @@ public class d {
         }
         new File(b2).mkdirs();
         String coreVersion = CyberPlayerManager.getCoreVersion();
-        this.f1887a = b2 + File.separator + this.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + coreVersion + ".bak";
-        this.f1888b = b2 + File.separator + this.c + "_log_" + coreVersion + ".tmp";
+        this.f1888a = b2 + File.separator + this.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + coreVersion + ".bak";
+        this.f1889b = b2 + File.separator + this.c + "_log_" + coreVersion + ".tmp";
     }
 
     public void a(byte[] bArr) {
-        if (bArr == null || TextUtils.isEmpty(this.f1887a)) {
+        if (bArr == null || TextUtils.isEmpty(this.f1888a)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            a(this.f1887a, bArr, "\r\n");
+            a(this.f1888a, bArr, "\r\n");
         } catch (AssertionError e) {
             CyberLog.e("DpStatFileWriter", "write data to file fail");
         } finally {

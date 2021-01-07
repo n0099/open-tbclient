@@ -47,11 +47,11 @@ public class TurnTableLuckyCountDownView extends View {
     }
 
     private void init() {
-        cnD();
+        cnE();
         initProgress();
     }
 
-    private void cnD() {
+    private void cnE() {
         this.bjo = new Paint(1);
         this.bjo.setDither(true);
         this.bjo.setColor(-1);

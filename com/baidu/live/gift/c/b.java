@@ -239,7 +239,7 @@ public class b extends ac {
     @Override // com.baidu.live.gift.ac
     protected void HT() {
         if (AlaLiveSwitchData.isHotLive == 0) {
-            this.bgN.a(q.XF(), true, "enter", "gift_init");
+            this.bgN.a(q.XG(), true, "enter", "gift_init");
         }
     }
 
@@ -250,7 +250,7 @@ public class b extends ac {
 
     @Override // com.baidu.live.gift.ac
     public String HU() {
-        return q.XF();
+        return q.XG();
     }
 
     @Override // com.baidu.live.gift.ac

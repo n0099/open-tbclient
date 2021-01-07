@@ -28,7 +28,7 @@ public class a {
         this.jll = new r(this.jli.getPageContext(), s.jiG);
         this.boM.add(this.jlk);
         this.boM.add(this.jll);
-        cHC();
+        cHD();
         this.jlj.addAdapters(this.boM);
     }
 
@@ -36,7 +36,7 @@ public class a {
         this.jlj.setData(arrayList);
     }
 
-    private void cHC() {
+    private void cHD() {
         if (!x.isEmpty(this.boM) && this.jli != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.boM) {
                 if (aVar instanceof k) {

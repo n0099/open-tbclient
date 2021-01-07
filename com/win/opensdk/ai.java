@@ -9,14 +9,14 @@ import org.json.JSONException;
 public final class ai {
     public static void a(String str, r<am> rVar) {
         try {
-            rVar.eJL();
-            t eJP = new s(str, "GET", eJY()).eJP();
+            rVar.eKp();
+            t eKt = new s(str, "GET", eKC()).eKt();
             am amVar = new am();
-            int a2 = a(eJP, amVar);
+            int a2 = a(eKt, amVar);
             if (a2 == 200) {
-                rVar.bG(amVar);
+                rVar.bH(amVar);
             } else {
-                rVar.cc(a2, amVar.f23java);
+                rVar.cc(a2, amVar.f24java);
             }
         } catch (JSONException e) {
             rVar.cc(101, e.getMessage());
@@ -25,7 +25,7 @@ public final class ai {
         }
     }
 
-    public static HashMap<String, List<String>> eJY() {
+    public static HashMap<String, List<String>> eKC() {
         HashMap<String, List<String>> hashMap = new HashMap<>();
         hashMap.put(Headers.ACCEPT_ENCODING, Collections.singletonList("application/gzip"));
         hashMap.put("Content-Encoding", Collections.singletonList("application/gzip"));
@@ -34,10 +34,10 @@ public final class ai {
     }
 
     public static int a(t tVar, am amVar) {
-        byte[] bArr = tVar.qcr;
+        byte[] bArr = tVar.qdZ;
         int i = tVar.java;
         if (i == 200) {
-            amVar.abK(new String(bArr, "UTF-8"));
+            amVar.abL(new String(bArr, "UTF-8"));
             return amVar.java;
         }
         return i;

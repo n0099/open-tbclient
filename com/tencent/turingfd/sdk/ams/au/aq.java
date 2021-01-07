@@ -2,16 +2,16 @@ package com.tencent.turingfd.sdk.ams.au;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class aq {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f13786a;
+    public Context f13787a;
     public com.tencent.turingfd.sdk.a.a k;
     public s p;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13787b = 0;
+    public int f13788b = 0;
     public String c = "";
     public boolean d = true;
     public boolean e = true;
@@ -50,7 +50,7 @@ public class aq {
     }
 
     public final Context g() {
-        return this.f13786a;
+        return this.f13787a;
     }
 
     public final String h() {

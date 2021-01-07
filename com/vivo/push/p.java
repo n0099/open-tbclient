@@ -18,14 +18,14 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f13961a = new Object();
+    private static final Object f13962a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile p f13962b;
+    private static volatile p f13963b;
     private Context i;
     private com.vivo.push.util.a k;
     private String l;
@@ -49,14 +49,14 @@ public final class p {
     }
 
     public static p a() {
-        if (f13962b == null) {
-            synchronized (f13961a) {
-                if (f13962b == null) {
-                    f13962b = new p();
+        if (f13963b == null) {
+            synchronized (f13962a) {
+                if (f13963b == null) {
+                    f13963b = new p();
                 }
             }
         }
-        return f13962b;
+        return f13963b;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -779,21 +779,21 @@ public final class p {
         return this.p.booleanValue();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private IPushActionListener f13963a;
+        private IPushActionListener f13964a;
 
         /* renamed from: b  reason: collision with root package name */
-        private com.vivo.push.b.c f13964b;
+        private com.vivo.push.b.c f13965b;
         private IPushActionListener c;
         private Runnable d;
         private Object[] e;
 
         public a(com.vivo.push.b.c cVar, IPushActionListener iPushActionListener) {
-            this.f13964b = cVar;
-            this.f13963a = iPushActionListener;
+            this.f13965b = cVar;
+            this.f13964a = iPushActionListener;
         }
 
         public final void a(int i, Object... objArr) {
@@ -801,8 +801,8 @@ public final class p {
             if (this.c != null) {
                 this.c.onStateChanged(i);
             }
-            if (this.f13963a != null) {
-                this.f13963a.onStateChanged(i);
+            if (this.f13964a != null) {
+                this.f13964a.onStateChanged(i);
             }
         }
 

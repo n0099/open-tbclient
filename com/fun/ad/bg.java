@@ -7,7 +7,7 @@ import java.util.Map;
 public final class bg {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, bd> f8067a = new HashMap();
+    public Map<String, bd> f8068a = new HashMap();
 
     public final String a(String str, String str2) {
         return str.concat(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).concat(str2);

@@ -11,14 +11,14 @@ import com.baidu.platform.comapi.map.MapSurfaceView;
 import com.baidu.platform.comapi.util.SysOSUtil;
 import com.baidubce.services.bos.BosClientConfiguration;
 import java.io.File;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class MapViewTest extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    MapSurfaceView f2850a;
+    MapSurfaceView f2851a;
 
     /* renamed from: b  reason: collision with root package name */
-    MapController f2851b;
+    MapController f2852b;
 
     public MapViewTest(Context context) {
         super(context);
@@ -30,15 +30,15 @@ public class MapViewTest extends ViewGroup {
     }
 
     private void a(Context context) {
-        this.f2850a = new MapSurfaceView(context);
-        if (this.f2851b == null) {
-            this.f2851b = new MapController();
-            this.f2851b.initBaseMap();
-            a(this.f2851b);
+        this.f2851a = new MapSurfaceView(context);
+        if (this.f2852b == null) {
+            this.f2852b = new MapController();
+            this.f2852b.initBaseMap();
+            a(this.f2852b);
         }
-        this.f2851b.onResume();
-        this.f2850a.setMapController(this.f2851b);
-        addView(this.f2850a);
+        this.f2852b.onResume();
+        this.f2851a.setMapController(this.f2852b);
+        addView(this.f2851a);
     }
 
     private void a(MapController mapController) {
@@ -83,6 +83,6 @@ public class MapViewTest extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.f2850a.layout(0, 0, getWidth(), getHeight());
+        this.f2851a.layout(0, 0, getWidth(), getHeight());
     }
 }

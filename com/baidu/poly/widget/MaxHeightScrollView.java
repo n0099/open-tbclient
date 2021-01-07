@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
 import com.baidu.poly.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MaxHeightScrollView extends ScrollView {
     private float cpC;
 

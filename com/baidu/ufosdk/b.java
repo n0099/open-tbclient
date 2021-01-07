@@ -7,10 +7,10 @@ import java.util.HashMap;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f5637a = false;
+    public static boolean f5638a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5638b = "";
+    public static String f5639b = "";
     public static String c = "";
     public static String d = "";
     public static int e = 0;

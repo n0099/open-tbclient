@@ -20,31 +20,31 @@ public class b {
             Log.d("SwanAppMessageChannel", "sendMessageToClient: delegation: " + cls.getName());
         }
         Message obtain = Message.obtain((Handler) null, (int) Constants.METHOD_IM_FRIEND_GROUP_ASSIGN);
-        obtain.replyTo = e.aJL().mMessenger;
+        obtain.replyTo = e.aJM().mMessenger;
         Bundle bundle2 = new Bundle();
         bundle2.putString("ai_apps_delegation_name", cls.getName());
         if (cVar != null) {
-            bundle2.putString("ai_apps_observer_id", cVar.aIP());
-            com.baidu.swan.apps.process.a.b.b.a.aIQ().a(cVar);
+            bundle2.putString("ai_apps_observer_id", cVar.aIQ());
+            com.baidu.swan.apps.process.a.b.b.a.aIR().a(cVar);
         }
         if (bundle != null) {
             bundle2.putBundle("ai_apps_data", bundle);
         }
         obtain.obj = bundle2;
-        com.baidu.swan.apps.process.messaging.a.aIX().a(new com.baidu.swan.apps.process.messaging.c(obtain).a(swanAppProcessInfo));
+        com.baidu.swan.apps.process.messaging.a.aIY().a(new com.baidu.swan.apps.process.messaging.c(obtain).a(swanAppProcessInfo));
     }
 
     public static void a(@Nullable Bundle bundle, @NonNull Class<? extends com.baidu.swan.apps.process.a.a.a> cls) {
-        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = e.aJL().aJN().iterator();
+        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = e.aJM().aJO().iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.process.messaging.service.c next = it.next();
-            if (next != null && next.aJy()) {
+            if (next != null && next.aJz()) {
                 a(next.dwt, bundle, cls, null);
             }
         }
     }
 
     public static void a(@Nullable Bundle bundle, @NonNull Class<? extends com.baidu.swan.apps.process.a.a.a> cls, @Nullable c cVar) {
-        com.baidu.swan.apps.process.messaging.client.a.aJh().b(bundle, cls, cVar);
+        com.baidu.swan.apps.process.messaging.client.a.aJi().b(bundle, cls, cVar);
     }
 }

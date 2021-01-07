@@ -79,11 +79,11 @@ public final class b {
         return new b(bitmap, true);
     }
 
-    public b aFc() {
+    public b aFd() {
         return gf(true);
     }
 
-    public b aFd() {
+    public b aFe() {
         return gf(false);
     }
 
@@ -128,7 +128,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean aFe() {
+    public final boolean aFf() {
         return this.cached;
     }
 }

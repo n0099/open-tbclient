@@ -12,7 +12,7 @@ public class a {
     private List<SimpleForum> jMU;
     private BdUniqueId mBdUniqueId;
     private BdUniqueId mRequestId;
-    private InterfaceC0876a nWT;
+    private InterfaceC0914a nWS;
     private com.baidu.adp.framework.listener.a netMessageListener = new com.baidu.adp.framework.listener.a(1003323, CmdConfigSocket.CMD_GET_REPOST_RECOMMEND_FORUM) { // from class: com.baidu.tieba.write.transmit.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -20,8 +20,8 @@ public class a {
                 if ((responsedMessage instanceof GetRepostForumHttpResMessage) || (responsedMessage instanceof GetRepostForumSocketResMessage)) {
                     if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) || a.this.mRequestId == ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
                         if (responsedMessage.hasError()) {
-                            if (a.this.nWT != null) {
-                                a.this.nWT.onError();
+                            if (a.this.nWS != null) {
+                                a.this.nWS.onError();
                                 return;
                             }
                             return;
@@ -36,8 +36,8 @@ public class a {
                             a.this.recommendExt = ((GetRepostForumSocketResMessage) responsedMessage).getRecommendExtension();
                             a.this.privateThread = ((GetRepostForumSocketResMessage) responsedMessage).getPrivateThread();
                         }
-                        if (a.this.nWT != null) {
-                            a.this.nWT.t(a.this.jMU, a.this.privateThread);
+                        if (a.this.nWS != null) {
+                            a.this.nWS.t(a.this.jMU, a.this.privateThread);
                         }
                     }
                 }
@@ -51,7 +51,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.write.transmit.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0876a {
+    public interface InterfaceC0914a {
         void onError();
 
         void t(List<SimpleForum> list, int i);
@@ -87,7 +87,7 @@ public class a {
         this.threadContent = str;
     }
 
-    public void a(InterfaceC0876a interfaceC0876a) {
-        this.nWT = interfaceC0876a;
+    public void a(InterfaceC0914a interfaceC0914a) {
+        this.nWS = interfaceC0914a;
     }
 }

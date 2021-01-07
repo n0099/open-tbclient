@@ -13,12 +13,12 @@ public class e extends c {
     }
 
     @Override // com.baidu.swan.apps.y.a.c
-    public String aGv() {
-        com.baidu.swan.apps.scheme.actions.m.d amx;
-        if (this.drl == null || (amx = this.drl.amx()) == null) {
+    public String aGw() {
+        com.baidu.swan.apps.scheme.actions.m.d amy;
+        if (this.drl == null || (amy = this.drl.amy()) == null) {
             return null;
         }
-        return amx.cNP;
+        return amy.cNP;
     }
 
     public boolean isAdd() {

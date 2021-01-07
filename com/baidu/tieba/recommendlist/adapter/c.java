@@ -72,7 +72,7 @@ public class c extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.d, 
         private String igr;
         private Context mContext;
         private int mPosition;
-        private com.baidu.tieba.recommendlist.data.d mVG;
+        private com.baidu.tieba.recommendlist.data.d mVF;
 
         private a(View view, Context context, int i) {
             super(view);
@@ -108,11 +108,11 @@ public class c extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.d, 
             this.igh[0].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.adapter.c.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.mVG != null) {
-                        if (a.this.mVG.mWb != null) {
-                            a.this.b(a.this.mVG.mWb, 0, a.this.mVG.type);
-                        } else if (a.this.mVG.mWc != null) {
-                            a.this.b(a.this.mVG.mWc, 0, a.this.mVG.type);
+                    if (a.this.mVF != null) {
+                        if (a.this.mVF.mWa != null) {
+                            a.this.b(a.this.mVF.mWa, 0, a.this.mVF.type);
+                        } else if (a.this.mVF.mWb != null) {
+                            a.this.b(a.this.mVF.mWb, 0, a.this.mVF.type);
                         }
                     }
                 }
@@ -120,8 +120,8 @@ public class c extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.d, 
             this.igh[1].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.adapter.c.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.mVG != null && a.this.mVG.mWc != null) {
-                        a.this.b(a.this.mVG.mWc, 1, a.this.mVG.type);
+                    if (a.this.mVF != null && a.this.mVF.mWb != null) {
+                        a.this.b(a.this.mVF.mWb, 1, a.this.mVF.type);
                     }
                 }
             });
@@ -133,21 +133,21 @@ public class c extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.d, 
             boolean z;
             int i2;
             if (dVar != null) {
-                this.mVG = dVar;
+                this.mVF = dVar;
                 this.mPosition = i;
                 this.bzc = xVar;
-                if (dVar.mWb != null) {
-                    a(dVar.mWb, 0, this.mVG.type);
+                if (dVar.mWa != null) {
+                    a(dVar.mWa, 0, this.mVF.type);
                 }
-                if (dVar.mWc != null) {
-                    if (dVar.mWb == null) {
+                if (dVar.mWb != null) {
+                    if (dVar.mWa == null) {
                         i2 = 0;
                         z = false;
                     } else {
                         i2 = 1;
                         z = true;
                     }
-                    a(dVar.mWc, i2, this.mVG.type);
+                    a(dVar.mWb, i2, this.mVF.type);
                 } else {
                     z = false;
                 }

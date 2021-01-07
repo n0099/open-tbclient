@@ -6,15 +6,15 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class aw {
 
     /* renamed from: b  reason: collision with root package name */
-    public Document f13796b;
+    public Document f13797b;
     public final DocumentBuilder c = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 
     /* renamed from: a  reason: collision with root package name */
-    public Stack<Node> f13795a = new Stack<>();
+    public Stack<Node> f13796a = new Stack<>();
 
     public void a() {
     }
@@ -23,17 +23,17 @@ public class aw {
     }
 
     public void a(String str, String str2, String str3, av[] avVarArr) {
-        Element createElement = str == null || "".equals(str) ? this.f13796b.createElement(str2) : this.f13796b.createElementNS(str, str3);
+        Element createElement = str == null || "".equals(str) ? this.f13797b.createElement(str2) : this.f13797b.createElementNS(str, str3);
         for (av avVar : avVarArr) {
             String str4 = avVar.c;
             if (str4 == null || "".equals(str4)) {
-                createElement.setAttribute(avVar.f13793a, avVar.d);
+                createElement.setAttribute(avVar.f13794a, avVar.d);
             } else {
-                createElement.setAttributeNS(avVar.c, avVar.f13794b + ':' + avVar.f13793a, avVar.d);
+                createElement.setAttributeNS(avVar.c, avVar.f13795b + ':' + avVar.f13794a, avVar.d);
             }
         }
-        this.f13795a.peek().appendChild(createElement);
-        this.f13795a.push(createElement);
+        this.f13796a.peek().appendChild(createElement);
+        this.f13796a.push(createElement);
     }
 
     public void b(String str, String str2) {

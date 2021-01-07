@@ -29,17 +29,17 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, final com.baidu.tieba.ala.personcenter.c.d dVar, CardViewHolder<com.baidu.tieba.ala.personcenter.e.a> cardViewHolder) {
-        if (cardViewHolder.cvG() == null) {
+        if (cardViewHolder.cvH() == null) {
             return null;
         }
-        a(dVar, cardViewHolder.cvG());
-        cardViewHolder.cvG().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.a.1
+        a(dVar, cardViewHolder.cvH());
+        cardViewHolder.cvH().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 a.this.a(dVar);
             }
         });
-        return cardViewHolder.cvG().getView();
+        return cardViewHolder.cvH().getView();
     }
 
     private void a(com.baidu.tieba.ala.personcenter.c.d dVar, com.baidu.tieba.ala.personcenter.e.a aVar) {

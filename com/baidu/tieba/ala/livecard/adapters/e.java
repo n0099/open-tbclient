@@ -82,9 +82,9 @@ public class e extends k<bz, FrsPageAlaVideoHolder> implements com.baidu.tieba.a
                 frsPageAlaVideoHolder.hnE.setPage(this.aji);
             }
             frsPageAlaVideoHolder.hnE.setForumName(this.mForumName);
-            frsPageAlaVideoHolder.hnE.nA(cEM());
+            frsPageAlaVideoHolder.hnE.nA(cEN());
             frsPageAlaVideoHolder.hnE.a(bzVar);
-            bzVar.bsE();
+            bzVar.bsF();
         }
         this.iKI = (s) viewGroup;
         return frsPageAlaVideoHolder.getView();
@@ -100,7 +100,7 @@ public class e extends k<bz, FrsPageAlaVideoHolder> implements com.baidu.tieba.a
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 }

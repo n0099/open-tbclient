@@ -45,11 +45,11 @@ public class a {
     private AlaLiveInfoData mLiveInfo;
     private TbPageContext mTbPageContext;
     private View mView;
-    private h olM;
+    private h olL;
     private boolean isFollowed = false;
     private String mPortrait = "";
     private String otherParams = "";
-    private AlaLiveAudienceEndView.a olN = new AlaLiveAudienceEndView.a() { // from class: com.baidu.tieba.yuyinala.endliveroom.a.1
+    private AlaLiveAudienceEndView.a olM = new AlaLiveAudienceEndView.a() { // from class: com.baidu.tieba.yuyinala.endliveroom.a.1
         @Override // com.baidu.tieba.yuyinala.endliveroom.AlaLiveAudienceEndView.a
         public void Pj() {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913086));
@@ -110,7 +110,7 @@ public class a {
             a.this.isFollowed = !z;
             if (BdUtilHelper.isNetOk()) {
                 if (a.this.aGe != null && a.this.aGe.aLl != null && a.this.aGe.aLl.aVu != null) {
-                    a.this.olM.a(new h.a() { // from class: com.baidu.tieba.yuyinala.endliveroom.a.1.1
+                    a.this.olL.a(new h.a() { // from class: com.baidu.tieba.yuyinala.endliveroom.a.1.1
                         @Override // com.baidu.tieba.yuyinala.liveroom.roomcard.h.a
                         public void a(AlaGetCollectRoomHttpResponseMessage alaGetCollectRoomHttpResponseMessage) {
                             if (z) {
@@ -133,7 +133,7 @@ public class a {
                         }
                     });
                     if (a.this.aGe != null && a.this.aGe.aLl != null) {
-                        a.this.olM.y(a.this.aGe.aLl.aVu, a.this.aGe.aLl.live_id, z ? 0 : 1);
+                        a.this.olL.y(a.this.aGe.aLl.aVu, a.this.aGe.aLl.live_id, z ? 0 : 1);
                     }
                     if (!z && TbadkCoreApplication.getInst().isHaokan()) {
                         AlaStaticItem alaStaticItem = new AlaStaticItem(HKStaticKeys.HK_STATIC_FOLLOW_CLICK);
@@ -168,7 +168,7 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.olM = new h(this.mTbPageContext.getPageActivity());
+        this.olL = new h(this.mTbPageContext.getPageActivity());
     }
 
     public View getView() {
@@ -189,7 +189,7 @@ public class a {
             if (this.mLiveInfo == null) {
                 this.mLiveInfo = new AlaLiveInfoData();
             }
-            bXP();
+            bXQ();
             TiebaInitialize.log(new StatisticItem("c11888"));
             JSONObject jSONObject = new JSONObject();
             try {
@@ -204,7 +204,7 @@ public class a {
             }
             this.mView.setId(a.f.ala_liveroom_audience_end_view);
             if (this.mView instanceof AlaLiveAudienceEndView) {
-                ((AlaLiveAudienceEndView) this.mView).setCallback(this.olN);
+                ((AlaLiveAudienceEndView) this.mView).setCallback(this.olM);
                 ((AlaLiveAudienceEndView) this.mView).setData(this.mTbPageContext, xVar, z, this.isFollowed, this.mPortrait, NL());
                 ((AlaLiveAudienceEndView) this.mView).ad(arrayList);
             }
@@ -221,13 +221,13 @@ public class a {
         }
     }
 
-    public void bXP() {
+    public void bXQ() {
         if (this.mView != null && this.mView.getParent() != null) {
             ((ViewGroup) this.mView).removeView(this.mView);
         }
     }
 
-    public boolean bXQ() {
+    public boolean bXR() {
         return (getView() == null || getView().getParent() == null) ? false : true;
     }
 
@@ -248,8 +248,8 @@ public class a {
         if (this.mView instanceof AlaLiveAudienceEndView) {
             ((AlaLiveAudienceEndView) this.mView).onDestory();
         }
-        if (this.olM != null) {
-            this.olM.onDestroy();
+        if (this.olL != null) {
+            this.olL.onDestroy();
         }
         this.mView = null;
         this.mTbPageContext = null;

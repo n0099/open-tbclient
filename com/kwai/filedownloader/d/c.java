@@ -26,10 +26,10 @@ public class c implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private int f11187a;
+    private int f11188a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f11188b;
+    private String f11189b;
     private String c;
     private boolean d;
     private String e;
@@ -47,8 +47,8 @@ public class c implements Parcelable {
     }
 
     protected c(Parcel parcel) {
-        this.f11187a = parcel.readInt();
-        this.f11188b = parcel.readString();
+        this.f11188a = parcel.readInt();
+        this.f11189b = parcel.readString();
         this.c = parcel.readString();
         this.d = parcel.readByte() != 0;
         this.e = parcel.readString();
@@ -62,7 +62,7 @@ public class c implements Parcelable {
     }
 
     public int a() {
-        return this.f11187a;
+        return this.f11188a;
     }
 
     public void a(byte b2) {
@@ -70,7 +70,7 @@ public class c implements Parcelable {
     }
 
     public void a(int i) {
-        this.f11187a = i;
+        this.f11188a = i;
     }
 
     public void a(long j) {
@@ -78,7 +78,7 @@ public class c implements Parcelable {
     }
 
     public void a(String str) {
-        this.f11188b = str;
+        this.f11189b = str;
     }
 
     public void a(String str, boolean z) {
@@ -87,7 +87,7 @@ public class c implements Parcelable {
     }
 
     public String b() {
-        return this.f11188b;
+        return this.f11189b;
     }
 
     public void b(int i) {
@@ -198,13 +198,13 @@ public class c implements Parcelable {
     }
 
     public String toString() {
-        return f.a("id[%d], url[%s], path[%s], status[%d], sofar[%s], total[%d], etag[%s], %s", Integer.valueOf(this.f11187a), this.f11188b, this.c, Integer.valueOf(this.f.get()), this.g, Long.valueOf(this.h), this.j, super.toString());
+        return f.a("id[%d], url[%s], path[%s], status[%d], sofar[%s], total[%d], etag[%s], %s", Integer.valueOf(this.f11188a), this.f11189b, this.c, Integer.valueOf(this.f.get()), this.g, Long.valueOf(this.h), this.j, super.toString());
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f11187a);
-        parcel.writeString(this.f11188b);
+        parcel.writeInt(this.f11188a);
+        parcel.writeString(this.f11189b);
         parcel.writeString(this.c);
         parcel.writeByte(this.d ? (byte) 1 : (byte) 0);
         parcel.writeString(this.e);

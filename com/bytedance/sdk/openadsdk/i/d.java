@@ -8,7 +8,7 @@ import javax.security.cert.Certificate;
 public class d implements HostnameVerifier {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f7511a = new d();
+    public static final d f7512a = new d();
 
     private d() {
     }

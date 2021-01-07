@@ -5,10 +5,10 @@ import com.meizu.cloud.pushsdk.b.c.c;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private final i f11475a;
+    private final i f11476a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f11476b;
+    private final int f11477b;
     private final String c;
     private final c d;
     private final l e;
@@ -20,7 +20,7 @@ public class k {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private i f11477a;
+        private i f11478a;
         private String c;
         private l e;
         private k f;
@@ -28,11 +28,11 @@ public class k {
         private k h;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f11478b = -1;
+        private int f11479b = -1;
         private c.a d = new c.a();
 
         public a a(int i) {
-            this.f11478b = i;
+            this.f11479b = i;
             return this;
         }
 
@@ -42,7 +42,7 @@ public class k {
         }
 
         public a a(i iVar) {
-            this.f11477a = iVar;
+            this.f11478a = iVar;
             return this;
         }
 
@@ -57,19 +57,19 @@ public class k {
         }
 
         public k a() {
-            if (this.f11477a == null) {
+            if (this.f11478a == null) {
                 throw new IllegalStateException("request == null");
             }
-            if (this.f11478b < 0) {
-                throw new IllegalStateException("code < 0: " + this.f11478b);
+            if (this.f11479b < 0) {
+                throw new IllegalStateException("code < 0: " + this.f11479b);
             }
             return new k(this);
         }
     }
 
     private k(a aVar) {
-        this.f11475a = aVar.f11477a;
-        this.f11476b = aVar.f11478b;
+        this.f11476a = aVar.f11478a;
+        this.f11477b = aVar.f11479b;
         this.c = aVar.c;
         this.d = aVar.d.a();
         this.e = aVar.e;
@@ -79,7 +79,7 @@ public class k {
     }
 
     public int a() {
-        return this.f11476b;
+        return this.f11477b;
     }
 
     public l b() {
@@ -87,6 +87,6 @@ public class k {
     }
 
     public String toString() {
-        return "Response{protocol=, code=" + this.f11476b + ", message=" + this.c + ", url=" + this.f11475a.a() + '}';
+        return "Response{protocol=, code=" + this.f11477b + ", message=" + this.c + ", url=" + this.f11476a.a() + '}';
     }
 }

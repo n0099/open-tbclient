@@ -25,16 +25,16 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         this.kHA = new b(this);
         this.kHB = new RecommendDetailModel(getPageContext(), this);
         initData(bundle);
-        cZv();
+        cZw();
         this.kHB.gV(this.mUserId);
     }
 
-    private void cZv() {
+    private void cZw() {
         if (this.kHA != null) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.b.bBc().CW(String.valueOf(this.mUserId))) {
-                this.kHA.cZz();
-            } else {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.b.bBd().CV(String.valueOf(this.mUserId))) {
                 this.kHA.cZA();
+            } else {
+                this.kHA.cZB();
             }
         }
     }
@@ -73,7 +73,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         if (!StringUtils.isNull(str)) {
             showToast(str);
         }
-        if (this.kHA != null && this.kHB != null && this.kHB.cZy() && !this.kHB.cZx()) {
+        if (this.kHA != null && this.kHB != null && this.kHB.cZz() && !this.kHB.cZy()) {
             if (l.isNetOk()) {
                 this.kHA.En(R.string.no_data_text);
             } else {

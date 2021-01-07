@@ -13,7 +13,7 @@ public class b implements com.baidu.swan.menu.a {
     @Override // com.baidu.swan.menu.a
     public void a(BaseMenuView baseMenuView) {
         if (baseMenuView != null && !ProcessUtils.isMainProcess() && SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            if (com.baidu.swan.apps.t.a.aAN().alD()) {
+            if (com.baidu.swan.apps.t.a.aAO().alE()) {
                 J(baseMenuView);
             } else {
                 K(baseMenuView);

@@ -13,13 +13,13 @@ import java.util.List;
 public class l implements i<ReportAction> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile l f9722a;
+    private static volatile l f9723a;
 
     /* renamed from: b  reason: collision with root package name */
-    private SQLiteDatabase f9723b;
+    private SQLiteDatabase f9724b;
 
     private l(Context context) {
-        this.f9723b = new k(context, k.f9720a).getWritableDatabase();
+        this.f9724b = new k(context, k.f9721a).getWritableDatabase();
     }
 
     private synchronized ReportAction a(@NonNull Cursor cursor) {
@@ -27,20 +27,20 @@ public class l implements i<ReportAction> {
     }
 
     public static l a(Context context) {
-        if (f9722a == null) {
+        if (f9723a == null) {
             synchronized (l.class) {
-                if (f9722a == null) {
-                    f9722a = new l(context);
+                if (f9723a == null) {
+                    f9723a = new l(context);
                 }
             }
         }
-        return f9722a;
+        return f9723a;
     }
 
     private synchronized void b(ReportAction reportAction) {
         com.kwad.sdk.core.d.a.a("ReportActionDBManager", "deleteAction action = " + reportAction);
         try {
-            this.f9723b.delete("ksad_actions", "actionId=?", new String[]{reportAction.f9713a});
+            this.f9724b.delete("ksad_actions", "actionId=?", new String[]{reportAction.f9714a});
         } catch (Exception e) {
             com.kwad.sdk.core.d.a.a(e);
         }
@@ -53,7 +53,7 @@ public class l implements i<ReportAction> {
         synchronized (this) {
             j = 0;
             try {
-                cursor = this.f9723b.rawQuery("select count(*) from ksad_actions", null);
+                cursor = this.f9724b.rawQuery("select count(*) from ksad_actions", null);
                 cursor.moveToFirst();
                 j = cursor.getLong(0);
                 w.a(cursor);
@@ -71,10 +71,10 @@ public class l implements i<ReportAction> {
         com.kwad.sdk.core.d.a.a("ReportActionDBManager", "write = " + reportAction);
         try {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("actionId", reportAction.f9713a);
+            contentValues.put("actionId", reportAction.f9714a);
             contentValues.put("aLog", reportAction.toJson().toString());
             try {
-                this.f9723b.insert("ksad_actions", null, contentValues);
+                this.f9724b.insert("ksad_actions", null, contentValues);
             } catch (Exception e) {
                 com.kwad.sdk.core.d.a.a(e);
             }
@@ -87,12 +87,12 @@ public class l implements i<ReportAction> {
     public synchronized void a(List<ReportAction> list) {
         com.kwad.sdk.core.d.a.a("ReportActionDBManager", "delete size= " + list.size());
         try {
-            this.f9723b.beginTransaction();
+            this.f9724b.beginTransaction();
             for (ReportAction reportAction : list) {
                 b(reportAction);
             }
-            this.f9723b.setTransactionSuccessful();
-            this.f9723b.endTransaction();
+            this.f9724b.setTransactionSuccessful();
+            this.f9724b.endTransaction();
         } catch (Exception e) {
             com.kwad.sdk.core.d.a.a(e);
         }
@@ -105,7 +105,7 @@ public class l implements i<ReportAction> {
         Cursor cursor2 = null;
         synchronized (this) {
             try {
-                cursor = this.f9723b.rawQuery("select  * from ksad_actions", null);
+                cursor = this.f9724b.rawQuery("select  * from ksad_actions", null);
             } catch (Exception e) {
                 e = e;
             } catch (Throwable th) {

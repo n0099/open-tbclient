@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    static d f3842a = new d();
+    static d f3843a = new d();
 
     public synchronized void a(Context context) {
         b(context);
@@ -110,10 +110,10 @@ public class d {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f3843a;
+        private String f3844a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f3844b;
+        private String f3845b;
         private String c;
         private String d;
 
@@ -122,8 +122,8 @@ public class d {
             str2 = str2 == null ? "" : str2;
             str3 = str3 == null ? "" : str3;
             str4 = str4 == null ? "" : str4;
-            this.f3843a = str;
-            this.f3844b = str2;
+            this.f3844a = str;
+            this.f3845b = str2;
             this.c = str3;
             this.d = str4;
         }
@@ -131,8 +131,8 @@ public class d {
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("n", this.f3843a);
-                jSONObject.put("v", this.f3844b);
+                jSONObject.put("n", this.f3844a);
+                jSONObject.put("v", this.f3845b);
                 jSONObject.put("c", this.c);
                 jSONObject.put("a", this.d);
                 return jSONObject;

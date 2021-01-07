@@ -25,14 +25,14 @@ abstract class b {
 
     protected abstract boolean a(c cVar);
 
-    protected abstract String auT();
+    protected abstract String auU();
 
     protected abstract String nV(String str);
 
-    public HashMap<String, c> auU() {
+    public HashMap<String, c> auV() {
         JSONArray optJSONArray;
-        String auT = auT();
-        if (TextUtils.isEmpty(auT) || (optJSONArray = v.parseString(auT).optJSONArray("list")) == null) {
+        String auU = auU();
+        if (TextUtils.isEmpty(auU) || (optJSONArray = v.parseString(auU).optJSONArray("list")) == null) {
             return null;
         }
         HashMap<String, c> hashMap = new HashMap<>();
@@ -80,7 +80,7 @@ abstract class b {
                     if (a3) {
                         a2.setOrientation(b.this.b(cVar.category, cVar.ewI, cVar.versionCode));
                         a2.nu(3);
-                        com.baidu.swan.pms.database.a.bgb().a(cVar, a2);
+                        com.baidu.swan.pms.database.a.bgc().a(cVar, a2);
                         rd.f(new UbcFlowEvent("loadPresetApp#run-bulkInsert").gt(true));
                         dVar.j(a2);
                     } else {
@@ -118,7 +118,7 @@ abstract class b {
         if (jSONObject != null && (cVar = (c) com.baidu.swan.pms.utils.e.a(jSONObject, new c())) != null) {
             cVar.ewM = jSONObject.optInt("pkg_type");
             cVar.cYT = jSONObject.optString("bundle_name");
-            if (cVar.auV()) {
+            if (cVar.auW()) {
                 return cVar;
             }
             return null;

@@ -35,9 +35,9 @@ public class c {
                 }
                 n nVar2 = this.jwx.get(i2);
                 if (nVar != null && (nVar instanceof b) && nVar2 != null && (nVar2 instanceof b)) {
-                    bz boO = ((b) nVar).boO();
-                    bz boO2 = ((b) nVar2).boO();
-                    if (boO != null && boO2 != null && boO.getTid() != null && boO2.getTid() != null && boO.getTid().equals(boO2.getTid())) {
+                    bz boP = ((b) nVar).boP();
+                    bz boP2 = ((b) nVar2).boP();
+                    if (boP != null && boP2 != null && boP.getTid() != null && boP2.getTid() != null && boP.getTid().equals(boP2.getTid())) {
                         z = true;
                         break;
                     }

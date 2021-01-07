@@ -11,7 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.helios.bridge.a;
 import com.baidu.helios.bridge.multiprocess.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public abstract class BaseIPCProvider extends ContentProvider {
     private e aww;
     private UriMatcher awx = new UriMatcher(-1);

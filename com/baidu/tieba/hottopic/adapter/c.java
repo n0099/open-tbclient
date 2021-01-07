@@ -59,36 +59,36 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     private void a(int i, HotRankListNormaItemHolder hotRankListNormaItemHolder, final com.baidu.tieba.hottopic.data.c cVar) {
         if (hotRankListNormaItemHolder != null && cVar != null) {
             hotRankListNormaItemHolder.ksd.setVisibility(8);
-            if (cVar.cUY() == 1) {
+            if (cVar.cUZ() == 1) {
                 hotRankListNormaItemHolder.ksa.setText("");
                 ao.setBackgroundResource(hotRankListNormaItemHolder.ksa, R.drawable.icon_grade_shaitu1);
                 hotRankListNormaItemHolder.ksd.setVisibility(0);
-                hotRankListNormaItemHolder.kse.setText(fq(StringUtils.isNull(cVar.cUV()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_list) : cVar.cUV(), StringUtils.isNull(cVar.getTips()) ? this.mContext.getResources().getString(R.string.hot_topic_update_time) : cVar.getTips()));
+                hotRankListNormaItemHolder.kse.setText(fq(StringUtils.isNull(cVar.cUW()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_list) : cVar.cUW(), StringUtils.isNull(cVar.getTips()) ? this.mContext.getResources().getString(R.string.hot_topic_update_time) : cVar.getTips()));
                 hotRankListNormaItemHolder.krW.setVisibility(0);
                 ao.setBackgroundResource(hotRankListNormaItemHolder.ksh, R.drawable.hot_topic_ranklist_bg);
                 hotRankListNormaItemHolder.ksh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.c.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (c.this.mPageContext != null) {
-                            String cUW = cVar.cUW();
-                            if (!StringUtils.isNull(cUW)) {
-                                be.bwu().b(c.this.mPageContext, new String[]{cUW});
+                            String cUX = cVar.cUX();
+                            if (!StringUtils.isNull(cUX)) {
+                                be.bwv().b(c.this.mPageContext, new String[]{cUX});
                             }
                         }
                         TiebaStatic.log("c10820");
                     }
                 });
-            } else if (cVar.cUY() == 2) {
+            } else if (cVar.cUZ() == 2) {
                 hotRankListNormaItemHolder.ksa.setText("");
                 hotRankListNormaItemHolder.krW.setVisibility(8);
                 ao.setBackgroundResource(hotRankListNormaItemHolder.ksa, R.drawable.icon_grade_shaitu2);
-            } else if (cVar.cUY() == 3) {
+            } else if (cVar.cUZ() == 3) {
                 hotRankListNormaItemHolder.ksa.setText("");
                 hotRankListNormaItemHolder.krW.setVisibility(8);
                 ao.setBackgroundResource(hotRankListNormaItemHolder.ksa, R.drawable.icon_grade_shaitu3);
             } else {
-                String str = "" + cVar.cUY();
-                if (cVar.cUY() < 10) {
+                String str = "" + cVar.cUZ();
+                if (cVar.cUZ() < 10) {
                     str = "0" + str;
                 }
                 hotRankListNormaItemHolder.ksa.setText(str);
@@ -107,7 +107,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
             } else {
                 hotRankListNormaItemHolder.ksc.setVisibility(8);
             }
-            String numFormat9999W = at.numFormat9999W(cVar.cUX());
+            String numFormat9999W = at.numFormat9999W(cVar.cUY());
             String str2 = "";
             if (!TextUtils.isEmpty(cVar.getName())) {
                 str2 = UtilHelper.getFixedText(cVar.getName(), 10);
@@ -142,7 +142,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
         }
     }
 
-    public void MC(String str) {
+    public void MB(String str) {
         this.type = str;
     }
 

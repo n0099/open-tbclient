@@ -1,7 +1,7 @@
 package com.baidu.vi;
 
 import android.net.NetworkInfo;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class VNetworkInfo {
     public int state;
     public int type;
@@ -10,7 +10,7 @@ public class VNetworkInfo {
     public VNetworkInfo(NetworkInfo networkInfo) {
         this.typename = networkInfo.getTypeName();
         this.type = networkInfo.getType();
-        switch (i.f5923a[networkInfo.getState().ordinal()]) {
+        switch (i.f5924a[networkInfo.getState().ordinal()]) {
             case 1:
                 this.state = 2;
                 return;

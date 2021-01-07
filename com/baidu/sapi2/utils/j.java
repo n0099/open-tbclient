@@ -12,10 +12,10 @@ public class j {
     public static final String l = "is_load_cache";
 
     /* renamed from: a  reason: collision with root package name */
-    public long f5420a;
+    public long f5421a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f5421b;
+    public long f5422b;
     public long c;
     public long d;
     public long e;
@@ -24,8 +24,8 @@ public class j {
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(g, this.f5420a);
-            jSONObject.put(h, this.f5421b);
+            jSONObject.put(g, this.f5421a);
+            jSONObject.put(h, this.f5422b);
             jSONObject.put(i, this.c);
             jSONObject.put(j, this.d);
             jSONObject.put(k, this.e);

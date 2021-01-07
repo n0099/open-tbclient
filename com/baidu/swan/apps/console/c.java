@@ -15,7 +15,7 @@ public class c {
         cPl = z;
     }
 
-    public static boolean apk() {
+    public static boolean apl() {
         return cPl;
     }
 
@@ -33,7 +33,7 @@ public class c {
 
     public static void i(String str, String str2) {
         K("info", str, str2);
-        com.baidu.swan.apps.t.a.aBs().i(str, str2);
+        com.baidu.swan.apps.t.a.aBt().i(str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.i(str, str2);
         }
@@ -41,7 +41,7 @@ public class c {
 
     public static void w(String str, String str2) {
         K("warn", str, str2);
-        com.baidu.swan.apps.t.a.aBs().w(str, str2);
+        com.baidu.swan.apps.t.a.aBt().w(str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.w(str, str2);
         }
@@ -49,7 +49,7 @@ public class c {
 
     public static void e(String str, String str2) {
         K(BdStatsConstant.StatsType.ERROR, str, str2);
-        com.baidu.swan.apps.t.a.aBs().e(str, str2);
+        com.baidu.swan.apps.t.a.aBt().e(str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.e(str, str2);
         }
@@ -57,21 +57,21 @@ public class c {
 
     public static void e(String str, String str2, Throwable th) {
         K(BdStatsConstant.StatsType.ERROR, str, th != null ? "Exception:" + th.getMessage() + "\n" + str2 : str2);
-        com.baidu.swan.apps.t.a.aBs().e(str, str2, th);
+        com.baidu.swan.apps.t.a.aBt().e(str, str2, th);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.e(str, str2, th);
         }
     }
 
     public static void bs(String str, String str2) {
-        com.baidu.swan.apps.t.a.aBs().i(str, str2);
+        com.baidu.swan.apps.t.a.aBt().i(str, str2);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.i(str, str2);
         }
     }
 
     public static void g(String str, String str2, Throwable th) {
-        com.baidu.swan.apps.t.a.aBs().e(str, str2, th);
+        com.baidu.swan.apps.t.a.aBt().e(str, str2, th);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.e(str, str2, th);
         }
@@ -80,10 +80,10 @@ public class c {
     private static void K(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str3) && cPl) {
             StringBuilder sb = new StringBuilder();
-            String a2 = j.a(j.aRl(), "yyyy-MM-dd HH:mm:ss");
+            String a2 = j.a(j.aRm(), "yyyy-MM-dd HH:mm:ss");
             String fileName = getFileName();
-            sb.append(a2).append("  ").append(fileName).append("  ").append("line:").append(apl()).append("\n").append("module:").append(str2).append("\n").append(str3);
-            f.aDG().aDj().bl(str, sb.toString());
+            sb.append(a2).append("  ").append(fileName).append("  ").append("line:").append(apm()).append("\n").append("module:").append(str2).append("\n").append(str3);
+            f.aDH().aDk().bl(str, sb.toString());
         }
     }
 
@@ -92,7 +92,7 @@ public class c {
         return (stackTrace == null || stackTrace.length <= 5) ? AppRuntime.getAppContext().getString(a.h.aiapps_err_message_get_name_fail) : stackTrace[5].getFileName();
     }
 
-    private static int apl() {
+    private static int apm() {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         if (stackTrace == null || stackTrace.length <= 5) {
             return -1;

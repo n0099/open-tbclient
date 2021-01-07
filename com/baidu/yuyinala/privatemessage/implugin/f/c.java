@@ -33,7 +33,7 @@ public class c extends i {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
-        return Yn("http://cp01-zhangsukun.epc.baidu.com:8220/") + "api/subscribe/v1/relation/receive";
+        return Ym("http://cp01-zhangsukun.epc.baidu.com:8220/") + "api/subscribe/v1/relation/receive";
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
@@ -62,10 +62,10 @@ public class c extends i {
     public Map<String, String> getHeaders() {
         HashMap hashMap = new HashMap();
         if (!AccountManager.isCuidLogin(this.mContext)) {
-            hashMap.put(SM.COOKIE, "BDUSS=" + com.baidu.yuyinala.privatemessage.implugin.d.b.ell().getBduss(this.mContext));
+            hashMap.put(SM.COOKIE, "BDUSS=" + com.baidu.yuyinala.privatemessage.implugin.d.b.elm().getBduss(this.mContext));
         } else {
             try {
-                hashMap.put(SM.COOKIE, "BAIDUCUID=" + URLEncoder.encode(new String(Base64Encoder.b64Encode(com.baidu.yuyinala.privatemessage.implugin.d.b.ell().getCuid(this.mContext).getBytes())), "UTF-8"));
+                hashMap.put(SM.COOKIE, "BAIDUCUID=" + URLEncoder.encode(new String(Base64Encoder.b64Encode(com.baidu.yuyinala.privatemessage.implugin.d.b.elm().getCuid(this.mContext).getBytes())), "UTF-8"));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }

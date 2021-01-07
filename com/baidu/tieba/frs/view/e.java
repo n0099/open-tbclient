@@ -74,20 +74,20 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.b.d {
                         }
                         kVar = null;
                     }
-                    if (kVar != null && kVar.dOh() == 2) {
+                    if (kVar != null && kVar.dOi() == 2) {
                         if (!StringUtils.isNull(kVar.getUrl())) {
                             String url = kVar.getUrl();
                             if ((url.contains("nohead:url") || url.contains("booktown")) && !TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
                                 l.showToast(e.this.mContext, R.string.book_plugin_not_install_tip);
                                 return;
                             }
-                            be.bwu().b(e.this.mPageContext, new String[]{url});
-                            a.C0853a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", kVar.dOi(), e.this.mForumId, e.this.mForumName, null);
+                            be.bwv().b(e.this.mPageContext, new String[]{url});
+                            a.C0886a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", kVar.dOj(), e.this.mForumId, e.this.mForumName, null);
                             b2.gt(TiebaInitialize.Params.OBJ_URL, kVar.getUrl());
                             b2.save();
                         }
-                    } else if (kVar != null && kVar.dOh() == 3) {
-                        new aq("c13442").dX("forum_id", e.this.mForumId).bwn();
+                    } else if (kVar != null && kVar.dOi() == 3) {
+                        new aq("c13442").dX("forum_id", e.this.mForumId).bwo();
                         if (e.this.mPageContext != null && !TextUtils.isEmpty(e.this.mForumId)) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(e.this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(e.this.mForumId, 0L), 1)));
                         }
@@ -243,35 +243,35 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.b.d {
     private void a(b bVar, bz bzVar, int i) {
         if (bVar != null && bzVar != null) {
             bVar.jQe.setText(TbadkCoreApplication.getInst().getString(R.string.top));
-            com.baidu.tbadk.core.util.f.a.bwU().qq(0).qx(l.getDimens(this.mContext, R.dimen.tbds10)).qu(this.jPW).bz(bVar.jQe);
-            bzVar.bsr();
-            SpannableStringBuilder brZ = bzVar.brZ();
-            if ((brZ == null || at.isEmptyStringAfterTrim(brZ.toString())) && bzVar.bqR() != null) {
-                brZ = new SpannableStringBuilder(bzVar.bqR());
+            com.baidu.tbadk.core.util.f.a.bwV().qq(0).qx(l.getDimens(this.mContext, R.dimen.tbds10)).qu(this.jPW).bz(bVar.jQe);
+            bzVar.bss();
+            SpannableStringBuilder bsa = bzVar.bsa();
+            if ((bsa == null || at.isEmptyStringAfterTrim(bsa.toString())) && bzVar.bqS() != null) {
+                bsa = new SpannableStringBuilder(bzVar.bqS());
             }
-            bVar.titleText.setOnTouchListener(new i(brZ));
-            bVar.titleText.setText(brZ);
+            bVar.titleText.setOnTouchListener(new i(bsa));
+            bVar.titleText.setText(bsa);
             bVar.epV.setOnClickListener(this.foD);
             a(bVar);
         }
     }
 
     private void a(b bVar, p pVar, int i) {
-        if (bVar != null && pVar != null && pVar.dOo() != null && this.mUserData != null) {
+        if (bVar != null && pVar != null && pVar.dOp() != null && this.mUserData != null) {
             bVar.jQe.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules));
-            com.baidu.tbadk.core.util.f.a.bwU().qq(0).qx(l.getDimens(this.mContext, R.dimen.tbds10)).qu(this.jPW).bz(bVar.jQe);
+            com.baidu.tbadk.core.util.f.a.bwV().qq(0).qx(l.getDimens(this.mContext, R.dimen.tbds10)).qu(this.jPW).bz(bVar.jQe);
             if (this.mUserData.getIs_manager() == 1) {
-                if (pVar.dOo().audit_status.intValue() == 0 && pVar.dOo().has_forum_rule.intValue() == 0) {
+                if (pVar.dOp().audit_status.intValue() == 0 && pVar.dOp().has_forum_rule.intValue() == 0) {
                     bVar.titleText.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules_none));
-                } else if (pVar.dOo().audit_status.intValue() == 0) {
-                    bVar.titleText.setText(pVar.dOo().title);
-                } else if (pVar.dOo().audit_status.intValue() == 1) {
+                } else if (pVar.dOp().audit_status.intValue() == 0) {
+                    bVar.titleText.setText(pVar.dOp().title);
+                } else if (pVar.dOp().audit_status.intValue() == 1) {
                     bVar.titleText.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules_chenking));
-                } else if (pVar.dOo().audit_status.intValue() == 2) {
+                } else if (pVar.dOp().audit_status.intValue() == 2) {
                     bVar.titleText.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules_refuse));
                 }
             } else {
-                bVar.titleText.setText(pVar.dOo().title);
+                bVar.titleText.setText(pVar.dOp().title);
             }
             bVar.epV.setOnClickListener(this.foD);
             a(bVar);
@@ -282,14 +282,14 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.b.d {
         if (cVar != null && nVar != null) {
             if (nVar instanceof bz) {
                 bz bzVar = (bz) nVar;
-                bzVar.bsr();
-                SpannableStringBuilder brZ = bzVar.brZ();
-                if ((brZ == null || at.isEmptyStringAfterTrim(brZ.toString())) && bzVar.bqR() != null) {
-                    brZ = new SpannableStringBuilder(bzVar.bqR());
+                bzVar.bss();
+                SpannableStringBuilder bsa = bzVar.bsa();
+                if ((bsa == null || at.isEmptyStringAfterTrim(bsa.toString())) && bzVar.bqS() != null) {
+                    bsa = new SpannableStringBuilder(bzVar.bqS());
                 }
                 cVar.jQe.setText(TbadkCoreApplication.getInst().getString(R.string.top));
-                cVar.titleText.setOnTouchListener(new i(brZ));
-                cVar.titleText.setText(brZ);
+                cVar.titleText.setOnTouchListener(new i(bsa));
+                cVar.titleText.setText(bsa);
                 if (StringUtils.isNull(this.imageUrl)) {
                     cVar.abI.setVisibility(8);
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) cVar.jQe.getLayoutParams();
@@ -317,14 +317,14 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.b.d {
                     cVar.titleText.setText(a2 + "：" + kVar.getTitle());
                     cVar.abI.startLoad(this.imageUrl, 10, false);
                 }
-                if (kVar.dOg() != 0) {
+                if (kVar.dOh() != 0) {
                     cVar.jQf.setVisibility(0);
-                    if (kVar.dOg() == -1) {
+                    if (kVar.dOh() == -1) {
                         cVar.jQf.setText(this.mContext.getString(R.string.no_rank));
-                    } else if (kVar.dOg() > 999) {
+                    } else if (kVar.dOh() > 999) {
                         cVar.jQf.setText(this.mContext.getString(R.string.rang_orer_thousand));
                     } else {
-                        cVar.jQf.setText(this.mContext.getString(R.string.rang_identify) + kVar.dOg());
+                        cVar.jQf.setText(this.mContext.getString(R.string.rang_identify) + kVar.dOh());
                     }
                     if (!StringUtils.isNull(kVar.getTitle())) {
                         cVar.titleText.setText(kVar.getTitle());
@@ -338,8 +338,8 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.b.d {
                 if (this.jPZ != null) {
                     cVar.epV.setOnClickListener(this.jPZ);
                 }
-                if (this.jPX != null && this.jPX.add(kVar.dOi())) {
-                    a.C0853a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", kVar.dOi(), this.mForumId, this.mForumName, null);
+                if (this.jPX != null && this.jPX.add(kVar.dOj())) {
+                    a.C0886a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", kVar.dOj(), this.mForumId, this.mForumName, null);
                     b2.gt(TiebaInitialize.Params.OBJ_URL, kVar.getUrl());
                     b2.save();
                 }
@@ -351,15 +351,15 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.b.d {
         String a2 = a(kVar);
         bVar.titleText.setText(kVar.getTitle());
         bVar.jQe.setText(a2);
-        com.baidu.tbadk.core.util.f.a.bwU().qq(0).qx(l.getDimens(this.mContext, R.dimen.tbds10)).qu(this.jPW).bz(bVar.jQe);
-        if (kVar.dOg() != 0) {
+        com.baidu.tbadk.core.util.f.a.bwV().qq(0).qx(l.getDimens(this.mContext, R.dimen.tbds10)).qu(this.jPW).bz(bVar.jQe);
+        if (kVar.dOh() != 0) {
             bVar.jQf.setVisibility(0);
-            if (kVar.dOg() == -1) {
+            if (kVar.dOh() == -1) {
                 bVar.jQf.setText(this.mContext.getString(R.string.no_rank));
-            } else if (kVar.dOg() > 999) {
+            } else if (kVar.dOh() > 999) {
                 bVar.jQf.setText(this.mContext.getString(R.string.rang_orer_thousand));
             } else {
-                bVar.jQf.setText(this.mContext.getString(R.string.rang_identify) + kVar.dOg());
+                bVar.jQf.setText(this.mContext.getString(R.string.rang_identify) + kVar.dOh());
             }
             if (!StringUtils.isNull(kVar.getTitle())) {
                 bVar.titleText.setText(kVar.getTitle());
@@ -372,22 +372,22 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.b.d {
         if (this.jPZ != null) {
             bVar.epV.setOnClickListener(this.jPZ);
         }
-        if (this.jPX != null && this.jPX.add(kVar.dOi())) {
-            a.C0853a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", kVar.dOi(), this.mForumId, this.mForumName, null);
+        if (this.jPX != null && this.jPX.add(kVar.dOj())) {
+            a.C0886a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", kVar.dOj(), this.mForumId, this.mForumName, null);
             b2.gt(TiebaInitialize.Params.OBJ_URL, kVar.getUrl());
             b2.save();
         }
     }
 
     private boolean a(o oVar, final b bVar, int i) {
-        if (i != 0 || oVar == null || oVar.bFK() == null) {
+        if (i != 0 || oVar == null || oVar.bFL() == null) {
             return false;
         }
-        ForumData bFK = oVar.bFK();
-        boolean z = oVar.dOn() && !x.isEmpty(bFK.getTipInfos());
-        String riskTipNotice = z ? bFK.getTipInfos().get(0).tip_notice : bFK.getRiskTipNotice();
-        final String riskTipPopTitle = z ? bFK.getTipInfos().get(0).tip_pop_title : bFK.getRiskTipPopTitle();
-        final String riskTipPop = z ? bFK.getTipInfos().get(0).tip_pop : bFK.getRiskTipPop();
+        ForumData bFL = oVar.bFL();
+        boolean z = oVar.dOo() && !x.isEmpty(bFL.getTipInfos());
+        String riskTipNotice = z ? bFL.getTipInfos().get(0).tip_notice : bFL.getRiskTipNotice();
+        final String riskTipPopTitle = z ? bFL.getTipInfos().get(0).tip_pop_title : bFL.getRiskTipPopTitle();
+        final String riskTipPop = z ? bFL.getTipInfos().get(0).tip_pop : bFL.getRiskTipPop();
         if (StringUtils.isNull(riskTipNotice)) {
             return false;
         }
@@ -410,27 +410,27 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.b.d {
     public void fp(String str, String str2) {
         if (!at.isEmpty(str) && !at.isEmpty(str2)) {
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a((BaseFragmentActivity) this.mContext);
-            aVar.Bo(str2);
+            aVar.Bn(str2);
             aVar.setTitleShowCenter(true);
-            aVar.Bp(str);
+            aVar.Bo(str);
             aVar.a(R.string.frs_risk_dialog_button_text, new a.b() { // from class: com.baidu.tieba.frs.view.e.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar.dismiss();
                 }
             });
-            aVar.b(getTbPageContext()).btX();
+            aVar.b(getTbPageContext()).btY();
         }
     }
 
     private String a(k kVar) {
-        if (TextUtils.isEmpty(kVar.dOj()) || kVar.dOj().trim().length() == 0) {
-            if (kVar.dOf() == 1) {
+        if (TextUtils.isEmpty(kVar.dOk()) || kVar.dOk().trim().length() == 0) {
+            if (kVar.dOg() == 1) {
                 return TbadkCoreApplication.getInst().getString(R.string.thread_recruit);
             }
             return TbadkCoreApplication.getInst().getString(R.string.top_announcement);
         }
-        return kVar.dOj();
+        return kVar.dOk();
     }
 
     public TbPageContext getTbPageContext() {

@@ -22,15 +22,15 @@ public final class f {
     private f() {
     }
 
-    public final com.baidu.swan.apps.a.a amV() {
+    public final com.baidu.swan.apps.a.a amW() {
         return cGF;
     }
 
-    public final com.baidu.swan.apps.a.c amW() {
+    public final com.baidu.swan.apps.a.c amX() {
         return cGG;
     }
 
-    public final boolean amX() {
+    public final boolean amY() {
         return cGH;
     }
 
@@ -38,21 +38,21 @@ public final class f {
         cGH = z;
     }
 
-    public final void amY() {
-        d.cGD.amR();
-        h.cGL.anc();
+    public final void amZ() {
+        d.cGD.amS();
+        h.cGL.and();
         eI(false);
     }
 
-    public final boolean amZ() {
-        if (g.anb() == null) {
-            ana();
+    public final boolean ana() {
+        if (g.anc() == null) {
+            anb();
         }
-        Boolean anb = g.anb();
-        if (anb == null) {
-            p.eMi();
+        Boolean anc = g.anc();
+        if (anc == null) {
+            p.eMM();
         }
-        return anb.booleanValue();
+        return anc.booleanValue();
     }
 
     public final void eI(boolean z) {
@@ -61,7 +61,7 @@ public final class f {
         DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, bundle);
     }
 
-    private final void ana() {
+    private final void anb() {
         boolean z;
         try {
             Class.forName("com.baidu.sapi2.SapiAccountManager");

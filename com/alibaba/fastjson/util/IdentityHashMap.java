@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.util;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class IdentityHashMap<K, V> {
     public static final int DEFAULT_SIZE = 8192;
     private final Entry<K, V>[] buckets;
@@ -61,7 +61,7 @@ public class IdentityHashMap<K, V> {
         return false;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     protected static final class Entry<K, V> {
         public final int hashCode;
         public final K key;

@@ -12,13 +12,13 @@ public class a {
     }
 
     public static void a(Callback callback, String str) {
-        if (e.aMk() != null) {
-            com.baidu.swan.games.network.b aMz = e.aMk().aMz();
+        if (e.aMl() != null) {
+            com.baidu.swan.games.network.b aMA = e.aMl().aMA();
             HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/exchange/list").newBuilder();
             newBuilder.addQueryParameter(Constants.EXTRA_CONFIG_LIMIT, str);
-            newBuilder.addQueryParameter("app_key", e.aMk().getAppKey());
+            newBuilder.addQueryParameter("app_key", e.aMl().getAppKey());
             newBuilder.addQueryParameter("source", "4");
-            aMz.a(new Request.Builder().url(newBuilder.build()).build(), callback);
+            aMA.a(new Request.Builder().url(newBuilder.build()).build(), callback);
         }
     }
 }

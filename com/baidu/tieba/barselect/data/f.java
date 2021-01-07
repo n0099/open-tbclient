@@ -14,15 +14,15 @@ public class f {
     private List<d> ipE;
     private ManagerElection ipF;
 
-    public List<d> ctU() {
+    public List<d> ctV() {
         return this.ipE;
     }
 
-    public d ctV() {
+    public d ctW() {
         return this.ipD;
     }
 
-    public e ctW() {
+    public e ctX() {
         return this.ipC;
     }
 
@@ -38,7 +38,7 @@ public class f {
         return this.ahE;
     }
 
-    public ManagerElection ctX() {
+    public ManagerElection ctY() {
         return this.ipF;
     }
 

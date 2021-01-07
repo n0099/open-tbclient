@@ -7,18 +7,18 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f11671b;
-    public static volatile e pQK;
+    public static boolean f11672b;
+    public static volatile e pSs;
     public Boolean g;
     public BroadcastReceiver h;
-    public a pQL = new a("udid");
-    public a pQM = new a("oaid");
-    public a pQO = new a("vaid");
-    public a pQN = new a("aaid");
+    public a pSt = new a("udid");
+    public a pSu = new a("oaid");
+    public a pSw = new a("vaid");
+    public a pSv = new a("aaid");
 
     public static c C(Cursor cursor) {
         c cVar = new c(null, 0);
@@ -30,13 +30,13 @@ public class e {
             cursor.moveToFirst();
             int columnIndex = cursor.getColumnIndex("value");
             if (columnIndex >= 0) {
-                cVar.f11669a = cursor.getString(columnIndex);
+                cVar.f11670a = cursor.getString(columnIndex);
             } else {
                 a("parseValue fail, index < 0.");
             }
             int columnIndex2 = cursor.getColumnIndex("code");
             if (columnIndex2 >= 0) {
-                cVar.f11670b = cursor.getInt(columnIndex2);
+                cVar.f11671b = cursor.getInt(columnIndex2);
             } else {
                 a("parseCode fail, index < 0.");
             }
@@ -51,32 +51,32 @@ public class e {
     }
 
     public static void a(String str) {
-        if (f11671b) {
+        if (f11672b) {
             Log.d("OpenIdManager", str);
         }
     }
 
-    public static final e eDp() {
-        if (pQK == null) {
+    public static final e eDT() {
+        if (pSs == null) {
             synchronized (e.class) {
-                pQK = new e();
+                pSs = new e();
             }
         }
-        return pQK;
+        return pSs;
     }
 
-    public a ZY(String str) {
+    public a ZZ(String str) {
         if ("oaid".equals(str)) {
-            return this.pQM;
+            return this.pSu;
         }
         if ("vaid".equals(str)) {
-            return this.pQO;
+            return this.pSw;
         }
         if ("aaid".equals(str)) {
-            return this.pQN;
+            return this.pSv;
         }
         if ("udid".equals(str)) {
-            return this.pQL;
+            return this.pSt;
         }
         return null;
     }
@@ -107,7 +107,7 @@ public class e {
             return null;
         }
         if (aVar.a()) {
-            return aVar.f11668b;
+            return aVar.f11669b;
         }
         a("queryId : " + aVar.c);
         Uri parse = Uri.parse("content://com.meizu.flyme.openidsdk/");
@@ -140,13 +140,13 @@ public class e {
         }
         if (parse != 0) {
             c C = C(parse);
-            str2 = C.f11669a;
+            str2 = C.f11670a;
             try {
                 aVar.a(str2);
                 aVar.a(C.c);
-                aVar.a(C.f11670b);
+                aVar.a(C.f11671b);
                 a(aVar.c + " errorCode : " + aVar.d);
-                if (C.f11670b != 1000) {
+                if (C.f11671b != 1000) {
                     a(context);
                     if (!a(context, false)) {
                         append = new StringBuilder().append("not support, forceQuery isSupported: ").append(a(context, true));
@@ -252,7 +252,7 @@ public class e {
         }
         if (cursor != null) {
             try {
-                String str2 = C(cursor).f11669a;
+                String str2 = C(cursor).f11670a;
                 cursor.close();
                 str = str2;
             } catch (Exception e2) {

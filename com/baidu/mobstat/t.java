@@ -29,8 +29,8 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f3678a = false;
-                acVar.f3679b = "M";
+                acVar.f3679a = false;
+                acVar.f3680b = "M";
                 acVar.c = false;
                 a2.a(applicationContext, acVar.a());
             }
@@ -43,8 +43,8 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f3678a = false;
-                acVar.f3679b = "R";
+                acVar.f3679a = false;
+                acVar.f3680b = "R";
                 acVar.c = false;
                 a2.a(applicationContext, acVar.a());
             }
@@ -57,8 +57,8 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f3678a = false;
-                acVar.f3679b = "E";
+                acVar.f3679a = false;
+                acVar.f3680b = "E";
                 acVar.c = false;
                 a2.a(applicationContext, acVar.a());
             }

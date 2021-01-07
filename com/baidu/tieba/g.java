@@ -63,9 +63,9 @@ public class g extends Dialog {
 
     /* loaded from: classes.dex */
     interface a {
-        void bOb();
-
         void bOc();
+
+        void bOd();
 
         void ma(boolean z);
 
@@ -86,10 +86,10 @@ public class g extends Dialog {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getId() == g.this.ghC.getId()) {
-                    g.this.ghO.bOb();
+                    g.this.ghO.bOc();
                     g.this.fG(g.this.mContext);
                 } else if (view.getId() == g.this.ghE.getId()) {
-                    g.this.ghO.bOb();
+                    g.this.ghO.bOc();
                 }
             }
         };
@@ -199,7 +199,7 @@ public class g extends Dialog {
         this.ghB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.g.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                g.this.ghO.bOb();
+                g.this.ghO.bOc();
             }
         });
         this.ghA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.g.4
@@ -303,7 +303,7 @@ public class g extends Dialog {
             this.ghI.setVisibility(0);
             return;
         }
-        this.ghO.bOc();
+        this.ghO.bOd();
     }
 
     public void a(VersionData versionData, CombineDownload combineDownload, a aVar) {
@@ -312,7 +312,7 @@ public class g extends Dialog {
         this.ghO = aVar;
     }
 
-    public void bOa() {
+    public void bOb() {
         this.ghI.setVisibility(8);
         this.ghv.setVisibility(0);
     }

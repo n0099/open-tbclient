@@ -21,18 +21,18 @@ public class a extends l {
     }
 
     @Override // com.baidu.swan.apps.core.pms.l
-    protected PMSDownloadType auh() {
+    protected PMSDownloadType aui() {
         return PMSDownloadType.SWAN_GAME_UPDATE_CORE;
-    }
-
-    @Override // com.baidu.swan.apps.core.pms.l
-    protected String aus() {
-        return com.baidu.swan.apps.core.pms.f.a.auC();
     }
 
     @Override // com.baidu.swan.apps.core.pms.l
     protected String aut() {
         return com.baidu.swan.apps.core.pms.f.a.auD();
+    }
+
+    @Override // com.baidu.swan.apps.core.pms.l
+    protected String auu() {
+        return com.baidu.swan.apps.core.pms.f.a.auE();
     }
 
     @Override // com.baidu.swan.apps.core.pms.l

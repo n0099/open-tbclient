@@ -14,7 +14,7 @@ import android.widget.FrameLayout;
 import com.baidu.poly.b;
 import com.baidu.poly.util.d;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     private static final boolean DEBUG = d.cpz;
     private static final int[] csi = {16842922};
@@ -61,7 +61,7 @@ public class c {
     private int csT = -1;
     private ViewTreeObserver.OnScrollChangedListener csV = new a();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class a implements ViewTreeObserver.OnScrollChangedListener {
         a() {
         }
@@ -79,14 +79,14 @@ public class c {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void onDismiss();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.poly.widget.c$c  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class C0324c extends FrameLayout {
         public C0324c(Context context) {
             super(context);
@@ -170,7 +170,7 @@ public class c {
         setFocusable(z);
     }
 
-    private int afY() {
+    private int afZ() {
         int i = this.csT;
         if (i == -1) {
             if (this.csl) {
@@ -181,7 +181,7 @@ public class c {
         return i;
     }
 
-    private void afZ() {
+    private void aga() {
         WeakReference<View> weakReference = this.csU;
         View view = weakReference != null ? weakReference.get() : null;
         if (view != null) {
@@ -219,7 +219,7 @@ public class c {
         if (!this.cst) {
             i2 |= 512;
         }
-        if (agb()) {
+        if (agc()) {
             i2 |= 8388608;
         }
         if (this.csv) {
@@ -231,7 +231,7 @@ public class c {
         return this.csz ? i2 | 32 : i2;
     }
 
-    public boolean agb() {
+    public boolean agc() {
         Context context;
         return (this.csu >= 0 || (context = this.mContext) == null) ? this.csu == 1 : context.getApplicationInfo().targetSdkVersion >= 11;
     }
@@ -240,7 +240,7 @@ public class c {
         b bVar;
         if (isShowing() && this.csn != null) {
             this.csk = false;
-            afZ();
+            aga();
             try {
                 try {
                     this.csj.removeView(this.csn);
@@ -372,9 +372,9 @@ public class c {
                 layoutParams.y = i2;
                 z = true;
             }
-            int afY = afY();
-            if (afY != layoutParams.windowAnimations) {
-                layoutParams.windowAnimations = afY;
+            int afZ = afZ();
+            if (afZ != layoutParams.windowAnimations) {
+                layoutParams.windowAnimations = afZ;
                 z = true;
             }
             int ho = ho(layoutParams.flags);
@@ -435,11 +435,11 @@ public class c {
 
     public void a(IBinder iBinder, int i, int i2, int i3) {
         if (iBinder != null && !isShowing() && this.csm != null) {
-            afZ();
+            aga();
             this.csk = true;
             this.csl = false;
             WindowManager.LayoutParams c = c(iBinder);
-            c.windowAnimations = afY();
+            c.windowAnimations = afZ();
             a(c);
             if (i == 0) {
                 i = 51;

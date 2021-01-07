@@ -18,7 +18,7 @@ public final class c {
     private long dwe;
 
     @NonNull
-    public Message aJb() {
+    public Message aJc() {
         if (this.dwa.obj == null) {
             X(new Bundle());
         }
@@ -92,7 +92,7 @@ public final class c {
         return this;
     }
 
-    public c aJc() {
+    public c aJd() {
         SwanAppProcessInfo[] indices;
         for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
             if (swanAppProcessInfo.isSwanAppProcess()) {
@@ -117,15 +117,15 @@ public final class c {
         return this;
     }
 
-    public Set<SwanAppProcessInfo> aJd() {
+    public Set<SwanAppProcessInfo> aJe() {
         return new HashSet(this.dwb);
     }
 
-    public Set<String> aJe() {
+    public Set<String> aJf() {
         return new HashSet(this.dwc);
     }
 
-    public boolean aJf() {
+    public boolean aJg() {
         return this.dvP;
     }
 
@@ -142,7 +142,7 @@ public final class c {
         return this;
     }
 
-    public long aJg() {
+    public long aJh() {
         if (this.dwe < 0) {
             return 0L;
         }

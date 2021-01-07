@@ -25,11 +25,11 @@ public class d extends com.baidu.swan.apps.res.widget.dialog.b {
     protected View F(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_ssl_certificate_dialog, viewGroup, false);
         this.bRY = (FrameLayout) inflate.findViewById(a.f.ssl_certificate_container);
-        atF();
+        atG();
         return inflate;
     }
 
-    private void atF() {
+    private void atG() {
         if (this.cWk == null) {
             return;
         }
@@ -63,8 +63,8 @@ public class d extends com.baidu.swan.apps.res.widget.dialog.b {
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.b.C0472b, com.baidu.swan.apps.res.widget.dialog.g.a
-        public g atG() {
-            d dVar = (d) super.atG();
+        public g atH() {
+            d dVar = (d) super.atH();
             dVar.a(this);
             return dVar;
         }

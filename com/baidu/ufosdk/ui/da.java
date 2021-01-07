@@ -9,10 +9,10 @@ import android.widget.TextView;
 final class da {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f5797a;
+    public TextView f5798a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f5798b;
+    public ImageView f5799b;
     public ListView c;
     public TextView d;
     public TextView e;

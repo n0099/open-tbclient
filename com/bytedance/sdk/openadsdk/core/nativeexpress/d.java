@@ -9,7 +9,7 @@ import com.bytedance.sdk.openadsdk.utils.ak;
 public class d extends com.bytedance.sdk.openadsdk.core.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.core.d.j f6933a;
+    private com.bytedance.sdk.openadsdk.core.d.j f6934a;
 
     public d(@NonNull Context context, @NonNull com.bytedance.sdk.openadsdk.core.d.l lVar, @NonNull String str, int i) {
         super(context, lVar, str, i);
@@ -41,13 +41,13 @@ public class d extends com.bytedance.sdk.openadsdk.core.a.a {
         }
         int[] iArr3 = new int[2];
         int[] iArr4 = new int[2];
-        if (this.f6933a != null) {
-            j = this.f6933a.e;
-            j2 = this.f6933a.f;
-            iArr3[0] = i5 + ((int) ak.a(this.c, this.f6933a.g));
-            iArr3[1] = i6 + ((int) ak.a(this.c, this.f6933a.h));
-            int a3 = (int) ak.a(this.c, this.f6933a.i);
-            int a4 = (int) ak.a(this.c, this.f6933a.j);
+        if (this.f6934a != null) {
+            j = this.f6934a.e;
+            j2 = this.f6934a.f;
+            iArr3[0] = i5 + ((int) ak.a(this.c, this.f6934a.g));
+            iArr3[1] = i6 + ((int) ak.a(this.c, this.f6934a.h));
+            int a3 = (int) ak.a(this.c, this.f6934a.i);
+            int a4 = (int) ak.a(this.c, this.f6934a.j);
             iArr4[0] = a3;
             iArr4[1] = a4;
             if (a3 == 0 && a4 == 0) {
@@ -62,6 +62,6 @@ public class d extends com.bytedance.sdk.openadsdk.core.a.a {
     }
 
     public void a(com.bytedance.sdk.openadsdk.core.d.j jVar) {
-        this.f6933a = jVar;
+        this.f6934a = jVar;
     }
 }

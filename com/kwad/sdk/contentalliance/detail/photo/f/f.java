@@ -16,8 +16,8 @@ public class f extends com.kwad.sdk.contentalliance.detail.photo.f.a<g> {
     }
 
     private void h() {
-        for (a aVar : this.f8692a.f) {
-            aVar.a(this.f8692a.j, this.f8692a.i);
+        for (a aVar : this.f8693a.f) {
+            aVar.a(this.f8693a.j, this.f8693a.i);
         }
     }
 
@@ -25,8 +25,8 @@ public class f extends com.kwad.sdk.contentalliance.detail.photo.f.a<g> {
     @Override // com.kwad.sdk.contentalliance.detail.photo.f.a, com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.e = this.f8692a.j;
-        long t = com.kwad.sdk.core.response.b.c.t(this.f8692a.j);
+        this.e = this.f8693a.j;
+        long t = com.kwad.sdk.core.response.b.c.t(this.f8693a.j);
         if (com.kwad.sdk.core.config.c.C()) {
             t++;
         }
@@ -45,7 +45,7 @@ public class f extends com.kwad.sdk.contentalliance.detail.photo.f.a<g> {
     @Override // com.kwad.sdk.contentalliance.detail.photo.f.a, com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.d = (g) this.f8813b;
+        this.d = (g) this.f8814b;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -64,6 +64,6 @@ public class f extends com.kwad.sdk.contentalliance.detail.photo.f.a<g> {
         } else {
             p.a(view.getContext(), view.getContext().getString(R.string.ksad_ad_function_disable));
         }
-        com.kwad.sdk.core.report.e.f(this.f8692a.j);
+        com.kwad.sdk.core.report.e.f(this.f8693a.j);
     }
 }

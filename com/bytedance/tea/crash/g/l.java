@@ -9,10 +9,10 @@ import java.util.Locale;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final CharSequence f7966a = "sony";
+    private static final CharSequence f7967a = "sony";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final CharSequence f7967b = "amigo";
+    private static final CharSequence f7968b = "amigo";
     private static final CharSequence c = "funtouch";
 
     public static String a() {
@@ -65,7 +65,7 @@ public class l {
     }
 
     public static boolean f() {
-        return !TextUtils.isEmpty(Build.DISPLAY) && Build.DISPLAY.toLowerCase(Locale.getDefault()).contains(f7967b);
+        return !TextUtils.isEmpty(Build.DISPLAY) && Build.DISPLAY.toLowerCase(Locale.getDefault()).contains(f7968b);
     }
 
     public static String g() {

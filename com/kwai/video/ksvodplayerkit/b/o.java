@@ -14,8 +14,8 @@ public final class o {
             return null;
         }
         n nVar = new n();
-        nVar.f11354a = jSONObject.optInt("rateType", nVar.f11354a);
-        nVar.f11355b = jSONObject.optInt("bwEstimateType", nVar.f11355b);
+        nVar.f11355a = jSONObject.optInt("rateType", nVar.f11355a);
+        nVar.f11356b = jSONObject.optInt("bwEstimateType", nVar.f11356b);
         nVar.c = jSONObject.optInt("absLowResLowDevice", nVar.c);
         nVar.d = jSONObject.optInt("adapt4G", nVar.d);
         nVar.e = jSONObject.optInt("adaptWifi", nVar.e);

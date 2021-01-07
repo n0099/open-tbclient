@@ -74,7 +74,7 @@ public class RankStarView extends View {
         this.fQO = l.getDimens(context, R.dimen.tbds63);
         this.fQW = new Rect(0, 0, 0, 0);
         this.fQX = new Rect(0, 0, 0, 0);
-        byy();
+        byz();
     }
 
     public void setIsHalfStar(boolean z) {
@@ -104,7 +104,7 @@ public class RankStarView extends View {
         return ((int) this.fQM) + 1;
     }
 
-    public boolean bJD() {
+    public boolean bJE() {
         return this.fQM != 0.0f;
     }
 
@@ -117,19 +117,19 @@ public class RankStarView extends View {
         this.fQR = i2;
         this.fQS = i3;
         this.fQT = i4;
-        byy();
+        byz();
     }
 
     public void onChangeSkinType(int i) {
         if (this.akW != i) {
             this.akW = i;
-            byy();
+            byz();
         }
     }
 
-    public void byy() {
-        this.fQU = SvgManager.bwq().a(this.fQQ, this.fQR, (SvgManager.SvgResourceStateType) null);
-        this.fQV = SvgManager.bwq().a(this.fQS, this.fQT, (SvgManager.SvgResourceStateType) null);
+    public void byz() {
+        this.fQU = SvgManager.bwr().a(this.fQQ, this.fQR, (SvgManager.SvgResourceStateType) null);
+        this.fQV = SvgManager.bwr().a(this.fQS, this.fQT, (SvgManager.SvgResourceStateType) null);
     }
 
     @Override // android.view.View

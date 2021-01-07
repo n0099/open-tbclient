@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class am extends Handler {
     final /* synthetic */ al BA;
     StringBuffer Bz;
@@ -44,7 +44,7 @@ public final class am extends Handler {
                         this.Bz.append(stringBuffer);
                     }
                     al alVar = this.BA;
-                    StringBuilder append2 = new StringBuilder().append(xVar.c).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(xVar.d).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(xVar.f1083b).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(xVar.f1082a).append(',');
+                    StringBuilder append2 = new StringBuilder().append(xVar.c).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(xVar.d).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(xVar.f1084b).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(xVar.f1083a).append(',');
                     str = al.h;
                     StringBuilder append3 = append2.append(str).append(',');
                     wVar2 = al.AW;

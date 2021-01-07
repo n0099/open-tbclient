@@ -15,17 +15,17 @@ public final class a {
     private final c eln = d.b(SwanLoadingTips$loadingTips$2.INSTANCE);
     private int elo;
 
-    private final String[] bbc() {
+    private final String[] bbd() {
         c cVar = this.eln;
         j jVar = $$delegatedProperties[0];
         return (String[]) cVar.getValue();
     }
 
-    public final String bbd() {
-        String[] bbc = bbc();
-        if (bbc != null) {
-            if (!(bbc.length == 0)) {
-                String str = bbc[this.elo % bbc.length];
+    public final String bbe() {
+        String[] bbd = bbd();
+        if (bbd != null) {
+            if (!(bbd.length == 0)) {
+                String str = bbd[this.elo % bbd.length];
                 this.elo++;
                 return str;
             }

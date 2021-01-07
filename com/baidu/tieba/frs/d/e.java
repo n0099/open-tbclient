@@ -27,7 +27,7 @@ public class e {
         this.jIj = new d(str, str2);
     }
 
-    public f cNe() {
+    public f cNf() {
         return this.jIg;
     }
 
@@ -78,7 +78,7 @@ public class e {
                 this.jIi = new com.baidu.tieba.frs.gametab.c(activity, R.id.frs_guide_tip);
             }
             if (!StringUtils.isNull(str3)) {
-                this.jIi.Lm(str3);
+                this.jIi.Ll(str3);
             }
             this.jIi.setClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.d.e.1
                 @Override // android.view.View.OnClickListener
@@ -89,25 +89,25 @@ public class e {
                     TiebaStatic.log(new aq("c13982").dX("fid", str2).dX("uid", TbadkApplication.getCurrentAccount()));
                 }
             });
-            this.jIi.crK();
+            this.jIi.crL();
             TiebaStatic.log(new aq("c13894").dX("fid", str2).dX("uid", TbadkApplication.getCurrentAccount()));
         }
     }
 
     public void c(Activity activity, String str, String str2) {
-        if (activity != null && this.jIj.cNd()) {
+        if (activity != null && this.jIj.cNe()) {
             if (this.jIi == null) {
                 this.jIi = new com.baidu.tieba.frs.gametab.c(activity, R.id.frs_guide_delete_forum_tip);
             }
-            this.jIi.Ln(str);
+            this.jIi.Lm(str);
             this.jIi.setForumId(str2);
-            this.jIi.cLh();
+            this.jIi.cLi();
         }
     }
 
-    public void cNf() {
+    public void cNg() {
         if (this.jIi != null) {
-            this.jIi.cLf();
+            this.jIi.cLg();
         }
     }
 }

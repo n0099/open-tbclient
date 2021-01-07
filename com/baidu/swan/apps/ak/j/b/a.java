@@ -49,7 +49,7 @@ public class a {
         }
     }
 
-    public static a aQq() {
+    public static a aQr() {
         return C0382a.dPU;
     }
 
@@ -59,18 +59,18 @@ public class a {
             if (DEBUG) {
                 throw new RuntimeException("not support vibration");
             }
-        } else if (aQr()) {
+        } else if (aQs()) {
             this.dPR.cT(this.dPQ);
         } else {
             String[] strArr = {"android.permission.VIBRATE"};
-            SwanAppActivity aMe = d.aMg().aMe();
-            if (aMe != null) {
-                aMe.a(700, strArr, this.dPS);
+            SwanAppActivity aMf = d.aMh().aMf();
+            if (aMf != null) {
+                aMf.a(700, strArr, this.dPS);
             }
         }
     }
 
-    private boolean aQr() {
+    private boolean aQs() {
         if (com.baidu.swan.apps.ao.c.hasMarshMallow()) {
             Context appContext = AppRuntime.getAppContext();
             return appContext != null && ActivityCompat.checkSelfPermission(appContext, "android.permission.VIBRATE") == 0;
@@ -78,11 +78,11 @@ public class a {
         return true;
     }
 
-    public void aQs() {
+    public void aQt() {
         cT(15L);
     }
 
-    public void aQt() {
+    public void aQu() {
         cT(400L);
     }
 

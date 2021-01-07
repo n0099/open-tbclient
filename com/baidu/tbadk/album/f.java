@@ -36,7 +36,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public g bnu() {
+    public g bnv() {
         this.mAlbumHashMap.clear();
         g gVar = new g();
         List<ImageFileInfo> imageList = getImageList();
@@ -78,7 +78,7 @@ public class f {
                     if (f.this.TIEBA.equals(aVar2.getName())) {
                         return 1;
                     }
-                    long sortTime = aVar2.bnp().getSortTime() - aVar.bnp().getSortTime();
+                    long sortTime = aVar2.bnq().getSortTime() - aVar.bnq().getSortTime();
                     if (sortTime == 0) {
                         return 0;
                     }
@@ -152,7 +152,7 @@ public class f {
                                     aVar.setAlbumId(string);
                                     aVar.setName(string2);
                                     aVar.addCount();
-                                    if (aVar.bnp() == null) {
+                                    if (aVar.bnq() == null) {
                                         aVar.a(imageFileInfo);
                                     }
                                     List<MediaFileInfo> fileList = aVar.getFileList();
@@ -283,7 +283,7 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: p */
         public g doInBackground(Object... objArr) {
-            return f.this.bnu();
+            return f.this.bnv();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */

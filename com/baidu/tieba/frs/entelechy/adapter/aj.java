@@ -79,16 +79,16 @@ public class aj extends com.baidu.tieba.frs.k<bz, AutoVideoCardViewHolder<bz>> i
                         com.baidu.tieba.frs.b.a.a(bzVar, 1, aj.this.mPageId, aj.this.jpq, aj.this.getTbPageTag());
                     }
                     if (view.getId() == R.id.thread_card_root) {
-                        com.baidu.tieba.frs.b.c.cMI().a(aj.this.jpq, bzVar, 1);
+                        com.baidu.tieba.frs.b.c.cMJ().a(aj.this.jpq, bzVar, 1);
                         aj.this.as(bzVar);
                     } else if (view.getId() == R.id.card_home_page_normal_thread_user_icon) {
                         TiebaStatic.log(new aq(CommonStatisticKey.USER_ICON_VISIT).an("obj_type", 3));
                     } else if (view.getId() == R.id.user_name || view.getId() == R.id.user_avatar) {
-                        com.baidu.tieba.frs.b.c.cMI().a(aj.this.jpq, bzVar, 2);
+                        com.baidu.tieba.frs.b.c.cMJ().a(aj.this.jpq, bzVar, 2);
                     } else if (view.getId() == R.id.header_divider) {
-                        com.baidu.tieba.frs.d.k.a(aj.this.jpq, bzVar.boP());
+                        com.baidu.tieba.frs.d.k.a(aj.this.jpq, bzVar.boQ());
                     } else if (view.getId() == R.id.operable_video_container) {
-                        com.baidu.tieba.frs.b.c.cMI().a(aj.this.jpq, bzVar, 4);
+                        com.baidu.tieba.frs.b.c.cMJ().a(aj.this.jpq, bzVar, 4);
                         aj.this.as(bzVar);
                     } else if (view instanceof ThreadGodReplyLayout) {
                         aj.this.as(bzVar);
@@ -116,7 +116,7 @@ public class aj extends com.baidu.tieba.frs.k<bz, AutoVideoCardViewHolder<bz>> i
                     if (sb.length() > 0) {
                         sb.deleteCharAt(sb.length() - 1);
                     }
-                    TiebaStatic.log(new aq("c11974").dX("obj_locate", sb.toString()).dX("fid", atVar.getFid()).dX("tid", atVar.getTid()).dX(IntentConfig.NID, atVar.bpO()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("source", atVar.source).dX("weight", atVar.weight).dX("ab_tag", atVar.abTag).dX("extra", atVar.extra).an(IntentConfig.CARD_TYPE, atVar.cardType).an("obj_floor", atVar.eQR));
+                    TiebaStatic.log(new aq("c11974").dX("obj_locate", sb.toString()).dX("fid", atVar.getFid()).dX("tid", atVar.getTid()).dX(IntentConfig.NID, atVar.bpP()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("source", atVar.source).dX("weight", atVar.weight).dX("ab_tag", atVar.abTag).dX("extra", atVar.extra).an(IntentConfig.CARD_TYPE, atVar.cardType).an("obj_floor", atVar.eQR));
                 }
             }
         };
@@ -234,8 +234,8 @@ public class aj extends com.baidu.tieba.frs.k<bz, AutoVideoCardViewHolder<bz>> i
         if (this.jeH != null && this.jeH.getForum() != null && !StringUtils.isNull(this.jeH.getForum().getTopic_special_icon()) && !StringUtils.isNull(this.jeH.getForum().getTopic_special_icon_right())) {
             bzVar.dK(this.jeH.getForum().getTopic_special_icon(), this.jeH.getForum().getTopic_special_icon_right());
         }
-        boolean z = (bzVar.brq() == null || bzVar.brq().getUserId() == null || !bzVar.brq().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
-        if (bzVar.bsI() && bzVar.getFeedBackReasonMap() != null && !z) {
+        boolean z = (bzVar.brr() == null || bzVar.brr().getUserId() == null || !bzVar.brr().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+        if (bzVar.bsJ() && bzVar.getFeedBackReasonMap() != null && !z) {
             autoVideoCardViewHolder.aK(true).a(this.hnM);
         }
         if (!bzVar.isBjh()) {
@@ -247,11 +247,11 @@ public class aj extends com.baidu.tieba.frs.k<bz, AutoVideoCardViewHolder<bz>> i
         if (this.jpq != null) {
             bzVar.eQR = (i + 1) - (this.jeH != null ? this.jeH.getTopThreadSize() : 0);
         }
-        com.baidu.tieba.frs.b.c.cMI().a(this.jpq, bzVar);
-        com.baidu.tieba.frs.b.c.cMI().ay(bzVar);
-        com.baidu.tieba.frs.b.c.cMI().a(bzVar, cEM());
+        com.baidu.tieba.frs.b.c.cMJ().a(this.jpq, bzVar);
+        com.baidu.tieba.frs.b.c.cMJ().ay(bzVar);
+        com.baidu.tieba.frs.b.c.cMJ().a(bzVar, cEN());
         com.baidu.tieba.frs.b.a.a(bzVar, this.mPageId, this.jpq, getTbPageTag());
-        bzVar.bsE();
+        bzVar.bsF();
         return autoVideoCardViewHolder.getView();
     }
 
@@ -260,18 +260,18 @@ public class aj extends com.baidu.tieba.frs.k<bz, AutoVideoCardViewHolder<bz>> i
             return null;
         }
         com.baidu.tieba.play.o oVar = new com.baidu.tieba.play.o();
-        oVar.mLocate = bzVar.bsB() ? "3" : "2";
+        oVar.mLocate = bzVar.bsC() ? "3" : "2";
         if (this.jpq.jGp == 501) {
             oVar.mLocate = "frs_tab";
         }
         oVar.fPy = this.jpq.jGo;
         oVar.anD = bzVar.getTid();
         oVar.mSource = bzVar.mRecomSource;
-        oVar.mDH = bzVar.eVh;
-        oVar.mDI = bzVar.mRecomWeight;
-        oVar.mDL = bzVar.mRecomAbTag;
-        if (bzVar.brH() != null) {
-            oVar.mDM = bzVar.brH().video_md5;
+        oVar.mDG = bzVar.eVh;
+        oVar.mDH = bzVar.mRecomWeight;
+        oVar.mDK = bzVar.mRecomAbTag;
+        if (bzVar.brI() != null) {
+            oVar.mDL = bzVar.brI().video_md5;
         }
         return oVar;
     }
@@ -286,7 +286,7 @@ public class aj extends com.baidu.tieba.frs.k<bz, AutoVideoCardViewHolder<bz>> i
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 
@@ -296,7 +296,7 @@ public class aj extends com.baidu.tieba.frs.k<bz, AutoVideoCardViewHolder<bz>> i
 
     /* JADX INFO: Access modifiers changed from: private */
     public void as(bz bzVar) {
-        TiebaStatic.log(new aq("c12126").dX("tid", bzVar.getId()).an("obj_locate", cEM() ? 2 : 1).w("obj_id", bzVar.brJ() == null ? -1L : bzVar.brJ().live_id).an("obj_type", 1));
+        TiebaStatic.log(new aq("c12126").dX("tid", bzVar.getId()).an("obj_locate", cEN() ? 2 : 1).w("obj_id", bzVar.brK() == null ? -1L : bzVar.brK().live_id).an("obj_type", 1));
     }
 
     @Override // com.baidu.tieba.card.z

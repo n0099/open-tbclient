@@ -29,13 +29,13 @@ public class c extends com.baidu.tieba.homepage.a<com.baidu.tieba.card.data.e, T
         int i = 0;
         int id = view.getId();
         if (id == R.id.thread_card_root) {
-            TiebaStatic.log(eVar.cvt());
+            TiebaStatic.log(eVar.cvu());
         } else if (id == R.id.user_avatar || id == R.id.user_name) {
             i = 2;
         } else if (id == R.id.cover_img || id == R.id.bottom_mask) {
         }
         if (i != 0) {
-            com.baidu.tieba.homepage.personalize.a.a.a(eVar.eMv, this.fJu, eVar.cvm(), i);
+            com.baidu.tieba.homepage.personalize.a.a.a(eVar.eMv, this.fJu, eVar.cvn(), i);
         }
     }
 
@@ -46,9 +46,9 @@ public class c extends com.baidu.tieba.homepage.a<com.baidu.tieba.card.data.e, T
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, com.baidu.tieba.card.data.e eVar) {
-                com.baidu.tieba.card.s.cva().mG(true);
-                com.baidu.tieba.a.d.bOm().dR("page_recommend", "show_");
-                if (view != null && eVar != null && eVar.boO() != null && !StringUtils.isNull(eVar.boO().getTid())) {
+                com.baidu.tieba.card.s.cvb().mG(true);
+                com.baidu.tieba.a.d.bOn().dR("page_recommend", "show_");
+                if (view != null && eVar != null && eVar.boP() != null && !StringUtils.isNull(eVar.boP().getTid())) {
                     c.this.a(view, eVar);
                 }
             }
@@ -102,16 +102,16 @@ public class c extends com.baidu.tieba.homepage.a<com.baidu.tieba.card.data.e, T
         threadCardViewHolder.ty().setPosition(i);
         threadCardViewHolder.ty().setPage(this.aji);
         threadCardViewHolder.aK(true).a(this.ggi);
-        threadCardViewHolder.a(eVar.boY(), this.jVS);
+        threadCardViewHolder.a(eVar.boZ(), this.jVS);
         threadCardViewHolder.b((ThreadCardViewHolder<com.baidu.tieba.card.data.e>) eVar);
         threadCardViewHolder.ty().a(this.ahf);
         threadCardViewHolder.ty().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.card.s.cva().e(eVar.cvv());
+        com.baidu.tieba.card.s.cvb().e(eVar.cvw());
         return threadCardViewHolder.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 

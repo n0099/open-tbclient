@@ -17,7 +17,7 @@ public class PersonBarModel extends BdBaseModel {
     private String mId;
     private boolean mIsHost;
     private int mSex;
-    private int msf;
+    private int mse;
 
     static {
         task.setResponsedClass(PersonBarResponseMessage.class);
@@ -42,26 +42,26 @@ public class PersonBarModel extends BdBaseModel {
         this.mSex = i;
     }
 
-    public boolean Zp() {
+    public boolean Zq() {
         return this.mIsHost;
     }
 
     public void If(int i) {
-        this.msf = i;
+        this.mse = i;
     }
 
-    public b dze() {
+    public b dzf() {
         return this.mData;
     }
 
-    public void dzc() {
+    public void dzd() {
         super.sendMessage(new PersonBarByUidLocalMessage());
     }
 
     public void a(boolean z, String str, int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(1002002);
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        if (!Zp()) {
+        if (!Zq()) {
             httpMessage.addParam("friend_uid", str);
             httpMessage.addParam("is_guest", String.valueOf(1));
             httpMessage.setExtra(str);
@@ -81,17 +81,17 @@ public class PersonBarModel extends BdBaseModel {
         return false;
     }
 
-    public void QI(String str) {
-        if (this.msf == 1 && this.mIsHost) {
+    public void QH(String str) {
+        if (this.mse == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
             }
             if (str != null) {
                 try {
-                    l<String> Bn = com.baidu.tbadk.core.c.a.btS().Bn("tb.my_pages");
-                    if (Bn != null) {
-                        Bn.set(str2, str, 604800000L);
+                    l<String> Bm = com.baidu.tbadk.core.c.a.btT().Bm("tb.my_pages");
+                    if (Bm != null) {
+                        Bm.set(str2, str, 604800000L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

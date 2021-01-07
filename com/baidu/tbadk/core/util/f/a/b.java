@@ -57,7 +57,7 @@ public class b extends a {
     private boolean fgy = false;
     private boolean fgz = false;
 
-    public static b bwV() {
+    public static b bwW() {
         return new b();
     }
 
@@ -153,7 +153,7 @@ public class b extends a {
         return this;
     }
 
-    public b Cr(String str) {
+    public b Cq(String str) {
         int sF = com.baidu.tbadk.core.util.f.c.a.sF(str);
         this.fgi = sF;
         this.ffY = true;
@@ -341,7 +341,7 @@ public class b extends a {
         return this;
     }
 
-    private GradientDrawable.Orientation bwW() {
+    private GradientDrawable.Orientation bwX() {
         GradientDrawable.Orientation orientation = GradientDrawable.Orientation.TOP_BOTTOM;
         String str = this.ffX;
         char c = 65535;
@@ -420,7 +420,7 @@ public class b extends a {
     private GradientDrawable w(int i, int i2, int i3, int i4) {
         GradientDrawable gradientDrawable;
         if (this.fgb && this.ffU != null && this.ffU.length > 1) {
-            gradientDrawable = new GradientDrawable(bwW(), this.ffU);
+            gradientDrawable = new GradientDrawable(bwX(), this.ffU);
             gradientDrawable.setGradientType(this.ffW);
             switch (this.ffW) {
                 case 1:
@@ -456,7 +456,7 @@ public class b extends a {
 
     public void bz(View view) {
         if (view != null) {
-            bwX();
+            bwY();
             if (this.mType == 2) {
                 if (view instanceof ImageView) {
                     ((ImageView) view).setImageDrawable(this.ffP);
@@ -467,40 +467,40 @@ public class b extends a {
         }
     }
 
-    public StateListDrawable bwX() {
-        this.ffP = bwY();
+    public StateListDrawable bwY() {
+        this.ffP = bwZ();
         return this.ffP;
     }
 
-    public StateListDrawable bwY() {
+    public StateListDrawable bwZ() {
         StateListDrawable stateListDrawable = new StateListDrawable();
-        Drawable bwZ = bwZ();
-        if (bwZ != null) {
-            stateListDrawable.addState(new int[]{-16842910}, bwZ);
-        }
         Drawable bxa = bxa();
         if (bxa != null) {
-            stateListDrawable.addState(new int[]{16842919}, bxa);
+            stateListDrawable.addState(new int[]{-16842910}, bxa);
         }
         Drawable bxb = bxb();
         if (bxb != null) {
-            stateListDrawable.addState(new int[]{16842913}, bxb);
+            stateListDrawable.addState(new int[]{16842919}, bxb);
         }
         Drawable bxc = bxc();
         if (bxc != null) {
-            stateListDrawable.addState(new int[]{16842908}, bxc);
+            stateListDrawable.addState(new int[]{16842913}, bxc);
         }
         Drawable bxd = bxd();
-        if (bxd == null) {
-            bxd = new ColorDrawable(0);
-        }
         if (bxd != null) {
-            stateListDrawable.addState(new int[0], bxd);
+            stateListDrawable.addState(new int[]{16842908}, bxd);
+        }
+        Drawable bxe = bxe();
+        if (bxe == null) {
+            bxe = new ColorDrawable(0);
+        }
+        if (bxe != null) {
+            stateListDrawable.addState(new int[0], bxe);
         }
         return stateListDrawable;
     }
 
-    public Drawable bwZ() {
+    public Drawable bxa() {
         Drawable drawable = this.ffG;
         if (this.ffK) {
             drawable = this.ffG;
@@ -511,7 +511,7 @@ public class b extends a {
         return drawable;
     }
 
-    public Drawable bxa() {
+    public Drawable bxb() {
         Drawable drawable = this.ffJ;
         if (this.ffL) {
             return this.ffJ;
@@ -522,7 +522,7 @@ public class b extends a {
         return drawable;
     }
 
-    public Drawable bxb() {
+    public Drawable bxc() {
         Drawable drawable = this.ffH;
         if (this.ffM) {
             return this.ffH;
@@ -533,7 +533,7 @@ public class b extends a {
         return drawable;
     }
 
-    public Drawable bxc() {
+    public Drawable bxd() {
         Drawable drawable = this.ffI;
         if (this.ffN) {
             return this.ffI;
@@ -544,7 +544,7 @@ public class b extends a {
         return drawable;
     }
 
-    public Drawable bxd() {
+    public Drawable bxe() {
         Drawable drawable = this.evU;
         if (this.evU == null) {
             return w(this.eYA, this.fgi, this.fgn, this.ffR);

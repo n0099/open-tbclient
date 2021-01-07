@@ -16,7 +16,7 @@ public class m extends a {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized m cXF() {
+    public static synchronized m cXG() {
         m mVar;
         synchronized (m.class) {
             if (kBz == null) {
@@ -45,7 +45,7 @@ public class m extends a {
             String str2 = HEAD;
             try {
                 try {
-                    cursor = h.cXs().rawQuery("select * from " + sb.append(str2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = h.cXt().rawQuery("select * from " + sb.append(str2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == 0 || !cursor.moveToNext()) {
@@ -75,7 +75,7 @@ public class m extends a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        Nb(str);
+                        Na(str);
                         com.baidu.adp.lib.util.n.close((Cursor) cursor);
                         str2 = cursor;
                         return commonMsgPojo;

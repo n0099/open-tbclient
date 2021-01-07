@@ -1,5 +1,5 @@
 package com.baidu.cesium.c.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 interface i {
     int a(int i);
 

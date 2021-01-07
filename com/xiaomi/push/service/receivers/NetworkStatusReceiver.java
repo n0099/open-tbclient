@@ -23,49 +23,49 @@ import java.util.concurrent.TimeUnit;
 public class NetworkStatusReceiver extends BroadcastReceiver {
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f1006b;
+    private boolean f1007b;
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f14615a = 1;
+    private static int f14616a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    private static int f14616b = 1;
+    private static int f14617b = 1;
     private static int c = 2;
 
     /* renamed from: a  reason: collision with other field name */
-    private static BlockingQueue<Runnable> f1003a = new LinkedBlockingQueue();
+    private static BlockingQueue<Runnable> f1004a = new LinkedBlockingQueue();
 
     /* renamed from: a  reason: collision with other field name */
-    private static ThreadPoolExecutor f1004a = new ThreadPoolExecutor(f14615a, f14616b, c, TimeUnit.SECONDS, f1003a);
+    private static ThreadPoolExecutor f1005a = new ThreadPoolExecutor(f14616a, f14617b, c, TimeUnit.SECONDS, f1004a);
 
     /* renamed from: a  reason: collision with other field name */
-    private static boolean f1005a = false;
+    private static boolean f1006a = false;
 
     public NetworkStatusReceiver() {
-        this.f1006b = false;
-        this.f1006b = true;
+        this.f1007b = false;
+        this.f1007b = true;
     }
 
     public NetworkStatusReceiver(Object obj) {
-        this.f1006b = false;
-        f1005a = true;
+        this.f1007b = false;
+        f1006a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context) {
-        if (!aq.a(context).m106a() && b.m113a(context).m122c() && !b.m113a(context).m124e()) {
+        if (!aq.a(context).m117a() && b.m124a(context).m133c() && !b.m124a(context).m135e()) {
             try {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(context, "com.xiaomi.push.service.XMPushService"));
                 intent.setAction("com.xiaomi.push.network_status_changed");
-                bb.a(context).m577a(intent);
+                bb.a(context).m588a(intent);
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
             }
         }
-        gx.m349a(context);
-        if (az.b(context) && aq.a(context).m109b()) {
-            aq.a(context).m110c();
+        gx.m360a(context);
+        if (az.b(context) && aq.a(context).m120b()) {
+            aq.a(context).m121c();
         }
         if (az.b(context)) {
             if ("syncing".equals(ag.a(context).a(av.DISABLE_PUSH))) {
@@ -96,14 +96,14 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     }
 
     public static boolean a() {
-        return f1005a;
+        return f1006a;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (this.f1006b) {
+        if (this.f1007b) {
             return;
         }
-        f1004a.execute(new a(this, context));
+        f1005a.execute(new a(this, context));
     }
 }

@@ -50,8 +50,8 @@ public class d extends BdBaseModel {
     private as hKn;
     private int hKs;
     private BdAlertDialog hKz;
-    private AlaGetVerifyStrategyResponseHttpMessage orI;
-    private a.InterfaceC0901a orq;
+    private AlaGetVerifyStrategyResponseHttpMessage orH;
+    private a.InterfaceC0939a orp;
 
     public d(BdPageContext<?> bdPageContext) {
         super(bdPageContext);
@@ -65,7 +65,7 @@ public class d extends BdBaseModel {
                     if (httpResponsedMessage.getError() != 0 || httpResponsedMessage.hasError()) {
                         UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem("1534", "create_live", UbcStatConstant.Page.VOICE_CREATE_ROOM, null), httpResponsedMessage, true);
                     }
-                    d.this.hKn = ((AlaUpdateLiveTbResponseMessage) httpResponsedMessage).clM();
+                    d.this.hKn = ((AlaUpdateLiveTbResponseMessage) httpResponsedMessage).clN();
                     if (d.this.hKn != null) {
                         if (d.this.hKn.mErrorCode == 0) {
                             JSONObject jSONObject = new JSONObject();
@@ -88,7 +88,7 @@ public class d extends BdBaseModel {
                             d.this.hKj.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    d.this.cmi();
+                                    d.this.cmj();
                                 }
                             }, 200L);
                             return;
@@ -142,12 +142,12 @@ public class d extends BdBaseModel {
                     }
                     if (httpResponsedMessage.getError() == 0) {
                         if (alaGetVerifyStrategyResponseHttpMessage.hJG != 1 || alaGetVerifyStrategyResponseHttpMessage.hJE != 1 || alaGetVerifyStrategyResponseHttpMessage.hJJ != 1) {
-                            d.this.orI = alaGetVerifyStrategyResponseHttpMessage;
+                            d.this.orH = alaGetVerifyStrategyResponseHttpMessage;
                             if (alaGetVerifyStrategyResponseHttpMessage.hJJ != 1) {
                                 d.this.hKj.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.2.2
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        d.this.cmh();
+                                        d.this.cmi();
                                     }
                                 }, 200L);
                                 return;
@@ -163,7 +163,7 @@ public class d extends BdBaseModel {
                                 return;
                             }
                         }
-                        d.this.orI = null;
+                        d.this.orH = null;
                     }
                 }
             }
@@ -174,21 +174,21 @@ public class d extends BdBaseModel {
         registerListener(this.hKH);
     }
 
-    public void a(a.InterfaceC0901a interfaceC0901a) {
-        this.orq = interfaceC0901a;
+    public void a(a.InterfaceC0939a interfaceC0939a) {
+        this.orp = interfaceC0939a;
     }
 
-    public void cmf() {
+    public void cmg() {
         MessageManager.getInstance().sendMessage(new HttpMessage(1031028));
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem("1526", UbcStatConstant.ContentType.UBC_TYPE_STRATEGY, UbcStatConstant.Page.VOICE_CREATE_ROOM, null));
     }
 
-    public as cmm() {
+    public as cmn() {
         return this.hKn;
     }
 
     public void b(String str, String str2, String str3, int i, double d, double d2, String str4, String str5, int i2, String str6, String str7, String str8, int i3, int i4, int i5, int i6, String str9, String str10) {
-        if (!cmq()) {
+        if (!cmr()) {
             HttpMessage httpMessage = new HttpMessage(1031030);
             httpMessage.addParam("forum_name", str);
             httpMessage.addParam("forum_id", str2);
@@ -245,7 +245,7 @@ public class d extends BdBaseModel {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private boolean cmq() {
+    private boolean cmr() {
         return !ListUtils.isEmpty(MessageManager.getInstance().findMessage(1031030, getUniqueId()));
     }
 
@@ -260,12 +260,12 @@ public class d extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i, String str, int i2, Object obj) {
-        if (this.orq != null) {
-            this.orq.a(i, str, i2, obj);
+        if (this.orp != null) {
+            this.orp.a(i, str, i2, obj);
         }
     }
 
-    public void cmi() {
+    public void cmj() {
         if (this.hKz != null) {
             this.hKz.dismiss();
             this.hKz = null;
@@ -292,7 +292,7 @@ public class d extends BdBaseModel {
         bdAlertDialog.dismiss();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913086));
         this.blU.getPageActivity().finish();
-        this.orI = null;
+        this.orH = null;
         this.hKz = null;
     }
 
@@ -358,7 +358,7 @@ public class d extends BdBaseModel {
         this.hKz.show();
     }
 
-    public void cmh() {
+    public void cmi() {
         if (this.hKz != null) {
             this.hKz.dismiss();
             this.hKz = null;
@@ -371,7 +371,7 @@ public class d extends BdBaseModel {
             this.hKz.setPositiveButton(this.blU.getString(a.h.dialog_to_auth), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.7
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog) {
-                    d.this.cmg();
+                    d.this.cmh();
                     d.this.If();
                 }
             });
@@ -399,7 +399,7 @@ public class d extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cmg() {
+    public void cmh() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913222, new FaceRecognitionActivityConfig(this.blU.getPageActivity(), "")));
     }
 
@@ -409,6 +409,6 @@ public class d extends BdBaseModel {
             this.hKz.dismiss();
             this.hKz = null;
         }
-        this.orI = null;
+        this.orH = null;
     }
 }

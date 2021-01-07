@@ -12,10 +12,10 @@ import java.util.ArrayList;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f13109a = false;
+    private static boolean f13110a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f13110b = "";
+    private static String f13111b = "";
     private static String c = "";
 
     public static AInfo a(Context context) {

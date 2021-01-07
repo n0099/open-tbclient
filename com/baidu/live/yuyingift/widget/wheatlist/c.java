@@ -39,7 +39,7 @@ public class c extends BaseAdapter {
         }
     }
 
-    public boolean abp() {
+    public boolean abq() {
         if (this.cbG == null || this.cbG.size() == 0) {
             return false;
         }

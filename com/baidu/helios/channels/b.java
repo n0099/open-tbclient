@@ -9,7 +9,7 @@ public class b {
     private a awN;
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<String, com.baidu.helios.channels.a> f2469b = new HashMap();
+    private Map<String, com.baidu.helios.channels.a> f2470b = new HashMap();
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -19,11 +19,11 @@ public class b {
     public b(a aVar) {
         this.awN = aVar;
         for (com.baidu.helios.channels.a aVar2 : aVar.yM()) {
-            this.f2469b.put(aVar2.getName(), aVar2);
+            this.f2470b.put(aVar2.getName(), aVar2);
         }
     }
 
     public List<com.baidu.helios.channels.a> yL() {
-        return new ArrayList(this.f2469b.values());
+        return new ArrayList(this.f2470b.values());
     }
 }

@@ -1,7 +1,7 @@
 package com.googlecode.mp4parser.h264.model;
 
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class HRDParameters {
     public int bit_rate_scale;
     public int[] bit_rate_value_minus1;

@@ -15,10 +15,10 @@ public class aj {
     private static final ByteBuffer c = ByteBuffer.allocate(0);
 
     /* renamed from: a  reason: collision with root package name */
-    private a f3692a;
+    private a f3693a;
 
     /* renamed from: b  reason: collision with root package name */
-    private b f3693b;
+    private b f3694b;
 
     /* loaded from: classes15.dex */
     public interface a {
@@ -51,29 +51,29 @@ public class aj {
     }
 
     public aj(URI uri, a aVar) throws c {
-        this.f3692a = aVar;
+        this.f3693a = aVar;
         try {
-            this.f3693b = new b(uri, 5000, uri.toString().startsWith("wss://") ? c() : null);
-            this.f3693b.c();
+            this.f3694b = new b(uri, 5000, uri.toString().startsWith("wss://") ? c() : null);
+            this.f3694b.c();
         } catch (InterruptedException e) {
             throw new c(e);
         }
     }
 
     public void a() {
-        if (this.f3693b != null) {
-            this.f3693b.d();
+        if (this.f3694b != null) {
+            this.f3694b.d();
         }
     }
 
     public void a(JSONObject jSONObject) throws NotYetConnectedException {
-        if (this.f3693b != null) {
-            this.f3693b.a(jSONObject.toString().getBytes());
+        if (this.f3694b != null) {
+            this.f3694b.a(jSONObject.toString().getBytes());
         }
     }
 
     public boolean b() {
-        return (this.f3693b.f() || this.f3693b.g() || this.f3693b.e()) ? false : true;
+        return (this.f3694b.f() || this.f3694b.g() || this.f3694b.e()) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -89,8 +89,8 @@ public class aj {
             if (bd.c().b()) {
                 bd.c().a("onOpen");
             }
-            if (aj.this.f3692a != null) {
-                aj.this.f3692a.a();
+            if (aj.this.f3693a != null) {
+                aj.this.f3693a.a();
             }
         }
 
@@ -116,7 +116,7 @@ public class aj {
                     if (!TextUtils.isEmpty(str2)) {
                         if (str2.equals("deploy")) {
                             try {
-                                aj.this.f3692a.a(((JSONObject) jSONObject.get("data")).toString());
+                                aj.this.f3693a.a(((JSONObject) jSONObject.get("data")).toString());
                                 return;
                             } catch (Exception e3) {
                                 return;
@@ -143,8 +143,8 @@ public class aj {
                             case 801024:
                                 bc.c().a("autotrace: connect confirm");
                                 am.a().a(3);
-                                if (aj.this.f3692a != null) {
-                                    aj.this.f3692a.b();
+                                if (aj.this.f3693a != null) {
+                                    aj.this.f3693a.b();
                                     return;
                                 }
                                 return;
@@ -161,8 +161,8 @@ public class aj {
             }
             bc.c().a("autotrace: connect closed, server:" + z + " reason:" + str);
             am.a().a(5, "remote:" + z + "|reason:" + str);
-            if (aj.this.f3692a != null) {
-                aj.this.f3692a.a(z);
+            if (aj.this.f3693a != null) {
+                aj.this.f3693a.a(z);
             }
         }
 

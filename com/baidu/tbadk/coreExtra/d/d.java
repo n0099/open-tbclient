@@ -31,7 +31,7 @@ public class d {
             d dVar;
             super.handleMessage(message);
             if (message.what == 0 && (dVar = this.fBF.get()) != null) {
-                dVar.aoc();
+                dVar.aod();
             }
         }
     }
@@ -45,10 +45,10 @@ public class d {
         this.fBA.sendEmptyMessageDelayed(0, 50000L);
         this.fBC = new a();
         this.fBC.setSelfExecute(true);
-        this.fBC.execute(bDI() + str);
+        this.fBC.execute(bDJ() + str);
     }
 
-    private String bDI() {
+    private String bDJ() {
         switch (j.netType()) {
             case 1:
                 return "ping -c 3 -w 3000 ";
@@ -62,7 +62,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aoc() {
+    public void aod() {
         if (this.fBC != null) {
             this.fBC.cancel(true);
         }

@@ -63,7 +63,7 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
             }
         };
         ap(inflate(context, a.g.swan_app_menu_header_view, this));
-        setAttentionBtnStates(com.baidu.swan.apps.database.favorite.a.oj(d.aMg().getAppId()));
+        setAttentionBtnStates(com.baidu.swan.apps.database.favorite.a.oj(d.aMh().getAppId()));
     }
 
     private void ap(View view) {
@@ -71,8 +71,8 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         this.cTu = (SwanAppRoundedImageView) view.findViewById(a.f.swan_app_icon);
         this.dVq = (TextView) view.findViewById(a.f.swan_app_title);
         this.dVs = (TextView) view.findViewById(a.f.btn_item_attenion);
-        b.a aMo = d.aMg().aMc().aMo();
-        this.cTu.setImageBitmap(ak.a(aMo.getIconUrl(), "SwanAppMenuHeaderView", false, new s.a() { // from class: com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView.1
+        b.a aMp = d.aMh().aMd().aMp();
+        this.cTu.setImageBitmap(ak.a(aMp.getIconUrl(), "SwanAppMenuHeaderView", false, new s.a() { // from class: com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView.1
             @Override // com.baidu.swan.apps.ao.s.a
             public void g(String str, Bitmap bitmap) {
                 if (bitmap != null && SwanAppMenuHeaderView.this.cTu != null) {
@@ -80,7 +80,7 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
                 }
             }
         }));
-        this.dVq.setText(aMo.awx());
+        this.dVq.setText(aMp.awy());
         this.dVr.setOnTouchListener(this);
         this.dVr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView.2
             @Override // android.view.View.OnClickListener

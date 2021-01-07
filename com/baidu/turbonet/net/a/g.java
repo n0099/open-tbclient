@@ -27,7 +27,7 @@ public class g implements Executor {
         this.mUrl = str;
     }
 
-    private boolean eiP() {
+    private boolean eiQ() {
         if (this.mThreadId != -1) {
             return this.mThreadId == Thread.currentThread().getId();
         }
@@ -55,12 +55,12 @@ public class g implements Executor {
         }
     }
 
-    public void eiQ() throws IOException {
+    public void eiR() throws IOException {
         Oq(0);
     }
 
     public void Oq(int i) throws IOException {
-        if (!$assertionsDisabled && !eiP()) {
+        if (!$assertionsDisabled && !eiQ()) {
             throw new AssertionError();
         }
         long nanoTime = System.nanoTime();
@@ -88,7 +88,7 @@ public class g implements Executor {
     }
 
     public void quit() {
-        if (!$assertionsDisabled && !eiP()) {
+        if (!$assertionsDisabled && !eiQ()) {
             throw new AssertionError();
         }
         this.oMw = false;

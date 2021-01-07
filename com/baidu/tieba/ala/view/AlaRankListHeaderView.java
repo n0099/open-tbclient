@@ -82,7 +82,7 @@ public class AlaRankListHeaderView extends LinearLayout {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void bYo();
+        void bYp();
     }
 
     /* loaded from: classes11.dex */
@@ -107,7 +107,7 @@ public class AlaRankListHeaderView extends LinearLayout {
                     AlaRankListHeaderView.this.iiS = 0L;
                     AlaRankListHeaderView.this.release();
                     if (AlaRankListHeaderView.this.iiU != null) {
-                        AlaRankListHeaderView.this.iiU.bYo();
+                        AlaRankListHeaderView.this.iiU.bYp();
                     }
                 } else {
                     AlaRankListHeaderView.c(AlaRankListHeaderView.this);
@@ -135,7 +135,7 @@ public class AlaRankListHeaderView extends LinearLayout {
                     AlaRankListHeaderView.this.iiS = 0L;
                     AlaRankListHeaderView.this.release();
                     if (AlaRankListHeaderView.this.iiU != null) {
-                        AlaRankListHeaderView.this.iiU.bYo();
+                        AlaRankListHeaderView.this.iiU.bYp();
                     }
                 } else {
                     AlaRankListHeaderView.c(AlaRankListHeaderView.this);
@@ -160,7 +160,7 @@ public class AlaRankListHeaderView extends LinearLayout {
                     AlaRankListHeaderView.this.iiS = 0L;
                     AlaRankListHeaderView.this.release();
                     if (AlaRankListHeaderView.this.iiU != null) {
-                        AlaRankListHeaderView.this.iiU.bYo();
+                        AlaRankListHeaderView.this.iiU.bYp();
                     }
                 } else {
                     AlaRankListHeaderView.c(AlaRankListHeaderView.this);
@@ -281,7 +281,7 @@ public class AlaRankListHeaderView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csk() {
+    public void csl() {
         if (this.baG == null) {
             this.baG = new AnimatorSet();
         }
@@ -363,7 +363,7 @@ public class AlaRankListHeaderView extends LinearLayout {
                 @Override // java.lang.Runnable
                 public void run() {
                     if (AlaRankListHeaderView.this.boq) {
-                        AlaRankListHeaderView.this.csk();
+                        AlaRankListHeaderView.this.csl();
                     }
                     AlaRankListHeaderView.this.boq = true;
                 }
@@ -395,7 +395,7 @@ public class AlaRankListHeaderView extends LinearLayout {
                 this.iiB.setText(String.format(this.iiA.getString(a.h.hour_rank_list_count_down_tip), com.baidu.live.utils.j.c(Long.valueOf(this.iiS))));
             } else if (!this.iiP) {
                 StringBuilder sb = new StringBuilder();
-                sb.append(com.baidu.live.utils.j.Xz()).append(":00-").append("00".equals(com.baidu.live.utils.j.Xy()) ? SoUtils.SO_EVENT_ID_DEFAULT : com.baidu.live.utils.j.Xy()).append(":00");
+                sb.append(com.baidu.live.utils.j.XA()).append(":00-").append("00".equals(com.baidu.live.utils.j.Xz()) ? SoUtils.SO_EVENT_ID_DEFAULT : com.baidu.live.utils.j.Xz()).append(":00");
                 this.iiB.setText(sb);
             }
         } else if ("charm_day".equals(this.grB)) {

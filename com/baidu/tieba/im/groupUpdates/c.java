@@ -66,28 +66,28 @@ public class c extends d<UpdatesActivity> {
         this.kDS = null;
     }
 
-    public a cYn() {
+    public a cYo() {
         return this.kEe;
     }
 
-    public void cYo() {
+    public void cYp() {
         this.kEg.setVisibility(8);
         this.kEc.setVisibility(8);
         this.kEh.setVisibility(0);
         this.kEj.setVisibility(0);
-        cYq();
+        cYr();
     }
 
-    public void cYp() {
+    public void cYq() {
         this.kEg.setVisibility(0);
         this.kEc.setVisibility(0);
         this.kEh.setVisibility(8);
         this.kEj.setVisibility(8);
         Eo(0);
-        cYq();
+        cYr();
     }
 
-    public void cYq() {
+    public void cYr() {
         if (this.kEe != null) {
             this.kEe.notifyDataSetChanged();
         }
@@ -121,23 +121,23 @@ public class c extends d<UpdatesActivity> {
         ao.setBackgroundResource(this.kEi, R.drawable.btn_delete_groupupdates);
     }
 
-    public View cYr() {
+    public View cYs() {
         return this.kEc;
     }
 
-    public BdListView cYs() {
+    public BdListView cYt() {
         return this.kEd;
     }
 
-    public Button cYt() {
+    public Button cYu() {
         return this.kEg;
     }
 
-    public Button cYu() {
+    public Button cYv() {
         return this.kEh;
     }
 
-    public Button cYv() {
+    public Button cYw() {
         return this.kEi;
     }
 }

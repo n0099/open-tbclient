@@ -8,10 +8,10 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    String f6877a;
+    String f6878a;
 
     /* renamed from: b  reason: collision with root package name */
-    HashMap<String, d> f6878b = new HashMap<>();
+    HashMap<String, d> f6879b = new HashMap<>();
 
     private c() {
     }
@@ -40,15 +40,15 @@ public class c {
     }
 
     public String a() {
-        return this.f6877a;
+        return this.f6878a;
     }
 
     public void a(String str) {
-        this.f6877a = str;
+        this.f6878a = str;
     }
 
     public HashMap<String, d> b() {
-        return this.f6878b;
+        return this.f6879b;
     }
 
     public JSONObject c() {

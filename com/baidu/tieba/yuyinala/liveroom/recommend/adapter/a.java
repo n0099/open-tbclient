@@ -33,36 +33,36 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.recommend.data.a, C0908a> {
+public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.recommend.data.a, C0946a> {
     private x bzc;
     private int cardWidth;
-    private int osK;
-    private TbPageContext osL;
+    private int osJ;
+    private TbPageContext osK;
 
     public a(Context context, BdUniqueId bdUniqueId, int i, TbPageContext tbPageContext) {
         super(context, bdUniqueId);
         this.cardWidth = i;
-        this.osL = tbPageContext;
+        this.osK = tbPageContext;
     }
 
     public void Nt(int i) {
-        this.osK = i;
+        this.osJ = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: df */
-    public C0908a onCreateViewHolder(ViewGroup viewGroup) {
-        return new C0908a(LayoutInflater.from(this.mContext).inflate(a.g.ala_recommend_live_item_layout, viewGroup, false), this.mContext, this.cardWidth, this.osL);
+    public C0946a onCreateViewHolder(ViewGroup viewGroup) {
+        return new C0946a(LayoutInflater.from(this.mContext).inflate(a.g.ala_recommend_live_item_layout, viewGroup, false), this.mContext, this.cardWidth, this.osK);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.yuyinala.liveroom.recommend.data.a aVar, C0908a c0908a) {
-        c0908a.a(aVar, i, this.osK, this.bzc);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.yuyinala.liveroom.recommend.data.a aVar, C0946a c0946a) {
+        c0946a.a(aVar, i, this.osJ, this.bzc);
         return view;
     }
 
@@ -72,7 +72,7 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0908a extends TypeAdapter.ViewHolder {
+    public static class C0946a extends TypeAdapter.ViewHolder {
         private x bzc;
         private RelativeLayout[] igh;
         private TbImageView[] igi;
@@ -84,11 +84,11 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
         private Context mContext;
         private TbPageContext mPageContext;
         private int mPosition;
-        private int osK;
-        private TextView[] osM;
-        private com.baidu.tieba.yuyinala.liveroom.recommend.data.a osN;
+        private int osJ;
+        private TextView[] osL;
+        private com.baidu.tieba.yuyinala.liveroom.recommend.data.a osM;
 
-        private C0908a(View view, Context context, int i, TbPageContext tbPageContext) {
+        private C0946a(View view, Context context, int i, TbPageContext tbPageContext) {
             super(view);
             this.igr = "";
             this.mContext = context;
@@ -99,7 +99,7 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
             this.igk = new TextView[2];
             this.igl = new LinearLayout[2];
             this.igm = new TextView[2];
-            this.osM = new TextView[2];
+            this.osL = new TextView[2];
             this.igh[0] = (RelativeLayout) view.findViewById(a.f.left_content_layout);
             this.igh[1] = (RelativeLayout) view.findViewById(a.f.right_content_layout);
             this.igi[0] = (TbImageView) view.findViewById(a.f.left_cover_imageView);
@@ -112,8 +112,8 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
             this.igl[1] = (LinearLayout) view.findViewById(a.f.right_location_layout);
             this.igm[0] = (TextView) view.findViewById(a.f.left_location_textView);
             this.igm[1] = (TextView) view.findViewById(a.f.right_location_textView);
-            this.osM[0] = (TextView) view.findViewById(a.f.left_live_label);
-            this.osM[1] = (TextView) view.findViewById(a.f.right_live_label);
+            this.osL[0] = (TextView) view.findViewById(a.f.left_live_label);
+            this.osL[1] = (TextView) view.findViewById(a.f.right_live_label);
             this.igi[0].getLayoutParams().width = i;
             this.igi[0].getLayoutParams().height = i;
             this.igi[1].getLayoutParams().width = i;
@@ -126,11 +126,11 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
             this.igh[0].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (C0908a.this.osN != null) {
-                        if (C0908a.this.osN.osR != null) {
-                            C0908a.this.b(C0908a.this.osN.osR, 0, C0908a.this.osN.type);
-                        } else if (C0908a.this.osN.osS != null) {
-                            C0908a.this.b(C0908a.this.osN.osS, 0, C0908a.this.osN.type);
+                    if (C0946a.this.osM != null) {
+                        if (C0946a.this.osM.osQ != null) {
+                            C0946a.this.b(C0946a.this.osM.osQ, 0, C0946a.this.osM.type);
+                        } else if (C0946a.this.osM.osR != null) {
+                            C0946a.this.b(C0946a.this.osM.osR, 0, C0946a.this.osM.type);
                         }
                     }
                 }
@@ -138,8 +138,8 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
             this.igh[1].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (C0908a.this.osN != null && C0908a.this.osN.osS != null) {
-                        C0908a.this.b(C0908a.this.osN.osS, 1, C0908a.this.osN.type);
+                    if (C0946a.this.osM != null && C0946a.this.osM.osR != null) {
+                        C0946a.this.b(C0946a.this.osM.osR, 1, C0946a.this.osM.type);
                     }
                 }
             });
@@ -149,22 +149,22 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
             boolean z;
             int i3;
             if (aVar != null) {
-                this.osN = aVar;
+                this.osM = aVar;
                 this.mPosition = i;
-                this.osK = i2;
+                this.osJ = i2;
                 this.bzc = xVar;
-                if (aVar.osR != null) {
-                    a(aVar.osR, 0, this.osN.type);
+                if (aVar.osQ != null) {
+                    a(aVar.osQ, 0, this.osM.type);
                 }
-                if (aVar.osS != null) {
-                    if (aVar.osR == null) {
+                if (aVar.osR != null) {
+                    if (aVar.osQ == null) {
                         i3 = 0;
                         z = false;
                     } else {
                         i3 = 1;
                         z = true;
                     }
-                    a(aVar.osS, i3, this.osN.type);
+                    a(aVar.osR, i3, this.osM.type);
                 } else {
                     z = false;
                 }
@@ -187,19 +187,19 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
                 this.igl[i].setVisibility(8);
             }
             if (alaRecommendLiveData.corner_tag == 2) {
-                this.osM[i].setVisibility(0);
-                this.osM[i].setText(this.osM[i].getContext().getResources().getString(a.h.yuyin_dating));
-                this.osM[i].setBackgroundResource(a.e.shape_yuyin_dating_bg);
+                this.osL[i].setVisibility(0);
+                this.osL[i].setText(this.osL[i].getContext().getResources().getString(a.h.yuyin_dating));
+                this.osL[i].setBackgroundResource(a.e.shape_yuyin_dating_bg);
             } else {
-                this.osM[i].setVisibility(8);
+                this.osL[i].setVisibility(8);
             }
             a(UbcStatisticLiveKey.KEY_ID_1392, "show", alaRecommendLiveData, i2, i);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b(final AlaRecommendLiveData alaRecommendLiveData, final int i, final int i2) {
-            boolean jm = com.baidu.live.aq.a.aam().jm(ExtraParamsManager.getEncryptionUserId(String.valueOf(TbadkCoreApplication.getCurrentAccountId())));
-            boolean isApplying = com.baidu.live.aq.a.aam().isApplying();
+            boolean jm = com.baidu.live.aq.a.aan().jm(ExtraParamsManager.getEncryptionUserId(String.valueOf(TbadkCoreApplication.getCurrentAccountId())));
+            boolean isApplying = com.baidu.live.aq.a.aan().isApplying();
             if (jm) {
                 g gVar = new g(this.mPageContext);
                 gVar.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a.a.3
@@ -209,7 +209,7 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
 
                     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
                     public void onConfirm() {
-                        C0908a.this.c(alaRecommendLiveData, i, i2);
+                        C0946a.this.c(alaRecommendLiveData, i, i2);
                     }
                 });
                 gVar.show();
@@ -223,7 +223,7 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
 
                     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
                     public void onConfirm() {
-                        C0908a.this.c(alaRecommendLiveData, i, i2);
+                        C0946a.this.c(alaRecommendLiveData, i, i2);
                     }
                 });
                 gVar2.show();
@@ -281,8 +281,8 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
                     try {
                         if (i == 0) {
                             i3 = ((this.mPosition - 1) * 2) + i2 + 1;
-                        } else if (this.osK > 0) {
-                            i3 = ((((this.mPosition - 1) - 1) - ((int) ((this.osK / 2) + 0.9f))) * 2) + i2 + 1;
+                        } else if (this.osJ > 0) {
+                            i3 = ((((this.mPosition - 1) - 1) - ((int) ((this.osJ / 2) + 0.9f))) * 2) + i2 + 1;
                         } else {
                             i3 = ((this.mPosition - 1) * 2) + i2 + 1;
                         }

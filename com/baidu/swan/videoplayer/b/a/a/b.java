@@ -22,13 +22,13 @@ public class b extends a {
         this.eDq.a(new a.InterfaceC0568a() { // from class: com.baidu.swan.videoplayer.b.a.a.b.1
             @Override // com.baidu.swan.videoplayer.media.a.a.InterfaceC0568a
             public void aG(int i, int i2) {
-                b.this.bjD();
+                b.this.bjE();
             }
         });
     }
 
     @Override // com.baidu.swan.videoplayer.b.a.a.a, com.baidu.swan.apps.inlinewidget.f.c.a
-    public int aAc() {
+    public int aAd() {
         return this.eDr;
     }
 
@@ -69,20 +69,20 @@ public class b extends a {
         if (DEBUG) {
             Log.d("SwanInlineLiveWidget", this.dkT + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " start authorize");
         }
-        e aMl = e.aMl();
-        if (aMl == null) {
+        e aMm = e.aMm();
+        if (aMm == null) {
             if (DEBUG) {
                 throw new RuntimeException("inline live authorize: swan app is null");
             }
             bVar.L(0);
-        } else if (com.baidu.swan.apps.ad.a.a.aIC()) {
+        } else if (com.baidu.swan.apps.ad.a.a.aID()) {
             this.eDr = 1;
             if (DEBUG) {
                 Log.d("SwanInlineLiveWidget", this.dkT + Constants.ACCEPT_TIME_SEPARATOR_SERVER + hashCode() + " authorize debug: true");
             }
             bVar.L(Integer.valueOf(this.eDr));
         } else {
-            aMl.aMw().b(context, "mapp_i_live_player", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.videoplayer.b.a.a.b.3
+            aMm.aMx().b(context, "mapp_i_live_player", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.videoplayer.b.a.a.b.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
@@ -108,7 +108,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.swan.videoplayer.b.a.a.a
-    public void bjC() {
+    public void bjD() {
     }
 
     @Override // com.baidu.swan.videoplayer.b.a.a.a

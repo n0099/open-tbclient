@@ -87,7 +87,7 @@ public class b implements com.baidu.adp.lib.c.b {
         }
     };
 
-    public static b dfw() {
+    public static b dfx() {
         if (les == null) {
             synchronized (b.class) {
                 if (les == null) {
@@ -261,9 +261,9 @@ public class b implements com.baidu.adp.lib.c.b {
                 b.this.lastLocationTime = System.currentTimeMillis();
                 b.this.leu = address;
                 b.this.lem.onProviderGetLocation(0, "", b.this.leu, b.this.lastLocationTime, b.this.leq);
-                com.baidu.tieba.recapp.c.a.dFN().RR(String.valueOf(address.getLatitude()));
-                com.baidu.tieba.recapp.c.a.dFN().RQ(String.valueOf(address.getLongitude()));
-                com.baidu.tieba.recapp.c.a.dFN().hw(System.currentTimeMillis());
+                com.baidu.tieba.recapp.c.a.dFO().RQ(String.valueOf(address.getLatitude()));
+                com.baidu.tieba.recapp.c.a.dFO().RP(String.valueOf(address.getLongitude()));
+                com.baidu.tieba.recapp.c.a.dFO().hw(System.currentTimeMillis());
             }
         }
 

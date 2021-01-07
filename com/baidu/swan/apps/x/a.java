@@ -29,7 +29,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, final SwanAppActionBar swanAppActionBar, String str) {
-        final JSONObject ab = com.baidu.swan.apps.t.a.aBb().ab(context, str);
+        final JSONObject ab = com.baidu.swan.apps.t.a.aBc().ab(context, str);
         if (ab != null && swanAppActionBar != null) {
             d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.x.a.2
                 @Override // java.lang.Runnable
@@ -60,7 +60,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, final g gVar, String str) {
-        JSONObject ab = com.baidu.swan.apps.t.a.aBb().ab(context, str);
+        JSONObject ab = com.baidu.swan.apps.t.a.aBc().ab(context, str);
         if (ab != null && gVar != null) {
             bs(ab);
             final JSONArray optJSONArray = ab.optJSONArray("un_read_list");
@@ -76,7 +76,7 @@ public class a {
                                 a.bt(optJSONObject);
                             }
                         }
-                        gVar.bfi();
+                        gVar.bfj();
                     }
                 }
             });
@@ -84,18 +84,18 @@ public class a {
     }
 
     public static boolean gj(boolean z) {
-        if (e.aMl() == null) {
+        if (e.aMm() == null) {
             return false;
         }
-        e aMl = e.aMl();
-        PMSAppInfo aCL = e.aMl().aMo().aCL();
-        if (aMl.aMD() || aCL == null || TextUtils.isEmpty(aCL.paNumber)) {
+        e aMm = e.aMm();
+        PMSAppInfo aCM = e.aMm().aMp().aCM();
+        if (aMm.aME() || aCM == null || TextUtils.isEmpty(aCM.paNumber)) {
             return false;
         }
         if (z) {
             return true;
         }
-        return aMl.aMC().c("key_unread_counts_message", 0).intValue() <= 0;
+        return aMm.aMD().c("key_unread_counts_message", 0).intValue() <= 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -115,7 +115,7 @@ public class a {
             if (optInt == 7) {
                 i += optJSONObject.optInt("pa_unread_sums");
             }
-            if (ak.aRQ() && (optInt == 27 || optInt == 17)) {
+            if (ak.aRR() && (optInt == 27 || optInt == 17)) {
                 i += optJSONObject.optInt("pa_unread_sums");
             }
         }
@@ -128,16 +128,16 @@ public class a {
                 }
             }
         }
-        if (e.aMl() != null) {
-            e.aMl().aMC().b("key_unread_counts_message", Integer.valueOf(i));
+        if (e.aMm() != null) {
+            e.aMm().aMD().b("key_unread_counts_message", Integer.valueOf(i));
             return i;
         }
         return i;
     }
 
-    public static void aFR() {
-        if (e.aMl() != null) {
-            e.aMl().aMC().b("key_unread_counts_message", (Integer) 0);
+    public static void aFS() {
+        if (e.aMm() != null) {
+            e.aMm().aMD().b("key_unread_counts_message", (Integer) 0);
         }
     }
 

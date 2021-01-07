@@ -14,25 +14,25 @@ public interface h {
 
     String F(String... strArr);
 
-    SwanAppProcessInfo aJu();
-
-    boolean aJv();
+    SwanAppProcessInfo aJv();
 
     boolean aJw();
 
-    SwanAppCores aJx();
+    boolean aJx();
 
-    com.baidu.swan.apps.process.messaging.client.a aMb();
+    SwanAppCores aJy();
 
-    e aMc();
+    com.baidu.swan.apps.process.messaging.client.a aMc();
 
-    void aMd();
+    e aMd();
 
-    SwanAppActivity aMe();
+    void aMe();
 
-    com.baidu.swan.apps.adaptation.a aMi();
+    SwanAppActivity aMf();
 
-    int ajk();
+    com.baidu.swan.apps.adaptation.a aMj();
+
+    int ajl();
 
     void e(Bundle bundle, String str);
 

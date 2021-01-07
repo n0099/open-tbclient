@@ -36,7 +36,7 @@ public class AlbumImageBrowseFragment extends BaseFragment {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != AlbumImageBrowseFragment.this.bMu && view == AlbumImageBrowseFragment.this.bMt && AlbumImageBrowseFragment.this.bMs != null && AlbumImageBrowseFragment.this.bMd != null && AlbumImageBrowseFragment.this.bMr != null) {
-                if (AlbumImageBrowseFragment.this.bMd.WP()) {
+                if (AlbumImageBrowseFragment.this.bMd.WQ()) {
                     AlbumImageBrowseFragment.this.bMr.showToast(a.h.sdk_ph_album_choose_switch_tip);
                 } else if (AlbumImageBrowseFragment.this.bMs.gu(AlbumImageBrowseFragment.this.bMx)) {
                     ImageFileInfo gt = AlbumImageBrowseFragment.this.bMs.gt(AlbumImageBrowseFragment.this.bMx);
@@ -49,7 +49,7 @@ public class AlbumImageBrowseFragment extends BaseFragment {
                         AlbumImageBrowseFragment.this.a(AlbumImageBrowseFragment.this.bMt, true);
                         AlbumImageBrowseFragment.this.bMr.a(gt, true);
                     }
-                    AlbumImageBrowseFragment.this.WC();
+                    AlbumImageBrowseFragment.this.WD();
                 }
             }
         }
@@ -87,7 +87,7 @@ public class AlbumImageBrowseFragment extends BaseFragment {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.bMr = (AlbumActivity) getBaseFragmentActivity();
-        this.bMd = this.bMr.Wz();
+        this.bMd = this.bMr.WA();
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -111,30 +111,30 @@ public class AlbumImageBrowseFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void WC() {
-        this.bMr.Ww();
+    public void WD() {
+        this.bMr.Wx();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
         if (isShow()) {
-            WE();
+            WF();
         }
     }
 
-    private void WD() {
-        List<ImageFileInfo> WU;
+    private void WE() {
+        List<ImageFileInfo> WV;
         int currentIndex;
         if (this.bMd == null && this.bMr != null) {
-            this.bMd = this.bMr.Wz();
+            this.bMd = this.bMr.WA();
         }
-        if (this.bMd != null && (WU = this.bMd.WU()) != null && (currentIndex = this.bMd.getCurrentIndex()) >= 0) {
+        if (this.bMd != null && (WV = this.bMd.WV()) != null && (currentIndex = this.bMd.getCurrentIndex()) >= 0) {
             this.bMx = currentIndex;
             this.bMs = new AlbumImagePagerAdapter(this.bMr);
             this.Zk.setAdapter(this.bMs);
-            if (this.bMx == 0 && WU != null) {
-                ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(WU, this.bMx);
+            if (this.bMx == 0 && WV != null) {
+                ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(WV, this.bMx);
                 if (this.bMd.isAdded(imageFileInfo)) {
                     a(this.bMt, true);
                 } else {
@@ -146,7 +146,7 @@ public class AlbumImageBrowseFragment extends BaseFragment {
                     this.bMw.setVisibility(0);
                 }
             }
-            this.bMs.setData(WU);
+            this.bMs.setData(WV);
             this.Zk.setCurrentItem(this.bMx, false);
             dj(this.bMd.isOriginalImg());
         }
@@ -178,18 +178,18 @@ public class AlbumImageBrowseFragment extends BaseFragment {
         if (imageView != null && this.bMr != null) {
             SkinManager.setImageResource(imageView, z ? a.e.sdk_ph_ic_post_edit_select_s : a.e.sdk_ph_icon_image_clear_select);
             if (this.bMv != null) {
-                int count = this.bMd != null ? ListUtils.getCount(this.bMd.WR()) : 0;
+                int count = this.bMd != null ? ListUtils.getCount(this.bMd.WS()) : 0;
                 this.bMv.setText(this.bMr.getString(a.h.sdk_ph_image_selected_list_count_max, new Object[]{Integer.valueOf(count), Integer.valueOf(this.bMd != null ? this.bMd.getMaxImagesAllowed() : 1)}));
                 this.bMv.setEnabled(count > 0);
             }
         }
     }
 
-    private void WE() {
+    private void WF() {
         if (!isHidden()) {
             this.mNoDataView.setVisibility(8);
             this.Zk.setVisibility(0);
-            WD();
+            WE();
         }
     }
 

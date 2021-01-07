@@ -60,7 +60,7 @@ public class b {
 
     public b re(String str) {
         if (TextUtils.equals(str, "startup")) {
-            e.aHw();
+            e.aHx();
         }
         synchronized (this.dsU) {
             this.dsU.remove(str);

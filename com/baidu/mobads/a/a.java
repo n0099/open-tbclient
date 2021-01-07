@@ -5,10 +5,10 @@ import com.baidu.ar.constants.HttpConstants;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3335a = b.f3337a.booleanValue();
+    public static final boolean f3336a = b.f3338a.booleanValue();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3336b;
+    public static final int f3337b;
     public static String c;
     public static final Object d;
     public static final Object e;
@@ -29,7 +29,7 @@ public final class a {
     public static String t;
 
     static {
-        f3336b = f3335a ? 2 : 4;
+        f3337b = f3336a ? 2 : 4;
         c = "0.0";
         d = HttpConstants.OS_TYPE_VALUE;
         e = "androidlunpan";

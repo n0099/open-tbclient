@@ -14,7 +14,7 @@ import com.qq.e.comm.plugin.rewardvideo.n;
 import com.qq.e.comm.plugin.v.h;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i extends com.qq.e.comm.plugin.m.b {
     long h;
     View i;
@@ -165,7 +165,7 @@ public class i extends com.qq.e.comm.plugin.m.b {
             public void onADEvent(ADEvent aDEvent) {
                 if (aDEvent.getType() != 105) {
                     a(aDEvent);
-                } else if (i.this.f.n() > n.b(i.this.f12483a) * 1000) {
+                } else if (i.this.f.n() > n.b(i.this.f12484a) * 1000) {
                     a(new ADEvent(PlayerPostEvent.MEDIA_INFO_UNSUPPORTED_SUBTITLE, null));
                 } else {
                     a(aDEvent);

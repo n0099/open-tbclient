@@ -54,27 +54,27 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(Context context, Bundle bundle, com.baidu.swan.apps.a.a aVar) {
-        a.bQj().a(context, bundle, aVar);
+        a.bQk().a(context, bundle, aVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public boolean isLogin(Context context) {
-        return a.bQj().isLogin();
+        return a.bQk().isLogin();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getBduss(Context context) {
-        return a.bQj().getBduss();
+        return a.bQk().getBduss();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(String str, ArrayList<String> arrayList, b.a aVar) {
-        a.bQj().b(str, arrayList, aVar);
+        a.bQk().b(str, arrayList, aVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getUid(Context context) {
-        return a.bQj().getUid();
+        return a.bQk().getUid();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -94,14 +94,14 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
     @Override // com.baidu.swan.bdprivate.a.a.a
     public aa ej(Context context) {
         aa aaVar = new aa();
-        aaVar.displayName = a.bQj().getDisplayName();
-        aaVar.aWS = a.bQj().Ga();
+        aaVar.displayName = a.bQk().getDisplayName();
+        aaVar.aWS = a.bQk().Ga();
         return aaVar;
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void b(com.baidu.swan.apps.a.c cVar) {
-        a.bQj().a(cVar);
+        a.bQk().a(cVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -159,7 +159,7 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String eg(Context context) {
-        return h.aPH().getString("bd_box_ptoken", "");
+        return h.aPI().getString("bd_box_ptoken", "");
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -215,13 +215,13 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
                 }
-            }).aLx();
+            }).aLy();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(WebAuthResult webAuthResult) {
-            a.bQj().h(new com.baidu.swan.apps.a.a() { // from class: com.baidu.tieba.aiapps.apps.a.d.2.3
+            a.bQk().h(new com.baidu.swan.apps.a.a() { // from class: com.baidu.tieba.aiapps.apps.a.d.2.3
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i) {
                     if (AnonymousClass2.this.gnG != null) {
@@ -253,7 +253,7 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
         PassportSDK.getInstance().loadOneKeyLogin(activity, aQ(activity, str), new OneKeyLoginCallback() { // from class: com.baidu.tieba.aiapps.apps.a.d.3
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
             public void onSuccess(OneKeyLoginResult oneKeyLoginResult) {
-                a.bQj().h(new com.baidu.swan.apps.a.a() { // from class: com.baidu.tieba.aiapps.apps.a.d.3.1
+                a.bQk().h(new com.baidu.swan.apps.a.a() { // from class: com.baidu.tieba.aiapps.apps.a.d.3.1
                     @Override // com.baidu.swan.apps.a.a
                     public void onResult(int i) {
                         if (i == 0) {
@@ -379,11 +379,11 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(Context context, a.InterfaceC0505a interfaceC0505a) {
-        a.bQj().a(context, "1", interfaceC0505a);
+        a.bQk().a(context, "1", interfaceC0505a);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(Context context, a.InterfaceC0507a interfaceC0507a) {
-        a.bQj().a(context, "1", interfaceC0507a);
+        a.bQk().a(context, "1", interfaceC0507a);
     }
 }

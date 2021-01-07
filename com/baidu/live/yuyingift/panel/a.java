@@ -56,10 +56,10 @@ public class a {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage == null || customResponsedMessage.getCmd() == 2501074) {
-                List<AlaWheatInfoData> aap = com.baidu.live.aq.a.aam().aap();
-                List<AlaWheatInfoData> aao = com.baidu.live.aq.a.aam().aao();
+                List<AlaWheatInfoData> aaq = com.baidu.live.aq.a.aan().aaq();
+                List<AlaWheatInfoData> aap = com.baidu.live.aq.a.aan().aap();
                 if (a.this.caQ != null) {
-                    a.this.caQ.a(aap, aao, a.this.caO.bZQ);
+                    a.this.caQ.a(aaq, aap, a.this.caO.bZQ);
                 }
             }
         }
@@ -82,11 +82,11 @@ public class a {
 
         void a(List<AlaWheatInfoData> list, List<AlaWheatInfoData> list2, String[] strArr);
 
-        GiftPanelSelectMicrophoneSendView.d aaE();
+        GiftPanelSelectMicrophoneSendView.d aaF();
 
-        void aaF();
+        void aaG();
 
-        void aaN();
+        void aaO();
 
         void onClose();
     }
@@ -114,20 +114,20 @@ public class a {
         if (this.caQ != null && this.caO != null && this.caO.beY != null) {
             this.caQ.a(this.caO.beY);
         }
-        abb();
+        abc();
         Kz();
         KA();
-        abc();
+        abd();
     }
 
-    private void abb() {
+    private void abc() {
         this.caR = new com.baidu.live.personmanager.b(this.mContext);
         this.caS = new com.baidu.live.personmanager.a(this.mContext.getPageActivity());
     }
 
     public void d(final AlaWheatInfoData alaWheatInfoData) {
-        x aas = com.baidu.live.aq.a.aam().aas();
-        if (alaWheatInfoData != null && aas != null) {
+        x aat = com.baidu.live.aq.a.aan().aat();
+        if (alaWheatInfoData != null && aat != null) {
             this.caR.a(new b.a() { // from class: com.baidu.live.yuyingift.panel.a.3
                 @Override // com.baidu.live.personmanager.b.a
                 public void b(PersonUserData personUserData) {
@@ -151,13 +151,13 @@ public class a {
                     }
                 }
             });
-            p(alaWheatInfoData.uk, String.valueOf(aas.mLiveInfo.live_id), String.valueOf(aas.mLiveInfo.group_id), alaWheatInfoData.userName);
+            p(alaWheatInfoData.uk, String.valueOf(aat.mLiveInfo.live_id), String.valueOf(aat.mLiveInfo.group_id), alaWheatInfoData.userName);
         }
     }
 
-    private void abc() {
+    private void abd() {
         if (this.caQ != null) {
-            this.caQ.a(com.baidu.live.aq.a.aam().aap(), com.baidu.live.aq.a.aam().aao(), this.caO.bZQ);
+            this.caQ.a(com.baidu.live.aq.a.aan().aaq(), com.baidu.live.aq.a.aan().aap(), this.caO.bZQ);
         }
     }
 
@@ -268,7 +268,7 @@ public class a {
         MessageManager.getInstance().registerListener(this.bih);
     }
 
-    public void abd() {
+    public void abe() {
         MessageManager.getInstance().registerListener(this.caU);
     }
 
@@ -279,7 +279,7 @@ public class a {
             } else if (TextUtils.equals(alaWheatInfoData.uk, ExtraParamsManager.getEncryptionUserId(TbadkCoreApplication.getCurrentAccount()))) {
                 BdUtilHelper.showToast(this.mContext.getPageActivity(), a.h.ala_cannot_follow_myself);
             } else {
-                this.caS.u(alaWheatInfoData.uk, com.baidu.live.aq.a.aam().getCustomRoomId(), com.baidu.live.aq.a.aam().aat());
+                this.caS.u(alaWheatInfoData.uk, com.baidu.live.aq.a.aan().getCustomRoomId(), com.baidu.live.aq.a.aan().aau());
                 this.caS.a(new a.InterfaceC0201a() { // from class: com.baidu.live.yuyingift.panel.a.6
                     @Override // com.baidu.live.personmanager.a.InterfaceC0201a
                     public void Ry() {
@@ -287,8 +287,8 @@ public class a {
                             a.this.mContext.showToast(a.this.mContext.getString(a.h.sdk_attention_success_toast));
                         }
                         if (a.this.caQ != null) {
-                            a.this.caQ.aaN();
-                            a.this.caQ.aaF();
+                            a.this.caQ.aaO();
+                            a.this.caQ.aaG();
                         }
                     }
 
@@ -304,9 +304,9 @@ public class a {
     }
 
     public void a(PersonUserData personUserData, AlaWheatInfoData alaWheatInfoData, Intent intent) {
-        x aas = com.baidu.live.aq.a.aam().aas();
-        if (aas != null && aas.mLiveInfo != null) {
-            YuyinAlaPersonCardActivityConfig yuyinAlaPersonCardActivityConfig = new YuyinAlaPersonCardActivityConfig(this.mContext.getPageActivity(), "", alaWheatInfoData.uk, alaWheatInfoData.userName, alaWheatInfoData.portrait, alaWheatInfoData.sex, 0, null, null, personUserData.user_info.send_count, personUserData.user_info.fans_count, personUserData.user_info.follow_count, personUserData.relation_info.follow_status, String.valueOf(aas.mLiveInfo.group_id), String.valueOf(aas.mLiveInfo.live_id), false, null, null, alaWheatInfoData.userName, null, "");
+        x aat = com.baidu.live.aq.a.aan().aat();
+        if (aat != null && aat.mLiveInfo != null) {
+            YuyinAlaPersonCardActivityConfig yuyinAlaPersonCardActivityConfig = new YuyinAlaPersonCardActivityConfig(this.mContext.getPageActivity(), "", alaWheatInfoData.uk, alaWheatInfoData.userName, alaWheatInfoData.portrait, alaWheatInfoData.sex, 0, null, null, personUserData.user_info.send_count, personUserData.user_info.fans_count, personUserData.user_info.follow_count, personUserData.relation_info.follow_status, String.valueOf(aat.mLiveInfo.group_id), String.valueOf(aat.mLiveInfo.live_id), false, null, null, alaWheatInfoData.userName, null, "");
             yuyinAlaPersonCardActivityConfig.cacheReEnterGiftPanel(intent);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, yuyinAlaPersonCardActivityConfig));
         }
@@ -409,7 +409,7 @@ public class a {
                         }
                     }
                 });
-                this.caT.aC(com.baidu.live.aq.a.aam().getCustomRoomId(), com.baidu.live.aq.a.aam().aaq());
+                this.caT.aC(com.baidu.live.aq.a.aan().getCustomRoomId(), com.baidu.live.aq.a.aan().aar());
             }
         }
     }

@@ -15,14 +15,14 @@ import com.qq.e.comm.plugin.util.ak;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f12497a;
+    protected Context f12498a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected c f12498b;
+    protected c f12499b;
     protected com.qq.e.comm.plugin.y.c c;
     private com.qq.e.comm.plugin.ab.d.a e;
     private f f;
@@ -49,7 +49,7 @@ public class e implements i {
                 jSONObject.put("adInfo", e.this.d());
                 jSONObject.put("adSize", e.this.f());
                 jSONObject.put("setting", e.this.e());
-                jSONObject.put("cfg", e.this.f12498b.Z().a());
+                jSONObject.put("cfg", e.this.f12499b.Z().a());
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("code", 0);
                 jSONObject2.put("data", jSONObject);
@@ -84,17 +84,17 @@ public class e implements i {
                 z2 = jSONObject.optBoolean("isRenderSuc", false);
                 if (z2) {
                     try {
-                        if (e.this.f12498b.ah() && e.this.j != null && (optJSONObject = jSONObject.optJSONObject(AlaConstants.STAT_VIDEO_INFO)) != null) {
-                            float a2 = ak.a(e.this.f12497a, (float) optJSONObject.optDouble("x", 0.0d));
-                            float a3 = ak.a(e.this.f12497a, (float) optJSONObject.optDouble("y", 0.0d));
-                            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(Math.round(ak.a(e.this.f12497a, (float) optJSONObject.optDouble("width", 0.0d))), Math.round(ak.a(e.this.f12497a, (float) optJSONObject.optDouble("height", 0.0d))));
+                        if (e.this.f12499b.ah() && e.this.j != null && (optJSONObject = jSONObject.optJSONObject(AlaConstants.STAT_VIDEO_INFO)) != null) {
+                            float a2 = ak.a(e.this.f12498a, (float) optJSONObject.optDouble("x", 0.0d));
+                            float a3 = ak.a(e.this.f12498a, (float) optJSONObject.optDouble("y", 0.0d));
+                            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(Math.round(ak.a(e.this.f12498a, (float) optJSONObject.optDouble("width", 0.0d))), Math.round(ak.a(e.this.f12498a, (float) optJSONObject.optDouble("height", 0.0d))));
                             layoutParams.leftMargin = Math.round(a2);
                             layoutParams.topMargin = Math.round(a3);
                             e.this.j.setLayoutParams(layoutParams);
                         }
                         JSONObject optJSONObject2 = jSONObject.optJSONObject("adSize");
                         if (optJSONObject2 != null) {
-                            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(Math.round(ak.a(e.this.f12497a, (float) optJSONObject2.optDouble("width", 0.0d)) + 0.5f), Math.round(ak.a(e.this.f12497a, (float) optJSONObject2.optDouble("height", 0.0d)) + 0.5f));
+                            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(Math.round(ak.a(e.this.f12498a, (float) optJSONObject2.optDouble("width", 0.0d)) + 0.5f), Math.round(ak.a(e.this.f12498a, (float) optJSONObject2.optDouble("height", 0.0d)) + 0.5f));
                             layoutParams2.gravity = 17;
                             e.this.i.setLayoutParams(layoutParams2);
                         } else {
@@ -201,14 +201,14 @@ public class e implements i {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(Context context, c cVar, VideoOption2 videoOption2, i.a aVar, com.qq.e.comm.plugin.y.c cVar2) {
-        this.f12497a = context;
-        this.f12498b = cVar;
+        this.f12498a = context;
+        this.f12499b = cVar;
         this.g = aVar;
-        this.m = e.class.getSimpleName() + this.f12498b.m();
-        this.i = new a(this.f12497a);
+        this.m = e.class.getSimpleName() + this.f12499b.m();
+        this.i = new a(this.f12498a);
         a();
         g();
-        this.f = new f(this.f12497a, this.i, this.j, this.k, this.l, this.e, this.f12498b.m(), videoOption2);
+        this.f = new f(this.f12498a, this.i, this.j, this.k, this.l, this.e, this.f12499b.m(), videoOption2);
         this.c = cVar2;
         this.n = new Handler(Looper.getMainLooper());
         this.h = new AtomicBoolean(false);
@@ -228,7 +228,7 @@ public class e implements i {
     }
 
     private void g() {
-        this.e = new com.qq.e.comm.plugin.ab.d.e(this.f12497a, null, true).a();
+        this.e = new com.qq.e.comm.plugin.ab.d.e(this.f12498a, null, true).a();
         a(this.e.c());
         View b2 = this.e.b();
         b2.setBackgroundColor(0);
@@ -237,15 +237,15 @@ public class e implements i {
     }
 
     private boolean h() {
-        return this.f12498b.h();
+        return this.f12499b.h();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a() {
-        if (this.f12498b.ah()) {
-            this.j = new MediaView(this.f12497a);
-            this.k = new com.qq.e.comm.plugin.aa.b.f(this.f12497a);
-            this.l = new com.qq.e.comm.plugin.gdtnativead.a.c(this.f12497a, 1, this.f12498b.o(), this.d, false);
+        if (this.f12499b.ah()) {
+            this.j = new MediaView(this.f12498a);
+            this.k = new com.qq.e.comm.plugin.aa.b.f(this.f12498a);
+            this.l = new com.qq.e.comm.plugin.gdtnativead.a.c(this.f12498a, 1, this.f12499b.o(), this.d, false);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             layoutParams.gravity = 17;
             this.j.addView(this.k, layoutParams);
@@ -289,20 +289,20 @@ public class e implements i {
     }
 
     protected JSONObject d() throws JSONException {
-        JSONObject jSONObject = new JSONObject(this.f12498b.E().toString());
-        jSONObject.put("tpl_info", this.f12498b.m_());
+        JSONObject jSONObject = new JSONObject(this.f12499b.E().toString());
+        jSONObject.put("tpl_info", this.f12499b.m_());
         return jSONObject;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public JSONObject e() throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        VideoOption2 f = this.f12498b.f();
+        VideoOption2 f = this.f12499b.f();
         if (f != null) {
             jSONObject.put("autoPlayOnWWAN", f.getAutoPlayPolicy() != null && f.getAutoPlayPolicy().getPolicy() == VideoOption2.AutoPlayPolicy.ALWAYS.getPolicy());
             jSONObject.put("videoMuted", f.isAutoPlayMuted());
-            if (this.f12498b.v()) {
-                jSONObject.put("apkStatus", com.qq.e.comm.plugin.a.l.a().a(this.f12498b.z().d()));
+            if (this.f12499b.v()) {
+                jSONObject.put("apkStatus", com.qq.e.comm.plugin.a.l.a().a(this.f12499b.z().d()));
             }
         }
         return jSONObject;
@@ -310,8 +310,8 @@ public class e implements i {
 
     protected JSONObject f() throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("width", this.f12498b.c());
-        jSONObject.put("height", this.f12498b.d());
+        jSONObject.put("width", this.f12499b.c());
+        jSONObject.put("height", this.f12499b.d());
         jSONObject.put("isLandscape", h());
         return jSONObject;
     }

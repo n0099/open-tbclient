@@ -12,7 +12,7 @@ import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.pi.RVADI2;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.VideoAdValidity;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
     public static final int EVENT_AD_LOAD = 100;
     public static final int EVENT_CLICK = 105;
@@ -25,58 +25,58 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
     public static final int EVENT_VIDEO_CACHED = 101;
 
     /* renamed from: a  reason: collision with root package name */
-    private RVADI2 f11817a;
+    private RVADI2 f11818a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f11818b;
+    private boolean f11819b;
     private boolean c = true;
     private ExpressRewardVideoAdListener d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static class AdListenerAdapter implements ADListener {
 
         /* renamed from: a  reason: collision with root package name */
-        private ExpressRewardVideoAdListener f11819a;
+        private ExpressRewardVideoAdListener f11820a;
 
         AdListenerAdapter(ExpressRewardVideoAdListener expressRewardVideoAdListener) {
-            this.f11819a = expressRewardVideoAdListener;
+            this.f11820a = expressRewardVideoAdListener;
         }
 
         @Override // com.qq.e.comm.adevent.ADListener
         public void onADEvent(ADEvent aDEvent) {
-            if (this.f11819a == null || aDEvent == null) {
+            if (this.f11820a == null || aDEvent == null) {
                 return;
             }
             switch (aDEvent.getType()) {
                 case 100:
-                    this.f11819a.onAdLoaded();
+                    this.f11820a.onAdLoaded();
                     return;
                 case 101:
-                    this.f11819a.onVideoCached();
+                    this.f11820a.onVideoCached();
                     return;
                 case 102:
-                    this.f11819a.onShow();
+                    this.f11820a.onShow();
                     return;
                 case 103:
-                    this.f11819a.onExpose();
+                    this.f11820a.onExpose();
                     return;
                 case 104:
-                    this.f11819a.onReward();
+                    this.f11820a.onReward();
                     return;
                 case 105:
-                    this.f11819a.onClick();
+                    this.f11820a.onClick();
                     return;
                 case 106:
-                    this.f11819a.onClose();
+                    this.f11820a.onClose();
                     return;
                 case 107:
                     if (aDEvent.getParas().length <= 0 || !(aDEvent.getParas()[0] instanceof Integer)) {
                         return;
                     }
-                    this.f11819a.onError(a.a(((Integer) aDEvent.getParas()[0]).intValue()));
+                    this.f11820a.onError(a.a(((Integer) aDEvent.getParas()[0]).intValue()));
                     return;
                 case 108:
-                    this.f11819a.onVideoComplete();
+                    this.f11820a.onVideoComplete();
                     return;
                 default:
                     return;
@@ -115,11 +115,11 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.qq.e.ads.LiteAbstractAD
     protected final /* synthetic */ void a(RVADI2 rvadi2) {
-        this.f11817a = rvadi2;
-        this.f11817a.setVolumeOn(this.c);
-        if (this.f11818b) {
-            this.f11817a.loadAD();
-            this.f11818b = false;
+        this.f11818a = rvadi2;
+        this.f11818a.setVolumeOn(this.c);
+        if (this.f11819b) {
+            this.f11818a.loadAD();
+            this.f11819b = false;
         }
     }
 
@@ -131,8 +131,8 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
         if (SystemClock.elapsedRealtime() > getExpireTimestamp()) {
             return VideoAdValidity.OVERDUE;
         }
-        if (this.f11817a != null) {
-            z = this.f11817a.isVideoCached();
+        if (this.f11818a != null) {
+            z = this.f11818a.isVideoCached();
         } else {
             GDTLogger.w("don't call isVideoCached before loading AD success");
             z = false;
@@ -141,62 +141,62 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
     }
 
     public void destroy() {
-        if (this.f11817a != null) {
-            this.f11817a.destroy();
+        if (this.f11818a != null) {
+            this.f11818a.destroy();
         }
     }
 
     public String getECPMLevel() {
-        if (this.f11817a != null) {
-            return this.f11817a.getECPMLevel();
+        if (this.f11818a != null) {
+            return this.f11818a.getECPMLevel();
         }
         GDTLogger.w("don't call getECPMLevel before loading AD success");
         return null;
     }
 
     public long getExpireTimestamp() {
-        if (this.f11817a != null) {
-            return this.f11817a.getExpireTimestamp();
+        if (this.f11818a != null) {
+            return this.f11818a.getExpireTimestamp();
         }
         GDTLogger.w("don't call getExpireTimestamp before loading AD success");
         return 0L;
     }
 
     public int getVideoDuration() {
-        if (this.f11817a != null) {
-            return this.f11817a.getVideoDuration();
+        if (this.f11818a != null) {
+            return this.f11818a.getVideoDuration();
         }
         GDTLogger.w("don't call getVideoDuration before loading AD success");
         return 0;
     }
 
     public boolean hasShown() {
-        if (this.f11817a != null) {
-            return this.f11817a.hasShown();
+        if (this.f11818a != null) {
+            return this.f11818a.hasShown();
         }
         GDTLogger.w("don't call hasShown before loading AD success");
         return false;
     }
 
     public void loadAD() {
-        if (this.f11817a != null) {
-            this.f11817a.loadAD();
+        if (this.f11818a != null) {
+            this.f11818a.loadAD();
         } else {
-            this.f11818b = true;
+            this.f11819b = true;
         }
     }
 
     public void setVolumeOn(boolean z) {
-        if (this.f11817a != null) {
-            this.f11817a.setVolumeOn(z);
+        if (this.f11818a != null) {
+            this.f11818a.setVolumeOn(z);
         } else {
             this.c = z;
         }
     }
 
     public void showAD(Activity activity) {
-        if (this.f11817a != null) {
-            this.f11817a.showAD(activity);
+        if (this.f11818a != null) {
+            this.f11818a.showAD(activity);
         } else {
             GDTLogger.w("don't call showAD before loading AD success");
         }

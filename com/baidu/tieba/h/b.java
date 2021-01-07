@@ -8,7 +8,7 @@ public class b implements c {
     public static final AtomicReference<c> jQy = new AtomicReference<>(null);
     private static final c jQz = new b();
 
-    public static c cPp() {
+    public static c cPq() {
         c cVar = jQy.get();
         return cVar == null ? jQz : cVar;
     }

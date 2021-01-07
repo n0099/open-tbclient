@@ -107,14 +107,14 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
             }
         });
         ((TextView) this.mRootView.findViewById(a.f.ala_rank_list_title)).setText(a.h.ala_rank_list_pk_status_panel_title);
-        bRF();
+        bRG();
         initTabSpec();
         if (UtilHelper.canUseStyleImmersiveSticky() && UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
             i.ae(this.mRootView);
         }
     }
 
-    private void bRF() {
+    private void bRG() {
         this.grJ = (FragmentTabHost) findViewById(a.f.ala_rank_list_tabhost);
         this.grJ.setup(getSupportFragmentManager());
         this.grJ.setTabWidgetViewHeight((int) getResources().getDimension(a.d.sdk_ds80));
@@ -126,7 +126,7 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
 
     private void initTabSpec() {
         this.grK = new AlaRankListPKStatusFragmentAdapter(this, this.aMi, this.mUserId, this.grC, this.mPortrait);
-        int Gf = this.grK.Gf(this.grB);
+        int Ge = this.grK.Ge(this.grB);
         int count = this.grK.getCount();
         for (int i = 0; i < count; i++) {
             Fragment item = this.grK.getItem(i);
@@ -142,7 +142,7 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
         layoutParams.rightMargin = (int) getResources().getDimension(a.d.sdk_ds34);
         fragmentTabWidget.setLayoutParams(layoutParams);
         this.grJ.initViewPagerWithNoType();
-        this.grJ.setCurrentTab(Gf);
+        this.grJ.setCurrentTab(Ge);
     }
 
     private void a(Fragment fragment, String str) {
@@ -220,7 +220,7 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
         return false;
     }
 
-    private void bRG() {
+    private void bRH() {
         if (this instanceof Activity) {
             overridePendingTransition(a.C0203a.sdk_activity_open_translate_from_right, a.C0203a.sdk_activity_close_translate_to_right);
         } else {
@@ -230,12 +230,12 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void enterExitAnimation() {
-        bRG();
+        bRH();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void closeAnimation() {
-        bRG();
+        bRH();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity

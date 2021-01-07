@@ -148,7 +148,7 @@ public class SliderBar extends View {
 
     public void init() {
         this.dzS = new a(getXCoordinate(), getYCoordinate(), getBarLineLength());
-        this.dzR = new c(getXCoordinate() + (this.dzS.aKB() * this.bMx), getYCoordinate());
+        this.dzR = new c(getXCoordinate() + (this.dzS.aKC() * this.bMx), getYCoordinate());
     }
 
     @Override // android.view.View
@@ -214,8 +214,8 @@ public class SliderBar extends View {
     }
 
     private boolean p(float f, float f2) {
-        if (!this.dzR.aKD() && this.dzR.t(f, f2)) {
-            aKx();
+        if (!this.dzR.aKE() && this.dzR.t(f, f2)) {
+            aKy();
             return true;
         }
         this.dzU = r(f, f2);
@@ -223,7 +223,7 @@ public class SliderBar extends View {
     }
 
     private boolean H(float f) {
-        if (this.dzR.aKD()) {
+        if (this.dzR.aKE()) {
             I(f);
             return true;
         }
@@ -231,11 +231,11 @@ public class SliderBar extends View {
     }
 
     private boolean q(float f, float f2) {
-        if (this.dzR.aKD()) {
-            aKy();
+        if (this.dzR.aKE()) {
+            aKz();
             return true;
         } else if (this.dzU == r(f, f2) && this.dzU != -1) {
-            s(this.dzR.getX(), getXCoordinate() + (this.dzU * this.dzS.aKB()));
+            s(this.dzR.getX(), getXCoordinate() + (this.dzU * this.dzS.aKC()));
             this.bMx = this.dzU;
             if (this.dzT != null) {
                 this.dzT.a(this, this.bMx);
@@ -257,22 +257,22 @@ public class SliderBar extends View {
     }
 
     private boolean b(float f, float f2, int i) {
-        return Math.abs(f - (getXCoordinate() + (this.dzS.aKB() * ((float) i)))) < this.dzR.aKC() && Math.abs(f2 - getYCoordinate()) < this.dzR.aKC() * 2.0f;
+        return Math.abs(f - (getXCoordinate() + (this.dzS.aKC() * ((float) i)))) < this.dzR.aKD() && Math.abs(f2 - getYCoordinate()) < this.dzR.aKD() * 2.0f;
     }
 
-    private void aKx() {
-        this.dzR.aKE();
+    private void aKy() {
+        this.dzR.aKF();
         invalidate();
     }
 
     private void I(float f) {
-        if (f >= this.dzS.aKz() && f <= this.dzS.aKA()) {
+        if (f >= this.dzS.aKA() && f <= this.dzS.aKB()) {
             this.dzR.setX(f);
             invalidate();
         }
     }
 
-    private void aKy() {
+    private void aKz() {
         int b2 = this.dzS.b(this.dzR);
         if (this.bMx != b2) {
             this.bMx = b2;
@@ -317,7 +317,7 @@ public class SliderBar extends View {
         if (this.bMx != i) {
             this.bMx = i;
             if (this.dzR != null && this.dzS != null) {
-                this.dzR.setX(getXCoordinate() + (this.dzS.aKB() * this.bMx));
+                this.dzR.setX(getXCoordinate() + (this.dzS.aKC() * this.bMx));
                 invalidate();
             }
             if (this.dzT != null) {
@@ -429,15 +429,15 @@ public class SliderBar extends View {
             }
         }
 
-        float aKz() {
+        float aKA() {
             return this.dyT;
         }
 
-        float aKA() {
+        float aKB() {
             return this.dzX;
         }
 
-        float aKB() {
+        float aKC() {
             return this.dAa;
         }
 
@@ -508,15 +508,15 @@ public class SliderBar extends View {
             return this.mX;
         }
 
-        float aKC() {
+        float aKD() {
             return this.dAe;
         }
 
-        boolean aKD() {
+        boolean aKE() {
             return this.dAf;
         }
 
-        void aKE() {
+        void aKF() {
             this.dAf = true;
         }
 

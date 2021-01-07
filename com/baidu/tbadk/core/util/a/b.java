@@ -13,7 +13,7 @@ public class b {
     private a fed;
     private Application mApplication;
 
-    public static b bwy() {
+    public static b bwz() {
         if (fec == null) {
             synchronized (b.class) {
                 if (fec == null) {

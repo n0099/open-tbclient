@@ -21,8 +21,8 @@ public class c extends b {
     @Override // com.baidu.swan.apps.event.a.b, com.baidu.swan.apps.event.a.a
     public String oF(String str) {
         StringBuilder sb = new StringBuilder();
-        sb.append(com.baidu.swan.apps.event.a.O(str, "cuid", com.baidu.swan.apps.t.a.aAw().cd(com.baidu.swan.apps.t.a.aAr())));
-        sb.append(com.baidu.swan.apps.event.a.O(str, "mtjCuid", com.baidu.swan.apps.t.a.aAw().cd(com.baidu.swan.apps.t.a.aAr())));
+        sb.append(com.baidu.swan.apps.event.a.O(str, "cuid", com.baidu.swan.apps.t.a.aAx().cd(com.baidu.swan.apps.t.a.aAs())));
+        sb.append(com.baidu.swan.apps.event.a.O(str, "mtjCuid", com.baidu.swan.apps.t.a.aAx().cd(com.baidu.swan.apps.t.a.aAs())));
         if (this.ddw != null) {
             for (String str2 : this.ddw.keySet()) {
                 sb.append(com.baidu.swan.apps.event.a.c(str, str2, this.ddw.get(str2)));

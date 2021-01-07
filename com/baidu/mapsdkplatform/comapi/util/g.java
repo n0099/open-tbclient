@@ -6,14 +6,14 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile g f3221a = null;
+    private static volatile g f3222a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f3222b = false;
+    private boolean f3223b = false;
     private boolean c = true;
     private final List<f> d = new ArrayList();
     private f e = null;
@@ -22,14 +22,14 @@ public final class g {
     }
 
     public static g a() {
-        if (f3221a == null) {
+        if (f3222a == null) {
             synchronized (g.class) {
-                if (f3221a == null) {
-                    f3221a = new g();
+                if (f3222a == null) {
+                    f3222a = new g();
                 }
             }
         }
-        return f3221a;
+        return f3222a;
     }
 
     private boolean a(String str) {
@@ -51,10 +51,10 @@ public final class g {
 
     public void a(Context context) {
         int i = 0;
-        if (this.f3222b) {
+        if (this.f3223b) {
             return;
         }
-        this.f3222b = true;
+        this.f3223b = true;
         try {
             this.c = false;
             this.e = new f(context);

@@ -28,10 +28,10 @@ public class b extends Dialog {
     public static final int u = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f4111a;
+    private Activity f4112a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f4112b;
+    private TextView f4113b;
     private ImageView c;
     private RelativeLayout d;
     private RelativeLayout e;
@@ -91,8 +91,8 @@ public class b extends Dialog {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
-            intent.setData(Uri.fromParts("package", b.this.f4111a.getPackageName(), null));
-            b.this.f4111a.startActivityForResult(intent, b.p);
+            intent.setData(Uri.fromParts("package", b.this.f4112a.getPackageName(), null));
+            b.this.f4112a.startActivityForResult(intent, b.p);
         }
     }
 
@@ -134,7 +134,7 @@ public class b extends Dialog {
     public b(Activity activity) {
         super(activity, R.style.sapi_sdk_speech_dialog);
         this.o = 1;
-        this.f4111a = activity;
+        this.f4112a = activity;
     }
 
     public void c(int i) {
@@ -207,12 +207,12 @@ public class b extends Dialog {
         window.setGravity(80);
         window.setWindowAnimations(R.style.sapi_sdk_anim_speech);
         setContentView(R.layout.layout_sapi_sdk_dialog_speech_recognition);
-        Display defaultDisplay = this.f4111a.getWindowManager().getDefaultDisplay();
+        Display defaultDisplay = this.f4112a.getWindowManager().getDefaultDisplay();
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.width = defaultDisplay.getWidth();
         attributes.height = SapiUtils.dip2px(getContext(), 297.0f);
         getWindow().setAttributes(attributes);
-        this.f4112b = (TextView) findViewById(R.id.tips_tx);
+        this.f4113b = (TextView) findViewById(R.id.tips_tx);
         this.e = (RelativeLayout) findViewById(R.id.voice_parent_layout);
         this.c = (ImageView) findViewById(R.id.close_button);
         this.d = (RelativeLayout) findViewById(R.id.stop_speech_background_layout);
@@ -244,7 +244,7 @@ public class b extends Dialog {
     }
 
     public void a(String str) {
-        TextView textView = this.f4112b;
+        TextView textView = this.f4113b;
         if (textView != null) {
             textView.setText(str);
         }

@@ -15,10 +15,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static c f11543a;
+    private static c f11544a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static BroadcastReceiver f11544b;
+    private static BroadcastReceiver f11545b;
     private static AtomicBoolean c = new AtomicBoolean(false);
 
     private static b a(Context context) {
@@ -26,17 +26,17 @@ public class a {
     }
 
     public static c a(Context context, com.meizu.cloud.pushsdk.b.c.a aVar, f fVar) {
-        if (f11543a == null) {
+        if (f11544a == null) {
             synchronized (a.class) {
-                if (f11543a == null) {
-                    f11543a = a(b(context, aVar, fVar), (b) null, context);
+                if (f11544a == null) {
+                    f11544a = a(b(context, aVar, fVar), (b) null, context);
                 }
                 if (c.compareAndSet(false, true)) {
-                    a(context, f11543a);
+                    a(context, f11544a);
                 }
             }
         }
-        return f11543a;
+        return f11544a;
     }
 
     public static c a(Context context, f fVar) {
@@ -44,18 +44,18 @@ public class a {
     }
 
     public static c a(Context context, boolean z) {
-        if (f11543a == null) {
+        if (f11544a == null) {
             synchronized (a.class) {
-                if (f11543a == null) {
-                    f11543a = a(b(context, null, null), (b) null, context);
+                if (f11544a == null) {
+                    f11544a = a(b(context, null, null), (b) null, context);
                 }
             }
         }
         com.meizu.cloud.a.a.i("PushAndroidTracker", "can upload subject " + z);
         if (z) {
-            f11543a.a(a(context));
+            f11544a.a(a(context));
         }
-        return f11543a;
+        return f11544a;
     }
 
     private static c a(com.meizu.cloud.pushsdk.c.b.c cVar, b bVar, Context context) {
@@ -81,7 +81,7 @@ public class a {
                 }
             }
         };
-        f11544b = broadcastReceiver;
+        f11545b = broadcastReceiver;
         context.registerReceiver(broadcastReceiver, intentFilter);
     }
 

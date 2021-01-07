@@ -156,9 +156,9 @@ public class AlaChallengeMvpDynamicAnimView extends RelativeLayout {
 
     public void a(bd bdVar) {
         if (bdVar == null) {
-            cgX();
+            cgY();
         } else if (bdVar.aQI < com.baidu.live.af.a.SE().bwi.aOj) {
-            cgX();
+            cgY();
         } else {
             setVisibility(0);
             String str = bdVar.mNickName;
@@ -183,7 +183,7 @@ public class AlaChallengeMvpDynamicAnimView extends RelativeLayout {
         this.grc.startAnimation(this.hAe);
     }
 
-    public void cgX() {
+    public void cgY() {
         if (this.hAd.isAnimating()) {
             this.hAd.cancelAnimation();
         }
@@ -200,7 +200,7 @@ public class AlaChallengeMvpDynamicAnimView extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        cgX();
+        cgY();
         MessageManager.getInstance().unRegisterListener(this.hAf);
     }
 }

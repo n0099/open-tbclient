@@ -10,10 +10,10 @@ public abstract class b {
 
     abstract com.baidu.swan.apps.api.c.b a(String str, com.baidu.swan.apps.ac.c.b.b bVar);
 
-    abstract boolean aIp();
+    abstract boolean aIq();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract String aIq();
+    public abstract String aIr();
 
     abstract com.baidu.swan.apps.ac.c.b.a b(com.baidu.swan.apps.ac.c.b.b bVar);
 
@@ -21,7 +21,7 @@ public abstract class b {
 
     public final com.baidu.swan.apps.api.c.b c(com.baidu.swan.apps.ac.c.b.b bVar, com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ac.c.c.a> bVar2) {
         com.baidu.swan.apps.ac.d.a.print("open fun page start");
-        if (bVar == null || !bVar.aIm()) {
+        if (bVar == null || !bVar.aIn()) {
             com.baidu.swan.apps.ac.d.a.print("params parse fail");
             return new com.baidu.swan.apps.api.c.b(202, "params parse fail");
         }
@@ -29,7 +29,7 @@ public abstract class b {
         if (bA != null) {
             com.baidu.swan.apps.ac.d.a.print("fun page args params invalid");
             return bA;
-        } else if (aIp()) {
+        } else if (aIq()) {
             com.baidu.swan.apps.ac.d.a.print("open payment fun page");
             com.baidu.swan.apps.ac.c.b.a b2 = b(bVar);
             if (b2 == null) {
@@ -64,13 +64,13 @@ public abstract class b {
 
     private void a(final com.baidu.swan.apps.ac.c.b.b bVar, String str, final com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ac.c.c.a> bVar2) {
         com.baidu.swan.apps.ac.d.a.print("local has not main pkg, download fun page main pkg");
-        com.baidu.swan.pms.c.d.c cVar = new com.baidu.swan.pms.c.d.c(str, com.baidu.swan.apps.runtime.d.aMg().ajk());
+        com.baidu.swan.pms.c.d.c cVar = new com.baidu.swan.pms.c.d.c(str, com.baidu.swan.apps.runtime.d.aMh().ajl());
         cVar.nz(0);
         cVar.yX(bVar.duZ);
         cVar.zb("3");
         com.baidu.swan.pms.c.a(cVar, new com.baidu.swan.apps.core.pms.c.a(str, new a.InterfaceC0429a() { // from class: com.baidu.swan.apps.ac.c.d.b.1
             @Override // com.baidu.swan.apps.core.pms.c.a.InterfaceC0429a
-            public void aux() {
+            public void auy() {
                 com.baidu.swan.apps.ac.d.a.print("payment fun page, your pkg is latest");
             }
 
@@ -92,7 +92,7 @@ public abstract class b {
         int i = aVar.duU;
         com.baidu.swan.pms.c.a(new f(str, i, com.baidu.swan.apps.ac.g.b.cq(aVar.duT, aVar.duS), 0), new com.baidu.swan.apps.core.pms.e.a(str, String.valueOf(i), new com.baidu.swan.apps.core.pms.b() { // from class: com.baidu.swan.apps.ac.c.d.b.2
             @Override // com.baidu.swan.apps.core.pms.b
-            public void atZ() {
+            public void aua() {
                 b.this.a(bVar, true, (com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ac.c.c.a>) bVar2);
             }
 

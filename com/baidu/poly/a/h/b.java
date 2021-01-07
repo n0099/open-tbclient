@@ -6,7 +6,7 @@ import com.baidu.poly.util.f;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     private String action;
     private JSONObject coA;
@@ -18,7 +18,7 @@ public class b {
         this.action = str;
     }
 
-    public JSONObject afB() {
+    public JSONObject afC() {
         if (TextUtils.isEmpty(this.action)) {
             com.baidu.poly.util.d.a("statistics action can not null");
             return null;

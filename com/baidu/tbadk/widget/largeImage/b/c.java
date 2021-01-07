@@ -42,7 +42,7 @@ public class c {
     public c(com.baidu.tbadk.widget.largeImage.a.b bVar, BitmapRegionDecoder bitmapRegionDecoder) {
         this.fVy = bVar;
         this.mDecoder = bitmapRegionDecoder;
-        com.baidu.tbadk.imageManager.c.bGp().setPicMaxSize((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.7f));
+        com.baidu.tbadk.imageManager.c.bGq().setPicMaxSize((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.7f));
         this.fVG = new com.baidu.adp.lib.d.a<a.C0606a, com.baidu.tbadk.widget.largeImage.a.a>((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.3f)) { // from class: com.baidu.tbadk.widget.largeImage.b.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -66,7 +66,7 @@ public class c {
                 }
             }
         };
-        this.fIx = com.baidu.tbadk.imageManager.c.bGp().sK(this.fVy.getBlockSize());
+        this.fIx = com.baidu.tbadk.imageManager.c.bGq().sK(this.fVy.getBlockSize());
         this.fIx.setMaxIdle(6);
     }
 
@@ -74,16 +74,16 @@ public class c {
         if (aVar == null) {
             return;
         }
-        aVar.a(this, this.fVy, this.mDecoder, bKy());
+        aVar.a(this, this.fVy, this.mDecoder, bKz());
         aVar.execute(new Object[0]);
         this.taskList.add(aVar);
     }
 
-    public com.baidu.adp.lib.d.a<a.C0606a, com.baidu.tbadk.widget.largeImage.a.a> bKy() {
+    public com.baidu.adp.lib.d.a<a.C0606a, com.baidu.tbadk.widget.largeImage.a.a> bKz() {
         return this.fVG;
     }
 
-    public com.baidu.adp.lib.d.b<com.baidu.tbadk.widget.largeImage.a.a> bKz() {
+    public com.baidu.adp.lib.d.b<com.baidu.tbadk.widget.largeImage.a.a> bKA() {
         return this.fIx;
     }
 
@@ -100,41 +100,41 @@ public class c {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected Object doInBackground(Object[] objArr) {
-            com.baidu.tbadk.widget.largeImage.a.a bKv;
+            com.baidu.tbadk.widget.largeImage.a.a bKw;
             if (this.fVG != null && this.fVI.checkIsVisiable(this.row, this.column, this.sampleScale)) {
                 Rect rect = this.fVI.getRect(this.row, this.column, this.sampleScale);
                 this.fVI.checkAndResizeBitmapRegion(rect);
                 if (!isRectRegionIllegal(rect)) {
                     try {
-                        bKv = this.fVK.bKz().borrowObject();
-                        if (bKv != null) {
-                            if (!bKv.isSizeEqual(rect)) {
+                        bKw = this.fVK.bKA().borrowObject();
+                        if (bKw != null) {
+                            if (!bKw.isSizeEqual(rect)) {
                                 System.currentTimeMillis();
-                                bKv.clearBitmap();
+                                bKw.clearBitmap();
                             }
                         } else {
-                            bKv = this.fVI.bKv();
+                            bKw = this.fVI.bKw();
                         }
                     } catch (Throwable th) {
                         TbadkCoreApplication.getInst().onAppMemoryLow();
                         this.fVG.setMaxSize((int) (this.fVG.getMaxSize() * 0.8d));
                         System.gc();
                         try {
-                            bKv = this.fVI.bKv();
+                            bKw = this.fVI.bKw();
                         } catch (Throwable th2) {
                         }
                     }
                     BitmapFactory.Options options = new BitmapFactory.Options();
                     options.inSampleSize = this.sampleScale;
-                    options.inBitmap = bKv.getBitmap();
+                    options.inBitmap = bKw.getBitmap();
                     options.inMutable = true;
                     System.currentTimeMillis();
                     Bitmap decodeRegion = this.mDecoder.decodeRegion(rect, options);
                     if (decodeRegion != null) {
                         decodeRegion.prepareToDraw();
-                        bKv.setBitmap(decodeRegion);
-                        bKv.setPosition(this.row, this.column, this.sampleScale);
-                        this.fVG.put(bKv.bKu(), bKv);
+                        bKw.setBitmap(decodeRegion);
+                        bKw.setPosition(this.row, this.column, this.sampleScale);
+                        this.fVG.put(bKw.bKv(), bKw);
                         if (this.fVJ != null) {
                             this.fVJ.onLoadFinished();
                         }

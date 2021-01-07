@@ -28,12 +28,12 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> aeW() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> aeX() {
         return FrsPageHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> aeY() {
+    protected Class<? extends MvcSocketResponsedMessage> aeZ() {
         return FRSPageSocketResponsedMessage.class;
     }
 
@@ -43,17 +43,17 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int aeT() {
+    protected int aeU() {
         return 1001703;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int aeS() {
+    protected int aeT() {
         return CmdConfigSocket.CMD_FRS_PAGE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String aeM() {
+    protected String aeN() {
         return TbConfig.FRS_ADDRESS;
     }
 
@@ -61,7 +61,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
         this.cmP = frsRequestData;
     }
 
-    public FrsRequestData cMr() {
+    public FrsRequestData cMs() {
         return (FrsRequestData) this.cmP;
     }
 
@@ -90,7 +90,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
         this.jEC = mvcNetMessage;
     }
 
-    public boolean cMs() {
+    public boolean cMt() {
         return this.jEA;
     }
 
@@ -98,11 +98,11 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
         return this.mResponsedMessage;
     }
 
-    public Message cMt() {
+    public Message cMu() {
         return this.jEB;
     }
 
-    public MvcNetMessage cMu() {
+    public MvcNetMessage cMv() {
         return this.jEC;
     }
 }

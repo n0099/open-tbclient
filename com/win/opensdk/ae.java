@@ -3,5 +3,5 @@ package com.win.opensdk;
 public interface ae<T> {
     void b(PBError pBError);
 
-    void bG(T t);
+    void bH(T t);
 }

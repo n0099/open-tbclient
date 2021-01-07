@@ -17,5 +17,5 @@ public interface aj {
     @AnyThread
     void a(@NonNull String str, @NonNull Set<String> set, @NonNull a.InterfaceC0457a interfaceC0457a);
 
-    String all();
+    String alm();
 }

@@ -116,11 +116,11 @@ public class VoteCandidateCard extends CardBasicLayout {
             this.isO.setBackgroundColor(getResources().getColor(R.color.CAM_X0201));
             this.isC.setVisibility(8);
             setRankVisible(8);
-            if (this.irV.ctM() == 2 && this.ioF.ctF() == -1) {
+            if (this.irV.ctN() == 2 && this.ioF.ctG() == -1) {
                 this.ioF.yf(i);
             }
-            if (this.irV.ctM() == 2) {
-                if (this.ioF != null && this.ioF.ctF() == i) {
+            if (this.irV.ctN() == 2) {
+                if (this.ioF != null && this.ioF.ctG() == i) {
                     this.isS.setVisibility(0);
                 } else {
                     this.isS.setVisibility(8);
@@ -184,7 +184,7 @@ public class VoteCandidateCard extends CardBasicLayout {
         }
         this.isF.setData(i, fVar);
         this.isG.setData(i, fVar);
-        if (this.irV.ctL()) {
+        if (this.irV.ctM()) {
             this.isI.setVisibility(0);
         } else {
             this.isI.setVisibility(8);
@@ -219,7 +219,7 @@ public class VoteCandidateCard extends CardBasicLayout {
             ao.setBackgroundColor(this.isR, R.color.CAM_X0203, i);
         }
         if (this.irV != null) {
-            if (this.irV.ctL()) {
+            if (this.irV.ctM()) {
                 ao.setViewTextColor(this.isK, R.color.CAM_X0301, 1, i);
                 ao.setBackgroundResource(this.isJ, R.drawable.icon_use_tip_red, i);
             }

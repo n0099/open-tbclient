@@ -3,24 +3,24 @@ package com.facebook.drawee.c;
 import android.content.Context;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class a {
-    InterfaceC1020a pyq;
-    final float pyr;
-    boolean pys;
-    boolean pyt;
-    long pyu;
-    float pyv;
-    float pyw;
+    boolean pyA;
+    long pyB;
+    float pyC;
+    float pyD;
+    InterfaceC1058a pyx;
+    final float pyy;
+    boolean pyz;
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    public interface InterfaceC1020a {
-        boolean evn();
+    /* loaded from: classes4.dex */
+    public interface InterfaceC1058a {
+        boolean evu();
     }
 
     public a(Context context) {
-        this.pyr = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.pyy = ViewConfiguration.get(context).getScaledTouchSlop();
         init();
     }
 
@@ -29,51 +29,51 @@ public class a {
     }
 
     public void init() {
-        this.pyq = null;
+        this.pyx = null;
         reset();
     }
 
     public void reset() {
-        this.pys = false;
-        this.pyt = false;
+        this.pyz = false;
+        this.pyA = false;
     }
 
-    public void a(InterfaceC1020a interfaceC1020a) {
-        this.pyq = interfaceC1020a;
+    public void a(InterfaceC1058a interfaceC1058a) {
+        this.pyx = interfaceC1058a;
     }
 
-    public boolean ewq() {
-        return this.pys;
+    public boolean ewx() {
+        return this.pyz;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.pys = true;
-                this.pyt = true;
-                this.pyu = motionEvent.getEventTime();
-                this.pyv = motionEvent.getX();
-                this.pyw = motionEvent.getY();
+                this.pyz = true;
+                this.pyA = true;
+                this.pyB = motionEvent.getEventTime();
+                this.pyC = motionEvent.getX();
+                this.pyD = motionEvent.getY();
                 break;
             case 1:
-                this.pys = false;
-                if (Math.abs(motionEvent.getX() - this.pyv) > this.pyr || Math.abs(motionEvent.getY() - this.pyw) > this.pyr) {
-                    this.pyt = false;
+                this.pyz = false;
+                if (Math.abs(motionEvent.getX() - this.pyC) > this.pyy || Math.abs(motionEvent.getY() - this.pyD) > this.pyy) {
+                    this.pyA = false;
                 }
-                if (this.pyt && motionEvent.getEventTime() - this.pyu <= ViewConfiguration.getLongPressTimeout() && this.pyq != null) {
-                    this.pyq.evn();
+                if (this.pyA && motionEvent.getEventTime() - this.pyB <= ViewConfiguration.getLongPressTimeout() && this.pyx != null) {
+                    this.pyx.evu();
                 }
-                this.pyt = false;
+                this.pyA = false;
                 break;
             case 2:
-                if (Math.abs(motionEvent.getX() - this.pyv) > this.pyr || Math.abs(motionEvent.getY() - this.pyw) > this.pyr) {
-                    this.pyt = false;
+                if (Math.abs(motionEvent.getX() - this.pyC) > this.pyy || Math.abs(motionEvent.getY() - this.pyD) > this.pyy) {
+                    this.pyA = false;
                     break;
                 }
                 break;
             case 3:
-                this.pys = false;
-                this.pyt = false;
+                this.pyz = false;
+                this.pyA = false;
                 break;
         }
         return true;

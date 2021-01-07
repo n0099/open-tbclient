@@ -27,10 +27,10 @@ public final class d {
     private static d e;
 
     /* renamed from: a  reason: collision with root package name */
-    private List f1711a = new ArrayList();
+    private List f1712a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    private List f1712b = new ArrayList();
+    private List f1713b = new ArrayList();
     private com.baidu.clientupdate.download.a c;
     private b d;
 
@@ -58,10 +58,10 @@ public final class d {
             if (activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting() && this.c.g()) {
                 LogUtil.logE("LogUtils", "符合wifi下、有a6动作的上报时机");
                 b();
-                if (this.f1711a == null || this.f1711a.size() == 0) {
+                if (this.f1712a == null || this.f1712a.size() == 0) {
                     return;
                 }
-                String a6 = a(this.f1711a);
+                String a6 = a(this.f1712a);
                 if (TextUtils.isEmpty(a6)) {
                     return;
                 }
@@ -83,9 +83,9 @@ public final class d {
     private a a(Cursor cursor) {
         a aVar = new a();
         try {
-            aVar.f1706b = cursor.getString(cursor.getColumnIndex("ug"));
+            aVar.f1707b = cursor.getString(cursor.getColumnIndex("ug"));
             aVar.c = cursor.getString(cursor.getColumnIndex("nm"));
-            aVar.f1705a = cursor.getString(cursor.getColumnIndex("sessioninfo"));
+            aVar.f1706a = cursor.getString(cursor.getColumnIndex("sessioninfo"));
             aVar.d = cursor.getString(cursor.getColumnIndex(FrsActivityConfig.FLAG));
             aVar.e = new JSONArray(cursor.getString(cursor.getColumnIndex("stm")));
             aVar.f = new JSONArray(cursor.getString(cursor.getColumnIndex(Config.STAT_SDK_CHANNEL)));
@@ -158,7 +158,7 @@ public final class d {
         List list = null;
         String str = "queryAllLog";
         LogUtil.logE("LogUtils", "queryAllLog");
-        if (this.f1712b == null || this.f1712b.size() == 0) {
+        if (this.f1713b == null || this.f1713b.size() == 0) {
             try {
                 try {
                     cursor = this.c.f();
@@ -166,12 +166,12 @@ public final class d {
                         try {
                             cursor.moveToFirst();
                             while (!cursor.isAfterLast()) {
-                                this.f1712b.add(a(cursor));
+                                this.f1713b.add(a(cursor));
                                 cursor.moveToNext();
                             }
-                            this.f1711a.addAll(this.f1712b);
-                            this.f1712b = null;
-                            list = this.f1711a;
+                            this.f1712a.addAll(this.f1713b);
+                            this.f1713b = null;
+                            list = this.f1712a;
                             if (cursor != null) {
                                 cursor.close();
                             }

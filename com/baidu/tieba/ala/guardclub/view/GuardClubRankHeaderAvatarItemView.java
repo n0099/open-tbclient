@@ -38,22 +38,22 @@ public class GuardClubRankHeaderAvatarItemView extends FrameLayout {
         this.hdN = z;
         if (z) {
             this.hdL.setVisibility(0);
-            bZr();
+            bZs();
             return;
         }
-        bZs();
+        bZt();
         this.hdL.setVisibility(8);
     }
 
-    public void bZr() {
+    public void bZs() {
         if (this.hdN) {
-            bZt();
+            bZu();
             this.hdL.playAnimation();
             this.hdM.start();
         }
     }
 
-    public void bZs() {
+    public void bZt() {
         if (this.hdL != null) {
             this.hdL.cancelAnimation();
         }
@@ -69,7 +69,7 @@ public class GuardClubRankHeaderAvatarItemView extends FrameLayout {
         if (this.bTf != null) {
             this.bTf.stopLoad();
         }
-        bZs();
+        bZt();
     }
 
     private void init() {
@@ -86,7 +86,7 @@ public class GuardClubRankHeaderAvatarItemView extends FrameLayout {
         this.bTf.setDefaultErrorResource(a.e.sdk_shape_transparent);
     }
 
-    private void bZt() {
+    private void bZu() {
         this.hdL.setAnimation("live_anim_guard_join.json");
         this.hdL.loop(true);
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.aGr, "scaleX", 0.92f, 1.0f, 0.92f);

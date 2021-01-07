@@ -11,7 +11,7 @@ public final class a {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [71=9] */
     public static final <T> Class<T> a(c<T> cVar) {
         p.o(cVar, "$receiver");
-        Class<T> cls = (Class<T>) ((l) cVar).eMg();
+        Class<T> cls = (Class<T>) ((l) cVar).eMK();
         if (cls.isPrimitive()) {
             String name = cls.getName();
             if (name != null) {

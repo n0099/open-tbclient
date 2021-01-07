@@ -32,13 +32,13 @@ public class e {
 
     public void a(LinkedList<VisitedForumData> linkedList, final int i) {
         if (linkedList == null || linkedList.size() < 1) {
-            com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_RECENT_VISIT_TIP_SHOW, true);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_RECENT_VISIT_TIP_SHOW, true);
             return;
         }
         final int i2 = i(linkedList);
         if (i2 < 0) {
-            com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_RECENT_VISIT_TIP_SHOW, true);
-        } else if (!com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_RECENT_VISIT_TIP_SHOW, false)) {
+            com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_RECENT_VISIT_TIP_SHOW, true);
+        } else if (!com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_RECENT_VISIT_TIP_SHOW, false)) {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.enterForum.home.e.2
                 @Override // java.lang.Runnable
                 public void run() {
@@ -52,7 +52,7 @@ public class e {
         int size = linkedList.size();
         for (int i = 0; i < 3 && i < size; i++) {
             VisitedForumData visitedForumData = linkedList.get(i);
-            if (visitedForumData != null && visitedForumData.bEl()) {
+            if (visitedForumData != null && visitedForumData.bEm()) {
                 return i;
             }
         }
@@ -61,14 +61,14 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ck(int i, int i2) {
-        com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_RECENT_VISIT_TIP_SHOW, true);
+        com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_RECENT_VISIT_TIP_SHOW, true);
         if (this.iII == null || !this.iII.isShowing()) {
             if (this.mRootView == null) {
                 this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.enter_forum_ufan_item_tip, (ViewGroup) null);
                 this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.e.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        e.this.cyX();
+                        e.this.cyY();
                     }
                 });
             }
@@ -81,7 +81,7 @@ public class e {
         }
     }
 
-    public void cyX() {
+    public void cyY() {
         if (this.iII != null) {
             g.dismissPopupWindow(this.iII);
         }

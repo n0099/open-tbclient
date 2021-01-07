@@ -33,8 +33,8 @@ public class d {
             public void a() {
                 Bitmap q;
                 try {
-                    Intent parseUri = Intent.parseUri("baidupush://bdpush/cross?from=" + context.getPackageName() + "&to=" + crossPushMessage.f1441a, 0);
-                    parseUri.setPackage(crossPushMessage.f1441a);
+                    Intent parseUri = Intent.parseUri("baidupush://bdpush/cross?from=" + context.getPackageName() + "&to=" + crossPushMessage.f1442a, 0);
+                    parseUri.setPackage(crossPushMessage.f1442a);
                     parseUri.addFlags(268435456);
                     parseUri.putExtra("msgid", crossPushMessage.mMsgId);
                     parseUri.putExtra("notification_title", crossPushMessage.mTitle);
@@ -55,7 +55,7 @@ public class d {
                     RemoteViews remoteViews = new RemoteViews(packageName, context.getResources().getIdentifier("push_custom_notification", "layout", packageName));
                     remoteViews.setTextViewText(context.getResources().getIdentifier("push_custom_msg_title", "id", packageName), crossPushMessage.mTitle);
                     remoteViews.setTextViewText(context.getResources().getIdentifier("push_custom_msg_content", "id", packageName), crossPushMessage.mDescription);
-                    if (!TextUtils.isEmpty(crossPushMessage.f1442b) && (q = m.q(context, crossPushMessage.f1442b)) != null) {
+                    if (!TextUtils.isEmpty(crossPushMessage.f1443b) && (q = m.q(context, crossPushMessage.f1443b)) != null) {
                         remoteViews.setImageViewBitmap(context.getResources().getIdentifier("push_custom_msg_icon", "id", packageName), q);
                     }
                     remoteViews.setTextViewText(context.getResources().getIdentifier("push_custom_msg_time", "id", packageName), DateUtils.formatDateTime(context, System.currentTimeMillis(), 1));

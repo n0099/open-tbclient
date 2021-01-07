@@ -4,14 +4,14 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class AlaGetRoomPlayIntroduceHttpResponseMessage extends JsonHttpResponsedMessage {
-    private h oqB;
+    private h oqA;
 
     public AlaGetRoomPlayIntroduceHttpResponseMessage() {
         super(1031021);
     }
 
-    public h ecZ() {
-        return this.oqB;
+    public h eda() {
+        return this.oqA;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -19,10 +19,10 @@ public class AlaGetRoomPlayIntroduceHttpResponseMessage extends JsonHttpResponse
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031021) {
-            this.oqB = new h();
+            this.oqA = new h();
             if (jSONObject.has("data") && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                this.oqB.oqT = optJSONObject.optString("game_content");
-                this.oqB.oqS = optJSONObject.optString("game_title");
+                this.oqA.oqS = optJSONObject.optString("game_content");
+                this.oqA.oqR = optJSONObject.optString("game_title");
             }
         }
     }

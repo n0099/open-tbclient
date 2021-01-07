@@ -32,7 +32,7 @@ public class h extends a {
         return this.bjt;
     }
 
-    public View bGt() {
+    public View bGu() {
         return this.fJh;
     }
 
@@ -62,7 +62,7 @@ public class h extends a {
             this.subTextView.setVisibility(0);
             this.subTextView.setText(str);
         }
-        bxx();
+        bxy();
     }
 
     public void setTitle(String str) {
@@ -71,11 +71,11 @@ public class h extends a {
         }
     }
 
-    public void Eh(String str) {
+    public void Eg(String str) {
         if (str != null) {
             this.bjt.setText(str);
             this.bjt.setVisibility(0);
-            bxx();
+            bxy();
         }
     }
 
@@ -140,14 +140,14 @@ public class h extends a {
         this.fJh.setVisibility(0);
         this.bjt.setVisibility(0);
         ao.setViewTextColor(this.subTextView, R.color.CAM_X0109, 1);
-        bxx();
+        bxy();
     }
 
     public void hideRefreshButton() {
         this.fJh.setVisibility(8);
         this.bjt.setVisibility(8);
         ao.setViewTextColor(this.subTextView, R.color.CAM_X0109, 1);
-        bxx();
+        bxy();
     }
 
     public void onChangeSkinType() {
@@ -156,7 +156,7 @@ public class h extends a {
         ao.setViewTextColor(this.subTextView, this.fki, 1, skinType);
         ao.setViewTextColor(this.bjt, this.fkh, 1, skinType);
         if (this.fJh != null) {
-            this.fJh.bxO();
+            this.fJh.bxP();
         }
     }
 
@@ -164,7 +164,7 @@ public class h extends a {
         return this.attachedView;
     }
 
-    private void bxx() {
+    private void bxy() {
         if (this.fJh.getVisibility() == 0) {
             ViewGroup.LayoutParams layoutParams = this.fJi.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {

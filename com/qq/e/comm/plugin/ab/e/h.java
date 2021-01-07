@@ -2,18 +2,18 @@ package com.qq.e.comm.plugin.ab.e;
 
 import android.content.Context;
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class h implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final i f12072a = new i();
+    private final i f12073a = new i();
 
     /* renamed from: b  reason: collision with root package name */
-    private final g f12073b = new g();
+    private final g f12074b = new g();
     private final com.qq.e.comm.plugin.ab.f.i c;
 
     public h(Context context) {
-        this.c = new com.qq.e.comm.plugin.ab.f.i(context, this.f12072a, this.f12073b, null);
+        this.c = new com.qq.e.comm.plugin.ab.f.i(context, this.f12073a, this.f12074b, null);
     }
 
     @Override // com.qq.e.comm.plugin.ab.e.a
@@ -23,8 +23,8 @@ class h implements a {
 
     @Override // com.qq.e.comm.plugin.ab.e.a
     public void a(f fVar) {
-        this.f12072a.a(fVar);
-        this.f12073b.a(fVar);
+        this.f12073a.a(fVar);
+        this.f12074b.a(fVar);
     }
 
     @Override // com.qq.e.comm.plugin.ab.e.a

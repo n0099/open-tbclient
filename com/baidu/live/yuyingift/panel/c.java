@@ -67,7 +67,7 @@ public class c extends b {
     }
 
     @Override // com.baidu.live.yuyingift.panel.b
-    protected boolean abh() {
+    protected boolean abi() {
         return true;
     }
 
@@ -117,7 +117,7 @@ public class c extends b {
         }
         int Jd = this.caX.Jd();
         if (a(Jc, Jd)) {
-            long j2 = JavaTypesHelper.toLong(Jc.getPrice(), 0L) * Jd * abf();
+            long j2 = JavaTypesHelper.toLong(Jc.getPrice(), 0L) * Jd * abg();
             if (Jc.GG()) {
                 if (this.biv <= 0 || this.biv < j2) {
                     KC();
@@ -128,7 +128,7 @@ public class c extends b {
                     return false;
                 }
                 Jc.aXM.aYS = Jc.GC();
-                com.baidu.live.yuyingift.b.b.aaZ().a(Jc, Jd, this.caO.mUserId, this.caO.mUserName, this.caO.mLiveId, this.caO.mRoomId, this.caO.mAppId, this.caO.beS, this.caO.otherParams, 0L, s.ak(abe().ccd), this.cbb, this.cba);
+                com.baidu.live.yuyingift.b.b.aba().a(Jc, Jd, this.caO.mUserId, this.caO.mUserName, this.caO.mLiveId, this.caO.mRoomId, this.caO.mAppId, this.caO.beS, this.caO.otherParams, 0L, s.ak(abf().ccd), this.cbb, this.cba);
                 this.biv -= j2;
                 this.caX.aN(this.biv);
                 closeActivity();
@@ -137,14 +137,14 @@ public class c extends b {
                     BdUtilHelper.showToast(getPageContext().getPageActivity(), getPageContext().getResources().getString(a.h.ala_free_gift_flower_no_enough), 1000);
                     return false;
                 }
-                com.baidu.live.yuyingift.b.b.aaZ().a(Jc, Jd, this.caO.mUserId, this.caO.mUserName, this.caO.mLiveId, this.caO.mRoomId, this.caO.mAppId, this.caO.beS, this.caO.otherParams, 0L, s.ak(abe().ccd), this.cbb, this.cba);
+                com.baidu.live.yuyingift.b.b.aba().a(Jc, Jd, this.caO.mUserId, this.caO.mUserName, this.caO.mLiveId, this.caO.mRoomId, this.caO.mAppId, this.caO.beS, this.caO.otherParams, 0L, s.ak(abf().ccd), this.cbb, this.cba);
                 this.biw -= j2;
                 this.caX.aO(this.biw);
             } else if (this.biv <= 0 || this.biv < j2) {
                 KC();
                 return false;
             } else {
-                com.baidu.live.yuyingift.b.b.aaZ().a(Jc, Jd, this.caO.mUserId, this.caO.mUserName, this.caO.mLiveId, this.caO.mRoomId, this.caO.mAppId, this.caO.beS, this.caO.otherParams, 0L, s.ak(abe().ccd), this.cbb, this.cba);
+                com.baidu.live.yuyingift.b.b.aba().a(Jc, Jd, this.caO.mUserId, this.caO.mUserName, this.caO.mLiveId, this.caO.mRoomId, this.caO.mAppId, this.caO.beS, this.caO.otherParams, 0L, s.ak(abf().ccd), this.cbb, this.cba);
                 this.biv -= j2;
                 this.caX.aN(this.biv);
             }

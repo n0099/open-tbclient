@@ -5,16 +5,16 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class FlowableLimit<T> extends a<T, T> {
     final long n;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qgK.a((j) new LimitSubscriber(cVar, this.n));
+        this.qit.a((j) new LimitSubscriber(cVar, this.n));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class LimitSubscriber<T> extends AtomicLong implements j<T>, d {
         private static final long serialVersionUID = 2288246011222124525L;
         final org.a.c<? super T> actual;

@@ -41,12 +41,12 @@ public class d {
         }
     };
 
-    private static boolean bHn() {
+    private static boolean bHo() {
         return TbadkCoreApplication.getInst().isDebugMode();
     }
 
     private static final void h(Object obj, String str) {
-        if (bHn()) {
+        if (bHo()) {
             if (obj != null) {
                 str = obj.getClass().getSimpleName() + " : " + str;
             }
@@ -55,13 +55,13 @@ public class d {
     }
 
     public static final void printLog(String str) {
-        if (bHn()) {
+        if (bHo()) {
             Log.d("TbPageKeyHelper", str);
         }
     }
 
     private static final void a(FragmentManager fragmentManager) {
-        if (bHn()) {
+        if (bHo()) {
             List<Fragment> fragments = fragmentManager.getFragments();
             if (!x.isEmpty(fragments)) {
                 printLog("FragmentManager---->" + fragmentManager);
@@ -77,16 +77,16 @@ public class d {
     }
 
     private static final void a(c cVar) {
-        if (bHn() && cVar != null) {
+        if (bHo() && cVar != null) {
             String currentPageKey = cVar.getCurrentPageKey();
-            String bHm = cVar.bHm();
-            ArrayList<String> bHk = cVar.bHk();
+            String bHn = cVar.bHn();
             ArrayList<String> bHl = cVar.bHl();
+            ArrayList<String> bHm = cVar.bHm();
             StringBuilder sb = new StringBuilder("Current TbPageExtra:");
             sb.append("currentPageKey=").append(currentPageKey).append(",");
-            sb.append("prePageKey=").append(bHm).append(",");
-            sb.append("preList=").append(bHk.toString()).append(",");
-            sb.append("nextList=").append(bHl.toString());
+            sb.append("prePageKey=").append(bHn).append(",");
+            sb.append("preList=").append(bHl.toString()).append(",");
+            sb.append("nextList=").append(bHm.toString());
             h(cVar, sb.toString());
         }
     }
@@ -108,7 +108,7 @@ public class d {
         if (bX == null || bX.getTbFragmentExtra() == null) {
             return null;
         }
-        return bX.getTbFragmentExtra().bHj();
+        return bX.getTbFragmentExtra().bHk();
     }
 
     private static a bX(View view) {
@@ -127,13 +127,13 @@ public class d {
                     aVar = (a) tag;
                     h(viewGroup, "ITbFragmentExtraSupport From View.getTag()------->");
                     if (aVar == null && aVar.getTbFragmentExtra() != null) {
-                        BaseFragment bHj = aVar.getTbFragmentExtra().bHj();
-                        if (bHj != null && bHj.getBaseFragmentActivity() != null) {
-                            BaseFragmentActivity baseFragmentActivity = bHj.getBaseFragmentActivity();
+                        BaseFragment bHk = aVar.getTbFragmentExtra().bHk();
+                        if (bHk != null && bHk.getBaseFragmentActivity() != null) {
+                            BaseFragmentActivity baseFragmentActivity = bHk.getBaseFragmentActivity();
                             StringBuilder sb = new StringBuilder();
                             sb.append("ActivityPageKey=").append(baseFragmentActivity.getCurrentPageKey()).append(",");
-                            sb.append("FragmentPageKey=").append(bHj.getCurrentPageKey());
-                            h(bHj, sb.toString());
+                            sb.append("FragmentPageKey=").append(bHk.getCurrentPageKey());
+                            h(bHk, sb.toString());
                         }
                         return aVar;
                     }
@@ -280,15 +280,15 @@ public class d {
         return arrayList2;
     }
 
-    public static void Ek(String str) {
+    public static void Ej(String str) {
         prePageKey = str;
     }
 
-    public static String bHm() {
+    public static String bHn() {
         return prePageKey;
     }
 
-    public static void El(final String str) {
+    public static void Ek(final String str) {
         if (!StringUtil.isEmpty(str) && fLb.containsKey(str)) {
             com.baidu.adp.lib.f.e.mB().postDelayed(new Runnable() { // from class: com.baidu.tbadk.pageExtra.d.1
                 @Override // java.lang.Runnable

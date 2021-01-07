@@ -43,9 +43,9 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, com.baidu.adp.widget.ListView.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 com.baidu.tieba.card.data.k kVar;
-                if ((nVar instanceof com.baidu.tieba.card.data.k) && (kVar = (com.baidu.tieba.card.data.k) nVar) != null && kVar.eSD && kVar.eMv != null && kVar.eMv.btx() != null) {
+                if ((nVar instanceof com.baidu.tieba.card.data.k) && (kVar = (com.baidu.tieba.card.data.k) nVar) != null && kVar.eSD && kVar.eMv != null && kVar.eMv.bty() != null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put("itemID", String.valueOf(kVar.eMv.btx().item_id));
+                    hashMap.put("itemID", String.valueOf(kVar.eMv.bty().item_id));
                     hashMap.put("source", 1);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new com.baidu.tieba.tbadkCore.data.m(TbadkApplication.getInst().getApplicationContext(), "GameItemDetailsPage", hashMap)));
                 } else if ((nVar instanceof com.baidu.tieba.card.data.k) && (view.getTag() instanceof ThreadCardViewHolder)) {

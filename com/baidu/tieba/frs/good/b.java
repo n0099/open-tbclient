@@ -115,10 +115,10 @@ public class b {
         com.baidu.tieba.frs.entelechy.adapter.x xVar = new com.baidu.tieba.frs.entelechy.adapter.x(frsGoodFragment.getPageContext(), bz.eTi, this.jCu.getUniqueId());
         ad adVar2 = new ad(frsGoodFragment.getPageContext(), bz.eTs, this.jCu.getUniqueId());
         r rVar = new r(frsGoodFragment.getPageContext(), s.jiG);
-        com.baidu.adp.widget.ListView.a<? extends by, ? extends TypeAdapter.ViewHolder> a2 = e.cEg().a(frsGoodFragment.getPageContext(), this.jCu.getUniqueId(), true);
-        com.baidu.adp.widget.ListView.a<? extends bz, ? extends TypeAdapter.ViewHolder> b2 = e.cEg().b(frsGoodFragment.getPageContext(), bz.eUW, this.jCu.getUniqueId());
-        com.baidu.adp.widget.ListView.a<?, ?> a3 = com.baidu.tieba.recapp.r.dEV().a(this.jCu, AdvertAppInfo.eNz);
-        com.baidu.adp.widget.ListView.a<?, ?> a4 = com.baidu.tieba.recapp.r.dEV().a(this.jCu, AdvertAppInfo.eNI);
+        com.baidu.adp.widget.ListView.a<? extends by, ? extends TypeAdapter.ViewHolder> a2 = e.cEh().a(frsGoodFragment.getPageContext(), this.jCu.getUniqueId(), true);
+        com.baidu.adp.widget.ListView.a<? extends bz, ? extends TypeAdapter.ViewHolder> b2 = e.cEh().b(frsGoodFragment.getPageContext(), bz.eUW, this.jCu.getUniqueId());
+        com.baidu.adp.widget.ListView.a<?, ?> a3 = com.baidu.tieba.recapp.r.dEW().a(this.jCu, AdvertAppInfo.eNz);
+        com.baidu.adp.widget.ListView.a<?, ?> a4 = com.baidu.tieba.recapp.r.dEW().a(this.jCu, AdvertAppInfo.eNI);
         ab abVar = new ab(frsGoodFragment.getPageContext(), bz.eTo, this.jCu.getUniqueId());
         com.baidu.tieba.frs.entelechy.adapter.b bVar = new com.baidu.tieba.frs.entelechy.adapter.b(frsGoodFragment.getPageContext(), bz.eTq, this.jCu.getUniqueId());
         i iVar = new i(frsGoodFragment.getPageContext(), bz.eTp, this.jCu.getUniqueId());
@@ -161,13 +161,13 @@ public class b {
         customResponsedMessage.setOrginalMessage(customMessage);
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         f(bdTypeRecyclerView);
-        this.boM.add(com.baidu.tieba.h.b.cPp().c(this.jCu.getBaseFragmentActivity(), AdvertAppInfo.eNL));
-        this.boM.add(com.baidu.tieba.h.b.cPp().c(this.jCu.getBaseFragmentActivity(), AdvertAppInfo.eNK));
+        this.boM.add(com.baidu.tieba.h.b.cPq().c(this.jCu.getBaseFragmentActivity(), AdvertAppInfo.eNL));
+        this.boM.add(com.baidu.tieba.h.b.cPq().c(this.jCu.getBaseFragmentActivity(), AdvertAppInfo.eNK));
         com.baidu.tieba.InjectPlugin.b.b bVar2 = new com.baidu.tieba.InjectPlugin.b.b(this.jCu, 1);
         bVar2.setExtraData(this.boM);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_FEED_AD_PLUGIN_OPERATE, bVar2));
         bdTypeRecyclerView.addAdapters(this.boM);
-        Fm("page_frs_good");
+        Fl("page_frs_good");
         for (com.baidu.adp.widget.ListView.a aVar : this.boM) {
             if (aVar instanceof com.baidu.tieba.card.z) {
                 ((com.baidu.tieba.card.z) aVar).px(true);
@@ -188,7 +188,7 @@ public class b {
             frsViewData.setThreadList(arrayList);
         }
         b(frsViewData);
-        cHC();
+        cHD();
         aF(arrayList);
         com.baidu.tieba.tbadkCore.v.x(arrayList, 1);
         aE(arrayList);
@@ -197,7 +197,7 @@ public class b {
         this.jCO = switchThreadDataToThreadCardInfo;
         this.iES = arrayList;
         this.jqg = frsViewData;
-        cIf();
+        cIg();
     }
 
     public void refreshData() {
@@ -205,7 +205,7 @@ public class b {
         notifyDataSetChanged();
     }
 
-    private void cHC() {
+    private void cHD() {
         if (!x.isEmpty(this.boM) && this.jCu != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.boM) {
                 if (aVar instanceof k) {
@@ -215,7 +215,7 @@ public class b {
         }
     }
 
-    private void cIf() {
+    private void cIg() {
         com.baidu.tieba.frs.b.b statisticMetaData;
         if (this.jqg != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.boM) {
@@ -254,21 +254,21 @@ public class b {
         }
     }
 
-    public HashMap<Integer, bz> cIW() {
+    public HashMap<Integer, bz> cIX() {
         return this.jqf;
     }
 
-    public void cJb() {
+    public void cJc() {
         if (this.jlj != null && this.jlj.getData() != null && this.jlj.getData().size() != 0) {
             for (n nVar : this.jlj.getData()) {
-                if ((nVar instanceof by) && ((by) nVar).eMv.brl() != 0) {
-                    ((by) nVar).eMv.bsq();
+                if ((nVar instanceof by) && ((by) nVar).eMv.brm() != 0) {
+                    ((by) nVar).eMv.bsr();
                 }
             }
         }
     }
 
-    public void cLI() {
+    public void cLJ() {
         for (com.baidu.adp.widget.ListView.a aVar : this.boM) {
             if (aVar instanceof com.baidu.tieba.card.y) {
                 ((com.baidu.tieba.card.y) aVar).wt(3);
@@ -342,13 +342,13 @@ public class b {
             return false;
         }
         this.jCN = new ArrayList();
-        ArrayList<BdUniqueId> dOr = com.baidu.tieba.tbadkCore.v.dOr();
-        if (dOr == null || dOr.size() <= 0) {
+        ArrayList<BdUniqueId> dOs = com.baidu.tieba.tbadkCore.v.dOs();
+        if (dOs == null || dOs.size() <= 0) {
             return false;
         }
-        int size = dOr.size();
+        int size = dOs.size();
         for (int i = 0; i < size; i++) {
-            k<ICardInfo, ? extends TypeAdapter.ViewHolder> a2 = e.cEg().a(this.jCu.getPageContext(), dOr.get(i), this.jCu.getUniqueId());
+            k<ICardInfo, ? extends TypeAdapter.ViewHolder> a2 = e.cEh().a(this.jCu.getPageContext(), dOs.get(i), this.jCu.getUniqueId());
             if (a2 != null) {
                 this.boM.add(a2);
                 this.jCN.add(a2);
@@ -372,11 +372,11 @@ public class b {
         return false;
     }
 
-    private void Fm(String str) {
+    private void Fl(String str) {
         if (this.boM != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.boM) {
                 if (aVar instanceof f) {
-                    ((f) aVar).Fm(str);
+                    ((f) aVar).Fl(str);
                 }
             }
         }
@@ -386,7 +386,7 @@ public class b {
         return this.iES;
     }
 
-    public List<n> cLJ() {
+    public List<n> cLK() {
         return this.jCO;
     }
 }

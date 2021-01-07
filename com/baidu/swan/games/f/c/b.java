@@ -15,10 +15,10 @@ public class b implements a {
     private HashMap<String, c> efn = new HashMap<>();
     private HashMap<String, ArrayList<ValueCallback<String>>> mCallbackMap = new HashMap<>();
     private final Object mObject = new Object();
-    private com.baidu.swan.games.network.b efp = com.baidu.swan.games.network.b.bbh();
-    private String efo = f.aXE();
+    private com.baidu.swan.games.network.b efp = com.baidu.swan.games.network.b.bbi();
+    private String efo = f.aXF();
 
-    public static b aZR() {
+    public static b aZS() {
         if (eib == null) {
             synchronized (b.class) {
                 if (eib == null) {

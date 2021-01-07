@@ -9,7 +9,7 @@ import java.util.Map;
 public class p<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final T f6344a;
+    public final T f6345a;
     public boolean d;
     public long e;
     public long f;
@@ -50,11 +50,11 @@ public class p<T> {
         this.e = 0L;
         this.f = 0L;
         this.h = 0L;
-        this.f6344a = t;
+        this.f6345a = t;
         this.ppE = aVar;
         this.ppF = null;
         if (aVar != null) {
-            this.h = aVar.f6360a;
+            this.h = aVar.f6361a;
         }
     }
 
@@ -63,11 +63,11 @@ public class p<T> {
         this.e = 0L;
         this.f = 0L;
         this.h = 0L;
-        this.f6344a = null;
+        this.f6345a = null;
         this.ppE = null;
         this.ppF = vAdError;
         if (this.h == 0 && vAdError != null && vAdError.networkResponse != null) {
-            this.h = vAdError.networkResponse.f6339a;
+            this.h = vAdError.networkResponse.f6340a;
         }
     }
 

@@ -40,7 +40,7 @@ public class b {
 
     private void init() {
         try {
-            System.load(bkm() + "libzeuslzma.so");
+            System.load(bkn() + "libzeuslzma.so");
             this.eEp = true;
         } catch (Throwable th) {
         }
@@ -51,36 +51,36 @@ public class b {
         init();
     }
 
-    private boolean bkf() {
+    private boolean bkg() {
         try {
             byte[] bArr = new byte[64];
-            new FileInputStream(bkl()).read(bArr);
+            new FileInputStream(bkm()).read(bArr);
             return new String(bArr, "UTF-8").startsWith("zeusmeta");
         } catch (Exception e) {
             return false;
         }
     }
 
-    public boolean bkg() {
-        if (bkf()) {
-            if (this.eEp && bkh() && isEnoughSpace(this.m7zTotal)) {
+    public boolean bkh() {
+        if (bkg()) {
+            if (this.eEp && bki() && isEnoughSpace(this.m7zTotal)) {
                 hook(false);
-                return bki() && bkk() && bkj();
+                return bkj() && bkl() && bkk();
             }
             return false;
         }
         return true;
     }
 
-    private boolean bkh() {
+    private boolean bki() {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2 = null;
-        String bkl = bkl();
-        if (!new File(bkl).exists()) {
+        String bkm = bkm();
+        if (!new File(bkm).exists()) {
             return false;
         }
         try {
-            fileInputStream = new FileInputStream(bkl);
+            fileInputStream = new FileInputStream(bkm);
             try {
                 byte[] bArr = new byte[512];
                 fileInputStream.read(bArr);
@@ -110,7 +110,7 @@ public class b {
                 this.m7zSizes = new int[this.m7zCount];
                 this.m7zOffsets = new int[this.m7zCount];
                 this.m7zSzOffsets = new int[this.m7zCount];
-                this.m7zFile = bkl();
+                this.m7zFile = bkm();
                 JSONArray jSONArray2 = this.mJson_meta.getJSONArray("offsets");
                 JSONArray jSONArray3 = this.mJson_meta.getJSONArray("szoffsets");
                 this.m7zOffsets[0] = 0;
@@ -155,8 +155,8 @@ public class b {
         }
     }
 
-    private boolean bki() {
-        File file = new File(bkm());
+    private boolean bkj() {
+        File file = new File(bkn());
         if (file.exists()) {
             return true;
         }
@@ -181,7 +181,7 @@ public class b {
         }
     }
 
-    private boolean bkj() {
+    private boolean bkk() {
         if (this.m7zCount > 0 && this.m7zTotal > 0) {
             int i = this.m7zCount;
             int i2 = this.m7zTotal;
@@ -193,8 +193,8 @@ public class b {
                 this.mMinAddr = 0;
                 this.mMaxAddr = this.m7zTotal;
             }
-            String str2 = bkm() + GlobalConstants.LIB_ZEUS_CHROMIUM;
-            String str3 = bkm() + GlobalConstants.LIB_ZEUS_CHROMIUM + ".tmp";
+            String str2 = bkn() + GlobalConstants.LIB_ZEUS_CHROMIUM;
+            String str3 = bkn() + GlobalConstants.LIB_ZEUS_CHROMIUM + ".tmp";
             int doInit = doInit(this.mTempPath, str3, this.m7zTotal, this.mMinAddr, this.mMaxAddr, this.mHooked ? 1 : 0);
             if (doInit != 0) {
                 return false;
@@ -203,7 +203,7 @@ public class b {
                 a(null, str, iArr2[i3], iArr[i3], iArr3[i3]);
             }
             if (!this.mHooked) {
-                doInit = bkn();
+                doInit = bko();
             }
             File file = new File(str3);
             File file2 = new File(str2);
@@ -219,8 +219,8 @@ public class b {
         return true;
     }
 
-    private boolean bkk() {
-        this.mTempPath = bkm() + "temp";
+    private boolean bkl() {
+        this.mTempPath = bkn() + "temp";
         File file = new File(this.mTempPath);
         return file.exists() ? deleteDir(file) : file.mkdirs();
     }
@@ -236,11 +236,11 @@ public class b {
         }
     }
 
-    private String bkl() {
-        return bkm() + SPLASH + GlobalConstants.LIB_ZEUS_CHROMIUM;
+    private String bkm() {
+        return bkn() + SPLASH + GlobalConstants.LIB_ZEUS_CHROMIUM;
     }
 
-    private String bkm() {
+    private String bkn() {
         return this.mContext.getFilesDir() + SPLASH + eEo;
     }
 
@@ -318,7 +318,7 @@ public class b {
         }
     }
 
-    private int bkn() {
+    private int bko() {
         SevenZipUtils sevenZipUtils = SevenZipUtils.getInstance();
         try {
             Method declaredMethod = SevenZipUtils.class.getDeclaredMethod("submit", new Class[0]);

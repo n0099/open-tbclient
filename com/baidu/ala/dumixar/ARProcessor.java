@@ -273,7 +273,7 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
     public void setAccurateSmooth(boolean z) {
         if (this.mEffect != null) {
             a aVar = this.mEffect;
-            b.adM();
+            b.adN();
             aVar.jF(c.dZ(z));
         }
     }
@@ -324,9 +324,9 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
             f = 0.0f;
             str2 = null;
         } else if (filter == null || DEF_FILTER_ID.equals(filter.getParam())) {
-            if (b.adM() != null) {
-                b.adM();
-                str = c.adT();
+            if (b.adN() != null) {
+                b.adN();
+                str = c.adU();
             } else {
                 str = null;
             }
@@ -931,7 +931,7 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
         return new DuMixCallback() { // from class: com.baidu.ala.dumixar.ARProcessor.9
             @Override // com.baidu.ar.DuMixCallback
             public void onSetup(boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput) {
-                if (!z || ARProcessor.this.mEffect == null || b.adM() != null) {
+                if (!z || ARProcessor.this.mEffect == null || b.adN() != null) {
                 }
                 ARProcessor.this.mIsSetup = z;
                 if (ARProcessor.this.mCallback != null) {
@@ -998,11 +998,11 @@ public class ARProcessor implements SurfaceTexture.OnFrameAvailableListener {
             if (filter == null && !this.isShowDefFilterValue) {
                 this.mEffect.setBeautyValue(BeautyType.lutFile, 0);
             } else if (filter == null || DEF_FILTER_ID.equals(filter.getParam())) {
-                if (b.adM() != null) {
+                if (b.adN() != null) {
                     a aVar = this.mEffect;
                     BeautyType beautyType = BeautyType.lutFile;
-                    b.adM();
-                    aVar.setBeautyValue(beautyType, c.adT());
+                    b.adN();
+                    aVar.setBeautyValue(beautyType, c.adU());
                     setInitValue(true, DEF_FILTER_VALUE);
                 }
             } else {

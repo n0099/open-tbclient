@@ -54,16 +54,16 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
     /* renamed from: b */
     public void D(com.baidu.tbadk.core.data.a aVar) {
         this.ahi = aVar;
-        bz boO = aVar.boO();
-        if (boO.isShareThread && boO.eVB != null) {
-            if (boO.eVB.ePW) {
+        bz boP = aVar.boP();
+        if (boP.isShareThread && boP.eVB != null) {
+            if (boP.eVB.ePW) {
                 setVisibility(8);
                 return;
             }
-            boO = boO.eVB.bpQ();
+            boP = boP.eVB.bpR();
         }
-        this.mTitle.setText(boO.getTitle());
-        if (StringUtils.isNull(boO.btr())) {
+        this.mTitle.setText(boP.getTitle());
+        if (StringUtils.isNull(boP.bts())) {
             this.akH.setVisibility(8);
             this.akI.setVisibility(8);
             this.akJ.setVisibility(8);
@@ -71,9 +71,9 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
             this.akH.setVisibility(0);
             this.akI.setVisibility(0);
             this.akJ.setVisibility(0);
-            this.akI.startLoad(boO.btr(), 10, false);
+            this.akI.startLoad(boP.bts(), 10, false);
         }
-        m.a(this.mTitle, boO.getId(), this.akI.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
+        m.a(this.mTitle, boP.getId(), this.akI.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
     }
 
     private void initUI() {
@@ -128,11 +128,11 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.ahi != null && this.ahi.boO() != null) {
-            m.a(this.mTitle, this.ahi.boO().getId(), this.akI.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
+        if (this.ahi != null && this.ahi.boP() != null) {
+            m.a(this.mTitle, this.ahi.boP().getId(), this.akI.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
         }
         ao.setViewTextColor(this.akH, R.color.CAM_X0101);
-        com.baidu.tbadk.core.util.f.a.bwU().qq(0).qt(R.color.CAM_X0606).ae(this.akK).bz(this.akH);
-        com.baidu.tbadk.core.util.f.a.bwU().qq(0).n(R.color.CAM_X0611, R.color.CAM_X0605).ag(l.getDimens(getContext(), R.dimen.tbds21)).af(l.getDimens(getContext(), R.dimen.tbds21)).ai(l.getDimens(getContext(), R.dimen.tbds21)).ah(l.getDimens(getContext(), R.dimen.tbds21)).qA(128).bz(this.akJ);
+        com.baidu.tbadk.core.util.f.a.bwV().qq(0).qt(R.color.CAM_X0606).ae(this.akK).bz(this.akH);
+        com.baidu.tbadk.core.util.f.a.bwV().qq(0).n(R.color.CAM_X0611, R.color.CAM_X0605).ag(l.getDimens(getContext(), R.dimen.tbds21)).af(l.getDimens(getContext(), R.dimen.tbds21)).ai(l.getDimens(getContext(), R.dimen.tbds21)).ah(l.getDimens(getContext(), R.dimen.tbds21)).qA(128).bz(this.akJ);
     }
 }

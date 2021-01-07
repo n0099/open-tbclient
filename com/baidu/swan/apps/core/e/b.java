@@ -33,7 +33,7 @@ public class b {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void arb();
+        void arc();
 
         void bv(String str, String str2);
     }
@@ -41,7 +41,7 @@ public class b {
     /* renamed from: com.baidu.swan.apps.core.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
     public interface InterfaceC0426b {
-        void aqX();
+        void aqY();
 
         void ne(String str);
 
@@ -50,11 +50,11 @@ public class b {
 
     /* loaded from: classes9.dex */
     public interface c {
-        void aqY();
-
         void aqZ();
 
         void ara();
+
+        void arb();
     }
 
     public b(Context context) {
@@ -76,7 +76,7 @@ public class b {
             @Override // com.baidu.swan.apps.core.e.a.InterfaceC0425a
             public void onCancel() {
                 if (aVar != null) {
-                    aVar.arb();
+                    aVar.arc();
                 }
                 b.this.cVW = null;
             }
@@ -85,7 +85,7 @@ public class b {
     }
 
     public void a(final c cVar, final SslErrorHandler sslErrorHandler, final SslError sslError) {
-        if (!atE()) {
+        if (!atF()) {
             sslErrorHandler.cancel();
         } else {
             new c.a(this.mContext).iu(a.h.aiapps_security_warning).a(a.h.aiapps_ssl_warnings_header, new b.c() { // from class: com.baidu.swan.apps.core.e.b.15
@@ -107,7 +107,7 @@ public class b {
                 @Override // com.baidu.swan.apps.res.widget.dialog.b.c
                 public void aD(View view) {
                     if (cVar != null) {
-                        cVar.aqY();
+                        cVar.aqZ();
                     }
                 }
             })).a(new b.a(this.mContext.getText(a.h.aiapps_view_certificate), a.c.aiapps_safe_dialog_btn_black, new b.c() { // from class: com.baidu.swan.apps.core.e.b.13
@@ -119,7 +119,7 @@ public class b {
                 @Override // com.baidu.swan.apps.res.widget.dialog.b.c
                 public void aD(View view) {
                     if (cVar != null) {
-                        cVar.aqZ();
+                        cVar.ara();
                     }
                 }
             })).b(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.core.e.b.11
@@ -127,13 +127,13 @@ public class b {
                 public void onCancel(DialogInterface dialogInterface) {
                     sslErrorHandler.cancel();
                 }
-            }).aLx();
+            }).aLy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final c cVar, SslErrorHandler sslErrorHandler, SslError sslError) {
-        if (!atE()) {
+        if (!atF()) {
             sslErrorHandler.cancel();
             return;
         }
@@ -143,17 +143,17 @@ public class b {
                 @Override // com.baidu.swan.apps.res.widget.dialog.b.c
                 public void aD(View view) {
                     if (cVar != null) {
-                        cVar.ara();
+                        cVar.arb();
                     }
                 }
             })).b(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.core.e.b.16
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
                     if (cVar != null) {
-                        cVar.ara();
+                        cVar.arb();
                     }
                 }
-            }).aLx();
+            }).aLy();
         }
     }
 
@@ -191,7 +191,7 @@ public class b {
 
     public void nB(String str) {
         ((ClipboardManager) this.mContext.getSystemService("clipboard")).setText(str);
-        com.baidu.swan.apps.res.widget.b.d.u(this.mContext, a.h.aiapps_ssl_copy_error).aLS();
+        com.baidu.swan.apps.res.widget.b.d.u(this.mContext, a.h.aiapps_ssl_copy_error).aLT();
     }
 
     private void a(LinearLayout linearLayout, int i) {
@@ -250,12 +250,12 @@ public class b {
     }
 
     public boolean a(String str, String str2, final InterfaceC0426b interfaceC0426b) {
-        if (!atE()) {
+        if (!atF()) {
             if (DEBUG) {
                 Log.e("PageDialogsHandler", "can not showJsAlert");
             }
             if (interfaceC0426b != null) {
-                interfaceC0426b.aqX();
+                interfaceC0426b.aqY();
                 return false;
             }
             return false;
@@ -275,7 +275,7 @@ public class b {
                 }
             }
         });
-        if (com.baidu.swan.apps.t.a.aAN().alD()) {
+        if (com.baidu.swan.apps.t.a.aAO().alE()) {
             b2.gX(false);
         } else {
             b2.gX(true);
@@ -284,12 +284,12 @@ public class b {
     }
 
     public boolean b(String str, String str2, final InterfaceC0426b interfaceC0426b) {
-        if (!atE()) {
+        if (!atF()) {
             if (DEBUG) {
                 Log.e("PageDialogsHandler", "can not showJsConfirm");
             }
             if (interfaceC0426b != null) {
-                interfaceC0426b.aqX();
+                interfaceC0426b.aqY();
                 return false;
             }
             return false;
@@ -316,7 +316,7 @@ public class b {
                 }
             }
         });
-        if (com.baidu.swan.apps.t.a.aAN().alD()) {
+        if (com.baidu.swan.apps.t.a.aAO().alE()) {
             b2.gX(false);
         } else {
             b2.gX(true);
@@ -325,9 +325,9 @@ public class b {
     }
 
     public boolean a(String str, String str2, String str3, final InterfaceC0426b interfaceC0426b) {
-        if (!atE()) {
+        if (!atF()) {
             if (interfaceC0426b != null) {
-                interfaceC0426b.aqX();
+                interfaceC0426b.aqY();
             }
             return false;
         }
@@ -357,7 +357,7 @@ public class b {
                 }
             }
         });
-        if (com.baidu.swan.apps.t.a.aAN().alD()) {
+        if (com.baidu.swan.apps.t.a.aAO().alE()) {
             b2.gX(false);
         } else {
             b2.gX(true);
@@ -365,7 +365,7 @@ public class b {
         return true;
     }
 
-    private boolean atE() {
+    private boolean atF() {
         return (this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing();
     }
 }

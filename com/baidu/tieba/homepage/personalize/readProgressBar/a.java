@@ -39,15 +39,15 @@ public class a extends com.baidu.tieba.card.b<b> {
         this.mRoot.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.readProgressBar.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.cuC() != null) {
-                    a.this.cuC().a(view, a.this.kir);
+                if (a.this.cuD() != null) {
+                    a.this.cuD().a(view, a.this.kir);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cTF() {
+    public void cTG() {
         final ViewGroup.LayoutParams layoutParams = this.mRoot.getLayoutParams();
         if (layoutParams != null && layoutParams.height != kin) {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
@@ -94,7 +94,7 @@ public class a extends com.baidu.tieba.card.b<b> {
                 e.mB().postDelayed(new Runnable() { // from class: com.baidu.tieba.homepage.personalize.readProgressBar.a.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.cTF();
+                        a.this.cTG();
                     }
                 }, 1600L);
             }

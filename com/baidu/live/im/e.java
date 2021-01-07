@@ -105,13 +105,13 @@ public class e implements com.baidu.live.liveroom.d.d {
                             ((TbPageContext) IScrollableHelper.getBbPageContext(e.this.mContext)).showToast(a.h.sdk_unfollow_success_toast);
                             return;
                         } else {
-                            com.baidu.live.view.a.Zx().a((TbPageContext) IScrollableHelper.getBbPageContext(e.this.mContext), true);
+                            com.baidu.live.view.a.Zy().a((TbPageContext) IScrollableHelper.getBbPageContext(e.this.mContext), true);
                             return;
                         }
                     }
                     boolean z2 = updateAttentionMessage.getData().isAttention;
                     if (equals) {
-                        if (com.baidu.live.view.a.Zx().a(updateAttentionMessage.getData(), (BdPageContext<?>) ((TbPageContext) IScrollableHelper.getBbPageContext(e.this.mContext)), false)) {
+                        if (com.baidu.live.view.a.Zy().a(updateAttentionMessage.getData(), (BdPageContext<?>) ((TbPageContext) IScrollableHelper.getBbPageContext(e.this.mContext)), false)) {
                             e.this.bmX = !e.this.bmX;
                             e.this.cg(e.this.bmX);
                             e.this.ch(e.this.bmX);
@@ -278,7 +278,7 @@ public class e implements com.baidu.live.liveroom.d.d {
         String valueOf = String.valueOf(this.aGe.aKu.userId);
         com.baidu.live.data.f fVar = new com.baidu.live.data.f(this.aGe.aKu.portrait, valueOf, "1", this.bmX, bmH);
         fVar.setFrom("source_chat_tab");
-        com.baidu.live.view.a.Zx().a(valueOf, fVar);
+        com.baidu.live.view.a.Zy().a(valueOf, fVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

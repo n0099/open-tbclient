@@ -22,9 +22,9 @@ public class b {
     public static void vG(String str) {
         if (!SwanAppInitHelper.entranceOK()) {
             Log.w("SwanAppLaunchHelper", "entrance not open");
-            d.a(AppRuntime.getAppContext(), "not support for this android version").aLS();
+            d.a(AppRuntime.getAppContext(), "not support for this android version").aLT();
         } else if (TextUtils.isEmpty(str)) {
-            d.a(AppRuntime.getAppContext(), "url is empty").aLS();
+            d.a(AppRuntime.getAppContext(), "url is empty").aLT();
         } else if (str.startsWith(SchemeConfig.getSchemeHead())) {
             vE(str);
         } else if (str.startsWith("bdswan")) {
@@ -32,7 +32,7 @@ public class b {
         } else if (str.startsWith("https") || str.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
             vF(str);
         } else {
-            d.a(AppRuntime.getAppContext(), "not support this uri").aLS();
+            d.a(AppRuntime.getAppContext(), "not support this uri").aLT();
         }
     }
 }

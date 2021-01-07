@@ -17,10 +17,10 @@ import javax.crypto.spec.SecretKeySpec;
 public class Crypto {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f2021a = 16;
+    private static final int f2022a = 16;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int f2022b = 8;
+    private static final int f2023b = 8;
     private static final int c = 128;
     private static final int d = 64;
     private static final int e = 8;

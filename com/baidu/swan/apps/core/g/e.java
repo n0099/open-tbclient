@@ -22,9 +22,9 @@ public class e implements a {
     }
 
     @Override // com.baidu.swan.apps.core.g.a
-    public String amt() {
+    public String amu() {
         if (this.cWr != null) {
-            return this.cWr.atH();
+            return this.cWr.atI();
         }
         if (DEBUG) {
             Log.d("V8MasterAdapter", Log.getStackTraceString(new Exception("illegal state")));
@@ -35,8 +35,8 @@ public class e implements a {
     @Override // com.baidu.swan.apps.core.g.a
     public void loadUrl(String str) {
         if (this.cWr == null) {
-            final String avN = com.baidu.swan.apps.core.turbo.d.avA().avN();
-            this.cWr = new d(avN, "runtime/index.js");
+            final String avO = com.baidu.swan.apps.core.turbo.d.avB().avO();
+            this.cWr = new d(avO, "runtime/index.js");
             this.cWs = str;
             this.cWr.a(new V8EngineConfiguration.JSCacheCallback() { // from class: com.baidu.swan.apps.core.g.e.1
                 @Override // com.baidu.searchbox.v8engine.V8EngineConfiguration.JSCacheCallback
@@ -47,7 +47,7 @@ public class e implements a {
                     if (cacheInfo.cached && !TextUtils.isEmpty(cacheInfo.jsPath)) {
                         File file = new File(cacheInfo.jsPath);
                         try {
-                            if (file.getPath().startsWith(new File(avN).getCanonicalPath())) {
+                            if (file.getPath().startsWith(new File(avO).getCanonicalPath())) {
                                 e.this.cWu = true;
                             } else if (!TextUtils.isEmpty(e.this.cWt) && file.getCanonicalPath().startsWith(new File(e.this.cWt).getCanonicalPath())) {
                                 e.this.cWv = true;
@@ -92,13 +92,13 @@ public class e implements a {
     }
 
     @Override // com.baidu.swan.apps.core.g.a
-    public com.baidu.swan.apps.core.container.a anh() {
+    public com.baidu.swan.apps.core.container.a ani() {
         return this.cWr.getV8Engine();
     }
 
     @Override // com.baidu.swan.apps.core.g.a
     public void a(com.baidu.swan.apps.core.turbo.a aVar) {
-        if (com.baidu.swan.apps.t.a.aAu().hG(0) && aVar != null) {
+        if (com.baidu.swan.apps.t.a.aAv().hG(0) && aVar != null) {
             if (DEBUG) {
                 Log.d("V8MasterAdapter", "pathList item: " + aVar.appPath);
             }
@@ -107,7 +107,7 @@ public class e implements a {
         }
     }
 
-    public int atL() {
+    public int atM() {
         return com.baidu.swan.apps.core.b.a.l(this.cWu, this.cWv);
     }
 }

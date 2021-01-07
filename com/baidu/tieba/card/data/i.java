@@ -31,7 +31,7 @@ public class i extends a {
         this.stType = str;
     }
 
-    public String cvy() {
+    public String cvz() {
         return this.ivr;
     }
 

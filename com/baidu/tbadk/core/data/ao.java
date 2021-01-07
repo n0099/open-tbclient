@@ -66,23 +66,23 @@ public class ao {
         return this.linkUrl;
     }
 
-    public String bpG() {
+    public String bpH() {
         return this.eQB;
     }
 
-    public String bpH() {
+    public String bpI() {
         return this.eQC;
     }
 
-    public String bpI() {
+    public String bpJ() {
         return this.eQD;
     }
 
-    public int bpJ() {
+    public int bpK() {
         return this.eQE;
     }
 
-    public boolean bpK() {
+    public boolean bpL() {
         return this.eQF;
     }
 }

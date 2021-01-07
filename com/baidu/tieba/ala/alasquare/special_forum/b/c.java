@@ -16,7 +16,7 @@ public class c extends a {
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        bVG();
+        bVH();
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
@@ -33,8 +33,8 @@ public class c extends a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!TextUtils.isEmpty(c.this.gKo.gIA)) {
-                    be.bwu().a(c.this.mTbPageContext, new String[]{c.this.gKo.gIA}, true);
-                    com.baidu.tieba.ala.alasquare.b.a.bVl().c("c12909", c.this.gKo.gIC, 3, "-1");
+                    be.bwv().a(c.this.mTbPageContext, new String[]{c.this.gKo.gIA}, true);
+                    com.baidu.tieba.ala.alasquare.b.a.bVm().c("c12909", c.this.gKo.gIC, 3, "-1");
                 }
             }
         });
@@ -51,8 +51,8 @@ public class c extends a {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
-    public void bVH() {
-        super.bVH();
+    public void bVI() {
+        super.bVI();
         if (this.fhd != null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fhd.getLayoutParams();
             layoutParams.width = this.mScreenWidth;
@@ -70,7 +70,7 @@ public class c extends a {
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
         super.a(aVar);
         this.fhd.startLoad(aVar.gIy, 10, false);
-        com.baidu.tieba.ala.alasquare.b.a.bVl().c("c12908", this.gKo.gIC, 3, "-1");
+        com.baidu.tieba.ala.alasquare.b.a.bVm().c("c12908", this.gKo.gIC, 3, "-1");
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a

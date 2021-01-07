@@ -11,17 +11,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaCancelApplyOrCancelInv
 /* loaded from: classes11.dex */
 public class e extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oEB;
+    private a oEA;
     private HttpMessageListener messageListener = new HttpMessageListener(1031010) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaCancelApplyOrCancelInviteHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.bwz && e.this.oEB != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaCancelApplyOrCancelInviteHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.bwz && e.this.oEA != null) {
                 AlaCancelApplyOrCancelInviteHttpResponseMessage alaCancelApplyOrCancelInviteHttpResponseMessage = (AlaCancelApplyOrCancelInviteHttpResponseMessage) httpResponsedMessage;
                 if (alaCancelApplyOrCancelInviteHttpResponseMessage.getError() != 0 || !alaCancelApplyOrCancelInviteHttpResponseMessage.isSuccess()) {
-                    e.this.oEB.onFail(alaCancelApplyOrCancelInviteHttpResponseMessage.getError(), alaCancelApplyOrCancelInviteHttpResponseMessage.getErrorString());
+                    e.this.oEA.onFail(alaCancelApplyOrCancelInviteHttpResponseMessage.getError(), alaCancelApplyOrCancelInviteHttpResponseMessage.getErrorString());
                 } else {
-                    e.this.oEB.a(alaCancelApplyOrCancelInviteHttpResponseMessage);
+                    e.this.oEA.a(alaCancelApplyOrCancelInviteHttpResponseMessage);
                 }
             }
         }
@@ -38,12 +38,12 @@ public class e extends BdBaseModel {
     public e(TbPageContext tbPageContext, a aVar) {
         setUniqueId(this.bwz);
         this.mPageContext = tbPageContext;
-        this.oEB = aVar;
-        bmf();
+        this.oEA = aVar;
+        bmg();
         registerListener(this.messageListener);
     }
 
-    private void bmf() {
+    private void bmg() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031010, com.baidu.live.a.aAH + "ala/audio/link/cancel");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);

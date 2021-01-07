@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class h {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [54=4] */
     /* JADX WARN: Removed duplicated region for block: B:50:0x005b A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -36,7 +36,7 @@ public class h {
                         messageDigest.update(bArr, 0, read);
                     } catch (Exception e) {
                         exc = e;
-                        if (com.baidu.prologue.a.b.a.ctd.get().ago()) {
+                        if (com.baidu.prologue.a.b.a.ctd.get().agp()) {
                             throw new RuntimeException(exc);
                         }
                         if (fileInputStream != null) {

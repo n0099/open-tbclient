@@ -24,7 +24,7 @@ public class k {
                 switch (message.what) {
                     case 1:
                         k.this.n(false);
-                        pkRankInView.csL();
+                        pkRankInView.csM();
                         return;
                     case 2:
                         pkRankInView.pf(true);
@@ -33,7 +33,7 @@ public class k {
                         pkRankInView.pf(false);
                         return;
                     case 10:
-                        pkRankInView.csP();
+                        pkRankInView.csQ();
                         return;
                     case 20:
                         pkRankInView.pg(true);
@@ -57,7 +57,7 @@ public class k {
                 PropsInfoData next = it.next();
                 if (next.propsType.equals(String.valueOf(1))) {
                     n(true);
-                    this.ilu.csK();
+                    this.ilu.csL();
                     w(1, next.endTime - next.nowTime);
                 } else if (next.propsType.equals(String.valueOf(2))) {
                     PropsInfoData.a aVar = null;
@@ -70,10 +70,10 @@ public class k {
                         aVar = next2;
                     }
                     if (aVar != null) {
-                        this.ilu.csM();
+                        this.ilu.csN();
                         w(2, aVar.endTime - next.nowTime);
                     } else {
-                        this.ilu.csN();
+                        this.ilu.csO();
                     }
                     w(3, next.endTime - next.nowTime);
                 }
@@ -84,10 +84,10 @@ public class k {
             while (it3.hasNext()) {
                 PropsInfoData next3 = it3.next();
                 if (next3.propsType.equals(String.valueOf(1))) {
-                    this.ilu.csO();
+                    this.ilu.csP();
                     w(10, next3.endTime - next3.nowTime);
                 } else if (next3.propsType.equals(String.valueOf(2))) {
-                    this.ilu.csQ();
+                    this.ilu.csR();
                     w(30, next3.endTime - next3.nowTime);
                 }
             }

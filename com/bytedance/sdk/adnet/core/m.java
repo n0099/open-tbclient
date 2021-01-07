@@ -25,27 +25,27 @@ import org.apache.http.client.methods.HttpTrace;
 public class m implements com.bytedance.sdk.adnet.e.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final z f6341a;
+    private final z f6342a;
 
     public m() {
-        this.f6341a = new z.a().d(10000L, TimeUnit.MILLISECONDS).e(10000L, TimeUnit.MILLISECONDS).f(10000L, TimeUnit.MILLISECONDS).erT();
+        this.f6342a = new z.a().d(10000L, TimeUnit.MILLISECONDS).e(10000L, TimeUnit.MILLISECONDS).f(10000L, TimeUnit.MILLISECONDS).erU();
     }
 
     public m(SSLSocketFactory sSLSocketFactory, X509TrustManager x509TrustManager, HostnameVerifier hostnameVerifier) {
-        this.f6341a = new z.a().d(10000L, TimeUnit.MILLISECONDS).e(10000L, TimeUnit.MILLISECONDS).f(10000L, TimeUnit.MILLISECONDS).a(hostnameVerifier == null ? com.bytedance.sdk.a.b.a.i.e.plb : hostnameVerifier).a(sSLSocketFactory == null ? new com.bytedance.sdk.adnet.d.h() : sSLSocketFactory, x509TrustManager == null ? com.bytedance.sdk.adnet.d.h.f6355a : x509TrustManager).erT();
+        this.f6342a = new z.a().d(10000L, TimeUnit.MILLISECONDS).e(10000L, TimeUnit.MILLISECONDS).f(10000L, TimeUnit.MILLISECONDS).a(hostnameVerifier == null ? com.bytedance.sdk.a.b.a.i.e.plb : hostnameVerifier).a(sSLSocketFactory == null ? new com.bytedance.sdk.adnet.d.h() : sSLSocketFactory, x509TrustManager == null ? com.bytedance.sdk.adnet.d.h.f6356a : x509TrustManager).erU();
     }
 
     @Override // com.bytedance.sdk.adnet.e.a
     public b a(Request<?> request, Map<String, String> map) throws IOException, VAdError {
         int timeoutMs = request.getTimeoutMs();
-        z erT = this.f6341a.erS().d(timeoutMs, TimeUnit.MILLISECONDS).e(timeoutMs, TimeUnit.MILLISECONDS).f(timeoutMs, TimeUnit.MILLISECONDS).AO(true).AN(true).erT();
+        z erU = this.f6342a.erT().d(timeoutMs, TimeUnit.MILLISECONDS).e(timeoutMs, TimeUnit.MILLISECONDS).f(timeoutMs, TimeUnit.MILLISECONDS).AO(true).AN(true).erU();
         ab.a h = h(request);
         if (h == null) {
             throw new IllegalArgumentException("request params maybe null");
         }
         b(request);
         if (!TextUtils.isEmpty(request.getUserAgent())) {
-            h.YW("User-Agent").hh("User-Agent", request.getUserAgent() + " " + com.bytedance.sdk.a.b.a.d.a());
+            h.YV("User-Agent").hh("User-Agent", request.getUserAgent() + " " + com.bytedance.sdk.a.b.a.d.a());
         }
         Map<String, String> headers = request.getHeaders();
         if (headers != null) {
@@ -59,27 +59,27 @@ public class m implements com.bytedance.sdk.adnet.e.a {
             }
         }
         a(h, request);
-        com.bytedance.sdk.a.b.b erk = erT.g(h.esc()).erk();
-        com.bytedance.sdk.a.b.a.c.k g = com.bytedance.sdk.a.b.a.c.k.g(erk);
-        com.bytedance.sdk.a.b.c erg = erk.erg();
+        com.bytedance.sdk.a.b.b erl = erU.g(h.esd()).erl();
+        com.bytedance.sdk.a.b.a.c.k g = com.bytedance.sdk.a.b.a.c.k.g(erl);
+        com.bytedance.sdk.a.b.c erh = erl.erh();
         boolean z = false;
         try {
-            int i = g.f6184b;
+            int i = g.f6185b;
             if (i == -1) {
                 throw new IOException("Could not retrieve response code from HttpUrlConnection.");
             }
             if (!a(request.getMethod(), i)) {
-                b bVar = new b(i, f(erk.erf()));
-                erg.close();
+                b bVar = new b(i, f(erl.erg()));
+                erh.close();
                 return bVar;
             }
             try {
-                return new b(i, f(erk.erf()), (int) erg.b(), new a(erg));
+                return new b(i, f(erl.erg()), (int) erh.b(), new a(erh));
             } catch (Throwable th) {
                 th = th;
                 z = true;
                 if (!z) {
-                    erg.close();
+                    erh.close();
                 }
                 throw th;
             }
@@ -155,12 +155,12 @@ public class m implements com.bytedance.sdk.adnet.e.a {
             case -1:
                 byte[] postBody = request.getPostBody();
                 if (postBody != null) {
-                    aVar.a(ac.b(y.YU(request.getBodyContentType()), postBody));
+                    aVar.a(ac.b(y.YT(request.getBodyContentType()), postBody));
                     return;
                 }
                 return;
             case 0:
-                aVar.erZ();
+                aVar.esa();
                 return;
             case 1:
                 aVar.a(i(request));
@@ -169,10 +169,10 @@ public class m implements com.bytedance.sdk.adnet.e.a {
                 aVar.c(i(request));
                 return;
             case 3:
-                aVar.esb();
+                aVar.esc();
                 return;
             case 4:
-                aVar.esa();
+                aVar.esb();
                 return;
             case 5:
                 aVar.a(HttpOptions.METHOD_NAME, null);
@@ -197,7 +197,7 @@ public class m implements com.bytedance.sdk.adnet.e.a {
                 return null;
             }
         }
-        return ac.b(y.YU(request.getBodyContentType()), body);
+        return ac.b(y.YT(request.getBodyContentType()), body);
     }
 
     /* loaded from: classes4.dex */

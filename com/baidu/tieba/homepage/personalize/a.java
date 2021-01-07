@@ -75,7 +75,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.homepage.personalize.data.e eVar) {
-        if (eVar != null && eVar.cTt()) {
+        if (eVar != null && eVar.cTu()) {
             b(eVar);
         }
     }
@@ -127,7 +127,7 @@ public class a {
             if (this.kec != null) {
                 this.keb.removeView(this.kec);
                 if (z && this.keb.getIsUnreadTipShow()) {
-                    com.baidu.tbadk.core.sharedPref.b.bvq().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_UNREAD_TIP_NEXT_SHOW_TIME), 0L);
+                    com.baidu.tbadk.core.sharedPref.b.bvr().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_UNREAD_TIP_NEXT_SHOW_TIME), 0L);
                     TiebaStatic.log(new aq("c12632").an("obj_locate", 2));
                 }
             }

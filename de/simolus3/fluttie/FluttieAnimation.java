@@ -12,7 +12,7 @@ import com.airbnb.lottie.f;
 import com.baidu.adp.lib.util.BdLog;
 import io.flutter.view.TextureRegistry;
 @RequiresApi(api = 15)
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
     private d composition;
     private f drawable;
@@ -20,13 +20,13 @@ public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
     private boolean pausedButNotByUser;
 
     /* renamed from: plugin  reason: collision with root package name */
-    private final FluttiePlugin f14694plugin;
+    private final FluttiePlugin f14695plugin;
     private Surface surface;
     private final TextureRegistry.SurfaceTextureEntry surfaceTexture;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public FluttieAnimation(FluttiePlugin fluttiePlugin, TextureRegistry.SurfaceTextureEntry surfaceTextureEntry, d dVar, float f, String str) {
-        this.f14694plugin = fluttiePlugin;
+        this.f14695plugin = fluttiePlugin;
         this.surfaceTexture = surfaceTextureEntry;
         this.surface = new Surface(surfaceTextureEntry.surfaceTexture());
         Rect hR = dVar.hR();
@@ -91,7 +91,7 @@ public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
 
     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
     public void onAnimationUpdate(@Nullable ValueAnimator valueAnimator) {
-        this.f14694plugin.getRenderingThreads().markDirty(this);
+        this.f14695plugin.getRenderingThreads().markDirty(this);
     }
 
     public boolean isPlaying() {

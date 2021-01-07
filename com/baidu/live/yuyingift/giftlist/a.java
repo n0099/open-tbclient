@@ -87,7 +87,7 @@ public class a extends BdBaseModel {
         c cVar = new c(this.isHost, this.bgw, str);
         cVar.addParam("need_dynamic_gift", "1");
         cVar.addParam("need_sticker_gift", "0");
-        cVar.addParam("scene_from", t.XF());
+        cVar.addParam("scene_from", t.XG());
         sendMessage(cVar);
     }
 

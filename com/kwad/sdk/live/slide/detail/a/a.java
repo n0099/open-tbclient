@@ -10,21 +10,21 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private SurfaceTexture f10779a;
+    private SurfaceTexture f10780a;
 
     /* renamed from: b  reason: collision with root package name */
-    private KSLiveAudience f10780b;
+    private KSLiveAudience f10781b;
     private List<TextureView.SurfaceTextureListener> c;
     private List<KSLiveStateListener> d;
     private List<Object> e;
-    private List<InterfaceC1115a> f;
+    private List<InterfaceC1156a> f;
     private g g;
     private boolean h;
     private boolean i;
 
     /* renamed from: com.kwad.sdk.live.slide.detail.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1115a {
+    public interface InterfaceC1156a {
         void a();
     }
 
@@ -36,16 +36,16 @@ public class a {
     }
 
     public void a() {
-        if (this.f10780b != null) {
-            this.f10780b.destroy();
+        if (this.f10781b != null) {
+            this.f10781b.destroy();
         }
         b();
         this.h = false;
         this.i = false;
-        this.f10779a = null;
+        this.f10780a = null;
         this.g.a((g.a) null);
-        for (InterfaceC1115a interfaceC1115a : this.f) {
-            interfaceC1115a.a();
+        for (InterfaceC1156a interfaceC1156a : this.f) {
+            interfaceC1156a.a();
         }
     }
 }

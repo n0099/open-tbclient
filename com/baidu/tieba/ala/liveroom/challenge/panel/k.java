@@ -58,7 +58,7 @@ public class k {
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                k.this.cgE();
+                k.this.cgF();
             }
         });
     }
@@ -85,7 +85,7 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cgE() {
+    public void cgF() {
         if (this.hxR != null) {
             final Dialog dialog = new Dialog(this.mContext, a.i.ChallengeDialogStyle);
             dialog.requestWindowFeature(1);
@@ -135,7 +135,7 @@ public class k {
         return this.mRootView;
     }
 
-    public com.baidu.live.challenge.d cgF() {
+    public com.baidu.live.challenge.d cgG() {
         return this.hxR;
     }
 

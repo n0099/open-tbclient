@@ -37,7 +37,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 if (kVar != null && kVar.eMv != null && !StringUtils.isNull(kVar.eMv.getTid())) {
                     if (h.this.kpd.getHeaderImg() != null && view.getId() == h.this.kpd.getHeaderImg().getId()) {
                         i = 1;
-                    } else if (h.this.kpd.cuG() != null && view.getId() == h.this.kpd.cuG().getId()) {
+                    } else if (h.this.kpd.cuH() != null && view.getId() == h.this.kpd.cuH().getId()) {
                         i = 1;
                     } else if (h.this.kpd.ixo != null && view.getId() == h.this.kpd.ixo.getId()) {
                         i = 3;
@@ -45,15 +45,15 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                         i = 2;
                     }
                     String topicName = ((HotTopicActivity) h.this.mPageContext.getOrignalPage()).getTopicName();
-                    String cUK = ((HotTopicActivity) h.this.mPageContext.getOrignalPage()).cUK();
-                    bz boO = kVar.boO();
-                    TiebaStatic.log(new aq("c12941").an("obj_type", i).dX("tid", boO.getId()));
-                    if ("c10814".equals(kVar.cvo())) {
+                    String cUL = ((HotTopicActivity) h.this.mPageContext.getOrignalPage()).cUL();
+                    bz boP = kVar.boP();
+                    TiebaStatic.log(new aq("c12941").an("obj_type", i).dX("tid", boP.getId()));
+                    if ("c10814".equals(kVar.cvp())) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                        TiebaStatic.log(new aq("c10814").dX("tid", boO.getId()).dX("obj_name", topicName).dX("topic_id", cUK));
-                    } else if ("c10816".equals(kVar.cvo())) {
+                        TiebaStatic.log(new aq("c10814").dX("tid", boP.getId()).dX("obj_name", topicName).dX("topic_id", cUL));
+                    } else if ("c10816".equals(kVar.cvp())) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                        TiebaStatic.log(new aq("c10816").dX("post_id", boO.getTid()).dX("obj_name", topicName).dX("topic_id", cUK));
+                        TiebaStatic.log(new aq("c10816").dX("post_id", boP.getTid()).dX("obj_name", topicName).dX("topic_id", cUL));
                     }
                 }
             }
@@ -84,13 +84,13 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, CardViewHolder<u> cardViewHolder) {
-        if (kVar == null || cardViewHolder == null || cardViewHolder.cvG() == null) {
+        if (kVar == null || cardViewHolder == null || cardViewHolder.cvH() == null) {
             return null;
         }
         this.ivZ = kVar;
-        cardViewHolder.cvG().a(new ca(kVar.boO()));
-        cardViewHolder.cvG().c(this.iKM);
-        ((u) ((CardViewHolder) this.Wu).cvG()).pw(!(getItem(i + 1) instanceof n));
+        cardViewHolder.cvH().a(new ca(kVar.boP()));
+        cardViewHolder.cvH().c(this.iKM);
+        ((u) ((CardViewHolder) this.Wu).cvH()).pw(!(getItem(i + 1) instanceof n));
         return cardViewHolder.getView();
     }
 }

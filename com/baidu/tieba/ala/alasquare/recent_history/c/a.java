@@ -70,14 +70,14 @@ public class a {
         this.WV.setPullRefresh(this.mPullView);
         this.gCf = new PbListView(this.gHL);
         this.gCf.createView();
-        bVm();
-    }
-
-    private void bVm() {
         bVn();
     }
 
     private void bVn() {
+        bVo();
+    }
+
+    private void bVo() {
         if (this.mType == 0) {
             this.gHM = new com.baidu.tieba.ala.alasquare.recent_history.a.b(this.mPageContext);
         } else if (1 == this.mType) {
@@ -87,7 +87,7 @@ public class a {
                 @Override // com.baidu.tieba.ala.alasquare.recent_history.a.c.a
                 public void a(b bVar) {
                     a.this.gHN = bVar;
-                    a.this.a(bVar.eMv.brq(), bVar.isFollow);
+                    a.this.a(bVar.eMv.brr(), bVar.isFollow);
                 }
             });
         }
@@ -96,7 +96,7 @@ public class a {
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (i == 0) {
-                    com.baidu.tieba.ala.alasquare.b.a.bVl().bRS();
+                    com.baidu.tieba.ala.alasquare.b.a.bVm().bRT();
                 }
             }
 
@@ -115,8 +115,8 @@ public class a {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                     UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                     if (updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid) && a.this.gHN != null) {
-                        if (a.this.gHN.eMv != null && a.this.gHN.eMv.brq() != null) {
-                            j = a.this.gHN.eMv.brq().getUserIdLong();
+                        if (a.this.gHN.eMv != null && a.this.gHN.eMv.brr() != null) {
+                            j = a.this.gHN.eMv.brr().getUserIdLong();
                         } else {
                             j = -100;
                         }
@@ -152,7 +152,7 @@ public class a {
         return this.mRootView;
     }
 
-    public ViewGroup bVo() {
+    public ViewGroup bVp() {
         return this.bRY;
     }
 
@@ -167,13 +167,13 @@ public class a {
             this.gHM.setData(list);
         }
         if (z) {
-            bUE();
+            bUF();
         } else {
-            bUD();
+            bUE();
         }
     }
 
-    private void bUD() {
+    private void bUE() {
         if (this.gCf != null) {
             if (this.gCf.getView().getParent() == null) {
                 this.WV.setNextPage(this.gCf);
@@ -183,7 +183,7 @@ public class a {
         }
     }
 
-    private void bUE() {
+    private void bUF() {
         if (this.gCf != null) {
             if (this.gCf.getView().getParent() == null) {
                 this.WV.setNextPage(this.gCf);
@@ -193,7 +193,7 @@ public class a {
         }
     }
 
-    public void bVp() {
+    public void bVq() {
         this.WV.setNextPage(null);
     }
 

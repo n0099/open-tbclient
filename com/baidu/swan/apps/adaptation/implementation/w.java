@@ -6,15 +6,15 @@ import java.io.File;
 /* loaded from: classes9.dex */
 public class w implements ap {
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public void alu() {
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.ap
     public void alv() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public long alw() {
+    public void alw() {
+    }
+
+    @Override // com.baidu.swan.apps.adaptation.a.ap
+    public long alx() {
         return -1L;
     }
 
@@ -24,8 +24,8 @@ public class w implements ap {
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
     public String bS(long j) {
-        if (!com.baidu.swan.apps.t.a.aBe().amd()) {
-            if (com.baidu.swan.apps.core.k.a.avc()) {
+        if (!com.baidu.swan.apps.t.a.aBf().ame()) {
+            if (com.baidu.swan.apps.core.k.a.avd()) {
                 return com.baidu.swan.apps.core.k.a.cYY + File.separator + GlobalConstants.LIB_ZEUS;
             }
             return com.baidu.swan.apps.core.k.a.cZa + File.separator + GlobalConstants.LIB_ZEUS;
@@ -34,12 +34,12 @@ public class w implements ap {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public boolean alx() {
+    public boolean aly() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ap
-    public String[] aly() {
+    public String[] alz() {
         return null;
     }
 }

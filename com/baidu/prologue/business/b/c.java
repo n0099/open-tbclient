@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import com.baidu.prologue.business.c.d;
 import com.baidu.prologue.business.data.e;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c extends a<d> {
     public c(@NonNull Context context, @NonNull e eVar) {
         super(context, eVar);

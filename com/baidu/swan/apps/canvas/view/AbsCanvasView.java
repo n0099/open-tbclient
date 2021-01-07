@@ -24,7 +24,7 @@ public abstract class AbsCanvasView extends View {
         this.cNd = false;
     }
 
-    public boolean aop() {
+    public boolean aoq() {
         return this.cNb;
     }
 

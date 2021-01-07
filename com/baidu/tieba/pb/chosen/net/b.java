@@ -9,11 +9,11 @@ import com.baidu.tieba.pb.chosen.PbChosenActivity;
 /* loaded from: classes8.dex */
 public class b {
     public b() {
-        dmv();
         dmw();
+        dmx();
     }
 
-    private void dmv() {
+    private void dmw() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(CmdConfigSocket.CMD_GET_FINE_PB);
         bVar.setResponsedClass(ChosenPbSocketResponse.class);
         bVar.setNeedAck(true);
@@ -21,7 +21,7 @@ public class b {
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void dmw() {
+    private void dmx() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003006, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.FINE_PB_PAGE, CmdConfigSocket.CMD_GET_FINE_PB));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);

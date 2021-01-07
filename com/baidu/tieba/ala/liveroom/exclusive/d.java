@@ -46,8 +46,8 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
 
     @Override // com.baidu.live.view.e, android.widget.PopupWindow
     public void dismiss() {
-        if (!aal()) {
-            aag();
+        if (!aam()) {
+            aah();
         }
     }
 
@@ -69,10 +69,10 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
             if (findViewById != null) {
                 this.byQ.setCornerRadius(this.byT, 0.0f, 0.0f, this.byT);
                 this.bXh = 5;
-                int aaj = aaj();
                 int aak = aak();
-                setWidth(aaj);
-                setHeight(aak);
+                int aal = aal();
+                setWidth(aak);
+                setHeight(aal);
                 showAtLocation(findViewById, 85, 0, 0);
                 ah(this.byQ);
                 Oj();
@@ -86,7 +86,7 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
         }
     }
 
-    public void aag() {
+    public void aah() {
         super.dismiss();
     }
 
@@ -112,11 +112,11 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
         setContentView(this.byQ);
     }
 
-    private int aaj() {
+    private int aak() {
         return ScreenHelper.getRealScreenHeight(this.mActivity);
     }
 
-    private int aak() {
+    private int aal() {
         return ScreenHelper.getRealScreenHeight(this.mActivity);
     }
 
@@ -139,7 +139,7 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
         }
     }
 
-    private boolean aal() {
+    private boolean aam() {
         if (getContentView() == null) {
             return false;
         }
@@ -165,7 +165,7 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    d.this.aag();
+                    d.this.aah();
                     d.this.hpp = false;
                 }
 

@@ -89,13 +89,13 @@ public class c {
     private Runnable ggs = new Runnable() { // from class: com.baidu.tieba.NEGFeedBack.c.2
         @Override // java.lang.Runnable
         public void run() {
-            c.this.bNL();
+            c.this.bNM();
         }
     };
     private View.OnClickListener ggt = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.c.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.bNL();
+            c.this.bNM();
         }
     };
     private PopupWindow.OnDismissListener ggu = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.NEGFeedBack.c.4
@@ -116,7 +116,7 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c.this.bNI();
+            c.this.bNJ();
         }
     };
 
@@ -212,7 +212,7 @@ public class c {
             this.ggl.setTextSize(R.dimen.T_X08);
             this.mContentView.setPadding(this.ggg, 0, this.ggg, this.ggr ? 0 : this.ggh);
         }
-        bxO();
+        bxP();
         View view = this.ggn.getView();
         if (view != null && view.getParent() == null) {
             this.mContentView.addView(view);
@@ -281,8 +281,8 @@ public class c {
             if (!StringUtils.isNull(this.ggc.getType())) {
                 jSONObject.put("type", this.ggc.getType());
             }
-            if (this.ggc.bpN() != 0) {
-                jSONObject.put("topic_id", this.ggc.bpN());
+            if (this.ggc.bpO() != 0) {
+                jSONObject.put("topic_id", this.ggc.bpO());
             }
             jSONObject.put("extra", sb2.toString());
         } catch (Exception e) {
@@ -291,7 +291,7 @@ public class c {
         return jSONObject;
     }
 
-    private String bNJ() {
+    private String bNK() {
         if (x.isEmpty(this.ggd)) {
             return "";
         }
@@ -307,7 +307,7 @@ public class c {
         return sb.toString();
     }
 
-    private void bNK() {
+    private void bNL() {
         int size = this.ggd.size();
         if (size > 0) {
             String string = this.mContext.getResources().getString(R.string.feedback_selected_reason, Integer.valueOf(size));
@@ -373,7 +373,7 @@ public class c {
         this.ggn.setDefaultReasonArray(strArr);
     }
 
-    public void bNI() {
+    public void bNJ() {
         if (this.mPopupWindow != null) {
             this.mPopupWindow.dismiss();
             this.mPopupWindow = null;
@@ -387,17 +387,17 @@ public class c {
     /* JADX INFO: Access modifiers changed from: protected */
     public void onDetachedFromWindow() {
         MessageManager.getInstance().unRegisterListener(this.ggv);
-        bNI();
+        bNJ();
     }
 
     private void Wb() {
         if (this.ggo && this.ggd.size() != 0) {
             this.ggd.clear();
-            bNK();
+            bNL();
         }
     }
 
-    private void bxO() {
+    private void bxP() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             ao.setViewTextColor(this.ggk, R.color.CAM_X0105, 1);
@@ -406,7 +406,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bNL() {
+    public void bNM() {
         if (this.ggc != null && this.mPopupWindow != null) {
             ArrayList<Integer> arrayList = new ArrayList<>();
             JSONObject V = V(arrayList);
@@ -423,12 +423,12 @@ public class c {
                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
                 }
             }
-            bNI();
+            bNJ();
             com.baidu.tbadk.core.view.c cVar = new com.baidu.tbadk.core.view.c();
             cVar.toastTime = 1500L;
             cVar.showSuccessToast(this.mContext.getResources().getString(R.string.reduce_related_thread_recommend));
             if (this.ggi != null) {
-                this.ggi.onNEGFeedbackConfirm(arrayList, bNJ(), this.ggc);
+                this.ggi.onNEGFeedbackConfirm(arrayList, bNK(), this.ggc);
             }
         }
     }

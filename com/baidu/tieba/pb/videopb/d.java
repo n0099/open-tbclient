@@ -9,47 +9,47 @@ import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class d {
     private boolean alQ;
-    private f lJI;
-    private f mgr;
-    private Rect mgt;
-    private boolean mgu;
-    private MutableLiveData<bz> mgs = new MutableLiveData<>();
-    private LinkedList<f> mgv = new LinkedList<>();
+    private f lJH;
+    private f mgq;
+    private Rect mgs;
+    private boolean mgt;
+    private MutableLiveData<bz> mgr = new MutableLiveData<>();
+    private LinkedList<f> mgu = new LinkedList<>();
+    private MutableLiveData<bz> mgv = new MutableLiveData<>();
     private MutableLiveData<bz> mgw = new MutableLiveData<>();
-    private MutableLiveData<bz> mgx = new MutableLiveData<>();
+    private MutableLiveData<Boolean> mgx = new MutableLiveData<>();
     private MutableLiveData<Boolean> mgy = new MutableLiveData<>();
     private MutableLiveData<Boolean> mgz = new MutableLiveData<>();
     private MutableLiveData<Boolean> mgA = new MutableLiveData<>();
-    private MutableLiveData<Boolean> mgB = new MutableLiveData<>();
-    private MutableLiveData<Integer> mgC = new MutableLiveData<>();
+    private MutableLiveData<Integer> mgB = new MutableLiveData<>();
 
     public void O(f fVar) {
-        this.mgr = fVar;
+        this.mgq = fVar;
         setData(fVar);
-        this.mgw.setValue(null);
-        this.mgs.setValue(fVar.dmE());
-    }
-
-    public f dvW() {
-        return this.mgr;
+        this.mgv.setValue(null);
+        this.mgr.setValue(fVar.dmF());
     }
 
     public f dvX() {
-        return this.lJI;
+        return this.mgq;
+    }
+
+    public f dvY() {
+        return this.lJH;
     }
 
     public void setData(f fVar) {
-        this.lJI = fVar;
+        this.lJH = fVar;
         if (fVar != null) {
-            this.mgs.setValue(fVar.dmE());
-            if (!x.isEmpty(fVar.dng())) {
-                aT(fVar.dng().get(0));
+            this.mgr.setValue(fVar.dmF());
+            if (!x.isEmpty(fVar.dnh())) {
+                aT(fVar.dnh().get(0));
             }
         }
     }
 
-    public MutableLiveData<bz> dvY() {
-        return this.mgs;
+    public MutableLiveData<bz> dvZ() {
+        return this.mgr;
     }
 
     public boolean isFromCDN() {
@@ -61,66 +61,66 @@ public class d {
     }
 
     public void h(Rect rect) {
-        this.mgt = rect;
+        this.mgs = rect;
     }
 
-    public Rect dvZ() {
-        return this.mgt;
+    public Rect dwa() {
+        return this.mgs;
     }
 
     public void wd(boolean z) {
-        this.mgu = z;
+        this.mgt = z;
     }
 
-    public boolean dwa() {
+    public boolean dwb() {
+        return this.mgt;
+    }
+
+    public LinkedList<f> dwc() {
         return this.mgu;
     }
 
-    public LinkedList<f> dwb() {
-        return this.mgv;
-    }
-
     public void aS(bz bzVar) {
-        this.mgw.setValue(bzVar);
+        this.mgv.setValue(bzVar);
     }
 
     public void aT(bz bzVar) {
-        this.mgx.setValue(bzVar);
-    }
-
-    public MutableLiveData<bz> dwc() {
-        return this.mgw;
+        this.mgw.setValue(bzVar);
     }
 
     public MutableLiveData<bz> dwd() {
-        return this.mgx;
+        return this.mgv;
     }
 
-    public MutableLiveData<Boolean> dwe() {
-        return this.mgy;
-    }
-
-    public void we(boolean z) {
-        this.mgy.setValue(Boolean.valueOf(z));
+    public MutableLiveData<bz> dwe() {
+        return this.mgw;
     }
 
     public MutableLiveData<Boolean> dwf() {
-        return this.mgz;
+        return this.mgx;
     }
 
-    public void wf(boolean z) {
-        this.mgz.postValue(Boolean.valueOf(z));
-    }
-
-    public void setIsLoading(boolean z) {
-        this.mgB.setValue(Boolean.valueOf(z));
+    public void we(boolean z) {
+        this.mgx.setValue(Boolean.valueOf(z));
     }
 
     public MutableLiveData<Boolean> dwg() {
-        return this.mgB;
+        return this.mgy;
     }
 
-    public MutableLiveData<Integer> dwh() {
-        return this.mgC;
+    public void wf(boolean z) {
+        this.mgy.postValue(Boolean.valueOf(z));
+    }
+
+    public void setIsLoading(boolean z) {
+        this.mgA.setValue(Boolean.valueOf(z));
+    }
+
+    public MutableLiveData<Boolean> dwh() {
+        return this.mgA;
+    }
+
+    public MutableLiveData<Integer> dwi() {
+        return this.mgB;
     }
 }

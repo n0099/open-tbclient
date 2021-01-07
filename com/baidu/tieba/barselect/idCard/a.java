@@ -24,7 +24,7 @@ public class a extends BdAsyncTask<Void, String, String> {
         if (this.imagePath == null) {
             return null;
         }
-        return Jl(this.imagePath);
+        return Jk(this.imagePath);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,7 +38,7 @@ public class a extends BdAsyncTask<Void, String, String> {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [70=4] */
-    public String Jl(String str) {
+    public String Jk(String str) {
         Throwable th;
         FileInputStream fileInputStream;
         String str2 = null;

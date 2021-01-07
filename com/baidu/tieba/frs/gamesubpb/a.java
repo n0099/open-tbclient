@@ -9,11 +9,11 @@ import com.baidu.tieba.frs.gamesubpb.view.GameSubCommentView;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.adp.widget.ListView.a<d, GameSubCommentView.GameSubCommentViewHolder> {
     private TbPageContext jzN;
-    private InterfaceC0740a jzO;
+    private InterfaceC0747a jzO;
 
     /* renamed from: com.baidu.tieba.frs.gamesubpb.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0740a {
+    public interface InterfaceC0747a {
         void a(d dVar);
 
         void b(d dVar);
@@ -47,7 +47,7 @@ public class a extends com.baidu.adp.widget.ListView.a<d, GameSubCommentView.Gam
         return gameSubCommentViewHolder.getView();
     }
 
-    public void setClickListener(InterfaceC0740a interfaceC0740a) {
-        this.jzO = interfaceC0740a;
+    public void setClickListener(InterfaceC0747a interfaceC0747a) {
+        this.jzO = interfaceC0747a;
     }
 }

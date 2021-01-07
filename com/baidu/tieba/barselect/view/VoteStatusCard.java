@@ -50,7 +50,7 @@ public class VoteStatusCard extends LinearLayout {
         this.status = d.isn;
         this.itd = new NewVoteCountDownView.a() { // from class: com.baidu.tieba.barselect.view.VoteStatusCard.1
             @Override // com.baidu.tieba.view.NewVoteCountDownView.a
-            public void clr() {
+            public void cls() {
                 if (VoteStatusCard.this.ioL != null) {
                     VoteStatusCard.this.ioL.onRefresh();
                 }
@@ -70,7 +70,7 @@ public class VoteStatusCard extends LinearLayout {
         setPadding(dimens, dimens2, dimens, dimens2);
         LayoutInflater.from(getContext()).inflate(R.layout.vote_status_card, (ViewGroup) this, true);
         tN();
-        cuv();
+        cuw();
     }
 
     private void tN() {
@@ -86,7 +86,7 @@ public class VoteStatusCard extends LinearLayout {
         this.itb = (NewVoteCountDownView) findViewById(R.id.vote_count_down_view);
     }
 
-    private void cuv() {
+    private void cuw() {
         this.mPath = new Path();
         this.mPath.moveTo(0.0f, 15.0f);
         this.mPath.lineTo(440.0f, 15.0f);
@@ -101,23 +101,23 @@ public class VoteStatusCard extends LinearLayout {
 
     public void setData(f fVar) {
         this.ioi = fVar;
-        if (this.ioi == null || this.ioi.ctW() == null) {
+        if (this.ioi == null || this.ioi.ctX() == null) {
             setVisibility(8);
             return;
         }
-        this.ipC = this.ioi.ctW();
+        this.ipC = this.ioi.ctX();
         this.status = this.ipC.getStatus();
         this.isU.setStatus(this.status);
-        long ctQ = this.ipC.ctQ() * 1000;
-        this.isW.setText(at.dP(this.ipC.ctO() * 1000));
-        this.isY.setText(at.dO(this.ipC.ctR() * 1000));
-        this.ita.setText(at.dO(this.ipC.ctP() * 1000));
+        long ctR = this.ipC.ctR() * 1000;
+        this.isW.setText(at.dP(this.ipC.ctP() * 1000));
+        this.isY.setText(at.dO(this.ipC.ctS() * 1000));
+        this.ita.setText(at.dO(this.ipC.ctQ() * 1000));
         if (this.status == d.isn) {
             this.itc.setVisibility(0);
             if (this.itd != null) {
                 this.itb.setOnCountDownFinished(this.itd);
             }
-            this.itb.setData(ctQ);
+            this.itb.setData(ctR);
             return;
         }
         this.itc.setVisibility(8);

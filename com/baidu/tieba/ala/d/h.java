@@ -35,7 +35,7 @@ public class h implements com.baidu.live.ae.a {
         if (viewGroup != null && str != null && !TextUtils.isEmpty(str)) {
             if (viewGroup instanceof PendantParentView) {
                 this.gqh = (PendantParentView) viewGroup;
-                bRi();
+                bRj();
             }
             if (this.gTM == null || (this.gqi != null && this.gqi.indexOfChild(this.gTM) < 0)) {
                 this.gTM = new AlaSeriesGiftPendant(this.gqi.getContext(), this.isHost, str);
@@ -100,7 +100,7 @@ public class h implements com.baidu.live.ae.a {
         this.isHost = z;
     }
 
-    private void bRi() {
+    private void bRj() {
         this.gqi = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.d.h.1
             @Override // com.baidu.live.pendantview.PendantChildView
             public PendantParentView.Position getVerticalPosition() {

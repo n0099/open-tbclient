@@ -26,29 +26,29 @@ public class PostCategoryView extends TextView {
     private View jHc;
     private TabMenuPopView jHo;
     private Context mContext;
-    private boolean ocs;
-    private LinearLayout oct;
+    private boolean ocq;
+    private LinearLayout ocs;
+    private Drawable oct;
     private Drawable ocu;
-    private Drawable ocv;
 
     public PostCategoryView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        this.ocs = false;
-        this.ocu = ao.getDrawable(R.drawable.icon_title_down);
-        this.ocu.setBounds(0, 0, this.ocu.getIntrinsicWidth(), this.ocu.getIntrinsicHeight());
-        this.ocv = ao.getDrawable(R.drawable.icon_title_up);
-        this.ocv.setBounds(0, 0, this.ocv.getIntrinsicWidth(), this.ocu.getIntrinsicHeight());
-        setCompoundDrawables(null, null, this.ocu, null);
+        this.ocq = false;
+        this.oct = ao.getDrawable(R.drawable.icon_title_down);
+        this.oct.setBounds(0, 0, this.oct.getIntrinsicWidth(), this.oct.getIntrinsicHeight());
+        this.ocu = ao.getDrawable(R.drawable.icon_title_up);
+        this.ocu.setBounds(0, 0, this.ocu.getIntrinsicWidth(), this.oct.getIntrinsicHeight());
+        setCompoundDrawables(null, null, this.oct, null);
         setPadding(0, 0, l.getDimens(getContext(), R.dimen.ds50), 0);
         this.iSr = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.pop_category, (ViewGroup) null);
-        this.oct = (LinearLayout) this.iSr.findViewById(R.id.pop_category_layout);
-        this.jHo = (TabMenuPopView) this.oct.findViewById(R.id.pop_category_view);
+        this.ocs = (LinearLayout) this.iSr.findViewById(R.id.pop_category_layout);
+        this.jHo = (TabMenuPopView) this.ocs.findViewById(R.id.pop_category_view);
         this.jHc = this.iSr.findViewById(R.id.pop_category_grav);
         this.jHc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PostCategoryView.this.dZg();
+                PostCategoryView.this.dZh();
             }
         });
     }
@@ -65,10 +65,10 @@ public class PostCategoryView extends TextView {
         this.jHo.setOnItemClickCallBack(aVar);
     }
 
-    public void dZf() {
-        if (this.ocs) {
-            setCompoundDrawables(null, null, this.ocu, null);
-            this.ocs = false;
+    public void dZg() {
+        if (this.ocq) {
+            setCompoundDrawables(null, null, this.oct, null);
+            this.ocq = false;
         } else {
             a(this);
             if (this.eKn != null) {
@@ -76,8 +76,8 @@ public class PostCategoryView extends TextView {
                 this.eKn.setWidthAsWidthOfDeviceScreen((Activity) this.mContext);
                 this.eKn.setHeight(-1);
                 this.eKn.showWindowInCustomPosition(0, 0);
-                setCompoundDrawables(null, null, this.ocv, null);
-                this.ocs = true;
+                setCompoundDrawables(null, null, this.ocu, null);
+                this.ocq = true;
             }
         }
         invalidate();
@@ -87,11 +87,11 @@ public class PostCategoryView extends TextView {
         if (this.eKn == null) {
             this.eKn = new MorePopupWindow((Activity) this.mContext, this.iSr, this, ao.getDrawable(R.drawable.transparent_bg), new KeyEventDealContainerView.a() { // from class: com.baidu.tieba.write.view.PostCategoryView.2
                 @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
-                public void bok() {
+                public void bol() {
                 }
 
                 @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
-                public void bol() {
+                public void bom() {
                     if (PostCategoryView.this.eKn != null) {
                         PostCategoryView.this.eKn.dismiss();
                     }
@@ -101,25 +101,25 @@ public class PostCategoryView extends TextView {
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
                     if (postCategoryView != null) {
-                        postCategoryView.dZf();
+                        postCategoryView.dZg();
                     }
                 }
             });
         }
     }
 
-    public void bxO() {
+    public void bxP() {
         ao.setBackgroundColor(this, R.color.CAM_X0201);
         ao.setViewTextColor(this, R.color.CAM_X0105, 1);
-        if (this.oct != null) {
-            ao.setBackgroundColor(this.oct, R.color.CAM_X0201);
+        if (this.ocs != null) {
+            ao.setBackgroundColor(this.ocs, R.color.CAM_X0201);
         }
         if (this.jHo != null) {
-            this.jHo.bxO();
+            this.jHo.bxP();
         }
     }
 
-    public void dZg() {
+    public void dZh() {
         if (this.eKn != null) {
             this.eKn.dismiss();
         }

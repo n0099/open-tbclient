@@ -21,7 +21,7 @@ public class h extends BaseAdapter {
 
     /* loaded from: classes8.dex */
     public interface b {
-        void Kw(String str);
+        void Kv(String str);
     }
 
     public h(TbPageContext<?> tbPageContext) {
@@ -57,7 +57,7 @@ public class h extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return getItem(i).cDi();
+        return getItem(i).cDj();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -101,41 +101,41 @@ public class h extends BaseAdapter {
                 cVar = cVar3;
             }
             com.baidu.tieba.forumMember.bawu.b bVar = (com.baidu.tieba.forumMember.bawu.b) getItem(i);
-            if (bVar != null && bVar.cDj() != null && bVar.cDj().size() > 0) {
-                if (bVar.isLast() && bVar.cDk()) {
+            if (bVar != null && bVar.cDk() != null && bVar.cDk().size() > 0) {
+                if (bVar.isLast() && bVar.cDl()) {
                     cVar.jaT.setPadding(this.eYU, 0, this.eYU, this.jaR);
                     if (this.jaQ != null && !this.jaQ.isEmpty()) {
-                        if (bVar.cDj().size() == 2) {
-                            if (bVar.cDl().equals(this.eXu.getResources().getString(R.string.bawu_member_bazhu_tip))) {
+                        if (bVar.cDk().size() == 2) {
+                            if (bVar.cDm().equals(this.eXu.getResources().getString(R.string.bawu_member_bazhu_tip))) {
                                 cVar.jaX.setVisibility(8);
                                 cVar.jaW.setVisibility(8);
-                            } else if (bVar.cDl().equals(this.eXu.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
+                            } else if (bVar.cDm().equals(this.eXu.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
                                 cVar.jaX.setVisibility(8);
                                 cVar.jaW.setVisibility(0);
-                                cVar.jaW.aW(this.eXu.getResources().getString(R.string.tip_assist_apply), this.jaQ.cDu());
+                                cVar.jaW.aW(this.eXu.getResources().getString(R.string.tip_assist_apply), this.jaQ.cDv());
                                 cVar.jaW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.1
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view2) {
                                         if (h.this.jaN != null) {
-                                            h.this.jaN.Kw(h.this.jaQ.cDv());
+                                            h.this.jaN.Kv(h.this.jaQ.cDw());
                                         }
                                     }
                                 });
                             }
-                        } else if (bVar.cDl().equals(this.eXu.getResources().getString(R.string.bawu_member_bazhu_tip))) {
+                        } else if (bVar.cDm().equals(this.eXu.getResources().getString(R.string.bawu_member_bazhu_tip))) {
                             cVar.jaV.setVisibility(8);
                             cVar.jaX.setVisibility(8);
                             cVar.jaW.setVisibility(8);
-                        } else if (bVar.cDl().equals(this.eXu.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
+                        } else if (bVar.cDm().equals(this.eXu.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
                             cVar.jaV.setVisibility(8);
                             cVar.jaX.setVisibility(0);
                             cVar.jaW.setVisibility(8);
-                            cVar.jaX.aW(this.eXu.getResources().getString(R.string.tip_assist_apply), this.jaQ.cDu());
+                            cVar.jaX.aW(this.eXu.getResources().getString(R.string.tip_assist_apply), this.jaQ.cDv());
                             cVar.jaX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.2
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view2) {
                                     if (h.this.jaN != null) {
-                                        h.this.jaN.Kw(h.this.jaQ.cDv());
+                                        h.this.jaN.Kv(h.this.jaQ.cDw());
                                     }
                                 }
                             });
@@ -146,9 +146,9 @@ public class h extends BaseAdapter {
                     cVar.jaW.setVisibility(8);
                     cVar.jaX.setVisibility(8);
                 }
-                cVar.jaU.a(bVar.cDj().get(0));
-                if (bVar.cDj().size() >= 2) {
-                    cVar.jaV.a(bVar.cDj().get(1));
+                cVar.jaU.a(bVar.cDk().get(0));
+                if (bVar.cDk().size() >= 2) {
+                    cVar.jaV.a(bVar.cDk().get(1));
                     cVar.jaV.setVisibility(0);
                 } else {
                     cVar.jaV.setVisibility(8);

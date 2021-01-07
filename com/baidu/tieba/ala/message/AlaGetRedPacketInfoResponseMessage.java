@@ -21,7 +21,7 @@ public class AlaGetRedPacketInfoResponseMessage extends JsonHttpResponsedMessage
         }
     }
 
-    public c coH() {
+    public c coI() {
         return this.hTC;
     }
 }

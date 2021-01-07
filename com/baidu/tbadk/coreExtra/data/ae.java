@@ -34,11 +34,11 @@ public class ae {
             this.ftN = jSONObject.optInt("end_time");
             this.mText = jSONObject.optString("text");
             this.ftO = jSONObject.optInt("icon_exp");
-            CT(jSONObject.optString("page_list"));
+            CS(jSONObject.optString("page_list"));
         }
     }
 
-    private void CT(String str) {
+    private void CS(String str) {
         String[] split;
         if (!at.isEmpty(str) && (split = str.split(",")) != null) {
             for (String str2 : split) {
@@ -58,7 +58,7 @@ public class ae {
         return (this.cDD == null || (num = ftL.get(from)) == null || !this.cDD.contains(num)) ? false : true;
     }
 
-    public boolean bAa() {
+    public boolean bAb() {
         return System.currentTimeMillis() / 1000 >= ((long) this.ftM) && System.currentTimeMillis() / 1000 <= ((long) this.ftN);
     }
 
@@ -66,7 +66,7 @@ public class ae {
         return this.mText;
     }
 
-    public int bAb() {
+    public int bAc() {
         return this.ftO;
     }
 }

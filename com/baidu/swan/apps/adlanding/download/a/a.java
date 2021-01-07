@@ -5,9 +5,9 @@ import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 public interface a {
     void a(SwanAdDownloadState swanAdDownloadState, int i);
 
-    void amN();
+    void amO();
 
-    String amO();
+    String amP();
 
     void b(SwanAdDownloadState swanAdDownloadState, int i);
 

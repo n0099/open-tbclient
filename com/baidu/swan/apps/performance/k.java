@@ -33,7 +33,7 @@ public class k {
     private k() {
     }
 
-    public static k aHC() {
+    public static k aHD() {
         if (dtA == null) {
             synchronized (k.class) {
                 if (dtA == null) {
@@ -73,11 +73,11 @@ public class k {
 
     public void bz(JSONObject jSONObject) {
         if (this.dtB != null && jSONObject != null) {
-            String aDL = com.baidu.swan.apps.v.f.aDG().aDL();
-            JSONArray jSONArray = this.dtB.get(aDL);
+            String aDM = com.baidu.swan.apps.v.f.aDH().aDM();
+            JSONArray jSONArray = this.dtB.get(aDM);
             if (jSONArray == null) {
                 jSONArray = new JSONArray();
-                this.dtB.put(aDL, jSONArray);
+                this.dtB.put(aDM, jSONArray);
             }
             jSONArray.put(jSONObject);
         }
@@ -85,9 +85,9 @@ public class k {
 
     public void a(a aVar) {
         if (!isAvailable()) {
-            com.baidu.swan.apps.res.widget.b.d.u(com.baidu.swan.apps.runtime.d.aMg().aMe(), a.h.aiapps_debug_report_invalid_params).aLS();
+            com.baidu.swan.apps.res.widget.b.d.u(com.baidu.swan.apps.runtime.d.aMh().aMf(), a.h.aiapps_debug_report_invalid_params).aLT();
         } else if (this.dtB == null || this.dtB.size() <= 0) {
-            new g.a(com.baidu.swan.apps.runtime.d.aMg().aMe()).iu(a.h.aiapps_debug_report_performance).it(a.h.aiapps_debug_report_no_data).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_ok, (DialogInterface.OnClickListener) null).aLx();
+            new g.a(com.baidu.swan.apps.runtime.d.aMh().aMf()).iu(a.h.aiapps_debug_report_performance).it(a.h.aiapps_debug_report_no_data).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_ok, (DialogInterface.OnClickListener) null).aLy();
         } else {
             JSONArray jSONArray = new JSONArray();
             try {
@@ -102,7 +102,7 @@ public class k {
                     Log.e("TraceDataManager", "Maybe the format of the Trace data is incorrect", e);
                 }
             }
-            com.baidu.swan.a.a.f postRequest = com.baidu.swan.a.c.a.bfE().postRequest();
+            com.baidu.swan.a.a.f postRequest = com.baidu.swan.a.c.a.bfF().postRequest();
             postRequest.requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONArray.toString()));
             postRequest.connectionTimeout(3000);
             int min = Math.min(this.dtC.length, 4);
@@ -179,9 +179,9 @@ public class k {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void jW(int i) {
-            Application aAr = com.baidu.swan.apps.t.a.aAr();
-            if (aAr != null) {
-                nn(aAr.getString(i));
+            Application aAs = com.baidu.swan.apps.t.a.aAs();
+            if (aAs != null) {
+                nn(aAs.getString(i));
             }
         }
     }

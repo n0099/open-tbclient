@@ -24,21 +24,21 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public class a {
     private static a agY = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f1661a;
+    protected String f1662a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected String f1662b;
+    protected String f1663b;
     protected String c;
     boolean d;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.browser.sailor.webkit.update.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes15.dex */
     public class C0088a extends BdNetTask implements INetListener {
         protected ByteArrayOutputStream agZ;
 
@@ -94,10 +94,10 @@ public class a {
                         if (jSONObject.has("data")) {
                             JSONObject jSONObject2 = jSONObject.getJSONObject("data");
                             if (jSONObject2.has("version")) {
-                                a.this.f1662b = jSONObject2.getString("version");
+                                a.this.f1663b = jSONObject2.getString("version");
                             }
                             if (jSONObject2.has("link")) {
-                                a.this.f1661a = jSONObject2.getString("link");
+                                a.this.f1662a = jSONObject2.getString("link");
                             }
                             if (jSONObject2.has("md5")) {
                                 a.this.c = jSONObject2.getString("md5");
@@ -344,8 +344,8 @@ public class a {
         if (BdSailor.getInstance().getAppContext() != null) {
             String zeusVersionName = WebKitFactory.getZeusVersionName();
             if (WebKitFactory.getCurEngine() == 1) {
-                if (a(zeusVersionName, this.f1662b)) {
-                    BdZeusDownloadHelper.U(BdSailor.getInstance().getAppContext()).a(this.f1661a, this.c);
+                if (a(zeusVersionName, this.f1663b)) {
+                    BdZeusDownloadHelper.U(BdSailor.getInstance().getAppContext()).a(this.f1662a, this.c);
                     return;
                 }
                 return;
@@ -367,7 +367,7 @@ public class a {
             BdSailorPlatform.getStatic().b("download-webkit-start", String.valueOf(System.currentTimeMillis()));
             BdSailorPlatform.getStatic().a();
             Log.i(EngineManager.LOG_TAG, "start download zeus");
-            BdZeusDownloadHelper.U(BdSailor.getInstance().getAppContext()).a(this.f1661a, this.c);
+            BdZeusDownloadHelper.U(BdSailor.getInstance().getAppContext()).a(this.f1662a, this.c);
         }
     }
 }

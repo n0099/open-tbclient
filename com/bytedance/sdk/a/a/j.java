@@ -11,7 +11,7 @@ public final class j implements s {
     private final k phV;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6142a = 0;
+    private int f6143a = 0;
     private final CRC32 phW = new CRC32();
 
     public j(s sVar) {
@@ -31,22 +31,22 @@ public final class j implements s {
         if (j == 0) {
             return 0L;
         }
-        if (this.f6142a == 0) {
+        if (this.f6143a == 0) {
             b();
-            this.f6142a = 1;
+            this.f6143a = 1;
         }
-        if (this.f6142a == 1) {
-            long j2 = cVar.f6139b;
+        if (this.f6143a == 1) {
+            long j2 = cVar.f6140b;
             long b2 = this.phV.b(cVar, j);
             if (b2 != -1) {
                 b(cVar, j2, b2);
                 return b2;
             }
-            this.f6142a = 2;
+            this.f6143a = 2;
         }
-        if (this.f6142a == 2) {
+        if (this.f6143a == 2) {
             c();
-            this.f6142a = 3;
+            this.f6143a = 3;
             if (!this.phT.e()) {
                 throw new IOException("gzip finished without exhausting source");
             }
@@ -56,24 +56,24 @@ public final class j implements s {
 
     private void b() throws IOException {
         this.phT.a(10L);
-        byte ie = this.phT.epS().ie(3L);
+        byte ie = this.phT.epT().ie(3L);
         boolean z = ((ie >> 1) & 1) == 1;
         if (z) {
-            b(this.phT.epS(), 0L, 10L);
+            b(this.phT.epT(), 0L, 10L);
         }
-        a("ID1ID2", 8075, this.phT.epW());
+        a("ID1ID2", 8075, this.phT.epX());
         this.phT.h(8L);
         if (((ie >> 2) & 1) == 1) {
             this.phT.a(2L);
             if (z) {
-                b(this.phT.epS(), 0L, 2L);
+                b(this.phT.epT(), 0L, 2L);
             }
-            short epX = this.phT.epS().epX();
-            this.phT.a(epX);
+            short epY = this.phT.epT().epY();
+            this.phT.a(epY);
             if (z) {
-                b(this.phT.epS(), 0L, epX);
+                b(this.phT.epT(), 0L, epY);
             }
-            this.phT.h(epX);
+            this.phT.h(epY);
         }
         if (((ie >> 3) & 1) == 1) {
             long e = this.phT.e((byte) 0);
@@ -81,7 +81,7 @@ public final class j implements s {
                 throw new EOFException();
             }
             if (z) {
-                b(this.phT.epS(), 0L, 1 + e);
+                b(this.phT.epT(), 0L, 1 + e);
             }
             this.phT.h(1 + e);
         }
@@ -91,12 +91,12 @@ public final class j implements s {
                 throw new EOFException();
             }
             if (z) {
-                b(this.phT.epS(), 0L, 1 + e2);
+                b(this.phT.epT(), 0L, 1 + e2);
             }
             this.phT.h(1 + e2);
         }
         if (z) {
-            a("FHCRC", this.phT.epX(), (short) this.phW.getValue());
+            a("FHCRC", this.phT.epY(), (short) this.phW.getValue());
             this.phW.reset();
         }
     }
@@ -107,8 +107,8 @@ public final class j implements s {
     }
 
     @Override // com.bytedance.sdk.a.a.s
-    public t epR() {
-        return this.phT.epR();
+    public t epS() {
+        return this.phT.epS();
     }
 
     @Override // com.bytedance.sdk.a.a.s, java.io.Closeable, java.lang.AutoCloseable
@@ -119,13 +119,13 @@ public final class j implements s {
     private void b(c cVar, long j, long j2) {
         int i;
         o oVar = cVar.phQ;
-        while (j >= oVar.c - oVar.f6148b) {
-            j -= oVar.c - oVar.f6148b;
+        while (j >= oVar.c - oVar.f6149b) {
+            j -= oVar.c - oVar.f6149b;
             oVar = oVar.pie;
         }
         while (j2 > 0) {
             int min = (int) Math.min(oVar.c - i, j2);
-            this.phW.update(oVar.f6147a, (int) (oVar.f6148b + j), min);
+            this.phW.update(oVar.f6148a, (int) (oVar.f6149b + j), min);
             j2 -= min;
             oVar = oVar.pie;
             j = 0;

@@ -20,7 +20,7 @@ public class PokeStartAnimView extends FrameLayout {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void cro();
+        void crp();
     }
 
     public PokeStartAnimView(Context context) {
@@ -33,11 +33,11 @@ public class PokeStartAnimView extends FrameLayout {
 
     public void bZ(int i, int i2) {
         ca(i, i2);
-        cru();
         crv();
+        crw();
     }
 
-    public void Jc(String str) {
+    public void Jb(String str) {
         if (this.bfS != null && !TextUtils.isEmpty(str)) {
             this.igd.setVisibility(8);
             this.bfS.getView().setVisibility(0);
@@ -52,7 +52,7 @@ public class PokeStartAnimView extends FrameLayout {
             @Override // java.lang.Runnable
             public void run() {
                 if (PokeStartAnimView.this.igf != null) {
-                    PokeStartAnimView.this.igf.cro();
+                    PokeStartAnimView.this.igf.crp();
                 }
             }
         };
@@ -91,7 +91,7 @@ public class PokeStartAnimView extends FrameLayout {
         this.igc.setLayoutParams(layoutParams);
     }
 
-    private void cru() {
+    private void crv() {
         if (this.bfS == null || this.bfS.isDestroyed()) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913181, com.baidu.live.alphavideo.c.class, getContext());
             if (runTask != null && runTask.getData() != null) {
@@ -112,7 +112,7 @@ public class PokeStartAnimView extends FrameLayout {
                 @Override // com.baidu.live.alphavideo.c.a
                 public void onEnd() {
                     if (PokeStartAnimView.this.igf != null) {
-                        PokeStartAnimView.this.igf.cro();
+                        PokeStartAnimView.this.igf.crp();
                     }
                 }
 
@@ -125,7 +125,7 @@ public class PokeStartAnimView extends FrameLayout {
         }
     }
 
-    private void crv() {
+    private void crw() {
         if (this.igd == null) {
             this.igd = new ImageView(getContext());
             this.igd.setScaleType(ImageView.ScaleType.CENTER_CROP);

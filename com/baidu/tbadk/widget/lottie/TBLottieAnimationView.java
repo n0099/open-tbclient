@@ -200,7 +200,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         this.fXg = false;
     }
 
-    public void bKM() {
+    public void bKN() {
         this.fXg = true;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.s;
 /* loaded from: classes.dex */
 public interface b {
-    void agF();
+    void agG();
 
     void az(String str, boolean z);
 

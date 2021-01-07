@@ -14,7 +14,7 @@ import com.baidu.live.tbadk.pay.PayHelper;
 import com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g;
 /* loaded from: classes11.dex */
 public class g {
-    public static String aar() {
+    public static String aas() {
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo != null) {
             return ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID());
@@ -36,9 +36,9 @@ public class g {
         return xVar.aLq.getActivityStage();
     }
 
-    public static boolean egj() {
-        String aar = aar();
-        return aar != null && com.baidu.live.aq.a.aam().jo(aar);
+    public static boolean egk() {
+        String aas = aas();
+        return aas != null && com.baidu.live.aq.a.aan().jo(aas);
     }
 
     public static String d(x xVar, int i) {
@@ -77,9 +77,9 @@ public class g {
         com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g gVar = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g(activity);
         gVar.show();
         gVar.setText(str);
-        gVar.VN(PayHelper.STATUS_CANCEL_DESC);
+        gVar.VM(PayHelper.STATUS_CANCEL_DESC);
         gVar.cd("确认", a.c.sdk_black_alpha100);
-        gVar.efG();
+        gVar.efH();
         gVar.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.e.g.1
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
             public void onCancel() {

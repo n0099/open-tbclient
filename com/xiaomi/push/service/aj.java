@@ -13,10 +13,10 @@ import java.util.List;
 class aj {
 
     /* renamed from: a  reason: collision with other field name */
-    private static final String[] f924a = {"com.mi.globalbrowser", "com.android.browser"};
+    private static final String[] f925a = {"com.mi.globalbrowser", "com.android.browser"};
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f14534a = null;
+    private static String f14535a = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int a(Context context, String str) {
@@ -27,7 +27,7 @@ class aj {
             try {
                 applicationInfo = context.getPackageManager().getApplicationInfo(str, 0);
             } catch (PackageManager.NameNotFoundException e) {
-                com.xiaomi.channel.commonutils.logger.b.m73a("not found app info " + str);
+                com.xiaomi.channel.commonutils.logger.b.m84a("not found app info " + str);
             }
         }
         if (applicationInfo != null) {
@@ -74,7 +74,7 @@ class aj {
         String str;
         int i = -1;
         while (true) {
-            str = i < 0 ? f14534a : f924a[i];
+            str = i < 0 ? f14535a : f925a[i];
             if (!TextUtils.isEmpty(str)) {
                 intent.setPackage(str);
                 try {
@@ -83,17 +83,17 @@ class aj {
                         break;
                     }
                 } catch (Exception e) {
-                    com.xiaomi.channel.commonutils.logger.b.m73a("not found xm browser:" + e);
+                    com.xiaomi.channel.commonutils.logger.b.m84a("not found xm browser:" + e);
                 }
             }
             int i2 = i + 1;
-            if (i2 >= f924a.length) {
+            if (i2 >= f925a.length) {
                 str = null;
                 break;
             }
             i = i2;
         }
         intent.setPackage(str);
-        f14534a = str;
+        f14535a = str;
     }
 }

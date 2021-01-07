@@ -28,37 +28,37 @@ public class b {
     }
 
     public static void a(@NonNull a aVar, String str, String str2) {
-        Flow aOR = aVar.aOR();
-        if (aOR != null) {
-            aOR.addEvent(str, str2);
+        Flow aOS = aVar.aOS();
+        if (aOS != null) {
+            aOS.addEvent(str, str2);
         }
     }
 
     public static void a(@NonNull a aVar, String str, String str2, long j) {
-        Flow aOR = aVar.aOR();
-        if (aOR != null) {
-            aOR.addEvent(str, str2, j);
+        Flow aOS = aVar.aOS();
+        if (aOS != null) {
+            aOS.addEvent(str, str2, j);
         }
     }
 
     public static void b(@NonNull a aVar) {
-        Flow aOR = aVar.aOR();
-        if (aOR != null) {
-            aOR.cancel();
+        Flow aOS = aVar.aOS();
+        if (aOS != null) {
+            aOS.cancel();
         }
     }
 
     public static void c(@NonNull a aVar) {
-        Flow aOR = aVar.aOR();
-        if (aOR != null) {
-            aOR.end();
+        Flow aOS = aVar.aOS();
+        if (aOS != null) {
+            aOS.end();
         }
     }
 
     public static void a(@NonNull a aVar, String str) {
-        Flow aOR = aVar.aOR();
-        if (aOR != null) {
-            aOR.setValueWithDuration(str);
+        Flow aOS = aVar.aOS();
+        if (aOS != null) {
+            aOS.setValueWithDuration(str);
         }
     }
 }

@@ -67,8 +67,8 @@ public class c {
         gradientDrawable.setShape(0);
         this.jlg.setBackground(gradientDrawable);
         this.jkJ = new b(tbPageContext);
-        this.jkJ.cHz();
-        cHy();
+        this.jkJ.cHA();
+        cHz();
         TiebaStatic.log(new aq("c13893").an("obj_source", (this.jkJ.jkW == null || !this.jkJ.jkW.equals("bazhu")) ? 2 : 1).dX("fid", this.jkJ.fid).dX("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 
@@ -76,9 +76,9 @@ public class c {
         this.rootView.setVisibility(z ? 0 : 8);
     }
 
-    private void cHy() {
+    private void cHz() {
         this.jkG.setText(this.jkJ.nickName + ":");
-        this.jkH.setText(this.jkJ.cHA());
+        this.jkH.setText(this.jkJ.cHB());
         this.jkI.setText("百度贴吧\n" + new SimpleDateFormat("yyyy年MM月dd日").format(new Date(System.currentTimeMillis())));
     }
 

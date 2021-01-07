@@ -114,12 +114,12 @@ public class ImageViewerConfig extends IntentConfig {
                 intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
             }
             if (aVar.eMv != null) {
-                intent.putExtra(IS_BJH, aVar.eMv.bpZ());
-                if (aVar.eMv.bpZ()) {
+                intent.putExtra(IS_BJH, aVar.eMv.bqa());
+                if (aVar.eMv.bqa()) {
                     intent.putExtra(PARAM_IS_CDN, true);
                 }
-                intent.putExtra(IntentConfig.NID, aVar.eMv.bpO());
-                intent.putExtra(IntentConfig.CARD_TYPE, aVar.eMv.bts());
+                intent.putExtra(IntentConfig.NID, aVar.eMv.bpP());
+                intent.putExtra(IntentConfig.CARD_TYPE, aVar.eMv.btt());
                 intent.putExtra(IntentConfig.RECOM_SOURCE, aVar.eMv.mRecomSource);
                 intent.putExtra("ab_tag", aVar.eMv.mRecomAbTag);
                 intent.putExtra("weight", aVar.eMv.mRecomWeight);
@@ -189,17 +189,17 @@ public class ImageViewerConfig extends IntentConfig {
             return this;
         }
 
-        public a AE(String str) {
+        public a AD(String str) {
             this.forumName = str;
             return this;
         }
 
-        public a AF(String str) {
+        public a AE(String str) {
             this.forumId = str;
             return this;
         }
 
-        public a AG(String str) {
+        public a AF(String str) {
             this.threadId = str;
             return this;
         }
@@ -209,7 +209,7 @@ public class ImageViewerConfig extends IntentConfig {
             return this;
         }
 
-        public a AH(String str) {
+        public a AG(String str) {
             this.lastId = str;
             return this;
         }
@@ -244,7 +244,7 @@ public class ImageViewerConfig extends IntentConfig {
             return this;
         }
 
-        public a AI(String str) {
+        public a AH(String str) {
             this.postId = str;
             return this;
         }
@@ -275,7 +275,7 @@ public class ImageViewerConfig extends IntentConfig {
             return this;
         }
 
-        public a AJ(String str) {
+        public a AI(String str) {
             this.eMw = str;
             return this;
         }

@@ -30,7 +30,7 @@ public class c {
         MessageManager.getInstance().registerListener(this.kGi);
     }
 
-    public static c cZl() {
+    public static c cZm() {
         if (kHq == null) {
             synchronized (c.class) {
                 if (kHq == null) {
@@ -73,11 +73,11 @@ public class c {
         return this.kwY;
     }
 
-    public Long cZm() {
-        return com.baidu.tieba.im.memorycache.b.cYx().cYI().get(this.kwY);
+    public Long cZn() {
+        return com.baidu.tieba.im.memorycache.b.cYy().cYJ().get(this.kwY);
     }
 
-    public synchronized List<Long> cZn() {
+    public synchronized List<Long> cZo() {
         ArrayList arrayList;
         arrayList = new ArrayList();
         for (Long l : this.kHr) {
@@ -88,7 +88,7 @@ public class c {
         return arrayList;
     }
 
-    public synchronized void cZo() {
+    public synchronized void cZp() {
         this.kHr.clear();
     }
 
@@ -116,7 +116,7 @@ public class c {
         }
     }
 
-    public synchronized boolean cZp() {
+    public synchronized boolean cZq() {
         boolean z;
         if (this.kwY > 0) {
             z = this.kHr.size() > 0;
@@ -141,7 +141,7 @@ public class c {
         return z;
     }
 
-    public synchronized String cZq() {
+    public synchronized String cZr() {
         String str;
         str = "";
         for (Long l : this.kHr) {

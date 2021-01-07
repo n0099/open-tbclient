@@ -12,10 +12,10 @@ import java.lang.ref.WeakReference;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private WeakReference<Context> f7122a;
+    private WeakReference<Context> f7123a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f7123b = true;
+    private boolean f7124b = true;
     private boolean c = true;
     private boolean d = true;
     private boolean e = true;
@@ -28,7 +28,7 @@ public class a {
     }
 
     private a(Context context) {
-        this.f7122a = new WeakReference<>(context);
+        this.f7123a = new WeakReference<>(context);
     }
 
     public a a(boolean z) {
@@ -44,7 +44,7 @@ public class a {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x005e -> B:41:0x000c). Please submit an issue!!! */
     @SuppressLint({"SetJavaScriptEnabled"})
     public void a(WebView webView) {
-        if (webView != null && this.f7122a.get() != null) {
+        if (webView != null && this.f7123a.get() != null) {
             b(webView);
             WebSettings settings = webView.getSettings();
             a(settings);

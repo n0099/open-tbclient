@@ -18,13 +18,13 @@ public abstract class a {
 
     public abstract void a(InterfaceC0574a interfaceC0574a);
 
-    public abstract MarkData bnA();
+    public abstract void bnA();
 
-    public abstract String bnw();
+    public abstract MarkData bnB();
 
-    public abstract boolean bnx();
+    public abstract String bnx();
 
-    public abstract void bny();
+    public abstract boolean bny();
 
     public abstract void bnz();
 

@@ -17,10 +17,10 @@ import androidx.annotation.Nullable;
 public class e extends Drawable {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f9829a;
+    private Paint f9830a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Paint f9830b;
+    private Paint f9831b;
     private int c;
     private int d;
     private int e;
@@ -33,10 +33,10 @@ public class e extends Drawable {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f9831a = 1;
+        private int f9832a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f9832b = 12;
+        private int f9833b = 12;
         private int c = Color.parseColor("#4d000000");
         private int d = 18;
         private int e = 0;
@@ -48,12 +48,12 @@ public class e extends Drawable {
         }
 
         public a a(int i) {
-            this.f9832b = i;
+            this.f9833b = i;
             return this;
         }
 
         public e a() {
-            return new e(this.f9831a, this.g, this.f9832b, this.c, this.d, this.e, this.f);
+            return new e(this.f9832a, this.g, this.f9833b, this.c, this.d, this.e, this.f);
         }
 
         public a b(int i) {
@@ -89,13 +89,13 @@ public class e extends Drawable {
         this.c = i4;
         this.f = i5;
         this.g = i6;
-        this.f9829a = new Paint();
-        this.f9829a.setColor(0);
-        this.f9829a.setAntiAlias(true);
-        this.f9829a.setShadowLayer(i4, i5, i6, i3);
-        this.f9829a.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_ATOP));
-        this.f9830b = new Paint();
-        this.f9830b.setAntiAlias(true);
+        this.f9830a = new Paint();
+        this.f9830a.setColor(0);
+        this.f9830a.setAntiAlias(true);
+        this.f9830a.setShadowLayer(i4, i5, i6, i3);
+        this.f9830a.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_ATOP));
+        this.f9831b = new Paint();
+        this.f9831b.setAntiAlias(true);
     }
 
     public static void a(View view, int i, int i2, int i3, int i4, int i5, int i6) {
@@ -113,18 +113,18 @@ public class e extends Drawable {
     public void draw(@NonNull Canvas canvas) {
         if (this.h != null) {
             if (this.h.length == 1) {
-                this.f9830b.setColor(this.h[0]);
+                this.f9831b.setColor(this.h[0]);
             } else {
-                this.f9830b.setShader(new LinearGradient(this.i.left, this.i.height() / 2.0f, this.i.right, this.i.height() / 2.0f, this.h, (float[]) null, Shader.TileMode.CLAMP));
+                this.f9831b.setShader(new LinearGradient(this.i.left, this.i.height() / 2.0f, this.i.right, this.i.height() / 2.0f, this.h, (float[]) null, Shader.TileMode.CLAMP));
             }
         }
         if (this.d == 1) {
-            canvas.drawRoundRect(this.i, this.e, this.e, this.f9829a);
-            canvas.drawRoundRect(this.i, this.e, this.e, this.f9830b);
+            canvas.drawRoundRect(this.i, this.e, this.e, this.f9830a);
+            canvas.drawRoundRect(this.i, this.e, this.e, this.f9831b);
             return;
         }
-        canvas.drawCircle(this.i.centerX(), this.i.centerY(), Math.min(this.i.width(), this.i.height()) / 2.0f, this.f9829a);
-        canvas.drawCircle(this.i.centerX(), this.i.centerY(), Math.min(this.i.width(), this.i.height()) / 2.0f, this.f9830b);
+        canvas.drawCircle(this.i.centerX(), this.i.centerY(), Math.min(this.i.width(), this.i.height()) / 2.0f, this.f9830a);
+        canvas.drawCircle(this.i.centerX(), this.i.centerY(), Math.min(this.i.width(), this.i.height()) / 2.0f, this.f9831b);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -134,7 +134,7 @@ public class e extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        this.f9829a.setAlpha(i);
+        this.f9830a.setAlpha(i);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -145,6 +145,6 @@ public class e extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(@Nullable ColorFilter colorFilter) {
-        this.f9829a.setColorFilter(colorFilter);
+        this.f9830a.setColorFilter(colorFilter);
     }
 }

@@ -14,13 +14,13 @@ public class d implements ag {
     private String forumName;
     private int gIP;
     private boolean isSigned;
+    private int nil;
     private int nim;
     private int nin;
-    private int nio;
+    private boolean nio;
     private boolean nip;
     private boolean niq;
-    private boolean nir;
-    private int nis;
+    private int nir;
     private int userLevel;
 
     public int getForumId() {
@@ -35,28 +35,28 @@ public class d implements ag {
         return this.avatar;
     }
 
-    public int dMn() {
-        return this.nim;
-    }
-
     public int dMo() {
-        return this.gIP;
-    }
-
-    public int bNU() {
-        return this.userLevel;
+        return this.nil;
     }
 
     public int dMp() {
-        return this.nin;
+        return this.gIP;
+    }
+
+    public int bNV() {
+        return this.userLevel;
     }
 
     public int dMq() {
-        return this.nio;
+        return this.nim;
+    }
+
+    public int dMr() {
+        return this.nin;
     }
 
     public void Kw(int i) {
-        this.nim = i;
+        this.nil = i;
     }
 
     public void Kx(int i) {
@@ -67,50 +67,50 @@ public class d implements ag {
         this.userLevel = i;
     }
 
-    public boolean bVu() {
+    public boolean bVv() {
         return this.isSigned;
     }
 
     public void xN(boolean z) {
         this.isSigned = z;
-        this.nim = 1;
-    }
-
-    public boolean dMr() {
-        return this.niq;
-    }
-
-    public void xO(boolean z) {
-        this.niq = z;
-        this.nim = 0;
+        this.nil = 1;
     }
 
     public boolean dMs() {
-        return this.nir;
+        return this.nip;
+    }
+
+    public void xO(boolean z) {
+        this.nip = z;
+        this.nil = 0;
+    }
+
+    public boolean dMt() {
+        return this.niq;
     }
 
     public void xP(boolean z) {
-        this.nir = z;
+        this.niq = z;
     }
 
-    public int dMt() {
-        return this.nis;
+    public int dMu() {
+        return this.nir;
     }
 
     public void Ky(int i) {
-        this.nis = i;
+        this.nir = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean dMu() {
-        return this.nip;
+    public boolean dMv() {
+        return this.nio;
     }
 
     public void xQ(boolean z) {
-        this.nip = z;
+        this.nio = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -118,14 +118,14 @@ public class d implements ag {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.nim = jSONObject.optInt("is_sign_in");
+            this.nil = jSONObject.optInt("is_sign_in");
             this.gIP = jSONObject.optInt("cont_sign_num");
             this.userLevel = jSONObject.optInt(IntentConfig.USER_LEVEL);
-            this.nin = jSONObject.optInt("user_exp");
-            this.nio = jSONObject.optInt("need_exp");
-            if (this.nim != 0) {
+            this.nim = jSONObject.optInt("user_exp");
+            this.nin = jSONObject.optInt("need_exp");
+            if (this.nil != 0) {
                 this.isSigned = true;
-                this.niq = false;
+                this.nip = false;
             }
         }
     }

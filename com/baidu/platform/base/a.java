@@ -16,16 +16,16 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public abstract class a {
     private SearchType f;
 
     /* renamed from: b  reason: collision with root package name */
-    private AsyncHttpClient f4171b = new AsyncHttpClient();
+    private AsyncHttpClient f4172b = new AsyncHttpClient();
     private Handler c = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with root package name */
-    protected final Lock f4170a = new ReentrantLock();
+    protected final Lock f4171a = new ReentrantLock();
     private boolean d = true;
     private DistrictResult e = null;
 
@@ -134,7 +134,7 @@ public abstract class a {
         this.f = dVar.a();
         String a2 = eVar.a(this.f);
         if (a2 != null) {
-            this.f4171b.get(a2, new b(this, dVar, obj));
+            this.f4172b.get(a2, new b(this, dVar, obj));
             return true;
         }
         Log.e("BaseSearch", "The sendurl is: " + a2);

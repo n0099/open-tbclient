@@ -17,7 +17,7 @@ public class a extends d {
 
     public com.baidu.swan.apps.api.c.b rC(String str) {
         com.baidu.swan.apps.ac.c.b.b rF = rF(str);
-        if (rF.aIl()) {
+        if (rF.aIm()) {
             com.baidu.swan.apps.ac.d.a.print(rF.toString());
             return rF.dvb;
         }
@@ -33,7 +33,7 @@ public class a extends d {
 
     public com.baidu.swan.apps.api.c.b rD(String str) {
         com.baidu.swan.apps.ac.c.b.b rF = rF(str);
-        if (rF.aIl()) {
+        if (rF.aIm()) {
             com.baidu.swan.apps.ac.d.a.print(rF.toString());
             return rF.dvb;
         }
@@ -49,7 +49,7 @@ public class a extends d {
 
     public com.baidu.swan.apps.api.c.b rE(String str) {
         com.baidu.swan.apps.ac.c.b.b rF = rF(str);
-        if (rF.aIl()) {
+        if (rF.aIm()) {
             com.baidu.swan.apps.ac.d.a.print(rF.toString());
             return rF.dvb;
         }
@@ -66,7 +66,7 @@ public class a extends d {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.ac.c.c.a aVar) {
         if (aVar != null) {
-            aVar.aIn();
+            aVar.aIo();
         }
     }
 

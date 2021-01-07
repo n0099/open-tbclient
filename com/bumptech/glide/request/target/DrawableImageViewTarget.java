@@ -3,7 +3,7 @@ package com.bumptech.glide.request.target;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DrawableImageViewTarget extends ImageViewTarget<Drawable> {
     public DrawableImageViewTarget(ImageView imageView) {
         super(imageView);

@@ -59,7 +59,7 @@ public abstract class d implements h {
             String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
             try {
                 Class<?>[] parameterTypes = method.getParameterTypes();
-                if (!oVar.bvb()) {
+                if (!oVar.bvc()) {
                     if (parameterTypes.length == 2) {
                         invoke = method.invoke(this, optString, jSONObject);
                     } else if (parameterTypes.length == 1) {
@@ -138,7 +138,7 @@ public abstract class d implements h {
                 if (TextUtils.isEmpty(value)) {
                     value = null;
                 }
-                if (oVar.bvb() && !Void.TYPE.equals(method.getReturnType())) {
+                if (oVar.bvc() && !Void.TYPE.equals(method.getReturnType())) {
                     throw new IllegalArgumentException("Method with async flag should return void.");
                 }
                 if (TextUtils.isEmpty(value)) {

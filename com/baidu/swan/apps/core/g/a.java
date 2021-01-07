@@ -8,9 +8,9 @@ public interface a {
 
     void a(com.baidu.swan.apps.core.turbo.a aVar);
 
-    String amt();
+    String amu();
 
-    com.baidu.swan.apps.core.container.a anh();
+    com.baidu.swan.apps.core.container.a ani();
 
     void attachActivity(Activity activity);
 

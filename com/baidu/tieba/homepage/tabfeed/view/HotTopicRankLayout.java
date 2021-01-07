@@ -86,7 +86,7 @@ public class HotTopicRankLayout extends LinearLayout implements View.OnClickList
         this.mTopLine.setVisibility(0);
         this.mBottomLine.setVisibility(8);
         com.baidu.tbadk.a.b.b.bp(this.mTopLine);
-        com.baidu.tieba.homepage.tabfeed.b.MA("c13753");
+        com.baidu.tieba.homepage.tabfeed.b.Mz("c13753");
     }
 
     @Override // com.baidu.card.q
@@ -94,7 +94,7 @@ public class HotTopicRankLayout extends LinearLayout implements View.OnClickList
         if (this.mSkinType != i) {
             ao.setViewTextColor(this.mTitle, R.color.CAM_X0108);
             ao.setBackgroundResource(this, R.drawable.addresslist_item_bg);
-            SvgManager.bwq().a(this.amR, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bwr().a(this.amR, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         }
         this.mSkinType = i;
         com.baidu.tbadk.a.b.b.bq(this.mTopLine);

@@ -8,7 +8,7 @@ import java.util.List;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static List<String> f11687a = new ArrayList();
+    private static List<String> f11688a = new ArrayList();
 
     private static File a(Context context) {
         if (context == null || context.getFilesDir() == null) {
@@ -25,10 +25,10 @@ public class e {
     public static synchronized boolean a(Context context, String str) {
         boolean z = true;
         synchronized (e.class) {
-            if (!f11687a.contains(str)) {
+            if (!f11688a.contains(str)) {
                 try {
                     System.loadLibrary(str);
-                    f11687a.add(str);
+                    f11688a.add(str);
                 } catch (UnsatisfiedLinkError e) {
                     File bz = bz(context, str);
                     if (bz == null) {
@@ -42,7 +42,7 @@ public class e {
                         } else {
                             try {
                                 System.load(bz.getAbsolutePath());
-                                f11687a.add(str);
+                                f11688a.add(str);
                             } catch (Throwable th) {
                                 z = false;
                             }

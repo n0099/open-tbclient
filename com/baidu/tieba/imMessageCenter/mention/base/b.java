@@ -37,10 +37,10 @@ public class b extends com.baidu.adp.widget.ListView.a<a, CardViewHolder<c>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, a aVar, CardViewHolder<c> cardViewHolder) {
-        if (aVar == null || cardViewHolder == null || cardViewHolder.cvG() == null) {
+        if (aVar == null || cardViewHolder == null || cardViewHolder.cvH() == null) {
             return null;
         }
-        cardViewHolder.cvG().a(aVar);
+        cardViewHolder.cvH().a(aVar);
         return cardViewHolder.getView();
     }
 

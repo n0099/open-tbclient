@@ -41,11 +41,11 @@ public class StartPkResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public int coN() {
+    public int coO() {
         return this.hTJ;
     }
 
-    public long coL() {
+    public long coM() {
         return this.pkID;
     }
 
@@ -53,7 +53,7 @@ public class StartPkResponseMessage extends JsonHttpResponsedMessage {
         return this.aMk;
     }
 
-    public ArrayList<String> coO() {
+    public ArrayList<String> coP() {
         return this.hTK;
     }
 

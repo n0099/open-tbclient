@@ -41,15 +41,15 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         switch (viewHolder.getItemViewType()) {
             case 101:
-                ((LocationFooterViewHolder) viewHolder).ix(beG());
+                ((LocationFooterViewHolder) viewHolder).ix(beH());
                 return;
             default:
-                ((LocationDetailViewHolder) viewHolder).a(this.esF.get(i), this.esI, beH());
+                ((LocationDetailViewHolder) viewHolder).a(this.esF.get(i), this.esI, beI());
                 return;
         }
     }
 
-    private boolean beG() {
+    private boolean beH() {
         return this.mRecyclerView != null && this.mRecyclerView.computeVerticalScrollOffset() > 0;
     }
 
@@ -65,7 +65,7 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         }
     }
 
-    private boolean beH() {
+    private boolean beI() {
         return !TextUtils.isEmpty(this.esI);
     }
 
@@ -82,7 +82,7 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         return (!this.esH || i < getItemCount() + (-1)) ? 100 : 101;
     }
 
-    public void beI() {
+    public void beJ() {
         for (c cVar : this.esF) {
             cVar.isSelected = false;
         }

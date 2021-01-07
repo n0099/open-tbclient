@@ -146,9 +146,9 @@ public class PersonCardViewNew implements View.OnClickListener, ViewPager.OnPage
 
     /* loaded from: classes11.dex */
     public interface a {
-        void cpk();
-
         void cpl();
+
+        void cpm();
     }
 
     public PersonCardViewNew(final PersonCardActivity personCardActivity, boolean z, boolean z2) {
@@ -215,7 +215,7 @@ public class PersonCardViewNew implements View.OnClickListener, ViewPager.OnPage
         this.hYo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PersonCardViewNew.this.cpA();
+                PersonCardViewNew.this.cpB();
             }
         });
         if (!this.hUJ) {
@@ -264,8 +264,8 @@ public class PersonCardViewNew implements View.OnClickListener, ViewPager.OnPage
         this.hYn.setOnClickListener(this);
         a(new a.InterfaceC0697a() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.6
             @Override // com.baidu.tieba.ala.person.a.InterfaceC0697a
-            public void cpn() {
-                PersonCardViewNew.this.hXO.cpi();
+            public void cpo() {
+                PersonCardViewNew.this.hXO.cpj();
             }
         });
     }
@@ -366,7 +366,7 @@ public class PersonCardViewNew implements View.OnClickListener, ViewPager.OnPage
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 if (PersonCardViewNew.this.hYK != null) {
-                                    PersonCardViewNew.this.hYK.cpl();
+                                    PersonCardViewNew.this.hYK.cpm();
                                 }
                             }
                         });
@@ -394,7 +394,7 @@ public class PersonCardViewNew implements View.OnClickListener, ViewPager.OnPage
         if (personUserData != null) {
             boolean z = (personUserData.location_info == null || TextUtils.isEmpty(personUserData.location_info.location)) ? false : true;
             boolean z2 = (personUserData.user_info == null || personUserData.user_info.ala_id == 0) ? false : true;
-            this.aLL = personUserData.user_info != null && this.hXO.IQ(personUserData.user_info.user_id);
+            this.aLL = personUserData.user_info != null && this.hXO.IP(personUserData.user_info.user_id);
             this.uid = personUserData.user_info != null ? personUserData.user_info.user_id : "";
             this.hYG = personUserData.user_info != null ? personUserData.user_info.aQj : "";
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -431,7 +431,7 @@ public class PersonCardViewNew implements View.OnClickListener, ViewPager.OnPage
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpA() {
+    public void cpB() {
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(this.hXO.getActivity());
             this.hXO.finish();
@@ -447,9 +447,9 @@ public class PersonCardViewNew implements View.OnClickListener, ViewPager.OnPage
             com.baidu.tieba.ala.person.a aVar = new com.baidu.tieba.ala.person.a(this.hXO.getActivity(), true);
             aVar.a(new a.InterfaceC0697a() { // from class: com.baidu.tieba.ala.person.view.PersonCardViewNew.9
                 @Override // com.baidu.tieba.ala.person.a.InterfaceC0697a
-                public void cpn() {
+                public void cpo() {
                     if (PersonCardViewNew.this.hXY != null) {
-                        PersonCardViewNew.this.hXY.cpn();
+                        PersonCardViewNew.this.hXY.cpo();
                     }
                 }
             });
@@ -492,7 +492,7 @@ public class PersonCardViewNew implements View.OnClickListener, ViewPager.OnPage
             if (personUserData.user_info == null || JavaTypesHelper.toLong(personUserData.user_info.user_id, 0L) == 0 || (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(personUserData.user_info.user_id))) {
                 this.hXU.setVisibility(8);
                 this.hYo.setVisibility(8);
-            } else if (this.hXO.IQ(TbadkCoreApplication.getCurrentAccount())) {
+            } else if (this.hXO.IP(TbadkCoreApplication.getCurrentAccount())) {
                 this.hYo.setVisibility(8);
                 if (!this.hUJ) {
                     this.hXU.setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds16), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds32), 0, 0);
@@ -523,10 +523,10 @@ public class PersonCardViewNew implements View.OnClickListener, ViewPager.OnPage
         } else {
             this.hYu.setText(atVar.description);
         }
-        IS(atVar.aQf);
+        IR(atVar.aQf);
     }
 
-    private void IS(final String str) {
+    private void IR(final String str) {
         if (getRootView().getVisibility() == 0 && !TextUtils.isEmpty(str)) {
             if (this.hYw == null) {
                 this.hYw = new TbImageView(this.hYv.getContext());
@@ -616,7 +616,7 @@ public class PersonCardViewNew implements View.OnClickListener, ViewPager.OnPage
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (PersonCardViewNew.this.hYK != null) {
-                        PersonCardViewNew.this.hYK.cpk();
+                        PersonCardViewNew.this.hYK.cpl();
                     }
                 }
             });
@@ -646,18 +646,18 @@ public class PersonCardViewNew implements View.OnClickListener, ViewPager.OnPage
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.hYn) {
-            cpC();
+            cpD();
         } else if (view == this.hYs) {
-            cpv();
+            cpw();
         } else if (view == this.hYr) {
-            cpB();
+            cpC();
         } else if (view == this.hXU) {
             TiebaInitialize.log("c12266");
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913025, new Object[]{this.hXO, this.byl}));
         }
     }
 
-    private void cpB() {
+    private void cpC() {
         JSONObject jSONObject;
         if (this.hXO != null && this.byl != null && this.byl.user_info != null && !TextUtils.isEmpty(this.byl.user_info.live_id)) {
             com.baidu.live.liveroom.a.OO().a(com.baidu.live.liveroom.a.OO().OP().hW(String.valueOf(this.byl.user_info.live_id)));
@@ -691,7 +691,7 @@ public class PersonCardViewNew implements View.OnClickListener, ViewPager.OnPage
         }
     }
 
-    private void cpv() {
+    private void cpw() {
         if (this.byl != null) {
             if (!TbadkCoreApplication.isLogin()) {
                 ViewHelper.skipToLoginActivity(this.hXO.getActivity());
@@ -710,7 +710,7 @@ public class PersonCardViewNew implements View.OnClickListener, ViewPager.OnPage
         }
     }
 
-    private void cpC() {
+    private void cpD() {
         String str;
         if (this.byl != null) {
             if (!TbadkCoreApplication.isLogin()) {
@@ -721,10 +721,10 @@ public class PersonCardViewNew implements View.OnClickListener, ViewPager.OnPage
             } else {
                 if (this.hYF) {
                     xK(1);
-                    this.hXO.cph();
+                    this.hXO.cpi();
                 } else {
                     xK(0);
-                    this.hXO.cpg();
+                    this.hXO.cph();
                     if (TbadkCoreApplication.getInst().isHaokan()) {
                         AlaStaticItem alaStaticItem = new AlaStaticItem(HKStaticKeys.HK_STATIC_FOLLOW_CLICK);
                         alaStaticItem.addParams("live_id", HKStaticManager.LIVE_ID);
@@ -894,7 +894,7 @@ public class PersonCardViewNew implements View.OnClickListener, ViewPager.OnPage
         MessageManager.getInstance().unRegisterListener(this.gQN);
     }
 
-    public Animation bZN() {
+    public Animation bZO() {
         this.mHandler.removeCallbacksAndMessages(null);
         this.mHandler = null;
         if (this.hfp != null) {
@@ -906,12 +906,12 @@ public class PersonCardViewNew implements View.OnClickListener, ViewPager.OnPage
         return loadAnimation;
     }
 
-    public void bnO() {
+    public void bnP() {
         if (this.hYa != null && this.hYa.isShowing()) {
             this.hYa.resize();
         }
         if (this.byl != null && this.byl.user_info != null) {
-            IS(this.byl.user_info.aQf);
+            IR(this.byl.user_info.aQf);
         }
     }
 

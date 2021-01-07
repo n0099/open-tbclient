@@ -6,7 +6,7 @@ import java.io.File;
 public class as {
     private static as fdq;
 
-    public static synchronized as bwo() {
+    public static synchronized as bwp() {
         as asVar;
         synchronized (as.class) {
             if (fdq == null) {
@@ -17,7 +17,7 @@ public class as {
         return asVar;
     }
 
-    public String BZ(String str) {
+    public String BY(String str) {
         if (str == null) {
             return null;
         }
@@ -41,7 +41,7 @@ public class as {
         }
     }
 
-    public void bwp() {
+    public void bwq() {
         U(new File(n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + n.getPrefixByType(3)));
     }
 

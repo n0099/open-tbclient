@@ -13,19 +13,19 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class BlockingFlowableIterable<T> implements Iterable<T> {
     final int bufferSize;
-    final g<T> qgK;
+    final g<T> qit;
 
     @Override // java.lang.Iterable
     public Iterator<T> iterator() {
         BlockingFlowableIterator blockingFlowableIterator = new BlockingFlowableIterator(this.bufferSize);
-        this.qgK.a((j) blockingFlowableIterator);
+        this.qit.a((j) blockingFlowableIterator);
         return blockingFlowableIterator;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class BlockingFlowableIterator<T> extends AtomicReference<d> implements io.reactivex.disposables.b, j<T>, Runnable, Iterator<T> {
         private static final long serialVersionUID = 6695226475494099826L;
         final long batchSize;
@@ -58,7 +58,7 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
                     }
                 }
                 if (isEmpty) {
-                    io.reactivex.internal.util.c.eLz();
+                    io.reactivex.internal.util.c.eMd();
                     this.lock.lock();
                     while (!this.done && this.queue.isEmpty()) {
                         try {

@@ -11,18 +11,18 @@ public final class s {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f11129a;
+        private int f11130a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f11130b;
+        private int f11131b;
         private int c;
         private int d;
         private int e;
         private int f;
 
         public a() {
-            this.f11129a = -1;
-            this.f11130b = -1;
+            this.f11130a = -1;
+            this.f11131b = -1;
             this.c = -1;
             this.d = -1;
             this.e = -1;
@@ -30,18 +30,18 @@ public final class s {
         }
 
         public a(int i, int i2) {
-            this.f11129a = -1;
-            this.f11130b = -1;
+            this.f11130a = -1;
+            this.f11131b = -1;
             this.c = -1;
             this.d = -1;
             this.e = -1;
             this.f = -1;
-            this.f11129a = i;
-            this.f11130b = i2;
+            this.f11130a = i;
+            this.f11131b = i2;
         }
 
         public int a() {
-            return this.f11129a;
+            return this.f11130a;
         }
 
         public void a(float f, float f2) {
@@ -50,12 +50,12 @@ public final class s {
         }
 
         public void a(int i, int i2) {
-            this.f11129a = i;
-            this.f11130b = i2;
+            this.f11130a = i;
+            this.f11131b = i2;
         }
 
         public int b() {
-            return this.f11130b;
+            return this.f11131b;
         }
 
         public void b(float f, float f2) {
@@ -81,7 +81,7 @@ public final class s {
 
         @NonNull
         public String toString() {
-            return "[" + this.f11129a + "," + this.f11130b + "," + this.c + "," + this.d + "," + this.e + "," + this.f + "]";
+            return "[" + this.f11130a + "," + this.f11131b + "," + this.c + "," + this.d + "," + this.e + "," + this.f + "]";
         }
     }
 

@@ -10,32 +10,32 @@ import com.fun.ad.sdk.FunRippedAd;
 public abstract class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    public au.a f8042a;
+    public au.a f8043a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f8043b = false;
-    public z pHU;
-    public w pHV;
+    public boolean f8044b = false;
+    public z pJC;
+    public w pJD;
 
     public ac(au.a aVar) {
-        this.f8042a = aVar;
+        this.f8043a = aVar;
     }
 
     public void a() {
-        m.a("KSAdLoader destroy adId: " + this.f8042a.f8059a);
-        this.pHU = null;
-        this.pHV = null;
+        m.a("KSAdLoader destroy adId: " + this.f8043a.f8060a);
+        this.pJC = null;
+        this.pJD = null;
     }
 
-    public abstract FunRippedAd eBl();
+    public abstract FunRippedAd eBP();
 
     public void a(Context context, FunAdSlot funAdSlot, z zVar) {
-        m.a("KSAdLoader load adId: " + this.f8042a.f8059a);
-        this.pHU = zVar;
+        m.a("KSAdLoader load adId: " + this.f8043a.f8060a);
+        this.pJC = zVar;
     }
 
     public void a(Activity activity, FunAdView funAdView, w wVar) {
-        m.a("KSAdLoader show adId: " + this.f8042a.f8059a);
-        this.pHV = wVar;
+        m.a("KSAdLoader show adId: " + this.f8043a.f8060a);
+        this.pJD = wVar;
     }
 }

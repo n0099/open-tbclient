@@ -34,7 +34,7 @@ import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class NativeListeners {
     public MethodChannel mMethodChannel;
     private int mLastMainTabIndex = -1;
@@ -75,11 +75,11 @@ public class NativeListeners {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (a.dGD().dGz()) {
+                if (a.dGE().dGA()) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("uniqueKey", "FansCountUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-                } else if (a.dGD().dGA()) {
+                } else if (a.dGE().dGB()) {
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("uniqueKey", "BookMarkUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);

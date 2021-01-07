@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.qq.e.comm.managers.GDTADManager;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class SystemUtil {
     public static String buildNewPathByProcessName(String str) {
         if (StringUtil.isEmpty(str)) {

@@ -11,17 +11,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaInviteConnectionWheatH
 /* loaded from: classes11.dex */
 public class h extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oEH;
+    private a oEG;
     private HttpMessageListener messageListener = new HttpMessageListener(1031008) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaInviteConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == h.this.bwz && h.this.oEH != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaInviteConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == h.this.bwz && h.this.oEG != null) {
                 AlaInviteConnectionWheatHttpResponseMessage alaInviteConnectionWheatHttpResponseMessage = (AlaInviteConnectionWheatHttpResponseMessage) httpResponsedMessage;
                 if (alaInviteConnectionWheatHttpResponseMessage.getError() != 0 || !alaInviteConnectionWheatHttpResponseMessage.isSuccess()) {
-                    h.this.oEH.b(alaInviteConnectionWheatHttpResponseMessage);
+                    h.this.oEG.b(alaInviteConnectionWheatHttpResponseMessage);
                 } else {
-                    h.this.oEH.a(alaInviteConnectionWheatHttpResponseMessage);
+                    h.this.oEG.a(alaInviteConnectionWheatHttpResponseMessage);
                 }
             }
         }
@@ -38,12 +38,12 @@ public class h extends BdBaseModel {
     public h(TbPageContext tbPageContext, a aVar) {
         setUniqueId(this.bwz);
         this.mPageContext = tbPageContext;
-        this.oEH = aVar;
-        bmf();
+        this.oEG = aVar;
+        bmg();
         registerListener(this.messageListener);
     }
 
-    private void bmf() {
+    private void bmg() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031008, com.baidu.live.a.aAH + "ala/audio/link/invite");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);

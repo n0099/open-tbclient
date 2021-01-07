@@ -92,7 +92,7 @@ public class FlutterStatic {
                 return null;
             }
         }));
-        be.bwu().a(new be.a() { // from class: com.baidu.tieba.flutter.FlutterStatic.5
+        be.bwv().a(new be.a() { // from class: com.baidu.tieba.flutter.FlutterStatic.5
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

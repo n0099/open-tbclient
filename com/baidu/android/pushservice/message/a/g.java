@@ -16,16 +16,16 @@ public class g extends b {
         int i;
         String b2 = kVar.b();
         String e = kVar.e();
-        PublicMsg a2 = h.a(this.f1448a, e, b2, bArr);
+        PublicMsg a2 = h.a(this.f1449a, e, b2, bArr);
         if (a2 == null || TextUtils.isEmpty(a2.mTitle) || TextUtils.isEmpty(a2.mDescription) || TextUtils.isEmpty(a2.mUrl)) {
-            m.a(">>> pMsg JSON parsing error!", this.f1448a);
+            m.a(">>> pMsg JSON parsing error!", this.f1449a);
             i = 2;
-        } else if (d.a(this.f1448a, a2) && m.d(this.f1448a, this.f1448a.getPackageName())) {
-            m.a(">>> Show pMsg Notification!", this.f1448a);
-            d.a(this.f1448a, a2, e);
+        } else if (d.a(this.f1449a, a2) && m.d(this.f1449a, this.f1449a.getPackageName())) {
+            m.a(">>> Show pMsg Notification!", this.f1449a);
+            d.a(this.f1449a, a2, e);
             i = 1;
         } else {
-            m.a(">>> Don't Show pMsg Notification! --- IsBaiduApp = " + m.d(this.f1448a, this.f1448a.getPackageName()), this.f1448a);
+            m.a(">>> Don't Show pMsg Notification! --- IsBaiduApp = " + m.d(this.f1449a, this.f1449a.getPackageName()), this.f1449a);
             i = 0;
         }
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();

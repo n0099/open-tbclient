@@ -20,7 +20,7 @@ import com.baidu.spswitch.emotion.EmotionType;
 import com.baidu.spswitch.emotion.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BDEmotionBagLayout extends LinearLayout {
     private ViewPager Zk;
     private PagerAdapter Zl;
@@ -44,7 +44,7 @@ public class BDEmotionBagLayout extends LinearLayout {
     }
 
     private void init(Context context) {
-        if (com.baidu.spswitch.b.a.aji().isNightMode()) {
+        if (com.baidu.spswitch.b.a.ajj().isNightMode()) {
             setBackgroundColor(-14540254);
         } else {
             setBackgroundColor(-1);
@@ -108,14 +108,14 @@ public class BDEmotionBagLayout extends LinearLayout {
                 noScrollGridView.setSelector(new ColorDrawable(0));
                 this.cDD.add(noScrollGridView);
             }
-            ajf();
+            ajg();
             this.Zl = new b(this.cDD);
             this.Zk.setAdapter(this.Zl);
             this.cDC.setViewPager(this.Zk);
         }
     }
 
-    private void ajf() {
+    private void ajg() {
         int size = this.cDD.size();
         for (int i = 0; i < size; i++) {
             this.cDD.get(i).setAdapter((ListAdapter) new a(getContext(), hB(i)));
@@ -133,7 +133,7 @@ public class BDEmotionBagLayout extends LinearLayout {
         return arrayList;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private class b extends PagerAdapter {
         private List<GridView> mList;
 
@@ -163,7 +163,7 @@ public class BDEmotionBagLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends BaseAdapter {
         private Context mContext;
         private LayoutInflater mInflater;

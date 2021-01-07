@@ -23,7 +23,7 @@ public class a {
         this.eZe.a(this.eZg);
     }
 
-    public static a buD() {
+    public static a buE() {
         if (eZd == null) {
             synchronized (a.class) {
                 if (eZd == null) {
@@ -34,7 +34,7 @@ public class a {
         return eZd;
     }
 
-    public DataRes buE() {
+    public DataRes buF() {
         return this.eZf;
     }
 }

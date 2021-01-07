@@ -19,24 +19,24 @@ public class a {
     public boolean a(PbModel pbModel) {
         String str;
         int i = 2;
-        if (this.eXu.getPageActivity() == null || pbModel == null || pbModel.lKf == null) {
+        if (this.eXu.getPageActivity() == null || pbModel == null || pbModel.lKe == null) {
             return false;
         }
-        if ("3".equals(pbModel.lKf.lGL)) {
+        if ("3".equals(pbModel.lKe.lGK)) {
             MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.eXu.getPageActivity()).createNormalCfg(2);
             createNormalCfg.setSubTabName(this.eXu.getString(R.string.tab_name_topic_rank));
             this.eXu.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg));
             return true;
         }
-        String string = com.baidu.tbadk.core.sharedPref.b.bvq().getString("key_pb_back_sid1", "");
-        String string2 = com.baidu.tbadk.core.sharedPref.b.bvq().getString("key_pb_back_sid2", "");
-        if (!TextUtils.isEmpty(string) && com.baidu.tbadk.a.c.bmq().Aj(string) != null) {
+        String string = com.baidu.tbadk.core.sharedPref.b.bvr().getString("key_pb_back_sid1", "");
+        String string2 = com.baidu.tbadk.core.sharedPref.b.bvr().getString("key_pb_back_sid2", "");
+        if (!TextUtils.isEmpty(string) && com.baidu.tbadk.a.c.bmr().Aj(string) != null) {
             str = "1";
         } else {
-            str = (TextUtils.isEmpty(string2) || com.baidu.tbadk.a.c.bmq().Aj(string2) == null) ? null : "2";
+            str = (TextUtils.isEmpty(string2) || com.baidu.tbadk.a.c.bmr().Aj(string2) == null) ? null : "2";
         }
-        if (str == null && pbModel.lKf.lGK != null) {
-            str = pbModel.lKf.lGK;
+        if (str == null && pbModel.lKe.lGJ != null) {
+            str = pbModel.lKe.lGJ;
         }
         if (str != null) {
             if (str.equals("1")) {
@@ -47,10 +47,10 @@ public class a {
                 return true;
             } else if (str.equals("2")) {
                 MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.eXu.getPageActivity()).createNormalCfg(1);
-                createNormalCfg3.setSubTab(0, pbModel.lKf.lGL);
+                createNormalCfg3.setSubTab(0, pbModel.lKe.lGK);
                 this.eXu.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg3));
-                if (!"游戏".equals(pbModel.lKf.lGL)) {
-                    i = "数码".equals(pbModel.lKf.lGL) ? 3 : 0;
+                if (!"游戏".equals(pbModel.lKe.lGK)) {
+                    i = "数码".equals(pbModel.lKe.lGK) ? 3 : 0;
                 }
                 a(pbModel, i);
                 return true;
@@ -64,12 +64,12 @@ public class a {
     private void a(PbModel pbModel, int i) {
         if (pbModel != null) {
             com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c13719");
-            aqVar.dX("fid", pbModel.lKf.getForumId());
-            aqVar.dX("tid", pbModel.lKf.getThreadId());
+            aqVar.dX("fid", pbModel.lKe.getForumId());
+            aqVar.dX("tid", pbModel.lKe.getThreadId());
             aqVar.an("obj_type", i);
-            if (pbModel.dqH() == 5) {
+            if (pbModel.dqI() == 5) {
                 aqVar.an("obj_source", 1);
-            } else if (pbModel.dqH() == 7) {
+            } else if (pbModel.dqI() == 7) {
                 aqVar.an("obj_source", 2);
             } else {
                 aqVar.an("obj_source", 3);

@@ -1,5 +1,5 @@
 package com.baidu.prologue.business.data;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ParseError extends Exception {
     public static final int ERROR_INVALID_DATA = 2;
     public static final int ERROR_INVALID_JSON_ROOT = 1;

@@ -61,9 +61,9 @@ public class a extends aa {
             }
             c.i("accelerometer", " init ");
             final k kVar = new k("accelerometerChange", optParamsAsJo, optString);
-            com.baidu.swan.apps.ak.a.a aPY = com.baidu.swan.apps.ak.a.a.aPY();
-            aPY.w(context, a.C0403a.mb(optParamsAsJo.optString("interval")));
-            aPY.a(new a.InterfaceC0377a() { // from class: com.baidu.swan.apps.ak.a.a.a.1
+            com.baidu.swan.apps.ak.a.a aPZ = com.baidu.swan.apps.ak.a.a.aPZ();
+            aPZ.w(context, a.C0403a.mb(optParamsAsJo.optString("interval")));
+            aPZ.a(new a.InterfaceC0377a() { // from class: com.baidu.swan.apps.ak.a.a.a.1
                 @Override // com.baidu.swan.apps.ak.a.a.InterfaceC0377a
                 public void b(double[] dArr) {
                     if (dArr == null || dArr.length != 3) {
@@ -74,7 +74,7 @@ public class a extends aa {
                     a.this.a(unitedSchemeEntity, callbackHandler, kVar, dArr);
                 }
             });
-            aPY.aPZ();
+            aPZ.aQa();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             kVar.a(unitedSchemeEntity, callbackHandler);
             return true;

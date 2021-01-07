@@ -3,10 +3,10 @@ package com.bytedance.sdk.openadsdk.core.d;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6822a;
+    private String f6823a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6823b;
+    private String f6824b;
     private String c;
     private String d;
     private String e;
@@ -14,20 +14,20 @@ public class q {
     private Long g;
 
     public String a() {
-        return this.f6822a;
+        return this.f6823a;
     }
 
     public q a(String str) {
-        this.f6822a = str;
+        this.f6823a = str;
         return this;
     }
 
     public String b() {
-        return this.f6823b;
+        return this.f6824b;
     }
 
     public q b(String str) {
-        this.f6823b = str;
+        this.f6824b = str;
         return this;
     }
 

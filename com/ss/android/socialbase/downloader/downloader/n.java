@@ -5,13 +5,13 @@ import com.ss.android.socialbase.downloader.d.ah;
 import java.util.List;
 /* loaded from: classes4.dex */
 public interface n {
-    boolean Sr(int i);
+    boolean SH(int i);
 
-    com.ss.android.socialbase.downloader.d.d Ss(int i);
+    com.ss.android.socialbase.downloader.d.d SI(int i);
 
-    com.ss.android.socialbase.downloader.d.r St(int i);
+    com.ss.android.socialbase.downloader.d.r SJ(int i);
 
-    ah Su(int i);
+    ah SK(int i);
 
     int a(String str, String str2);
 

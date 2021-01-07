@@ -15,20 +15,20 @@ import java.util.List;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final c f7596a;
+    public final c f7597a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<b> f7597b;
+    public final List<b> f7598b;
     public final a c;
 
     public i(c cVar, List<b> list, a aVar) {
-        this.f7596a = cVar;
-        this.f7597b = list;
+        this.f7597a = cVar;
+        this.f7598b = list;
         this.c = aVar;
     }
 
     public static i a(InputStream inputStream) throws IOException, d {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, com.bytedance.sdk.openadsdk.j.g.d.f7592a));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, com.bytedance.sdk.openadsdk.j.g.d.f7593a));
         c cVar = null;
         ArrayList arrayList = new ArrayList();
         while (true) {
@@ -54,15 +54,15 @@ public class i {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        final String f7602a;
+        final String f7603a;
 
         /* renamed from: b  reason: collision with root package name */
-        final String f7603b;
+        final String f7604b;
         final String c;
 
         private c(String str, String str2, String str3) {
-            this.f7602a = str;
-            this.f7603b = str2;
+            this.f7603a = str;
+            this.f7604b = str2;
             this.c = str3;
         }
 
@@ -85,7 +85,7 @@ public class i {
         }
 
         public String toString() {
-            return "RequestLine{method='" + this.f7602a + "', path='" + this.f7603b + "', version='" + this.c + "'}";
+            return "RequestLine{method='" + this.f7603a + "', path='" + this.f7604b + "', version='" + this.c + "'}";
         }
     }
 
@@ -93,14 +93,14 @@ public class i {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f7600a;
+        public final String f7601a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f7601b;
+        public final String f7602b;
 
         public b(String str, String str2) {
-            this.f7600a = str;
-            this.f7601b = str2;
+            this.f7601a = str;
+            this.f7602b = str2;
         }
 
         static b a(String str) throws d {
@@ -117,7 +117,7 @@ public class i {
         }
 
         public String toString() {
-            return "Header{name='" + this.f7600a + "', value='" + this.f7601b + "'}";
+            return "Header{name='" + this.f7601a + "', value='" + this.f7602b + "'}";
         }
     }
 
@@ -125,10 +125,10 @@ public class i {
     static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        final int f7598a;
+        final int f7599a;
 
         /* renamed from: b  reason: collision with root package name */
-        final String f7599b;
+        final String f7600b;
         final String c;
         final int d;
         final int e;
@@ -136,8 +136,8 @@ public class i {
         final List<String> g;
 
         private a(int i, String str, String str2, int i2, int i3, String str3, List<String> list) {
-            this.f7598a = i;
-            this.f7599b = str;
+            this.f7599a = i;
+            this.f7600b = str;
             this.c = str2;
             this.d = i2;
             this.e = i3;
@@ -151,12 +151,12 @@ public class i {
             String str;
             int i3;
             String str2 = null;
-            int indexOf = cVar.f7603b.indexOf("?");
+            int indexOf = cVar.f7604b.indexOf("?");
             if (indexOf == -1) {
-                throw new d("path format error, path: " + cVar.f7603b);
+                throw new d("path format error, path: " + cVar.f7604b);
             }
             ArrayList arrayList = new ArrayList();
-            String[] split = cVar.f7603b.substring(indexOf + 1).split(ETAG.ITEM_SEPARATOR);
+            String[] split = cVar.f7604b.substring(indexOf + 1).split(ETAG.ITEM_SEPARATOR);
             String str3 = null;
             String str4 = null;
             int i4 = 0;
@@ -175,28 +175,28 @@ public class i {
                 }
             }
             if (TextUtils.isEmpty(str4) || TextUtils.isEmpty(str3)) {
-                throw new d("rawKey or key is empty, path: " + cVar.f7603b);
+                throw new d("rawKey or key is empty, path: " + cVar.f7604b);
             }
             if (list != null) {
                 i = 0;
                 int i5 = 0;
                 for (b bVar : list) {
                     if (bVar != null) {
-                        if (Headers.RANGE.equalsIgnoreCase(bVar.f7600a)) {
-                            int indexOf2 = bVar.f7601b.indexOf("=");
+                        if (Headers.RANGE.equalsIgnoreCase(bVar.f7601a)) {
+                            int indexOf2 = bVar.f7602b.indexOf("=");
                             if (indexOf2 == -1) {
-                                throw new d("Range format error, Range: " + bVar.f7601b);
+                                throw new d("Range format error, Range: " + bVar.f7602b);
                             }
-                            if (!"bytes".equalsIgnoreCase(bVar.f7601b.substring(0, indexOf2).trim())) {
-                                throw new d("Range format error, Range: " + bVar.f7601b);
+                            if (!"bytes".equalsIgnoreCase(bVar.f7602b.substring(0, indexOf2).trim())) {
+                                throw new d("Range format error, Range: " + bVar.f7602b);
                             }
-                            String substring = bVar.f7601b.substring(indexOf2 + 1);
+                            String substring = bVar.f7602b.substring(indexOf2 + 1);
                             if (substring.contains(",")) {
-                                throw new d("Range format error, Range: " + bVar.f7601b);
+                                throw new d("Range format error, Range: " + bVar.f7602b);
                             }
                             int indexOf3 = substring.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                             if (indexOf3 == -1) {
-                                throw new d("Range format error, Range: " + bVar.f7601b);
+                                throw new d("Range format error, Range: " + bVar.f7602b);
                             }
                             String trim = substring.substring(0, indexOf3).trim();
                             String trim2 = substring.substring(indexOf3 + 1).trim();
@@ -205,15 +205,15 @@ public class i {
                                 if (trim2.length() > 0) {
                                     i3 = Integer.parseInt(trim2);
                                     if (parseInt > i3) {
-                                        throw new d("Range format error, Range: " + bVar.f7601b);
+                                        throw new d("Range format error, Range: " + bVar.f7602b);
                                     }
                                 } else {
                                     i3 = i;
                                 }
-                                str = bVar.f7601b;
+                                str = bVar.f7602b;
                                 i5 = parseInt;
                             } catch (NumberFormatException e) {
-                                throw new d("Range format error, Range: " + bVar.f7601b);
+                                throw new d("Range format error, Range: " + bVar.f7602b);
                             }
                         } else {
                             str = str2;
@@ -229,13 +229,13 @@ public class i {
                 i2 = 0;
             }
             if (arrayList.isEmpty()) {
-                throw new d("no url found: path: " + cVar.f7603b);
+                throw new d("no url found: path: " + cVar.f7604b);
             }
             return new a(i4, str4, str3, i2, i, str2, arrayList);
         }
 
         public String toString() {
-            return "Extra{flag=" + this.f7598a + ", rawKey='" + this.f7599b + "', key='" + this.c + "', from=" + this.d + ", to=" + this.e + ", urls=" + this.g + '}';
+            return "Extra{flag=" + this.f7599a + ", rawKey='" + this.f7600b + "', key='" + this.c + "', from=" + this.d + ", to=" + this.e + ", urls=" + this.g + '}';
         }
     }
 
@@ -267,7 +267,7 @@ public class i {
     }
 
     public String toString() {
-        return "Request{requestLine=" + this.f7596a + ", headers=" + this.f7597b + ", extra=" + this.c + '}';
+        return "Request{requestLine=" + this.f7597a + ", headers=" + this.f7598b + ", extra=" + this.c + '}';
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

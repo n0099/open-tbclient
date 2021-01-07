@@ -58,7 +58,7 @@ public class MessageCardBottomView extends LinearLayout {
     public void onChangeSkinType() {
         ao.setViewTextColor(this.akv, R.color.CAM_X0109);
         ao.setViewTextColor(this.kPU, R.drawable.selector_comment_and_prise_item_text_color);
-        SvgManager.bwq().a(this.kPT, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.CAM_X0107, (SvgManager.SvgResourceStateType) null);
+        SvgManager.bwr().a(this.kPT, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.CAM_X0107, (SvgManager.SvgResourceStateType) null);
     }
 
     public View getReplyContainer() {

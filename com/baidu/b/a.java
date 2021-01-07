@@ -3,7 +3,7 @@ package com.baidu.b;
 import com.baidu.b.b.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a implements c.a {
     @Override // com.baidu.b.b.c.a
     public List<com.baidu.b.b.a> a() {

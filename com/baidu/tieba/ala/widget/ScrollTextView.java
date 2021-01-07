@@ -65,7 +65,7 @@ public class ScrollTextView extends RelativeLayout {
 
     /* loaded from: classes11.dex */
     public interface d {
-        void cti();
+        void ctj();
     }
 
     public ScrollTextView(Context context) {
@@ -149,7 +149,7 @@ public class ScrollTextView extends RelativeLayout {
         this.imJ = new ViewFlipper(getContext());
         this.imJ.setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
         addView(this.imJ);
-        cth();
+        cti();
         if (this.imU != null) {
             this.imJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.widget.ScrollTextView.1
                 @Override // android.view.View.OnClickListener
@@ -162,14 +162,14 @@ public class ScrollTextView extends RelativeLayout {
         obtainStyledAttributes.recycle();
     }
 
-    public void ctg() {
+    public void cth() {
         if (this.isStarted) {
             removeCallbacks(this.imY);
             this.isStarted = false;
         }
     }
 
-    public void cth() {
+    public void cti() {
         if (!this.isStarted && !this.imV) {
             this.isStarted = true;
             postDelayed(this.imY, this.mInterval);
@@ -193,14 +193,14 @@ public class ScrollTextView extends RelativeLayout {
                 }
                 ScrollTextView.this.mDatas = new ArrayList();
                 ScrollTextView.this.imJ.removeAllViews();
-                ScrollTextView.this.ctg();
+                ScrollTextView.this.cth();
                 if (ScrollTextView.this.imW != null) {
-                    ScrollTextView.this.imW.cti();
+                    ScrollTextView.this.imW.ctj();
                     return;
                 }
                 return;
             }
-            ScrollTextView.this.ctg();
+            ScrollTextView.this.cth();
         }
     }
 
@@ -361,14 +361,14 @@ public class ScrollTextView extends RelativeLayout {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.imV = true;
-        ctg();
+        cth();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         this.imV = false;
-        cth();
+        cti();
     }
 
     public void setOnScrollTextViewCompleteListener(d dVar) {

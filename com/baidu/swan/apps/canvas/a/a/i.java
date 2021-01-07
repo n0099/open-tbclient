@@ -27,7 +27,7 @@ public class i {
         return !TextUtils.isEmpty(this.mType);
     }
 
-    public boolean aok() {
+    public boolean aol() {
         return TextUtils.equals(this.mType, "linearGradient") || TextUtils.equals(this.mType, "circularGradient");
     }
 

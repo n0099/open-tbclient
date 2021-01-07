@@ -32,8 +32,8 @@ public class a {
         MessageManager.getInstance().registerListener(this.lef);
     }
 
-    public void dfs() {
-        f.cwe().cwh();
+    public void dft() {
+        f.cwf().cwi();
     }
 
     public void hd(long j) {
@@ -47,7 +47,7 @@ public class a {
         }
     }
 
-    public List<TransmitForumData> dft() {
+    public List<TransmitForumData> dfu() {
         return this.grW;
     }
 

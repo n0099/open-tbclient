@@ -2,7 +2,7 @@ package com.coremedia.iso;
 
 import androidx.core.internal.view.SupportMenu;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class IsoTypeWriter {
     static final /* synthetic */ boolean $assertionsDisabled;
 

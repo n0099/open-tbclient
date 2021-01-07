@@ -28,8 +28,8 @@ public class c implements a {
             this.byV = new b(this.mActivity);
             g gVar = new g();
             gVar.w(this.mActivity).a(this.byV).a(this.byV.RE());
-            com.baidu.live.view.web.a[] aae = gVar.aae();
-            for (com.baidu.live.view.web.a aVar : aae) {
+            com.baidu.live.view.web.a[] aaf = gVar.aaf();
+            for (com.baidu.live.view.web.a aVar : aaf) {
                 this.byV.a(aVar, aVar.getName());
             }
             this.byV.h(UtilHelper.getRealScreenOrientation(this.mActivity), ih(str), str);

@@ -6,20 +6,20 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class c {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         boolean a();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public interface b extends a, InterfaceC0297c {
     }
 
     /* renamed from: com.baidu.platform.comapi.walknavi.d.a.d.a.c$c  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public interface InterfaceC0297c {
         void a(long j, long j2);
     }

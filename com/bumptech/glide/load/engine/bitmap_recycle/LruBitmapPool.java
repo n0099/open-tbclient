@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LruBitmapPool implements BitmapPool {
     private static final Bitmap.Config DEFAULT_CONFIG = Bitmap.Config.ARGB_8888;
     private static final String TAG = "LruBitmapPool";
@@ -27,7 +27,7 @@ public class LruBitmapPool implements BitmapPool {
     private final BitmapTracker tracker;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface BitmapTracker {
         void add(Bitmap bitmap);
 
@@ -246,7 +246,7 @@ public class LruBitmapPool implements BitmapPool {
         return Collections.unmodifiableSet(hashSet);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class ThrowingBitmapTracker implements BitmapTracker {
         private final Set<Bitmap> bitmaps = Collections.synchronizedSet(new HashSet());
 
@@ -270,7 +270,7 @@ public class LruBitmapPool implements BitmapPool {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static final class NullBitmapTracker implements BitmapTracker {
         NullBitmapTracker() {
         }

@@ -36,7 +36,7 @@ public class SingleGraphicTextMsgExt {
         }
     }
 
-    public SingleGraphicTextType eog() {
+    public SingleGraphicTextType eoh() {
         if (!TextUtils.isEmpty(this.pcv)) {
             return SingleGraphicTextType.VIDEOSHARE;
         }

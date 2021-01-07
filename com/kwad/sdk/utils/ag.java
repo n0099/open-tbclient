@@ -13,10 +13,10 @@ import java.util.Locale;
 public class ag {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final SimpleDateFormat f11071a = new SimpleDateFormat("MM/dd", Locale.US);
+    private static final SimpleDateFormat f11072a = new SimpleDateFormat("MM/dd", Locale.US);
 
     /* renamed from: b  reason: collision with root package name */
-    private static final SimpleDateFormat f11072b = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+    private static final SimpleDateFormat f11073b = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
     private static final SimpleDateFormat c = new SimpleDateFormat("MM月dd日", Locale.US);
     private static final SimpleDateFormat d = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
     private static final SimpleDateFormat e = new SimpleDateFormat("HH:mm", Locale.US);

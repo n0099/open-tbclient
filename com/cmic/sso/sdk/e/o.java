@@ -10,13 +10,13 @@ import java.util.concurrent.TimeUnit;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ExecutorService f8031a = new ThreadPoolExecutor(0, 30, 60, TimeUnit.SECONDS, new SynchronousQueue());
+    private static ExecutorService f8032a = new ThreadPoolExecutor(0, 30, 60, TimeUnit.SECONDS, new SynchronousQueue());
 
     public static void a(a aVar) {
         try {
-            f8031a.execute(aVar);
+            f8032a.execute(aVar);
         } catch (Exception e) {
-            aVar.f8032a.uncaughtException(Thread.currentThread(), e);
+            aVar.f8033a.uncaughtException(Thread.currentThread(), e);
         }
     }
 
@@ -24,13 +24,13 @@ public class o {
     public static abstract class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private Thread.UncaughtExceptionHandler f8032a;
+        private Thread.UncaughtExceptionHandler f8033a;
 
         protected abstract void a();
 
         /* JADX INFO: Access modifiers changed from: protected */
         public a() {
-            this.f8032a = new Thread.UncaughtExceptionHandler() { // from class: com.cmic.sso.sdk.e.o.a.1
+            this.f8033a = new Thread.UncaughtExceptionHandler() { // from class: com.cmic.sso.sdk.e.o.a.1
                 @Override // java.lang.Thread.UncaughtExceptionHandler
                 public void uncaughtException(Thread thread, Throwable th) {
                     th.printStackTrace();
@@ -40,7 +40,7 @@ public class o {
 
         /* JADX INFO: Access modifiers changed from: protected */
         public a(final Context context, final com.cmic.sso.sdk.a aVar) {
-            this.f8032a = new Thread.UncaughtExceptionHandler() { // from class: com.cmic.sso.sdk.e.o.a.2
+            this.f8033a = new Thread.UncaughtExceptionHandler() { // from class: com.cmic.sso.sdk.e.o.a.2
                 @Override // java.lang.Thread.UncaughtExceptionHandler
                 public void uncaughtException(Thread thread, Throwable th) {
                     com.cmic.sso.sdk.d.a.prm.add(th);
@@ -51,7 +51,7 @@ public class o {
 
         @Override // java.lang.Runnable
         public void run() {
-            Thread.currentThread().setUncaughtExceptionHandler(this.f8032a);
+            Thread.currentThread().setUncaughtExceptionHandler(this.f8033a);
             a();
             Thread.currentThread().setUncaughtExceptionHandler(null);
         }

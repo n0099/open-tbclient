@@ -18,7 +18,7 @@ public class a extends Dialog implements View.OnClickListener {
     /* renamed from: com.baidu.tieba.ala.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public interface InterfaceC0697a {
-        void cpn();
+        void cpo();
     }
 
     public a(Context context) {
@@ -58,7 +58,7 @@ public class a extends Dialog implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == a.f.report && this.hVs != null) {
-            this.hVs.cpn();
+            this.hVs.cpo();
         }
         dismiss();
     }

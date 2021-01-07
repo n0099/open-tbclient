@@ -22,13 +22,13 @@ public class IPCServiceManager {
         if (z) {
             return new f() { // from class: com.baidu.pyramid.runtime.multiprocess.IPCServiceManager.1
                 @Override // com.baidu.pyramid.runtime.multiprocess.f
-                protected IBinder ahL() throws RemoteException {
-                    return IPCServiceManager.ahI().getService(str);
+                protected IBinder ahM() throws RemoteException {
+                    return IPCServiceManager.ahJ().getService(str);
                 }
             };
         }
         try {
-            return ahI().getService(str);
+            return ahJ().getService(str);
         } catch (RemoteException e) {
             c("MultiProcess", e);
             g.l(e);
@@ -38,7 +38,7 @@ public class IPCServiceManager {
 
     public static void addService(String str, IBinder iBinder, boolean z) {
         try {
-            ahI().addService(str, iBinder, z);
+            ahJ().addService(str, iBinder, z);
         } catch (RemoteException e) {
             c("MultiProcess", e);
             g.l(e);
@@ -46,7 +46,7 @@ public class IPCServiceManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static IPCServiceManagerAidl ahI() {
+    public static IPCServiceManagerAidl ahJ() {
         IPCServiceManagerAidl iPCServiceManagerAidl = cvI;
         if (iPCServiceManagerAidl == null) {
             IPCServiceManagerAidl asInterface = IPCServiceManagerAidl.Stub.asInterface(cvJ);
@@ -57,17 +57,17 @@ public class IPCServiceManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static Bundle ahH() {
+    public static Bundle ahI() {
         Bundle bundle = new Bundle();
         if (Build.VERSION.SDK_INT >= 18) {
-            bundle.putBinder("service", ahJ());
+            bundle.putBinder("service", ahK());
         } else {
-            bundle.putParcelable("service", new BindlerHolder(ahJ()));
+            bundle.putParcelable("service", new BindlerHolder(ahK()));
         }
         return bundle;
     }
 
-    private static IPCServiceManagerAidlImpl ahJ() {
+    private static IPCServiceManagerAidlImpl ahK() {
         if (cvK == null) {
             cvK = new IPCServiceManagerAidlImpl();
         }
@@ -77,13 +77,13 @@ public class IPCServiceManager {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a extends f {
-        private static final Uri cvM = Uri.parse("content://" + ServerProvider.ahU() + "/ipc_manager/method/get_service_handler");
+        private static final Uri cvM = Uri.parse("content://" + ServerProvider.ahV() + "/ipc_manager/method/get_service_handler");
 
         private a() {
         }
 
         @Override // com.baidu.pyramid.runtime.multiprocess.f
-        protected IBinder ahL() {
+        protected IBinder ahM() {
             ContentResolver contentResolver = e.getAppContext().getContentResolver();
             JSONObject jSONObject = new JSONObject();
             Bundle a2 = a(contentResolver, jSONObject);
@@ -102,7 +102,7 @@ public class IPCServiceManager {
             a2.setClassLoader(BindlerHolder.class.getClassLoader());
             BindlerHolder bindlerHolder = (BindlerHolder) a2.getParcelable("service");
             if (bindlerHolder != null) {
-                return bindlerHolder.ahG();
+                return bindlerHolder.ahH();
             }
             return null;
         }
@@ -114,7 +114,7 @@ public class IPCServiceManager {
                 if (i >= 2) {
                     break;
                 }
-                ContentProviderClient acquireUnstableContentProviderClient = contentResolver.acquireUnstableContentProviderClient(ServerProvider.ahU());
+                ContentProviderClient acquireUnstableContentProviderClient = contentResolver.acquireUnstableContentProviderClient(ServerProvider.ahV());
                 if (acquireUnstableContentProviderClient != null && (bundle = a(acquireUnstableContentProviderClient, jSONObject)) == null) {
                     bundle = b(acquireUnstableContentProviderClient, jSONObject);
                 }

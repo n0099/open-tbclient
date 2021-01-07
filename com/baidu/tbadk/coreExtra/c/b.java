@@ -15,7 +15,7 @@ public class b {
         aVar.br(newUserRewardDialogView);
         aVar.jI(false);
         aVar.pe(R.style.picker_view_scale_anim);
-        aVar.b(tbPageContext).btX();
+        aVar.b(tbPageContext).btY();
         newUserRewardDialogView.setCloseListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.c.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {

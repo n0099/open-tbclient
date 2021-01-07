@@ -51,8 +51,8 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
             this.fmZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadSourceShareAndPraiseLayout.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (ThreadSourceShareAndPraiseLayout.this.aim != null && !StringUtils.isNull(ThreadSourceShareAndPraiseLayout.this.aim.bru())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ThreadSourceShareAndPraiseLayout.this.mContext).createNormalCfg(ThreadSourceShareAndPraiseLayout.this.aim.bru(), ThreadSourceShareAndPraiseLayout.this.stType)));
+                    if (ThreadSourceShareAndPraiseLayout.this.aim != null && !StringUtils.isNull(ThreadSourceShareAndPraiseLayout.this.aim.brv())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ThreadSourceShareAndPraiseLayout.this.mContext).createNormalCfg(ThreadSourceShareAndPraiseLayout.this.aim.brv(), ThreadSourceShareAndPraiseLayout.this.stType)));
                         if (ThreadSourceShareAndPraiseLayout.this.fmS != null) {
                             ThreadSourceShareAndPraiseLayout.this.fmS.onClick(view);
                         }
@@ -82,10 +82,10 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
             return false;
         }
         this.aim = bzVar;
-        if (StringUtils.isNull(this.aim.bru()) || this.fnL) {
+        if (StringUtils.isNull(this.aim.brv()) || this.fnL) {
             this.fmZ.setVisibility(8);
         } else {
-            this.fmZ.setText(at.cutChineseAndEnglishWithSuffix(this.aim.bru(), 10, StringHelper.STRING_MORE) + getResources().getString(R.string.forum));
+            this.fmZ.setText(at.cutChineseAndEnglishWithSuffix(this.aim.brv(), 10, StringHelper.STRING_MORE) + getResources().getString(R.string.forum));
             this.fmZ.setVisibility(0);
         }
         this.fnK.setData(this.aim);

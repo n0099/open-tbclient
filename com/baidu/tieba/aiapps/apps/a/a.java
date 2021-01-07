@@ -53,7 +53,7 @@ public class a {
         private static final a gnz = new a();
     }
 
-    public static a bQj() {
+    public static a bQk() {
         return C0618a.gnz;
     }
 
@@ -66,14 +66,14 @@ public class a {
     public void fM(Context context) {
         if (this.gnu == null) {
             this.gnu = new b();
-            this.gnu.aWS = h.aPH().getString("bd_box_avatar_url", "");
-            this.gnu.bduss = h.aPH().getString("bd_box_bduss", "");
-            this.gnu.gnC = h.aPH().getString("bd_box_ptoken", "");
-            this.gnu.uid = h.aPH().getString("bd_box_uid", "");
-            this.gnu.openBduss = h.aPH().getString("bd_box_open_bduss", "");
-            this.gnu.gnA = h.aPH().getString("bd_box_union_id", "");
-            this.gnu.gnB = ai.stringToMap(h.aPH().getString("bd_box_stoken", ""));
-            this.gnu.displayName = h.aPH().getString("bd_box_display_name", "");
+            this.gnu.aWS = h.aPI().getString("bd_box_avatar_url", "");
+            this.gnu.bduss = h.aPI().getString("bd_box_bduss", "");
+            this.gnu.gnC = h.aPI().getString("bd_box_ptoken", "");
+            this.gnu.uid = h.aPI().getString("bd_box_uid", "");
+            this.gnu.openBduss = h.aPI().getString("bd_box_open_bduss", "");
+            this.gnu.gnA = h.aPI().getString("bd_box_union_id", "");
+            this.gnu.gnB = ai.stringToMap(h.aPI().getString("bd_box_stoken", ""));
+            this.gnu.displayName = h.aPI().getString("bd_box_display_name", "");
         }
     }
 
@@ -102,7 +102,7 @@ public class a {
     public void a(GetUserInfoResult getUserInfoResult) {
         if (getUserInfoResult != null) {
             try {
-                h.aPH().putString("host_account_info_string", getUserInfoResult.toString());
+                h.aPI().putString("host_account_info_string", getUserInfoResult.toString());
                 if (this.gnu == null) {
                     this.gnu = new b();
                 }
@@ -111,11 +111,11 @@ public class a {
                 this.gnu.displayName = getUserInfoResult.displayname;
                 this.gnu.uid = getUserInfoResult.uid;
                 this.gnu.aWS = getUserInfoResult.portraitHttps;
-                h.aPH().putString("bd_box_display_name", this.gnu.displayName);
-                h.aPH().putString("bd_box_uid", this.gnu.uid);
-                h.aPH().putString("bd_box_avatar_url", this.gnu.aWS);
-                h.aPH().putString("bd_box_bduss", this.gnu.bduss);
-                h.aPH().putString("bd_box_ptoken", this.gnu.gnC);
+                h.aPI().putString("bd_box_display_name", this.gnu.displayName);
+                h.aPI().putString("bd_box_uid", this.gnu.uid);
+                h.aPI().putString("bd_box_avatar_url", this.gnu.aWS);
+                h.aPI().putString("bd_box_bduss", this.gnu.bduss);
+                h.aPI().putString("bd_box_ptoken", this.gnu.gnC);
                 SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback() { // from class: com.baidu.tieba.aiapps.apps.a.a.6
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.sapi2.callback.LoginStatusAware
@@ -158,7 +158,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bQk() {
+    public void bQl() {
     }
 
     public void a(Context context, Bundle bundle, final com.baidu.swan.apps.a.a aVar) {
@@ -197,11 +197,11 @@ public class a {
                                 a.this.gnu.displayName = getUserInfoResult.displayname;
                                 a.this.gnu.uid = getUserInfoResult.uid;
                                 a.this.gnu.aWS = getUserInfoResult.portraitHttps;
-                                h.aPH().putString("bd_box_display_name", a.this.gnu.displayName);
-                                h.aPH().putString("bd_box_uid", a.this.gnu.uid);
-                                h.aPH().putString("bd_box_avatar_url", a.this.gnu.aWS);
-                                h.aPH().putString("bd_box_bduss", a.this.gnu.bduss);
-                                h.aPH().putString("bd_box_ptoken", a.this.gnu.gnC);
+                                h.aPI().putString("bd_box_display_name", a.this.gnu.displayName);
+                                h.aPI().putString("bd_box_uid", a.this.gnu.uid);
+                                h.aPI().putString("bd_box_avatar_url", a.this.gnu.aWS);
+                                h.aPI().putString("bd_box_bduss", a.this.gnu.bduss);
+                                h.aPI().putString("bd_box_ptoken", a.this.gnu.gnC);
                                 aVar.onResult(0);
                                 a.this.mf(true);
                             }
@@ -243,12 +243,12 @@ public class a {
                 a.this.gnu.displayName = getUserInfoResult.displayname;
                 a.this.gnu.uid = getUserInfoResult.uid;
                 a.this.gnu.aWS = getUserInfoResult.portraitHttps;
-                h.aPH().putString("bd_box_display_name", a.this.gnu.displayName);
-                h.aPH().putString("bd_box_uid", a.this.gnu.uid);
-                h.aPH().putString("bd_box_avatar_url", a.this.gnu.aWS);
-                h.aPH().putString("bd_box_bduss", a.this.gnu.bduss);
-                h.aPH().putString("bd_box_ptoken", a.this.gnu.gnC);
-                a.this.bQk();
+                h.aPI().putString("bd_box_display_name", a.this.gnu.displayName);
+                h.aPI().putString("bd_box_uid", a.this.gnu.uid);
+                h.aPI().putString("bd_box_avatar_url", a.this.gnu.aWS);
+                h.aPI().putString("bd_box_bduss", a.this.gnu.bduss);
+                h.aPI().putString("bd_box_ptoken", a.this.gnu.gnC);
+                a.this.bQl();
                 aVar.onResult(0);
                 a.this.mf(true);
             }
@@ -269,7 +269,7 @@ public class a {
         }, SapiAccountManager.getInstance().getSession().bduss);
     }
 
-    public void bQl() {
+    public void bQm() {
         try {
             SapiAccountManager.getInstance().getConfignation();
         } catch (Exception e) {
@@ -292,11 +292,11 @@ public class a {
                         a.this.gnu.displayName = getUserInfoResult.displayname;
                         a.this.gnu.uid = getUserInfoResult.uid;
                         a.this.gnu.aWS = getUserInfoResult.portraitHttps;
-                        h.aPH().putString("bd_box_display_name", a.this.gnu.displayName);
-                        h.aPH().putString("bd_box_uid", a.this.gnu.uid);
-                        h.aPH().putString("bd_box_avatar_url", a.this.gnu.aWS);
-                        h.aPH().putString("bd_box_bduss", a.this.gnu.bduss);
-                        h.aPH().putString("bd_box_ptoken", a.this.gnu.gnC);
+                        h.aPI().putString("bd_box_display_name", a.this.gnu.displayName);
+                        h.aPI().putString("bd_box_uid", a.this.gnu.uid);
+                        h.aPI().putString("bd_box_avatar_url", a.this.gnu.aWS);
+                        h.aPI().putString("bd_box_bduss", a.this.gnu.bduss);
+                        h.aPI().putString("bd_box_ptoken", a.this.gnu.gnC);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -325,7 +325,7 @@ public class a {
             return "";
         }
         if (TextUtils.isEmpty(this.gnu.bduss)) {
-            bQl();
+            bQm();
         }
         return this.gnu.bduss;
     }
@@ -338,7 +338,7 @@ public class a {
             return "";
         }
         if (TextUtils.isEmpty(this.gnu.uid)) {
-            bQl();
+            bQm();
         }
         return this.gnu.uid;
     }
@@ -351,7 +351,7 @@ public class a {
             return "";
         }
         if (TextUtils.isEmpty(this.gnu.aWS)) {
-            bQl();
+            bQm();
         }
         return this.gnu.aWS;
     }
@@ -364,14 +364,14 @@ public class a {
             return "";
         }
         if (TextUtils.isEmpty(this.gnu.displayName)) {
-            bQl();
+            bQm();
         }
         return this.gnu.displayName;
     }
 
     public boolean isLogin() {
         if (this.gnu != null && TextUtils.isEmpty(this.gnu.bduss)) {
-            bQl();
+            bQm();
         }
         return SapiAccountManager.getInstance().isLogin();
     }
@@ -380,11 +380,11 @@ public class a {
         SapiAccountManager.getInstance().logout();
         mf(false);
         this.gnu = new b();
-        h.aPH().putString("bd_box_display_name", "");
-        h.aPH().putString("bd_box_uid", "");
-        h.aPH().putString("bd_box_avatar_url", "");
-        h.aPH().putString("bd_box_bduss", "");
-        h.aPH().putString("bd_box_ptoken", "");
+        h.aPI().putString("bd_box_display_name", "");
+        h.aPI().putString("bd_box_uid", "");
+        h.aPI().putString("bd_box_avatar_url", "");
+        h.aPI().putString("bd_box_bduss", "");
+        h.aPI().putString("bd_box_ptoken", "");
         if (aVar != null) {
             aVar.onResult(0);
         }
@@ -416,7 +416,7 @@ public class a {
                     if (a.DEBUG) {
                         Log.d(a.TAG, String.format("选择收货地址错误（%d:%s", Integer.valueOf(addressManageResult.getResultCode()), addressManageResult.getResultMsg()));
                     }
-                    interfaceC0505a.aSZ();
+                    interfaceC0505a.aTa();
                 } else {
                     interfaceC0505a.lb(addressManageResult.map.get("addrId"));
                 }
@@ -438,7 +438,7 @@ public class a {
                     if (a.DEBUG) {
                         Log.d(a.TAG, String.format("获取发票错误（%d:%s）", Integer.valueOf(invoiceBuildResult.getResultCode()), invoiceBuildResult.getResultMsg()));
                     }
-                    interfaceC0507a.aSZ();
+                    interfaceC0507a.aTa();
                 } else {
                     interfaceC0507a.cR(invoiceBuildResult.map.get(InvoiceBuildResult.KEY_INVOICE_ID), str);
                 }
@@ -464,9 +464,9 @@ public class a {
                 a.this.gnu.openBduss = openBdussResult.openBduss;
                 a.this.gnu.gnA = openBdussResult.unionid;
                 a.this.gnu.gnB = openBdussResult.tplStokenMap;
-                h.aPH().putString("bd_box_open_bduss", a.this.gnu.openBduss);
-                h.aPH().putString("bd_box_union_id", a.this.gnu.gnA);
-                h.aPH().putString("bd_box_stoken", ai.mapToString(a.this.gnu.gnB));
+                h.aPI().putString("bd_box_open_bduss", a.this.gnu.openBduss);
+                h.aPI().putString("bd_box_union_id", a.this.gnu.gnA);
+                h.aPI().putString("bd_box_stoken", ai.mapToString(a.this.gnu.gnB));
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("openbduss", a.this.gnu.openBduss);

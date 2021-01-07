@@ -13,8 +13,8 @@ import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes6.dex */
 public class a {
-    private static com.baidu.swan.a.c.a ewP = com.baidu.swan.a.c.a.bfE();
-    private static CookieManager ewQ = com.baidu.swan.pms.d.bfV().aBI();
+    private static com.baidu.swan.a.c.a ewP = com.baidu.swan.a.c.a.bfF();
+    private static CookieManager ewQ = com.baidu.swan.pms.d.bfW().aBJ();
 
     @Deprecated
     public static void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, StatResponseCallback<String> statResponseCallback) {

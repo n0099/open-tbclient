@@ -14,10 +14,10 @@ public class d implements com.baidu.swan.apps.ao.e.b<HybridUbcFlow> {
         if (DEBUG) {
             Log.i("LaunchCounter", "report: flow=" + hybridUbcFlow);
         }
-        if (hybridUbcFlow != null && (yN = com.baidu.swan.pms.database.a.bgb().yN(com.baidu.swan.apps.runtime.d.aMg().getAppId())) != null) {
+        if (hybridUbcFlow != null && (yN = com.baidu.swan.pms.database.a.bgc().yN(com.baidu.swan.apps.runtime.d.aMh().getAppId())) != null) {
             UbcFlowEvent rk = hybridUbcFlow.rk("naStart");
-            yN.dm(rk == null ? System.currentTimeMillis() : rk.aHD());
-            com.baidu.swan.pms.database.a.bgb().s(yN);
+            yN.dm(rk == null ? System.currentTimeMillis() : rk.aHE());
+            com.baidu.swan.pms.database.a.bgc().s(yN);
         }
     }
 }

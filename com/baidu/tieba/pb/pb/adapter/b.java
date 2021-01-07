@@ -12,12 +12,12 @@ import java.util.List;
 public class b {
     private List<com.baidu.adp.widget.ListView.a> jVU = new ArrayList();
     private BdTypeRecyclerView jVV;
-    private c lHU;
-    private d lHV;
-    private e lHW;
-    private f lHX;
-    private g lHY;
-    private h lHZ;
+    private c lHT;
+    private d lHU;
+    private e lHV;
+    private f lHW;
+    private g lHX;
+    private h lHY;
     private List<n> mDataList;
     private TbPageContext<?> mPageContext;
 
@@ -30,27 +30,27 @@ public class b {
     }
 
     private void MT() {
-        this.lHW = new e(this.mPageContext, k.izL);
-        this.lHV = new d(this.mPageContext, k.izM);
-        this.lHU = new c(this.mPageContext, k.izN);
-        this.lHX = new f(this.mPageContext, k.eSQ);
-        this.lHY = new g(this.mPageContext, k.izP);
-        this.lHZ = new h(this.mPageContext, l.eTj);
-        this.jVU.add(this.lHW);
+        this.lHV = new e(this.mPageContext, k.izL);
+        this.lHU = new d(this.mPageContext, k.izM);
+        this.lHT = new c(this.mPageContext, k.izN);
+        this.lHW = new f(this.mPageContext, k.eSQ);
+        this.lHX = new g(this.mPageContext, k.izP);
+        this.lHY = new h(this.mPageContext, l.eTj);
         this.jVU.add(this.lHV);
         this.jVU.add(this.lHU);
+        this.jVU.add(this.lHT);
+        this.jVU.add(this.lHW);
         this.jVU.add(this.lHX);
         this.jVU.add(this.lHY);
-        this.jVU.add(this.lHZ);
     }
 
     private void a(s sVar) {
-        this.lHW.a(sVar);
         this.lHV.a(sVar);
         this.lHU.a(sVar);
+        this.lHT.a(sVar);
+        this.lHW.a(sVar);
         this.lHX.a(sVar);
         this.lHY.a(sVar);
-        this.lHZ.a(sVar);
     }
 
     public void cC(List<n> list) {

@@ -8,15 +8,15 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 class m implements IOAdEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ double f3377a;
+    final /* synthetic */ double f3378a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ l f3378b;
+    final /* synthetic */ l f3379b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar, double d) {
-        this.f3378b = lVar;
-        this.f3377a = d;
+        this.f3379b = lVar;
+        this.f3378a = d;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x008b, code lost:
@@ -38,48 +38,48 @@ class m implements IOAdEventListener {
         e eVar6;
         e eVar7;
         boolean z3 = true;
-        this.f3378b.f3376a.f3375b.o();
+        this.f3379b.f3377a.f3376b.o();
         if ("URLLoader.Load.Complete".equals(iOAdEvent.getType())) {
-            this.f3378b.f3376a.f3375b.k = new e((String) iOAdEvent.getData().get("message"));
+            this.f3379b.f3377a.f3376b.k = new e((String) iOAdEvent.getData().get("message"));
             double a2 = com.baidu.mobads.a.b.a();
-            l = this.f3378b.f3376a.f3375b.l();
+            l = this.f3379b.f3377a.f3376b.l();
             float f = l.getFloat("__badApkVersion__8.8146", 0.0f);
-            eVar = this.f3378b.f3376a.f3375b.k;
+            eVar = this.f3379b.f3377a.f3376b.k;
             Boolean valueOf = Boolean.valueOf(((float) eVar.b()) == f);
-            eVar2 = this.f3378b.f3376a.f3375b.k;
+            eVar2 = this.f3379b.f3377a.f3376b.k;
             if (a2 <= eVar2.b()) {
                 double floor = Math.floor(a2);
-                eVar7 = this.f3378b.f3376a.f3375b.k;
+                eVar7 = this.f3379b.f3377a.f3376b.k;
             }
             z3 = false;
             Boolean valueOf2 = Boolean.valueOf(z3);
             Log.i("XAdApkLoader", "try to download apk badVer=" + f + ", isBad=" + valueOf + ", compatible=" + valueOf2);
-            double d = this.f3377a;
-            eVar3 = this.f3378b.f3376a.f3375b.k;
+            double d = this.f3378a;
+            eVar3 = this.f3379b.f3377a.f3376b.k;
             if (d < eVar3.b()) {
-                eVar4 = this.f3378b.f3376a.f3375b.k;
+                eVar4 = this.f3379b.f3377a.f3376b.k;
                 if (eVar4 != null) {
-                    eVar5 = this.f3378b.f3376a.f3375b.k;
+                    eVar5 = this.f3379b.f3377a.f3376b.k;
                     if (eVar5.a().booleanValue() && valueOf2.booleanValue() && !valueOf.booleanValue()) {
-                        g gVar = this.f3378b.f3376a.f3375b;
-                        eVar6 = this.f3378b.f3376a.f3375b.k;
+                        g gVar = this.f3379b.f3377a.f3376b;
+                        eVar6 = this.f3379b.f3377a.f3376b.k;
                         gVar.a(eVar6);
                         return;
                     }
                 }
             }
-            z2 = this.f3378b.f3376a.f3375b.n;
+            z2 = this.f3379b.f3377a.f3376b.n;
             if (z2) {
-                this.f3378b.f3376a.f3375b.n = false;
-                this.f3378b.f3376a.f3375b.a(false, "Refused to download remote for version...");
+                this.f3379b.f3377a.f3376b.n = false;
+                this.f3379b.f3377a.f3376b.a(false, "Refused to download remote for version...");
                 return;
             }
             return;
         }
-        z = this.f3378b.f3376a.f3375b.n;
+        z = this.f3379b.f3377a.f3376b.n;
         if (z) {
-            this.f3378b.f3376a.f3375b.n = false;
-            this.f3378b.f3376a.f3375b.a(false, "remote update Network access failed");
+            this.f3379b.f3377a.f3376b.n = false;
+            this.f3379b.f3377a.f3376b.a(false, "remote update Network access failed");
         }
     }
 }

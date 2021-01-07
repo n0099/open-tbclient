@@ -19,7 +19,7 @@ public class c implements a {
 
     public c(Activity activity) {
         this.mContext = activity;
-        aaf();
+        aag();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.q.a
@@ -29,11 +29,11 @@ public class c implements a {
         this.hLr.getWebView().setBackgroundColor(ih(str));
         g gVar = new g();
         gVar.w(this.mContext).a(this.hLr).a(this.hLr.getWebView().getSchemeCallback());
-        com.baidu.live.view.web.a[] aae = gVar.aae();
-        for (com.baidu.live.view.web.a aVar : aae) {
+        com.baidu.live.view.web.a[] aaf = gVar.aaf();
+        for (com.baidu.live.view.web.a aVar : aaf) {
             this.hLr.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.hLr.GB(str);
+        this.hLr.GA(str);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.q.a
@@ -52,7 +52,7 @@ public class c implements a {
 
     public void dismiss() {
         if (this.hLr != null) {
-            this.hLr.aag();
+            this.hLr.aah();
         }
     }
 
@@ -73,7 +73,7 @@ public class c implements a {
         this.bXd = null;
     }
 
-    private void aaf() {
+    private void aag() {
         if (this.bXd == null) {
             this.bXd = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.q.c.1
                 /* JADX DEBUG: Method merged with bridge method */

@@ -45,7 +45,7 @@ public abstract class b extends LazyLoadFragment {
 
     protected abstract void KH();
 
-    protected abstract boolean abh();
+    protected abstract boolean abi();
 
     protected abstract boolean l(long j, int i);
 
@@ -119,8 +119,8 @@ public abstract class b extends LazyLoadFragment {
         this.caX.a(new AlaGiftTabView.b() { // from class: com.baidu.live.yuyingift.panel.b.1
             @Override // com.baidu.live.yuyingift.container.AlaGiftTabView.b
             public void j(g gVar) {
-                if (gVar != null && b.this.caO != null && b.this.abf() > 0) {
-                    com.baidu.live.yuyingift.b.b.aaZ().a(b.this.cbb, b.this.cba + 1, gVar.Gx(), b.this.caO.mLiveId, s.ak(b.this.abe().ccd));
+                if (gVar != null && b.this.caO != null && b.this.abg() > 0) {
+                    com.baidu.live.yuyingift.b.b.aba().a(b.this.cbb, b.this.cba + 1, gVar.Gx(), b.this.caO.mLiveId, s.ak(b.this.abf().ccd));
                     b.this.cbb = 0L;
                     b.this.cba = 0;
                 }
@@ -197,19 +197,19 @@ public abstract class b extends LazyLoadFragment {
                 if (view != null) {
                     BdUtilHelper.hideSoftKeyPad(TbadkCoreApplication.getInst(), b.this.caX.bcN);
                     if (view.getId() == a.f.donate) {
-                        b.this.abg();
+                        b.this.abh();
                     } else if (view.getId() == a.f.combo_btn && b.this.KE()) {
-                        if (!b.this.a(b.this.abe())) {
-                            b.this.caX.aaR();
+                        if (!b.this.a(b.this.abf())) {
+                            b.this.caX.aaS();
                             return;
                         }
                         b.this.caX.Iv();
                         b.this.cba++;
-                        if (b.this.abh()) {
+                        if (b.this.abi()) {
                             b.this.l(b.this.cbb, b.this.cba);
                         }
                         if (b.this.caP != null) {
-                            b.this.caP.aaJ();
+                            b.this.caP.aaK();
                         }
                     } else if ((view.getId() == a.f.current_money || view.getId() == a.f.current_recharge) && b.this.KE()) {
                         if (b.this.caO.isNewUser && view.getId() == a.f.current_recharge && !TbadkCoreApplication.getInst().isMobileBaidu() && com.baidu.live.af.a.SE().SJ()) {
@@ -228,7 +228,7 @@ public abstract class b extends LazyLoadFragment {
                         if (view.getId() == a.f.current_recharge) {
                             str4 = TbadkCoreApplication.getInst().isHaokan() ? "gift_one" : "recharge";
                             if (b.this.caP != null) {
-                                b.this.caP.aaM();
+                                b.this.caP.aaN();
                                 str = str4;
                             }
                             str = str4;
@@ -249,28 +249,28 @@ public abstract class b extends LazyLoadFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public GiftPanelSelectMicrophoneSendView.d abe() {
+    public GiftPanelSelectMicrophoneSendView.d abf() {
         if (this.caZ == null) {
             return null;
         }
-        return this.caZ.aaE();
+        return this.caZ.aaF();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int abf() {
-        GiftPanelSelectMicrophoneSendView.d abe = abe();
-        if (abe == null || abe.ccd == null) {
+    public int abg() {
+        GiftPanelSelectMicrophoneSendView.d abf = abf();
+        if (abf == null || abf.ccd == null) {
             return 0;
         }
-        return abe.ccd.size();
+        return abf.ccd.size();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abg() {
+    public void abh() {
         if (this.caP != null) {
-            this.caP.aaH();
+            this.caP.aaI();
         }
-        if (KE() && abh() && a(abe())) {
+        if (KE() && abi() && a(abf())) {
             if (this.caX.Jc().GA()) {
                 this.cba = 0;
                 this.cbb = System.currentTimeMillis();
@@ -283,15 +283,15 @@ public abstract class b extends LazyLoadFragment {
                 this.caX.Iw();
                 this.caX.bU(false);
                 if (this.caP != null) {
-                    this.caP.aaI();
+                    this.caP.aaJ();
                 }
             }
         }
     }
 
-    public void aaP() {
+    public void aaQ() {
         if (this.caX != null) {
-            this.caX.aaR();
+            this.caX.aaS();
         }
     }
 
@@ -322,6 +322,6 @@ public abstract class b extends LazyLoadFragment {
     }
 
     private boolean KF() {
-        return ("ala_tieba_android_consume".equals(this.caO.beU) || StringUtils.isNull(this.caO.beU) || this.caO.beU.equals(com.baidu.live.yuyingift.b.b.aaZ().HU())) ? false : true;
+        return ("ala_tieba_android_consume".equals(this.caO.beU) || StringUtils.isNull(this.caO.beU) || this.caO.beU.equals(com.baidu.live.yuyingift.b.b.aba().HU())) ? false : true;
     }
 }

@@ -38,16 +38,16 @@ public class b extends Dialog {
     private View bYQ;
     private CommonEmptyView bxT;
     private AlphaGradientHListView bze;
-    private TextView lYv;
+    private TextView lYu;
     private Activity mActivity;
     private int mCurrentPosition;
     private List<AlaWheatInfoData> mList;
-    private d ooE;
-    private com.baidu.tieba.yuyinala.liveroom.chooselover.a ooF;
-    private TextView ooG;
-    private View ooH;
-    private a ooI;
-    public CustomMessageListener ooJ;
+    private d ooD;
+    private com.baidu.tieba.yuyinala.liveroom.chooselover.a ooE;
+    private TextView ooF;
+    private View ooG;
+    private a ooH;
+    public CustomMessageListener ooI;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -61,7 +61,7 @@ public class b extends Dialog {
     public b(Activity activity) {
         super(activity, a.i.DialogRoomcardStyle);
         this.mCurrentPosition = -2;
-        this.ooJ = new CustomMessageListener(2501014) { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.6
+        this.ooI = new CustomMessageListener(2501014) { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -76,10 +76,10 @@ public class b extends Dialog {
 
     private void init() {
         initView();
-        aaD();
+        aaE();
     }
 
-    private void aaD() {
+    private void aaE() {
         Window window = getWindow();
         if (window != null) {
             window.setFlags(262144, 262144);
@@ -97,14 +97,14 @@ public class b extends Dialog {
     private void initView() {
         setContentView(a.g.yuyin_layout_dialog_choose_love_person);
         this.bxT = (CommonEmptyView) findViewById(a.f.empty_view);
-        this.ooH = findViewById(a.f.not_empty_view);
+        this.ooG = findViewById(a.f.not_empty_view);
         this.bYQ = findViewById(a.f.view);
-        this.lYv = (TextView) findViewById(a.f.tv_cancel);
-        this.ooG = (TextView) findViewById(a.f.tv_confirm);
+        this.lYu = (TextView) findViewById(a.f.tv_cancel);
+        this.ooF = (TextView) findViewById(a.f.tv_confirm);
         this.bze = (AlphaGradientHListView) findViewById(a.f.ala_live_manager_listview);
-        this.ooF = new com.baidu.tieba.yuyinala.liveroom.chooselover.a(this.mActivity);
-        this.ooE = new d(this.mActivity);
-        this.bze.setAdapter((ListAdapter) this.ooE);
+        this.ooE = new com.baidu.tieba.yuyinala.liveroom.chooselover.a(this.mActivity);
+        this.ooD = new d(this.mActivity);
+        this.bze.setAdapter((ListAdapter) this.ooD);
         this.bze.setSelector(this.mActivity.getResources().getDrawable(a.e.sdk_transparent_bg));
         this.bze.setColor(this.mActivity.getResources().getColor(a.c.sdk_white_alpha100), this.mActivity.getResources().getColor(a.c.sdk_white_alpha0));
         this.bze.setNeedAlphaShade(true);
@@ -115,17 +115,17 @@ public class b extends Dialog {
                 try {
                     if (b.this.mCurrentPosition < 0 || b.this.mCurrentPosition != i || !((AlaWheatInfoData) b.this.mList.get(b.this.mCurrentPosition)).isSelect) {
                         b.this.mCurrentPosition = i;
-                        b.this.ecx();
+                        b.this.ecy();
                         int i2 = 0;
                         while (i2 < b.this.mList.size()) {
                             ((AlaWheatInfoData) b.this.mList.get(i2)).isSelect = i2 == i;
                             i2++;
                         }
-                        if (b.this.ooE != null) {
-                            b.this.ooE.er(view);
+                        if (b.this.ooD != null) {
+                            b.this.ooD.er(view);
                         }
-                        if (b.this.ooI != null) {
-                            b.this.ooI.e((AlaWheatInfoData) b.this.mList.get(b.this.mCurrentPosition));
+                        if (b.this.ooH != null) {
+                            b.this.ooH.e((AlaWheatInfoData) b.this.mList.get(b.this.mCurrentPosition));
                             return;
                         }
                         return;
@@ -133,10 +133,10 @@ public class b extends Dialog {
                     for (int i3 = 0; i3 < b.this.mList.size(); i3++) {
                         ((AlaWheatInfoData) b.this.mList.get(i3)).isSelect = false;
                     }
-                    b.this.ecx();
+                    b.this.ecy();
                     b.this.mCurrentPosition = -2;
-                    if (b.this.ooI != null) {
-                        b.this.ooI.e(null);
+                    if (b.this.ooH != null) {
+                        b.this.ooH.e(null);
                     }
                 } catch (Exception e) {
                 }
@@ -148,27 +148,27 @@ public class b extends Dialog {
                 b.this.dismiss();
             }
         });
-        this.lYv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.3
+        this.lYu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 b.this.dismiss();
             }
         });
-        this.ooG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.4
+        this.ooF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (b.this.mCurrentPosition != -2 && b.this.aGe != null && b.this.aGe.aKQ != null && b.this.aGe.aLl != null) {
-                    b.this.ooF.m(b.this.aGe.aKQ.userUk, ((AlaWheatInfoData) b.this.mList.get(b.this.mCurrentPosition)).uk, com.baidu.tieba.yuyinala.liveroom.wheat.e.g.av(b.this.aGe), com.baidu.tieba.yuyinala.liveroom.wheat.e.g.au(b.this.aGe));
+                    b.this.ooE.m(b.this.aGe.aKQ.userUk, ((AlaWheatInfoData) b.this.mList.get(b.this.mCurrentPosition)).uk, com.baidu.tieba.yuyinala.liveroom.wheat.e.g.av(b.this.aGe), com.baidu.tieba.yuyinala.liveroom.wheat.e.g.au(b.this.aGe));
                 }
             }
         });
-        this.ooF.a(new a.InterfaceC0898a() { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.5
-            @Override // com.baidu.tieba.yuyinala.liveroom.chooselover.a.InterfaceC0898a
+        this.ooE.a(new a.InterfaceC0936a() { // from class: com.baidu.tieba.yuyinala.liveroom.chooselover.b.5
+            @Override // com.baidu.tieba.yuyinala.liveroom.chooselover.a.InterfaceC0936a
             public void a(ChooseLoverHttpResponseMessage chooseLoverHttpResponseMessage) {
                 b.this.dismiss();
                 BdUtilHelper.showToast(b.this.getContext(), "选择成功");
-                if (b.this.ooI != null) {
-                    b.this.ooI.f((AlaWheatInfoData) b.this.mList.get(b.this.mCurrentPosition));
+                if (b.this.ooH != null) {
+                    b.this.ooH.f((AlaWheatInfoData) b.this.mList.get(b.this.mCurrentPosition));
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -180,7 +180,7 @@ public class b extends Dialog {
                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "selectguest_clk").setContentExt(jSONObject));
             }
 
-            @Override // com.baidu.tieba.yuyinala.liveroom.chooselover.a.InterfaceC0898a
+            @Override // com.baidu.tieba.yuyinala.liveroom.chooselover.a.InterfaceC0936a
             public void onFail(int i, String str) {
                 b.this.dismiss();
                 BdUtilHelper.showToast(b.this.getContext(), "操作失败，请重试");
@@ -189,11 +189,11 @@ public class b extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ecx() {
+    public void ecy() {
         for (int i = 0; i < this.bze.getChildCount(); i++) {
             View childAt = this.bze.getChildAt(i);
-            if (this.ooE != null) {
-                this.ooE.eq(childAt);
+            if (this.ooD != null) {
+                this.ooD.eq(childAt);
             }
         }
     }
@@ -202,28 +202,28 @@ public class b extends Dialog {
         this.aGe = xVar;
         try {
             show();
-            this.mList = ecy();
+            this.mList = ecz();
             if (ListUtils.isEmpty(this.mList)) {
                 this.bxT.reset();
                 this.bxT.setTitle(a.h.yuyin_ala_dating_none_on_wheat);
                 this.bxT.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.LIGHT);
                 this.bxT.setVisibility(0);
-                this.ooH.setVisibility(8);
+                this.ooG.setVisibility(8);
             } else {
-                this.ooE.setData(this.mList);
-                this.ooE.notifyDataSetChanged();
+                this.ooD.setData(this.mList);
+                this.ooD.notifyDataSetChanged();
                 this.bxT.setVisibility(8);
-                this.ooH.setVisibility(0);
+                this.ooG.setVisibility(0);
             }
         } catch (Exception e) {
         }
     }
 
-    private List<AlaWheatInfoData> ecy() {
+    private List<AlaWheatInfoData> ecz() {
         int i;
         ArrayList arrayList = new ArrayList();
         try {
-            String aar = aar();
+            String aas = aas();
             List<AlaWheatInfoData> anchorWheatLists = this.aGe.aLq.getAnchorWheatLists();
             int i2 = 0;
             while (true) {
@@ -232,7 +232,7 @@ public class b extends Dialog {
                     break;
                 }
                 AlaWheatInfoData alaWheatInfoData = anchorWheatLists.get(i2);
-                if (alaWheatInfoData != null && aar != null && aar.equals(alaWheatInfoData.uk)) {
+                if (alaWheatInfoData != null && aas != null && aas.equals(alaWheatInfoData.uk)) {
                     i = i2;
                     break;
                 }
@@ -256,7 +256,7 @@ public class b extends Dialog {
         return arrayList;
     }
 
-    public String aar() {
+    public String aas() {
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo != null) {
             return ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID());
@@ -267,10 +267,10 @@ public class b extends Dialog {
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         try {
-            if (this.ooI != null) {
-                this.ooI.onDismiss();
+            if (this.ooH != null) {
+                this.ooH.onDismiss();
             }
-            MessageManager.getInstance().unRegisterListener(this.ooJ);
+            MessageManager.getInstance().unRegisterListener(this.ooI);
             super.dismiss();
         } catch (Throwable th) {
         }
@@ -280,12 +280,12 @@ public class b extends Dialog {
     public void show() {
         try {
             super.show();
-            MessageManager.getInstance().registerListener(this.ooJ);
+            MessageManager.getInstance().registerListener(this.ooI);
         } catch (Throwable th) {
         }
     }
 
     public void a(a aVar) {
-        this.ooI = aVar;
+        this.ooH = aVar;
     }
 }

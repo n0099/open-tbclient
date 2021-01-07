@@ -85,10 +85,10 @@ public class c extends a {
     }
 
     @Override // com.baidu.tieba.ala.live.b.a
-    public void caQ() {
+    public void caR() {
         HttpMessage httpMessage = new HttpMessage(1001505);
         httpMessage.setTag(getUniqueId());
-        httpMessage.addParam("pay_id", caR());
+        httpMessage.addParam("pay_id", caS());
         if (TbadkCoreApplication.getInst().getIsYuyinRoom()) {
             httpMessage.addParam("is_jiaoyou", 1);
         }
@@ -96,14 +96,14 @@ public class c extends a {
     }
 
     @Override // com.baidu.tieba.ala.live.b.a
-    public void HO(String str) {
+    public void HN(String str) {
         ev("channel", str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(GetOrderHttpResponsedMessage getOrderHttpResponsedMessage) {
         String errorString;
-        bu caP = getOrderHttpResponsedMessage.caP();
+        bu caQ = getOrderHttpResponsedMessage.caQ();
         if (getOrderHttpResponsedMessage.hasError() || getOrderHttpResponsedMessage.getError() != 0) {
             if (StringUtils.isNull(getOrderHttpResponsedMessage.getErrorString())) {
                 errorString = this.mPageContext.getResources().getString(a.h.sdk_neterror);
@@ -111,10 +111,10 @@ public class c extends a {
                 errorString = getOrderHttpResponsedMessage.getErrorString();
             }
             a(getOrderHttpResponsedMessage.getError(), errorString, null, null, null, false);
-        } else if (caP == null) {
+        } else if (caQ == null) {
             a(getOrderHttpResponsedMessage.getError(), getOrderHttpResponsedMessage.getErrorString(), null, null, null, false);
         } else {
-            a(getOrderHttpResponsedMessage.getError(), getOrderHttpResponsedMessage.getErrorString(), caP.orderId, com.baidu.tieba.ala.live.walletconfig.a.a(caP), caP.pay_channel, "url".equalsIgnoreCase(caP.call_type));
+            a(getOrderHttpResponsedMessage.getError(), getOrderHttpResponsedMessage.getErrorString(), caQ.orderId, com.baidu.tieba.ala.live.walletconfig.a.a(caQ), caQ.pay_channel, "url".equalsIgnoreCase(caQ.call_type));
         }
     }
 

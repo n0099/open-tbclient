@@ -55,7 +55,7 @@ public class b {
         }
     }
 
-    public void cnc() {
+    public void cnd() {
         if (this.bRX != null && this.bRX.indexOfChild(this.hNH.getView()) > 0) {
             this.bRX.removeView(this.hNH.getView());
             g.wV(2913128);

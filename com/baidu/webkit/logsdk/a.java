@@ -3,14 +3,14 @@ package com.baidu.webkit.logsdk;
 import android.content.Context;
 import android.os.Message;
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f5983a;
+    public static boolean f5984a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f5984b;
+    public static boolean f5985b;
 
     public static void a(String str, String str2) {
         long currentTimeMillis = System.currentTimeMillis();

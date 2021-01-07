@@ -11,25 +11,25 @@ public class BaiduHybridAdManager {
     private WebView d;
 
     /* renamed from: b  reason: collision with root package name */
-    private BaiduHybridAdViewListener f3311b = new d(this);
+    private BaiduHybridAdViewListener f3312b = new d(this);
     private boolean e = false;
 
     /* renamed from: a  reason: collision with root package name */
-    IOAdEventListener f3310a = new e(this);
+    IOAdEventListener f3311a = new e(this);
 
     public void setBaiduHybridAdViewListener(BaiduHybridAdViewListener baiduHybridAdViewListener) {
-        this.f3311b = baiduHybridAdViewListener;
+        this.f3312b = baiduHybridAdViewListener;
     }
 
     public void injectJavaScriptBridge(WebView webView) {
         if (!this.e) {
             this.d = webView;
             this.c = new com.baidu.mobads.production.d.a(this.d);
-            this.c.addEventListener(IXAdEvent.AD_LOADED, this.f3310a);
-            this.c.addEventListener(IXAdEvent.AD_ERROR, this.f3310a);
-            this.c.addEventListener(IXAdEvent.AD_STARTED, this.f3310a);
-            this.c.addEventListener("AdUserClick", this.f3310a);
-            this.c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f3310a);
+            this.c.addEventListener(IXAdEvent.AD_LOADED, this.f3311a);
+            this.c.addEventListener(IXAdEvent.AD_ERROR, this.f3311a);
+            this.c.addEventListener(IXAdEvent.AD_STARTED, this.f3311a);
+            this.c.addEventListener("AdUserClick", this.f3311a);
+            this.c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f3311a);
             this.c.request();
         }
     }

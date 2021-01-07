@@ -9,13 +9,13 @@ public enum QrLoginAction {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private String f5406a;
+    private String f5407a;
 
     QrLoginAction(String str) {
-        this.f5406a = str;
+        this.f5407a = str;
     }
 
     public String getName() {
-        return this.f5406a;
+        return this.f5407a;
     }
 }

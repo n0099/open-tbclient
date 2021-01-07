@@ -18,7 +18,7 @@ public class a extends g {
     private JSONArray prl;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f8019b = null;
+    private String f8020b = null;
     private String c = null;
     private String d = null;
     private String e = null;
@@ -44,7 +44,7 @@ public class a extends g {
     private String z = null;
 
     public void a(String str) {
-        this.f8019b = str;
+        this.f8020b = str;
     }
 
     public void b(String str) {
@@ -165,7 +165,7 @@ public class a extends g {
         this.B = str;
     }
 
-    public void XJ(String str) {
+    public void XI(String str) {
         this.C = str;
     }
 
@@ -173,7 +173,7 @@ public class a extends g {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("appid", this.f8019b);
+            jSONObject.put("appid", this.f8020b);
             jSONObject.put("traceId", this.c);
             jSONObject.put("appName", this.d);
             jSONObject.put("appVersion", this.e);

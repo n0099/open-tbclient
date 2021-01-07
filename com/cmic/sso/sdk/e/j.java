@@ -11,24 +11,24 @@ public class j {
     private static j prt;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f8028a;
+    private Context f8029a;
 
     public static void a(Context context) {
         prt = new j(context);
     }
 
     private j(Context context) {
-        this.f8028a = context;
+        this.f8029a = context;
     }
 
-    public static j esU() {
+    public static j esV() {
         return prt;
     }
 
     public String b() {
         try {
-            b.C1011b esM = com.cmic.sso.sdk.a.b.esL().esM();
-            return esM.PV(esM.f());
+            b.C1049b esN = com.cmic.sso.sdk.a.b.esM().esN();
+            return esN.PV(esN.f());
         } catch (Exception e) {
             e.printStackTrace();
             return "";
@@ -40,11 +40,11 @@ public class j {
         String str;
         TelephonyManager telephonyManager;
         String str2;
-        b.C1011b esM = com.cmic.sso.sdk.a.b.esL().esM();
-        String PX = esM.PX(esM.f());
-        if (TextUtils.isEmpty(PX) && n.a(this.f8028a) && (telephonyManager = (TelephonyManager) this.f8028a.getSystemService("phone")) != null) {
+        b.C1049b esN = com.cmic.sso.sdk.a.b.esM().esN();
+        String PX = esN.PX(esN.f());
+        if (TextUtils.isEmpty(PX) && n.a(this.f8029a) && (telephonyManager = (TelephonyManager) this.f8029a.getSystemService("phone")) != null) {
             String simOperator = telephonyManager.getSimOperator();
-            if (TextUtils.isEmpty(simOperator) && g.a(this.f8028a, "android.permission.READ_PHONE_STATE") && n.d()) {
+            if (TextUtils.isEmpty(simOperator) && g.a(this.f8029a, "android.permission.READ_PHONE_STATE") && n.d()) {
                 try {
                     str2 = telephonyManager.getSubscriberId();
                 } catch (Exception e) {
@@ -159,10 +159,10 @@ public class j {
     public String AQ(boolean z) {
         try {
             if (n.d()) {
-                b.C1011b esM = com.cmic.sso.sdk.a.b.esL().esM();
-                String PW = esM.PW(esM.f());
+                b.C1049b esN = com.cmic.sso.sdk.a.b.esM().esN();
+                String PW = esN.PW(esN.f());
                 if (TextUtils.isEmpty(PW) && z) {
-                    PW = ((TelephonyManager) this.f8028a.getSystemService("phone")).getDeviceId();
+                    PW = ((TelephonyManager) this.f8029a.getSystemService("phone")).getDeviceId();
                 }
                 c.b("SIMUtils", "imei is " + PW);
                 if (TextUtils.isEmpty(PW)) {
@@ -178,8 +178,8 @@ public class j {
 
     public String c() {
         try {
-            b.C1011b esM = com.cmic.sso.sdk.a.b.esL().esM();
-            String PV = esM.PV((esM.f() + 1) % 2);
+            b.C1049b esN = com.cmic.sso.sdk.a.b.esM().esN();
+            String PV = esN.PV((esN.f() + 1) % 2);
             if (PV == null) {
                 return "";
             }
@@ -191,8 +191,8 @@ public class j {
 
     public String d() {
         try {
-            b.C1011b esM = com.cmic.sso.sdk.a.b.esL().esM();
-            String PW = esM.PW((esM.f() + 1) % 2);
+            b.C1049b esN = com.cmic.sso.sdk.a.b.esM().esN();
+            String PW = esN.PW((esN.f() + 1) % 2);
             if (PW == null) {
                 return "";
             }
@@ -204,12 +204,12 @@ public class j {
 
     @SuppressLint({"MissingPermission"})
     public static String e() {
-        b.C1011b esM = com.cmic.sso.sdk.a.b.esL().esM();
-        return esM.a(esM.f());
+        b.C1049b esN = com.cmic.sso.sdk.a.b.esM().esN();
+        return esN.a(esN.f());
     }
 
     public String f() {
-        TelephonyManager telephonyManager = (TelephonyManager) this.f8028a.getSystemService("phone");
+        TelephonyManager telephonyManager = (TelephonyManager) this.f8029a.getSystemService("phone");
         if (telephonyManager != null) {
             String simOperator = telephonyManager.getSimOperator();
             c.b("SIMUtils", "SysOperType = " + simOperator);

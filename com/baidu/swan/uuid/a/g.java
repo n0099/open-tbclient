@@ -3,7 +3,7 @@ package com.baidu.swan.uuid.a;
 import android.content.Context;
 import android.provider.Settings;
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class g implements b<String> {
     private Context mContext;
 
@@ -22,13 +22,13 @@ public class g implements b<String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: aRn */
+    /* renamed from: aRo */
     public String get() {
-        return bjo();
+        return bjp();
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean bji() {
+    public boolean bjj() {
         return TextUtils.isEmpty(get());
     }
 
@@ -41,7 +41,7 @@ public class g implements b<String> {
         }
     }
 
-    private String bjo() {
+    private String bjp() {
         if (com.baidu.swan.uuid.b.c.hasPermission(this.mContext, "android.permission.WRITE_SETTINGS")) {
             try {
                 return Settings.System.getString(this.mContext.getContentResolver(), "com.baidu.uuid");

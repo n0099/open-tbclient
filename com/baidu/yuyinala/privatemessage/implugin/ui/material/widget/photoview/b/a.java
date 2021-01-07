@@ -3,7 +3,7 @@ package com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.
 public final class a {
     private static b paj = new c();
 
-    public static b eni() {
+    public static b enj() {
         return paj;
     }
 }

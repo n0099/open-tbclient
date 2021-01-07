@@ -16,7 +16,7 @@ public class f implements n {
         return iCZ;
     }
 
-    public FeatureCardGame cwy() {
+    public FeatureCardGame cwz() {
         return this.iDa;
     }
 

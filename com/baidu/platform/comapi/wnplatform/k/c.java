@@ -12,11 +12,11 @@ import android.view.WindowManager;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class c extends a implements SensorEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f4651a = 0;
+    public static int f4652a = 0;
     private SensorManager f;
     private Sensor g;
     private boolean h;
@@ -38,13 +38,13 @@ public class c extends a implements SensorEventListener {
     private float[] q = new float[3];
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f4652b = com.baidu.platform.comapi.wnplatform.p.b.a.a();
+    private Context f4653b = com.baidu.platform.comapi.wnplatform.p.b.a.a();
 
     public c() {
         this.f = null;
         this.g = null;
         try {
-            this.f = (SensorManager) this.f4652b.getSystemService("sensor");
+            this.f = (SensorManager) this.f4653b.getSystemService("sensor");
             this.g = this.f.getDefaultSensor(11);
         } catch (Exception e) {
             this.f = null;
@@ -81,7 +81,7 @@ public class c extends a implements SensorEventListener {
         synchronized (this.i) {
             if (this.h) {
                 z = true;
-            } else if (((SensorManager) this.f4652b.getSystemService("sensor")) == null) {
+            } else if (((SensorManager) this.f4653b.getSystemService("sensor")) == null) {
                 z = false;
             } else {
                 this.h = c();
@@ -95,7 +95,7 @@ public class c extends a implements SensorEventListener {
         SensorManager sensorManager;
         boolean z;
         try {
-            sensorManager = (SensorManager) this.f4652b.getSystemService("sensor");
+            sensorManager = (SensorManager) this.f4653b.getSystemService("sensor");
         } catch (Exception e) {
             sensorManager = null;
         }
@@ -127,7 +127,7 @@ public class c extends a implements SensorEventListener {
         if (this != null) {
             synchronized (this.i) {
                 if (this.h) {
-                    SensorManager sensorManager = (SensorManager) this.f4652b.getSystemService("sensor");
+                    SensorManager sensorManager = (SensorManager) this.f4653b.getSystemService("sensor");
                     if (sensorManager != null) {
                         this.h = false;
                         try {
@@ -175,8 +175,8 @@ public class c extends a implements SensorEventListener {
         SensorManager.getRotationMatrix(this.p, null, this.l, this.m);
         SensorManager.getOrientation(this.p, this.q);
         synchronized (this.o) {
-            this.o.f4667a = this.l[0];
-            this.o.f4668b = this.l[1];
+            this.o.f4668a = this.l[0];
+            this.o.f4669b = this.l[1];
             this.o.c = this.l[2];
             float degrees = (float) Math.toDegrees(this.q[0]);
             if (degrees < 0.0f && degrees > -180.0f) {
@@ -204,7 +204,7 @@ public class c extends a implements SensorEventListener {
                 e.printStackTrace();
             }
             try {
-                windowManager = (WindowManager) this.f4652b.getSystemService("window");
+                windowManager = (WindowManager) this.f4653b.getSystemService("window");
             } catch (Exception e2) {
                 windowManager = null;
             }
@@ -234,8 +234,8 @@ public class c extends a implements SensorEventListener {
                             message.obj = this.r;
                             this.j.sendMessage(message);
                         }
-                        f4651a++;
-                        if (f4651a % 50 == 0) {
+                        f4652a++;
+                        if (f4652a % 50 == 0) {
                             StringBuilder sb = new StringBuilder();
                             sb.append("head:" + this.r.d);
                             sb.append("pitch:" + this.r.e);

@@ -24,7 +24,7 @@ public final class a {
         String O2;
         if (aVar != null && aVar2 != null) {
             h.D("postMessage", "dispatchJSEvent start.");
-            if (c.aHW()) {
+            if (c.aHX()) {
                 if (aVar.isWebView()) {
                     str = "var event = new Event('" + aVar2.cKK + "');";
                     O2 = "";
@@ -85,7 +85,7 @@ public final class a {
             return "";
         }
         String quote = JSONObject.quote(str3);
-        return c.aHW() ? str + "." + str2 + " = " + quote + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, quote);
+        return c.aHX() ? str + "." + str2 + " = " + quote + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, quote);
     }
 
     public static String c(String str, String str2, JSONObject jSONObject) {
@@ -98,7 +98,7 @@ public final class a {
             return "";
         }
         if ((obj instanceof Integer) || (obj instanceof Float) || (obj instanceof Double) || (obj instanceof Long) || (obj instanceof Boolean)) {
-            return c.aHW() ? str + "." + str2 + " = " + obj + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, obj);
+            return c.aHX() ? str + "." + str2 + " = " + obj + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, obj);
         }
         return O(str, str2, String.valueOf(obj));
     }

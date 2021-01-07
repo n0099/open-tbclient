@@ -36,10 +36,10 @@ import org.json.JSONObject;
 public class HttpClientWrap {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4001a = "encode";
+    private static final String f4002a = "encode";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f4002b = "ua";
+    private static final String f4003b = "ua";
     private static final String c = "cuid_2";
     private static final String d = "reqid";
     private static final String e = "sp_params";
@@ -64,7 +64,7 @@ public class HttpClientWrap {
 
     public static Map<String, String> appendCertification(Context context) {
         HashMap hashMap = new HashMap();
-        hashMap.put(f4001a, "utf-8");
+        hashMap.put(f4002a, "utf-8");
         hashMap.put("ua", PassBiometricUtil.getUA(context, BeanConstants.tpl));
         hashMap.put("time", String.valueOf(System.currentTimeMillis() / 1000));
         hashMap.put("appid", BeanConstants.appid);

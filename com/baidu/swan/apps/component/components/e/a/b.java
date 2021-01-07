@@ -43,7 +43,7 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         bVar.a(new com.baidu.swan.apps.component.components.e.b.a() { // from class: com.baidu.swan.apps.component.components.e.a.b.1
             @Override // com.baidu.swan.apps.component.components.e.b.a
             public void a(int i, View view, @Nullable Object obj) {
-                c cVar = (c) bVar.aoz();
+                c cVar = (c) bVar.aoA();
                 switch (i) {
                     case 0:
                     case 1:
@@ -63,12 +63,12 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
                 }
             }
         });
-        com.baidu.swan.apps.component.b.c aow = bVar.aow();
-        boolean isSuccess = aow.isSuccess();
+        com.baidu.swan.apps.component.b.c aox = bVar.aox();
+        boolean isSuccess = aox.isSuccess();
         if (isSuccess) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         } else {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, aow.msg);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, aox.msg);
         }
         return isSuccess;
     }
@@ -119,13 +119,13 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
         }
-        com.baidu.swan.apps.component.b.c aoy = bVar.aoy();
-        boolean isSuccess = aoy.isSuccess();
+        com.baidu.swan.apps.component.b.c aoz = bVar.aoz();
+        boolean isSuccess = aoz.isSuccess();
         if (isSuccess) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return isSuccess;
         }
-        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, aoy.msg);
+        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, aoz.msg);
         return isSuccess;
     }
 

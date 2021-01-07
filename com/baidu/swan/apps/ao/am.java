@@ -7,13 +7,13 @@ public class am implements com.baidu.swan.pms.utils.a {
     private am() {
     }
 
-    public static am aRU() {
+    public static am aRV() {
         return a.dRX;
     }
 
     @Override // com.baidu.swan.pms.utils.a
     public boolean vd(@NonNull String str) {
-        File file = new File(com.baidu.swan.apps.r.d.aAh(), str);
+        File file = new File(com.baidu.swan.apps.r.d.aAi(), str);
         return file.exists() && file.isDirectory();
     }
 

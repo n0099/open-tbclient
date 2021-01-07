@@ -53,10 +53,10 @@ public class s {
         if (telephonyManager != null && (Build.VERSION.SDK_INT < 23 || appContext.checkSelfPermission("android.permission.READ_PHONE_STATE") == 0)) {
             this.eBK = telephonyManager.getSimOperator();
         }
-        this.mCuid = e.bin().getDeviceId(appContext);
-        this.mUuid = e.bin().df(appContext);
-        this.dQZ = e.bin().getHostName();
-        this.eBO = e.bin().aBD();
+        this.mCuid = e.bio().getDeviceId(appContext);
+        this.mUuid = e.bio().df(appContext);
+        this.dQZ = e.bio().getHostName();
+        this.eBO = e.bio().aBE();
         this.eBR = str;
     }
 
@@ -86,7 +86,7 @@ public class s {
         String eBW;
 
         private b() {
-            this.eBW = e.bin().getUserId(AppRuntime.getAppContext());
+            this.eBW = e.bio().getUserId(AppRuntime.getAppContext());
         }
     }
 
@@ -148,7 +148,7 @@ public class s {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String zC(String str) {
         JSONObject jSONObject;
-        if (e.bin() != null) {
+        if (e.bio() != null) {
             try {
                 if (TextUtils.isEmpty(str)) {
                     jSONObject = new JSONObject();
@@ -166,22 +166,22 @@ public class s {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String dm(JSONObject jSONObject) {
-        l bin = e.bin();
-        if (jSONObject == null || bin == null) {
+        l bio = e.bio();
+        if (jSONObject == null || bio == null) {
             return "";
         }
         try {
             String str = "";
-            if (bin.ajk() == 0) {
+            if (bio.ajl() == 0) {
                 str = GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME;
-            } else if (bin.ajk() == 1) {
+            } else if (bio.ajl() == 1) {
                 str = "swangame";
             }
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.putOpt("smartAppId", bin.getAppId());
-            jSONObject2.putOpt("smartAppVersion", bin.getAppVersion());
-            jSONObject2.putOpt("swanCoreVersion", bin.aBE());
-            jSONObject2.putOpt("swanNativeVersion", bin.aBD());
+            jSONObject2.putOpt("smartAppId", bio.getAppId());
+            jSONObject2.putOpt("smartAppVersion", bio.getAppVersion());
+            jSONObject2.putOpt("swanCoreVersion", bio.aBF());
+            jSONObject2.putOpt("swanNativeVersion", bio.aBE());
             jSONObject2.putOpt("swanType", str);
             jSONObject.putOpt("appInfo", jSONObject2);
             return jSONObject.toString();

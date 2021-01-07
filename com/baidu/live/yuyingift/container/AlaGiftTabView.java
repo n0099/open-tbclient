@@ -154,8 +154,6 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, c.a {
 
         void aW(String str, String str2);
 
-        void aaG();
-
         void aaH();
 
         void aaI();
@@ -167,6 +165,8 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, c.a {
         void aaL();
 
         void aaM();
+
+        void aaN();
 
         void c(boolean z, int i);
 
@@ -216,7 +216,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, c.a {
                         AlaGiftTabView.this.bZB = new com.baidu.live.yuyingift.container.c(AlaGiftTabView.this.mContext, AlaGiftTabView.this.mType, AlaGiftTabView.this.bdL);
                     }
                     if (AlaGiftTabView.this.bZE != null) {
-                        AlaGiftTabView.this.bZE.aaL();
+                        AlaGiftTabView.this.bZE.aaM();
                     }
                     AlaGiftTabView.this.bR(true);
                     AlaGiftTabView.this.bZB.a(AlaGiftTabView.this.bcL, AlaGiftTabView.this.bcE, AlaGiftTabView.this.isLandscape, new PopupWindow.OnDismissListener() { // from class: com.baidu.live.yuyingift.container.AlaGiftTabView.11.1
@@ -576,7 +576,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, c.a {
         this.mSelectedPosition = i;
         if (this.bZE != null) {
             this.bZE.c(false, this.bdz);
-            this.bZE.aaG();
+            this.bZE.aaH();
         }
         if (aVar != null) {
             g item = aVar.getItem(i);
@@ -730,7 +730,7 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, c.a {
             this.bZC.setStyle(1);
         } else if (this.bdl != null && this.bdl.GF()) {
             if (this.bZE != null) {
-                this.bZE.aaK();
+                this.bZE.aaL();
             }
             this.bcL.setVisibility(0);
         } else {
@@ -1742,12 +1742,12 @@ public class AlaGiftTabView implements ViewPager.OnPageChangeListener, c.a {
         if (this.bZE != null) {
             this.bZE.a(gVar);
         }
-        if (BdNetTypeUtil.isNetWorkAvailable() && this.bdl.GK() && !com.baidu.live.yuyingift.b.b.aaZ().gV(this.bdl.Gx()) && (hA = com.baidu.live.yuyingift.b.b.aaZ().hA(this.bdl.Gx())) != null) {
+        if (BdNetTypeUtil.isNetWorkAvailable() && this.bdl.GK() && !com.baidu.live.yuyingift.b.b.aba().gV(this.bdl.Gx()) && (hA = com.baidu.live.yuyingift.b.b.aba().hA(this.bdl.Gx())) != null) {
             am.Ih().a(hA.aXb, true);
         }
     }
 
-    public void aaR() {
+    public void aaS() {
         if (this.bZF != null && this.bZF.Iy()) {
             this.bZF.Ix();
         }

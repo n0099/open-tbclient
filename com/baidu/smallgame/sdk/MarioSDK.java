@@ -12,16 +12,16 @@ import com.baidu.smallgame.sdk.delegate.AREngineDelegate;
 import java.util.ArrayList;
 import java.util.List;
 @NotProguard
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class MarioSDK {
     private static final String TAG = "MarioSDK";
     private AREngineDelegate mAREngineDelegate;
     private b mMarioInitListener;
     private V8Engine mV8Engine;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
-        void aiU();
+        void aiV();
     }
 
     public void setMarioInitListener(b bVar) {
@@ -74,7 +74,7 @@ public class MarioSDK {
         }
         MarioSDK marioSDK = new MarioSDK(v8Engine, aREngineDelegate);
         if (bVar != null) {
-            bVar.aiU();
+            bVar.aiV();
         }
         return marioSDK;
     }
@@ -128,15 +128,15 @@ public class MarioSDK {
         if (aVar.cCm != null) {
             aVar2.setRenderer(aVar.cCm);
         }
-        if (aVar.aiT() != null) {
-            for (DebugConsole debugConsole : aVar.aiT()) {
+        if (aVar.aiU() != null) {
+            for (DebugConsole debugConsole : aVar.aiU()) {
                 aVar2.addDebugConsole(debugConsole);
             }
         }
         return aVar2;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         private List<DebugConsole> cCL = new ArrayList();
         private GLSurfaceView.Renderer cCm;
@@ -163,7 +163,7 @@ public class MarioSDK {
             }
         }
 
-        public List<DebugConsole> aiT() {
+        public List<DebugConsole> aiU() {
             return this.cCL;
         }
 

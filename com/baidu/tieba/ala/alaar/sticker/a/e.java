@@ -23,38 +23,38 @@ public class e {
         void onStarted();
     }
 
-    public static String Go(String str) {
-        File Gq;
-        if (TextUtils.isEmpty(str) || (Gq = Gq(Md5.toMd5(str))) == null || !Gq.exists()) {
+    public static String Gn(String str) {
+        File Gp;
+        if (TextUtils.isEmpty(str) || (Gp = Gp(Md5.toMd5(str))) == null || !Gp.exists()) {
             return null;
         }
-        return Gq.getAbsolutePath();
+        return Gp.getAbsolutePath();
     }
 
-    public static boolean Gp(String str) {
-        return !TextUtils.isEmpty(Go(str));
+    public static boolean Go(String str) {
+        return !TextUtils.isEmpty(Gn(str));
     }
 
     public static boolean cE(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return com.baidu.tieba.ala.alaar.sticker.download.b.bSW().isRunning(str);
+        return com.baidu.tieba.ala.alaar.sticker.download.b.bSX().isRunning(str);
     }
 
     public static void a(final String str, final a aVar) {
         if (!TextUtils.isEmpty(str)) {
-            String Go = Go(str);
-            if (!TextUtils.isEmpty(Go)) {
+            String Gn = Gn(str);
+            if (!TextUtils.isEmpty(Gn)) {
                 if (aVar != null) {
-                    aVar.onCompleted(Go);
+                    aVar.onCompleted(Gn);
                     return;
                 }
                 return;
             }
             final String md5 = Md5.toMd5(str);
             gve.add(str);
-            com.baidu.tieba.ala.alaar.sticker.download.b.bSW().a(str, cacheFile, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.e.1
+            com.baidu.tieba.ala.alaar.sticker.download.b.bSX().a(str, cacheFile, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.e.1
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onStarted() {
                     super.onStarted();
@@ -87,9 +87,9 @@ public class e {
                     e.gve.remove(str);
                     if (!TextUtils.isEmpty(str2) && a.this != null) {
                         File file = new File(str2);
-                        File Gq = e.Gq(md5);
-                        if (file.exists() && file.renameTo(Gq) && Gq != null) {
-                            a.this.onCompleted(Gq.getAbsolutePath());
+                        File Gp = e.Gp(md5);
+                        if (file.exists() && file.renameTo(Gp) && Gp != null) {
+                            a.this.onCompleted(Gp.getAbsolutePath());
                             return;
                         }
                     }
@@ -127,7 +127,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static File Gq(String str) {
+    public static File Gp(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

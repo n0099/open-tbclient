@@ -29,7 +29,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
             addParam("net_type", netType);
         }
         d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        task.setUrl((adAdSense == null || adAdSense.bzx()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
+        task.setUrl((adAdSense == null || adAdSense.bzy()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
     }
 
     ShowStatisticUploadRequest init(int i, String str, String str2, String str3) {

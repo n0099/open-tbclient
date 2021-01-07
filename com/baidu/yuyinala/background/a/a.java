@@ -46,33 +46,33 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0930a c0930a;
+        C0968a c0968a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.item_ala_audio_background, viewGroup, false);
-            c0930a = new C0930a();
-            c0930a.oPV = (TbImageView) view.findViewById(a.f.thumbnail_iv);
-            c0930a.oPW = (ImageView) view.findViewById(a.f.chosen_iv);
-            c0930a.gOO = (TextView) view.findViewById(a.f.bg_name_tv);
-            c0930a.oPX = (ProgressBar) view.findViewById(a.f.loading_pb);
-            c0930a.oPY = (TextView) view.findViewById(a.f.video_tag);
-            c0930a.oPV.setDefaultResource(a.e.loading_ala_audio_bg);
-            c0930a.oPV.setDefaultErrorResource(a.e.loading_ala_audio_bg);
-            c0930a.oPV.setDefaultBgResource(a.e.loading_ala_audio_bg);
-            view.setTag(c0930a);
+            c0968a = new C0968a();
+            c0968a.oPV = (TbImageView) view.findViewById(a.f.thumbnail_iv);
+            c0968a.oPW = (ImageView) view.findViewById(a.f.chosen_iv);
+            c0968a.gOO = (TextView) view.findViewById(a.f.bg_name_tv);
+            c0968a.oPX = (ProgressBar) view.findViewById(a.f.loading_pb);
+            c0968a.oPY = (TextView) view.findViewById(a.f.video_tag);
+            c0968a.oPV.setDefaultResource(a.e.loading_ala_audio_bg);
+            c0968a.oPV.setDefaultErrorResource(a.e.loading_ala_audio_bg);
+            c0968a.oPV.setDefaultBgResource(a.e.loading_ala_audio_bg);
+            view.setTag(c0968a);
         } else {
-            c0930a = (C0930a) view.getTag();
+            c0968a = (C0968a) view.getTag();
         }
         com.baidu.yuyinala.background.b.a aVar = (com.baidu.yuyinala.background.b.a) ListUtils.getItem(this.mBgList, i);
         if (aVar != null) {
             view.setVisibility(0);
-            c0930a.gOO.setText(aVar.getName());
-            c0930a.oPV.startLoad(aVar.getThumbnailUrl(), 10, false);
-            c0930a.oPV.setVisibility(0);
-            c0930a.oPW.setVisibility(aVar.eku() ? 0 : 8);
-            c0930a.oPX.setVisibility(aVar.isLoading() ? 0 : 8);
-            c0930a.oPY.setVisibility(aVar.getType() != 1 ? 8 : 0);
-            if (aVar.getType() == 1 && !b.XZ(aVar.getMd5())) {
-                b.b(aVar.ekv(), aVar.getMd5(), null);
+            c0968a.gOO.setText(aVar.getName());
+            c0968a.oPV.startLoad(aVar.getThumbnailUrl(), 10, false);
+            c0968a.oPV.setVisibility(0);
+            c0968a.oPW.setVisibility(aVar.ekv() ? 0 : 8);
+            c0968a.oPX.setVisibility(aVar.isLoading() ? 0 : 8);
+            c0968a.oPY.setVisibility(aVar.getType() != 1 ? 8 : 0);
+            if (aVar.getType() == 1 && !b.XY(aVar.getMd5())) {
+                b.b(aVar.ekw(), aVar.getMd5(), null);
             }
         } else {
             view.setVisibility(8);
@@ -82,14 +82,14 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.yuyinala.background.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    private class C0930a {
+    private class C0968a {
         private TextView gOO;
         private TbImageView oPV;
         private ImageView oPW;
         private ProgressBar oPX;
         private TextView oPY;
 
-        private C0930a() {
+        private C0968a() {
         }
     }
 }

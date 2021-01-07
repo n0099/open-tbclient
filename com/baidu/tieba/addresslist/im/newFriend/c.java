@@ -89,7 +89,7 @@ public class c extends d<NewFriendsActivity> {
         this.glQ.notifyDataSetChanged();
     }
 
-    public a bPx() {
+    public a bPy() {
         return this.glQ;
     }
 }

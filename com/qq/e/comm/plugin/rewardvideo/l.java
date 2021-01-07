@@ -62,7 +62,7 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class l implements View.OnClickListener, ACTD, com.qq.e.comm.plugin.a.d.a, b.a, b.a, f.a {
     private j B;
     private com.qq.e.comm.plugin.ad.g C;
@@ -94,10 +94,10 @@ public class l implements View.OnClickListener, ACTD, com.qq.e.comm.plugin.a.d.a
     private int z;
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f12722a = getClass().getSimpleName();
+    private final String f12723a = getClass().getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private SM f12723b = GDTADManager.getInstance().getSM();
+    private SM f12724b = GDTADManager.getInstance().getSM();
     private com.qq.e.comm.plugin.rewardvideo.b.a n = null;
     private boolean o = true;
     private boolean p = false;
@@ -107,7 +107,7 @@ public class l implements View.OnClickListener, ACTD, com.qq.e.comm.plugin.a.d.a
     private int A = n.a();
 
     /* renamed from: com.qq.e.comm.plugin.rewardvideo.l$10  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class AnonymousClass10 implements d.b {
         AnonymousClass10() {
         }
@@ -130,7 +130,7 @@ public class l implements View.OnClickListener, ACTD, com.qq.e.comm.plugin.a.d.a
     }
 
     /* renamed from: com.qq.e.comm.plugin.rewardvideo.l$11  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class AnonymousClass11 implements d.b {
         AnonymousClass11() {
         }
@@ -151,7 +151,7 @@ public class l implements View.OnClickListener, ACTD, com.qq.e.comm.plugin.a.d.a
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements f.a {
         private a() {
         }
@@ -226,7 +226,7 @@ public class l implements View.OnClickListener, ACTD, com.qq.e.comm.plugin.a.d.a
     public JSONObject a(JSONObject jSONObject) {
         if (jSONObject != null) {
             Iterator<String> keys = jSONObject.keys();
-            String string = this.f12723b.getString("rewardVideoAdInfoFilter");
+            String string = this.f12724b.getString("rewardVideoAdInfoFilter");
             if (TextUtils.isEmpty(string)) {
                 string = "apurl,rl,customized_invoke_url,video,edid,video_tracking_url,click_mo_url,click_mo_url_sdk,report_url,report_url_sdk,endcard_info,negative_feedback_url,wechat_ad_trace_data,pkg_download_schema,requrl,corporate_logo,mqq_via,endcard";
             }
@@ -331,7 +331,7 @@ public class l implements View.OnClickListener, ACTD, com.qq.e.comm.plugin.a.d.a
     private void h() {
         this.I = 1;
         if (this.j == null) {
-            ai.a(this.f12722a, "initVideoLayout");
+            ai.a(this.f12723a, "initVideoLayout");
             this.j = new com.qq.e.comm.plugin.rewardvideo.b.c(this.c, this.e, this.F, this.d, this.C);
             this.j.c().a(new a());
             this.m = new com.qq.e.comm.plugin.ac.a(this.c);
@@ -385,7 +385,7 @@ public class l implements View.OnClickListener, ACTD, com.qq.e.comm.plugin.a.d.a
         f.a(new com.qq.e.comm.plugin.ab.d.f() { // from class: com.qq.e.comm.plugin.rewardvideo.l.6
 
             /* renamed from: a  reason: collision with root package name */
-            long f12733a;
+            long f12734a;
 
             @Override // com.qq.e.comm.plugin.ab.d.f
             public void a(int i) {
@@ -395,7 +395,7 @@ public class l implements View.OnClickListener, ACTD, com.qq.e.comm.plugin.a.d.a
             @Override // com.qq.e.comm.plugin.ab.d.f
             public void a(int i, String str, String str2) {
                 ai.b("gdt_tag_reward_video", "onReceivedError(%d,%s,%s)", Integer.valueOf(i), str, str2);
-                com.qq.e.comm.plugin.intersitial2.fullscreen.a.a("Reward", "BottomCard", l.this.m(), System.currentTimeMillis() - this.f12733a, str2, str, l.this.v);
+                com.qq.e.comm.plugin.intersitial2.fullscreen.a.a("Reward", "BottomCard", l.this.m(), System.currentTimeMillis() - this.f12734a, str2, str, l.this.v);
             }
 
             @Override // com.qq.e.comm.plugin.ab.d.f
@@ -404,7 +404,7 @@ public class l implements View.OnClickListener, ACTD, com.qq.e.comm.plugin.a.d.a
 
             @Override // com.qq.e.comm.plugin.ab.d.f
             public void a(String str) {
-                com.qq.e.comm.plugin.intersitial2.fullscreen.a.a("Reward", "BottomCard", l.this.m(), System.currentTimeMillis() - this.f12733a, str, (String) null, l.this.v);
+                com.qq.e.comm.plugin.intersitial2.fullscreen.a.a("Reward", "BottomCard", l.this.m(), System.currentTimeMillis() - this.f12734a, str, (String) null, l.this.v);
                 ai.b("gdt_tag_reward_video", "load webview layer cost %d ms", Long.valueOf(SystemClock.elapsedRealtime() - elapsedRealtime));
                 ai.b("gdt_tag_reward_video", "onPageFinished(%s)", str);
                 JSONObject jSONObject = new JSONObject();
@@ -425,7 +425,7 @@ public class l implements View.OnClickListener, ACTD, com.qq.e.comm.plugin.a.d.a
             @Override // com.qq.e.comm.plugin.ab.d.f
             public void a(String str, Bitmap bitmap) {
                 ai.b("gdt_tag_reward_video", "onPageStarted(%s)", str);
-                this.f12733a = System.currentTimeMillis();
+                this.f12734a = System.currentTimeMillis();
             }
 
             @Override // com.qq.e.comm.plugin.ab.d.f
@@ -461,7 +461,7 @@ public class l implements View.OnClickListener, ACTD, com.qq.e.comm.plugin.a.d.a
     }
 
     private void l() {
-        ai.a(this.f12722a, "initEndCard");
+        ai.a(this.f12723a, "initEndCard");
         n.a(this.c, this.g, this.h, this.d);
         this.l = com.qq.e.comm.plugin.n.d.a(this.c, this.d, this.C, "Reward", m(), this.v);
         this.l.a(this);
@@ -482,7 +482,7 @@ public class l implements View.OnClickListener, ACTD, com.qq.e.comm.plugin.a.d.a
         if (this.G) {
             return;
         }
-        ai.a(this.f12722a, "onAdExposure");
+        ai.a(this.f12723a, "onAdExposure");
         com.qq.e.comm.plugin.ad.a.a().a(this.i);
         this.i.post(new Runnable() { // from class: com.qq.e.comm.plugin.rewardvideo.l.7
             @Override // java.lang.Runnable
@@ -703,7 +703,7 @@ public class l implements View.OnClickListener, ACTD, com.qq.e.comm.plugin.a.d.a
 
     public void a(long j, long j2, int i, String str) {
         String k;
-        ai.a(this.f12722a, "onDownloadProgress, finished : " + j + " ,total : " + j2 + " ,progress : " + i + " ,videoUrl : " + str);
+        ai.a(this.f12723a, "onDownloadProgress, finished : " + j + " ,total : " + j2 + " ,progress : " + i + " ,videoUrl : " + str);
         if (this.d == null || ((k = this.d.k()) != null && k.equals(str))) {
             this.m.a(i);
             if (i == 100) {
@@ -798,7 +798,7 @@ public class l implements View.OnClickListener, ACTD, com.qq.e.comm.plugin.a.d.a
                 g.setText("恭喜获得奖励");
             }
         }
-        if (m() != 1 || this.u || !n.a(f, this.y, e, n.a(this.f12723b)) || this.l == null || this.d == null) {
+        if (m() != 1 || this.u || !n.a(f, this.y, e, n.a(this.f12724b)) || this.l == null || this.d == null) {
             return;
         }
         this.u = true;

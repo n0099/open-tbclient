@@ -268,7 +268,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         final com.baidu.tieba.tbadkCore.voice.a recorderManager = getRecorderManager();
         if (this.adc == null) {
             this.adc = new com.baidu.tbadk.core.dialog.a(j.K(getContext()).getPageActivity());
-            this.adc.Bp(getContext().getString(R.string.voice_restart_tip)).a(getContext().getString(R.string.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.VoiceRecordButton.2
+            this.adc.Bo(getContext().getString(R.string.voice_restart_tip)).a(getContext().getString(R.string.voice_restart), new a.b() { // from class: com.baidu.audiorecorder.lib.voice.VoiceRecordButton.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
@@ -288,7 +288,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             }).b(j.K(getContext()));
         }
         try {
-            this.adc.btX();
+            this.adc.btY();
         } catch (Exception e) {
             if (getVoiceManager() != null && this.mModel != null) {
                 if (recorderManager != null) {

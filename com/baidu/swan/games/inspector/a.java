@@ -27,7 +27,7 @@ public class a {
             this.ekl = str;
         }
 
-        public static C0535a baP() {
+        public static C0535a baQ() {
             return new C0535a(false, "未启用真机调试");
         }
 
@@ -35,7 +35,7 @@ public class a {
             return this.mEnabled;
         }
 
-        public String baQ() {
+        public String baR() {
             return this.ekl;
         }
     }
@@ -66,30 +66,30 @@ public class a {
         }
     }
 
-    public C0535a baK() {
-        if (this.ekk || !baL()) {
+    public C0535a baL() {
+        if (this.ekk || !baM()) {
             return new C0535a(this.ekj, !this.ekj ? "未启用真机调试" : this.ekk ? "使用了 debug 面板配置" : "启用了真机调试");
         }
         return new C0535a(false, "线上包禁用真机调试");
     }
 
     public static C0535a a(a aVar) {
-        return aVar == null ? C0535a.baP() : aVar.baK();
+        return aVar == null ? C0535a.baQ() : aVar.baL();
     }
 
-    private boolean baL() {
-        return com.baidu.swan.apps.f.a.mt(e.aMm());
+    private boolean baM() {
+        return com.baidu.swan.apps.f.a.mt(e.aMn());
     }
 
-    public boolean baM() {
+    public boolean baN() {
         return this.ekh;
     }
 
-    public String baN() {
+    public String baO() {
         return this.ekf + (this.ekg != null ? ":" + this.ekg : "");
     }
 
-    public boolean baO() {
+    public boolean baP() {
         return this.eki;
     }
 }

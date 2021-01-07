@@ -24,7 +24,7 @@ public class f extends com.baidu.tieba.frs.k<com.baidu.tieba.frs.n, FrsEmpertyIt
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.n nVar, FrsEmpertyItemViewHolder frsEmpertyItemViewHolder) {
         super.a(i, view, viewGroup, (ViewGroup) nVar, (com.baidu.tieba.frs.n) frsEmpertyItemViewHolder);
         frsEmpertyItemViewHolder.zF(nVar.getHeight());
-        frsEmpertyItemViewHolder.setBackground(nVar.cEP());
+        frsEmpertyItemViewHolder.setBackground(nVar.cEQ());
         return view;
     }
 }

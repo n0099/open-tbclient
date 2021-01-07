@@ -27,7 +27,7 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.b.a implements View.
     private static final boolean DEBUG = false;
     public static final String KEY_AD_DATA = "key_template";
     private static final String TAG = "FeedDownloadActivity";
-    private static a.InterfaceC1090a mAdClickListener;
+    private static a.InterfaceC1131a mAdClickListener;
     private KsAdContainer mAdContainer;
     private AdInfo mAdInfo;
     private AdTemplate mAdTemplate;
@@ -99,12 +99,12 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.b.a implements View.
         bindDownloadListener();
     }
 
-    public static void launch(Context context, @NonNull AdTemplate adTemplate, a.InterfaceC1090a interfaceC1090a) {
+    public static void launch(Context context, @NonNull AdTemplate adTemplate, a.InterfaceC1131a interfaceC1131a) {
         KsAdSDKImpl.putComponentProxy(FeedDownloadActivity.class, FeedDownloadActivityProxy.class);
         Intent intent = new Intent(context, FeedDownloadActivity.class);
         intent.setFlags(268435456);
         intent.putExtra("key_template", adTemplate);
-        mAdClickListener = interfaceC1090a;
+        mAdClickListener = interfaceC1131a;
         context.startActivity(intent);
     }
 
@@ -126,8 +126,8 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.b.a implements View.
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.kwad.sdk.core.download.b.b.a(this.mApkDownloadHelper, view == this.mProgressBarTv);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.mAdTemplate, new a.InterfaceC1064a() { // from class: com.kwad.sdk.feed.FeedDownloadActivityProxy.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1064a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.mAdTemplate, new a.InterfaceC1105a() { // from class: com.kwad.sdk.feed.FeedDownloadActivityProxy.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
             public void a() {
                 FeedDownloadActivityProxy.this.notifyAdClick();
             }

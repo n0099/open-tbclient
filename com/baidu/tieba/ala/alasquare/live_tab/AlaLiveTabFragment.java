@@ -38,14 +38,14 @@ public class AlaLiveTabFragment extends BaseFragment implements am {
                 com.baidu.tieba.ala.alasquare.live_tab.b.b bVar = (com.baidu.tieba.ala.alasquare.live_tab.b.b) customResponsedMessage.getData();
                 if (bVar.isSuccess) {
                     if (AlaLiveTabFragment.this.gCt || !bVar.isLoadMore) {
-                        AlaLiveTabFragment.this.Zi();
-                        AlaLiveTabFragment.this.hideLoadingView(AlaLiveTabFragment.this.gCq.bVc());
+                        AlaLiveTabFragment.this.Zj();
+                        AlaLiveTabFragment.this.hideLoadingView(AlaLiveTabFragment.this.gCq.bVd());
                         AlaLiveTabFragment.this.gCq.a(bVar.superEntranceInfo);
                         AlaLiveTabFragment.this.gCt = false;
                     }
                 } else if (AlaLiveTabFragment.this.gCt || !bVar.isLoadMore) {
-                    AlaLiveTabFragment.this.hideLoadingView(AlaLiveTabFragment.this.gCq.bVc());
-                    AlaLiveTabFragment.this.bUH();
+                    AlaLiveTabFragment.this.hideLoadingView(AlaLiveTabFragment.this.gCq.bVd());
+                    AlaLiveTabFragment.this.bUI();
                 }
             }
         }
@@ -83,31 +83,31 @@ public class AlaLiveTabFragment extends BaseFragment implements am {
         MessageManager.getInstance().registerListener(this.gCx);
         this.gCq.init();
         if (this.gCu > 0) {
-            bUI();
+            bUJ();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        ViewGroup bVc = this.gCq.bVc();
-        if (bVc.getParent() instanceof ViewGroup) {
-            ((ViewGroup) bVc.getParent()).removeView(bVc);
+        ViewGroup bVd = this.gCq.bVd();
+        if (bVd.getParent() instanceof ViewGroup) {
+            ((ViewGroup) bVd.getParent()).removeView(bVd);
         }
-        return bVc;
+        return bVd;
     }
 
-    public boolean bUG() {
+    public boolean bUH() {
         return this.gCt;
     }
 
-    public void bUH() {
+    public void bUI() {
         if (this.mRefreshView == null) {
             this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (j.isNetworkAvailableForImmediately() && AlaLiveTabFragment.this.gCq != null) {
                         AlaLiveTabFragment.this.gCq.mE(false);
-                        AlaLiveTabFragment.this.bUI();
+                        AlaLiveTabFragment.this.bUJ();
                         AlaLiveTabFragment.this.gCq.loadData();
                         AlaLiveUserNotifyManager.getInstance().sendGetUserNotifyRequest();
                     }
@@ -120,36 +120,36 @@ public class AlaLiveTabFragment extends BaseFragment implements am {
         this.mRefreshView.sO(R.drawable.new_pic_emotion_08);
         this.gCq.mE(false);
         this.mRefreshView.sQ(0);
-        this.mRefreshView.attachView(this.gCq.bVc(), false);
+        this.mRefreshView.attachView(this.gCq.bVd(), false);
     }
 
-    public void Zi() {
+    public void Zj() {
         this.gCq.mE(true);
         if (this.mRefreshView != null) {
-            this.mRefreshView.dettachView(this.gCq.bVc());
+            this.mRefreshView.dettachView(this.gCq.bVd());
             this.mRefreshView = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUI() {
-        if (this.gCu < 0) {
-            this.gCu = this.gCq.bVc().getHeight();
-        }
-        showLoadingView(this.gCq.bVc(), false, (((this.gCu - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - l.getDimens(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2));
-    }
-
-    @Override // com.baidu.tieba.frs.am
-    public void WE() {
-        this.gCq.bVd();
-    }
-
-    @Override // com.baidu.tieba.frs.am
     public void bUJ() {
+        if (this.gCu < 0) {
+            this.gCu = this.gCq.bVd().getHeight();
+        }
+        showLoadingView(this.gCq.bVd(), false, (((this.gCu - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - l.getDimens(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2));
+    }
+
+    @Override // com.baidu.tieba.frs.am
+    public void WF() {
+        this.gCq.bVe();
     }
 
     @Override // com.baidu.tieba.frs.am
     public void bUK() {
+    }
+
+    @Override // com.baidu.tieba.frs.am
+    public void bUL() {
     }
 
     @Override // com.baidu.tieba.frs.am
@@ -165,7 +165,7 @@ public class AlaLiveTabFragment extends BaseFragment implements am {
         super.onLazyLoad();
         this.gCv = true;
         this.gCq.loadData();
-        bUI();
+        bUJ();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -187,13 +187,13 @@ public class AlaLiveTabFragment extends BaseFragment implements am {
 
     public void reload() {
         if (isAdded()) {
-            bUI();
+            bUJ();
             this.gCq.loadData();
         }
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bxO() {
+    public void bxP() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 

@@ -10,12 +10,12 @@ import javax.crypto.Cipher;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f8027a = i.class.getSimpleName();
+    private static final String f8028a = i.class.getSimpleName();
     private static i prs = null;
     private PublicKey prq = null;
     private PublicKey prr = null;
 
-    public static i esT() {
+    public static i esU() {
         if (prs == null) {
             prs = new i();
         }
@@ -37,7 +37,7 @@ public class i {
 
     public String a(byte[] bArr) {
         if (this.prq == null) {
-            c.a(f8027a, "mServerPublicKey == null");
+            c.a(f8028a, "mServerPublicKey == null");
             return "";
         }
         try {
@@ -52,7 +52,7 @@ public class i {
 
     public String b(byte[] bArr) {
         if (this.prq == null) {
-            c.a(f8027a, "mServerPublicKey == null");
+            c.a(f8028a, "mServerPublicKey == null");
             return null;
         }
         try {

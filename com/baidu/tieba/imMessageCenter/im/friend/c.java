@@ -83,7 +83,7 @@ class c extends BaseAdapter {
     private a a(Object obj, com.baidu.tbadk.coreExtra.relationship.a aVar) {
         a aVar2;
         if (obj == null) {
-            aVar2 = dax();
+            aVar2 = day();
         } else {
             aVar2 = (a) obj;
         }
@@ -91,7 +91,7 @@ class c extends BaseAdapter {
             this.kLH.a(aVar2.rootView, aVar);
         }
         a(aVar, aVar2, aVar.getUserPortrait());
-        aVar2.hYe.setText(aVar.bCB());
+        aVar2.hYe.setText(aVar.bCC());
         if (this.kLI) {
             aVar2.kLJ.setVisibility(8);
         } else {
@@ -110,7 +110,7 @@ class c extends BaseAdapter {
         }
     }
 
-    private a dax() {
+    private a day() {
         a aVar = new a();
         aVar.rootView = LayoutInflater.from(this.fKW.getPageContext().getContext()).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
         aVar.kLo = (HeadImageView) aVar.rootView.findViewById(R.id.photo);

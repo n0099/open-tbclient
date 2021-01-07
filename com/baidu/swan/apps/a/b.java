@@ -32,23 +32,23 @@ public class b extends f {
         a(new a(aVar) { // from class: com.baidu.swan.apps.a.b.1
             @Override // com.baidu.swan.apps.a.b.a
             protected void a(com.baidu.swan.apps.a.a aVar2) {
-                com.baidu.swan.apps.t.a.aAw().a(activity, bundle, aVar2);
+                com.baidu.swan.apps.t.a.aAx().a(activity, bundle, aVar2);
             }
         });
     }
 
     public boolean isLogin(Context context) {
-        return com.baidu.swan.apps.t.a.aAw().cb(context);
+        return com.baidu.swan.apps.t.a.aAx().cb(context);
     }
 
     public String getUid(@NonNull Context context) {
-        String cc = com.baidu.swan.apps.t.a.aAw().cc(context);
+        String cc = com.baidu.swan.apps.t.a.aAx().cc(context);
         setUid(cc);
         return cc;
     }
 
     @NonNull
-    public String ajJ() {
+    public String ajK() {
         if (this.cEL) {
             return TextUtils.isEmpty(this.cEK) ? "" : this.cEK;
         }
@@ -65,7 +65,7 @@ public class b extends f {
     }
 
     public static void a(String str, final e.a aVar) {
-        com.baidu.swan.a.c.a.bfE().getRequest().url("https://mbd.baidu.com/ma/relate2user").cookieManager(com.baidu.swan.apps.t.a.aAQ().alT()).addUrlParam("app_key", str).build().executeAsyncOnUIBack(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.apps.a.b.2
+        com.baidu.swan.a.c.a.bfF().getRequest().url("https://mbd.baidu.com/ma/relate2user").cookieManager(com.baidu.swan.apps.t.a.aAR().alU()).addUrlParam("app_key", str).build().executeAsyncOnUIBack(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.apps.a.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: a */

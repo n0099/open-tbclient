@@ -44,7 +44,7 @@ public class b implements n {
         }
     }
 
-    public ForumInfo cJC() {
+    public ForumInfo cJD() {
         return this.forum;
     }
 
@@ -56,27 +56,27 @@ public class b implements n {
         return this.preface;
     }
 
-    public List<ForumRule> cJD() {
+    public List<ForumRule> cJE() {
         return this.rules;
     }
 
-    public int cJE() {
+    public int cJF() {
         return this.juj;
     }
 
-    public String cJF() {
+    public String cJG() {
         return this.audit_opinion;
     }
 
-    public boolean cJG() {
+    public boolean cJH() {
         return this.juk;
     }
 
-    public String cJB() {
+    public String cJC() {
         return this.publish_time;
     }
 
-    public BawuRoleInfoPub cJH() {
+    public BawuRoleInfoPub cJI() {
         return this.bazhu;
     }
 
@@ -96,11 +96,11 @@ public class b implements n {
         this.bazhu = bawuRoleInfoPub;
     }
 
-    public String cJI() {
+    public String cJJ() {
         return this.cur_time;
     }
 
-    public a cJJ() {
+    public a cJK() {
         return this.jum;
     }
 

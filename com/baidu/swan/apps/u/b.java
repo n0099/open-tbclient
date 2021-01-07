@@ -42,9 +42,9 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
                     int i = bundle.getInt("key_launch_status");
                     if (TextUtils.equals(str, string)) {
                         if (i == 0) {
-                            interfaceC0493a.aBZ();
-                        } else {
                             interfaceC0493a.aCa();
+                        } else {
+                            interfaceC0493a.aCb();
                         }
                     }
                     b.mCallbackMap.remove(str);

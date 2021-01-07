@@ -32,9 +32,9 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     private boolean joj;
     private String mForumId;
     private String mFrom;
-    private LocationInfoView nZX;
+    private LocationInfoView nZW;
+    private TBSpecificationBtn nZX;
     private TBSpecificationBtn nZY;
-    private TBSpecificationBtn nZZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes8.dex */
@@ -59,19 +59,19 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     }
 
     public void hG(long j) {
-        int left = this.nZX.getLeft() + 10;
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.nZX, "translationX", left + 10, (float) (left - 10), left + 10, (float) (left - 10));
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.nZZ, "translationX", left + 10, (float) (left - 10), left + 10, (float) (left - 10));
+        int left = this.nZW.getLeft() + 10;
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.nZW, "translationX", left + 10, (float) (left - 10), left + 10, (float) (left - 10));
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.nZY, "translationX", left + 10, (float) (left - 10), left + 10, (float) (left - 10));
         final AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playTogether(ofFloat2, ofFloat);
         animatorSet.setDuration(j / 4);
         postDelayed(new Runnable() { // from class: com.baidu.tieba.write.editor.EditorInfoContainer.1
             @Override // java.lang.Runnable
             public void run() {
-                ((com.baidu.tbadk.core.view.commonBtn.b) EditorInfoContainer.this.nZZ.getStyleConfig()).rs(R.color.CAM_X0302);
-                EditorInfoContainer.this.nZZ.getStyleConfig().ro(R.color.CAM_X0302);
-                ((com.baidu.tbadk.core.view.commonBtn.b) EditorInfoContainer.this.nZX.getLocationBtn().getStyleConfig()).rs(R.color.CAM_X0302);
-                EditorInfoContainer.this.nZX.getLocationBtn().getStyleConfig().ro(R.color.CAM_X0302);
+                ((com.baidu.tbadk.core.view.commonBtn.b) EditorInfoContainer.this.nZY.getStyleConfig()).rs(R.color.CAM_X0302);
+                EditorInfoContainer.this.nZY.getStyleConfig().ro(R.color.CAM_X0302);
+                ((com.baidu.tbadk.core.view.commonBtn.b) EditorInfoContainer.this.nZW.getLocationBtn().getStyleConfig()).rs(R.color.CAM_X0302);
+                EditorInfoContainer.this.nZW.getLocationBtn().getStyleConfig().ro(R.color.CAM_X0302);
                 animatorSet.start();
             }
         }, 1000L);
@@ -89,10 +89,10 @@ public class EditorInfoContainer extends RelativeLayout implements n {
                     EditorInfoContainer.this.postDelayed(new Runnable() { // from class: com.baidu.tieba.write.editor.EditorInfoContainer.2.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            ((com.baidu.tbadk.core.view.commonBtn.b) EditorInfoContainer.this.nZZ.getStyleConfig()).ru(R.color.CAM_X0105);
-                            EditorInfoContainer.this.nZZ.getStyleConfig().ro(R.color.CAM_X0110);
-                            ((com.baidu.tbadk.core.view.commonBtn.b) EditorInfoContainer.this.nZX.getLocationBtn().getStyleConfig()).ru(R.color.CAM_X0105);
-                            EditorInfoContainer.this.nZX.getLocationBtn().getStyleConfig().ro(R.color.CAM_X0110);
+                            ((com.baidu.tbadk.core.view.commonBtn.b) EditorInfoContainer.this.nZY.getStyleConfig()).ru(R.color.CAM_X0105);
+                            EditorInfoContainer.this.nZY.getStyleConfig().ro(R.color.CAM_X0110);
+                            ((com.baidu.tbadk.core.view.commonBtn.b) EditorInfoContainer.this.nZW.getLocationBtn().getStyleConfig()).ru(R.color.CAM_X0105);
+                            EditorInfoContainer.this.nZW.getLocationBtn().getStyleConfig().ro(R.color.CAM_X0110);
                         }
                     }, 0L);
                 } else {
@@ -117,7 +117,7 @@ public class EditorInfoContainer extends RelativeLayout implements n {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, int i, final a aVar) {
-        boolean z = com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("show_privacy_dialog", false);
+        boolean z = com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("show_privacy_dialog", false);
         if (i == 1 || z) {
             if (aVar != null) {
                 aVar.onChange(true);
@@ -125,7 +125,7 @@ public class EditorInfoContainer extends RelativeLayout implements n {
             }
             return;
         }
-        com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("show_privacy_dialog", true);
+        com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean("show_privacy_dialog", true);
         BaseActivity baseActivity = (BaseActivity) context;
         final com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a(baseActivity);
         aVar2.jH(false);
@@ -158,23 +158,23 @@ public class EditorInfoContainer extends RelativeLayout implements n {
             }
         });
         aVar2.br(customPrivacyDialogView);
-        aVar2.b(baseActivity.getPageContext()).btX();
+        aVar2.b(baseActivity.getPageContext()).btY();
         TiebaStatic.log(new aq("c13804"));
     }
 
     private void hc(Context context) {
-        this.nZX = new LocationInfoView(context);
-        this.nZX.setId(R.id.editor_id_location);
+        this.nZW = new LocationInfoView(context);
+        this.nZW.setId(R.id.editor_id_location);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.rightMargin = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
-        this.nZX.setLocationClickListener(new LocationInfoView.a() { // from class: com.baidu.tieba.write.editor.EditorInfoContainer.5
+        this.nZW.setLocationClickListener(new LocationInfoView.a() { // from class: com.baidu.tieba.write.editor.EditorInfoContainer.5
             @Override // com.baidu.tbadk.editortools.editorinfotool.LocationInfoView.a
-            public void bEZ() {
+            public void bFa() {
                 TiebaStatic.log(new aq("c12612").an("obj_locate", 3));
                 EditorInfoContainer.this.b(new com.baidu.tbadk.editortools.a(18, -1, null));
             }
         });
-        addView(this.nZX, layoutParams);
+        addView(this.nZW, layoutParams);
     }
 
     private void hd(Context context) {
@@ -188,17 +188,17 @@ public class EditorInfoContainer extends RelativeLayout implements n {
         bVar.rq(l.getDimens(getContext(), R.dimen.M_H_X002));
         bVar.a(R.drawable.ic_icon_pure_post_topic12, 0, TBSpecificationButtonConfig.IconType.WEBP);
         bVar.setIconSize(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
-        this.nZZ = new TBSpecificationBtn(context);
-        this.nZZ.setConfig(bVar);
-        this.nZZ.setTextSize(R.dimen.T_X09);
-        this.nZZ.setText(getContext().getString(R.string.add_topic));
-        this.nZZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.editor.EditorInfoContainer.6
+        this.nZY = new TBSpecificationBtn(context);
+        this.nZY.setConfig(bVar);
+        this.nZY.setTextSize(R.dimen.T_X09);
+        this.nZY.setText(getContext().getString(R.string.add_topic));
+        this.nZY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.editor.EditorInfoContainer.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 EditorInfoContainer.this.b(new com.baidu.tbadk.editortools.a(43, -1, null));
             }
         });
-        addView(this.nZZ, layoutParams);
+        addView(this.nZY, layoutParams);
     }
 
     private void he(final Context context) {
@@ -211,16 +211,16 @@ public class EditorInfoContainer extends RelativeLayout implements n {
         bVar.ba(l.getDimens(getContext(), R.dimen.M_W_X004), l.getDimens(getContext(), R.dimen.M_W_X004));
         bVar.rq(l.getDimens(getContext(), R.dimen.M_H_X002));
         bVar.setIconSize(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
-        this.nZY = new TBSpecificationBtn(context);
-        this.nZY.setConfig(bVar);
-        this.nZY.setTextSize(R.dimen.T_X09);
+        this.nZX = new TBSpecificationBtn(context);
+        this.nZX.setConfig(bVar);
+        this.nZX.setTextSize(R.dimen.T_X09);
         Mz(0);
-        this.nZY.setLayoutParams(layoutParams);
-        this.nZY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.editor.EditorInfoContainer.7
+        this.nZX.setLayoutParams(layoutParams);
+        this.nZX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.editor.EditorInfoContainer.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TiebaStatic.log(new aq("c12612").an("obj_locate", ((Integer) EditorInfoContainer.this.nZY.fpg).intValue() == 0 ? 11 : 12));
-                EditorInfoContainer.this.a(context, ((Integer) EditorInfoContainer.this.nZY.fpg).intValue(), new a() { // from class: com.baidu.tieba.write.editor.EditorInfoContainer.7.1
+                TiebaStatic.log(new aq("c12612").an("obj_locate", ((Integer) EditorInfoContainer.this.nZX.fpg).intValue() == 0 ? 11 : 12));
+                EditorInfoContainer.this.a(context, ((Integer) EditorInfoContainer.this.nZX.fpg).intValue(), new a() { // from class: com.baidu.tieba.write.editor.EditorInfoContainer.7.1
                     @Override // com.baidu.tieba.write.editor.EditorInfoContainer.a
                     public void onChange(boolean z) {
                         if ("from_share_write".equals(EditorInfoContainer.this.mFrom)) {
@@ -231,7 +231,7 @@ public class EditorInfoContainer extends RelativeLayout implements n {
                             }
                         }
                         if (z) {
-                            int i = ((Integer) EditorInfoContainer.this.nZY.fpg).intValue() == 0 ? 1 : 0;
+                            int i = ((Integer) EditorInfoContainer.this.nZX.fpg).intValue() == 0 ? 1 : 0;
                             EditorInfoContainer.this.Mz(i);
                             if ("2".equals(EditorInfoContainer.this.jLR)) {
                                 com.baidu.tieba.write.editor.a.ca(EditorInfoContainer.this.mForumId, i);
@@ -241,20 +241,20 @@ public class EditorInfoContainer extends RelativeLayout implements n {
                 });
             }
         });
-        addView(this.nZY);
+        addView(this.nZX);
     }
 
     public boolean isPrivacy() {
-        if (this.nZY == null || ((Integer) this.nZY.fpg).intValue() != 0) {
-            return this.nZY != null && ((Integer) this.nZY.fpg).intValue() == 1;
+        if (this.nZX == null || ((Integer) this.nZX.fpg).intValue() != 0) {
+            return this.nZX != null && ((Integer) this.nZX.fpg).intValue() == 1;
         }
         return false;
     }
 
-    public void cyX() {
+    public void cyY() {
     }
 
-    public void dYI() {
+    public void dYJ() {
     }
 
     public void setFrom(String str) {
@@ -264,8 +264,8 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     public void bZ(String str, int i) {
         if ("2".equals(this.jLR)) {
             this.mForumId = str;
-            com.baidu.tieba.write.editor.a.a(str, i, new a.InterfaceC0874a() { // from class: com.baidu.tieba.write.editor.EditorInfoContainer.8
-                @Override // com.baidu.tieba.write.editor.a.InterfaceC0874a
+            com.baidu.tieba.write.editor.a.a(str, i, new a.InterfaceC0912a() { // from class: com.baidu.tieba.write.editor.EditorInfoContainer.8
+                @Override // com.baidu.tieba.write.editor.a.InterfaceC0912a
                 public void MA(int i2) {
                     EditorInfoContainer.this.Mz(i2);
                 }
@@ -281,10 +281,10 @@ public class EditorInfoContainer extends RelativeLayout implements n {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Mz(int i) {
-        this.nZY.setText(getResources().getString(R.string.public_to_all));
-        this.nZY.getStyleConfig().a(i == 0 ? R.drawable.icon_pure_post_chosen12 : R.drawable.icon_pure_post_chose12, 0, TBSpecificationButtonConfig.IconType.WEBP);
-        this.nZY.getStyleConfig().ro(i == 0 ? R.color.CAM_X0302 : R.color.CAM_X0110);
-        this.nZY.fpg = Integer.valueOf(i);
+        this.nZX.setText(getResources().getString(R.string.public_to_all));
+        this.nZX.getStyleConfig().a(i == 0 ? R.drawable.icon_pure_post_chosen12 : R.drawable.icon_pure_post_chose12, 0, TBSpecificationButtonConfig.IconType.WEBP);
+        this.nZX.getStyleConfig().ro(i == 0 ? R.color.CAM_X0302 : R.color.CAM_X0110);
+        this.nZX.fpg = Integer.valueOf(i);
     }
 
     public void zm(boolean z) {
@@ -311,19 +311,19 @@ public class EditorInfoContainer extends RelativeLayout implements n {
             default:
                 return;
             case 19:
-                if (this.nZX != null) {
+                if (this.nZW != null) {
                     if (aVar.data instanceof com.baidu.tbadk.editortools.d.a) {
                         com.baidu.tbadk.editortools.d.a aVar2 = (com.baidu.tbadk.editortools.d.a) aVar.data;
-                        this.nZX.setState(aVar2.state, aVar2.addr);
+                        this.nZW.setState(aVar2.state, aVar2.addr);
                         return;
                     }
-                    this.nZX.setState(0, null);
+                    this.nZW.setState(0, null);
                     return;
                 }
                 return;
             case 20:
-                if (this.nZX != null) {
-                    this.nZX.setState(0, null);
+                if (this.nZW != null) {
+                    this.nZW.setState(0, null);
                     return;
                 }
                 return;
@@ -352,13 +352,13 @@ public class EditorInfoContainer extends RelativeLayout implements n {
 
     @Override // com.baidu.tbadk.editortools.n
     public void hide() {
-        cyX();
+        cyY();
         setVisibility(8);
     }
 
     public void zn(boolean z) {
-        if (this.nZZ != null) {
-            this.nZZ.setVisibility(z ? 0 : 8);
+        if (this.nZY != null) {
+            this.nZY.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -368,14 +368,14 @@ public class EditorInfoContainer extends RelativeLayout implements n {
 
     @Override // com.baidu.tbadk.editortools.n
     public void onChangeSkinType(int i) {
+        if (this.nZW != null) {
+            this.nZW.onChangeSkinType(i);
+        }
         if (this.nZX != null) {
-            this.nZX.onChangeSkinType(i);
+            this.nZX.bxP();
         }
         if (this.nZY != null) {
-            this.nZY.bxO();
-        }
-        if (this.nZZ != null) {
-            this.nZZ.bxO();
+            this.nZY.bxP();
         }
     }
 

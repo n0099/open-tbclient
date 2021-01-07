@@ -7,26 +7,26 @@ import android.os.Build;
 class q implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SharedPreferences f3546a;
+    final /* synthetic */ SharedPreferences f3547a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ String f3547b;
+    final /* synthetic */ String f3548b;
     final /* synthetic */ p c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar, SharedPreferences sharedPreferences, String str) {
         this.c = pVar;
-        this.f3546a = sharedPreferences;
-        this.f3547b = str;
+        this.f3547a = sharedPreferences;
+        this.f3548b = str;
     }
 
     @Override // java.lang.Runnable
     @TargetApi(9)
     public void run() {
         if (Build.VERSION.SDK_INT >= 9) {
-            this.f3546a.edit().putString("deviceid", this.f3547b).apply();
+            this.f3547a.edit().putString("deviceid", this.f3548b).apply();
         } else {
-            this.f3546a.edit().putString("deviceid", this.f3547b).commit();
+            this.f3547a.edit().putString("deviceid", this.f3548b).commit();
         }
     }
 }

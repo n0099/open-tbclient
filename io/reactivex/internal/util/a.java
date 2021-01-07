@@ -2,24 +2,24 @@ package io.reactivex.internal.util;
 
 import io.reactivex.b.j;
 import io.reactivex.u;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a<T> {
     final int capacity;
     int offset;
-    final Object[] qkq;
-    Object[] qkr;
+    final Object[] qlY;
+    Object[] qlZ;
 
     /* renamed from: io.reactivex.internal.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC1270a<T> extends j<T> {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC1311a<T> extends j<T> {
         @Override // io.reactivex.b.j
         boolean test(T t);
     }
 
     public a(int i) {
         this.capacity = i;
-        this.qkq = new Object[i + 1];
-        this.qkr = this.qkq;
+        this.qlY = new Object[i + 1];
+        this.qlZ = this.qlY;
     }
 
     public void add(T t) {
@@ -27,26 +27,26 @@ public class a<T> {
         int i2 = this.offset;
         if (i2 == i) {
             Object[] objArr = new Object[i + 1];
-            this.qkr[i] = objArr;
-            this.qkr = objArr;
+            this.qlZ[i] = objArr;
+            this.qlZ = objArr;
             i2 = 0;
         }
-        this.qkr[i2] = t;
+        this.qlZ[i2] = t;
         this.offset = i2 + 1;
     }
 
-    public void bM(T t) {
-        this.qkq[0] = t;
+    public void bN(T t) {
+        this.qlY[0] = t;
     }
 
-    public void a(InterfaceC1270a<? super T> interfaceC1270a) {
+    public void a(InterfaceC1311a<? super T> interfaceC1311a) {
         int i;
-        Object[] objArr = this.qkq;
+        Object[] objArr = this.qlY;
         int i2 = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i2]) {
             while (i < i2) {
                 Object obj = objArr2[i];
-                i = (obj == null || interfaceC1270a.test(obj)) ? 0 : i + 1;
+                i = (obj == null || interfaceC1311a.test(obj)) ? 0 : i + 1;
             }
         }
     }
@@ -58,7 +58,7 @@ public class a<T> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public <U> boolean b(org.a.c<? super U> cVar) {
-        Object[] objArr = this.qkq;
+        Object[] objArr = this.qlY;
         int i = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
             for (int i2 = 0; i2 < i; i2++) {
@@ -80,7 +80,7 @@ public class a<T> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public <U> boolean b(u<? super U> uVar) {
-        Object[] objArr = this.qkq;
+        Object[] objArr = this.qlY;
         int i = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
             for (int i2 = 0; i2 < i; i2++) {

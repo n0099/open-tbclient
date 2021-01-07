@@ -38,12 +38,12 @@ public class c {
     private AlphaGradientHListView hug;
     private String mLiveId;
     private TbPageContext mTbPageContext;
-    private a oou;
+    private a oot;
     private String otherParams;
     private AdapterView.c huj = new AdapterView.c() { // from class: com.baidu.tieba.yuyinala.liveroom.audiencelist.c.1
         @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
         public void a(AdapterView<?> adapterView, View view, int i, long j) {
-            q qVar = (q) c.this.oou.getItem(i);
+            q qVar = (q) c.this.oot.getItem(i);
             if (qVar != null) {
                 if (c.this.huc != null) {
                     c.this.huc.ff(5);
@@ -96,8 +96,8 @@ public class c {
             this.huf = (FrameLayout) this.hue.findViewById(a.f.content_layout);
             this.hug = (AlphaGradientHListView) this.hue.findViewById(a.f.ala_live_guest_listview);
             this.hug.setDividerWidth(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds0));
-            this.oou = new a(getPageContext().getPageActivity());
-            this.hug.setAdapter((ListAdapter) this.oou);
+            this.oot = new a(getPageContext().getPageActivity());
+            this.hug.setAdapter((ListAdapter) this.oot);
             this.hug.setSelector(getPageContext().getPageActivity().getResources().getDrawable(a.e.sdk_transparent_bg));
             this.hug.setOnItemClickListener(this.huj);
             this.hug.setColor(getPageContext().getResources().getColor(a.c.sdk_white_alpha100), getPageContext().getResources().getColor(a.c.sdk_white_alpha0));
@@ -129,9 +129,9 @@ public class c {
     }
 
     public void e(r rVar) {
-        if ((rVar == null || TextUtils.isEmpty(rVar.liveId) || rVar.liveId.equals(this.mLiveId)) && this.oou != null) {
-            this.oou.d(rVar);
-            this.oou.notifyDataSetChanged();
+        if ((rVar == null || TextUtils.isEmpty(rVar.liveId) || rVar.liveId.equals(this.mLiveId)) && this.oot != null) {
+            this.oot.d(rVar);
+            this.oot.notifyDataSetChanged();
         }
     }
 

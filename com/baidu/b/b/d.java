@@ -9,13 +9,13 @@ import com.baidu.b.h;
 import com.baidu.mobstat.Config;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class d extends com.baidu.b.b.a {
     a.C0085a aeR;
     private a aeS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class a {
         private h.a aeU;
         private long c;
@@ -58,11 +58,11 @@ public class d extends com.baidu.b.b.a {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     class b extends a.b {
 
         /* renamed from: b  reason: collision with root package name */
-        private int f1579b;
+        private int f1580b;
         private String c;
         private long d;
         private long e;
@@ -85,7 +85,7 @@ public class d extends com.baidu.b.b.a {
             this.d = jSONObject.getLong("last_fe_ts");
             this.g = h.a(jSONObject.getString("info"));
             this.f = jSONObject.getLong("tar_pkg_lst_up_ts");
-            this.f1579b = jSONObject.getInt("d_form_ver");
+            this.f1580b = jSONObject.getInt("d_form_ver");
         }
 
         public boolean a(long j) {
@@ -166,14 +166,14 @@ public class d extends com.baidu.b.b.a {
         PackageInfo packageInfo;
         b bVar = null;
         try {
-            packageInfo = this.aeK.f1574a.getPackageManager().getPackageInfo(str, 0);
+            packageInfo = this.aeK.f1575a.getPackageManager().getPackageInfo(str, 0);
         } catch (PackageManager.NameNotFoundException e) {
             packageInfo = null;
         }
         if (packageInfo == null) {
             return a.e.bn(-2);
         }
-        if (dVar.f1576a) {
+        if (dVar.f1577a) {
             bVar = new b(str);
             bVar.a();
             if (str.equals(bVar.c()) && packageInfo.lastUpdateTime == bVar.e()) {
@@ -182,7 +182,7 @@ public class d extends com.baidu.b.b.a {
         }
         a aVar = new a();
         if (aVar.a(packageInfo)) {
-            if (dVar.f1576a && bVar != null) {
+            if (dVar.f1577a && bVar != null) {
                 bVar.a(aVar);
                 bVar.a(System.currentTimeMillis());
                 bVar.c(packageInfo.lastUpdateTime);

@@ -8,19 +8,19 @@ public class a {
     private d feg = new d();
     private HashMap<String, String> feh = new HashMap<>();
 
-    public b bwz() {
+    public b bwA() {
         return this.fee;
     }
 
-    public c bwA() {
+    public c bwB() {
         return this.fef;
     }
 
-    public d bwB() {
+    public d bwC() {
         return this.feg;
     }
 
-    public HashMap<String, String> bwC() {
+    public HashMap<String, String> bwD() {
         return this.feh;
     }
 }

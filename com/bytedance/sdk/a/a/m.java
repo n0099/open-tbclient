@@ -19,7 +19,7 @@ public final class m implements d {
     }
 
     @Override // com.bytedance.sdk.a.a.d, com.bytedance.sdk.a.a.e
-    public c epS() {
+    public c epT() {
         return this.phR;
     }
 
@@ -29,16 +29,16 @@ public final class m implements d {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
         this.phR.a(cVar, j);
-        eqb();
+        eqc();
     }
 
     @Override // com.bytedance.sdk.a.a.d
-    public d YH(String str) throws IOException {
+    public d YG(String str) throws IOException {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.phR.YH(str);
-        return eqb();
+        this.phR.YG(str);
+        return eqc();
     }
 
     @Override // com.bytedance.sdk.a.a.d
@@ -47,7 +47,7 @@ public final class m implements d {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
         this.phR.aj(bArr);
-        return eqb();
+        return eqc();
     }
 
     @Override // com.bytedance.sdk.a.a.d
@@ -56,7 +56,7 @@ public final class m implements d {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
         this.phR.x(bArr, i, i2);
-        return eqb();
+        return eqc();
     }
 
     @Override // java.nio.channels.WritableByteChannel
@@ -65,7 +65,7 @@ public final class m implements d {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
         int write = this.phR.write(byteBuffer);
-        eqb();
+        eqc();
         return write;
     }
 
@@ -75,7 +75,7 @@ public final class m implements d {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
         this.phR.PM(i);
-        return eqb();
+        return eqc();
     }
 
     @Override // com.bytedance.sdk.a.a.d
@@ -84,7 +84,7 @@ public final class m implements d {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
         this.phR.PL(i);
-        return eqb();
+        return eqc();
     }
 
     @Override // com.bytedance.sdk.a.a.d
@@ -93,7 +93,7 @@ public final class m implements d {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
         this.phR.PK(i);
-        return eqb();
+        return eqc();
     }
 
     @Override // com.bytedance.sdk.a.a.d
@@ -102,7 +102,7 @@ public final class m implements d {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
         this.phR.il(j);
-        return eqb();
+        return eqc();
     }
 
     @Override // com.bytedance.sdk.a.a.d
@@ -111,11 +111,11 @@ public final class m implements d {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
         this.phR.ik(j);
-        return eqb();
+        return eqc();
     }
 
     @Override // com.bytedance.sdk.a.a.d
-    public d eqb() throws IOException {
+    public d eqc() throws IOException {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
@@ -131,8 +131,8 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        if (this.phR.f6139b > 0) {
-            this.phZ.a(this.phR, this.phR.f6139b);
+        if (this.phR.f6140b > 0) {
+            this.phZ.a(this.phR, this.phR.f6140b);
         }
         this.phZ.flush();
     }
@@ -147,8 +147,8 @@ public final class m implements d {
         if (!this.c) {
             Throwable th = null;
             try {
-                if (this.phR.f6139b > 0) {
-                    this.phZ.a(this.phR, this.phR.f6139b);
+                if (this.phR.f6140b > 0) {
+                    this.phZ.a(this.phR, this.phR.f6140b);
                 }
             } catch (Throwable th2) {
                 th = th2;
@@ -168,8 +168,8 @@ public final class m implements d {
     }
 
     @Override // com.bytedance.sdk.a.a.r
-    public t epR() {
-        return this.phZ.epR();
+    public t epS() {
+        return this.phZ.epS();
     }
 
     public String toString() {

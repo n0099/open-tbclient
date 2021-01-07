@@ -13,7 +13,7 @@ public class h implements com.baidu.tbadk.core.flow.a.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String bpm() {
+    public String bpn() {
         return null;
     }
 }

@@ -5,9 +5,9 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f11340a;
+    public long f11341a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11341b;
+    public String f11342b;
     public List<j> c;
 }

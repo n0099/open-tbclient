@@ -73,12 +73,12 @@ public class c {
     private a kpb = new a() { // from class: com.baidu.tieba.hottopic.view.c.5
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
-            HotTopicView cUu = c.this.ktz.cUu();
-            if (cUu != null && absListView == cUu.getListView() && i == 0) {
+            HotTopicView cUv = c.this.ktz.cUv();
+            if (cUv != null && absListView == cUv.getListView() && i == 0) {
                 c.this.ktF = true;
                 float y = c.this.kty.getY();
                 if (c.this.ktz != null) {
-                    if (Math.abs(c.this.ktG) != c.this.cVv() || c.this.ktG == y) {
+                    if (Math.abs(c.this.ktG) != c.this.cVw() || c.this.ktG == y) {
                         c.this.ktz.DD((int) (c.this.ktG - y));
                         return;
                     }
@@ -91,13 +91,13 @@ public class c {
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScroll(AbsListView absListView, int i, int i2, int i3) {
             HotTopicActivity hotTopicActivity;
-            HotTopicView cUu = c.this.ktz.cUu();
-            if (cUu != null) {
-                if (absListView == cUu.getListView()) {
+            HotTopicView cUv = c.this.ktz.cUv();
+            if (cUv != null) {
+                if (absListView == cUv.getListView()) {
                     if (c.this.ktx != null) {
                         c.this.ktx.DN(i);
                     }
-                    c.this.cVw();
+                    c.this.cVx();
                 }
                 if (c.this.ktz != null && c.this.kty.getNavigationBarSwitchHeight() != c.this.acd) {
                     if (c.this.ktH) {
@@ -111,7 +111,7 @@ public class c {
                         if (c.this.ktC != null) {
                             c.this.ktC.setAlpha((-c.this.kty.getY()) / (c.this.kty.getNavigationBarSwitchHeight() - c.this.acd));
                         }
-                        if (Math.abs(c.this.ktG) == c.this.cVv()) {
+                        if (Math.abs(c.this.ktG) == c.this.cVw()) {
                             c.this.ktv.hideBottomLine();
                         } else {
                             c.this.ktv.showBottomLine();
@@ -157,8 +157,8 @@ public class c {
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
                     if (ShareSwitch.isOn() || bg.checkUpIsLogin(c.this.eXu.getContext())) {
-                        TiebaStatic.log(new aq("c10521").dX("obj_id", ((HotTopicActivity) c.this.eXu.getOrignalPage()).cUK()).dX("topic_id", ((HotTopicActivity) c.this.eXu.getOrignalPage()).cUK()));
-                        ((HotTopicActivity) c.this.eXu.getOrignalPage()).cUB();
+                        TiebaStatic.log(new aq("c10521").dX("obj_id", ((HotTopicActivity) c.this.eXu.getOrignalPage()).cUL()).dX("topic_id", ((HotTopicActivity) c.this.eXu.getOrignalPage()).cUL()));
+                        ((HotTopicActivity) c.this.eXu.getOrignalPage()).cUC();
                     }
                 }
             });
@@ -171,8 +171,8 @@ public class c {
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
                     if (ShareSwitch.isOn() || bg.checkUpIsLogin(c.this.eXu.getContext())) {
-                        TiebaStatic.log(new aq("c10521").dX("obj_id", ((HotTopicActivity) c.this.eXu.getOrignalPage()).cUK()).dX("topic_id", ((HotTopicActivity) c.this.eXu.getOrignalPage()).cUK()));
-                        ((HotTopicActivity) c.this.eXu.getOrignalPage()).cUB();
+                        TiebaStatic.log(new aq("c10521").dX("obj_id", ((HotTopicActivity) c.this.eXu.getOrignalPage()).cUL()).dX("topic_id", ((HotTopicActivity) c.this.eXu.getOrignalPage()).cUL()));
+                        ((HotTopicActivity) c.this.eXu.getOrignalPage()).cUC();
                     }
                 }
             });
@@ -202,7 +202,7 @@ public class c {
         }
     }
 
-    public View cVo() {
+    public View cVp() {
         return this.ktu;
     }
 
@@ -225,10 +225,10 @@ public class c {
             this.gzT.onChangeSkinType(this.eXu, i);
         }
         if (this.ktw != null) {
-            SvgManager.bwq().a(this.ktw, R.drawable.icon_pure_topbar_share44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bwr().a(this.ktw, R.drawable.icon_pure_topbar_share44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
         if (this.jQR != null) {
-            SvgManager.bwq().a(this.jQR, R.drawable.icon_pure_topbar_share44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bwr().a(this.jQR, R.drawable.icon_pure_topbar_share44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
         if (this.kty != null) {
             this.kty.onChangeSkinType();
@@ -243,30 +243,30 @@ public class c {
     }
 
     public void b(com.baidu.tieba.hottopic.data.e eVar) {
-        if (eVar != null && eVar.cUZ() != null) {
-            if (!this.kty.cVt()) {
-                this.kty.setData(eVar.cUZ());
+        if (eVar != null && eVar.cVa() != null) {
+            if (!this.kty.cVu()) {
+                this.kty.setData(eVar.cVa());
             }
-            if (eVar.cUZ() != null) {
-                this.ktH = !StringUtils.isNull(eVar.cUZ().kqV);
+            if (eVar.cVa() != null) {
+                this.ktH = !StringUtils.isNull(eVar.cVa().kqV);
                 this.mNavigationBar.setVisibility(this.ktH ? 0 : 8);
                 if (!this.ktH) {
                     this.ktv.setAlpha(1.0f);
                     this.ktv.showBottomLine();
                 }
             }
-            String str = eVar.cUZ().eRS;
+            String str = eVar.cVa().eRS;
             if (StringUtils.isNull(str)) {
                 this.jnE.setVisibility(8);
-                ME("");
+                MD("");
             } else {
-                ME(com.baidu.tieba.hottopic.a.a.bd(str, 10));
+                MD(com.baidu.tieba.hottopic.a.a.bd(str, 10));
             }
             this.kty.setHeaderBottomLineShow(true);
         }
     }
 
-    private void ME(String str) {
+    private void MD(String str) {
         if (this.ktC != null) {
             this.ktC.setText(str);
         } else if (this.ktv != null) {
@@ -293,15 +293,15 @@ public class c {
         this.fbv.setVisibility(i);
     }
 
-    public void Zi() {
-        this.ktz.Zi();
+    public void Zj() {
+        this.ktz.Zj();
     }
 
     public void showLoadingView() {
         this.ktz.showLoadingView();
     }
 
-    public void cVq() {
+    public void cVr() {
         this.ktz.so(false);
     }
 
@@ -343,11 +343,11 @@ public class c {
         }
     }
 
-    public HotTopicView cVu() {
-        return this.ktz.cUu();
+    public HotTopicView cVv() {
+        return this.ktz.cUv();
     }
 
-    public int cVv() {
+    public int cVw() {
         return (this.dBv - this.ktB) - this.acd;
     }
 
@@ -370,8 +370,8 @@ public class c {
     }
 
     public void a(AbsListView absListView, int i) {
-        HotTopicView cUu;
-        if (this.kty != null && this.ktA != null && (cUu = this.ktz.cUu()) != null && cUu.getListView() != null && absListView == cUu.getListView()) {
+        HotTopicView cUv;
+        if (this.kty != null && this.ktA != null && (cUv = this.ktz.cUv()) != null && cUv.getListView() != null && absListView == cUv.getListView()) {
             this.ktA.setHeaderViewHeight(this.dBv - i);
             this.kty.setY(-i);
             if (i == 0) {
@@ -383,7 +383,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cVw() {
+    public void cVx() {
         if (this.ktF) {
             this.ktG = this.kty.getY();
             this.ktF = false;
@@ -396,11 +396,11 @@ public class c {
         }
     }
 
-    public HotTopicHeaderView cVx() {
+    public HotTopicHeaderView cVy() {
         return this.kty;
     }
 
-    public int cVy() {
+    public int cVz() {
         return this.dBv;
     }
 }

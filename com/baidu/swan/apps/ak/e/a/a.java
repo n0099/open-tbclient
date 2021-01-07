@@ -61,9 +61,9 @@ public class a extends aa {
             }
             c.i(MapController.COMPASS_LAYER_TAG, OneKeyLoginSdkCall.l);
             final k kVar = new k("compassChange", optParamsAsJo, optString);
-            com.baidu.swan.apps.ak.e.a aQg = com.baidu.swan.apps.ak.e.a.aQg();
-            aQg.init(context);
-            aQg.a(new a.InterfaceC0380a() { // from class: com.baidu.swan.apps.ak.e.a.a.1
+            com.baidu.swan.apps.ak.e.a aQh = com.baidu.swan.apps.ak.e.a.aQh();
+            aQh.init(context);
+            aQh.a(new a.InterfaceC0380a() { // from class: com.baidu.swan.apps.ak.e.a.a.1
                 @Override // com.baidu.swan.apps.ak.e.a.InterfaceC0380a
                 public void b(float f, int i) {
                     c.i(MapController.COMPASS_LAYER_TAG, "handle compass change, angle:" + f + ",accuracy: " + i);
@@ -71,7 +71,7 @@ public class a extends aa {
                 }
             });
             c.i(MapController.COMPASS_LAYER_TAG, "start listen compass");
-            aQg.aQh();
+            aQh.aQi();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             kVar.a(unitedSchemeEntity, callbackHandler);
             return true;

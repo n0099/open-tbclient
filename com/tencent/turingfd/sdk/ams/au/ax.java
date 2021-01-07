@@ -1,12 +1,12 @@
 package com.tencent.turingfd.sdk.ams.au;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ax {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f13797a;
+    public static final String f13798a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f13798b;
+    public static final String f13799b;
     public static final String c;
     public static final String d;
     public static final String e;
@@ -16,7 +16,7 @@ public class ax {
         y.a(y.Z);
         y.a(y.aa);
         y.a(y.ab);
-        f13797a = y.a(y.f13854b);
+        f13798a = y.a(y.f13855b);
         y.a(y.c);
         y.a(y.d);
         y.a(y.e);
@@ -24,7 +24,7 @@ public class ax {
         y.a(y.ac);
         y.a(y.ad);
         y.a(y.ae);
-        f13798b = y.a(y.af);
+        f13799b = y.a(y.af);
         c = y.a(y.ak);
         d = y.a(y.ag);
         y.a(y.al);

@@ -10,13 +10,13 @@ import java.util.Map;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private Map<String, EmotionPackage> f10043a = Collections.synchronizedMap(new LinkedHashMap());
+    private Map<String, EmotionPackage> f10044a = Collections.synchronizedMap(new LinkedHashMap());
 
     public List<EmotionPackage> a() {
-        return new ArrayList(this.f10043a.values());
+        return new ArrayList(this.f10044a.values());
     }
 
     public void a(String str, EmotionPackage emotionPackage) {
-        this.f10043a.put(str, emotionPackage);
+        this.f10044a.put(str, emotionPackage);
     }
 }

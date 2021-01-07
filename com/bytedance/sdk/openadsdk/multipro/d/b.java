@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SoftReference<ConcurrentHashMap<String, Map<String, Object>>> f7709a;
+    private static SoftReference<ConcurrentHashMap<String, Map<String, Object>>> f7710a;
 
     private static SharedPreferences c(Context context, String str) {
         if (context == null) {
@@ -27,18 +27,18 @@ class b {
     private static Object a(String str, String str2) {
         ConcurrentHashMap<String, Map<String, Object>> concurrentHashMap;
         Map<String, Object> map;
-        if (f7709a == null || (concurrentHashMap = f7709a.get()) == null || (map = concurrentHashMap.get(a(str))) == null) {
+        if (f7710a == null || (concurrentHashMap = f7710a.get()) == null || (map = concurrentHashMap.get(a(str))) == null) {
             return null;
         }
         return map.get(str2);
     }
 
     private static void a(String str, String str2, Object obj) {
-        if (f7709a == null || f7709a.get() == null) {
-            f7709a = new SoftReference<>(new ConcurrentHashMap());
+        if (f7710a == null || f7710a.get() == null) {
+            f7710a = new SoftReference<>(new ConcurrentHashMap());
         }
         String a2 = a(str);
-        ConcurrentHashMap<String, Map<String, Object>> concurrentHashMap = f7709a.get();
+        ConcurrentHashMap<String, Map<String, Object>> concurrentHashMap = f7710a.get();
         if (concurrentHashMap.get(a2) == null) {
             concurrentHashMap.put(a2, new HashMap());
         }
@@ -47,7 +47,7 @@ class b {
 
     private static void b(String str) {
         Map<String, Object> map;
-        if (f7709a != null && f7709a.get() != null && (map = f7709a.get().get(a(str))) != null) {
+        if (f7710a != null && f7710a.get() != null && (map = f7710a.get().get(a(str))) != null) {
             map.clear();
         }
     }
@@ -156,12 +156,12 @@ class b {
                 SharedPreferences.Editor edit = c.edit();
                 edit.remove(str2);
                 edit.apply();
-                if (f7709a != null && f7709a.get() != null) {
+                if (f7710a != null && f7710a.get() != null) {
                     String a2 = a(str);
-                    if (!TextUtils.isEmpty(a2) && (map = f7709a.get().get(a2)) != null && map.size() != 0) {
+                    if (!TextUtils.isEmpty(a2) && (map = f7710a.get().get(a2)) != null && map.size() != 0) {
                         map.remove(str2);
-                        if (f7709a != null && f7709a.get() != null) {
-                            f7709a.get().put(a2, map);
+                        if (f7710a != null && f7710a.get() != null) {
+                            f7710a.get().put(a2, map);
                         }
                     }
                 }

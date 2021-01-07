@@ -38,11 +38,11 @@ public class MarkModel extends BdBaseModel {
         this.ltY = new MarkData();
     }
 
-    public boolean bnx() {
+    public boolean bny() {
         return this.ltX;
     }
 
-    public MarkData bnA() {
+    public MarkData bnB() {
         return this.ltY;
     }
 
@@ -54,14 +54,14 @@ public class MarkModel extends BdBaseModel {
         this.ltX = z;
     }
 
-    public String bnw() {
+    public String bnx() {
         if (this.ltY != null) {
             return this.ltY.getPostId();
         }
         return null;
     }
 
-    public void bnz() {
+    public void bnA() {
         if (this.ltZ != null) {
             this.ltZ.cancel();
         }
@@ -70,7 +70,7 @@ public class MarkModel extends BdBaseModel {
         this.ltZ.execute(new Boolean[0]);
     }
 
-    public void bny() {
+    public void bnz() {
         if (this.ltZ != null) {
             this.ltZ.cancel();
         }
@@ -115,7 +115,7 @@ public class MarkModel extends BdBaseModel {
             }
             this.ltT.parserJson(this.cmJ.postNetData());
             boolean z = this.ltT.getErrorCode() == 0;
-            if (this.cmJ.bvQ().bwA().isRequestSuccess() && z) {
+            if (this.cmJ.bvR().bwB().isRequestSuccess() && z) {
                 return true;
             }
             return false;
@@ -143,7 +143,7 @@ public class MarkModel extends BdBaseModel {
                         MarkModel.this.lua.g(true, this.iBf, null);
                     }
                 } else if (MarkModel.this.lua != null) {
-                    if (this.cmJ == null || this.cmJ.bvQ().bwA().isRequestSuccess()) {
+                    if (this.cmJ == null || this.cmJ.bvR().bwB().isRequestSuccess()) {
                         MarkModel.this.lua.g(false, this.iBf, this.ltT.getErrorString());
                     } else {
                         MarkModel.this.lua.g(false, this.iBf, this.cmJ.getErrorString());

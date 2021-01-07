@@ -36,7 +36,7 @@ public class BannerGifView extends RelativeLayout {
             @Override // com.baidu.tbadk.h.d
             public boolean onClickEvent(View view) {
                 if (BannerGifView.this.fyl == null || !BannerGifView.this.fyl.onClickEvent(view)) {
-                    BannerGifView.this.bCM();
+                    BannerGifView.this.bCN();
                 }
                 return true;
             }
@@ -118,10 +118,10 @@ public class BannerGifView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bCM() {
+    public void bCN() {
         try {
             if (!TextUtils.isEmpty(this.ePM)) {
-                be.bwu().b((TbPageContext) j.K(getContext()), new String[]{this.ePM});
+                be.bwv().b((TbPageContext) j.K(getContext()), new String[]{this.ePM});
             }
         } catch (Exception e) {
             e.printStackTrace();

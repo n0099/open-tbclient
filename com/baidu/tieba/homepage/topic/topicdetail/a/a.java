@@ -104,7 +104,7 @@ public class a {
         }
     }
 
-    public boolean cTZ() {
+    public boolean cUa() {
         return this.kkU;
     }
 }

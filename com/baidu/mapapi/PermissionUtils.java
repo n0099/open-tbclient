@@ -1,21 +1,21 @@
 package com.baidu.mapapi;
 
 import com.baidu.mapsdkplatform.comapi.util.c;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class PermissionUtils {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final PermissionUtils f2739a = new PermissionUtils();
+        private static final PermissionUtils f2740a = new PermissionUtils();
     }
 
     private PermissionUtils() {
     }
 
     public static PermissionUtils getInstance() {
-        return a.f2739a;
+        return a.f2740a;
     }
 
     public boolean isIndoorNaviAuthorized() {

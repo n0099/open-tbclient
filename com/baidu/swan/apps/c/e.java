@@ -29,7 +29,7 @@ public class e extends aa {
         b bVar = new b(callbackHandler, optString);
         a aVar = new a(unitedSchemeEntity, callbackHandler);
         if (this.cFe == null) {
-            this.cFe = com.baidu.swan.apps.t.a.aAU().a(b2, bVar, aVar);
+            this.cFe = com.baidu.swan.apps.t.a.aAV().a(b2, bVar, aVar);
             if (this.cFe == null) {
                 this.cFe = new com.baidu.swan.apps.c.a();
             }

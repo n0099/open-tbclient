@@ -62,47 +62,47 @@ public class ThreadLinkView extends RelativeLayout {
     }
 
     public void setData(bz bzVar) {
-        if (bzVar == null || bzVar.bsX() == null || at.isEmpty(bzVar.bsX().getLinkUrl())) {
+        if (bzVar == null || bzVar.bsY() == null || at.isEmpty(bzVar.bsY().getLinkUrl())) {
             setVisibility(8);
             return;
         }
-        ao bsX = bzVar.bsX();
-        if (!bsX.bpK() && bsX.bpJ() != ao.eQA) {
+        ao bsY = bzVar.bsY();
+        if (!bsY.bpL() && bsY.bpK() != ao.eQA) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
         this.fnC.setPageId(this.mTag);
-        if (bsX.bpK()) {
+        if (bsY.bpL()) {
             this.fnF.setVisibility(0);
             this.fnD.setVisibility(8);
             this.fnE.setVisibility(8);
-            this.fnF.setText(bsX.getLinkUrl());
+            this.fnF.setText(bsY.getLinkUrl());
             this.fnC.reset();
         } else {
             this.fnF.setVisibility(8);
-            String bpG = bsX.bpG();
-            String bpH = bsX.bpH();
-            if (!at.isEmpty(bpG)) {
-                this.fnD.setText(bpG);
+            String bpH = bsY.bpH();
+            String bpI = bsY.bpI();
+            if (!at.isEmpty(bpH)) {
+                this.fnD.setText(bpH);
                 this.fnD.setVisibility(0);
                 this.fnE.setVisibility(8);
             } else {
                 this.fnD.setVisibility(8);
-                if (!at.isEmpty(bpH)) {
-                    this.fnE.setText(bpH);
+                if (!at.isEmpty(bpI)) {
+                    this.fnE.setText(bpI);
                     this.fnE.setVisibility(0);
                 } else {
                     this.fnE.setVisibility(4);
                 }
             }
-            if (!at.isEmpty(bsX.bpI())) {
-                this.fnC.startLoad(bsX.bpI(), 10, false);
+            if (!at.isEmpty(bsY.bpJ())) {
+                this.fnC.startLoad(bsY.bpJ(), 10, false);
             } else {
                 this.fnC.reset();
             }
         }
-        CB(bzVar.getId());
+        CA(bzVar.getId());
     }
 
     public void onChangeSkinType() {
@@ -110,7 +110,7 @@ public class ThreadLinkView extends RelativeLayout {
         com.baidu.tbadk.core.util.ao.setBackgroundResource(this.fnC, R.drawable.shape_link_thread_head_bg);
     }
 
-    public void CB(String str) {
+    public void CA(String str) {
         m.a(this.fnD, str, R.color.CAM_X0107, R.color.CAM_X0109);
         m.a(this.fnF, str, R.color.CAM_X0107, R.color.CAM_X0109);
         m.a(this.fnE, str, R.color.CAM_X0107, R.color.CAM_X0109);

@@ -64,7 +64,7 @@ public class c {
         this.fRZ.setColor(this.tagTextColor);
         this.fRZ.setTextSize(this.tagTextSize);
         this.fRZ.setAntiAlias(true);
-        this.fRZ.setTypeface(com.baidu.tbadk.core.elementsMaven.a.Bu(com.baidu.tbadk.core.elementsMaven.a.getString(R.string.F_X02)));
+        this.fRZ.setTypeface(com.baidu.tbadk.core.elementsMaven.a.Bt(com.baidu.tbadk.core.elementsMaven.a.getString(R.string.F_X02)));
         this.tagDisY = l.getDimens(getContext(), R.dimen.tbds16);
         this.tagDisX = l.getDimens(getContext(), R.dimen.tbds16);
         this.extraHeight = l.getDimens(getContext(), R.dimen.tbds22);

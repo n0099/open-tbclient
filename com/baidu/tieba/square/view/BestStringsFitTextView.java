@@ -7,71 +7,71 @@ import android.widget.TextView;
 /* loaded from: classes8.dex */
 public class BestStringsFitTextView extends TextView {
     private float bBB;
+    private String nnZ;
     private String noa;
-    private String nob;
-    private boolean noc;
+    private boolean nob;
     private String[] textArray;
 
     public BestStringsFitTextView(Context context) {
         super(context);
-        this.noa = " ";
+        this.nnZ = " ";
         this.bBB = 0.0f;
-        this.nob = "";
-        this.noc = false;
+        this.noa = "";
+        this.nob = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.noa = " ";
+        this.nnZ = " ";
         this.bBB = 0.0f;
-        this.nob = "";
-        this.noc = false;
+        this.noa = "";
+        this.nob = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.noa = " ";
+        this.nnZ = " ";
         this.bBB = 0.0f;
-        this.nob = "";
-        this.noc = false;
+        this.noa = "";
+        this.nob = false;
     }
 
-    protected void dNU() {
+    protected void dNV() {
         this.bBB = (getWidth() - getPaddingLeft()) - getPaddingRight();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.textArray.length; i++) {
             if (i > 0) {
-                sb.append(this.noa);
+                sb.append(this.nnZ);
             }
             sb.append(this.textArray[i]);
             String sb2 = sb.toString();
             if (this.bBB < getPaint().measureText(sb2)) {
                 break;
             }
-            this.noc = true;
-            this.nob = sb2;
+            this.nob = true;
+            this.noa = sb2;
         }
-        setText(this.nob);
+        setText(this.noa);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.textArray != null && !this.noc) {
-            dNU();
+        if (this.textArray != null && !this.nob) {
+            dNV();
         }
     }
 
     public void setTextArray(String[] strArr) {
         this.textArray = strArr;
-        dNU();
+        dNV();
     }
 
     public String getSeperator() {
-        return this.noa;
+        return this.nnZ;
     }
 
     public void setSeperator(String str) {
-        this.noa = str;
+        this.nnZ = str;
     }
 }

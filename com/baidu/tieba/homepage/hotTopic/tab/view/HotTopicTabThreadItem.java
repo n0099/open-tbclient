@@ -117,14 +117,14 @@ public class HotTopicTabThreadItem extends RelativeLayout {
             this.eKc.setText(eVar.title);
             this.akS.setText(this.akS.getContext().getResources().getString(R.string.hot_topic_thread_item_tag, at.dX(eVar.eWw < 1000 ? 1000 : eVar.eWw)));
             this.akR.setText(String.valueOf(eVar.index));
-            cSG();
+            cSH();
             if (this.aks != null && this.kdY != null) {
                 this.aks.b(this, this.kdY, this.kdY.index, this.kdY.index);
             }
         }
     }
 
-    private void cSG() {
+    private void cSH() {
         if (this.kdY != null) {
             int ql = TagTextHelper.ql(this.kdY.index);
             Drawable background = this.akS.getBackground();
@@ -144,8 +144,8 @@ public class HotTopicTabThreadItem extends RelativeLayout {
             ao.setViewTextColor(this.eKc, R.color.CAM_X0105);
             ao.setViewTextColor(this.akR, R.color.CAM_X0101);
             ao.setViewTextColor(this.kdW, R.color.CAM_X0101);
-            this.kdV.setImageDrawable(SvgManager.bwq().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
-            cSG();
+            this.kdV.setImageDrawable(SvgManager.bwr().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
+            cSH();
             this.kdK = i;
         }
     }

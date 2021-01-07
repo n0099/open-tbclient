@@ -24,7 +24,7 @@ public class l implements com.baidu.adp.widget.ListView.n {
         this.jcc = i;
     }
 
-    public int cDu() {
+    public int cDv() {
         return this.jbZ;
     }
 
@@ -32,15 +32,15 @@ public class l implements com.baidu.adp.widget.ListView.n {
         this.jbZ = i;
     }
 
-    public void Ky(String str) {
+    public void Kx(String str) {
         this.jca = str;
     }
 
-    public String cDv() {
+    public String cDw() {
         return this.jcb;
     }
 
-    public void Kz(String str) {
+    public void Ky(String str) {
         this.jcb = str;
     }
 

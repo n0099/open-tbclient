@@ -54,7 +54,7 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        AlaInfoData brJ;
+        AlaInfoData brK;
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.ala_card_live_item, (ViewGroup) null);
             a aVar2 = new a(view);
@@ -77,8 +77,8 @@ public class b extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         bz item = getItem(i);
-        if (item != null && (brJ = item.brJ()) != null) {
-            aVar.hnd.startLoad(brJ.cover, 10, false);
+        if (item != null && (brK = item.brK()) != null) {
+            aVar.hnd.startLoad(brK.cover, 10, false);
             aVar.hne.setData(item);
             aVar.hne.setUserHeadImgVisible(8);
             aVar.hng.setText(item.getTitle());

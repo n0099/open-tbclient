@@ -49,10 +49,10 @@ public class FlipperFrameLayout extends FrameLayout implements d.a {
             case 2:
                 float rawY = motionEvent.getRawY() - this.mLastY;
                 boolean z = rawY <= 0.0f;
-                if (z && !this.esw.beJ() && aa(rawY)) {
+                if (z && !this.esw.beK() && aa(rawY)) {
                     this.esw.iy(true);
                     return true;
-                } else if (!z && beF() && this.esw.beJ() && aa(rawY)) {
+                } else if (!z && beG() && this.esw.beK() && aa(rawY)) {
                     this.esw.iy(false);
                     return true;
                 }
@@ -61,7 +61,7 @@ public class FlipperFrameLayout extends FrameLayout implements d.a {
         return super.onInterceptTouchEvent(motionEvent);
     }
 
-    private boolean beF() {
+    private boolean beG() {
         if (getChildCount() <= 0) {
             return true;
         }

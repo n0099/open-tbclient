@@ -65,7 +65,7 @@ public class k {
         this.eYj = (TextView) this.eYe.findViewById(R.id.dialog_bottom_cancel_button);
     }
 
-    private void bup() {
+    private void buq() {
         this.eYo = true;
         this.eYe = (RoundLinearLayout) LayoutInflater.from(this.eYd).inflate(R.layout.popup_dialog_view_horizal, (ViewGroup) null);
         com.baidu.tbadk.core.elementsMaven.c.bv(this.eYe).pK(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
@@ -108,7 +108,7 @@ public class k {
         this.eYm = cVar;
     }
 
-    public c buq() {
+    public c bur() {
         return this.eYm;
     }
 
@@ -133,7 +133,7 @@ public class k {
     }
 
     public void k(List<? extends j> list, boolean z) {
-        if (z && com.baidu.tbadk.a.d.bmT()) {
+        if (z && com.baidu.tbadk.a.d.bmU()) {
             bC(list);
         } else {
             bB(list);
@@ -145,7 +145,7 @@ public class k {
         boolean z2;
         int i;
         if (list != null) {
-            bup();
+            buq();
             this.mItems = list;
             this.eYf.removeAllViews();
             this.eYg.removeAllViews();
@@ -166,7 +166,7 @@ public class k {
             for (int i2 = 0; i2 < list.size(); i2++) {
                 g gVar = (g) list.get(i2);
                 gVar.setCanScroll(z3);
-                gVar.buk();
+                gVar.bul();
                 if (gVar != null) {
                     if (i2 < i) {
                         this.eYf.addView(gVar.getView());
@@ -202,7 +202,7 @@ public class k {
         }
     }
 
-    public View bur() {
+    public View bus() {
         if (!StringUtils.isNull(this.titleText)) {
             this.eYh.setText(this.titleText);
         } else if (this.eYl != null) {

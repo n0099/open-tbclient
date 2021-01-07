@@ -11,7 +11,7 @@ import java.util.HashMap;
 /* loaded from: classes9.dex */
 public class e extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private File cYU = auW();
+    private File cYU = auX();
 
     @Override // com.baidu.swan.apps.core.j.b
     public /* bridge */ /* synthetic */ void a(c cVar, d dVar) {
@@ -19,12 +19,12 @@ public class e extends b {
     }
 
     @Override // com.baidu.swan.apps.core.j.b
-    public /* bridge */ /* synthetic */ HashMap auU() {
-        return super.auU();
+    public /* bridge */ /* synthetic */ HashMap auV() {
+        return super.auV();
     }
 
     @Override // com.baidu.swan.apps.core.j.b
-    protected String auT() {
+    protected String auU() {
         if (this.cYU.exists()) {
             File file = new File(this.cYU, "preset_list.json");
             if (file.exists()) {
@@ -78,7 +78,7 @@ public class e extends b {
         return z;
     }
 
-    private File auW() {
+    private File auX() {
         return new File(Environment.getExternalStorageDirectory().getPath(), "baidu/swan_preset/");
     }
 }

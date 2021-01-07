@@ -23,7 +23,7 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
 
     /* loaded from: classes8.dex */
     public interface a {
-        void Or(String str);
+        void Oq(String str);
     }
 
     public SearchMajorResultItemAdapter(Context context) {
@@ -53,7 +53,7 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (SearchMajorResultItemAdapter.this.lgY != null) {
-                            SearchMajorResultItemAdapter.this.lgY.Or(str);
+                            SearchMajorResultItemAdapter.this.lgY.Oq(str);
                         }
                     }
                 });
@@ -78,14 +78,14 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
         notifyDataSetChanged();
     }
 
-    public void dgF() {
+    public void dgG() {
         if (this.mDataList != null) {
             this.mDataList.clear();
             notifyDataSetChanged();
         }
     }
 
-    public void Oj(String str) {
+    public void Oi(String str) {
         this.esI = str;
     }
 

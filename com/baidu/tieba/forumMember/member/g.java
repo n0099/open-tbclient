@@ -71,7 +71,7 @@ public class g extends com.baidu.tieba.frs.k<h, FrsMemberHeaderViewHolder> {
     /* renamed from: bo */
     public FrsMemberHeaderViewHolder e(ViewGroup viewGroup) {
         if (this.fpO == null) {
-            bVs();
+            bVt();
         }
         return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.forum_member_head_user_view, (ViewGroup) null), this.mClickListener);
     }
@@ -81,26 +81,26 @@ public class g extends com.baidu.tieba.frs.k<h, FrsMemberHeaderViewHolder> {
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, h hVar, FrsMemberHeaderViewHolder frsMemberHeaderViewHolder) {
         super.a(i, view, viewGroup, (ViewGroup) hVar, (h) frsMemberHeaderViewHolder);
-        if (hVar != null && hVar.cDs() != null) {
+        if (hVar != null && hVar.cDt() != null) {
             int parseColor = Color.parseColor("#56cfa1");
             int color = ao.getColor(R.color.CAM_X0109);
-            w cDs = hVar.cDs();
+            w cDt = hVar.cDt();
             if (TbadkCoreApplication.isLogin()) {
-                if (cDs.isLike() == 1) {
+                if (cDt.isLike() == 1) {
                     frsMemberHeaderViewHolder.jbx.setVisibility(8);
                     frsMemberHeaderViewHolder.jby.setVisibility(0);
                     frsMemberHeaderViewHolder.jby.setText(R.string.mydegree);
-                    ao.setImageResource(frsMemberHeaderViewHolder.jaw, BitmapHelper.getSmallGradeResourceIdNew(cDs.bNU()));
-                    if (StringUtils.isNull(cDs.getLevelName())) {
+                    ao.setImageResource(frsMemberHeaderViewHolder.jaw, BitmapHelper.getSmallGradeResourceIdNew(cDt.bNV()));
+                    if (StringUtils.isNull(cDt.getLevelName())) {
                         frsMemberHeaderViewHolder.jax.setVisibility(8);
                     } else {
-                        frsMemberHeaderViewHolder.jax.setText(cDs.getLevelName());
+                        frsMemberHeaderViewHolder.jax.setText(cDt.getLevelName());
                         frsMemberHeaderViewHolder.jax.setVisibility(0);
                     }
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                    SpannableString spannableString = new SpannableString(cDs.getCurScore() + "");
+                    SpannableString spannableString = new SpannableString(cDt.getCurScore() + "");
                     spannableString.setSpan(new ForegroundColorSpan(parseColor), 0, spannableString.length(), 17);
-                    SpannableString spannableString2 = new SpannableString("/" + cDs.getLevelupScore());
+                    SpannableString spannableString2 = new SpannableString("/" + cDt.getLevelupScore());
                     spannableString2.setSpan(new ForegroundColorSpan(color), 0, spannableString2.length(), 17);
                     spannableStringBuilder.append((CharSequence) spannableString);
                     spannableStringBuilder.append((CharSequence) spannableString2);
@@ -139,17 +139,17 @@ public class g extends com.baidu.tieba.frs.k<h, FrsMemberHeaderViewHolder> {
             ao.setViewTextColor(frsMemberHeaderViewHolder.jbC, R.color.CAM_X0105, 1);
             ao.setBackgroundResource(frsMemberHeaderViewHolder.jbD, R.drawable.forum_member_exp_progress);
             ao.setBackgroundColor(frsMemberHeaderViewHolder.jbE, R.color.CAM_X0204);
-            if (this.hRm != cDs.bNU() || this.jbt != cDs.getCurScore()) {
-                this.hRm = cDs.bNU();
-                this.jbt = cDs.getCurScore();
+            if (this.hRm != cDt.bNV() || this.jbt != cDt.getCurScore()) {
+                this.hRm = cDt.bNV();
+                this.jbt = cDt.getCurScore();
                 frsMemberHeaderViewHolder.jbD.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, zG(this.hRm)));
                 float f = 0.0f;
-                this.jbt = cDs.getCurScore();
-                if (this.jbt > cDs.getLevelupScore()) {
-                    this.jbt = cDs.getLevelupScore();
+                this.jbt = cDt.getCurScore();
+                if (this.jbt > cDt.getLevelupScore()) {
+                    this.jbt = cDt.getLevelupScore();
                 }
-                if (cDs.getLevelupScore() != 0) {
-                    f = this.jbt / cDs.getLevelupScore();
+                if (cDt.getLevelupScore() != 0) {
+                    f = this.jbt / cDt.getLevelupScore();
                 }
                 if (f > 0.999f) {
                     f = 1.0f;
@@ -163,7 +163,7 @@ public class g extends com.baidu.tieba.frs.k<h, FrsMemberHeaderViewHolder> {
         return view;
     }
 
-    private void bVs() {
+    private void bVt() {
         if (this.mPageContext != null) {
             this.fpO = new LikeModel(this.mPageContext);
             this.fpO.setLoadDataCallBack(new com.baidu.adp.base.e() { // from class: com.baidu.tieba.forumMember.member.g.2

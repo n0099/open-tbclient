@@ -37,7 +37,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
                 PersonalChatView.this.kKw.showToast(R.string.add_friend_cannot_send);
             }
         };
-        if (!this.kKw.dad() && this.mTool != null) {
+        if (!this.kKw.dae() && this.mTool != null) {
             b(this.mTool.ss(6));
             b(this.mTool.ss(2));
         }
@@ -54,7 +54,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
             this.kww = (TextView) this.mBtnGroupInfo.findViewById(R.id.group_info_btn_txt);
             this.kww.setText(string);
         }
-        if (!this.kKw.dad()) {
+        if (!this.kKw.dae()) {
             this.kKx = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.stranger_person_add_friend_stub)).inflate();
             this.kKy = (LinearLayout) this.kKx.findViewById(R.id.add_friend_tip_full);
             this.kKz = (TextView) this.kKx.findViewById(R.id.add_friend_tip_title);
@@ -83,9 +83,9 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         }
     }
 
-    private void dag() {
+    private void dah() {
         if (this.mTool != null) {
-            this.mTool.bEU();
+            this.mTool.bEV();
         }
     }
 
@@ -93,7 +93,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         this.kKx.setVisibility(0);
         switch (cardStatus) {
             case APPLY:
-                dah();
+                dai();
                 return;
             case WAIT:
                 sX(z);
@@ -113,7 +113,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         }
     }
 
-    private void dah() {
+    private void dai() {
         this.kKx.setVisibility(8);
         this.kKy.setVisibility(0);
         this.kKB.setVisibility(8);
@@ -123,7 +123,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     }
 
     private void sX(boolean z) {
-        if (this.kKw.dab().daN() == PersonalMsglistModel.CardStatus.WAIT && z) {
+        if (this.kKw.dac().daO() == PersonalMsglistModel.CardStatus.WAIT && z) {
             final TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 1, 1.0f, 1, 0.0f);
             translateAnimation.setDuration(400L);
             translateAnimation.setFillAfter(true);
@@ -180,7 +180,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     }
 
     private void v(boolean z, final String str) {
-        final String name_show = this.kKw.dab().getUser().getName_show();
+        final String name_show = this.kKw.dac().getUser().getName_show();
         this.kKB.setVisibility(8);
         if (z) {
             final TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 2, 1.0f, 1, 0.0f);
@@ -217,7 +217,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     }
 
     private void sY(boolean z) {
-        dag();
+        dah();
         if (z) {
             TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 2, 0.0f, 2, -1.0f);
             translateAnimation.setDuration(500L);
@@ -242,7 +242,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         this.kKx.setVisibility(8);
     }
 
-    public Button dai() {
+    public Button daj() {
         return this.kKC;
     }
 

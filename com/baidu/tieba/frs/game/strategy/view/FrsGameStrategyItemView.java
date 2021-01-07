@@ -55,35 +55,35 @@ public class FrsGameStrategyItemView extends com.baidu.tieba.card.b<com.baidu.ti
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.frs.game.strategy.data.b bVar) {
-        if (bVar != null && bVar.boO() != null) {
-            bz boO = bVar.boO();
-            this.mTitle.setText(boO.getTitle());
+        if (bVar != null && bVar.boP() != null) {
+            bz boP = bVar.boP();
+            this.mTitle.setText(boP.getTitle());
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.TL(boO.getId())) {
+            if (readThreadHistory != null && readThreadHistory.TK(boP.getId())) {
                 ao.setViewTextColor(this.mTitle, R.color.CAM_X0108);
             } else {
                 ao.setViewTextColor(this.mTitle, R.color.CAM_X0105);
             }
-            String numberUniformFormat = at.numberUniformFormat(boO.bri());
-            String formatTimeShort = at.getFormatTimeShort(boO.bqZ());
+            String numberUniformFormat = at.numberUniformFormat(boP.brj());
+            String formatTimeShort = at.getFormatTimeShort(boP.bra());
             if (!StringUtils.isNull(numberUniformFormat) && !StringUtils.isNull(formatTimeShort)) {
                 this.jxt.setText(String.format(this.mContext.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
             }
             String str = null;
-            if (boO.getThreadType() == 40) {
+            if (boP.getThreadType() == 40) {
                 this.ixV.setVisibility(0);
-                if (boO.brH() != null) {
-                    str = boO.brH().thumbnail_url;
+                if (boP.brI() != null) {
+                    str = boP.brI().thumbnail_url;
                 }
             } else {
                 this.ixV.setVisibility(8);
-                if (boO.brz() != null && boO.brz().size() >= 1) {
-                    str = boO.brz().get(0).getOriginalUrl();
+                if (boP.brA() != null && boP.brA().size() >= 1) {
+                    str = boP.brA().get(0).getOriginalUrl();
                 }
             }
             this.jxs.startLoad(str, 10, false);
-            if (!StringUtils.isNull(boO.brf())) {
-                this.jxu.setText(boO.brf());
+            if (!StringUtils.isNull(boP.brg())) {
+                this.jxu.setText(boP.brg());
                 this.jxu.setVisibility(0);
                 return;
             }

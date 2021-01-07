@@ -12,7 +12,7 @@ public class a {
 
     static {
         fJe = false;
-        fJe = b.bvq().getInt("key_lcs_log_switch", 0) == 1;
+        fJe = b.bvr().getInt("key_lcs_log_switch", 0) == 1;
         if (fJe) {
             registerTask();
         }

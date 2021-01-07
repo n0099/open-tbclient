@@ -10,7 +10,7 @@ import com.baidu.spswitch.emotion.b;
 import com.baidu.spswitch.emotion.view.BDEmotionBagLayout;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EmotionClassicFragment extends EmotionBaseFragment {
     private BDEmotionBagLayout cDA;
     private List<String> cDB = new ArrayList();
@@ -26,7 +26,7 @@ public class EmotionClassicFragment extends EmotionBaseFragment {
     }
 
     private void initData() {
-        this.cDB = b.bS(getContext()).ajd();
+        this.cDB = b.bS(getContext()).aje();
     }
 
     public static int dip2px(Context context, float f) {

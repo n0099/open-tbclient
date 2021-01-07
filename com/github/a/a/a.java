@@ -1,38 +1,38 @@
 package com.github.a.a;
 
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 abstract class a {
-    protected long pJf;
-    protected AtomicBoolean pJe = new AtomicBoolean(false);
+    protected long pKN;
+    protected AtomicBoolean pKM = new AtomicBoolean(false);
     private Runnable mRunnable = new Runnable() { // from class: com.github.a.a.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.this.eBq();
-            if (a.this.pJe.get()) {
-                e.eBy().postDelayed(a.this.mRunnable, a.this.pJf);
+            a.this.eBU();
+            if (a.this.pKM.get()) {
+                e.eCc().postDelayed(a.this.mRunnable, a.this.pKN);
             }
         }
     };
 
-    abstract void eBq();
+    abstract void eBU();
 
     public a(long j) {
-        this.pJf = 0 == j ? 300L : j;
+        this.pKN = 0 == j ? 300L : j;
     }
 
     public void start() {
-        if (!this.pJe.get()) {
-            this.pJe.set(true);
-            e.eBy().removeCallbacks(this.mRunnable);
-            e.eBy().postDelayed(this.mRunnable, c.eBu().eBw());
+        if (!this.pKM.get()) {
+            this.pKM.set(true);
+            e.eCc().removeCallbacks(this.mRunnable);
+            e.eCc().postDelayed(this.mRunnable, c.eBY().eCa());
         }
     }
 
     public void stop() {
-        if (this.pJe.get()) {
-            this.pJe.set(false);
-            e.eBy().removeCallbacks(this.mRunnable);
+        if (this.pKM.get()) {
+            this.pKM.set(false);
+            e.eCc().removeCallbacks(this.mRunnable);
         }
     }
 }

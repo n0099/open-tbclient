@@ -19,12 +19,12 @@ public class LivenessCameraSurfaceView extends SurfaceView {
     public void bindSurfaceView(Activity activity, a.C0115a c0115a) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getLayoutParams());
         b.a a2 = a(activity, c0115a);
-        if (a2 == null || (a2.f2348a == c0115a.f2343a && a2.f2349b == c0115a.f2344b)) {
+        if (a2 == null || (a2.f2349a == c0115a.f2344a && a2.f2350b == c0115a.f2345b)) {
             layoutParams.width = -2;
             layoutParams.height = -1;
         } else {
-            layoutParams.width = a2.f2348a;
-            layoutParams.height = a2.f2349b;
+            layoutParams.width = a2.f2349a;
+            layoutParams.height = a2.f2350b;
         }
         setLayoutParams(layoutParams);
     }
@@ -34,17 +34,17 @@ public class LivenessCameraSurfaceView extends SurfaceView {
             return null;
         }
         a.C0115a a2 = a(activity);
-        b.a aVar = new b.a(c0115a.f2343a, c0115a.f2344b);
-        float f = c0115a.f2343a / c0115a.f2344b;
-        float f2 = a2.f2344b / a2.f2343a;
+        b.a aVar = new b.a(c0115a.f2344a, c0115a.f2345b);
+        float f = c0115a.f2344a / c0115a.f2345b;
+        float f2 = a2.f2345b / a2.f2344a;
         if (Math.abs(f - f2) > 0.02d) {
             if (f < f2) {
-                aVar.f2348a = (a2.f2344b * c0115a.f2344b) / c0115a.f2343a;
-                aVar.f2349b = a2.f2344b;
+                aVar.f2349a = (a2.f2345b * c0115a.f2345b) / c0115a.f2344a;
+                aVar.f2350b = a2.f2345b;
                 return aVar;
             }
-            aVar.f2348a = a2.f2343a;
-            aVar.f2349b = (a2.f2343a * c0115a.f2343a) / c0115a.f2344b;
+            aVar.f2349a = a2.f2344a;
+            aVar.f2350b = (a2.f2344a * c0115a.f2344a) / c0115a.f2345b;
             return aVar;
         }
         return aVar;

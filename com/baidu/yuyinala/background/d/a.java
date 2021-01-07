@@ -18,21 +18,21 @@ public class a extends BdBaseModel {
     private AlaAudioBackgroundDialogData oPP = new AlaAudioBackgroundDialogData();
     private com.baidu.yuyinala.background.b.a oQh;
     private com.baidu.yuyinala.background.b.a oQi;
-    private InterfaceC0932a oQj;
+    private InterfaceC0970a oQj;
 
     /* renamed from: com.baidu.yuyinala.background.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0932a {
+    public interface InterfaceC0970a {
         void a(AlaAudioBackgroundDialogData alaAudioBackgroundDialogData, com.baidu.yuyinala.background.b.a aVar);
 
-        void ekj();
-
         void ekk();
+
+        void ekl();
     }
 
-    public a(x xVar, InterfaceC0932a interfaceC0932a) {
+    public a(x xVar, InterfaceC0970a interfaceC0970a) {
         this.aGe = xVar;
-        this.oQj = interfaceC0932a;
+        this.oQj = interfaceC0970a;
         registerListener();
     }
 
@@ -43,7 +43,7 @@ public class a extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaAudioBackgroundListResponseMessage) {
                     AlaAudioBackgroundListResponseMessage alaAudioBackgroundListResponseMessage = (AlaAudioBackgroundListResponseMessage) httpResponsedMessage;
-                    a.this.oQi = a.this.oQh = alaAudioBackgroundListResponseMessage.ekw();
+                    a.this.oQi = a.this.oQh = alaAudioBackgroundListResponseMessage.ekx();
                     a.this.oPP.setBgList(alaAudioBackgroundListResponseMessage.getBgList());
                     if (a.this.oQj != null) {
                         a.this.oQj.a(a.this.oPP, a.this.oQi);
@@ -58,14 +58,14 @@ public class a extends BdBaseModel {
                 if (httpResponsedMessage.getCmd() == 1031016) {
                     if (httpResponsedMessage.getError() == 0) {
                         if (a.this.oQj != null) {
-                            a.this.oQj.ekk();
+                            a.this.oQj.ekl();
                             return;
                         }
                         return;
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501019));
                     if (a.this.oQj != null) {
-                        a.this.oQj.ekj();
+                        a.this.oQj.ekk();
                     }
                 }
             }
@@ -94,7 +94,7 @@ public class a extends BdBaseModel {
         }
     }
 
-    public void eki() {
+    public void ekj() {
         if (this.oQi != this.oQh) {
             if (this.oQh != null) {
                 this.oQh.Ar(false);
@@ -108,9 +108,9 @@ public class a extends BdBaseModel {
         }
     }
 
-    public void ekh() {
+    public void eki() {
         if (this.oQi != this.oQh && this.oQh != null && !StringUtils.isNull(this.oQh.getOriginalUrl())) {
-            Ya(this.oQh.getOriginalUrl());
+            XZ(this.oQh.getOriginalUrl());
             this.oQh = null;
             this.oQi = null;
         }
@@ -126,7 +126,7 @@ public class a extends BdBaseModel {
         return false;
     }
 
-    public void ekx() {
+    public void eky() {
         String str;
         String str2;
         String str3;
@@ -147,7 +147,7 @@ public class a extends BdBaseModel {
         sendMessage(httpMessage);
     }
 
-    private void Ya(String str) {
+    private void XZ(String str) {
         String str2;
         String str3;
         String str4;

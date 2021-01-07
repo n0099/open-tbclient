@@ -38,7 +38,7 @@ public class c extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
                 if (tag instanceof Integer) {
                     com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(4096, new d(((Integer) tag).intValue(), c.this.getData()), null, null);
                     bVar.setUniqueId(c.this.getUniqueId());
-                    c.this.bHi().dispatchMvcEvent(bVar);
+                    c.this.bHj().dispatchMvcEvent(bVar);
                 }
             }
         };
@@ -101,7 +101,7 @@ public class c extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
 
     private void b(tinfo tinfoVar) {
         if (tinfoVar != null) {
-            if (k.bou().isShowImages() && tinfoVar.pics != null && tinfoVar.pics.size() > 0) {
+            if (k.bov().isShowImages() && tinfoVar.pics != null && tinfoVar.pics.size() > 0) {
                 this.bqs.setVisibility(0);
                 switch (tinfoVar.pics.size()) {
                     case 0:

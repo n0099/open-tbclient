@@ -23,10 +23,10 @@ public class a {
     public a(TbPageContext tbPageContext, ViewGroup viewGroup) {
         this.mTbPageContext = tbPageContext;
         this.bRX = viewGroup;
-        bRi();
+        bRj();
     }
 
-    private void bRi() {
+    private void bRj() {
         this.mParentView = new FrameLayout(this.bRX.getContext());
         this.mParentView.setId(a.f.ala_live_room_back_to_target);
         this.mParentView.setBackgroundColor(0);
@@ -37,16 +37,16 @@ public class a {
         if (xVar != null && xVar.mLiveInfo != null && !TextUtils.isEmpty(TbConfig.getLiveEnterFrom()) && bVar != null) {
             this.aGe = xVar;
             if (this.mParentView == null || this.bRX.indexOfChild(this.mParentView) < 0) {
-                bRi();
+                bRj();
                 this.mParentView.setVisibility(this.gPZ ? 0 : 8);
             }
             if (this.hum == null || (this.mParentView != null && this.mParentView.indexOfChild(this.hum.getView()) < 0)) {
                 this.hum = new c(this.mTbPageContext);
                 this.mParentView.addView(this.hum.getView(), new FrameLayout.LayoutParams(-2, -1));
-                this.hum.cfp().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.e.a.1
+                this.hum.cfq().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.e.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.hum.cfo();
+                        a.this.hum.cfp();
                         a.this.hum.hide();
                     }
                 });
@@ -63,16 +63,16 @@ public class a {
     }
 
     public void dU(int i) {
-        View cfp;
+        View cfq;
         LinearLayout.LayoutParams layoutParams;
-        if (this.hum != null && (cfp = this.hum.cfp()) != null && (layoutParams = (LinearLayout.LayoutParams) cfp.getLayoutParams()) != null) {
+        if (this.hum != null && (cfq = this.hum.cfq()) != null && (layoutParams = (LinearLayout.LayoutParams) cfq.getLayoutParams()) != null) {
             if (i == 1) {
                 layoutParams.bottomMargin = BdUtilHelper.getDimens(this.mTbPageContext.getPageActivity(), a.d.sdk_ds288);
                 this.hum.show();
             } else if (i == 2) {
                 this.hum.hide();
             }
-            cfp.setLayoutParams(layoutParams);
+            cfq.setLayoutParams(layoutParams);
         }
     }
 

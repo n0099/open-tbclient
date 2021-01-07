@@ -7,22 +7,22 @@ import android.widget.ImageView;
 public class e implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Animation f4047a;
+    final /* synthetic */ Animation f4048a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ LivenessRecogActivity f4048b;
+    final /* synthetic */ LivenessRecogActivity f4049b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(LivenessRecogActivity livenessRecogActivity, Animation animation) {
-        this.f4048b = livenessRecogActivity;
-        this.f4047a = animation;
+        this.f4049b = livenessRecogActivity;
+        this.f4048a = animation;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         ImageView imageView;
-        imageView = this.f4048b.z;
-        imageView.startAnimation(this.f4047a);
+        imageView = this.f4049b.z;
+        imageView.startAnimation(this.f4048a);
     }
 
     @Override // android.view.animation.Animation.AnimationListener

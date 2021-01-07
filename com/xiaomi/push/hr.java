@@ -119,13 +119,13 @@ public enum hr {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f539a;
+    private final int f540a;
 
     hr(int i) {
-        this.f539a = i;
+        this.f540a = i;
     }
 
     public int a() {
-        return this.f539a;
+        return this.f540a;
     }
 }

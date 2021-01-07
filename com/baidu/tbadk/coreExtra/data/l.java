@@ -10,7 +10,7 @@ public class l {
     private String fta;
     private String mIcon;
 
-    public int bzN() {
+    public int bzO() {
         return this.fsY;
     }
 
@@ -26,7 +26,7 @@ public class l {
         this.mIcon = str;
     }
 
-    public String bzO() {
+    public String bzP() {
         return this.fsZ;
     }
 
@@ -38,7 +38,7 @@ public class l {
         return this.fta;
     }
 
-    public void CO(String str) {
+    public void CN(String str) {
         this.fta = str;
     }
 

@@ -23,10 +23,10 @@ public class a implements com.baidu.live.l.a {
     public a(TbPageContext tbPageContext) {
         this.bFa = tbPageContext;
         this.mContext = this.bFa.getPageActivity();
-        bZQ();
+        bZR();
     }
 
-    private void bZQ() {
+    private void bZR() {
         this.hfz = new com.baidu.tieba.ala.headline.view.a(this.bFa);
         this.hfz.getRootView().setId(a.f.ala_head_line_entry_id);
     }
@@ -39,12 +39,12 @@ public class a implements com.baidu.live.l.a {
             if (this.bRX.indexOfChild(this.hfz.getRootView()) < 0) {
                 this.bRX.addView(this.hfz.getRootView(), layoutParams);
             }
-            if (this.bRX.indexOfChild(this.hfz.bZT()) < 0) {
+            if (this.bRX.indexOfChild(this.hfz.bZU()) < 0) {
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(this.bRX.getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds300), this.bRX.getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds150));
                 layoutParams2.addRule(11);
                 layoutParams2.addRule(3, a.f.ala_liveroom_hostheader);
                 layoutParams2.topMargin = -BdUtilHelper.dip2px(this.mContext, 20.0f);
-                this.bRX.addView(this.hfz.bZT(), layoutParams2);
+                this.bRX.addView(this.hfz.bZU(), layoutParams2);
             }
             this.hfz.setOtherParams(str);
             if (z(xVar)) {
@@ -67,7 +67,7 @@ public class a implements com.baidu.live.l.a {
             return false;
         } else {
             if (this.hfz != null) {
-                this.hfz.cac();
+                this.hfz.cad();
             }
             this.bAD = true;
             return true;

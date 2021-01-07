@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
-    public static final TypeAdapterFactory pLE = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ArrayTypeAdapter.1
+    public static final TypeAdapterFactory pNm = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ArrayTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
             Type type = aVar.getType();
@@ -24,23 +24,23 @@ public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
         }
     };
     private final Class<E> componentType;
-    private final TypeAdapter<E> pLF;
+    private final TypeAdapter<E> pNn;
 
     public ArrayTypeAdapter(Gson gson, TypeAdapter<E> typeAdapter, Class<E> cls) {
-        this.pLF = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, cls);
+        this.pNn = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, cls);
         this.componentType = cls;
     }
 
     @Override // com.google.gson.TypeAdapter
     public Object read(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.eCl() == JsonToken.NULL) {
-            aVar.eCr();
+        if (aVar.eCP() == JsonToken.NULL) {
+            aVar.eCV();
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        aVar.eCj();
+        aVar.eCN();
         while (aVar.hasNext()) {
-            arrayList.add(this.pLF.read(aVar));
+            arrayList.add(this.pNn.read(aVar));
         }
         aVar.endArray();
         int size = arrayList.size();
@@ -56,14 +56,14 @@ public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
     @Override // com.google.gson.TypeAdapter
     public void write(com.google.gson.stream.b bVar, Object obj) throws IOException {
         if (obj == null) {
-            bVar.eCE();
+            bVar.eDi();
             return;
         }
-        bVar.eCA();
+        bVar.eDe();
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
-            this.pLF.write(bVar, Array.get(obj, i));
+            this.pNn.write(bVar, Array.get(obj, i));
         }
-        bVar.eCB();
+        bVar.eDf();
     }
 }

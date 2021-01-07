@@ -33,11 +33,11 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.e, Card
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.e eVar, CardViewHolder<g> cardViewHolder) {
-        if (cardViewHolder.cvG() == null) {
+        if (cardViewHolder.cvH() == null) {
             return null;
         }
-        cardViewHolder.cvG().a(eVar);
-        cardViewHolder.cvG().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return cardViewHolder.cvG().getView();
+        cardViewHolder.cvH().a(eVar);
+        cardViewHolder.cvH().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return cardViewHolder.cvH().getView();
     }
 }

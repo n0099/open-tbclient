@@ -11,7 +11,7 @@ public class z implements au {
     private z() {
     }
 
-    public static z alB() {
+    public static z alC() {
         return a.cFB;
     }
 

@@ -15,7 +15,7 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
         return 1;
     }
 
-    public static synchronized d cxs() {
+    public static synchronized d cxt() {
         d dVar;
         synchronized (d.class) {
             dVar = iFz;
@@ -31,7 +31,7 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
     public void a(a.InterfaceC0593a interfaceC0593a) {
         if (this.iFA == null || this.iFA.isEmpty()) {
             this.iFA = new LinkedList<>();
-            if (TbFaceManager.bGo().bFa() > 0) {
+            if (TbFaceManager.bGp().bFb() > 0) {
                 c cVar = new c();
                 this.iFA.add(cVar);
                 if (interfaceC0593a != null) {

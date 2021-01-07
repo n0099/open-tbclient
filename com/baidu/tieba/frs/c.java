@@ -13,7 +13,7 @@ public class c {
     private c() {
     }
 
-    public static c cEb() {
+    public static c cEc() {
         return a.jdZ;
     }
 
@@ -21,7 +21,7 @@ public class c {
         this.jdY = bawuThrones;
     }
 
-    public BawuThrones cEc() {
+    public BawuThrones cEd() {
         return this.jdY;
     }
 

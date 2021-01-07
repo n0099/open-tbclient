@@ -14,10 +14,10 @@ import com.baidu.android.pushservice.i.m;
 public class PushService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1154a = false;
+    private boolean f1155a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private Handler f1155b = new Handler();
+    private Handler f1156b = new Handler();
     private boolean c = false;
     private final Runnable d = new Runnable() { // from class: com.baidu.android.pushservice.PushService.1
         @Override // java.lang.Runnable
@@ -34,14 +34,14 @@ public class PushService extends Service {
     };
 
     private void a(boolean z, boolean z2) {
-        this.f1154a = z;
+        this.f1155a = z;
         com.baidu.android.pushservice.f.a.a("PushService", "stopSelf : exitOnDestroy=" + z + " --- immediate=" + z2, getApplicationContext());
         if (z2) {
             this.d.run();
             return;
         }
-        this.f1155b.removeCallbacks(this.d);
-        this.f1155b.postDelayed(this.d, 1000L);
+        this.f1156b.removeCallbacks(this.d);
+        this.f1156b.postDelayed(this.d, 1000L);
     }
 
     @Override // android.app.Service
@@ -67,9 +67,9 @@ public class PushService extends Service {
         com.baidu.android.pushservice.f.a.a("PushService", "onDestroy from : " + getPackageName(), getApplicationContext());
         m.a("PushService onDestroy from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
         g.b();
-        if (this.f1154a) {
-            this.f1155b.removeCallbacks(this.e);
-            this.f1155b.postDelayed(this.e, 1000L);
+        if (this.f1155a) {
+            this.f1156b.removeCallbacks(this.e);
+            this.f1156b.postDelayed(this.e, 1000L);
         }
         if (!this.c || g.a(this).e()) {
             return;
@@ -101,8 +101,8 @@ public class PushService extends Service {
                 new b.c(getApplicationContext()).a(Log.getStackTraceString(e)).a();
             }
         }
-        this.f1155b.removeCallbacks(this.d);
-        this.f1155b.removeCallbacks(this.e);
+        this.f1156b.removeCallbacks(this.d);
+        this.f1156b.removeCallbacks(this.e);
         try {
             this.c = g.a(this).a(intent);
             if (this.c) {

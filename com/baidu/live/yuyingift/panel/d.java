@@ -56,10 +56,10 @@ public class d extends b {
                 return false;
             }
             Jc.aXM.aYS = Jc.GC();
-            com.baidu.live.yuyingift.b.b.aaZ().a(Jc, Jd, this.caO.mUserId, this.caO.mUserName, this.caO.mLiveId, this.caO.mRoomId, this.caO.mAppId, this.caO.beS, this.caO.otherParams, 0L, s.ak(abe().ccd), 0L, 0);
+            com.baidu.live.yuyingift.b.b.aba().a(Jc, Jd, this.caO.mUserId, this.caO.mUserName, this.caO.mLiveId, this.caO.mRoomId, this.caO.mAppId, this.caO.beS, this.caO.otherParams, 0L, s.ak(abf().ccd), 0L, 0);
             closeActivity();
         } else {
-            com.baidu.live.yuyingift.b.b.aaZ().a(Jc, Jd, this.caO.mUserId, this.caO.mUserName, this.caO.mLiveId, this.caO.mRoomId, this.caO.mAppId, this.caO.beS, this.caO.otherParams, 0L, System.currentTimeMillis(), s.ak(abe().ccd), 0L, 0);
+            com.baidu.live.yuyingift.b.b.aba().a(Jc, Jd, this.caO.mUserId, this.caO.mUserName, this.caO.mLiveId, this.caO.mRoomId, this.caO.mAppId, this.caO.beS, this.caO.otherParams, 0L, System.currentTimeMillis(), s.ak(abf().ccd), 0L, 0);
         }
         String str = null;
         if (Jc.aXM != null) {
@@ -68,7 +68,7 @@ public class d extends b {
         if (str == null) {
             str = "";
         }
-        this.cbf.a(Jc.Gx(), Jc.aXF.aXT, this.caO.mUserId, this.caO.mLiveId, Jd, Jd > 1 ? 1 : 0, str, s.ak(abe().ccd), System.currentTimeMillis(), Jc.GA() ? 1 : 0, j);
+        this.cbf.a(Jc.Gx(), Jc.aXF.aXT, this.caO.mUserId, this.caO.mLiveId, Jd, Jd > 1 ? 1 : 0, str, s.ak(abf().ccd), System.currentTimeMillis(), Jc.GA() ? 1 : 0, j);
         return true;
     }
 
@@ -91,7 +91,7 @@ public class d extends b {
     }
 
     @Override // com.baidu.live.yuyingift.panel.b
-    protected boolean abh() {
+    protected boolean abi() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.cbg >= 400) {
             this.cbg = currentTimeMillis;

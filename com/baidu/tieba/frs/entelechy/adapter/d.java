@@ -36,10 +36,10 @@ public class d extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> imple
         this.fWD = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.frs.entelechy.adapter.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bLR */
+            /* renamed from: bLS */
             public ImageView makeObject() {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(d.this.mPageContext.getPageActivity());
-                boolean isShowImages = com.baidu.tbadk.core.k.bou().isShowImages();
+                boolean isShowImages = com.baidu.tbadk.core.k.bov().isShowImages();
                 foreDrawableImageView.setDefaultBg(ao.getDrawable(R.color.common_color_10220));
                 if (isShowImages) {
                     foreDrawableImageView.setAdjustViewBounds(false);
@@ -75,7 +75,7 @@ public class d extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> imple
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (com.baidu.tbadk.core.k.bou().isShowImages()) {
+                    if (com.baidu.tbadk.core.k.bov().isShowImages()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -108,10 +108,10 @@ public class d extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> imple
         this.fWE = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.frs.entelechy.adapter.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: czE */
+            /* renamed from: czF */
             public GifView makeObject() {
                 GifView gifView = new GifView(d.this.mPageContext.getPageActivity());
-                boolean isShowImages = com.baidu.tbadk.core.k.bou().isShowImages();
+                boolean isShowImages = com.baidu.tbadk.core.k.bov().isShowImages();
                 gifView.setDefaultBg(ao.getDrawable(R.color.common_color_10220));
                 if (isShowImages) {
                     gifView.setAdjustViewBounds(false);
@@ -141,7 +141,7 @@ public class d extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> imple
             /* renamed from: h */
             public GifView activateObject(GifView gifView) {
                 gifView.setTag(null);
-                if (com.baidu.tbadk.core.k.bou().isShowImages()) {
+                if (com.baidu.tbadk.core.k.bov().isShowImages()) {
                     gifView.setAdjustViewBounds(false);
                     gifView.setInterceptOnClick(false);
                 } else {
@@ -159,7 +159,7 @@ public class d extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> imple
                 gifView.release();
                 gifView.onDestroy();
                 gifView.setImageDrawable(null);
-                gifView.bGn();
+                gifView.bGo();
                 gifView.setBackgroundDrawable(null);
                 gifView.setTag(null);
                 gifView.setOnClickListener(null);
@@ -173,7 +173,7 @@ public class d extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> imple
             /* renamed from: b */
             public void a(View view, bz bzVar) {
                 if (view != null && bzVar != null) {
-                    com.baidu.tieba.a.d.bOm().dR("page_frs", "show_");
+                    com.baidu.tieba.a.d.bOn().dR("page_frs", "show_");
                 }
             }
         };
@@ -239,7 +239,7 @@ public class d extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> imple
         threadCardViewHolder.b((ThreadCardViewHolder<bz>) byVar.eMv);
         threadCardViewHolder.ty().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         threadCardViewHolder.ty().a(this.ahf);
-        byVar.eMv.bsE();
+        byVar.eMv.bsF();
         return threadCardViewHolder.getView();
     }
 
@@ -249,7 +249,7 @@ public class d extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> imple
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 

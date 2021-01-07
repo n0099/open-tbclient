@@ -39,9 +39,9 @@ public class b extends a<bz, ThreadCardViewHolder<bz>> {
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, bz bzVar) {
-                com.baidu.tieba.card.s.cva().mG(true);
-                com.baidu.tieba.a.d.bOm().dR("page_recommend", "show_");
-                if (view != null && bzVar != null && bzVar.boO() != null && !StringUtils.isNull(bzVar.boO().getTid())) {
+                com.baidu.tieba.card.s.cvb().mG(true);
+                com.baidu.tieba.a.d.bOn().dR("page_recommend", "show_");
+                if (view != null && bzVar != null && bzVar.boP() != null && !StringUtils.isNull(bzVar.boP().getTid())) {
                     b.this.g(view, bzVar);
                 }
             }

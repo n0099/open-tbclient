@@ -23,18 +23,18 @@ public abstract class b {
             Log.d("BDTLS", "processResponseData encodeResponseData=" + str);
         }
         if (this.egG) {
-            i a2 = com.baidu.swan.games.bdtls.d.aXR().a(e.aXS().aXT(), bArr);
+            i a2 = com.baidu.swan.games.bdtls.d.aXS().a(e.aXT().aXU(), bArr);
             if (a2 != null) {
                 if (!TextUtils.isEmpty(a2.getResponseMessage())) {
                     str = a2.getResponseMessage();
                 }
-                this.egH = a2.aYQ().intValue();
+                this.egH = a2.aYR().intValue();
             } else {
                 this.egH = -1;
             }
-            e.aXS().aXT().mD(this.egH);
+            e.aXT().aXU().mD(this.egH);
             if (this.egH == -1) {
-                com.baidu.swan.games.bdtls.c.aXQ().setEnable(false);
+                com.baidu.swan.games.bdtls.c.aXR().setEnable(false);
             }
         }
         return str;
@@ -42,7 +42,7 @@ public abstract class b {
 
     public final void wW(String str) {
         this.egH = 0;
-        com.baidu.swan.games.bdtls.c.aXQ().a(str, this);
+        com.baidu.swan.games.bdtls.c.aXR().a(str, this);
     }
 
     public void ic(boolean z) {

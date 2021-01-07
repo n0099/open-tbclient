@@ -75,7 +75,7 @@ public final class h {
         this.egh = bArr;
     }
 
-    public final byte[] aYI() {
+    public final byte[] aYJ() {
         return this.egh;
     }
 
@@ -83,11 +83,11 @@ public final class h {
         this.egi = bArr;
     }
 
-    public final byte[] aYJ() {
+    public final byte[] aYK() {
         return this.egi;
     }
 
-    public final byte aYK() {
+    public final byte aYL() {
         return this.egj;
     }
 
@@ -95,7 +95,7 @@ public final class h {
         this.egj = b2;
     }
 
-    public final byte aYL() {
+    public final byte aYM() {
         return this.egk;
     }
 
@@ -103,7 +103,7 @@ public final class h {
         this.egk = b2;
     }
 
-    public final short aYM() {
+    public final short aYN() {
         return this.egm;
     }
 
@@ -111,7 +111,7 @@ public final class h {
         this.egm = s;
     }
 
-    public final int aYN() {
+    public final int aYO() {
         return this.egn;
     }
 
@@ -123,7 +123,7 @@ public final class h {
         this.ego = bArr;
     }
 
-    public final byte[] aYO() {
+    public final byte[] aYP() {
         return this.ego;
     }
 
@@ -145,25 +145,25 @@ public final class h {
             this();
         }
 
-        public final h aYP() {
+        public final h aYQ() {
             h hVar = new h(null, null, (byte) 0, (byte) 0, (short) 0, 0, null, null, 255, null);
             hVar.Q(new byte[2]);
-            byte[] aYI = hVar.aYI();
-            if (aYI != null) {
-                aYI[0] = 0;
-            }
-            byte[] aYI2 = hVar.aYI();
-            if (aYI2 != null) {
-                aYI2[1] = 2;
-            }
-            hVar.R(new byte[2]);
             byte[] aYJ = hVar.aYJ();
             if (aYJ != null) {
-                aYJ[0] = -27;
+                aYJ[0] = 0;
             }
             byte[] aYJ2 = hVar.aYJ();
             if (aYJ2 != null) {
-                aYJ2[1] = -89;
+                aYJ2[1] = 2;
+            }
+            hVar.R(new byte[2]);
+            byte[] aYK = hVar.aYK();
+            if (aYK != null) {
+                aYK[0] = -27;
+            }
+            byte[] aYK2 = hVar.aYK();
+            if (aYK2 != null) {
+                aYK2[1] = -89;
             }
             return hVar;
         }

@@ -29,8 +29,8 @@ public class HotUserRankFragment extends BaseFragment {
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (HotUserRankFragment.this.iJh.hasMore()) {
-                HotUserRankFragment.this.cyZ();
-                HotUserRankFragment.this.iJp.Zg();
+                HotUserRankFragment.this.cza();
+                HotUserRankFragment.this.iJp.Zh();
             }
         }
     };
@@ -41,7 +41,7 @@ public class HotUserRankFragment extends BaseFragment {
                 HotUserRankFragment.this.hideLoadingView(HotUserRankFragment.this.mRootView);
             }
             if (cVar != null) {
-                if (HotUserRankFragment.this.iJh.czc() == 2) {
+                if (HotUserRankFragment.this.iJh.czd() == 2) {
                     if (HotUserRankFragment.this.mForumId > 0 || TextUtils.isEmpty(HotUserRankFragment.this.mCategory)) {
                         cVar.iKh.rankName = HotUserRankFragment.this.getResources().getString(R.string.forum_hot_user_rank);
                     } else if (cVar.iKh != null) {
@@ -64,7 +64,7 @@ public class HotUserRankFragment extends BaseFragment {
                     HotUserRankFragment.this.iJp.cW(HotUserRankFragment.this.iJh.getPageData().iKi);
                 }
                 if (!HotUserRankFragment.this.iJh.hasMore()) {
-                    HotUserRankFragment.this.iJp.JM(HotUserRankFragment.this.mCategory);
+                    HotUserRankFragment.this.iJp.JL(HotUserRankFragment.this.mCategory);
                 }
             }
         }
@@ -92,16 +92,16 @@ public class HotUserRankFragment extends BaseFragment {
             this.iJp.setOnSrollToBottomListener(this.WN);
         }
         if (this.iJh.getPageData() == null || x.isEmpty(this.iJh.getPageData().iKi)) {
-            cyZ();
+            cza();
             showLoadingView(this.mRootView);
         }
         return this.mRootView;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cyZ() {
+    public void cza() {
         if (!TextUtils.isEmpty(this.mCategory)) {
-            this.iJh.JN(this.mCategory);
+            this.iJh.JM(this.mCategory);
         } else if (this.mForumId > 0) {
             this.iJh.ge(this.mForumId);
         }
@@ -125,7 +125,7 @@ public class HotUserRankFragment extends BaseFragment {
         this.isGod = z;
     }
 
-    public com.baidu.tieba.enterForum.hotuserrank.model.a cza() {
+    public com.baidu.tieba.enterForum.hotuserrank.model.a czb() {
         return this.iJh;
     }
 
@@ -133,7 +133,7 @@ public class HotUserRankFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         hideNetRefreshView(this.mRootView);
-        cyZ();
+        cza();
         showLoadingView(this.mRootView);
     }
 

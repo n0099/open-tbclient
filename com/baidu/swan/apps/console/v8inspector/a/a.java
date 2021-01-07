@@ -57,7 +57,7 @@ public class a implements Runnable {
             d.a(aVar).send(this.mOutputStream);
             if (aVar.cQZ) {
                 if (cQO != 0 && cQO != 3) {
-                    com.baidu.swan.apps.res.widget.b.d.u(com.baidu.swan.apps.t.a.aAr(), a.h.aiapps_debug_inspect_doing).aLS();
+                    com.baidu.swan.apps.res.widget.b.d.u(com.baidu.swan.apps.t.a.aAs(), a.h.aiapps_debug_inspect_doing).aLT();
                     return;
                 }
                 this.cQJ = new com.baidu.swan.apps.console.v8inspector.websocket.a();
@@ -65,9 +65,9 @@ public class a implements Runnable {
                     @Override // com.baidu.swan.apps.console.v8inspector.websocket.a.InterfaceC0419a
                     public void onOpen() {
                         com.baidu.swan.apps.console.c.i("ClientHandler", "V8 inspector opened");
-                        com.baidu.swan.apps.core.g.a avR = com.baidu.swan.apps.core.turbo.d.avA().avR();
-                        if (avR instanceof e) {
-                            a.this.cQM = (com.baidu.swan.games.f.a) avR.anh();
+                        com.baidu.swan.apps.core.g.a avS = com.baidu.swan.apps.core.turbo.d.avB().avS();
+                        if (avS instanceof e) {
+                            a.this.cQM = (com.baidu.swan.games.f.a) avS.ani();
                         }
                         if (a.this.cQM != null) {
                             if (a.this.cQL != null) {
@@ -89,7 +89,7 @@ public class a implements Runnable {
 
                     @Override // com.baidu.swan.apps.console.v8inspector.websocket.a.InterfaceC0419a
                     public void a(WebSocketFrame webSocketFrame) {
-                        a.this.cQK.offer(webSocketFrame.aqg());
+                        a.this.cQK.offer(webSocketFrame.aqh());
                         a.this.cQM.postOnJSThread(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.a.1.1
                             @Override // java.lang.Runnable
                             public void run() {
@@ -114,10 +114,10 @@ public class a implements Runnable {
                         if (!TextUtils.isEmpty(str) && a.this.cQN != null && a.cQO != 2) {
                             try {
                                 if (TextUtils.equals(new JSONObject(str).optString("method"), "Debugger.enable")) {
-                                    com.baidu.swan.apps.runtime.d aMg = com.baidu.swan.apps.runtime.d.aMg();
-                                    SwanAppActivity aMe = com.baidu.swan.apps.runtime.d.aMg().aMe();
-                                    if (aMg.aJw() && aMe != null) {
-                                        aMe.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.a.1.2
+                                    com.baidu.swan.apps.runtime.d aMh = com.baidu.swan.apps.runtime.d.aMh();
+                                    SwanAppActivity aMf = com.baidu.swan.apps.runtime.d.aMh().aMf();
+                                    if (aMh.aJx() && aMf != null) {
+                                        aMf.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.a.1.2
                                             @Override // java.lang.Runnable
                                             public void run() {
                                                 a.this.cQN.onConnected();

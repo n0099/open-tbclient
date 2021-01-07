@@ -25,7 +25,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         this.dnr = context.getResources().getDimensionPixelSize(a.d.swanapp_preview_thumbnail);
     }
 
-    public ArrayList<MediaModel> aEL() {
+    public ArrayList<MediaModel> aEM() {
         return this.dmI;
     }
 
@@ -96,7 +96,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
             ImageRequestBuilder aj = ImageRequestBuilder.aj(Uri.fromFile(new File(mediaModel.getPath())));
             aj.c(new d(this.dnr, this.dnr));
             aj.Bj(true);
-            aVar.dnt.setController(c.euI().c(aVar.dnt.getController()).AX(false).bo(aj.eBe()).evz());
+            aVar.dnt.setController(c.euP().c(aVar.dnt.getController()).AX(false).bo(aj.eBI()).evG());
         }
     }
 

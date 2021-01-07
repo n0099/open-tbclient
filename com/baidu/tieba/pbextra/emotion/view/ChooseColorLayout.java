@@ -10,12 +10,12 @@ import com.baidu.tieba.R;
 public class ChooseColorLayout extends LinearLayout {
     private int mPadding;
     private int mWidth;
-    private int[] mmt;
+    private int[] mms;
+    private int mmt;
     private int mmu;
     private int mmv;
     private int mmw;
-    private int mmx;
-    private a mmy;
+    private a mmx;
     public View.OnClickListener onClickListener;
 
     /* loaded from: classes2.dex */
@@ -37,16 +37,16 @@ public class ChooseColorLayout extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int intValue;
-                if ((view instanceof ChooseColorView) && (intValue = ((Integer) view.getTag()).intValue()) != ChooseColorLayout.this.mmx) {
-                    View childAt = ChooseColorLayout.this.getChildAt(ChooseColorLayout.this.mmx);
+                if ((view instanceof ChooseColorView) && (intValue = ((Integer) view.getTag()).intValue()) != ChooseColorLayout.this.mmw) {
+                    View childAt = ChooseColorLayout.this.getChildAt(ChooseColorLayout.this.mmw);
                     if (childAt instanceof ChooseColorView) {
                         ((ChooseColorView) childAt).setIsChooseView(false);
                     }
-                    ChooseColorLayout.this.mmx = intValue;
-                    ChooseColorLayout.this.mmw = ((ChooseColorView) view).getChooseColor();
+                    ChooseColorLayout.this.mmw = intValue;
+                    ChooseColorLayout.this.mmv = ((ChooseColorView) view).getChooseColor();
                     ((ChooseColorView) view).setIsChooseView(true);
-                    if (ChooseColorLayout.this.mmy != null) {
-                        ChooseColorLayout.this.mmy.HQ(ChooseColorLayout.this.mmw);
+                    if (ChooseColorLayout.this.mmx != null) {
+                        ChooseColorLayout.this.mmx.HQ(ChooseColorLayout.this.mmv);
                     }
                 }
             }
@@ -56,21 +56,21 @@ public class ChooseColorLayout extends LinearLayout {
 
     private void init() {
         this.mWidth = l.getEquipmentWidth(getContext());
-        this.mmt = getResources().getIntArray(R.array.choose_colors);
+        this.mms = getResources().getIntArray(R.array.choose_colors);
         this.mPadding = getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.mmu = (this.mWidth - (this.mPadding * 2)) / 8;
-        this.mmv = (this.mmu - (getResources().getDimensionPixelSize(R.dimen.ds16) * 2)) / 2;
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mmu, this.mmu);
+        this.mmt = (this.mWidth - (this.mPadding * 2)) / 8;
+        this.mmu = (this.mmt - (getResources().getDimensionPixelSize(R.dimen.ds16) * 2)) / 2;
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mmt, this.mmt);
         layoutParams.gravity = 17;
-        for (int i = 0; i < this.mmt.length; i++) {
+        for (int i = 0; i < this.mms.length; i++) {
             ChooseColorView chooseColorView = new ChooseColorView(getContext());
-            chooseColorView.setChooseColor(this.mmt[i]);
+            chooseColorView.setChooseColor(this.mms[i]);
             chooseColorView.setTag(Integer.valueOf(i));
-            chooseColorView.setRadius(this.mmv);
+            chooseColorView.setRadius(this.mmu);
             if (i == 0) {
                 chooseColorView.setIsChooseView(true);
-                this.mmw = this.mmt[i];
-                this.mmx = i;
+                this.mmv = this.mms[i];
+                this.mmw = i;
             }
             chooseColorView.setOnClickListener(this.onClickListener);
             addView(chooseColorView, layoutParams);
@@ -79,10 +79,10 @@ public class ChooseColorLayout extends LinearLayout {
     }
 
     public int getCurrentChooseColor() {
-        return this.mmw;
+        return this.mmv;
     }
 
     public void setOnChooseColorChangeListener(a aVar) {
-        this.mmy = aVar;
+        this.mmx = aVar;
     }
 }

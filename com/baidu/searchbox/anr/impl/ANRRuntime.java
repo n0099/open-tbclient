@@ -12,7 +12,7 @@ public class ANRRuntime {
     private d<IANRRegister> mIANRMonitorList;
 
     public void initmIANRMonitorList() {
-        this.mIANRMonitorList = b.ahA();
+        this.mIANRMonitorList = b.ahB();
         this.mIANRMonitorList.b(new IANRRegister_ANRRuntime_ListProvider());
     }
 

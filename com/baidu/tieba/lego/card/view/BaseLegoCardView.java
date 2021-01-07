@@ -20,11 +20,7 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.m;
 import com.baidu.tieba.card.s;
-import com.baidu.tieba.lego.card.a;
-import com.baidu.tieba.lego.card.c;
-import com.baidu.tieba.lego.card.c.b;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.tbadkCore.v;
@@ -40,8 +36,8 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     protected View kYK;
     protected View kYL;
     protected ImageView kYM;
-    protected a kYN;
-    protected c kYO;
+    protected com.baidu.tieba.lego.card.a kYN;
+    protected com.baidu.tieba.lego.card.c kYO;
     protected int mBusinessType;
     public String mFrom;
     protected boolean mIsFromCDN;
@@ -52,7 +48,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
 
     public abstract void d(T t);
 
-    protected abstract View ddH();
+    protected abstract View ddI();
 
     public BaseLegoCardView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
@@ -63,20 +59,21 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     }
 
     private void init() {
-        ddJ();
-        aqT();
+        ddK();
+        aqU();
         this.isInit = false;
     }
 
-    protected final <S> S z(View view, int i) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final <S> S z(View view, int i) {
         return (S) view.findViewById(i);
     }
 
-    protected final ViewGroup.LayoutParams ddI() {
+    protected final ViewGroup.LayoutParams ddJ() {
         return new ViewGroup.LayoutParams(-1, -2);
     }
 
-    public final void ddJ() {
+    public final void ddK() {
         FrameLayout frameLayout = new FrameLayout(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         if (this.mBusinessType == 4) {
@@ -84,8 +81,8 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         } else {
             layoutParams.setMargins(0, getResources().getDimensionPixelSize(R.dimen.M_H_X003), 0, 0);
         }
-        this.kYI = ddH();
-        frameLayout.addView(this.kYI, ddI());
+        this.kYI = ddI();
+        frameLayout.addView(this.kYI, ddJ());
         this.kYJ = new View(getContext());
         ao.setBackgroundColor(this.kYJ, R.color.common_color_10205);
         frameLayout.addView(this.kYJ, new ViewGroup.LayoutParams(-1, -1));
@@ -139,7 +136,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
     }
 
-    protected void aqT() {
+    protected void aqU() {
     }
 
     protected final void Fj(int i) {
@@ -192,12 +189,12 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
     }
 
-    public final void ddK() {
+    public final void ddL() {
         this.kYI.setVisibility(0);
     }
 
     public final void c(T t) {
-        s.cva().mG(true);
+        s.cvb().mG(true);
         e(t);
     }
 
@@ -214,10 +211,10 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
             }
             if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
                 this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-                ddL();
+                ddM();
                 a((BaseLegoCardInfo) updateCard, this.mSkinType);
             }
-            ddK();
+            ddL();
             d((BaseLegoCardView<T>) ((BaseLegoCardInfo) updateCard));
             b((BaseLegoCardInfo) updateCard);
         }
@@ -260,7 +257,8 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         return 1 == TbadkCoreApplication.getInst().getSkinType();
     }
 
-    protected final SpannableString a(String str, List<String> list, int i, int i2) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final SpannableString a(String str, List<String> list, int i, int i2) {
         int indexOf;
         if (TextUtils.isEmpty(str) || x.isEmpty(list) || (indexOf = str.indexOf("{%s}", 0)) < 0) {
             return null;
@@ -293,8 +291,9 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         return spannableString;
     }
 
-    protected final void a(TextView textView, int i, int i2, int i3) {
-        if (b.Fh(i) || b.Fh(i2)) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final void a(TextView textView, int i, int i2, int i3) {
+        if (com.baidu.tieba.lego.card.c.b.Fh(i) || com.baidu.tieba.lego.card.c.b.Fh(i2)) {
             ao.setViewTextColor(textView, i3);
             return;
         }
@@ -304,8 +303,9 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         textView.setTextColor(i2);
     }
 
-    protected final void e(View view, int i, int i2, int i3) {
-        if (b.Fh(i) || b.Fh(i2)) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final void e(View view, int i, int i2, int i3) {
+        if (com.baidu.tieba.lego.card.c.b.Fh(i) || com.baidu.tieba.lego.card.c.b.Fh(i2)) {
             ao.setBackgroundColor(view, i3);
             return;
         }
@@ -315,7 +315,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         view.setBackgroundColor(i2);
     }
 
-    private void ddL() {
+    private void ddM() {
         ao.setBackgroundColor(this.kYM, R.color.CAM_X0201);
         ao.setImageResource(this.kYM, R.color.CAM_X0204);
         switch (this.mBusinessType) {
@@ -335,7 +335,8 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
     }
 
-    protected final void a(TextView textView, boolean z, String str, String str2) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final void a(TextView textView, boolean z, String str, String str2) {
         if (z) {
             textView.setEnabled(false);
             ao.setViewTextColor(textView, R.color.CAM_X0109, 1);
@@ -363,21 +364,21 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
                 }
             }
             aqVar.an("obj_locate", getStatPosition());
-            aqVar.dX(TiebaInitialize.Params.OBJ_PARAM3, m.cuR());
-            s.cva().e(aqVar);
+            aqVar.dX(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.cuS());
+            s.cvb().e(aqVar);
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void ddM() {
+    public void ddN() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void aWD() {
+    public void aWE() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void cUp() {
+    public void cUq() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
@@ -385,7 +386,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public final void setAfterClickSchemeListener(a aVar) {
+    public final void setAfterClickSchemeListener(com.baidu.tieba.lego.card.a aVar) {
         this.kYN = aVar;
     }
 
@@ -395,17 +396,17 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void setDownloadAppCallback(c cVar) {
+    public void setDownloadAppCallback(com.baidu.tieba.lego.card.c cVar) {
         this.kYO = cVar;
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void ddN() {
+    public void ddO() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String d(@NonNull AdvertAppInfo advertAppInfo) {
-        if (advertAppInfo.bpg()) {
+        if (advertAppInfo.bph()) {
             return "";
         }
         return TextUtils.isEmpty(advertAppInfo.eNW) ? advertAppInfo.eNT : advertAppInfo.eNW;

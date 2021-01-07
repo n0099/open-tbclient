@@ -1,5 +1,5 @@
 package com.baidu.crashpad;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RC4 {
     private static final String LOGTAG = "RC4 CRASHPAD";
     private static final int STATE_LENGTH = 256;

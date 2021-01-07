@@ -137,7 +137,7 @@ public class AlaSnatchRedPacketActivity extends BaseFragmentActivity {
                 AlaSnatchRedPacketActivity.this.gsv = ((Long) customResponsedMessage.getData()).longValue();
                 AlaSnatchRedPacketActivity.this.eX(AlaSnatchRedPacketActivity.this.gsv);
                 if (AlaSnatchRedPacketActivity.this.gsv < 1) {
-                    AlaSnatchRedPacketActivity.this.bRN();
+                    AlaSnatchRedPacketActivity.this.bRO();
                 }
             }
         }
@@ -214,7 +214,7 @@ public class AlaSnatchRedPacketActivity extends BaseFragmentActivity {
         this.gsd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaSnatchRedPacketActivity.12
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaSnatchRedPacketActivity.this.bRP();
+                AlaSnatchRedPacketActivity.this.bRQ();
             }
         });
         this.mCloseBtn = (ImageView) findViewById(a.f.rp_close_btn);
@@ -237,12 +237,12 @@ public class AlaSnatchRedPacketActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(l lVar) {
         this.gss = lVar;
-        if (lVar.bXq()) {
+        if (lVar.bXr()) {
             this.gsx = 101;
         } else {
             this.gsx = 100;
         }
-        bRL();
+        bRM();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -255,7 +255,7 @@ public class AlaSnatchRedPacketActivity extends BaseFragmentActivity {
                 m.a(this.bmO, cVar.gUa.portrait, true, false);
             }
             this.eLt.setText(cVar.gUa.userName);
-            if (!cVar.bXt()) {
+            if (!cVar.bXu()) {
                 this.gsd.setVisibility(8);
             } else {
                 boolean equals = TbadkCoreApplication.getCurrentAccount() != null ? TbadkCoreApplication.getCurrentAccount().equals(this.gsn) : true;
@@ -265,50 +265,50 @@ public class AlaSnatchRedPacketActivity extends BaseFragmentActivity {
                     this.gsd.setVisibility(0);
                 }
             }
-            if (this.gsr.bXq()) {
+            if (this.gsr.bXr()) {
                 this.gsw = 3;
             } else if (this.gsr.isValid()) {
-                if (cVar.bXs()) {
+                if (cVar.bXt()) {
                     this.gsw = 1;
                     this.gsd.setVisibility(8);
                 } else {
                     this.gsw = 2;
                 }
-            } else if (this.gsr.bXn()) {
-                this.gsw = 5;
             } else if (this.gsr.bXo()) {
+                this.gsw = 5;
+            } else if (this.gsr.bXp()) {
                 this.gsw = 4;
             }
-            bRK();
+            bRL();
         }
     }
 
-    private void bRK() {
+    private void bRL() {
         switch (this.gsw) {
             case 1:
-                bRO();
+                bRP();
                 return;
             case 2:
-                bRM();
+                bRN();
                 return;
             case 3:
                 this.gsx = 102;
-                bRL();
+                bRM();
                 return;
             case 4:
                 this.gsx = 103;
-                bRL();
+                bRM();
                 return;
             case 5:
                 this.gsx = 104;
-                bRL();
+                bRM();
                 return;
             default:
                 return;
         }
     }
 
-    private void bRL() {
+    private void bRM() {
         String str;
         this.gsc.setVisibility(8);
         this.gsb.setVisibility(0);
@@ -327,7 +327,7 @@ public class AlaSnatchRedPacketActivity extends BaseFragmentActivity {
         textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaSnatchRedPacketActivity.15
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaSnatchRedPacketActivity.this.bRI();
+                AlaSnatchRedPacketActivity.this.bRJ();
                 AlaSnatchRedPacketActivity.this.finish();
             }
         });
@@ -353,21 +353,21 @@ public class AlaSnatchRedPacketActivity extends BaseFragmentActivity {
                 textView2.setVisibility(0);
                 ((LinearLayout) inflate.findViewById(a.f.rp_snatch_succ_layout)).setVisibility(0);
                 TextView textView4 = (TextView) inflate.findViewById(a.f.rp_snatch_amount);
-                textView4.setText(String.format(getResources().getString(a.h.snatch_red_packet_t_dou_suffix), Long.valueOf(this.gss.bXr())));
+                textView4.setText(String.format(getResources().getString(a.h.snatch_red_packet_t_dou_suffix), Long.valueOf(this.gss.bXs())));
                 textView4.setVisibility(0);
                 return;
             case 102:
                 textView2.setVisibility(0);
                 TextView textView5 = (TextView) inflate.findViewById(a.f.rp_snatched);
                 textView5.setVisibility(0);
-                textView5.setText(getPageContext().getString(a.h.snatch_red_packet_loot_prefix) + String.format(getResources().getString(a.h.snatch_red_packet_t_dou_suffix), Long.valueOf(this.gsr.bXr())));
+                textView5.setText(getPageContext().getString(a.h.snatch_red_packet_loot_prefix) + String.format(getResources().getString(a.h.snatch_red_packet_t_dou_suffix), Long.valueOf(this.gsr.bXs())));
                 return;
             default:
                 return;
         }
     }
 
-    private void bRM() {
+    private void bRN() {
         this.gsc.setVisibility(0);
         this.gsb.setVisibility(8);
         this.gse.removeAllViews();
@@ -401,7 +401,7 @@ public class AlaSnatchRedPacketActivity extends BaseFragmentActivity {
         this.gsj = (ImageView) inflate.findViewById(a.f.rp_snatch_countdown_dot);
         this.gsj.setVisibility(8);
         this.gsi = (TextView) inflate.findViewById(a.f.rp_snatch_countdown_second);
-        if (!this.gsr.bXp()) {
+        if (!this.gsr.bXq()) {
             this.gsl.setVisibility(0);
             this.gsf.setVisibility(8);
             mj(false);
@@ -409,8 +409,8 @@ public class AlaSnatchRedPacketActivity extends BaseFragmentActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRN() {
-        bRQ();
+    public void bRO() {
+        bRR();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -450,7 +450,7 @@ public class AlaSnatchRedPacketActivity extends BaseFragmentActivity {
         }
     }
 
-    private void bRO() {
+    private void bRP() {
         this.gsc.setVisibility(8);
         this.gsb.setVisibility(0);
         this.gse.removeAllViews();
@@ -458,11 +458,11 @@ public class AlaSnatchRedPacketActivity extends BaseFragmentActivity {
         this.gse.addView(inflate, this.gsq);
         TextView textView = (TextView) inflate.findViewById(a.f.rp_condition_desc);
         TextView textView2 = (TextView) inflate.findViewById(a.f.rp_condition_btn);
-        if (this.gsr.bXu()) {
+        if (this.gsr.bXv()) {
             this.gst = false;
             textView.setText(a.h.snatch_red_packet_cond_follow_desc);
             textView2.setText(a.h.snatch_red_packet_follow_btn);
-        } else if (this.gsr.bXv()) {
+        } else if (this.gsr.bXw()) {
             this.gst = true;
             textView.setText(a.h.snatch_red_packet_cond_gift_desc);
             textView2.setText(a.h.snatch_red_packet_gift_btn);
@@ -471,31 +471,31 @@ public class AlaSnatchRedPacketActivity extends BaseFragmentActivity {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (AlaSnatchRedPacketActivity.this.gst) {
-                    AlaSnatchRedPacketActivity.this.bRI();
+                    AlaSnatchRedPacketActivity.this.bRJ();
                     AlaSnatchRedPacketActivity.this.finish();
                     return;
                 }
-                AlaSnatchRedPacketActivity.this.bwf();
+                AlaSnatchRedPacketActivity.this.bwg();
                 AlaSnatchRedPacketActivity.this.finish();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bwf() {
+    public void bwg() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913131, null));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRP() {
+    public void bRQ() {
         String str = this.gsr.gUb.gUi;
         com.baidu.live.data.f fVar = new com.baidu.live.data.f(this.gsr.gUa.portrait, str, true, getUniqueId());
         fVar.setFrom("source_snatch_red_packet");
-        com.baidu.live.view.a.Zx().a(str, fVar);
+        com.baidu.live.view.a.Zy().a(str, fVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRI() {
+    public void bRJ() {
         ak akVar = new ak();
         akVar.aMe = -1;
         akVar.aMf = -1;
@@ -526,7 +526,7 @@ public class AlaSnatchRedPacketActivity extends BaseFragmentActivity {
         AlaStatManager.getInstance().debug("redpacket_loot_enable", "", "", alaStatsItem);
     }
 
-    private void bRQ() {
+    private void bRR() {
         this.gsf.setVisibility(0);
         this.gsl.setVisibility(0);
         this.gso = ValueAnimator.ofFloat(0.0f, 1.0f);

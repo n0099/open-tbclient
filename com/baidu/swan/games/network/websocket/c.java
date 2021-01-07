@@ -39,7 +39,7 @@ public class c extends WebSocketEventTarget {
         } else {
             String optString = k.optString("url");
             String optString2 = k.optString("__plugin__");
-            if (!this.elW.aGE()) {
+            if (!this.elW.aGF()) {
                 a(k, "connectSocket", "up to max connect count");
             } else if (!dm(optString, optString2)) {
                 a(k, "connectSocket", String.format("invalid url \"%s\"", optString));
@@ -138,7 +138,7 @@ public class c extends WebSocketEventTarget {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (com.baidu.swan.apps.ad.a.a.aIH()) {
+        if (com.baidu.swan.apps.ad.a.a.aII()) {
             return true;
         }
         return str.startsWith("wss://") && com.baidu.swan.apps.af.a.b.Y("socket", str, str2) == 0;

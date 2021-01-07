@@ -388,7 +388,7 @@ public class c {
         return -1;
     }
 
-    private void aEd() {
+    private void aEe() {
         try {
             if (this.dlg && this.dlh) {
                 this.dlf.release();
@@ -402,7 +402,7 @@ public class c {
     }
 
     public void release() {
-        aEd();
+        aEe();
         da(this.mContext);
         this.dll = false;
     }

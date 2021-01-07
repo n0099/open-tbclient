@@ -29,7 +29,7 @@ public class a extends com.baidu.tbadk.l.a {
     private f eXW;
     protected TbImageView fJg;
     private BdListView jMR;
-    private C0748a jMS;
+    private C0755a jMS;
     private TextView jMT;
     private TextView mTitleView;
     protected TextView subTextView;
@@ -71,7 +71,7 @@ public class a extends com.baidu.tbadk.l.a {
 
     public void setListData(List<RecmForumInfo> list) {
         if (list != null) {
-            this.jMS = new C0748a(list);
+            this.jMS = new C0755a(list);
             this.jMR.setAdapter((ListAdapter) this.jMS);
         }
     }
@@ -107,10 +107,10 @@ public class a extends com.baidu.tbadk.l.a {
 
     /* renamed from: com.baidu.tieba.frs.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0748a extends BaseAdapter {
+    public class C0755a extends BaseAdapter {
         private List<RecmForumInfo> jMU;
 
-        public C0748a(List<RecmForumInfo> list) {
+        public C0755a(List<RecmForumInfo> list) {
             this.jMU = list;
         }
 
@@ -160,8 +160,8 @@ public class a extends com.baidu.tbadk.l.a {
                 bVar.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (!StringUtils.isNull(C0748a.this.getItem(i).forum_name)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(a.this.eXW.getContext()).createNormalCfg(C0748a.this.getItem(i).forum_name, null)));
+                        if (!StringUtils.isNull(C0755a.this.getItem(i).forum_name)) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(a.this.eXW.getContext()).createNormalCfg(C0755a.this.getItem(i).forum_name, null)));
                         }
                     }
                 });
@@ -171,7 +171,7 @@ public class a extends com.baidu.tbadk.l.a {
                 ao.setViewTextColor(bVar.jNd, R.color.CAM_X0109);
                 ao.setViewTextColor(bVar.jNc, R.color.CAM_X0109);
                 ao.setBackgroundResource(bVar.bUk, R.color.CAM_X0204);
-                SvgManager.bwq().a(bVar.jNa, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+                SvgManager.bwr().a(bVar.jNa, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
                 ao.setBackgroundResource(view, R.drawable.addresslist_item_bg);
                 ao.setBackgroundResource(bVar.jNe, R.drawable.picture_content_frame);
             }

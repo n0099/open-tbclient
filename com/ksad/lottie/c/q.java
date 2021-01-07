@@ -13,19 +13,19 @@ import java.lang.ref.WeakReference;
 class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Interpolator f8276a = new LinearInterpolator();
+    private static final Interpolator f8277a = new LinearInterpolator();
 
     /* renamed from: b  reason: collision with root package name */
-    private static SparseArrayCompat<WeakReference<Interpolator>> f8277b;
+    private static SparseArrayCompat<WeakReference<Interpolator>> f8278b;
 
     q() {
     }
 
     private static SparseArrayCompat<WeakReference<Interpolator>> a() {
-        if (f8277b == null) {
-            f8277b = new SparseArrayCompat<>();
+        if (f8278b == null) {
+            f8278b = new SparseArrayCompat<>();
         }
-        return f8277b;
+        return f8278b;
     }
 
     private static <T> com.ksad.lottie.e.a<T> a(JsonReader jsonReader, float f, aj<T> ajVar) {
@@ -164,10 +164,10 @@ class q {
         }
         jsonReader.endObject();
         if (z) {
-            interpolator = f8276a;
+            interpolator = f8277a;
             t = t3;
         } else if (pointF2 == null || pointF3 == null) {
-            interpolator = f8276a;
+            interpolator = f8277a;
             t = t4;
         } else {
             pointF2.x = com.ksad.lottie.d.e.b(pointF2.x, -f, f);
@@ -204,7 +204,7 @@ class q {
 
     private static void a(int i, WeakReference<Interpolator> weakReference) {
         synchronized (q.class) {
-            f8277b.put(i, weakReference);
+            f8278b.put(i, weakReference);
         }
     }
 }

@@ -222,7 +222,7 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
             } else {
                 this.mRootView.setBackgroundResource(a.e.ala_rank_list_top_corner_bg);
             }
-            Xk();
+            Xl();
         }
     }
 
@@ -298,10 +298,10 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Xk();
+        Xl();
     }
 
-    private void Xk() {
+    private void Xl() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -352,7 +352,7 @@ public class AlaRankListActivity extends BaseActivity implements View.OnTouchLis
 
     private void initTabSpec() {
         this.grE = new AlaRankListFragmentAdapter(this, this.aMi, this.mUserId, this.mUserName, this.grC, this.mPortrait, this.otherParams, this.beS, this.grz, this.grA);
-        this.grF = this.grE.Gf(this.grB);
+        this.grF = this.grE.Ge(this.grB);
         this.aHr = (AlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_charm_tab_host);
         this.aHr.setIndicatorWidthAuto(true);
         this.aHr.setPageSelectedListener(new AlaLiveRoomPanelTabHost.b() { // from class: com.baidu.tieba.ala.AlaRankListActivity.8

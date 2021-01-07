@@ -5,70 +5,70 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes15.dex */
 public class f {
-    private static final f qwR = new f();
-    static final b qwW = new b() { // from class: rx.c.f.1
+    private static final f qyz = new f();
+    static final b qyE = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> qwS = new AtomicReference<>();
-    private final AtomicReference<d> qwT = new AtomicReference<>();
-    private final AtomicReference<h> qwU = new AtomicReference<>();
-    private final AtomicReference<a> qwV = new AtomicReference<>();
-    private final AtomicReference<g> qqS = new AtomicReference<>();
+    private final AtomicReference<b> qyA = new AtomicReference<>();
+    private final AtomicReference<d> qyB = new AtomicReference<>();
+    private final AtomicReference<h> qyC = new AtomicReference<>();
+    private final AtomicReference<a> qyD = new AtomicReference<>();
+    private final AtomicReference<g> qsA = new AtomicReference<>();
 
     @Deprecated
-    public static f eOF() {
-        return qwR;
+    public static f ePj() {
+        return qyz;
     }
 
     f() {
     }
 
-    public b eOG() {
-        if (this.qwS.get() == null) {
+    public b ePk() {
+        if (this.qyA.get() == null) {
             Object a2 = a(b.class, System.getProperties());
             if (a2 == null) {
-                this.qwS.compareAndSet(null, qwW);
+                this.qyA.compareAndSet(null, qyE);
             } else {
-                this.qwS.compareAndSet(null, (b) a2);
+                this.qyA.compareAndSet(null, (b) a2);
             }
         }
-        return this.qwS.get();
+        return this.qyA.get();
     }
 
-    public d eOH() {
-        if (this.qwT.get() == null) {
+    public d ePl() {
+        if (this.qyB.get() == null) {
             Object a2 = a(d.class, System.getProperties());
             if (a2 == null) {
-                this.qwT.compareAndSet(null, e.eOE());
+                this.qyB.compareAndSet(null, e.ePi());
             } else {
-                this.qwT.compareAndSet(null, (d) a2);
+                this.qyB.compareAndSet(null, (d) a2);
             }
         }
-        return this.qwT.get();
+        return this.qyB.get();
     }
 
-    public h eOI() {
-        if (this.qwU.get() == null) {
+    public h ePm() {
+        if (this.qyC.get() == null) {
             Object a2 = a(h.class, System.getProperties());
             if (a2 == null) {
-                this.qwU.compareAndSet(null, i.eOS());
+                this.qyC.compareAndSet(null, i.ePw());
             } else {
-                this.qwU.compareAndSet(null, (h) a2);
+                this.qyC.compareAndSet(null, (h) a2);
             }
         }
-        return this.qwU.get();
+        return this.qyC.get();
     }
 
-    public a eOJ() {
-        if (this.qwV.get() == null) {
+    public a ePn() {
+        if (this.qyD.get() == null) {
             Object a2 = a(a.class, System.getProperties());
             if (a2 == null) {
-                this.qwV.compareAndSet(null, new a() { // from class: rx.c.f.2
+                this.qyD.compareAndSet(null, new a() { // from class: rx.c.f.2
                 });
             } else {
-                this.qwV.compareAndSet(null, (a) a2);
+                this.qyD.compareAndSet(null, (a) a2);
             }
         }
-        return this.qwV.get();
+        return this.qyD.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g eOK() {
-        if (this.qqS.get() == null) {
+    public g ePo() {
+        if (this.qsA.get() == null) {
             Object a2 = a(g.class, System.getProperties());
             if (a2 == null) {
-                this.qqS.compareAndSet(null, g.eOR());
+                this.qsA.compareAndSet(null, g.ePv());
             } else {
-                this.qqS.compareAndSet(null, (g) a2);
+                this.qsA.compareAndSet(null, (g) a2);
             }
         }
-        return this.qqS.get();
+        return this.qsA.get();
     }
 }

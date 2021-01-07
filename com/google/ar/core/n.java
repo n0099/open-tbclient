@@ -8,9 +8,9 @@ import android.util.Log;
 import com.google.ar.core.ArCoreApk;
 import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 class n implements ArCoreApk.a {
-    final /* synthetic */ o pKs;
+    final /* synthetic */ o pMa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static ArCoreApk.Availability iq(Context context) {
@@ -33,7 +33,7 @@ class n implements ArCoreApk.a {
 
     static PendingIntent ir(Context context) throws UnavailableDeviceNotCompatibleException, UnavailableUserDeclinedInstallationException {
         try {
-            Bundle call = context.getContentResolver().call(ZL(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
+            Bundle call = context.getContentResolver().call(ZM(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
             if (call == null) {
                 return null;
             }
@@ -68,20 +68,20 @@ class n implements ArCoreApk.a {
         }
     }
 
-    public static Uri ZL(String str) {
+    public static Uri ZM(String str) {
         return new Uri.Builder().scheme("content").authority("com.google.ar.core.services.arcorecontentprovider").path(str).build();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(o oVar) {
-        this.pKs = oVar;
+        this.pMa = oVar;
     }
 
     @Override // com.google.ar.core.ArCoreApk.a
     public void a(ArCoreApk.Availability availability) {
-        synchronized (this.pKs) {
-            o.a(this.pKs, availability);
-            o.a(this.pKs, false);
+        synchronized (this.pMa) {
+            o.a(this.pMa, availability);
+            o.a(this.pMa, false);
         }
     }
 }

@@ -3,19 +3,19 @@ package com.kwad.sdk.core.videocache;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f9805a;
+    public final String f9806a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f9806b;
+    public final long f9807b;
     public final String c;
 
     public n(String str, long j, String str2) {
-        this.f9805a = str;
-        this.f9806b = j;
+        this.f9806a = str;
+        this.f9807b = j;
         this.c = str2;
     }
 
     public String toString() {
-        return "SourceInfo{url='" + this.f9805a + "', length=" + this.f9806b + ", mime='" + this.c + "'}";
+        return "SourceInfo{url='" + this.f9806a + "', length=" + this.f9807b + ", mime='" + this.c + "'}";
     }
 }

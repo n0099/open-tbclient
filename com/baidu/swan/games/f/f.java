@@ -9,12 +9,12 @@ public class f extends com.baidu.swan.games.f.a {
     }
 
     @Override // com.baidu.swan.games.f.a
-    public EventTarget aZz() {
+    public EventTarget aZA() {
         return null;
     }
 
     @Override // com.baidu.swan.games.f.a
-    public EventTarget aZA() {
+    public EventTarget aZB() {
         return null;
     }
 
@@ -37,7 +37,7 @@ public class f extends com.baidu.swan.games.f.a {
         }
 
         @Override // com.baidu.swan.games.f.d.a, com.baidu.swan.games.f.d.b
-        public String atK() {
+        public String atL() {
             return "swan-game-worker.js";
         }
     }

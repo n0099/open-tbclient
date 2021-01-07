@@ -41,7 +41,7 @@ public class f {
                     f.this.adc.dismiss();
                 }
             } else if (view == f.this.jlQ && f.this.jlS != null && !StringUtils.isNull(f.this.jlS.getUrl())) {
-                be.bwu().a(f.this.mPageContext, new String[]{f.this.jlS.getUrl()}, true);
+                be.bwv().a(f.this.mPageContext, new String[]{f.this.jlS.getUrl()}, true);
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
                 httpMessage.addParam("id", f.this.jlS.getId());
                 MessageManager.getInstance().sendMessage(httpMessage);
@@ -89,9 +89,9 @@ public class f {
         this.fGG = mVar.getForum();
         this.jlS = mVar.getBusinessPromot();
         String str = "key_frs_dialog_ad_last_show_time" + mVar.getForum().getId();
-        long j = com.baidu.tbadk.core.sharedPref.b.bvq().getLong(str, 0L);
+        long j = com.baidu.tbadk.core.sharedPref.b.bvr().getLong(str, 0L);
         if (j < 0 || !bd.c(new Date(j), new Date(System.currentTimeMillis()))) {
-            com.baidu.tbadk.core.sharedPref.b.bvq().putLong(str, System.currentTimeMillis());
+            com.baidu.tbadk.core.sharedPref.b.bvr().putLong(str, System.currentTimeMillis());
             SY();
             return true;
         }
@@ -104,7 +104,7 @@ public class f {
         this.adc = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
         this.adc.jH(true);
         this.adc.jI(true);
-        this.adc.b(this.mPageContext).btX();
+        this.adc.b(this.mPageContext).btY();
         View decorView = this.adc.getWindow().getDecorView();
         WindowManager.LayoutParams attributes = this.adc.getWindow().getAttributes();
         if (attributes != null) {
@@ -156,7 +156,7 @@ public class f {
         this.ffd = (TextView) this.mRootView.findViewById(R.id.frs_ad_close);
         this.ffd.setOnClickListener(this.mClickListener);
         if (this.jlS != null) {
-            this.jlQ.startLoad(this.jlS.dOa(), 10, false);
+            this.jlQ.startLoad(this.jlS.dOb(), 10, false);
         }
     }
 }

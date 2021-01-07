@@ -6,10 +6,10 @@ import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
 public abstract class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private b.f f14960a;
+    private b.f f15043a;
 
     /* renamed from: b  reason: collision with root package name */
-    private b.InterfaceC1293b f14961b;
+    private b.InterfaceC1334b f15044b;
     private b.a c;
     private b.g d;
     private b.i e;
@@ -19,9 +19,9 @@ public abstract class a implements b {
     private b.e i;
 
     public void a() {
-        this.f14960a = null;
+        this.f15043a = null;
         this.c = null;
-        this.f14961b = null;
+        this.f15044b = null;
         this.d = null;
         this.e = null;
         this.f = null;
@@ -51,8 +51,8 @@ public abstract class a implements b {
         this.c = aVar;
     }
 
-    public final void a(b.InterfaceC1293b interfaceC1293b) {
-        this.f14961b = interfaceC1293b;
+    public final void a(b.InterfaceC1334b interfaceC1334b) {
+        this.f15044b = interfaceC1334b;
     }
 
     public final void a(b.c cVar) {
@@ -68,7 +68,7 @@ public abstract class a implements b {
     }
 
     public final void a(b.f fVar) {
-        this.f14960a = fVar;
+        this.f15043a = fVar;
     }
 
     public final void a(b.g gVar) {
@@ -93,8 +93,8 @@ public abstract class a implements b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b() {
-        if (this.f14960a != null) {
-            this.f14960a.a(this);
+        if (this.f15043a != null) {
+            this.f15043a.a(this);
         }
     }
 
@@ -105,8 +105,8 @@ public abstract class a implements b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void c() {
-        if (this.f14961b != null) {
-            this.f14961b.b(this);
+        if (this.f15044b != null) {
+            this.f15044b.b(this);
         }
     }
 

@@ -9,34 +9,34 @@ import com.baidu.platform.comapi.bikenavi.widget.h;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private a.c f4555a;
+    private a.c f4556a;
 
     /* renamed from: b  reason: collision with root package name */
-    private a.b f4556b;
+    private a.b f4557b;
     private a.C0259a c;
     private a.c d;
     private a.b e;
     private a.C0258a f;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final d f4557a = new d();
+        static final d f4558a = new d();
     }
 
     public static d a() {
-        return a.f4557a;
+        return a.f4558a;
     }
 
     private d() {
-        this.f4555a = null;
-        this.f4556b = null;
+        this.f4556a = null;
+        this.f4557b = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -87,10 +87,10 @@ public class d {
         if (i > 0) {
             switch (i) {
                 case 1:
-                    this.f4555a = new a.c();
+                    this.f4556a = new a.c();
                     return;
                 case 2:
-                    this.f4556b = new a.b();
+                    this.f4557b = new a.b();
                     return;
                 case 3:
                     this.c = new a.C0259a();
@@ -114,10 +114,10 @@ public class d {
         if (i > 0 && bVar != null) {
             switch (i) {
                 case 1:
-                    ((com.baidu.platform.comapi.walknavi.widget.d) bVar).a(this.f4555a);
+                    ((com.baidu.platform.comapi.walknavi.widget.d) bVar).a(this.f4556a);
                     return;
                 case 2:
-                    ((com.baidu.platform.comapi.walknavi.g.c.c) bVar).a(this.f4556b);
+                    ((com.baidu.platform.comapi.walknavi.g.c.c) bVar).a(this.f4557b);
                     return;
                 case 3:
                     ((com.baidu.platform.comapi.walknavi.g.c.c) bVar).a(this.c);
@@ -232,56 +232,56 @@ public class d {
     }
 
     private void f(XmlPullParser xmlPullParser, int i, int i2) {
-        if (xmlPullParser != null && i >= 0 && i2 == 2 && this.f4556b != null) {
+        if (xmlPullParser != null && i >= 0 && i2 == 2 && this.f4557b != null) {
             if ("BMSDK_LAYOUT_CALORIE".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f4556b.a(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f4557b.a(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
             if ("BMSDK_TEXT_CALORIE_HINT".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f4556b.b(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f4557b.b(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
             if ("BMSDK_IMAGE_CALORIE_ICON".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f4556b.c(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f4557b.c(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
             if ("BMSDK_TEXT_CONSUME_CALORIE_TIMES".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f4556b.d(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f4557b.d(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
             if ("BMSDK_LAYOUT_CALORIE_BTN".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f4556b.e(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f4557b.e(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
             if ("BMSDK_TEXT_CALORIE_NUMBER".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f4556b.f(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f4557b.f(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
             if ("BMSDK_TEXT_CALORIE_UNIT".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f4556b.g(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f4557b.g(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
         }
     }
 
     private void g(XmlPullParser xmlPullParser, int i, int i2) {
-        if (xmlPullParser != null && i >= 0 && i2 == 1 && this.f4555a != null) {
+        if (xmlPullParser != null && i >= 0 && i2 == 1 && this.f4556a != null) {
             if ("BMSDK_LAYOUT_GUIDE".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f4555a.a(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f4556a.a(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
             if ("BMSDK_LAYOUT_GUIDE".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f4555a.b(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "background"));
+                this.f4556a.b(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "background"));
             }
             if ("BMSDK_IMAGE_IVICON".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f4555a.c(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f4556a.c(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
             if ("BMSDK_LAYOUT_GPS_WEAK".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f4555a.d(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f4556a.d(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
             if ("BMSDK_TEXT_GUIDE_REMAIN".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f4555a.e(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f4556a.e(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
             if ("BMSDK_TEXT_GUIDE".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f4555a.f(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f4556a.f(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
             if ("BMSDK_TEXT_GPS_WEAK".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f4555a.g(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f4556a.g(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
             if ("BMSDK_TEXT_GPS_HINT".equals(xmlPullParser.getAttributeValue(i))) {
-                this.f4555a.h(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
+                this.f4556a.h(xmlPullParser.getAttributeValue(xmlPullParser.getAttributeNamespace(i), "id"));
             }
         }
     }

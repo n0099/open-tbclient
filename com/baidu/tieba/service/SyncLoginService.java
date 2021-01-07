@@ -87,7 +87,7 @@ public class SyncLoginService extends BdBaseService {
                 this.cmJ.addPostData("scr_w", String.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
                 this.cmJ.addPostData("scr_h", String.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
                 this.cmJ.addPostData("scr_dip", String.valueOf(l.getEquipmentDensity(TbadkCoreApplication.getInst().getApp())));
-                if (com.baidu.tbadk.coreExtra.messageCenter.d.bBF().bBI() > 0) {
+                if (com.baidu.tbadk.coreExtra.messageCenter.d.bBG().bBJ() > 0) {
                     this.cmJ.addPostData("_msg_status", "0");
                 } else {
                     this.cmJ.addPostData("_msg_status", "1");
@@ -99,7 +99,7 @@ public class SyncLoginService extends BdBaseService {
                     }
                     this.cmJ.addPostData("_active", activeVersion);
                 }
-                this.cmJ.addPostData("_pic_quality", String.valueOf(k.bou().getViewImageQuality()));
+                this.cmJ.addPostData("_pic_quality", String.valueOf(k.bov().getViewImageQuality()));
                 if (SyncLoginService.mStatistics != null) {
                     this.cmJ.addPostData("_msg_type", SyncLoginService.mStatistics);
                 }
@@ -109,7 +109,7 @@ public class SyncLoginService extends BdBaseService {
                 this.cmJ.addPostData("signmd5", av.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
                 this.cmJ.addPostData("md5", i.getTiebaApkMd5());
                 String postNetData = this.cmJ.postNetData();
-                if (this.cmJ.bvQ().bwA().isRequestSuccess()) {
+                if (this.cmJ.bvR().bwB().isRequestSuccess()) {
                     dVar = new d();
                     try {
                         dVar.parserJson(postNetData);

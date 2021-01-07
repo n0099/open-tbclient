@@ -12,7 +12,7 @@ import java.util.Map;
 public class MethodUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<String, Method> f2055a = new HashMap();
+    private static Map<String, Method> f2056a = new HashMap();
 
     private static String a(Class<?> cls, String str, Class<?>... clsArr) {
         StringBuilder sb = new StringBuilder();
@@ -80,8 +80,8 @@ public class MethodUtils {
     public static Method getAccessibleMethod(Class<?> cls, String str, Class<?>... clsArr) throws NoSuchMethodException {
         Method method;
         String a2 = a(cls, str, clsArr);
-        synchronized (f2055a) {
-            method = f2055a.get(a2);
+        synchronized (f2056a) {
+            method = f2056a.get(a2);
         }
         if (method != null) {
             if (!method.isAccessible()) {
@@ -89,8 +89,8 @@ public class MethodUtils {
             }
         } else {
             method = a(cls.getMethod(str, clsArr));
-            synchronized (f2055a) {
-                f2055a.put(a2, method);
+            synchronized (f2056a) {
+                f2056a.put(a2, method);
             }
         }
         return method;
@@ -101,8 +101,8 @@ public class MethodUtils {
         Method[] methods;
         Method a2;
         String a3 = a(cls, str, clsArr);
-        synchronized (f2055a) {
-            method = f2055a.get(a3);
+        synchronized (f2056a) {
+            method = f2056a.get(a3);
         }
         if (method != null) {
             if (!method.isAccessible()) {
@@ -112,8 +112,8 @@ public class MethodUtils {
             try {
                 method = cls.getMethod(str, clsArr);
                 MemberUtils.a((AccessibleObject) method);
-                synchronized (f2055a) {
-                    f2055a.put(a3, method);
+                synchronized (f2056a) {
+                    f2056a.put(a3, method);
                 }
             } catch (NoSuchMethodException e) {
                 method = null;
@@ -125,8 +125,8 @@ public class MethodUtils {
                 if (method != null) {
                     MemberUtils.a((AccessibleObject) method);
                 }
-                synchronized (f2055a) {
-                    f2055a.put(a3, method);
+                synchronized (f2056a) {
+                    f2056a.put(a3, method);
                 }
             }
         }

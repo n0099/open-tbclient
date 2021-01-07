@@ -47,7 +47,7 @@ public class k {
         this.eBg = i;
     }
 
-    public void Xt(String str) {
+    public void Xs(String str) {
         this.oNx = str;
     }
 
@@ -55,11 +55,11 @@ public class k {
         return this.mId;
     }
 
-    public String bip() {
+    public String biq() {
         return this.eBb;
     }
 
-    public String biq() {
+    public String bir() {
         return this.eBc;
     }
 
@@ -71,15 +71,15 @@ public class k {
         return this.mType;
     }
 
-    public String bir() {
+    public String bis() {
         return this.eBe;
     }
 
-    public String eja() {
+    public String ejb() {
         return this.oNx;
     }
 
-    public int bis() {
+    public int bit() {
         return this.mRate;
     }
 
@@ -87,11 +87,11 @@ public class k {
         return this.mCategory;
     }
 
-    public int bit() {
+    public int biu() {
         return this.eBf;
     }
 
-    public int biu() {
+    public int biv() {
         return this.eBg;
     }
 
@@ -99,15 +99,15 @@ public class k {
         this.eBh = str;
     }
 
-    public String biv() {
+    public String biw() {
         return this.eBh;
     }
 
-    public String ejb() {
+    public String ejc() {
         return this.oNy;
     }
 
-    public void Xu(String str) {
+    public void Xt(String str) {
         this.oNy = str;
     }
 
@@ -119,31 +119,31 @@ public class k {
         return TextUtils.isEmpty(this.mVersion) ? "0" : this.mVersion;
     }
 
-    public void Xv(String str) {
+    public void Xu(String str) {
         this.oNz = str;
     }
 
-    public String ejc() {
+    public String ejd() {
         return this.oNz;
     }
 
-    public void Xw(String str) {
+    public void Xv(String str) {
         this.oNA = str;
     }
 
-    public String ejd() {
+    public String eje() {
         return this.oNA;
     }
 
-    public String eje() {
+    public String ejf() {
         return this.oNB;
     }
 
-    public void Xx(String str) {
+    public void Xw(String str) {
         this.oNB = str;
     }
 
-    public int ejf() {
+    public int ejg() {
         return this.oNC;
     }
 

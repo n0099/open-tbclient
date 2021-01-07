@@ -6,90 +6,90 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class g {
-    private PostSearchActivity mHS;
-    private a mIL;
-    private c mIM;
-    private f mIN;
+    private PostSearchActivity mHR;
+    private a mIK;
+    private c mIL;
+    private f mIM;
     private View mRootView;
 
     public g(PostSearchActivity postSearchActivity) {
-        this.mHS = postSearchActivity;
+        this.mHR = postSearchActivity;
     }
 
     public void initView() {
-        this.mHS.setContentView(R.layout.post_search_activity);
-        this.mRootView = this.mHS.findViewById(R.id.search_rootview);
-        this.mIL = new a(this.mHS, this.mRootView);
-        this.mIM = new c(this.mHS, this.mRootView);
-        this.mIN = new f(this.mHS, this.mRootView);
+        this.mHR.setContentView(R.layout.post_search_activity);
+        this.mRootView = this.mHR.findViewById(R.id.search_rootview);
+        this.mIK = new a(this.mHR, this.mRootView);
+        this.mIL = new c(this.mHR, this.mRootView);
+        this.mIM = new f(this.mHR, this.mRootView);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        if (this.mIN != null) {
-            this.mIN.setOnPageChangeListener(onPageChangeListener);
+        if (this.mIM != null) {
+            this.mIM.setOnPageChangeListener(onPageChangeListener);
         }
     }
 
     public void bh(ArrayList<String> arrayList) {
-        this.mIN.ix(false);
-        this.mIM.bh(arrayList);
+        this.mIM.ix(false);
+        this.mIL.bh(arrayList);
     }
 
     public void IO(int i) {
-        this.mIL.cPk();
+        this.mIK.cPl();
         hideSoftKeyPad();
-        this.mIL.dDc();
-        this.mIN.ix(true);
-        this.mIN.IO(i);
+        this.mIK.dDd();
+        this.mIM.ix(true);
+        this.mIM.IO(i);
     }
 
-    public void Rc(String str) {
-        this.mIL.Rc(str);
+    public void Rb(String str) {
+        this.mIK.Rb(str);
     }
 
     public void a(int i, b bVar, boolean z) {
-        this.mIN.a(i, bVar, z);
+        this.mIM.a(i, bVar, z);
     }
 
-    public boolean dDg() {
-        return this.mIM.dDo();
+    public boolean dDh() {
+        return this.mIL.dDp();
     }
 
     public void showLoadingView() {
-        this.mIM.showLoadingView();
-        this.mIM.hideNoDataView();
+        this.mIL.showLoadingView();
+        this.mIL.hideNoDataView();
     }
 
     public void hideLoadingView() {
-        this.mIM.hideLoadingView();
+        this.mIL.hideLoadingView();
     }
 
-    public void dDn() {
-        this.mIM.dDn();
+    public void dDo() {
+        this.mIL.dDo();
     }
 
     public void hideSoftKeyPad() {
-        this.mIL.hideSoftKeyPad();
+        this.mIK.hideSoftKeyPad();
     }
 
-    public void dDz() {
-        this.mIM.dDm();
+    public void dDA() {
+        this.mIL.dDn();
     }
 
     public int getCurrentTabType() {
-        return this.mIN.getCurrentTabType();
+        return this.mIM.getCurrentTabType();
     }
 
     public void onChangeSkinType(int i) {
+        this.mIK.onChangeSkinType(i);
         this.mIL.onChangeSkinType(i);
         this.mIM.onChangeSkinType(i);
-        this.mIN.onChangeSkinType(i);
-        com.baidu.tbadk.r.a.a(this.mHS.getPageContext(), this.mRootView);
+        com.baidu.tbadk.r.a.a(this.mHR.getPageContext(), this.mRootView);
     }
 
     public void onDestroy() {
-        if (this.mIL != null) {
-            this.mIL.onDestroy();
+        if (this.mIK != null) {
+            this.mIK.onDestroy();
         }
     }
 }

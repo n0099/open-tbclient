@@ -28,8 +28,8 @@ public class y {
         if (context != null) {
             String dX = a.dX(context);
             String ee = a.ee(context);
-            b(context, dX, aSW());
-            c(context, ee, aSW());
+            b(context, dX, aSX());
+            c(context, ee, aSX());
         }
     }
 
@@ -99,7 +99,7 @@ public class y {
         }
     }
 
-    private static List<String> aSW() {
+    private static List<String> aSX() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("baidu.com");
         arrayList.add("hao123.com");

@@ -27,8 +27,8 @@ public class a extends d implements b.a {
         if (DEBUG) {
             Log.d("Api-GetLocationAction", "handle: " + str);
         }
-        e aMl = e.aMl();
-        if (aMl == null) {
+        e aMm = e.aMm();
+        if (aMm == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "SwanApp is null");
         }
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> bo = com.baidu.swan.apps.api.d.b.bo("Api-GetLocationAction", str);
@@ -48,7 +48,7 @@ public class a extends d implements b.a {
             c.e("Api-GetLocationAction", "empty cb");
             return new com.baidu.swan.apps.api.c.b(201, "empty cb");
         } else {
-            aMl.aMw().b(getContext(), "mapp_location", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.api.module.f.a.1
+            aMm.aMx().b(getContext(), "mapp_location", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.api.module.f.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
@@ -64,7 +64,7 @@ public class a extends d implements b.a {
     public void a(h<b.d> hVar, C0393a c0393a, boolean z) {
         c.i("Api-GetLocationAction", "authorized result is " + hVar);
         if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-            b.any().a(c0393a, this, z);
+            b.anz().a(c0393a, this, z);
             return;
         }
         int errorCode = hVar.getErrorCode();
@@ -94,8 +94,8 @@ public class a extends d implements b.a {
         if (DEBUG) {
             Log.d("Api-GetLocationAction", "handle: " + str);
         }
-        e aMl = e.aMl();
-        if (aMl == null) {
+        e aMm = e.aMm();
+        if (aMm == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "SwanApp is null");
         }
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> bo = com.baidu.swan.apps.api.d.b.bo("Api-GetLocationAction", str);
@@ -111,7 +111,7 @@ public class a extends d implements b.a {
         if (TextUtils.isEmpty(optString)) {
             return new com.baidu.swan.apps.api.c.b(201, "empty cb");
         }
-        aMl.aMw().b(getContext(), "mapp_location", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.api.module.f.a.2
+        aMm.aMx().b(getContext(), "mapp_location", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.api.module.f.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
@@ -119,16 +119,16 @@ public class a extends d implements b.a {
                 if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                     int errorCode = hVar.getErrorCode();
                     a.this.a(optString, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.hR(errorCode)));
-                } else if (!ak.aRL()) {
+                } else if (!ak.aRM()) {
                     a.this.a(optString, new com.baidu.swan.apps.api.c.b(10005, com.baidu.swan.apps.setting.oauth.c.hR(10005)));
                 } else {
                     a.this.a(optString, new com.baidu.swan.apps.api.c.b(0));
-                    com.baidu.swan.apps.t.a.aAJ().a(new d.a() { // from class: com.baidu.swan.apps.api.module.f.a.2.1
+                    com.baidu.swan.apps.t.a.aAK().a(new d.a() { // from class: com.baidu.swan.apps.api.module.f.a.2.1
                         @Override // com.baidu.swan.apps.t.b.d.a
                         public void a(com.baidu.swan.apps.scheme.actions.f.b bVar2) {
                             HashMap hashMap = new HashMap();
                             hashMap.put("data", bVar2.toJSON().toString());
-                            f.aDG().b(new com.baidu.swan.apps.event.a.b("locationChange", hashMap));
+                            f.aDH().b(new com.baidu.swan.apps.event.a.b("locationChange", hashMap));
                         }
 
                         @Override // com.baidu.swan.apps.t.b.d.a
@@ -141,8 +141,8 @@ public class a extends d implements b.a {
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    public com.baidu.swan.apps.api.c.b anx() {
-        com.baidu.swan.apps.t.a.aAJ().aBT();
+    public com.baidu.swan.apps.api.c.b any() {
+        com.baidu.swan.apps.t.a.aAK().aBU();
         return new com.baidu.swan.apps.api.c.b(0);
     }
 

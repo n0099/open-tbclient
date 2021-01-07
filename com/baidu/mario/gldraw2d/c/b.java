@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.mario.gldraw2d.d.d;
 import java.nio.Buffer;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class b extends a implements c {
     private static final String TAG = b.class.getSimpleName();
     protected com.baidu.mario.gldraw2d.d.c cgA;
@@ -28,7 +28,7 @@ public class b extends a implements c {
         if (this.mProgramHandle == -1) {
             throw new RuntimeException("Unable to create program");
         }
-        acf();
+        acg();
     }
 
     @Override // com.baidu.mario.gldraw2d.c.c
@@ -41,14 +41,14 @@ public class b extends a implements c {
         a(this.cgz);
         a(aVar, bVar);
         b(aVar, bVar);
-        acg();
-        b(this.cgz);
         ach();
+        b(this.cgz);
+        aci();
     }
 
     @Override // com.baidu.mario.gldraw2d.c.c
     public void release() {
-        aci();
+        acj();
     }
 
     @Override // com.baidu.mario.gldraw2d.c.a
@@ -60,7 +60,7 @@ public class b extends a implements c {
     }
 
     @Override // com.baidu.mario.gldraw2d.c.a
-    protected void acf() {
+    protected void acg() {
         this.cgB = GLES20.glGetUniformLocation(this.mProgramHandle, "uTexture");
         this.maPositionLoc = GLES20.glGetAttribLocation(this.mProgramHandle, "aPosition");
         this.muMVPMatrixLoc = GLES20.glGetUniformLocation(this.mProgramHandle, "uMVPMatrix");
@@ -83,7 +83,7 @@ public class b extends a implements c {
     @Override // com.baidu.mario.gldraw2d.c.a
     protected void a(com.baidu.mario.gldraw2d.d.a aVar, com.baidu.mario.gldraw2d.params.b bVar) {
         GLES20.glUniformMatrix4fv(this.muMVPMatrixLoc, 1, false, bVar.getMVPMatrix(), 0);
-        GLES20.glUniformMatrix4fv(this.muTexMatrixLoc, 1, false, bVar.acr(), 0);
+        GLES20.glUniformMatrix4fv(this.muTexMatrixLoc, 1, false, bVar.acs(), 0);
         GLES20.glEnableVertexAttribArray(this.maPositionLoc);
         GLES20.glVertexAttribPointer(this.maPositionLoc, aVar.getCoordsPerVertex(), 5126, false, aVar.getVertexStride(), (Buffer) aVar.getVertexArray());
         GLES20.glEnableVertexAttribArray(this.maTextureCoordLoc);
@@ -92,22 +92,22 @@ public class b extends a implements c {
 
     @Override // com.baidu.mario.gldraw2d.c.a
     protected void b(com.baidu.mario.gldraw2d.d.a aVar, com.baidu.mario.gldraw2d.params.b bVar) {
-        if (bVar.acs()) {
+        if (bVar.act()) {
             GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             GLES20.glClear(16384);
         }
-        if (bVar.act()) {
+        if (bVar.acu()) {
             GLES20.glEnable(3042);
             GLES20.glBlendFunc(770, 771);
         }
         GLES20.glDrawArrays(5, 0, aVar.getVertexCount());
-        if (bVar.act()) {
+        if (bVar.acu()) {
             GLES20.glDisable(3042);
         }
     }
 
     @Override // com.baidu.mario.gldraw2d.c.a
-    protected void acg() {
+    protected void ach() {
         GLES20.glDisableVertexAttribArray(this.maPositionLoc);
         GLES20.glDisableVertexAttribArray(this.maTextureCoordLoc);
     }
@@ -118,12 +118,12 @@ public class b extends a implements c {
     }
 
     @Override // com.baidu.mario.gldraw2d.c.a
-    protected void ach() {
+    protected void aci() {
         GLES20.glUseProgram(0);
     }
 
     @Override // com.baidu.mario.gldraw2d.c.a
-    protected void aci() {
+    protected void acj() {
         GLES20.glDeleteProgram(this.mProgramHandle);
         this.mProgramHandle = -1;
     }

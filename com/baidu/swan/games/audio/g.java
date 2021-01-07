@@ -42,19 +42,19 @@ public class g extends EventTargetImpl implements a, b {
         this.obeyMuteSwitch = true;
         this.paused = true;
         this.efi = bVar;
-        aXH();
+        aXI();
     }
 
     private void init() {
         if (this.efh != null) {
-            e eVar = new e(this, f.aXD());
+            e eVar = new e(this, f.aXE());
             eVar.a(this);
             this.efh.a(eVar);
         }
     }
 
-    private void aXH() {
-        String valueOf = String.valueOf(c.aXs());
+    private void aXI() {
+        String valueOf = String.valueOf(c.aXt());
         this.dkT = valueOf;
         this.efh = wM(valueOf);
         init();
@@ -63,10 +63,10 @@ public class g extends EventTargetImpl implements a, b {
     /* JADX INFO: Access modifiers changed from: private */
     public void ia(final boolean z) {
         if (this.efh != null) {
-            com.baidu.swan.games.audio.b.b.aXK().aXM().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.1
+            com.baidu.swan.games.audio.b.b.aXL().aXN().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (!z || g.this.efh.aXA()) {
+                    if (!z || g.this.efh.aXB()) {
                         g.this.efh.a(f.a(g.this));
                         if (g.this.autoplay) {
                             g.this.efh.play();
@@ -81,7 +81,7 @@ public class g extends EventTargetImpl implements a, b {
     @JavascriptInterface
     public void play() {
         if (this.efh != null) {
-            com.baidu.swan.games.audio.b.b.aXK().aXM().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.2
+            com.baidu.swan.games.audio.b.b.aXL().aXN().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.2
                 @Override // java.lang.Runnable
                 public void run() {
                     g.this.efh.play();
@@ -94,7 +94,7 @@ public class g extends EventTargetImpl implements a, b {
     @JavascriptInterface
     public void pause() {
         if (this.efh != null) {
-            com.baidu.swan.games.audio.b.b.aXK().aXM().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.3
+            com.baidu.swan.games.audio.b.b.aXL().aXN().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.3
                 @Override // java.lang.Runnable
                 public void run() {
                     g.this.efh.pause();
@@ -107,7 +107,7 @@ public class g extends EventTargetImpl implements a, b {
     @JavascriptInterface
     public void seek(final float f) {
         if (this.efh != null) {
-            com.baidu.swan.games.audio.b.b.aXK().aXM().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.4
+            com.baidu.swan.games.audio.b.b.aXL().aXN().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.4
                 @Override // java.lang.Runnable
                 public void run() {
                     g.this.efh.W(f);
@@ -120,7 +120,7 @@ public class g extends EventTargetImpl implements a, b {
     @JavascriptInterface
     public void stop() {
         if (this.efh != null) {
-            com.baidu.swan.games.audio.b.b.aXK().aXM().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.5
+            com.baidu.swan.games.audio.b.b.aXL().aXN().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.5
                 @Override // java.lang.Runnable
                 public void run() {
                     g.this.efh.stop();
@@ -133,7 +133,7 @@ public class g extends EventTargetImpl implements a, b {
     @JavascriptInterface
     public void destroy() {
         if (this.efh != null) {
-            com.baidu.swan.games.audio.b.b.aXK().aXM().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.6
+            com.baidu.swan.games.audio.b.b.aXL().aXN().post(new Runnable() { // from class: com.baidu.swan.games.audio.g.6
                 @Override // java.lang.Runnable
                 public void run() {
                     g.this.efh.release();
@@ -144,13 +144,13 @@ public class g extends EventTargetImpl implements a, b {
 
     @JavascriptInterface
     public void setDataBuffer(JsArrayBuffer jsArrayBuffer) {
-        com.baidu.swan.games.audio.b.b.aXK().a(jsArrayBuffer, new a.InterfaceC0529a() { // from class: com.baidu.swan.games.audio.g.7
+        com.baidu.swan.games.audio.b.b.aXL().a(jsArrayBuffer, new a.InterfaceC0529a() { // from class: com.baidu.swan.games.audio.g.7
             @Override // com.baidu.swan.games.audio.b.a.InterfaceC0529a
             public void lb(final String str) {
                 g.this.efi.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.audio.g.7.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        g.this.src = com.baidu.swan.apps.v.f.aDG().aDm().uh(str);
+                        g.this.src = com.baidu.swan.apps.v.f.aDH().aDn().uh(str);
                         if (com.baidu.swan.apps.b.DEBUG) {
                             Log.d("Aigame AudioContext", "prepare path: " + g.this.src + " autoPlay: " + g.this.autoplay + " class: " + toString());
                         }
@@ -160,7 +160,7 @@ public class g extends EventTargetImpl implements a, b {
             }
 
             @Override // com.baidu.swan.games.audio.b.a.InterfaceC0529a
-            public void aXI() {
+            public void aXJ() {
             }
         });
     }
@@ -181,9 +181,9 @@ public class g extends EventTargetImpl implements a, b {
         return 0;
     }
 
-    public int aXv() {
+    public int aXw() {
         if (this.efh != null) {
-            return this.efh.aXv();
+            return this.efh.aXw();
         }
         return 0;
     }
@@ -316,7 +316,7 @@ public class g extends EventTargetImpl implements a, b {
         }
         switch (c) {
             case 0:
-                this.buffered = aXv();
+                this.buffered = aXw();
                 return;
             case 1:
                 if (jSONObject != null) {

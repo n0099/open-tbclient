@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.f;
 
 import java.io.Closeable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class c implements f, Closeable {
     public abstract void close();
 
@@ -9,8 +9,8 @@ public abstract class c implements f, Closeable {
 
     public abstract boolean isClosed();
 
-    public h ezd() {
-        return g.pCU;
+    public h ezG() {
+        return g.pEB;
     }
 
     public boolean isStateful() {

@@ -22,7 +22,7 @@ public class m {
         this.tag = str3;
     }
 
-    public String bus() {
+    public String but() {
         return this.tip;
     }
 

@@ -25,7 +25,7 @@ public final class UrlResponseInfo {
             this.mAllHeadersList = list;
         }
 
-        public List<Map.Entry<String, String>> eix() {
+        public List<Map.Entry<String, String>> eiy() {
             return this.mAllHeadersList;
         }
     }
@@ -44,7 +44,7 @@ public final class UrlResponseInfo {
         return this.mResponseInfoUrlChain.get(this.mResponseInfoUrlChain.size() - 1);
     }
 
-    public List<String> eir() {
+    public List<String> eis() {
         return this.mResponseInfoUrlChain;
     }
 
@@ -52,23 +52,23 @@ public final class UrlResponseInfo {
         return this.mHttpStatusCode;
     }
 
-    public String eis() {
+    public String eit() {
         return this.mHttpStatusText;
     }
 
-    public List<Map.Entry<String, String>> eit() {
-        return this.oLM.eix();
+    public List<Map.Entry<String, String>> eiu() {
+        return this.oLM.eiy();
     }
 
-    public boolean eiu() {
+    public boolean eiv() {
         return this.mWasCached;
     }
 
-    public String eiv() {
+    public String eiw() {
         return this.mNegotiatedProtocol;
     }
 
-    public String eiw() {
+    public String eix() {
         return this.mProxyServer;
     }
 
@@ -77,7 +77,7 @@ public final class UrlResponseInfo {
     }
 
     public String toString() {
-        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), eir().toString(), Integer.valueOf(getHttpStatusCode()), eis(), eit().toString(), Boolean.valueOf(eiu()), eiv(), eiw(), Long.valueOf(getReceivedBytesCount()));
+        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), eis().toString(), Integer.valueOf(getHttpStatusCode()), eit(), eiu().toString(), Boolean.valueOf(eiv()), eiw(), eix(), Long.valueOf(getReceivedBytesCount()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

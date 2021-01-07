@@ -79,11 +79,11 @@ public class b extends com.baidu.swan.apps.inlinewidget.b<com.baidu.swan.apps.in
     @Override // com.baidu.swan.apps.inlinewidget.b, com.baidu.webkit.sdk.plugin.ZeusPlugin
     public void sendCommand(ZeusPlugin.Command command) {
         String str = command == null ? "" : command.what;
-        if (((com.baidu.swan.apps.inlinewidget.rtcroom.c.b) this.dfV).adH()) {
+        if (((com.baidu.swan.apps.inlinewidget.rtcroom.c.b) this.dfV).adI()) {
             com.baidu.swan.apps.console.c.i("InlineRtcRoomController", "isReleased command：" + str);
             return;
         }
-        com.baidu.swan.apps.console.c.i("InlineRtcRoomController", "authorize type：" + ((com.baidu.swan.apps.inlinewidget.rtcroom.c.b) this.dfV).azK() + " command：" + str);
+        com.baidu.swan.apps.console.c.i("InlineRtcRoomController", "authorize type：" + ((com.baidu.swan.apps.inlinewidget.rtcroom.c.b) this.dfV).azL() + " command：" + str);
         super.sendCommand(command);
     }
 }

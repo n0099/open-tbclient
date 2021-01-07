@@ -9,15 +9,15 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IOAdDownloader f3437a;
+    final /* synthetic */ IOAdDownloader f3438a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ b f3438b;
+    final /* synthetic */ b f3439b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, IOAdDownloader iOAdDownloader) {
-        this.f3438b = bVar;
-        this.f3437a = iOAdDownloader;
+        this.f3439b = bVar;
+        this.f3438a = iOAdDownloader;
     }
 
     @Override // java.lang.Runnable
@@ -33,27 +33,27 @@ public class c implements Runnable {
         NotificationManager notificationManager2;
         com.baidu.mobads.command.a aVar7;
         try {
-            aVar = this.f3438b.c;
+            aVar = this.f3439b.c;
             if (aVar.g == IOAdDownloader.DownloadStatus.CANCELLED) {
-                notificationManager2 = b.f3435a;
-                aVar7 = this.f3438b.c;
+                notificationManager2 = b.f3436a;
+                aVar7 = this.f3439b.c;
                 notificationManager2.cancel(aVar7.f);
             } else {
-                notificationManager = b.f3435a;
-                aVar2 = this.f3438b.c;
+                notificationManager = b.f3436a;
+                aVar2 = this.f3439b.c;
                 int i = aVar2.f;
-                b2 = this.f3438b.b(this.f3437a);
+                b2 = this.f3439b.b(this.f3438a);
                 notificationManager.notify(i, b2);
-                aVar3 = this.f3438b.c;
+                aVar3 = this.f3439b.c;
                 if (aVar3.g != IOAdDownloader.DownloadStatus.ERROR) {
-                    aVar4 = this.f3438b.c;
+                    aVar4 = this.f3439b.c;
                     if (aVar4.g == IOAdDownloader.DownloadStatus.INITING) {
-                        aVar5 = this.f3438b.c;
+                        aVar5 = this.f3439b.c;
                         if (aVar5.r == 1) {
-                            b bVar = this.f3438b;
+                            b bVar = this.f3439b;
                             StringBuilder append = new StringBuilder().append("开始下载 ");
-                            aVar6 = this.f3438b.c;
-                            bVar.d(append.append(aVar6.f3349a).toString());
+                            aVar6 = this.f3439b.c;
+                            bVar.d(append.append(aVar6.f3350a).toString());
                         }
                     }
                 } else {

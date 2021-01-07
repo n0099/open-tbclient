@@ -47,7 +47,7 @@ public class b {
                 if (DEBUG) {
                     Log.i("MasterPool", "get default master manger for id - " + str);
                 }
-                return atN();
+                return atO();
             }
             int size = this.cWz.size();
             int i = size - 1;
@@ -57,7 +57,7 @@ public class b {
                     break;
                 }
                 dVar = this.cWz.get(i);
-                if (!TextUtils.equals(dVar.atO(), str)) {
+                if (!TextUtils.equals(dVar.atP(), str)) {
                     i--;
                 } else if (DEBUG) {
                     Log.i("MasterPool", "get master in pool for id - " + str);
@@ -84,8 +84,8 @@ public class b {
             Log.i("MasterPool", "master pool clear, excludes size - " + (collection != null ? collection.size() : 0));
             if (collection != null) {
                 for (d dVar : collection) {
-                    if (dVar.atP() != null) {
-                        Log.i("MasterPool", "excludes  - " + dVar.atP().amt());
+                    if (dVar.atQ() != null) {
+                        Log.i("MasterPool", "excludes  - " + dVar.atQ().amu());
                     }
                 }
             }
@@ -101,7 +101,7 @@ public class b {
         }
     }
 
-    private d atN() {
+    private d atO() {
         for (d dVar : this.cWz) {
             if (dVar.isDefault()) {
                 return dVar;
@@ -149,10 +149,10 @@ public class b {
                 Log.i("MasterPool", "remove no use master in pool, size - " + collection.size());
             }
             for (d dVar : collection) {
-                if (dVar.atP() != null) {
-                    dVar.atP().destroy();
+                if (dVar.atQ() != null) {
+                    dVar.atQ().destroy();
                     if (DEBUG) {
-                        Log.i("MasterPool", "master destroy, id - " + dVar.atP().amt() + ", isReady - " + dVar.isReady() + ", is Default - " + dVar.isDefault());
+                        Log.i("MasterPool", "master destroy, id - " + dVar.atQ().amu() + ", isReady - " + dVar.isReady() + ", is Default - " + dVar.isDefault());
                     }
                 }
             }

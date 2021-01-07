@@ -16,11 +16,11 @@ public class a {
     private final ArrayList<com.baidu.tbadk.BdToken.b> eHR = new ArrayList<>();
     private final ArrayList<FloatStrategy> eHS = new ArrayList<>();
 
-    public ArrayList<com.baidu.tbadk.BdToken.b> bmc() {
+    public ArrayList<com.baidu.tbadk.BdToken.b> bmd() {
         return this.eHR;
     }
 
-    public ArrayList<FloatStrategy> bmd() {
+    public ArrayList<FloatStrategy> bme() {
         return this.eHS;
     }
 
@@ -36,10 +36,10 @@ public class a {
                 if (missionInfo != null) {
                     com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b(missionInfo);
                     if (missionInfo.tasktype.intValue() == 5) {
-                        com.baidu.tbadk.core.f.a.bvm().a(missionInfo);
+                        com.baidu.tbadk.core.f.a.bvn().a(missionInfo);
                     } else if (missionInfo.tasktype.intValue() == 9) {
-                        p.bly().q(bVar);
-                    } else if (bVar.bkw()) {
+                        p.blz().q(bVar);
+                    } else if (bVar.bkx()) {
                         this.eHR.add(bVar);
                     }
                 }

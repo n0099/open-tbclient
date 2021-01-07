@@ -4,7 +4,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class q implements com.baidu.ubc.q {
     @Override // com.baidu.ubc.q
-    public String aGU() {
+    public String aGV() {
         return null;
     }
 
@@ -24,7 +24,7 @@ public class q implements com.baidu.ubc.q {
     }
 
     @Override // com.baidu.ubc.q
-    public List<String> dLN() {
+    public List<String> dLO() {
         return null;
     }
 }

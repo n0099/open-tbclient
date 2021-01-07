@@ -1,10 +1,10 @@
 package io.reactivex;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class q<T> implements t<T> {
     protected abstract void a(u<? super T> uVar);
 
-    public static int eLa() {
-        return g.eLa();
+    public static int eLE() {
+        return g.eLE();
     }
 
     @Override // io.reactivex.t

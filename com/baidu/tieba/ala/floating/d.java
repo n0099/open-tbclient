@@ -18,11 +18,11 @@ public class d implements View.OnClickListener {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void bYb();
-
         void bYc();
 
         void bYd();
+
+        void bYe();
     }
 
     public void a(a aVar) {
@@ -48,7 +48,7 @@ public class d implements View.OnClickListener {
         return this.gWb;
     }
 
-    public void bYe() {
+    public void bYf() {
         this.gWc.setVisibility(0);
         this.gWd.setVisibility(8);
         nd(false);
@@ -66,14 +66,14 @@ public class d implements View.OnClickListener {
     public void onClick(View view) {
         if (view.getId() == a.f.retry_view) {
             if (this.gWf != null) {
-                this.gWf.bYb();
+                this.gWf.bYc();
             }
         } else if (view == this.gWb) {
             if (this.gWf != null) {
-                this.gWf.bYc();
+                this.gWf.bYd();
             }
         } else if (view == this.gWe && this.gWf != null) {
-            this.gWf.bYd();
+            this.gWf.bYe();
         }
     }
 }

@@ -29,25 +29,25 @@ public class a extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
             return false;
         }
-        f ajs = ((SwanAppActivity) context).ajs();
-        if (ajs == null) {
+        f ajt = ((SwanAppActivity) context).ajt();
+        if (ajt == null) {
             com.baidu.swan.apps.console.c.e("hideLoading", "none fragmentManger");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragmentManger");
             return false;
         }
-        com.baidu.swan.apps.core.d.c asT = ajs.asT();
-        if (!(asT instanceof a.InterfaceC0473a)) {
+        com.baidu.swan.apps.core.d.c asU = ajt.asU();
+        if (!(asU instanceof a.InterfaceC0473a)) {
             com.baidu.swan.apps.console.c.e("hideLoading", "fragment not support");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
             return false;
-        } else if (asT.getContext() == null) {
+        } else if (asU.getContext() == null) {
             com.baidu.swan.apps.console.c.e("hideLoading", "fragment has detached");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment has detached");
             return false;
         } else {
-            com.baidu.swan.apps.res.widget.floatlayer.a ajn = ((a.InterfaceC0473a) asT).ajn();
-            if (ajn != null && (ajn.getView() instanceof FrameLayout) && (((FrameLayout) ajn.getView()).getChildAt(0) instanceof LoadingView)) {
-                ajn.reset();
+            com.baidu.swan.apps.res.widget.floatlayer.a ajo = ((a.InterfaceC0473a) asU).ajo();
+            if (ajo != null && (ajo.getView() instanceof FrameLayout) && (((FrameLayout) ajo.getView()).getChildAt(0) instanceof LoadingView)) {
+                ajo.reset();
             }
             com.baidu.swan.apps.console.c.i("hideLoading", "hide loading success");
             unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);

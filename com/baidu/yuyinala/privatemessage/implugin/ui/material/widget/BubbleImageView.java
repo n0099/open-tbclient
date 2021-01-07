@@ -94,7 +94,7 @@ public class BubbleImageView extends ImageView {
             canvas.drawPath(path, this.mBitmapPaint);
             canvas.drawPath(path, this.fDz);
             try {
-                if (ThemeManager.enQ() == ThemeManager.ThemeMode.NIGHT) {
+                if (ThemeManager.enR() == ThemeManager.ThemeMode.NIGHT) {
                     Paint paint = new Paint();
                     paint.setColor(1342177280);
                     canvas.drawPath(path, paint);

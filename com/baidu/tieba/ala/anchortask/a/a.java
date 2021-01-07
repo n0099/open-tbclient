@@ -50,7 +50,7 @@ public class a implements com.baidu.live.b.a {
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.this.bVR();
+            a.this.bVS();
             a.this.handler.postDelayed(a.this.runnable, AppStatusRules.DEFAULT_GRANULARITY);
         }
     };
@@ -66,7 +66,7 @@ public class a implements com.baidu.live.b.a {
             if (!TextUtils.isEmpty(a.this.gMF)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913141, a.this.gMF));
             }
-            a.this.bVR();
+            a.this.bVS();
             a.this.handler.removeCallbacksAndMessages(null);
             a.this.handler.postDelayed(a.this.runnable, AppStatusRules.DEFAULT_GRANULARITY);
         }
@@ -93,7 +93,7 @@ public class a implements com.baidu.live.b.a {
                 a.this.gME = ((GetAnchorTaskInfoHttpResponseMessage) httpResponsedMessage).gME;
                 if (a.this.gME != null && a.this.gME.gNA != null) {
                     a.this.gMF = a.this.gME.gMF;
-                    a.this.bVS();
+                    a.this.bVT();
                     boolean a2 = a.this.gMD.a(a.this.gME.gNA);
                     if (a.this.gMP == 1) {
                         a.this.gMK.gNc.setCanVisible(true);
@@ -232,7 +232,7 @@ public class a implements com.baidu.live.b.a {
         MessageManager.getInstance().registerListener(this.gMS);
     }
 
-    public void bVR() {
+    public void bVS() {
         if (this.alaLiveShowData != null) {
             long j = this.alaLiveShowData.mLiveInfo.live_id;
             long j2 = this.alaLiveShowData.mLiveInfo.user_id;
@@ -245,7 +245,7 @@ public class a implements com.baidu.live.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVS() {
+    public void bVT() {
         if (this.gME != null && this.gME.gNA != null) {
             if (!this.gMH) {
                 this.gMH = true;

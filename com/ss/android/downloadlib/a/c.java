@@ -9,31 +9,31 @@ import java.util.concurrent.ConcurrentHashMap;
 public class c implements j.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f13242a = c.class.getSimpleName();
-    private static volatile c pTU;
+    private static String f13243a = c.class.getSimpleName();
+    private static volatile c pVC;
     private ConcurrentHashMap<Long, Runnable> d;
-    private com.ss.android.downloadlib.f.j pTz = new com.ss.android.downloadlib.f.j(Looper.getMainLooper(), this);
+    private com.ss.android.downloadlib.f.j pVh = new com.ss.android.downloadlib.f.j(Looper.getMainLooper(), this);
 
     public c() {
         this.d = null;
         this.d = new ConcurrentHashMap<>();
     }
 
-    public static c eFt() {
-        if (pTU == null) {
+    public static c eFX() {
+        if (pVC == null) {
             synchronized (c.class) {
-                if (pTU == null) {
-                    pTU = new c();
+                if (pVC == null) {
+                    pVC = new c();
                 }
             }
         }
-        return pTU;
+        return pVC;
     }
 
     @Override // com.ss.android.downloadlib.f.j.a
     public void a(Message message) {
         if (message != null) {
-            boolean a2 = j.eFI() != null ? j.eFI().a() : false;
+            boolean a2 = j.eGm() != null ? j.eGm().a() : false;
             long j = 0;
             if (message.obj instanceof Long) {
                 j = ((Long) message.obj).longValue();
@@ -41,13 +41,13 @@ public class c implements j.a {
             switch (message.what) {
                 case 4:
                     if (a2) {
-                        com.ss.android.downloadlib.e.a.eFX().a(j, true, 2);
+                        com.ss.android.downloadlib.e.a.eGB().a(j, true, 2);
                         return;
                     }
                     return;
                 case 5:
                     if (a2) {
-                        com.ss.android.downloadlib.e.a.eFX().a(j, true, 1);
+                        com.ss.android.downloadlib.e.a.eGB().a(j, true, 1);
                         return;
                     }
                     return;
@@ -58,26 +58,26 @@ public class c implements j.a {
                     Runnable runnable = this.d.get(Long.valueOf(j));
                     this.d.remove(Long.valueOf(j));
                     if (a2) {
-                        com.ss.android.downloadlib.e.a.eFX().a(j, 1);
-                        com.ss.android.downloadlib.e.a.eFX().a(j, true, 1);
+                        com.ss.android.downloadlib.e.a.eGB().a(j, 1);
+                        com.ss.android.downloadlib.e.a.eGB().a(j, true, 1);
                         return;
                     }
                     if (runnable != null) {
-                        this.pTz.post(runnable);
+                        this.pVh.post(runnable);
                     }
-                    com.ss.android.downloadlib.e.a.eFX().a(j, false, 1);
+                    com.ss.android.downloadlib.e.a.eGB().a(j, false, 1);
                     return;
             }
         }
     }
 
     public void a(int i, com.ss.android.a.a.b.c cVar, com.ss.android.a.a.b.b bVar) {
-        com.ss.android.downloadlib.f.h.i(f13242a, "sendQuickAppMsg msgWhat:" + i, null);
-        if (this.pTz != null) {
+        com.ss.android.downloadlib.f.h.i(f13243a, "sendQuickAppMsg msgWhat:" + i, null);
+        if (this.pVh != null) {
             Message obtain = Message.obtain();
             obtain.what = i;
             obtain.obj = Long.valueOf(cVar.d());
-            this.pTz.sendMessageDelayed(obtain, b());
+            this.pVh.sendMessageDelayed(obtain, b());
         }
     }
 
@@ -86,7 +86,7 @@ public class c implements j.a {
     }
 
     public static boolean b(com.ss.android.a.a.b.c cVar) {
-        return (cVar == null || cVar.eEU() == null || TextUtils.isEmpty(cVar.eEU().a())) ? false : true;
+        return (cVar == null || cVar.eFy() == null || TextUtils.isEmpty(cVar.eFy().a())) ? false : true;
     }
 
     public static boolean a(com.ss.android.socialbase.downloader.g.c cVar) {

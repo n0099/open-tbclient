@@ -9,19 +9,19 @@ public class dz extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo185a() {
+    public int mo196a() {
         return 5;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo185a() {
+    public ho mo196a() {
         return ho.AppActiveList;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo185a() {
+    public String mo196a() {
         return null;
     }
 }

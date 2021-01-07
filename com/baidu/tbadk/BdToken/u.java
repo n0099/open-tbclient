@@ -39,7 +39,7 @@ public class u {
         return this.mStartDate;
     }
 
-    public long blW() {
+    public long blX() {
         return this.eHB;
     }
 
@@ -47,7 +47,7 @@ public class u {
         return this.mUrl;
     }
 
-    public ArrayList<w> blX() {
+    public ArrayList<w> blY() {
         return this.eHC;
     }
 }

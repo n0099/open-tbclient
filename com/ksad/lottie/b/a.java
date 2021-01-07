@@ -16,10 +16,10 @@ public class a {
     private com.ksad.lottie.a e;
 
     /* renamed from: a  reason: collision with root package name */
-    private final f<String> f8262a = new f<>();
+    private final f<String> f8263a = new f<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Map<f<String>, Typeface> f8263b = new HashMap();
+    private final Map<f<String>, Typeface> f8264b = new HashMap();
     private final Map<String, Typeface> c = new HashMap();
     private String f = ".ttf";
 
@@ -64,13 +64,13 @@ public class a {
     }
 
     public Typeface a(String str, String str2) {
-        this.f8262a.a(str, str2);
-        Typeface typeface = this.f8263b.get(this.f8262a);
+        this.f8263a.a(str, str2);
+        Typeface typeface = this.f8264b.get(this.f8263a);
         if (typeface != null) {
             return typeface;
         }
         Typeface a2 = a(a(str), str2);
-        this.f8263b.put(this.f8262a, a2);
+        this.f8264b.put(this.f8263a, a2);
         return a2;
     }
 

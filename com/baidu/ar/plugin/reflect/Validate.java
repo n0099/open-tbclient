@@ -1,5 +1,5 @@
 package com.baidu.ar.plugin.reflect;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 class Validate {
     Validate() {
     }

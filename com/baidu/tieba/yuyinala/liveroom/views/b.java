@@ -34,9 +34,9 @@ public class b extends a {
     private TbImageView hRI;
     private TextView hRJ;
     private View.OnClickListener hSj;
-    private d.a oxo;
-    private CubicRoundRectRelativeLayout oxp;
-    private LinearLayout oxq;
+    private d.a oxn;
+    private CubicRoundRectRelativeLayout oxo;
+    private LinearLayout oxp;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -46,11 +46,11 @@ public class b extends a {
                 if (view.getId() == a.f.ala_live_prepare_start) {
                     if (!UtilHelper.isFastDoubleClick()) {
                         if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isOther()) {
-                            if (b.this.oxd != null) {
-                                b.this.oxd.clh();
+                            if (b.this.oxc != null) {
+                                b.this.oxc.cli();
                             }
                         } else {
-                            b.this.cnJ();
+                            b.this.cnK();
                         }
                         JSONObject jSONObject = new JSONObject();
                         try {
@@ -61,9 +61,9 @@ public class b extends a {
                         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_CREATE_ROOM, "createroom_clk").setContentExt(jSONObject));
                     }
                 } else if (view.getId() == a.f.ala_prepare_cover_frame_layout) {
-                    b.this.col();
-                } else if (view.getId() == a.f.ala_prepare_close && b.this.oxd != null) {
-                    b.this.oxd.onCloseClicked();
+                    b.this.com();
+                } else if (view.getId() == a.f.ala_prepare_close && b.this.oxc != null) {
+                    b.this.oxc.onCloseClicked();
                 }
             }
         };
@@ -75,13 +75,13 @@ public class b extends a {
         this.mRootView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.yuyinala.liveroom.views.b.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                b.this.cnM();
+                b.this.cnN();
                 return false;
             }
         });
-        cnE();
+        cnF();
         this.hPv.setOnClickListener(this.hSj);
-        this.oxp = (CubicRoundRectRelativeLayout) this.mRootView.findViewById(a.f.ala_prepare_cover_frame_layout);
+        this.oxo = (CubicRoundRectRelativeLayout) this.mRootView.findViewById(a.f.ala_prepare_cover_frame_layout);
         this.hRI = (TbImageView) this.mRootView.findViewById(a.f.ala_prepare_portrait);
         this.hRJ = (TextView) this.mRootView.findViewById(a.f.ala_prepare_photo_label);
         this.hRI.setIsRound(false);
@@ -97,36 +97,36 @@ public class b extends a {
             layoutParams.topMargin += this.mPageContext.getResources().getDimensionPixelSize(a.d.sdk_ds24);
             this.hRC.setLayoutParams(layoutParams);
         }
-        this.oxq = (LinearLayout) this.mRootView.findViewById(a.f.ala_prepare_bottom_view_container);
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.oxp.getLayoutParams();
+        this.oxp = (LinearLayout) this.mRootView.findViewById(a.f.ala_prepare_bottom_view_container);
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.oxo.getLayoutParams();
         layoutParams2.topMargin = (int) (ScreenHelper.getRealScreenHeight(this.mPageContext.getPageActivity()) * 0.145d);
-        this.oxp.setLayoutParams(layoutParams2);
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.oxq.getLayoutParams();
+        this.oxo.setLayoutParams(layoutParams2);
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.oxp.getLayoutParams();
         layoutParams3.bottomMargin = (int) (ScreenHelper.getRealScreenHeight(this.mPageContext.getPageActivity()) * 0.125d);
-        this.oxq.setLayoutParams(layoutParams3);
+        this.oxp.setLayoutParams(layoutParams3);
         Hi();
     }
 
     private void Hi() {
-        this.oxp.setOnClickListener(this.hSj);
+        this.oxo.setOnClickListener(this.hSj);
     }
 
-    public void chu() {
-        cnJ();
+    public void chv() {
+        cnK();
     }
 
-    public boolean cho() {
+    public boolean chp() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void col() {
+    public void com() {
         AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.mPageContext.getPageActivity(), "{\"maxImagesAllowed\":1,\"isOriginalImg\":false}", true, true);
         albumActivityConfig.setRequestCode(12001);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
     }
 
-    public void Ip(String str) {
+    public void Io(String str) {
         this.hRN = str;
         this.hRJ.setText(a.h.yuyin_ala_live_change_cover);
         this.hRJ.setTextColor(this.mPageContext.getResources().getColor(a.c.sdk_white_alpha50));
@@ -134,11 +134,11 @@ public class b extends a {
         m.a(this.hRI, str, true, false);
     }
 
-    public String chr() {
+    public String chs() {
         return this.hRN;
     }
 
     public void a(d.a aVar) {
-        this.oxo = aVar;
+        this.oxn = aVar;
     }
 }

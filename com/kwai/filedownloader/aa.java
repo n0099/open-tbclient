@@ -7,7 +7,7 @@ import java.util.List;
 class aa implements v {
 
     /* renamed from: a  reason: collision with root package name */
-    private final SparseArray<Handler> f11162a = new SparseArray<>();
+    private final SparseArray<Handler> f11163a = new SparseArray<>();
 
     private void a(Handler handler) {
         handler.sendEmptyMessage(2);
@@ -22,10 +22,10 @@ class aa implements v {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.f11162a.size()) {
+            if (i2 >= this.f11163a.size()) {
                 return;
             }
-            a(this.f11162a.get(this.f11162a.keyAt(i2)));
+            a(this.f11163a.get(this.f11163a.keyAt(i2)));
             i = i2 + 1;
         }
     }
@@ -33,17 +33,17 @@ class aa implements v {
     @Override // com.kwai.filedownloader.v
     public void a(List<Integer> list) {
         for (Integer num : list) {
-            b(this.f11162a.get(num.intValue()));
+            b(this.f11163a.get(num.intValue()));
         }
     }
 
     @Override // com.kwai.filedownloader.v
     public boolean a(int i) {
-        return this.f11162a.get(i) != null;
+        return this.f11163a.get(i) != null;
     }
 
     @Override // com.kwai.filedownloader.v
     public int b() {
-        return this.f11162a.size();
+        return this.f11163a.size();
     }
 }

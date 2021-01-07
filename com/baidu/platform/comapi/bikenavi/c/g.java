@@ -3,15 +3,15 @@ package com.baidu.platform.comapi.bikenavi.c;
 import com.baidu.platform.comapi.bikenavi.c.b;
 import com.baidu.platform.comapi.walknavi.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class g implements a.InterfaceC0302a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f4207a;
+    final /* synthetic */ b f4208a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(b bVar) {
-        this.f4207a = bVar;
+        this.f4208a = bVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0302a
@@ -19,14 +19,14 @@ public class g implements a.InterfaceC0302a {
         b.a aVar;
         b.a aVar2;
         b.a aVar3;
-        aVar = this.f4207a.v;
+        aVar = this.f4208a.v;
         if (aVar != null) {
-            aVar2 = this.f4207a.v;
+            aVar2 = this.f4208a.v;
             aVar2.onFinish();
-            aVar3 = this.f4207a.v;
+            aVar3 = this.f4208a.v;
             aVar3.cancel();
             return;
         }
-        this.f4207a.q();
+        this.f4208a.q();
     }
 }

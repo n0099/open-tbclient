@@ -29,13 +29,13 @@ public class b extends a {
             return false;
         }
         final com.baidu.swan.apps.camera.d.a aVar = (com.baidu.swan.apps.camera.d.a) b(unitedSchemeEntity);
-        this.cLh = new com.baidu.swan.apps.component.components.c.a(context, aVar).aox();
+        this.cLh = new com.baidu.swan.apps.component.components.c.a(context, aVar).aoy();
         if (this.cLh == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCameraManager", "camera component insert delayed fail");
             return false;
         }
-        eVar.aMw().b(context, PermissionProxy.SCOPE_ID_CAMERA, new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.camera.a.b.1
+        eVar.aMx().b(context, PermissionProxy.SCOPE_ID_CAMERA, new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.camera.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */

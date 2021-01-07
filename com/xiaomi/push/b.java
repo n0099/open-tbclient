@@ -7,16 +7,16 @@ import java.util.Vector;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f14172a;
+    private int f14173a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final InputStream f197a;
+    private final InputStream f198a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final byte[] f198a;
+    private final byte[] f199a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f14173b;
+    private int f14174b;
     private int c;
     private int d;
     private int e;
@@ -29,20 +29,20 @@ public final class b {
         this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.h = 64;
         this.i = 67108864;
-        this.f198a = new byte[4096];
-        this.f14172a = 0;
+        this.f199a = new byte[4096];
+        this.f14173a = 0;
         this.c = 0;
-        this.f197a = inputStream;
+        this.f198a = inputStream;
     }
 
     private b(byte[] bArr, int i, int i2) {
         this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.h = 64;
         this.i = 67108864;
-        this.f198a = bArr;
-        this.f14172a = i + i2;
+        this.f199a = bArr;
+        this.f14173a = i + i2;
         this.c = i;
-        this.f197a = null;
+        this.f198a = null;
     }
 
     public static b a(InputStream inputStream) {
@@ -54,30 +54,30 @@ public final class b {
     }
 
     private boolean a(boolean z) {
-        if (this.c < this.f14172a) {
+        if (this.c < this.f14173a) {
             throw new IllegalStateException("refillBuffer() called when buffer wasn't empty.");
         }
-        if (this.e + this.f14172a == this.f) {
+        if (this.e + this.f14173a == this.f) {
             if (z) {
                 throw d.a();
             }
             return false;
         }
-        this.e += this.f14172a;
+        this.e += this.f14173a;
         this.c = 0;
-        this.f14172a = this.f197a == null ? -1 : this.f197a.read(this.f198a);
-        if (this.f14172a == 0 || this.f14172a < -1) {
-            throw new IllegalStateException("InputStream#read(byte[]) returned invalid result: " + this.f14172a + "\nThe InputStream implementation is buggy.");
+        this.f14173a = this.f198a == null ? -1 : this.f198a.read(this.f199a);
+        if (this.f14173a == 0 || this.f14173a < -1) {
+            throw new IllegalStateException("InputStream#read(byte[]) returned invalid result: " + this.f14173a + "\nThe InputStream implementation is buggy.");
         }
-        if (this.f14172a == -1) {
-            this.f14172a = 0;
+        if (this.f14173a == -1) {
+            this.f14173a = 0;
             if (z) {
                 throw d.a();
             }
             return false;
         }
         b();
-        int i = this.e + this.f14172a + this.f14173b;
+        int i = this.e + this.f14173a + this.f14174b;
         if (i > this.i || i < 0) {
             throw d.h();
         }
@@ -85,29 +85,29 @@ public final class b {
     }
 
     private void b() {
-        this.f14172a += this.f14173b;
-        int i = this.e + this.f14172a;
+        this.f14173a += this.f14174b;
+        int i = this.e + this.f14173a;
         if (i <= this.f) {
-            this.f14173b = 0;
+            this.f14174b = 0;
             return;
         }
-        this.f14173b = i - this.f;
-        this.f14172a -= this.f14173b;
+        this.f14174b = i - this.f;
+        this.f14173a -= this.f14174b;
     }
 
     public byte a() {
-        if (this.c == this.f14172a) {
+        if (this.c == this.f14173a) {
             a(true);
         }
-        byte[] bArr = this.f198a;
+        byte[] bArr = this.f199a;
         int i = this.c;
         this.c = i + 1;
         return bArr[i];
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int m163a() {
-        if (m174b()) {
+    public int m174a() {
+        if (m185b()) {
             this.d = 0;
             return 0;
         }
@@ -133,45 +133,45 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public long m164a() {
-        return m175c();
+    public long m175a() {
+        return m186c();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public a m165a() {
+    public a m176a() {
         int d = d();
-        if (d > this.f14172a - this.c || d <= 0) {
-            return a.a(m171a(d));
+        if (d > this.f14173a - this.c || d <= 0) {
+            return a.a(m182a(d));
         }
-        a a2 = a.a(this.f198a, this.c, d);
+        a a2 = a.a(this.f199a, this.c, d);
         this.c = d + this.c;
         return a2;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m166a() {
+    public String m177a() {
         int d = d();
-        if (d > this.f14172a - this.c || d <= 0) {
-            return new String(m171a(d), "UTF-8");
+        if (d > this.f14173a - this.c || d <= 0) {
+            return new String(m182a(d), "UTF-8");
         }
-        String str = new String(this.f198a, this.c, d, "UTF-8");
+        String str = new String(this.f199a, this.c, d, "UTF-8");
         this.c = d + this.c;
         return str;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m167a() {
-        int m163a;
+    public void m178a() {
+        int m174a;
         do {
-            m163a = m163a();
-            if (m163a == 0) {
+            m174a = m174a();
+            if (m174a == 0) {
                 return;
             }
-        } while (m170a(m163a));
+        } while (m181a(m174a));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m168a(int i) {
+    public void m179a(int i) {
         if (this.d != i) {
             throw d.e();
         }
@@ -185,31 +185,31 @@ public final class b {
         int a2 = a(d);
         this.g++;
         eVar.a(this);
-        m168a(0);
+        m179a(0);
         this.g--;
         b(a2);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m169a() {
+    public boolean m180a() {
         return d() != 0;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m170a(int i) {
+    public boolean m181a(int i) {
         switch (f.a(i)) {
             case 0:
-                m172b();
+                m183b();
                 return true;
             case 1:
-                m176d();
+                m187d();
                 return true;
             case 2:
                 c(d());
                 return true;
             case 3:
-                m167a();
-                m168a(f.a(f.b(i), 4));
+                m178a();
+                m179a(f.a(f.b(i), 4));
                 return true;
             case 4:
                 return false;
@@ -222,46 +222,46 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m171a(int i) {
+    public byte[] m182a(int i) {
         if (i < 0) {
             throw d.b();
         }
         if (this.e + this.c + i > this.f) {
             c((this.f - this.e) - this.c);
             throw d.a();
-        } else if (i <= this.f14172a - this.c) {
+        } else if (i <= this.f14173a - this.c) {
             byte[] bArr = new byte[i];
-            System.arraycopy(this.f198a, this.c, bArr, 0, i);
+            System.arraycopy(this.f199a, this.c, bArr, 0, i);
             this.c += i;
             return bArr;
         } else if (i < 4096) {
             byte[] bArr2 = new byte[i];
-            int i2 = this.f14172a - this.c;
-            System.arraycopy(this.f198a, this.c, bArr2, 0, i2);
-            this.c = this.f14172a;
+            int i2 = this.f14173a - this.c;
+            System.arraycopy(this.f199a, this.c, bArr2, 0, i2);
+            this.c = this.f14173a;
             a(true);
-            while (i - i2 > this.f14172a) {
-                System.arraycopy(this.f198a, 0, bArr2, i2, this.f14172a);
-                i2 += this.f14172a;
-                this.c = this.f14172a;
+            while (i - i2 > this.f14173a) {
+                System.arraycopy(this.f199a, 0, bArr2, i2, this.f14173a);
+                i2 += this.f14173a;
+                this.c = this.f14173a;
                 a(true);
             }
-            System.arraycopy(this.f198a, 0, bArr2, i2, i - i2);
+            System.arraycopy(this.f199a, 0, bArr2, i2, i - i2);
             this.c = i - i2;
             return bArr2;
         } else {
             int i3 = this.c;
-            int i4 = this.f14172a;
-            this.e += this.f14172a;
+            int i4 = this.f14173a;
+            this.e += this.f14173a;
             this.c = 0;
-            this.f14172a = 0;
+            this.f14173a = 0;
             Vector vector = new Vector();
             int i5 = i - (i4 - i3);
             while (i5 > 0) {
                 byte[] bArr3 = new byte[Math.min(i5, 4096)];
                 int i6 = 0;
                 while (i6 < bArr3.length) {
-                    int read = this.f197a == null ? -1 : this.f197a.read(bArr3, i6, bArr3.length - i6);
+                    int read = this.f198a == null ? -1 : this.f198a.read(bArr3, i6, bArr3.length - i6);
                     if (read == -1) {
                         throw d.a();
                     }
@@ -273,7 +273,7 @@ public final class b {
             }
             byte[] bArr4 = new byte[i];
             int i7 = i4 - i3;
-            System.arraycopy(this.f198a, i3, bArr4, 0, i7);
+            System.arraycopy(this.f199a, i3, bArr4, 0, i7);
             int i8 = i7;
             for (int i9 = 0; i9 < vector.size(); i9++) {
                 byte[] bArr5 = (byte[]) vector.elementAt(i9);
@@ -285,13 +285,13 @@ public final class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public int m172b() {
+    public int m183b() {
         return d();
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public long m173b() {
-        return m175c();
+    public long m184b() {
+        return m186c();
     }
 
     public void b(int i) {
@@ -300,8 +300,8 @@ public final class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m174b() {
-        return this.c == this.f14172a && !a(false);
+    public boolean m185b() {
+        return this.c == this.f14173a && !a(false);
     }
 
     public int c() {
@@ -309,7 +309,7 @@ public final class b {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public long m175c() {
+    public long m186c() {
         long j = 0;
         for (int i = 0; i < 64; i += 7) {
             byte a2 = a();
@@ -328,16 +328,16 @@ public final class b {
         if (this.e + this.c + i > this.f) {
             c((this.f - this.e) - this.c);
             throw d.a();
-        } else if (i <= this.f14172a - this.c) {
+        } else if (i <= this.f14173a - this.c) {
             this.c += i;
         } else {
-            int i2 = this.f14172a - this.c;
-            this.e += this.f14172a;
+            int i2 = this.f14173a - this.c;
+            this.e += this.f14173a;
             this.c = 0;
-            this.f14172a = 0;
+            this.f14173a = 0;
             int i3 = i2;
             while (i3 < i) {
-                int skip = this.f197a == null ? -1 : (int) this.f197a.skip(i - i3);
+                int skip = this.f198a == null ? -1 : (int) this.f198a.skip(i - i3);
                 if (skip <= 0) {
                     throw d.a();
                 }
@@ -382,7 +382,7 @@ public final class b {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public long m176d() {
+    public long m187d() {
         byte a2 = a();
         byte a3 = a();
         return ((a3 & 255) << 8) | (a2 & 255) | ((a() & 255) << 16) | ((a() & 255) << 24) | ((a() & 255) << 32) | ((a() & 255) << 40) | ((a() & 255) << 48) | ((a() & 255) << 56);

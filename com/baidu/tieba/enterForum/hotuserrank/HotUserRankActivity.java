@@ -88,9 +88,9 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         setContentView(this.iJg.getView());
         this.iJh = new com.baidu.tieba.enterForum.hotuserrank.model.a(getUniqueId());
         this.iJh.a(this.iJn);
-        cyY();
+        cyZ();
         if (!TextUtils.isEmpty(this.iJi)) {
-            this.iJh.JN(this.iJi);
+            this.iJh.JM(this.iJi);
         } else if (this.mForumId > 0) {
             this.iJg.setTitle(getString(R.string.forum_hot_user_rank));
             this.iJh.ge(this.mForumId);
@@ -102,7 +102,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         showLoadingView(this.iJg.getView());
     }
 
-    private void cyY() {
+    private void cyZ() {
         Uri uri;
         if (getIntent() != null) {
             this.iJi = getIntent().getStringExtra(HotUserRankActivityConfig.KEY_CATEGORY);
@@ -120,7 +120,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onNetRefreshButtonClicked() {
-        this.iJh.JN(this.iJi);
+        this.iJh.JM(this.iJi);
         showLoadingView(this.iJg.getView());
         hideNetRefreshView(this.iJg.getView());
     }

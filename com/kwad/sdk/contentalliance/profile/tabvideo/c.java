@@ -71,7 +71,7 @@ public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
 
     @Override // com.kwad.sdk.lib.a.c
     protected com.kwad.sdk.lib.widget.recycler.c<AdTemplate, ?> d() {
-        return new b(this, this.f10714b, this.e);
+        return new b(this, this.f10715b, this.e);
     }
 
     @Override // com.kwad.sdk.lib.a.c, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle

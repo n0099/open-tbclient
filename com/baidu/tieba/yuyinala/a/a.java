@@ -24,7 +24,7 @@ import com.baidu.tieba.yuyinala.data.h;
 public class a {
     private Activity activity;
     private String liveId;
-    private b olz;
+    private b oly;
     private String roomId;
     private HttpMessageListener gSK = new HttpMessageListener(1031076) { // from class: com.baidu.tieba.yuyinala.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -47,8 +47,8 @@ public class a {
             } else if (!TextUtils.isEmpty(httpResponsedMessage.getErrorString())) {
                 BdUtilHelper.showToast(a.this.activity, httpResponsedMessage.getErrorString());
             }
-            if (a.this.olz != null) {
-                a.this.olz.mY(true);
+            if (a.this.oly != null) {
+                a.this.oly.mY(true);
             }
         }
     };
@@ -70,7 +70,7 @@ public class a {
     public a(Activity activity) {
         this.activity = activity;
         initView();
-        bXi();
+        bXj();
     }
 
     private void initView() {
@@ -79,10 +79,10 @@ public class a {
             this.liveId = intent.getStringExtra("live_id");
             this.roomId = intent.getStringExtra("room_id");
         }
-        this.olz = new b(this.activity, this);
+        this.oly = new b(this.activity, this);
     }
 
-    private static void bXh() {
+    private static void bXi() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031076, TbConfig.SERVER_HOST + "liveserver/redpacket/send");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -92,8 +92,8 @@ public class a {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void bXi() {
-        bXh();
+    private void bXj() {
+        bXi();
         MessageManager.getInstance().registerListener(this.gSK);
         MessageManager.getInstance().registerListener(this.notifyDialogDismissListener);
     }
@@ -105,8 +105,8 @@ public class a {
     }
 
     public View getView() {
-        if (this.olz != null) {
-            return this.olz.getView();
+        if (this.oly != null) {
+            return this.oly.getView();
         }
         return null;
     }
@@ -117,21 +117,21 @@ public class a {
             hVar.setRoomId(this.roomId);
             hVar.setParams();
             MessageManager.getInstance().sendMessage(hVar);
-            if (this.olz != null) {
-                this.olz.mY(false);
+            if (this.oly != null) {
+                this.oly.mY(false);
             }
         }
     }
 
     public void Is() {
-        if (this.olz != null) {
-            this.olz.Is();
+        if (this.oly != null) {
+            this.oly.Is();
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.olz != null) {
-            this.olz.onKeyboardVisibilityChanged(z);
+        if (this.oly != null) {
+            this.oly.onKeyboardVisibilityChanged(z);
         }
     }
 }

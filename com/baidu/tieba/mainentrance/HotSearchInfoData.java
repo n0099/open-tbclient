@@ -12,7 +12,7 @@ public class HotSearchInfoData extends OrmObject {
     private String mName;
     private long mType;
 
-    public String cxL() {
+    public String cxM() {
         return this.iGG;
     }
 
@@ -37,7 +37,7 @@ public class HotSearchInfoData extends OrmObject {
         }
     }
 
-    public void Ol(String str) {
+    public void Ok(String str) {
         this.iGG = str;
     }
 

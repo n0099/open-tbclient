@@ -55,11 +55,11 @@ public class YoungsterFrsDialogView extends LinearLayout {
         onChangeSkinType();
     }
 
-    public boolean btV() {
+    public boolean btW() {
         if (this.fpf == null) {
             return false;
         }
-        return this.fpf.btV();
+        return this.fpf.btW();
     }
 
     public void setTxtYoungsterDialogTitleText(int i) {
@@ -101,7 +101,7 @@ public class YoungsterFrsDialogView extends LinearLayout {
         ao.setViewTextColor(this.fpc, R.color.CAM_X0107);
         this.fpf.onChangeSkinType();
         ao.setBackgroundResource(this.foY, R.drawable.dialog_background);
-        this.fpd.bxO();
-        this.fpe.bxO();
+        this.fpd.bxP();
+        this.fpe.bxP();
     }
 }

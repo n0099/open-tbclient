@@ -74,7 +74,7 @@ public class b extends BaseAdapter {
                 aVar = (a) view.getTag();
             }
             aVar.kvs.setVisibility(i == 0 ? 0 : 8);
-            aVar.epX.setText(at.highLightText(com.baidu.tbadk.plugins.b.Ew(at.cutStringWithEllipsisNew(item.getTopicName(), 18)), this.jcX, R.color.CAM_X0302));
+            aVar.epX.setText(at.highLightText(com.baidu.tbadk.plugins.b.Ev(at.cutStringWithEllipsisNew(item.getTopicName(), 18)), this.jcX, R.color.CAM_X0302));
             a(aVar, view, TbadkCoreApplication.getInst().getSkinType());
         }
         return view;

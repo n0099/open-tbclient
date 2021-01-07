@@ -21,7 +21,7 @@ public class AlaLootRedPacketResultResponseMessage extends JsonHttpResponsedMess
         }
     }
 
-    public e coI() {
+    public e coJ() {
         return this.hTF;
     }
 }

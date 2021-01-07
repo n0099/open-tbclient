@@ -123,7 +123,7 @@ public final class a {
             View loadingView2 = bVar2.getLoadingView();
             if (loadingView2 != null) {
                 if (loadingView2 instanceof BdShimmerView) {
-                    ((BdShimmerView) loadingView2).aKo();
+                    ((BdShimmerView) loadingView2).aKp();
                 }
                 loadingView2.setVisibility(8);
                 viewGroup.removeView(loadingView2);
@@ -150,7 +150,7 @@ public final class a {
         return false;
     }
 
-    public static void aLH() {
+    public static void aLI() {
         for (ViewGroup viewGroup : dFu.keySet()) {
             b bVar = dFu.get(viewGroup);
             if (bVar != null && bVar.getLoadingView() != null) {

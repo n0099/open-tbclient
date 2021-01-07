@@ -26,10 +26,10 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.g gVar, CardViewHolder<com.baidu.tieba.personPolymeric.view.e> cardViewHolder) {
-        if (cardViewHolder == null || cardViewHolder.cvG() == null || gVar == null) {
+        if (cardViewHolder == null || cardViewHolder.cvH() == null || gVar == null) {
             return null;
         }
-        cardViewHolder.cvG().a(gVar);
-        return cardViewHolder.cvG().getView();
+        cardViewHolder.cvH().a(gVar);
+        return cardViewHolder.cvH().getView();
     }
 }

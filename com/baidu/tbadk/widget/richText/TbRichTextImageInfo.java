@@ -126,7 +126,7 @@ public class TbRichTextImageInfo extends OrmObject {
         }
     }
 
-    public String bLm() {
+    public String bLn() {
         return this.fZB;
     }
 
@@ -146,7 +146,7 @@ public class TbRichTextImageInfo extends OrmObject {
         this.mWidth = i;
     }
 
-    public boolean bLn() {
+    public boolean bLo() {
         return this.fZC;
     }
 
@@ -158,27 +158,27 @@ public class TbRichTextImageInfo extends OrmObject {
         this.mSrc = str;
     }
 
-    public String bLo() {
+    public String bLp() {
         return this.fZJ;
     }
 
-    public String bLp() {
+    public String bLq() {
         return this.fZA;
     }
 
-    public String bLq() {
+    public String bLr() {
         return this.fZI;
     }
 
-    public boolean bLr() {
+    public boolean bLs() {
         return this.fZD;
     }
 
-    public String bLs() {
+    public String bLt() {
         return this.fZE;
     }
 
-    public void ET(String str) {
+    public void ES(String str) {
         this.fZE = str;
     }
 
@@ -186,11 +186,11 @@ public class TbRichTextImageInfo extends OrmObject {
         return this.fZF;
     }
 
-    public boolean bLt() {
+    public boolean bLu() {
         return this.fZG;
     }
 
-    public boolean bLu() {
+    public boolean bLv() {
         return this.fZH;
     }
 

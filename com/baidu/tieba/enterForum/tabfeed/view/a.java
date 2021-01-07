@@ -69,7 +69,7 @@ public class a {
                     a.this.gCf.setOnClickListener(null);
                     if (a.this.hasMore) {
                         a.this.gCf.showLoading();
-                        a.this.iNQ.czD();
+                        a.this.iNQ.czE();
                         return;
                     }
                     a.this.gCf.setText(a.this.iMT.getResources().getString(R.string.list_has_no_more));
@@ -89,7 +89,7 @@ public class a {
                 if (a.this.iOh != null) {
                     a.this.iOh.b(a.this.iMU.getFirstVisiblePosition(), a.this.iMU.getLastVisiblePosition(), this.flr, true);
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, Boolean.valueOf(a.this.czR() ? false : true)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, Boolean.valueOf(a.this.czS() ? false : true)));
             }
         }
 
@@ -114,7 +114,7 @@ public class a {
                 a.this.gCf.setOnClickListener(null);
                 if (a.this.hasMore) {
                     a.this.gCf.showLoading();
-                    a.this.iNQ.czD();
+                    a.this.iNQ.czE();
                 }
             }
         }
@@ -192,7 +192,7 @@ public class a {
     };
     private PullLeftRefreshLayout.a ana = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.enterForum.tabfeed.view.a.6
         @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
-        public void bKt() {
+        public void bKu() {
             com.baidu.tieba.enterForum.b.d(a.this.iMT.getPageContext(), a.this.tabName);
             aq aqVar = new aq("c13645");
             aqVar.w("uid", TbadkApplication.getCurrentAccountId());
@@ -239,7 +239,7 @@ public class a {
         this.gCf.setTextSize(R.dimen.tbfontsize33);
         this.gCf.setTextColor(ao.getColor(R.color.CAM_X0107));
         this.gCf.setNoMoreTextColorId(R.color.CAM_X0110);
-        this.gCf.bxC();
+        this.gCf.bxD();
         this.gCf.setOnClickListener(this.iOj);
         if (this.gEz == null) {
             this.gEz = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.tab_feed_pull_refresh_layout);
@@ -266,7 +266,7 @@ public class a {
         }
         lU(false);
         if (bVar != null && this.iOi != null && this.iMU != null && this.gCf != null) {
-            czP();
+            czQ();
             d(bVar);
             c(bVar);
             if (bVar.iNM > 0) {
@@ -294,7 +294,7 @@ public class a {
         }
     }
 
-    private void czP() {
+    private void czQ() {
         if (this.eKc == null) {
             this.eKc = new TextView(this.iMT.getContext());
             this.eKc.setPadding(l.getDimens(this.iMT.getContext(), R.dimen.tbds44), l.getDimens(this.iMT.getContext(), R.dimen.tbds60), 0, l.getDimens(this.iMT.getContext(), R.dimen.tbds24));
@@ -309,7 +309,7 @@ public class a {
 
     private void c(com.baidu.tieba.enterForum.tabfeed.b.b bVar) {
         if (bVar != null && this.iMU != null && this.iMT != null && bVar.geO) {
-            if (!((bVar.iNK == null || x.isEmpty(bVar.iNK.bqw())) ? false : true)) {
+            if (!((bVar.iNK == null || x.isEmpty(bVar.iNK.bqx())) ? false : true)) {
                 if (this.iOg != null) {
                     this.iMU.removeHeaderView(this.iOg);
                     return;
@@ -391,12 +391,12 @@ public class a {
 
     public void pause() {
         if (this.iOh != null) {
-            this.iOh.dev();
+            this.iOh.dew();
             this.iOh.tE(false);
         }
     }
 
-    public void czQ() {
+    public void czR() {
         if (this.iMU != null) {
             this.iMU.scrollToPosition(0);
         }
@@ -414,14 +414,14 @@ public class a {
         }
     }
 
-    public boolean czR() {
+    public boolean czS() {
         return this.iMU == null || this.iMU.getChildCount() == 0 || this.iMU.getChildAt(0).getTop() == 0;
     }
 
     private void zm(int i) {
         String string;
         if (i >= 0) {
-            this.iOc.cHv();
+            this.iOc.cHw();
             if (i > 0) {
                 string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
             } else {
@@ -436,7 +436,7 @@ public class a {
                 if (this.iOb != null) {
                     this.iOb.removeView(this.iOd);
                     this.iOb.addView(this.iOd, layoutParams);
-                    this.iOd.cHt();
+                    this.iOd.cHu();
                 }
             }
         }

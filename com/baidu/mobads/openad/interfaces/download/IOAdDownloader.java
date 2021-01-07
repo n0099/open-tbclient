@@ -48,22 +48,22 @@ public interface IOAdDownloader {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f3461a;
+        private int f3462a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f3462b;
+        private String f3463b;
 
         DownloadStatus(int i, String str) {
-            this.f3461a = i;
-            this.f3462b = str;
+            this.f3462a = i;
+            this.f3463b = str;
         }
 
         public int getCode() {
-            return this.f3461a;
+            return this.f3462a;
         }
 
         public String getMessage() {
-            return this.f3462b;
+            return this.f3463b;
         }
     }
 }

@@ -11,7 +11,7 @@ public class b {
             aq aqVar = new aq(str);
             aqVar.w("fid", ((bl) obj).getForumId());
             aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar.bwn();
+            aqVar.bwo();
         } else if (obj instanceof com.baidu.tieba.newdetail.a.b) {
             com.baidu.tieba.newdetail.a.b bVar = (com.baidu.tieba.newdetail.a.b) obj;
             aq aqVar2 = new aq(str);
@@ -19,29 +19,29 @@ public class b {
                 aqVar2.dX("tid", bVar.eMv.getTid());
             }
             aqVar2.dX("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar2.bwn();
+            aqVar2.bwo();
         }
     }
 
     public static void a(com.baidu.tieba.newdetail.adapter.a.a aVar, com.baidu.tbadk.core.data.a aVar2) {
-        if (aVar2 != null && aVar2.boO() != null) {
-            bz boO = aVar2.boO();
-            aq aqVar = new aq(aVar.djT() ? "c13823" : "c13822");
-            aqVar.dX("tid", boO.getTid());
-            aqVar.w("fid", boO.getFid());
+        if (aVar2 != null && aVar2.boP() != null) {
+            bz boP = aVar2.boP();
+            aq aqVar = new aq(aVar.djU() ? "c13823" : "c13822");
+            aqVar.dX("tid", boP.getTid());
+            aqVar.w("fid", boP.getFid());
             aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar.bwn();
+            aqVar.bwo();
         }
     }
 
     public static void b(com.baidu.tieba.newdetail.adapter.a.a aVar, com.baidu.tbadk.core.data.a aVar2) {
-        if (aVar2 != null && aVar2.boO() != null) {
-            bz boO = aVar2.boO();
-            aq aqVar = new aq(aVar.djT() ? "c13824" : "c13821");
-            aqVar.dX("tid", boO.getTid());
-            aqVar.w("fid", boO.getFid());
+        if (aVar2 != null && aVar2.boP() != null) {
+            bz boP = aVar2.boP();
+            aq aqVar = new aq(aVar.djU() ? "c13824" : "c13821");
+            aqVar.dX("tid", boP.getTid());
+            aqVar.w("fid", boP.getFid());
             aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar.bwn();
+            aqVar.bwo();
         }
     }
 }

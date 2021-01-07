@@ -12,21 +12,21 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3146a;
+    private String f3147a;
 
     /* renamed from: b  reason: collision with root package name */
-    private File f3147b;
+    private File f3148b;
     private a c;
     private d.b d;
     private volatile boolean e = false;
 
     public b(String str, File file, a aVar, d.b bVar) {
-        this.f3146a = str;
-        this.f3147b = file;
+        this.f3147a = str;
+        this.f3148b = file;
         this.c = aVar;
         this.d = bVar;
     }
@@ -50,7 +50,7 @@ public class b implements Runnable {
         HttpsURLConnection httpsURLConnection;
         InputStream inputStream3 = null;
         try {
-            URL url = new URL(this.f3146a);
+            URL url = new URL(this.f3147a);
             if (HttpClient.isHttpsEnable) {
                 HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) url.openConnection();
                 httpsURLConnection2.setHostnameVerifier(new c(this));
@@ -63,7 +63,7 @@ public class b implements Runnable {
             httpsURLConnection.setReadTimeout(10000);
             httpsURLConnection.setRequestProperty(Headers.RANGE, "bytes=" + this.c.a() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.c.b());
             httpsURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-            randomAccessFile2 = new RandomAccessFile(this.f3147b, "rw");
+            randomAccessFile2 = new RandomAccessFile(this.f3148b, "rw");
             try {
                 randomAccessFile2.seek(this.c.a());
                 int responseCode = httpsURLConnection.getResponseCode();

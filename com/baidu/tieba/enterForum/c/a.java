@@ -42,10 +42,10 @@ public class a implements View.OnClickListener {
         return this.mView;
     }
 
-    public void atF() {
-        com.baidu.tbadk.core.util.f.a.bwU().qr(R.color.CAM_X0205).qw(R.color.cp_cont_b_alpha42).qy(UtilHelper.getDimenPixelSize(R.dimen.tbds1)).ae(this.tbds52).bz(this.iQk);
+    public void atG() {
+        com.baidu.tbadk.core.util.f.a.bwV().qr(R.color.CAM_X0205).qw(R.color.cp_cont_b_alpha42).qy(UtilHelper.getDimenPixelSize(R.dimen.tbds1)).ae(this.tbds52).bz(this.iQk);
         ao.setViewTextColor(this.iQm, R.color.CAM_X0105);
-        SvgManager.bwq().a(this.iQl, R.drawable.ic_icon_pure_createba16, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.bwr().a(this.iQl, R.drawable.ic_icon_pure_createba16, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     public void y(View.OnClickListener onClickListener) {

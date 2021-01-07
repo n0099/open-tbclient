@@ -31,7 +31,7 @@ public class FrsUserRecommendAdapter extends com.baidu.tieba.frs.k<com.baidu.tie
         this.jqL = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<UserRecommendItemView>() { // from class: com.baidu.tieba.frs.entelechy.adapter.FrsUserRecommendAdapter.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cJe */
+            /* renamed from: cJf */
             public UserRecommendItemView makeObject() {
                 return new UserRecommendItemView(FrsUserRecommendAdapter.this.mContext);
             }
@@ -58,7 +58,7 @@ public class FrsUserRecommendAdapter extends com.baidu.tieba.frs.k<com.baidu.tie
         }, 10, 0);
     }
 
-    public void cJd() {
+    public void cJe() {
         this.jqK = true;
     }
 
@@ -82,16 +82,16 @@ public class FrsUserRecommendAdapter extends com.baidu.tieba.frs.k<com.baidu.tie
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.w wVar, FrsUserRecommendViewHolder frsUserRecommendViewHolder) {
         if (wVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            frsUserRecommendViewHolder.jqP.setText(wVar.cGR());
+            frsUserRecommendViewHolder.jqP.setText(wVar.cGS());
             frsUserRecommendViewHolder.jqO.setPageContext(this.mPageContext);
             frsUserRecommendViewHolder.jqO.setData(wVar.getUserInfo());
             frsUserRecommendViewHolder.jqN.setMaxOverScrollDistance(frsUserRecommendViewHolder.jqO.getChildItemWidth());
             frsUserRecommendViewHolder.jqP.setTextColor(ao.getColor(skinType, R.color.CAM_X0106));
             frsUserRecommendViewHolder.mRootView.setBackgroundColor(ao.getColor(skinType, R.color.CAM_X0205));
-            if (!wVar.cGS()) {
+            if (!wVar.cGT()) {
                 for (MetaData metaData : wVar.getUserInfo()) {
                     if (metaData != null && !at.isEmpty(metaData.getUserId())) {
-                        com.baidu.tieba.card.s.cva().e(new aq("c12530").dX("obj_id", metaData.getUserId()));
+                        com.baidu.tieba.card.s.cvb().e(new aq("c12530").dX("obj_id", metaData.getUserId()));
                     }
                 }
                 wVar.qF(true);
@@ -117,11 +117,11 @@ public class FrsUserRecommendAdapter extends com.baidu.tieba.frs.k<com.baidu.tie
             this.jqQ = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.adapter.FrsUserRecommendAdapter.FrsUserRecommendViewHolder.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    com.baidu.tbadk.core.view.userLike.a byR;
+                    com.baidu.tbadk.core.view.userLike.a byS;
                     if (FrsUserRecommendViewHolder.this.jqN != null && FrsUserRecommendViewHolder.this.jqO != null) {
                         FrsUserRecommendViewHolder.this.jqN.smoothScrollBy(FrsUserRecommendViewHolder.this.jqO.getChildItemWidth(), 0);
-                        if ((view2.getTag() instanceof com.baidu.tbadk.core.view.userLike.c) && (byR = ((com.baidu.tbadk.core.view.userLike.c) view2.getTag()).byR()) != null) {
-                            FrsUserRecommendViewHolder.this.aY(byR.getUserId(), 2);
+                        if ((view2.getTag() instanceof com.baidu.tbadk.core.view.userLike.c) && (byS = ((com.baidu.tbadk.core.view.userLike.c) view2.getTag()).byS()) != null) {
+                            FrsUserRecommendViewHolder.this.aY(byS.getUserId(), 2);
                         }
                         if (FrsUserRecommendViewHolder.this.jqK) {
                             TiebaStatic.log(new aq("c13047").an("obj_locate", 9).dX("fid", FrsUserRecommendViewHolder.this.forumId));

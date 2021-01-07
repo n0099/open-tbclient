@@ -13,10 +13,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    private final AtomicInteger f6342a;
+    private final AtomicInteger f6343a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Set<Request<?>> f6343b;
+    private final Set<Request<?>> f6344b;
     private final PriorityBlockingQueue<Request<?>> c;
     private final PriorityBlockingQueue<Request<?>> d;
     private final List<b> j;
@@ -39,8 +39,8 @@ public class o {
     }
 
     public o(com.bytedance.sdk.adnet.e.b bVar, com.bytedance.sdk.adnet.e.c cVar, int i, com.bytedance.sdk.adnet.e.d dVar) {
-        this.f6342a = new AtomicInteger();
-        this.f6343b = new HashSet();
+        this.f6343a = new AtomicInteger();
+        this.f6344b = new HashSet();
         this.c = new PriorityBlockingQueue<>();
         this.d = new PriorityBlockingQueue<>();
         this.j = new ArrayList();
@@ -83,15 +83,15 @@ public class o {
     }
 
     public int c() {
-        return this.f6342a.incrementAndGet();
+        return this.f6343a.incrementAndGet();
     }
 
     public <T> Request<T> j(Request<T> request) {
         g(request);
         request.setStartTime();
         request.setRequestQueue(this);
-        synchronized (this.f6343b) {
-            this.f6343b.add(request);
+        synchronized (this.f6344b) {
+            this.f6344b.add(request);
         }
         request.setSequence(c());
         request.addMarker("add-to-queue");
@@ -107,8 +107,8 @@ public class o {
     public <T> void g(Request<T> request) {
         if (request != null && !TextUtils.isEmpty(request.getUrl())) {
             String url = request.getUrl();
-            if (com.bytedance.sdk.adnet.a.ese() != null) {
-                String a2 = com.bytedance.sdk.adnet.a.ese().a(url);
+            if (com.bytedance.sdk.adnet.a.esf() != null) {
+                String a2 = com.bytedance.sdk.adnet.a.esf().a(url);
                 if (!TextUtils.isEmpty(a2)) {
                     request.setUrl(a2);
                 }
@@ -118,8 +118,8 @@ public class o {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public <T> void k(Request<T> request) {
-        synchronized (this.f6343b) {
-            this.f6343b.remove(request);
+        synchronized (this.f6344b) {
+            this.f6344b.remove(request);
         }
         synchronized (this.j) {
             for (b bVar : this.j) {

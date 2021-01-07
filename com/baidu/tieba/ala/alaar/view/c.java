@@ -24,10 +24,10 @@ public class c extends BaseAdapter {
 
     public c(ViewGroup viewGroup) {
         this.gyx = viewGroup;
-        bTR();
+        bTS();
     }
 
-    private void bTR() {
+    private void bTS() {
         if (this.gyy != null) {
             this.gyy.clear();
             this.gyy.addAll(Arrays.asList(new Boolean[this.gyw.length]));
@@ -45,7 +45,7 @@ public class c extends BaseAdapter {
         }
     }
 
-    public void GD(String str) {
+    public void GC(String str) {
         if (!TextUtils.isEmpty(str)) {
             for (int i = 0; i < this.gyw.length; i++) {
                 if (str.equals(this.gyw[i].gyD)) {
@@ -96,7 +96,7 @@ public class c extends BaseAdapter {
         }
         c0632c.gyF.setItemIcon(this.gyw[i % this.gyw.length].fkv);
         c0632c.gyF.setItemText(this.gyw[i % this.gyw.length].gyC);
-        c0632c.gyF.setRedotVisible(GE(this.gyw[i % this.gyw.length].gyD));
+        c0632c.gyF.setRedotVisible(GD(this.gyw[i % this.gyw.length].gyD));
         c0632c.gyF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.view.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
@@ -144,26 +144,26 @@ public class c extends BaseAdapter {
         return c0632c.gyF;
     }
 
-    private boolean GE(String str) {
+    private boolean GD(String str) {
         if (com.baidu.live.d.Ba().getInt("beauty_subitem_redot", 0) != 1) {
             return false;
         }
-        if (TextUtils.equals(str, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey()) && bTS()) {
+        if (TextUtils.equals(str, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey()) && bTT()) {
             return true;
         }
-        return GF(str) && com.baidu.live.d.Ba().getBoolean(str, true);
+        return GE(str) && com.baidu.live.d.Ba().getBoolean(str, true);
     }
 
-    public boolean bTS() {
+    public boolean bTT() {
         return com.baidu.live.d.Ba().getBoolean("naturalFace", true) || com.baidu.live.d.Ba().getBoolean("goddessFace", true) || com.baidu.live.d.Ba().getBoolean("babyFace", true);
     }
 
-    private boolean GF(String str) {
+    private boolean GE(String str) {
         return TextUtils.equals(str, AlaFilterAndBeautyData.BeautyAdjustKey.faceWidth.getJsonKey()) || TextUtils.equals(str, AlaFilterAndBeautyData.BeautyAdjustKey.noseLength.getJsonKey()) || TextUtils.equals(str, AlaFilterAndBeautyData.BeautyAdjustKey.upCount.getJsonKey()) || TextUtils.equals(str, AlaFilterAndBeautyData.BeautyAdjustKey.eyeDistance.getJsonKey());
     }
 
-    public void GG(String str) {
-        if (!TextUtils.equals(str, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey()) && GF(str)) {
+    public void GF(String str) {
+        if (!TextUtils.equals(str, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey()) && GE(str)) {
             com.baidu.live.d.Ba().putBoolean(str, false);
         }
     }

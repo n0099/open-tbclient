@@ -119,7 +119,7 @@ public class d extends com.baidu.tieba.card.b<h> implements y {
         this.hnT.setSwipeControlInterface(new SwipeBackLayout.c() { // from class: com.baidu.tieba.ala.livecard.a.d.1
             @Override // com.baidu.adp.widget.SwipeBackLayout.c
             public void disableSwipeBack() {
-                if (d.this.hor != null && !x.isEmpty(d.this.hor.npj) && d.this.hor.npj.size() > 1) {
+                if (d.this.hor != null && !x.isEmpty(d.this.hor.npi) && d.this.hor.npi.size() > 1) {
                     if (d.this.mTbPageContext.getOrignalPage() instanceof BaseActivity) {
                         ((BaseActivity) d.this.mTbPageContext.getOrignalPage()).setSwipeBackEnabled(false);
                     } else if (d.this.mTbPageContext.getOrignalPage() instanceof BaseFragmentActivity) {
@@ -147,55 +147,55 @@ public class d extends com.baidu.tieba.card.b<h> implements y {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(h hVar) {
-        if (hVar != null && hVar.npj != null) {
+        if (hVar != null && hVar.npi != null) {
             this.hor = hVar;
             setVisibility(0);
             if (this.hou == null) {
-                this.hou = new com.baidu.tieba.ala.livecard.vc.b(hVar.npj, this.frl, this.frn);
+                this.hou = new com.baidu.tieba.ala.livecard.vc.b(hVar.npi, this.frl, this.frn);
                 this.hou.rJ(2);
                 this.hou.rI(6);
                 this.hou.rK(1);
             }
-            this.hou.cC(hVar.npj);
+            this.hou.cC(hVar.npi);
             this.hoo.setForumName(this.mForumName);
-            this.hoo.a(this.hou.bza(), this.hov);
-            this.hon.setCurrentItem(this.hou.byZ(), false);
-            if (hVar.npj.size() >= 2) {
+            this.hoo.a(this.hou.bzb(), this.hov);
+            this.hon.setCurrentItem(this.hou.bza(), false);
+            if (hVar.npi.size() >= 2) {
                 this.hop.setVisibility(0);
-                if (this.frg.getCount() != this.hou.byY()) {
-                    this.frg.setCount(this.hou.byY());
-                    this.bMx = this.hou.byZ();
+                if (this.frg.getCount() != this.hou.byZ()) {
+                    this.frg.setCount(this.hou.byZ());
+                    this.bMx = this.hou.bza();
                 }
                 this.frg.setPosition(this.hou.rH(this.bMx));
             } else {
                 this.hop.setVisibility(8);
             }
-            if (hVar.npj.size() > 0) {
-                this.hos.l(hVar.npj.get(0), "ala_frs_stage_live_feed_back_type");
+            if (hVar.npi.size() > 0) {
+                this.hos.l(hVar.npi.get(0), "ala_frs_stage_live_feed_back_type");
             }
-            cbI();
+            cbJ();
             onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void cbI() {
+    private void cbJ() {
         int rH;
-        if (this.hor != null && x.isEmpty(this.hor.npj) && (rH = this.hou.rH(this.bMx)) < this.hor.npj.size() && rH >= 0) {
+        if (this.hor != null && x.isEmpty(this.hor.npi) && (rH = this.hou.rH(this.bMx)) < this.hor.npi.size() && rH >= 0) {
             CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_CARD_SHOW);
-            if (this.hor.npj != null && this.hor.npj.get(rH) != null) {
-                this.hor.npj.get(rH).eQR = this.eQR;
+            if (this.hor.npi != null && this.hor.npi.get(rH) != null) {
+                this.hor.npi.get(rH).eQR = this.eQR;
             }
-            customMessage.setData(this.hor.npj.get(rH));
+            customMessage.setData(this.hor.npi.get(rH));
             MessageManager.getInstance().sendMessage(customMessage);
-            if (this.hor.npj.get(rH) != null) {
-                TiebaStatic.log(new aq("c12804").dX("tid", this.hor.npj.get(rH).getId()));
+            if (this.hor.npi.get(rH) != null) {
+                TiebaStatic.log(new aq("c12804").dX("tid", this.hor.npi.get(rH).getId()));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void X(bz bzVar) {
-        if (bzVar.brJ() != null && bzVar.brJ().user_info != null && bzVar.brJ().user_info.is_official == 2) {
+        if (bzVar.brK() != null && bzVar.brK().user_info != null && bzVar.brK().user_info.is_official == 2) {
             TiebaStatic.log(new aq("c12805").dX("tid", bzVar.getId()));
         }
     }
@@ -241,23 +241,23 @@ public class d extends com.baidu.tieba.card.b<h> implements y {
     }
 
     public void a(TbPageContext<?> tbPageContext, bz bzVar) {
-        if (tbPageContext != null && bzVar != null && bzVar.brq() != null && bzVar.brJ() != null) {
+        if (tbPageContext != null && bzVar != null && bzVar.brr() != null && bzVar.brK() != null) {
             boolean z = false;
             String str = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bzVar.brq().getUserId();
+                String userId = bzVar.brr().getUserId();
                 str = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bzVar.brJ());
-            if (bzVar.brJ() != null && bzVar.brJ().user_info != null) {
-                alaLiveInfoCoreData.userName = bzVar.brJ().user_info.user_name;
+            alaLiveInfoCoreData.fillWithInfoData(bzVar.brK());
+            if (bzVar.brK() != null && bzVar.brK().user_info != null) {
+                alaLiveInfoCoreData.userName = bzVar.brK().user_info.user_name;
             }
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            if (this.hor != null && !x.isEmpty(this.hor.npj)) {
-                for (bz bzVar2 : this.hor.npj) {
+            if (this.hor != null && !x.isEmpty(this.hor.npi)) {
+                for (bz bzVar2 : this.hor.npi) {
                     alaLiveInfoListCoreData.mLiveInfoList.add(V(bzVar2));
                 }
             }
@@ -267,8 +267,8 @@ public class d extends com.baidu.tieba.card.b<h> implements y {
 
     private AlaLiveInfoCoreData V(bz bzVar) {
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(bzVar.brJ());
-        alaLiveInfoCoreData.userName = bzVar.brq().getUserName();
+        alaLiveInfoCoreData.fillWithInfoData(bzVar.brK());
+        alaLiveInfoCoreData.userName = bzVar.brr().getUserName();
         return alaLiveInfoCoreData;
     }
 }

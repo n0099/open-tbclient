@@ -19,7 +19,7 @@ import java.util.TreeSet;
 public class c implements com.bytedance.sdk.adnet.e.c {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final boolean f6318a = r.f6345a;
+    protected static final boolean f6319a = r.f6346a;
     protected final com.bytedance.sdk.adnet.e.a ppl;
     protected final d ppm;
 
@@ -50,11 +50,11 @@ public class c implements com.bytedance.sdk.adnet.e.c {
                 try {
                     try {
                         int statusCode = bVar.getStatusCode();
-                        emptyList = bVar.esm();
+                        emptyList = bVar.esn();
                         if (statusCode == 304) {
                             b.a cacheEntry = request.getCacheEntry();
                             if (cacheEntry != null) {
-                                l lVar = new l(304, cacheEntry.f6361b, true, SystemClock.elapsedRealtime() - elapsedRealtime, a(emptyList, cacheEntry));
+                                l lVar = new l(304, cacheEntry.f6362b, true, SystemClock.elapsedRealtime() - elapsedRealtime, a(emptyList, cacheEntry));
                                 if (bVar != null) {
                                     try {
                                         if (bVar.getContent() != null) {
@@ -191,7 +191,7 @@ public class c implements com.bytedance.sdk.adnet.e.c {
     }
 
     private void a(long j, Request<?> request, byte[] bArr, int i) {
-        if (f6318a || j > IMConnection.RETRY_DELAY_TIMES) {
+        if (f6319a || j > IMConnection.RETRY_DELAY_TIMES) {
             Object[] objArr = new Object[5];
             objArr[0] = request;
             objArr[1] = Long.valueOf(j);

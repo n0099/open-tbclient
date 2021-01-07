@@ -17,11 +17,11 @@ public class b implements com.baidu.adp.widget.ListView.n {
     String rule_jump_url;
     String tips;
 
-    public String cUT() {
+    public String cUU() {
         return this.kqy;
     }
 
-    public String cUU() {
+    public String cUV() {
         return this.kqx;
     }
 
@@ -33,7 +33,7 @@ public class b implements com.baidu.adp.widget.ListView.n {
         return this.mName;
     }
 
-    public String cUV() {
+    public String cUW() {
         return this.module_title;
     }
 

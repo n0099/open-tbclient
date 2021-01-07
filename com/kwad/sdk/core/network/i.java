@@ -13,40 +13,40 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    private h f9622a = null;
+    private h f9623a = null;
 
     @Override // com.kwad.sdk.core.network.a
     protected void a(R r, c cVar) {
         if (cVar == null) {
             com.kwad.sdk.core.d.a.d("Networking", "request responseBase is null");
-            if (this.f9622a != null) {
-                this.f9622a.a(r, f.f9620a.k, f.f9620a.l);
+            if (this.f9623a != null) {
+                this.f9623a.a(r, f.f9621a.k, f.f9621a.l);
             }
-        } else if (TextUtils.isEmpty(cVar.f9618b) || cVar.f9617a != 200) {
-            if (this.f9622a != null) {
-                this.f9622a.a(r, cVar.f9617a, "网络错误");
+        } else if (TextUtils.isEmpty(cVar.f9619b) || cVar.f9618a != 200) {
+            if (this.f9623a != null) {
+                this.f9623a.a(r, cVar.f9618a, "网络错误");
             }
         } else {
             try {
-                T b2 = b(cVar.f9618b);
+                T b2 = b(cVar.f9619b);
                 if (b2 == null) {
-                    if (this.f9622a != null) {
-                        this.f9622a.a(r, f.f9621b.k, f.f9621b.l);
+                    if (this.f9623a != null) {
+                        this.f9623a.a(r, f.f9622b.k, f.f9622b.l);
                     }
                 } else if (!b2.isResultOk()) {
-                    if (this.f9622a != null) {
-                        this.f9622a.a(r, b2.result, b2.errorMsg);
+                    if (this.f9623a != null) {
+                        this.f9623a.a(r, b2.result, b2.errorMsg);
                     }
                 } else if (b2.isDataEmpty()) {
-                    if (this.f9622a != null) {
-                        this.f9622a.a(r, f.c.k, f.c.l);
+                    if (this.f9623a != null) {
+                        this.f9623a.a(r, f.c.k, f.c.l);
                     }
-                } else if (this.f9622a != null) {
-                    this.f9622a.a(r, b2);
+                } else if (this.f9623a != null) {
+                    this.f9623a.a(r, b2);
                 }
             } catch (Exception e) {
-                if (this.f9622a != null) {
-                    this.f9622a.a(r, f.f9621b.k, f.f9621b.l);
+                if (this.f9623a != null) {
+                    this.f9623a.a(r, f.f9622b.k, f.f9622b.l);
                 }
                 com.kwad.sdk.core.d.a.a(e);
             }
@@ -54,7 +54,7 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     }
 
     public void a(@NonNull h hVar) {
-        this.f9622a = hVar;
+        this.f9623a = hVar;
         d();
     }
 
@@ -68,7 +68,7 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     @Override // com.kwad.sdk.core.network.a
     public void e() {
         super.e();
-        this.f9622a = null;
+        this.f9623a = null;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:22:0x0063 -> B:23:0x004c). Please submit an issue!!! */
@@ -77,12 +77,12 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     protected void f() {
         c cVar;
         R b2 = b();
-        if (this.f9622a != null) {
-            this.f9622a.a(b2);
+        if (this.f9623a != null) {
+            this.f9623a.a(b2);
         }
         if (!com.ksad.download.d.b.a(KsAdSDKImpl.get().getContext())) {
-            if (this.f9622a != null) {
-                this.f9622a.a(b2, f.f9620a.k, f.f9620a.l);
+            if (this.f9623a != null) {
+                this.f9623a.a(b2, f.f9621a.k, f.f9621a.l);
                 return;
             }
             return;

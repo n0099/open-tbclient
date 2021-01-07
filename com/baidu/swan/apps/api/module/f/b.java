@@ -25,7 +25,7 @@ public class b {
     private b() {
     }
 
-    public static b any() {
+    public static b anz() {
         if (cJv == null) {
             synchronized (b.class) {
                 if (cJv == null) {
@@ -38,12 +38,12 @@ public class b {
 
     public void a(@NonNull final a.C0393a c0393a, @NonNull a aVar, boolean z) {
         this.cJw = aVar;
-        if (ak.aRL()) {
+        if (ak.aRM()) {
             a(c0393a);
         } else if (z) {
             this.cJw.a(c0393a, "GetLocation does not supported when app is invisible");
         } else {
-            com.baidu.swan.apps.ab.a.a(d.aMg().aMe(), new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, 0, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.api.module.f.b.1
+            com.baidu.swan.apps.ab.a.a(d.aMh().aMf(), new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, 0, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.api.module.f.b.1
                 @Override // com.baidu.swan.apps.ab.b
                 public void kN(String str) {
                     b.this.a(c0393a);
@@ -68,7 +68,7 @@ public class b {
         } else {
             str = CoordinateType.WGS84;
         }
-        com.baidu.swan.apps.t.a.aAJ().a(str, false, c0393a.cJt, new d.a() { // from class: com.baidu.swan.apps.api.module.f.b.2
+        com.baidu.swan.apps.t.a.aAK().a(str, false, c0393a.cJt, new d.a() { // from class: com.baidu.swan.apps.api.module.f.b.2
             @Override // com.baidu.swan.apps.t.b.d.a
             public void a(com.baidu.swan.apps.scheme.actions.f.b bVar) {
                 b.this.cJw.a(c0393a, bVar);

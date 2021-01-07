@@ -62,11 +62,11 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         setContentView(R.layout.create_bar_activity);
         initData();
         initUI();
-        cQq();
+        cQr();
         adjustResizeForSoftInput();
     }
 
-    private void cQq() {
+    private void cQr() {
         if (this.jVp == null) {
             this.jVp = new b();
             this.jVp.execute(new String[0]);
@@ -95,7 +95,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cQr() {
+    public void cQs() {
         if (this.jVp == null && this.jVo == null) {
             this.jVp = new b();
             this.jVp.setPriority(3);
@@ -104,7 +104,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cQs() {
+    public void cQt() {
         if (this.jVo == null) {
             this.jVo = new a(this.jVj.getText().toString().trim(), this.jVk.getText().toString().trim());
             this.jVo.setPriority(3);
@@ -117,9 +117,9 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view == CreateBarActivity.this.jVl) {
-                    CreateBarActivity.this.cQs();
+                    CreateBarActivity.this.cQt();
                 } else if (view == CreateBarActivity.this.jVm) {
-                    CreateBarActivity.this.cQr();
+                    CreateBarActivity.this.cQs();
                 }
             }
         };
@@ -247,7 +247,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         public String doInBackground(String... strArr) {
             try {
                 this.mNetwork = new z(TbConfig.SERVER_ADDRESS + Config.CREATE_BAR_ADDRESS);
-                this.mNetwork.bvQ().bwz().mIsNeedTbs = true;
+                this.mNetwork.bvR().bwA().mIsNeedTbs = true;
                 this.mNetwork.addPostData("kw", this.jVu);
                 this.mNetwork.addPostData("vcode", this.mVcode);
                 this.mNetwork.addPostData("vcode_md5", CreateBarActivity.this.jVq);
@@ -267,14 +267,14 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             super.onPostExecute((a) str);
             CreateBarActivity.this.mProgress.setVisibility(8);
             CreateBarActivity.this.jVo = null;
-            if (this.mNetwork.bvQ().bwA().isRequestSuccess()) {
+            if (this.mNetwork.bvR().bwB().isRequestSuccess()) {
                 CreateBarSuccessActivity.aV(CreateBarActivity.this.getPageContext().getPageActivity(), this.jVu);
                 CreateBarActivity.this.finish();
                 return;
             }
             CreateBarActivity.this.showToast(this.mNetwork.getErrorString());
             if (this.mNetwork.isNetSuccess()) {
-                CreateBarActivity.this.cQr();
+                CreateBarActivity.this.cQs();
             }
         }
 
@@ -320,7 +320,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                 this.mNetwork.addPostData("fname", "");
                 this.mNetwork.addPostData("tid", "0");
                 String postNetData = this.mNetwork.postNetData();
-                if (this.mNetwork.bvQ().bwA().isRequestSuccess()) {
+                if (this.mNetwork.bvR().bwB().isRequestSuccess()) {
                     ah ahVar = new ah();
                     ahVar.parserJson(postNetData);
                     if (ahVar.getVcode_pic_url() == null || ahVar.getVcode_pic_url().length() <= 0) {

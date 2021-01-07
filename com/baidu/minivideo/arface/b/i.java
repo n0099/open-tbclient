@@ -160,7 +160,7 @@ public class i {
         return false;
     }
 
-    public void aet() {
+    public void aeu() {
         File[] listFiles = this.clt.listFiles();
         if (listFiles != null && listFiles.length != 0 && !isLocked()) {
             for (File file : listFiles) {
@@ -175,7 +175,7 @@ public class i {
     }
 
     /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.minivideo.arface.b.i$1] */
-    public void aeu() {
+    public void aev() {
         if (this.clw) {
             if (isDebug()) {
                 d("cleanCacehAsync isCleaning... ");
@@ -195,7 +195,7 @@ public class i {
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
                     super.run();
-                    i.this.aet();
+                    i.this.aeu();
                     synchronized (i.this) {
                         i.this.clw = false;
                         if (i.this.isDebug()) {

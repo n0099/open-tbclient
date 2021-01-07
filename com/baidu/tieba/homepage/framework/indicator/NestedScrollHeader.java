@@ -50,7 +50,7 @@ public class NestedScrollHeader extends RelativeLayout {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void Mr(String str);
+        void Mq(String str);
     }
 
     public NestedScrollHeader(@NonNull Context context) {
@@ -74,9 +74,9 @@ public class NestedScrollHeader extends RelativeLayout {
                             String str = (String) tag;
                             if (!TextUtils.isEmpty(str)) {
                                 if (NestedScrollHeader.this.kao != null) {
-                                    NestedScrollHeader.this.kao.Mr(str);
+                                    NestedScrollHeader.this.kao.Mq(str);
                                 }
-                                NestedScrollHeader.this.cRp();
+                                NestedScrollHeader.this.cRq();
                             }
                         }
                     } else if (NestedScrollHeader.this.kan != view) {
@@ -104,7 +104,7 @@ public class NestedScrollHeader extends RelativeLayout {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371 && NestedScrollHeader.this.kam.getVisibility() == 0) {
-                    NestedScrollHeader.this.cRo();
+                    NestedScrollHeader.this.cRp();
                 }
             }
         };
@@ -133,12 +133,12 @@ public class NestedScrollHeader extends RelativeLayout {
                 NestedScrollHeader.this.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         });
-        cRo();
+        cRp();
         onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cRo() {
+    public void cRp() {
         final String missionEntranceUrl = TbSingleton.getInstance().getMissionEntranceUrl();
         String missionEntranceIcon = TbSingleton.getInstance().getMissionEntranceIcon();
         if (TextUtils.isEmpty(missionEntranceUrl) || TextUtils.isEmpty(missionEntranceIcon)) {
@@ -239,7 +239,7 @@ public class NestedScrollHeader extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cRp() {
+    public void cRq() {
         aq aqVar = new aq("c13422");
         aqVar.an("obj_type", 2);
         aqVar.an("obj_locate", 1);

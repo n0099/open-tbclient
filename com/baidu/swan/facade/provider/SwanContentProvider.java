@@ -47,7 +47,7 @@ public class SwanContentProvider extends ContentProvider {
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         a mj;
-        if (aTQ() && (mj = mj(dYn.match(uri))) != null) {
+        if (aTR() && (mj = mj(dYn.match(uri))) != null) {
             return mj.query(uri, strArr, str, strArr2, str2);
         }
         return null;
@@ -57,7 +57,7 @@ public class SwanContentProvider extends ContentProvider {
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         a mj;
-        if (!aTR() || (mj = mj(dYn.match(uri))) == null) {
+        if (!aTS() || (mj = mj(dYn.match(uri))) == null) {
             return null;
         }
         return mj.insert(uri, contentValues);
@@ -66,7 +66,7 @@ public class SwanContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         a mj;
-        if (!aTR() || (mj = mj(dYn.match(uri))) == null) {
+        if (!aTS() || (mj = mj(dYn.match(uri))) == null) {
             return 0;
         }
         return mj.delete(uri, str, strArr);
@@ -75,7 +75,7 @@ public class SwanContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         a mj;
-        if (!aTR() || (mj = mj(dYn.match(uri))) == null) {
+        if (!aTS() || (mj = mj(dYn.match(uri))) == null) {
             return 0;
         }
         return mj.update(uri, contentValues, str, strArr);
@@ -95,11 +95,11 @@ public class SwanContentProvider extends ContentProvider {
         return null;
     }
 
-    private boolean aTQ() {
+    private boolean aTR() {
         return checkPermission();
     }
 
-    private boolean aTR() {
+    private boolean aTS() {
         return checkPermission();
     }
 
@@ -109,8 +109,8 @@ public class SwanContentProvider extends ContentProvider {
             String callingPackage = getCallingPackage();
             if (!dYo.contains(callingPackage)) {
                 String vJ = c.vJ(callingPackage);
-                Set<String> aTI = com.baidu.swan.config.c.c.aTH().aTI();
-                z = (aTI == null || !aTI.contains(vJ)) ? false : false;
+                Set<String> aTJ = com.baidu.swan.config.c.c.aTI().aTJ();
+                z = (aTJ == null || !aTJ.contains(vJ)) ? false : false;
                 if (z) {
                     dYo.add(callingPackage);
                 }

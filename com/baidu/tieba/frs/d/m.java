@@ -45,7 +45,7 @@ public class m {
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
                 aVar.setAutoNight(false);
                 aVar.oZ(R.string.prompt);
-                aVar.Bp(tbPageContext.getResources().getString(R.string.disallow_open_live_by_android_v5_0));
+                aVar.Bo(tbPageContext.getResources().getString(R.string.disallow_open_live_by_android_v5_0));
                 aVar.setTitleShowCenter(true);
                 aVar.setMessageShowCenter(true);
                 aVar.a(R.string.know, new a.b() { // from class: com.baidu.tieba.frs.d.m.1
@@ -54,7 +54,7 @@ public class m {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(tbPageContext).btX();
+                aVar.b(tbPageContext).btY();
             } else if (!TbadkCoreApplication.isLogin()) {
                 if (frsViewData != null && frsViewData.getAnti() != null) {
                     frsViewData.getAnti().setIfpost(1);
@@ -137,7 +137,7 @@ public class m {
                     str2 = string;
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-                aVar.Bp(str);
+                aVar.Bo(str);
                 aVar.a(str2, new a.b() { // from class: com.baidu.tieba.frs.d.m.3
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -160,7 +160,7 @@ public class m {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(tbPageContext).btX();
+                aVar.b(tbPageContext).btY();
             }
         }
     }
@@ -172,7 +172,7 @@ public class m {
             jIv.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.frs.d.m.5
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    m.cNh();
+                    m.cNi();
                 }
             });
             jIv.setCancelable(true);
@@ -240,21 +240,21 @@ public class m {
 
     public static void g(FrsFragment frsFragment, int i) {
         if (frsFragment != null) {
-            FrsViewData cFE = frsFragment.cFE();
-            FrsModelController cEU = frsFragment.cEU();
-            if (cFE != null) {
-                if ((cEU != null || cFE.getForum() == null) && !WriteActivityConfig.isAsyncWriting()) {
+            FrsViewData cFF = frsFragment.cFF();
+            FrsModelController cEV = frsFragment.cEV();
+            if (cFF != null) {
+                if ((cEV != null || cFF.getForum() == null) && !WriteActivityConfig.isAsyncWriting()) {
                     int i2 = -1;
-                    if (cEU != null && ac.cHd().At(1) != null) {
-                        i2 = cEU.cMc();
+                    if (cEV != null && ac.cHe().At(1) != null) {
+                        i2 = cEV.cMd();
                     }
-                    WriteActivityConfig.newInstance(frsFragment.getPageContext().getPageActivity()).setType(i).setForumData(cFE.getForum()).setAntiData(cFE.getAnti()).setCategoryId(i2).send();
+                    WriteActivityConfig.newInstance(frsFragment.getPageContext().getPageActivity()).setType(i).setForumData(cFF.getForum()).setAntiData(cFF.getAnti()).setCategoryId(i2).send();
                 }
             }
         }
     }
 
-    public static void cNh() {
+    public static void cNi() {
         jIw = null;
         jIv = null;
         PluginPackageManager.px().a((com.baidu.adp.plugin.packageManager.d) null);

@@ -48,7 +48,7 @@ public class b extends d {
     }
 
     @Override // com.baidu.tieba.ala.c.d
-    protected int bXd() {
+    protected int bXe() {
         return a.g.ala_choose_gift;
     }
 
@@ -60,7 +60,7 @@ public class b extends d {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 b.this.gSc = (g) b.this.gSb.get(i);
                 b.this.gSm = b.this.gSc.Gx();
-                b.this.gSa.Ho(b.this.gSm);
+                b.this.gSa.Hn(b.this.gSm);
             }
         });
         this.bxT = (CommonEmptyView) this.mRootView.findViewById(a.f.choose_gift_empty_view);
@@ -78,7 +78,7 @@ public class b extends d {
 
     @Override // com.baidu.tieba.ala.c.d
     public void aV(int i, String str) {
-        avu();
+        avv();
     }
 
     @Override // com.baidu.tieba.ala.c.d
@@ -130,19 +130,19 @@ public class b extends d {
         if (ListUtils.isEmpty(this.gSb)) {
             showNoDataView();
         } else {
-            bXf();
+            bXg();
         }
     }
 
-    private void avu() {
-        bUL();
+    private void avv() {
+        bUM();
     }
 
     private void showNoDataView() {
-        bUL();
+        bUM();
     }
 
-    private void bUL() {
+    private void bUM() {
         this.gRZ.setVisibility(8);
         this.bxT.setVisibility(0);
         this.bxT.reset();
@@ -158,7 +158,7 @@ public class b extends d {
         this.bxT.setVisibility(0);
     }
 
-    private void bXf() {
+    private void bXg() {
         ArrayList arrayList = new ArrayList();
         for (g gVar : this.gSb) {
             if (gVar != null && gVar.Gx() != null) {
@@ -175,7 +175,7 @@ public class b extends d {
         }
         this.gSa = new a(this.gSl.getPageContext());
         this.gRZ.setAdapter((ListAdapter) this.gSa);
-        this.gSa.Hn(this.gSm);
+        this.gSa.Hm(this.gSm);
         this.gSa.setData(this.gSb);
     }
 
@@ -190,11 +190,11 @@ public class b extends d {
             this.mContext = tbPageContext.getPageActivity();
         }
 
-        public void Hn(String str) {
+        public void Hm(String str) {
             this.gqa = str;
         }
 
-        public void Ho(String str) {
+        public void Hn(String str) {
             if (this.gqa == null || !this.gqa.equals(str)) {
                 this.gqa = str;
                 notifyDataSetChanged();

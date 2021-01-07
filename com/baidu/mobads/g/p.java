@@ -5,11 +5,11 @@ import android.content.SharedPreferences;
 class p implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f3383a;
+    final /* synthetic */ o f3384a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.f3383a = oVar;
+        this.f3384a = oVar;
     }
 
     @Override // android.content.SharedPreferences.OnSharedPreferenceChangeListener

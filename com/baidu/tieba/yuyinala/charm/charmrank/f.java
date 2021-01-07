@@ -17,16 +17,16 @@ public class f {
     private AlaLiveRoomPanelTabHost aHr;
     private View contentView;
     private View mRootView;
-    private YuyinCharmRankTotalActivity okQ;
+    private YuyinCharmRankTotalActivity okP;
 
     public f(YuyinCharmRankTotalActivity yuyinCharmRankTotalActivity) {
-        this.okQ = yuyinCharmRankTotalActivity;
+        this.okP = yuyinCharmRankTotalActivity;
         initView();
-        bXc();
+        bXd();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.okQ).inflate(a.g.yuyin_ala_charm_rank_total_activity_layout, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.okP).inflate(a.g.yuyin_ala_charm_rank_total_activity_layout, (ViewGroup) null);
         this.contentView = this.mRootView.findViewById(a.f.ala_charm_root_view);
         this.aHr = (AlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_charm_tab_host);
         this.aHr.setIndicatorWidthAuto(false);
@@ -39,15 +39,15 @@ public class f {
         return this.mRootView;
     }
 
-    private void bXc() {
-        Intent intent = this.okQ.getIntent();
+    private void bXd() {
+        Intent intent = this.okP.getIntent();
         String stringExtra = intent.getStringExtra(YuyinAlaCharmRankActivityConfig.C_ROOM_ID);
         String stringExtra2 = intent.getStringExtra("live_id");
         int intExtra = intent.getIntExtra("user_type", 0);
-        final d dVar = new d(this.okQ, 0, stringExtra, stringExtra2, intExtra);
+        final d dVar = new d(this.okP, 0, stringExtra, stringExtra2, intExtra);
         dVar.createView();
         this.aHo.add(dVar);
-        final d dVar2 = new d(this.okQ, 1, stringExtra, stringExtra2, intExtra);
+        final d dVar2 = new d(this.okP, 1, stringExtra, stringExtra2, intExtra);
         dVar2.createView();
         this.aHo.add(dVar2);
         this.aHr.setData(this.aHo);

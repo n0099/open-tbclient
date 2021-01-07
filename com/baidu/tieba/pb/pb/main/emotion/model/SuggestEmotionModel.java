@@ -17,8 +17,8 @@ import com.baidu.tieba.pb.pb.main.emotion.message.SuggestEmotionResponseMessage;
 public class SuggestEmotionModel extends BdBaseModel {
     private String forumId;
     private String forumName;
-    private a lYW;
-    private final CustomMessageListener lYX = new CustomMessageListener(CmdConfigCustom.CMD_PB_GET_LOCAL_EMOTIONS) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel.1
+    private a lYV;
+    private final CustomMessageListener lYW = new CustomMessageListener(CmdConfigCustom.CMD_PB_GET_LOCAL_EMOTIONS) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(final CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,12 +40,12 @@ public class SuggestEmotionModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003329 && (httpResponsedMessage instanceof SuggestEmotionResponseMessage) && SuggestEmotionModel.this.lYW != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003329 && (httpResponsedMessage instanceof SuggestEmotionResponseMessage) && SuggestEmotionModel.this.lYV != null) {
                 SuggestEmotionResponseMessage suggestEmotionResponseMessage = (SuggestEmotionResponseMessage) httpResponsedMessage;
                 if (suggestEmotionResponseMessage.getData() != null) {
-                    SuggestEmotionModel.this.lYW.a(suggestEmotionResponseMessage.getData());
+                    SuggestEmotionModel.this.lYV.a(suggestEmotionResponseMessage.getData());
                 } else {
-                    SuggestEmotionModel.this.lYW.onFail(suggestEmotionResponseMessage.getError(), suggestEmotionResponseMessage.getErrorString());
+                    SuggestEmotionModel.this.lYV.onFail(suggestEmotionResponseMessage.getError(), suggestEmotionResponseMessage.getErrorString());
                 }
             }
         }
@@ -69,11 +69,11 @@ public class SuggestEmotionModel extends BdBaseModel {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003329, TbConfig.SERVER_ADDRESS + Config.GET_PB_SUGGEST_EMOTION);
         tbHttpMessageTask.setResponsedClass(SuggestEmotionResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.lYX);
+        MessageManager.getInstance().registerListener(this.lYW);
     }
 
     public void a(String str, String str2, a aVar) {
-        this.lYW = aVar;
+        this.lYV = aVar;
         this.forumId = str;
         this.forumName = str2;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EMOTION_SEND_LOCAL_EMOTIONS, new Integer((int) CmdConfigCustom.CMD_PB_GET_LOCAL_EMOTIONS)));
@@ -88,7 +88,7 @@ public class SuggestEmotionModel extends BdBaseModel {
     public boolean cancelLoadData() {
         MessageManager.getInstance().unRegisterListener(this.fIL);
         MessageManager.getInstance().unRegisterTask(1003329);
-        MessageManager.getInstance().unRegisterListener(this.lYX);
+        MessageManager.getInstance().unRegisterListener(this.lYW);
         return true;
     }
 }

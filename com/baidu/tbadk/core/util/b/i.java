@@ -41,7 +41,7 @@ public class i implements b.a {
     private boolean mUseHttpAutoSwitch = TbadkCoreApplication.getInst().isHttpAutoSwitch();
     private boolean feQ = false;
 
-    public boolean bwH() {
+    public boolean bwI() {
         return this.feO;
     }
 
@@ -59,15 +59,15 @@ public class i implements b.a {
         this.feJ = false;
     }
 
-    public boolean bwI() {
-        if (com.baidu.tbadk.core.sharedPref.b.bvq().getInt("image_no_cache_switch", 0) == 1) {
+    public boolean bwJ() {
+        if (com.baidu.tbadk.core.sharedPref.b.bvr().getInt("image_no_cache_switch", 0) == 1) {
             return this.needCache;
         }
         return true;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, INVOKE, IPUT, IGET]}, finally: {[IGET, INVOKE, IPUT, IGET, CONSTRUCTOR, IGET, IGET, INVOKE, INVOKE, INVOKE, INVOKE, IPUT, CONSTRUCTOR, IGET, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, IF] complete} */
-    private final byte[] Ci(String str) {
+    private final byte[] Ch(String str) {
         List<String> list;
         StringBuffer stringBuffer = new StringBuffer();
         try {
@@ -145,11 +145,11 @@ public class i implements b.a {
         }
     }
 
-    public byte[] Cj(String str) {
-        return Ci(str);
+    public byte[] Ci(String str) {
+        return Ch(str);
     }
 
-    private boolean bwJ() {
+    private boolean bwK() {
         if (this.feG.MH) {
             return false;
         }
@@ -175,7 +175,7 @@ public class i implements b.a {
         this.needCache = true;
         if (!this.mUseHttpClient || UseHttpdnsSdkSwitch.isOn()) {
             try {
-                byte[] Ci = Ci(str);
+                byte[] Ch = Ch(str);
                 int i3 = feL + 1;
                 feL = i3;
                 if (i3 <= 2 && this.responseCode != 200) {
@@ -187,7 +187,7 @@ public class i implements b.a {
                 if (feL == 2) {
                     t.b("A2T", feN, this.errorCode, feM);
                 }
-                if (bwJ()) {
+                if (bwK()) {
                     this.mUseHttpClient = true;
                     this.feQ = true;
                     TbadkCoreApplication.getInst().setHttpClientOpen(true);
@@ -195,7 +195,7 @@ public class i implements b.a {
                     feL = 0;
                     feN = 0;
                 }
-                if (Ci == null) {
+                if (Ch == null) {
                     return null;
                 }
                 if (this.feE != null && this.feE.lW().MI != null) {
@@ -217,7 +217,7 @@ public class i implements b.a {
                         if (TextUtils.isEmpty(str3) || str3.equalsIgnoreCase("OK")) {
                             this.feP = false;
                             i = i2;
-                            return (this.feO || (!z && i == 0) || !new String(Ci, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;")) ? Ci : s(Ci, 23, Ci.length);
+                            return (this.feO || (!z && i == 0) || !new String(Ch, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;")) ? Ch : s(Ch, 23, Ch.length);
                         }
                         this.feP = true;
                     }
@@ -254,7 +254,7 @@ public class i implements b.a {
                 this.responseCode = this.feE.lW().responseCode;
                 this.errorCode = this.feE.lW().mNetErrorCode;
                 this.feO = this.feE.lW().me();
-                if (this.mUseHttpAutoSwitch && true == bwJ()) {
+                if (this.mUseHttpAutoSwitch && true == bwK()) {
                     this.mUseHttpClient = false;
                     TbadkCoreApplication.getInst().setHttpClientOpen(false);
                     feM = 0;
@@ -281,7 +281,7 @@ public class i implements b.a {
                     this.dataSize = 0;
                 }
                 this.isGif = this.feI.isGif();
-                this.feP = this.feI.bwG();
+                this.feP = this.feI.bwH();
                 int size = this.feE.lX().size();
                 if (size > 0) {
                     sb.append("_ipsize:");
@@ -440,7 +440,7 @@ public class i implements b.a {
         }
     }
 
-    public boolean bwK() {
+    public boolean bwL() {
         if (this.feI == null) {
             return false;
         }

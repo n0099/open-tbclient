@@ -9,7 +9,7 @@ public class i extends e {
     public long maxAge;
 
     @Override // com.baidu.swan.pms.model.e
-    public boolean auV() {
+    public boolean auW() {
         return (TextUtils.isEmpty(this.ewI) || this.versionCode <= 0 || this.size <= 0 || TextUtils.isEmpty(this.libName) || TextUtils.isEmpty(this.md5) || TextUtils.isEmpty(this.downloadUrl) || this.ewO == null) ? false : true;
     }
 

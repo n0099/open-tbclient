@@ -92,14 +92,14 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
         builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
         builder.scr_dip = Double.valueOf(l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-        builder.q_type = Integer.valueOf(au.bwr().bws() ? 2 : 1);
+        builder.q_type = Integer.valueOf(au.bws().bwt() ? 2 : 1);
         builder.need_forumlist = Integer.valueOf(this.needForumlist);
         builder.new_net_type = Integer.valueOf(com.baidu.adp.lib.util.j.netType());
         builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
         builder.request_times = Integer.valueOf(this.requestTime);
         builder.invoke_source = this.sourceFrom;
-        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dFU().RU("NEWINDEX");
-        builder.app_pos = com.baidu.tieba.recapp.c.a.dFN().dFS();
+        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dFV().RT("NEWINDEX");
+        builder.app_pos = com.baidu.tieba.recapp.c.a.dFO().dFT();
         if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
             bc pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
             builder.from_tid = Long.valueOf(com.baidu.adp.lib.f.b.toLong(pbToHomeUpdateData.tid, 0L));
@@ -108,7 +108,7 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.second_dir = pbToHomeUpdateData.secondDir;
             TbSingleton.getInstance().setPbToHomeUpdateData(null);
         }
-        builder.ad_ext_params = AdExtParam.a.bIs().bIt();
+        builder.ad_ext_params = AdExtParam.a.bIt().bIu();
         PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

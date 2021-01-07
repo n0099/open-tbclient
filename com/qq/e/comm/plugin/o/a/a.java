@@ -19,24 +19,24 @@ import com.qq.e.comm.util.GDTLogger;
 import java.util.LinkedHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final LinkedHashMap<String, b> f12627a = new LinkedHashMap<>();
+    private final LinkedHashMap<String, b> f12628a = new LinkedHashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.qq.e.comm.plugin.o.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C1176a extends j {
+    /* loaded from: classes4.dex */
+    public class C1217a extends j {
 
         /* renamed from: b  reason: collision with root package name */
-        private final String f12629b;
+        private final String f12630b;
         private final String c;
 
-        public C1176a(Context context, String str, String str2, ADListener aDListener, String str3, String str4) {
+        public C1217a(Context context, String str, String str2, ADListener aDListener, String str3, String str4) {
             super(context, str, str2, aDListener);
-            this.f12629b = str3;
+            this.f12630b = str3;
             this.c = str4;
         }
 
@@ -45,50 +45,50 @@ public class a extends c {
         public com.qq.e.comm.plugin.ad.b a() {
             com.qq.e.comm.plugin.ad.b a2 = super.a();
             a2.j(1);
-            a2.c(this.f12629b);
+            a2.c(this.f12630b);
             a2.d(this.c);
             return a2;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class b implements RewardVideoADListener {
 
         /* renamed from: b  reason: collision with root package name */
-        private final String f12631b;
-        private C1176a c;
+        private final String f12632b;
+        private C1217a c;
         private final e d;
 
         public b(e eVar, String str) {
             this.d = eVar;
-            this.f12631b = str;
+            this.f12632b = str;
         }
 
-        public C1176a a() {
+        public C1217a a() {
             return this.c;
         }
 
-        public void a(C1176a c1176a) {
-            this.c = c1176a;
+        public void a(C1217a c1217a) {
+            this.c = c1217a;
         }
 
         public String b() {
-            return this.f12631b;
+            return this.f12632b;
         }
 
         @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
         public void onADClick() {
-            this.d.a(this.f12631b, 0, a.this.a("onADClick", 0, null, 0L), 1);
+            this.d.a(this.f12632b, 0, a.this.a("onADClick", 0, null, 0L), 1);
         }
 
         @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
         public void onADClose() {
-            this.d.a(this.f12631b, 0, a.this.a("onADClose", 0, null, 0L), 1);
+            this.d.a(this.f12632b, 0, a.this.a("onADClose", 0, null, 0L), 1);
         }
 
         @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
         public void onADExpose() {
-            this.d.a(this.f12631b, 0, a.this.a("onADExpose", 0, null, 0L), 1);
+            this.d.a(this.f12632b, 0, a.this.a("onADExpose", 0, null, 0L), 1);
         }
 
         @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
@@ -99,32 +99,32 @@ public class a extends c {
             } else {
                 currentTimeMillis = (System.currentTimeMillis() / 1000) + (this.c.getExpireTimestamp() - SystemClock.elapsedRealtime());
             }
-            this.d.a(this.f12631b, 0, a.this.a("onADLoad", 0, null, currentTimeMillis), 1);
+            this.d.a(this.f12632b, 0, a.this.a("onADLoad", 0, null, currentTimeMillis), 1);
         }
 
         @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
         public void onADShow() {
-            this.d.a(this.f12631b, 0, a.this.a("onADShow", 0, null, 0L), 1);
+            this.d.a(this.f12632b, 0, a.this.a("onADShow", 0, null, 0L), 1);
         }
 
         @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
         public void onError(AdError adError) {
-            this.d.a(this.f12631b, 0, a.this.a("onError", adError.getErrorCode(), adError.getErrorMsg(), 0L), 1);
+            this.d.a(this.f12632b, 0, a.this.a("onError", adError.getErrorCode(), adError.getErrorMsg(), 0L), 1);
         }
 
         @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
         public void onReward() {
-            this.d.a(this.f12631b, 0, a.this.a("onReward", 0, null, 0L), 1);
+            this.d.a(this.f12632b, 0, a.this.a("onReward", 0, null, 0L), 1);
         }
 
         @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
         public void onVideoCached() {
-            this.d.a(this.f12631b, 0, a.this.a("onVideoCached", 0, null, 0L), 1);
+            this.d.a(this.f12632b, 0, a.this.a("onVideoCached", 0, null, 0L), 1);
         }
 
         @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
         public void onVideoComplete() {
-            this.d.a(this.f12631b, 0, a.this.a("onVideoComplete", 0, null, 0L), 1);
+            this.d.a(this.f12632b, 0, a.this.a("onVideoComplete", 0, null, 0L), 1);
         }
     }
 
@@ -151,8 +151,8 @@ public class a extends c {
     @Override // com.qq.e.comm.plugin.ab.f.a.c
     public f<String> a(e eVar, View view, String str, String str2, String str3, String str4) {
         JSONObject jSONObject;
-        C1176a c1176a;
-        C1176a c1176a2;
+        C1217a c1217a;
+        C1217a c1217a2;
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
             eVar.a(str4, 1, "Params Empty !", 1);
             GDTLogger.e(str2 + ": Params Empty !");
@@ -184,9 +184,9 @@ public class a extends c {
                 return new f<>(null);
             }
             b bVar = new b(eVar, str4);
-            bVar.a(new C1176a(GDTADManager.getInstance().getAppContext(), GDTADManager.getInstance().getAppStatus().getAPPID(), optString2, new RewardVideoAD.ADListenerAdapter(bVar), optString3, optString4));
-            if (this.f12627a.size() < GDTADManager.getInstance().getSM().getInteger("maxRewardVideoAdsPerWebview", 100)) {
-                this.f12627a.put(optString, bVar);
+            bVar.a(new C1217a(GDTADManager.getInstance().getAppContext(), GDTADManager.getInstance().getAppStatus().getAPPID(), optString2, new RewardVideoAD.ADListenerAdapter(bVar), optString3, optString4));
+            if (this.f12628a.size() < GDTADManager.getInstance().getSM().getInteger("maxRewardVideoAdsPerWebview", 100)) {
+                this.f12628a.put(optString, bVar);
                 eVar.a(str4, 0, a("onRegisterSuccess", 0, null, 0L), 1);
             } else {
                 eVar.a(str4, 0, a("onError", 4001, "传入的参数有错误", 0L), 1);
@@ -200,18 +200,18 @@ public class a extends c {
                 GDTLogger.e("loadRewardVideoAD : instanceID is empty !");
                 return new f<>(null);
             }
-            b bVar2 = this.f12627a.get(optString);
+            b bVar2 = this.f12628a.get(optString);
             if (bVar2 != null) {
-                C1176a a3 = bVar2.a();
+                C1217a a3 = bVar2.a();
                 str4 = bVar2.b();
-                c1176a2 = a3;
+                c1217a2 = a3;
             } else {
-                c1176a2 = null;
+                c1217a2 = null;
             }
-            if (c1176a2 == null) {
+            if (c1217a2 == null) {
                 eVar.a(str4, 0, a("onError", 4017, "广告实例尚未准备好", 0L), 1);
             } else {
-                c1176a2.loadAD();
+                c1217a2.loadAD();
             }
             return new f<>(null);
         } else if (!"showRewardVideoAD".equals(str2)) {
@@ -224,18 +224,18 @@ public class a extends c {
                 GDTLogger.e("showRewardVideoAD : instanceID is empty !");
                 return new f<>(null);
             }
-            b bVar3 = this.f12627a.get(optString);
+            b bVar3 = this.f12628a.get(optString);
             if (bVar3 != null) {
-                C1176a a4 = bVar3.a();
+                C1217a a4 = bVar3.a();
                 str4 = bVar3.b();
-                c1176a = a4;
+                c1217a = a4;
             } else {
-                c1176a = null;
+                c1217a = null;
             }
-            if (c1176a == null) {
+            if (c1217a == null) {
                 eVar.a(str4, 0, a("onError", 4017, "广告实例尚未准备好", 0L), 1);
             } else {
-                c1176a.showAD();
+                c1217a.showAD();
             }
             return new f<>(null);
         }

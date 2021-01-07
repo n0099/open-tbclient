@@ -100,7 +100,7 @@ public class d {
         this.Yc.setData(arrayList);
     }
 
-    public void cEF() {
+    public void cEG() {
         this.Yc.scrollToPosition(0);
     }
 

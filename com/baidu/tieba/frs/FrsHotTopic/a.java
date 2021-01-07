@@ -14,7 +14,7 @@ public class a {
     private a() {
     }
 
-    public static a cFS() {
+    public static a cFT() {
         if (jhA == null) {
             synchronized (a.class) {
                 if (jhA == null) {
@@ -32,7 +32,7 @@ public class a {
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 FrsHotTopicListData frsHotTopicListData;
-                l<String> dM = com.baidu.tbadk.core.c.a.btS().dM("tb.frs_hottopic", "");
+                l<String> dM = com.baidu.tbadk.core.c.a.btT().dM("tb.frs_hottopic", "");
                 if (dM != null) {
                     String str2 = dM.get("hot_topic_key");
                     if (!StringUtils.isNull(str2) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str2, FrsHotTopicListData.class)) != null) {
@@ -71,17 +71,17 @@ public class a {
             return false;
         }
         this.jhB.put(str, Long.valueOf(j));
-        cFT();
+        cFU();
         return true;
     }
 
-    private void cFT() {
+    private void cFU() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.frs.FrsHotTopic.a.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                l<String> dM = com.baidu.tbadk.core.c.a.btS().dM("tb.frs_hottopic", "");
+                l<String> dM = com.baidu.tbadk.core.c.a.btT().dM("tb.frs_hottopic", "");
                 if (dM != null) {
                     FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
                     frsHotTopicListData.mSceneMap = a.this.jhB;

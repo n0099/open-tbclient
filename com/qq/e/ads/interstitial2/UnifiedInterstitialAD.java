@@ -16,14 +16,14 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UnifiedInterstitialAD {
 
     /* renamed from: a  reason: collision with root package name */
-    private UIADI f11762a;
+    private UIADI f11763a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f11763b;
+    private boolean f11764b;
     private boolean c;
     private boolean d;
     private AtomicInteger e;
@@ -39,7 +39,7 @@ public class UnifiedInterstitialAD {
     }
 
     public UnifiedInterstitialAD(Activity activity, String str, UnifiedInterstitialADListener unifiedInterstitialADListener, Map map) {
-        this.f11763b = false;
+        this.f11764b = false;
         this.c = false;
         this.d = false;
         this.e = new AtomicInteger(0);
@@ -59,7 +59,7 @@ public class UnifiedInterstitialAD {
 
     @Deprecated
     public UnifiedInterstitialAD(Activity activity, String str, String str2, UnifiedInterstitialADListener unifiedInterstitialADListener, Map map) {
-        this.f11763b = false;
+        this.f11764b = false;
         this.c = false;
         this.d = false;
         this.e = new AtomicInteger(0);
@@ -73,7 +73,7 @@ public class UnifiedInterstitialAD {
             GDTLogger.e(String.format("UnifiedInterstitialAD Constructor paras error, appid=%s,posId=%s,context=%s,listener=%s", str, str2, activity, unifiedInterstitialADListener));
             return;
         }
-        this.f11763b = true;
+        this.f11764b = true;
         if (!a.a(activity)) {
             GDTLogger.e("Required Activity/Service/Permission Not Declared in AndroidManifest.xml");
             return;
@@ -93,7 +93,7 @@ public class UnifiedInterstitialAD {
                         public void run() {
                             try {
                                 if (pOFactory != null) {
-                                    UnifiedInterstitialAD.this.f11762a = pOFactory.getUnifiedInterstitialADDelegate(activity, str, str2, unifiedInterstitialADListener);
+                                    UnifiedInterstitialAD.this.f11763a = pOFactory.getUnifiedInterstitialADDelegate(activity, str, str2, unifiedInterstitialADListener);
                                     UnifiedInterstitialAD.this.d = true;
                                     UnifiedInterstitialAD.a(UnifiedInterstitialAD.this, map, str2);
                                     UnifiedInterstitialAD.this.setVideoOption(UnifiedInterstitialAD.this.h);
@@ -137,44 +137,44 @@ public class UnifiedInterstitialAD {
     }
 
     public void close() {
-        if (this.f11762a != null) {
-            this.f11762a.close();
+        if (this.f11763a != null) {
+            this.f11763a.close();
         }
     }
 
     public void destroy() {
-        if (this.f11762a != null) {
-            this.f11762a.destory();
+        if (this.f11763a != null) {
+            this.f11763a.destory();
         }
     }
 
     public String getAdNetWorkName() {
-        if (this.f11762a != null) {
-            return this.f11762a.getAdNetWorkName();
+        if (this.f11763a != null) {
+            return this.f11763a.getAdNetWorkName();
         }
         GDTLogger.e("InterstitialAD init failed or not inited, can't call getAdNetWorkName");
         return null;
     }
 
     public int getAdPatternType() {
-        if (this.f11762a != null) {
-            return this.f11762a.getAdPatternType();
+        if (this.f11763a != null) {
+            return this.f11763a.getAdPatternType();
         }
         GDTLogger.e("InterstitialAD init failed or not inited, can't call getAdPatternType");
         return 0;
     }
 
     public int getECPM() {
-        if (this.f11762a != null) {
-            return this.f11762a.getECPM();
+        if (this.f11763a != null) {
+            return this.f11763a.getECPM();
         }
         GDTLogger.e("InterstitialAD init failed or not inited, can't call getECPM");
         return -1;
     }
 
     public String getECPMLevel() {
-        if (this.f11762a != null) {
-            return this.f11762a.getECPMLevel();
+        if (this.f11763a != null) {
+            return this.f11763a.getECPMLevel();
         }
         GDTLogger.e("InterstitialAD init failed or not inited, can't call getECPMLevel");
         return null;
@@ -182,7 +182,7 @@ public class UnifiedInterstitialAD {
 
     public Map getExt() {
         try {
-            if (this.f11762a != null) {
+            if (this.f11763a != null) {
                 return UIADI.ext;
             }
         } catch (Exception e) {
@@ -192,32 +192,32 @@ public class UnifiedInterstitialAD {
     }
 
     public boolean isValid() {
-        if (this.f11762a != null) {
-            return this.f11762a.isValid();
+        if (this.f11763a != null) {
+            return this.f11763a.isValid();
         }
         GDTLogger.e("InterstitialAD init failed or not inited, can't call isValid");
         return false;
     }
 
     public void loadAD() {
-        if (!this.f11763b || !this.c) {
+        if (!this.f11764b || !this.c) {
             GDTLogger.e("InterstitialAD init Paras OR Context error,See More logs while new InterstitialAD");
         } else if (!this.d) {
             this.e.incrementAndGet();
-        } else if (this.f11762a != null) {
-            this.f11762a.loadAd();
+        } else if (this.f11763a != null) {
+            this.f11763a.loadAd();
         } else {
             GDTLogger.e("InterstitialAD Init error,See More Logs");
         }
     }
 
     public void loadFullScreenAD() {
-        if (!this.f11763b || !this.c) {
+        if (!this.f11764b || !this.c) {
             GDTLogger.e("InterstitialAD init Paras OR Context error,See More logs while new InterstitialAD");
         } else if (!this.d) {
             this.f.incrementAndGet();
-        } else if (this.f11762a != null) {
-            this.f11762a.loadFullScreenAD();
+        } else if (this.f11763a != null) {
+            this.f11763a.loadFullScreenAD();
         } else {
             GDTLogger.e("InterstitialAD Init error,See More Logs");
         }
@@ -228,15 +228,15 @@ public class UnifiedInterstitialAD {
         if (this.k > 0 && this.j > this.k) {
             GDTLogger.e("maxVideoDuration 设置值非法，不得小于minVideoDuration");
         }
-        if (this.f11762a != null) {
-            this.f11762a.setMaxVideoDuration(i);
+        if (this.f11763a != null) {
+            this.f11763a.setMaxVideoDuration(i);
         }
     }
 
     public void setMediaListener(UnifiedInterstitialMediaListener unifiedInterstitialMediaListener) {
         this.g = unifiedInterstitialMediaListener;
-        if (this.f11762a != null) {
-            this.f11762a.setMediaListener(unifiedInterstitialMediaListener);
+        if (this.f11763a != null) {
+            this.f11763a.setMediaListener(unifiedInterstitialMediaListener);
         }
     }
 
@@ -245,52 +245,52 @@ public class UnifiedInterstitialAD {
         if (this.k > 0 && this.j > this.k) {
             GDTLogger.e("minVideoDuration 设置值非法，不得大于maxVideoDuration");
         }
-        if (this.f11762a != null) {
-            this.f11762a.setMinVideoDuration(i);
+        if (this.f11763a != null) {
+            this.f11763a.setMinVideoDuration(i);
         }
     }
 
     public void setVideoOption(VideoOption videoOption) {
         this.h = videoOption;
-        if (this.f11762a != null) {
-            this.f11762a.setVideoOption(videoOption);
+        if (this.f11763a != null) {
+            this.f11763a.setVideoOption(videoOption);
         }
     }
 
     public void setVideoPlayPolicy(int i) {
         this.i = i;
-        if (this.f11762a != null) {
-            this.f11762a.setVideoPlayPolicy(i);
+        if (this.f11763a != null) {
+            this.f11763a.setVideoPlayPolicy(i);
         }
     }
 
     public void show() {
-        if (this.f11762a != null) {
-            this.f11762a.show();
+        if (this.f11763a != null) {
+            this.f11763a.show();
         }
     }
 
     public void show(Activity activity) {
-        if (this.f11762a != null) {
-            this.f11762a.show(activity);
+        if (this.f11763a != null) {
+            this.f11763a.show(activity);
         }
     }
 
     public void showAsPopupWindow() {
-        if (this.f11762a != null) {
-            this.f11762a.showAsPopupWindow();
+        if (this.f11763a != null) {
+            this.f11763a.showAsPopupWindow();
         }
     }
 
     public void showAsPopupWindow(Activity activity) {
-        if (this.f11762a != null) {
-            this.f11762a.showAsPopupWindow(activity);
+        if (this.f11763a != null) {
+            this.f11763a.showAsPopupWindow(activity);
         }
     }
 
     public void showFullScreenAD(Activity activity) {
-        if (this.f11762a != null) {
-            this.f11762a.showFullScreenAD(activity);
+        if (this.f11763a != null) {
+            this.f11763a.showFullScreenAD(activity);
         }
     }
 }

@@ -99,9 +99,9 @@ public class AlaGetHeadlineView extends RelativeLayout {
                         return;
                     } else if (!AlaGetHeadlineView.this.eYq.isEmpty()) {
                         long j = TbadkCoreApplication.getInst().currentAccountTdouNum;
-                        g gVar = (g) AlaGetHeadlineView.this.eYq.get(AlaGetHeadlineView.this.hfR.cad());
+                        g gVar = (g) AlaGetHeadlineView.this.eYq.get(AlaGetHeadlineView.this.hfR.cae());
                         if (j >= Long.parseLong(gVar.getPrice()) * Long.parseLong(gVar.GB())) {
-                            AlaGetHeadlineView.this.i((g) AlaGetHeadlineView.this.eYq.get(AlaGetHeadlineView.this.hfR.cad()));
+                            AlaGetHeadlineView.this.i((g) AlaGetHeadlineView.this.eYq.get(AlaGetHeadlineView.this.hfR.cae()));
                             return;
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(AlaGetHeadlineView.this.mContext, 0L, AlaGetHeadlineView.this.otherParams, true, "", true)));
@@ -154,7 +154,7 @@ public class AlaGetHeadlineView extends RelativeLayout {
         } else {
             this.hfS.setText(com.baidu.tieba.ala.headline.a.fm(xVar.aKS.aJJ));
             z(xVar.aKS.aJJ);
-            this.hfR.cae();
+            this.hfR.caf();
         }
         this.hfT.startLoad(xVar.aKu.portrait, 12, false, false);
         this.hfU.setText(xVar.aKu.nickName);

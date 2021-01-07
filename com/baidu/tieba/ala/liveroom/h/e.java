@@ -85,7 +85,7 @@ public class e {
     public e(TbPageContext tbPageContext, br brVar) {
         this.pageContext = tbPageContext;
         this.hso = brVar;
-        chv();
+        chw();
     }
 
     public void J(x xVar) {
@@ -187,7 +187,7 @@ public class e {
         }
     }
 
-    private static void chv() {
+    private static void chw() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021152, TbConfig.SERVER_ADDRESS + "ala/task/complete");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);

@@ -82,7 +82,7 @@ public class AlaLiveTabGameModel extends BdBaseModel {
         vj(this.mPn);
     }
 
-    public void bUp() {
+    public void bUq() {
         if (this.hasMore && !this.gDx) {
             this.gDx = true;
             vj(this.mPn);

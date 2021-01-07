@@ -15,10 +15,10 @@ public class b implements aw {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b() {
-        aNr();
+        aNs();
     }
 
-    private void aNr() {
+    private void aNs() {
         a(new com.baidu.swan.gamecenter.b.a());
         a(new com.baidu.swan.gamecenter.b.b());
         a(new com.baidu.swan.gamecenter.appmanager.a.b());

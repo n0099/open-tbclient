@@ -9,26 +9,26 @@ import android.os.Bundle;
 import android.util.Log;
 import com.google.ar.core.ArCoreApk;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class o extends ArCoreApk {
-    private static final o pKt = new o();
+    private static final o pMb = new o();
 
     /* renamed from: a */
-    Exception f8161a;
+    Exception f8162a;
     private boolean c;
     private int d;
     private boolean g;
     private boolean i;
     private boolean j;
     private int k;
-    private ArCoreApk.Availability pKu;
-    private w pKv;
+    private ArCoreApk.Availability pMc;
+    private w pMd;
 
     o() {
     }
 
-    public static o eBO() {
-        return pKt;
+    public static o eCs() {
+        return pMb;
     }
 
     @Override // com.google.ar.core.ArCoreApk
@@ -42,7 +42,7 @@ public final class o extends ArCoreApk {
                 return n.iq(context);
             }
             synchronized (this) {
-                if ((this.pKu == null || this.pKu.isUnknown()) && !this.g) {
+                if ((this.pMc == null || this.pMc.isUnknown()) && !this.g) {
                     this.g = true;
                     n nVar = new n(this);
                     if (b(context)) {
@@ -55,8 +55,8 @@ public final class o extends ArCoreApk {
                         is(context).a(context, nVar);
                     }
                 }
-                if (this.pKu != null) {
-                    return this.pKu;
+                if (this.pMc != null) {
+                    return this.pMc;
                 } else if (this.g) {
                     return ArCoreApk.Availability.UNKNOWN_CHECKING;
                 } else {
@@ -71,22 +71,22 @@ public final class o extends ArCoreApk {
     }
 
     public final synchronized w is(Context context) {
-        if (this.pKv == null) {
+        if (this.pMd == null) {
             w wVar = new w((byte) 0);
             wVar.a(context.getApplicationContext());
-            this.pKv = wVar;
+            this.pMd = wVar;
         }
-        return this.pKv;
+        return this.pMd;
     }
 
     public final synchronized void b() {
-        if (this.f8161a == null) {
+        if (this.f8162a == null) {
             this.d = 0;
         }
         this.c = false;
-        if (this.pKv != null) {
-            this.pKv.a();
-            this.pKv = null;
+        if (this.pMd != null) {
+            this.pMd.a();
+            this.pMd = null;
         }
     }
 

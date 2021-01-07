@@ -30,9 +30,9 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
             GodSquareActivity.this.jUs.getListView().completePullRefreshPostDelayed(0L);
             GodSquareActivity.this.jUs.hideLoadingView();
             if (x.isEmpty(list)) {
-                GodSquareActivity.this.jUs.cQd();
+                GodSquareActivity.this.jUs.cQe();
                 if (x.isEmpty(GodSquareActivity.this.jUt.jbj)) {
-                    GodSquareActivity.this.jUs.KA(str);
+                    GodSquareActivity.this.jUs.Kz(str);
                     return;
                 }
                 GodSquareActivity.this.mHasMore = true;
@@ -42,7 +42,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                 }
                 return;
             }
-            GodSquareActivity.this.jUs.Zi();
+            GodSquareActivity.this.jUs.Zj();
             if (z) {
                 GodSquareActivity.this.jUt.jbj = list;
                 GodSquareActivity.this.jUs.dP(GodSquareActivity.this.jUt.jbj);
@@ -51,9 +51,9 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
                 GodSquareActivity.this.jUs.notifyDataSetChanged();
             }
             if (z2) {
-                GodSquareActivity.this.jUs.cQc();
+                GodSquareActivity.this.jUs.cQd();
             } else {
-                GodSquareActivity.this.jUs.cQe();
+                GodSquareActivity.this.jUs.cQf();
             }
         }
     };
@@ -76,7 +76,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         public void onNetworkChange(boolean z) {
             if (z) {
                 if (x.isEmpty(GodSquareActivity.this.jUt.jbj)) {
-                    GodSquareActivity.this.cQb();
+                    GodSquareActivity.this.cQc();
                 } else {
                     GodSquareActivity.this.jUs.startPullRefresh();
                 }
@@ -92,7 +92,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         this.jUs.f(this.gzW);
         this.jUt = new b(this.jUv, this);
         registerListener(this.fdd);
-        cQb();
+        cQc();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -106,7 +106,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cQb() {
+    public void cQc() {
         this.jUs.showLoadingView();
         this.jUt.update();
     }
@@ -115,7 +115,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (j.isNetworkAvailableForImmediately()) {
-            cQb();
+            cQc();
         }
     }
 
@@ -135,8 +135,8 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         if (this.mHasMore) {
-            this.jUt.bUp();
-            this.jUs.cQc();
+            this.jUt.bUq();
+            this.jUs.cQd();
         }
     }
 

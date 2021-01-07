@@ -64,7 +64,7 @@ public class af implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    public static String EN(String str) {
+    public static String EM(String str) {
         BufferedReader bufferedReader;
         StringBuilder sb = new StringBuilder();
         try {
@@ -125,7 +125,7 @@ public class af implements Thread.UncaughtExceptionHandler {
         }
         if (isOOM(th)) {
             try {
-                exc = new Exception(((th.getMessage() + EN("cat proc/" + Process.myPid() + "/status")) + "\n===========================\n") + EN("cat proc/" + Process.myPid() + "/maps"));
+                exc = new Exception(((th.getMessage() + EM("cat proc/" + Process.myPid() + "/status")) + "\n===========================\n") + EM("cat proc/" + Process.myPid() + "/maps"));
                 this.fPV = new ExceptionData();
                 byteArrayOutputStream = new ByteArrayOutputStream();
                 try {
@@ -156,7 +156,7 @@ public class af implements Thread.UncaughtExceptionHandler {
                 com.baidu.adp.lib.util.n.close((OutputStream) printStream2);
                 com.baidu.adp.lib.util.n.close((OutputStream) byteArrayOutputStream);
                 int recordHourCrashCount = recordHourCrashCount();
-                if (!bJm()) {
+                if (!bJn()) {
                 }
             } catch (Throwable th5) {
                 th2 = th5;
@@ -167,7 +167,7 @@ public class af implements Thread.UncaughtExceptionHandler {
             }
         }
         int recordHourCrashCount2 = recordHourCrashCount();
-        if (!bJm()) {
+        if (!bJn()) {
             return;
         }
         try {
@@ -194,7 +194,7 @@ public class af implements Thread.UncaughtExceptionHandler {
                         this.fPV.info = new String(byteArray);
                         this.fPV.mExcep = th;
                     }
-                    bJk();
+                    bJl();
                     if (!z) {
                         writeToFile(thread, th);
                     }
@@ -203,7 +203,7 @@ public class af implements Thread.UncaughtExceptionHandler {
                         BdLog.e(this.fPV.info);
                     }
                     BdLog.e("hourCrash = " + recordHourCrashCount2);
-                    if (recordHourCrashCount2 >= bJl()) {
+                    if (recordHourCrashCount2 >= bJm()) {
                         b(thread, th);
                     }
                     com.baidu.adp.lib.util.n.close((OutputStream) printStream3);
@@ -270,7 +270,7 @@ public class af implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    private void bJk() {
+    private void bJl() {
         if (this.fPV != null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UEXCEPTION_MESSAGE, this.fPV));
             if (this.fPV.appendInfo != null) {
@@ -568,16 +568,16 @@ public class af implements Thread.UncaughtExceptionHandler {
         return i2;
     }
 
-    private int bJl() {
+    private int bJm() {
         return com.baidu.adp.lib.stats.switchs.a.nt().getMaxAlertCount(BdStatsConstant.AlertTypeKey.ALERT_CRASH, 5);
     }
 
-    private boolean bJm() {
+    private boolean bJn() {
         int i;
         int i2;
         int i3 = 10;
         try {
-            int i4 = com.baidu.tbadk.core.sharedPref.b.bvq().getInt("crash_limit_count", 100);
+            int i4 = com.baidu.tbadk.core.sharedPref.b.bvr().getInt("crash_limit_count", 100);
             if (i4 >= 10) {
                 i3 = i4;
             }

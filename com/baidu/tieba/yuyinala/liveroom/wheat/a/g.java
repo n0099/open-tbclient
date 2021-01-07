@@ -7,19 +7,19 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes11.dex */
 public class g {
-    private a oAu;
-    private Handler oAv;
-    private ConcurrentHashMap<Long, b> oAt = new ConcurrentHashMap<>();
-    boolean oAw = false;
+    private a oAt;
+    private Handler oAu;
+    private ConcurrentHashMap<Long, b> oAs = new ConcurrentHashMap<>();
+    boolean oAv = false;
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.g.1
         @Override // java.lang.Runnable
         public void run() {
-            g.this.oAw = true;
-            g.this.eew();
-            if (g.this.oAt != null && g.this.oAt.size() > 0) {
-                g.this.oAv.postDelayed(g.this.mRunnable, 1000L);
+            g.this.oAv = true;
+            g.this.eex();
+            if (g.this.oAs != null && g.this.oAs.size() > 0) {
+                g.this.oAu.postDelayed(g.this.mRunnable, 1000L);
             } else {
-                g.this.oAw = false;
+                g.this.oAv = false;
             }
         }
     };
@@ -30,28 +30,28 @@ public class g {
     }
 
     public g(Handler handler) {
-        this.oAv = handler;
+        this.oAu = handler;
     }
 
     public void c(b bVar) {
         if (bVar != null && !TextUtils.isEmpty(bVar.thirdUserId)) {
-            bVar.oAy = System.currentTimeMillis();
-            this.oAt.put(Long.valueOf(bVar.imUK), bVar);
+            bVar.oAx = System.currentTimeMillis();
+            this.oAs.put(Long.valueOf(bVar.imUK), bVar);
             sN();
         }
     }
 
     public void hN(long j) {
-        this.oAt.remove(Long.valueOf(j));
+        this.oAs.remove(Long.valueOf(j));
     }
 
-    public void eew() {
-        Iterator<Map.Entry<Long, b>> it = this.oAt.entrySet().iterator();
+    public void eex() {
+        Iterator<Map.Entry<Long, b>> it = this.oAs.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<Long, b> next = it.next();
-            if (System.currentTimeMillis() - next.getValue().oAy > 10000) {
-                if (this.oAu != null) {
-                    this.oAu.b(next.getValue());
+            if (System.currentTimeMillis() - next.getValue().oAx > 10000) {
+                if (this.oAt != null) {
+                    this.oAt.b(next.getValue());
                 }
                 it.remove();
             }
@@ -59,16 +59,16 @@ public class g {
     }
 
     public void a(a aVar) {
-        this.oAu = aVar;
+        this.oAt = aVar;
     }
 
     private void sN() {
-        if (this.oAv == null) {
-            this.oAw = false;
-        } else if (this.oAt == null || this.oAt.size() == 0) {
-            this.oAw = false;
+        if (this.oAu == null) {
+            this.oAv = false;
+        } else if (this.oAs == null || this.oAs.size() == 0) {
+            this.oAv = false;
         } else {
-            this.oAv.postDelayed(this.mRunnable, 0L);
+            this.oAu.postDelayed(this.mRunnable, 0L);
         }
     }
 
@@ -77,7 +77,7 @@ public class g {
         public long appId;
         public String cuid;
         public long imUK;
-        public long oAy;
+        public long oAx;
         public String thirdUserId;
 
         public b(long j, long j2, String str, String str2) {

@@ -6,19 +6,19 @@ import android.text.TextUtils;
 public class ee extends ed {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f14262a;
+    private boolean f14263a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f14263b;
+    private boolean f14264b;
     private boolean c;
     private boolean d;
 
     public ee(Context context, int i, boolean z, boolean z2, boolean z3, boolean z4) {
         super(context, i);
-        this.f14262a = z;
-        this.f14263b = z2;
+        this.f14263a = z;
+        this.f14264b = z2;
         if (l.d()) {
-            this.f14263b = false;
+            this.f14264b = false;
         }
         this.c = z3;
         this.d = z4;
@@ -29,7 +29,7 @@ public class ee extends ed {
     }
 
     private String b() {
-        if (this.f14262a) {
+        if (this.f14263a) {
             try {
                 String c = c();
                 return TextUtils.isEmpty(c) ? "" : bf.a(c) + "," + bf.b(c);
@@ -45,7 +45,7 @@ public class ee extends ed {
     }
 
     private String d() {
-        return !this.f14263b ? "off" : "";
+        return !this.f14264b ? "off" : "";
     }
 
     private String e() {
@@ -54,19 +54,19 @@ public class ee extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo185a() {
+    public int mo196a() {
         return 13;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo185a() {
+    public ho mo196a() {
         return ho.DeviceBaseInfo;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo185a() {
-        return b() + "|" + d() + "|" + e() + "|" + a(this.f310a);
+    public String mo196a() {
+        return b() + "|" + d() + "|" + e() + "|" + a(this.f311a);
     }
 }

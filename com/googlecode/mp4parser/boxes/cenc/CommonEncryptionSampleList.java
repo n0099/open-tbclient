@@ -17,7 +17,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class CommonEncryptionSampleList extends AbstractList<Sample> {
     static Cipher cipher;
     List<CencSampleAuxiliaryDataFormat> auxiliaryDataFormats;
@@ -47,12 +47,12 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements Sample {
         static final /* synthetic */ boolean $assertionsDisabled;
         private final Cipher cipher;
-        private final Sample pPW;
-        private final CencSampleAuxiliaryDataFormat pPX;
+        private final Sample pRE;
+        private final CencSampleAuxiliaryDataFormat pRF;
 
         static {
             $assertionsDisabled = !CommonEncryptionSampleList.class.desiredAssertionStatus();
@@ -63,18 +63,18 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
         }
 
         private a(Sample sample, CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat, Cipher cipher) {
-            this.pPW = sample;
-            this.pPX = cencSampleAuxiliaryDataFormat;
+            this.pRE = sample;
+            this.pRF = cencSampleAuxiliaryDataFormat;
             this.cipher = cipher;
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
-            ByteBuffer byteBuffer = (ByteBuffer) this.pPW.asByteBuffer().rewind();
-            CommonEncryptionSampleList.this.initCipher(this.pPX.iv);
+            ByteBuffer byteBuffer = (ByteBuffer) this.pRE.asByteBuffer().rewind();
+            CommonEncryptionSampleList.this.initCipher(this.pRF.iv);
             try {
-                if (this.pPX.pairs != null && this.pPX.pairs.size() > 0) {
-                    for (CencSampleAuxiliaryDataFormat.Pair pair : this.pPX.pairs) {
+                if (this.pRF.pairs != null && this.pRF.pairs.size() > 0) {
+                    for (CencSampleAuxiliaryDataFormat.Pair pair : this.pRF.pairs) {
                         byte[] bArr = new byte[pair.clear];
                         byteBuffer.get(bArr);
                         writableByteChannel.write(ByteBuffer.wrap(bArr));
@@ -106,15 +106,15 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public long getSize() {
-            return this.pPW.getSize();
+            return this.pRE.getSize();
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public ByteBuffer asByteBuffer() {
-            ByteBuffer byteBuffer = (ByteBuffer) this.pPW.asByteBuffer().rewind();
+            ByteBuffer byteBuffer = (ByteBuffer) this.pRE.asByteBuffer().rewind();
             ByteBuffer allocate = ByteBuffer.allocate(byteBuffer.limit());
-            CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat = this.pPX;
-            CommonEncryptionSampleList.this.initCipher(this.pPX.iv);
+            CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat = this.pRF;
+            CommonEncryptionSampleList.this.initCipher(this.pRF.iv);
             try {
                 if (cencSampleAuxiliaryDataFormat.pairs != null) {
                     for (CencSampleAuxiliaryDataFormat.Pair pair : cencSampleAuxiliaryDataFormat.pairs) {

@@ -25,11 +25,11 @@ public class bx {
         return this.forumId + "";
     }
 
-    public long bqI() {
+    public long bqJ() {
         return this.eSn;
     }
 
-    public long bqJ() {
+    public long bqK() {
         return this.endTime;
     }
 
@@ -45,15 +45,15 @@ public class bx {
         return this.eSp;
     }
 
-    public int bqK() {
+    public int bqL() {
         return this.mWidth;
     }
 
-    public int bqL() {
+    public int bqM() {
         return this.mHeight;
     }
 
-    public String bqM() {
+    public String bqN() {
         return this.obj_id;
     }
 

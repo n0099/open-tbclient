@@ -31,7 +31,7 @@ public class a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 303005 && (socketResponsedMessage instanceof ResponseQueryCollectUpdateNumMessage)) {
-                b.bBc().setMsgBookmark(((ResponseQueryCollectUpdateNumMessage) socketResponsedMessage).getCollectUpdateNum());
+                b.bBd().setMsgBookmark(((ResponseQueryCollectUpdateNumMessage) socketResponsedMessage).getCollectUpdateNum());
             }
         }
     };
@@ -41,7 +41,7 @@ public class a {
         luj = null;
     }
 
-    public static synchronized a djG() {
+    public static synchronized a djH() {
         a aVar;
         synchronized (a.class) {
             if (luj == null) {

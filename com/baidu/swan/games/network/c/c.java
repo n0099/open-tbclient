@@ -44,9 +44,9 @@ public class c extends com.baidu.swan.games.network.a {
 
     @Override // com.baidu.swan.games.network.a
     public void start() {
-        Request bbm;
-        if (this.elx != null && (bbm = bbm()) != null) {
-            d(bbm);
+        Request bbn;
+        if (this.elx != null && (bbn = bbn()) != null) {
+            d(bbn);
         }
     }
 
@@ -54,14 +54,14 @@ public class c extends com.baidu.swan.games.network.a {
     public void d(Request request) {
         final String k = k(this.elx);
         final String httpUrl = request.url().toString();
-        if (com.baidu.swan.apps.runtime.e.aMk() == null) {
+        if (com.baidu.swan.apps.runtime.e.aMl() == null) {
             onError("", -1, "request:swanApp is null");
             return;
         }
         final long currentTimeMillis = System.currentTimeMillis();
         h.a(httpUrl, 1, (NetworkStatRecord) null);
-        final com.baidu.swan.games.network.b aMz = com.baidu.swan.apps.runtime.e.aMk().aMz();
-        aMz.a(request, new Callback() { // from class: com.baidu.swan.games.network.c.c.1
+        final com.baidu.swan.games.network.b aMA = com.baidu.swan.apps.runtime.e.aMl().aMA();
+        aMA.a(request, new Callback() { // from class: com.baidu.swan.games.network.c.c.1
             @Override // okhttp3.Callback
             public void onResponse(Call call, Response response) {
                 if (!response.isSuccessful()) {
@@ -111,7 +111,7 @@ public class c extends com.baidu.swan.games.network.a {
 
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
-                aMz.cancelTag(c.this.mTaskId);
+                aMA.cancelTag(c.this.mTaskId);
                 c.this.b(httpUrl, 0, iOException.getMessage(), currentTimeMillis);
             }
         });
@@ -184,11 +184,11 @@ public class c extends com.baidu.swan.games.network.a {
         return lowerCase;
     }
 
-    private Request bbm() {
-        String bbf = bbf();
-        if (TextUtils.isEmpty(bbf)) {
+    private Request bbn() {
+        String bbg = bbg();
+        if (TextUtils.isEmpty(bbg)) {
             if (DEBUG) {
-                Log.d("RequestTask", "buildRequest url =" + bbf);
+                Log.d("RequestTask", "buildRequest url =" + bbg);
                 return null;
             }
             return null;
@@ -199,7 +199,7 @@ public class c extends com.baidu.swan.games.network.a {
         }
         String upperCase = optString.toUpperCase();
         if (!cJA.contains(upperCase)) {
-            onError(bbf, -1, "request:method is invalid");
+            onError(bbg, -1, "request:method is invalid");
             return null;
         }
         HashMap hashMap = new HashMap();
@@ -212,13 +212,13 @@ public class c extends com.baidu.swan.games.network.a {
         JsArrayBuffer a2 = optString2 == null ? this.elx.a("data", (JsArrayBuffer) null) : optString2;
         boolean z = a2 != null;
         if (z && !HttpMethod.permitsRequestBody(upperCase)) {
-            return builder.url(bbf).method(upperCase, null).tag(this.mTaskId).build();
+            return builder.url(bbg).method(upperCase, null).tag(this.mTaskId).build();
         }
         RequestBody c = (z || HttpMethod.requiresRequestBody(upperCase)) ? c(a2, hashMap) : null;
         if (HttpMethod.requiresRequestBody(upperCase) && c == null) {
             return null;
         }
-        return builder.url(bbf).method(upperCase, c).tag(this.mTaskId).build();
+        return builder.url(bbg).method(upperCase, c).tag(this.mTaskId).build();
     }
 
     @Nullable

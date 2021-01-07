@@ -11,16 +11,16 @@ import com.baidu.mapapi.walknavi.model.RouteGuideKind;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.walknavi.segmentbrowse.widget.d;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f4586a;
+    public static int f4587a;
     private static a f;
     private static int g = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f4587b = -1;
+    public static int f4588b = -1;
     public static int c = -1;
     public static int d = BdStatsConstant.ErrorCode.ERR_LOG_FAST;
     public static b e = b.FIRST_GUIDANCE;
@@ -82,7 +82,7 @@ public class c {
         Paint paint = new Paint();
         paint.setTextSize(com.baidu.platform.comapi.walknavi.segmentbrowse.widget.a.a(context, 17.0f));
         int measureText = (int) paint.measureText("任");
-        double d2 = (0.7d * f4586a) / measureText;
+        double d2 = (0.7d * f4587a) / measureText;
         com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "singleCharwidth:" + measureText);
         com.baidu.platform.comapi.wnplatform.d.a.c("yang11", "num:" + d2);
         return (int) d2;
@@ -162,28 +162,28 @@ public class c {
         if (g() == -1.0d) {
             return -1;
         }
-        return (int) (g() * f4586a);
+        return (int) (g() * f4587a);
     }
 
     public static int l() {
         if (h() == -1.0d) {
             return -1;
         }
-        return (int) (h() * f4586a);
+        return (int) (h() * f4587a);
     }
 
     public static int m() {
         if (i() == -1.0d) {
             return -1;
         }
-        return (int) (i() * f4586a);
+        return (int) (i() * f4587a);
     }
 
     public static int n() {
         if (j() == -1.0d) {
             return -1;
         }
-        return (int) (j() * f4586a);
+        return (int) (j() * f4587a);
     }
 
     public static double e(int i) {
@@ -204,7 +204,7 @@ public class c {
         c = -1;
         d = BdStatsConstant.ErrorCode.ERR_LOG_FAST;
         e = b.FIRST_GUIDANCE;
-        f4587b = -1;
+        f4588b = -1;
         if (h != null) {
             h.clear();
         }

@@ -11,16 +11,16 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class ObservableRetryWhen<T> extends a<T, T> {
-    final h<? super q<Throwable>, ? extends t<?>> qhr;
+    final h<? super q<Throwable>, ? extends t<?>> qja;
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        io.reactivex.subjects.b<T> eLK = PublishSubject.eLJ().eLK();
+        io.reactivex.subjects.b<T> eMo = PublishSubject.eMn().eMo();
         try {
-            t tVar = (t) io.reactivex.internal.functions.a.m(this.qhr.apply(eLK), "The handler returned a null ObservableSource");
-            RepeatWhenObserver repeatWhenObserver = new RepeatWhenObserver(uVar, eLK, this.source);
+            t tVar = (t) io.reactivex.internal.functions.a.m(this.qja.apply(eMo), "The handler returned a null ObservableSource");
+            RepeatWhenObserver repeatWhenObserver = new RepeatWhenObserver(uVar, eMo, this.source);
             uVar.onSubscribe(repeatWhenObserver);
             tVar.subscribe(repeatWhenObserver.inner);
             repeatWhenObserver.subscribeNext();
@@ -30,7 +30,7 @@ public final class ObservableRetryWhen<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class RepeatWhenObserver<T> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = 802743776666017014L;
         volatile boolean active;
@@ -109,7 +109,7 @@ public final class ObservableRetryWhen<T> extends a<T, T> {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes5.dex */
         final class InnerRepeatObserver extends AtomicReference<io.reactivex.disposables.b> implements u<Object> {
             private static final long serialVersionUID = 3254781284376480842L;
 

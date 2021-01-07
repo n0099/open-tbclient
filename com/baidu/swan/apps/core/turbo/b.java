@@ -52,9 +52,9 @@ public final class b {
         if (!TextUtils.isEmpty(bVar.dah)) {
             treeMap.put("pageConfig", bVar.dah);
         }
-        com.baidu.swan.apps.core.g.a avR = d.avA().avR();
-        if (avR != null) {
-            treeMap.put("masterId", avR.amt());
+        com.baidu.swan.apps.core.g.a avS = d.avB().avS();
+        if (avS != null) {
+            treeMap.put("masterId", avS.amu());
         }
         return new com.baidu.swan.apps.event.a.b("PageReady", treeMap);
     }

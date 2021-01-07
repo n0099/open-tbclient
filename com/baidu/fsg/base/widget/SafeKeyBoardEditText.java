@@ -11,10 +11,10 @@ import com.baidu.fsg.base.utils.RimGlobalUtils;
 public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private SafeKeyBoardState f2075a;
+    private SafeKeyBoardState f2076a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f2076b;
+    private Context f2077b;
     private ViewGroup c;
     private SafeScrollView d;
     private View e;
@@ -80,7 +80,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
         this.m = 0;
         this.o = false;
         this.p = false;
-        this.f2076b = context;
+        this.f2077b = context;
         setOnLongClickListener(new c(this));
         setOnTouchListener(this);
         setOnFocusChangeListener(new d(this));
@@ -88,7 +88,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     }
 
     public SafeKeyBoardState getKeyBoardState() {
-        return this.f2075a;
+        return this.f2076a;
     }
 
     @Override // com.baidu.fsg.base.widget.PluginEditText, android.view.View.OnTouchListener
@@ -103,7 +103,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
                 this.off = layout.getOffsetForHorizontal(layout.getLineForVertical(getScrollY() + ((int) motionEvent.getY())), (int) motionEvent.getX());
                 if (hasFocus()) {
                     if (this.d == null) {
-                        RimGlobalUtils.showInputMethod(this.f2076b, this);
+                        RimGlobalUtils.showInputMethod(this.f2077b, this);
                         return true;
                     } else if (this.d != null && !this.d.isPopupWindowShowing()) {
                         this.d.showKeyBoard(this.c, this, this.e);

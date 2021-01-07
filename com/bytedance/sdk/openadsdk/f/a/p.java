@@ -6,10 +6,10 @@ import androidx.annotation.NonNull;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f7429a;
+    public final int f7430a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f7430b;
+    public final String f7431b;
     public final String c;
     public final String d;
     public final String e;
@@ -26,44 +26,44 @@ public class p {
     }
 
     private p(String str, int i) {
-        this.f7430b = null;
+        this.f7431b = null;
         this.c = null;
         this.d = null;
         this.e = null;
         this.f = str;
         this.g = null;
-        this.f7429a = i;
+        this.f7430a = i;
         this.h = null;
     }
 
     private p(a aVar) {
-        this.f7430b = aVar.f7431a;
-        this.c = aVar.f7432b;
+        this.f7431b = aVar.f7432a;
+        this.c = aVar.f7433b;
         this.d = aVar.c;
         this.e = aVar.d;
         this.f = aVar.e;
         this.g = aVar.f;
-        this.f7429a = 1;
+        this.f7430a = 1;
         this.h = aVar.g;
     }
 
     public static boolean a(p pVar) {
-        return pVar == null || pVar.f7429a != 1 || TextUtils.isEmpty(pVar.d) || TextUtils.isEmpty(pVar.e);
+        return pVar == null || pVar.f7430a != 1 || TextUtils.isEmpty(pVar.d) || TextUtils.isEmpty(pVar.e);
     }
 
     @NonNull
     public String toString() {
-        return "methodName: " + this.d + ", params: " + this.e + ", callbackId: " + this.f + ", type: " + this.c + ", version: " + this.f7430b + ", ";
+        return "methodName: " + this.d + ", params: " + this.e + ", callbackId: " + this.f + ", type: " + this.c + ", version: " + this.f7431b + ", ";
     }
 
     /* loaded from: classes4.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f7431a;
+        private String f7432a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f7432b;
+        private String f7433b;
         private String c;
         private String d;
         private String e;
@@ -74,12 +74,12 @@ public class p {
         }
 
         public a a(String str) {
-            this.f7431a = str;
+            this.f7432a = str;
             return this;
         }
 
         public a b(String str) {
-            this.f7432b = str;
+            this.f7433b = str;
             return this;
         }
 

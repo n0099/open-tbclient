@@ -116,14 +116,14 @@ public class a implements d {
             @Override // com.baidu.live.quick.b.a
             public void onShow() {
                 if (a.this.byX != null) {
-                    a.this.byX.ZZ();
+                    a.this.byX.aaa();
                 }
             }
 
             @Override // com.baidu.live.quick.b.a
             public void onDismiss() {
                 if (a.this.byX != null) {
-                    a.this.byX.aaa();
+                    a.this.byX.aab();
                 }
             }
 

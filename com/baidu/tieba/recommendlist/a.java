@@ -66,32 +66,32 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
     private int mScreenWidth;
     private TbPageContext mTbPageContext;
     private int mTouchSlop;
-    private ViewGroup mVd;
-    private RecommendViewPager mVe;
-    private AlaRecommendLiveListView mVf;
-    private View mVg;
-    private int mVh;
-    private float mVi;
-    private List<AbsDelegateAdapter> mVj;
-    private c mVk;
-    private final int mVl = 100;
-    private int mVm;
-    private com.baidu.tieba.recommendlist.model.b mVn;
-    private TextView mVo;
-    private boolean mVp;
-    private x mVq;
-    private FrameLayout mVr;
+    private ViewGroup mVc;
+    private RecommendViewPager mVd;
+    private AlaRecommendLiveListView mVe;
+    private View mVf;
+    private int mVg;
+    private float mVh;
+    private List<AbsDelegateAdapter> mVi;
+    private c mVj;
+    private final int mVk = 100;
+    private int mVl;
+    private com.baidu.tieba.recommendlist.model.b mVm;
+    private TextView mVn;
+    private boolean mVo;
+    private x mVp;
+    private FrameLayout mVq;
+    private View mVr;
     private View mVs;
-    private View mVt;
-    private float mmK;
+    private float mmJ;
 
     public a(TbPageContext tbPageContext) {
         if (tbPageContext != null) {
             this.mContext = tbPageContext.getPageActivity();
             this.mTbPageContext = tbPageContext;
             this.mScreenWidth = BdUtilHelper.getEquipmentWidth(this.mContext);
-            this.mVh = this.mScreenWidth;
-            cry();
+            this.mVg = this.mScreenWidth;
+            crz();
             this.mTouchSlop = ViewConfiguration.get(this.mContext).getScaledTouchSlop();
             if (com.baidu.live.d.Ba().getBoolean("ala_recommend_live_first_show", true)) {
                 this.fqH = 1;
@@ -101,26 +101,26 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
 
     @Override // com.baidu.live.aa.a
     public void a(c cVar) {
-        this.mVk = cVar;
+        this.mVj = cVar;
     }
 
     @Override // com.baidu.live.aa.a
     public void o(x xVar) {
-        this.mVq = xVar;
+        this.mVp = xVar;
     }
 
     @Override // com.baidu.live.aa.a
     public void C(int i, int i2) {
         this.mOrientation = i2;
         if (i2 == 2) {
-            this.mVg.setVisibility(8);
+            this.mVf.setVisibility(8);
             if (isOpen()) {
                 onClose();
                 return;
             }
             return;
         }
-        this.mVg.setVisibility(0);
+        this.mVf.setVisibility(0);
     }
 
     @Override // com.baidu.live.aa.a
@@ -142,10 +142,10 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
     public void a(ViewGroup viewGroup, ViewGroup viewGroup2) {
         if (viewGroup != null) {
             this.bRX = viewGroup;
-            this.mVd = viewGroup2;
+            this.mVc = viewGroup2;
+            dGu();
             dGt();
-            dGs();
-            if (!this.mVp && com.baidu.live.af.a.SE().bwi != null && this.fqH != 1) {
+            if (!this.mVo && com.baidu.live.af.a.SE().bwi != null && this.fqH != 1) {
                 long j = com.baidu.live.d.Ba().getLong("ala_recommend_live_last_show", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
                 int SK = com.baidu.live.af.a.SE().SK();
@@ -153,7 +153,7 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
                     this.fqH = 2;
                 }
             }
-            this.mVm = com.baidu.live.af.a.SE().SN();
+            this.mVl = com.baidu.live.af.a.SE().SN();
             JA(0);
         }
     }
@@ -165,59 +165,59 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
             this.dzn = null;
         }
         if (this.bRX != null) {
-            this.bRX.removeView(this.mVe);
-            this.bRX.removeView(this.mVs);
+            this.bRX.removeView(this.mVd);
+            this.bRX.removeView(this.mVr);
         }
-        this.mVk = null;
-        if (this.mVp) {
+        this.mVj = null;
+        if (this.mVo) {
             com.baidu.live.d.Ba().putLong("ala_recommend_live_last_show", System.currentTimeMillis());
         }
-        this.mVq = null;
-        if (this.mVn != null) {
-            this.mVn.reset();
+        this.mVp = null;
+        if (this.mVm != null) {
+            this.mVm.reset();
         }
     }
 
     @Override // com.baidu.live.aa.a
     public void onDestroy() {
         DC();
-        if (this.mVn != null) {
-            this.mVn.onDestroy();
+        if (this.mVm != null) {
+            this.mVm.onDestroy();
         }
     }
 
-    private void dGs() {
+    private void dGt() {
         if (this.aGL == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mVh, -1);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mVg, -1);
             this.aGL = LayoutInflater.from(this.mContext).inflate(a.g.ala_recommend_live_content_layout, (ViewGroup) null);
             this.aGL.setLayoutParams(layoutParams);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 this.aGL.findViewById(a.f.right_layout).setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
             }
-            this.mVt = this.aGL.findViewById(a.f.block_view);
+            this.mVs = this.aGL.findViewById(a.f.block_view);
             int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds80);
             if (com.baidu.live.af.a.SE().SO() == 1) {
                 dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds128);
             }
-            ViewGroup.LayoutParams layoutParams2 = this.mVt.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams2 = this.mVs.getLayoutParams();
             layoutParams2.width = dimensionPixelSize;
-            this.mVt.setLayoutParams(layoutParams2);
-            this.mVt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.a.1
+            this.mVs.setLayoutParams(layoutParams2);
+            this.mVs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.onClose();
                 }
             });
-            this.mVr = (FrameLayout) this.aGL.findViewById(a.f.listView_layout);
-            this.mVf = (AlaRecommendLiveListView) this.aGL.findViewById(a.f.recommendLiveListView);
+            this.mVq = (FrameLayout) this.aGL.findViewById(a.f.listView_layout);
+            this.mVe = (AlaRecommendLiveListView) this.aGL.findViewById(a.f.recommendLiveListView);
             this.hWc = new AlaListViewPullView(this.mContext);
             this.hbr = new LoadMoreFooter(this.mContext);
             this.hbr.setBackgroundColor(this.mContext.getResources().getColor(a.c.sdk_transparent));
             this.hbr.setFooterHeight(this.cardWidth / 2);
             this.hbr.createView();
             MT();
-            this.mVf.addAdapters(this.mVj);
-            this.mVf.setPullRefresh(this.hWc);
+            this.mVe.addAdapters(this.mVi);
+            this.mVe.setPullRefresh(this.hWc);
             this.hWc.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.recommendlist.a.2
                 @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
                 public void onListPullRefresh(boolean z) {
@@ -227,35 +227,35 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
                     }
                 }
             });
-            this.mVf.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.recommendlist.a.3
+            this.mVe.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.recommendlist.a.3
                 @Override // android.widget.AbsListView.OnScrollListener
                 public void onScrollStateChanged(AbsListView absListView, int i) {
                 }
 
                 @Override // android.widget.AbsListView.OnScrollListener
                 public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                    if (!a.this.hbr.isLoading() && a.this.mVn != null && a.this.mVn.hasMore && i + i2 > i3 - 2) {
-                        a.this.bUE();
+                    if (!a.this.hbr.isLoading() && a.this.mVm != null && a.this.mVm.hasMore && i + i2 > i3 - 2) {
+                        a.this.bUF();
                         a.this.JA(1);
                     }
                 }
             });
         }
-        if (this.mVs == null) {
-            this.mVs = new View(this.mContext);
-            this.mVs.setBackgroundColor(this.mContext.getResources().getColor(a.c.sdk_black_alpha65));
-            this.mVs.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            this.mVs.setAlpha(0.0f);
+        if (this.mVr == null) {
+            this.mVr = new View(this.mContext);
+            this.mVr.setBackgroundColor(this.mContext.getResources().getColor(a.c.sdk_black_alpha65));
+            this.mVr.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            this.mVr.setAlpha(0.0f);
         }
-        this.bRX.addView(this.mVs);
-        if (this.mVe == null) {
-            this.mVe = new RecommendViewPager(this.mTbPageContext.getPageActivity());
-            this.mVe.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            this.mVe.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.recommendlist.a.4
+        this.bRX.addView(this.mVr);
+        if (this.mVd == null) {
+            this.mVd = new RecommendViewPager(this.mTbPageContext.getPageActivity());
+            this.mVd.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            this.mVd.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.recommendlist.a.4
                 @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
                 public void onPageScrolled(int i, float f, int i2) {
                     if (a.this.isOpen() && i == 0) {
-                        a.this.mVs.setAlpha(f);
+                        a.this.mVr.setAlpha(f);
                     }
                 }
 
@@ -265,9 +265,9 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
 
                 @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
                 public void onPageScrollStateChanged(int i) {
-                    if (i == 0 && a.this.mVe != null) {
-                        if (a.this.mVe.getCurrentItem() != 0) {
-                            a.this.dGv();
+                    if (i == 0 && a.this.mVd != null) {
+                        if (a.this.mVd.getCurrentItem() != 0) {
+                            a.this.dGw();
                         } else {
                             a.this.close();
                         }
@@ -279,17 +279,17 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
             space.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             arrayList.add(space);
             arrayList.add(this.aGL);
-            this.mVe.setAdapter(new RecommendPagerAdapter(arrayList));
-            FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(this.mVh, -1);
+            this.mVd.setAdapter(new RecommendPagerAdapter(arrayList));
+            FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(this.mVg, -1);
             layoutParams3.gravity = 5;
-            layoutParams3.rightMargin = -this.mVh;
-            this.mVe.setLayoutParams(layoutParams3);
+            layoutParams3.rightMargin = -this.mVg;
+            this.mVd.setLayoutParams(layoutParams3);
         }
-        this.bRX.addView(this.mVe);
-        this.mVe.setCurrentItem(1, false);
-        if (this.mVn == null) {
-            this.mVn = new com.baidu.tieba.recommendlist.model.b(this.mTbPageContext);
-            this.mVn.a(new b.a() { // from class: com.baidu.tieba.recommendlist.a.5
+        this.bRX.addView(this.mVd);
+        this.mVd.setCurrentItem(1, false);
+        if (this.mVm == null) {
+            this.mVm = new com.baidu.tieba.recommendlist.model.b(this.mTbPageContext);
+            this.mVm.a(new b.a() { // from class: com.baidu.tieba.recommendlist.a.5
                 @Override // com.baidu.tieba.recommendlist.model.b.a
                 public void t(List<IAdapterData> list, int i) {
                     a.this.r(list, i);
@@ -303,44 +303,44 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
         }
     }
 
-    private void cry() {
+    private void crz() {
         if (com.baidu.live.af.a.SE().SO() == 1) {
-            this.cardWidth = ((((this.mVh - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds128)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds28)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds28)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds14)) / 2;
+            this.cardWidth = ((((this.mVg - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds128)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds28)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds28)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds14)) / 2;
             if (this.cardWidth <= 0) {
                 this.cardWidth = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds260);
                 return;
             }
             return;
         }
-        this.cardWidth = ((((this.mVh - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds80)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds40)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds20)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds4)) / 2;
+        this.cardWidth = ((((this.mVg - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds80)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds40)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds20)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds4)) / 2;
         if (this.cardWidth <= 0) {
             this.cardWidth = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds340);
         }
     }
 
     private void MT() {
-        if (this.mVj == null) {
-            this.mVj = new ArrayList();
-            this.mVj.add(new e(this.mContext, g.mWe));
-            this.mVj.add(new com.baidu.tieba.recommendlist.adapter.b(this.mContext, com.baidu.tieba.recommendlist.data.b.mVY));
-            this.mVj.add(new com.baidu.tieba.recommendlist.adapter.c(this.mContext, com.baidu.tieba.recommendlist.data.d.mWa, this.cardWidth));
-            this.mVj.add(new com.baidu.tieba.recommendlist.adapter.d(this.mContext, f.mWd, this.cardWidth));
+        if (this.mVi == null) {
+            this.mVi = new ArrayList();
+            this.mVi.add(new e(this.mContext, g.mWd));
+            this.mVi.add(new com.baidu.tieba.recommendlist.adapter.b(this.mContext, com.baidu.tieba.recommendlist.data.b.mVX));
+            this.mVi.add(new com.baidu.tieba.recommendlist.adapter.c(this.mContext, com.baidu.tieba.recommendlist.data.d.mVZ, this.cardWidth));
+            this.mVi.add(new com.baidu.tieba.recommendlist.adapter.d(this.mContext, f.mWc, this.cardWidth));
         }
     }
 
-    private void dGt() {
-        this.mVg = LayoutInflater.from(this.mContext).inflate(a.g.ala_recommend_live_header_entrance, (ViewGroup) null);
-        this.mVg.setId(a.f.ala_sdk_recommend_more_id);
+    private void dGu() {
+        this.mVf = LayoutInflater.from(this.mContext).inflate(a.g.ala_recommend_live_header_entrance, (ViewGroup) null);
+        this.mVf.setId(a.f.ala_sdk_recommend_more_id);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds44));
         layoutParams.topMargin = this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds16);
         layoutParams.addRule(11);
         layoutParams.addRule(3, a.f.ala_head_line_entry_id);
-        this.mVg.setLayoutParams(layoutParams);
-        if (this.mVd != null) {
-            this.mVd.addView(this.mVg);
+        this.mVf.setLayoutParams(layoutParams);
+        if (this.mVc != null) {
+            this.mVc.addView(this.mVf);
         }
-        ((TextView) this.mVg.findViewById(a.f.tv_recommend_entrance)).setText(com.baidu.live.af.a.SE().SL());
-        this.mVg.setOnClickListener(this);
+        ((TextView) this.mVf.findViewById(a.f.tv_recommend_entrance)).setText(com.baidu.live.af.a.SE().SL());
+        this.mVf.setOnClickListener(this);
     }
 
     @Override // com.baidu.live.liveroom.g.d
@@ -359,24 +359,24 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
             case 0:
                 this.mDownX = motionEvent.getX(i);
                 this.cGB = motionEvent.getY(i);
-                this.mmK = this.mDownX;
-                this.mVi = this.cGB;
+                this.mmJ = this.mDownX;
+                this.mVh = this.cGB;
                 break;
             case 1:
                 float x = motionEvent.getX(i);
                 float y = motionEvent.getY(i);
                 float f = this.mDownX - x;
                 float f2 = this.cGB - y;
-                if (Math.abs(f) < this.mTouchSlop && Math.abs(f2) < this.mTouchSlop && x > 0.0f && x < this.mScreenWidth - this.mVh) {
+                if (Math.abs(f) < this.mTouchSlop && Math.abs(f2) < this.mTouchSlop && x > 0.0f && x < this.mScreenWidth - this.mVg) {
                     onClose();
                     return true;
                 }
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mVe.getLayoutParams();
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mVd.getLayoutParams();
                 if (f > this.mTouchSlop) {
                     xs(true);
-                    dGu();
+                    dGv();
                     return true;
-                } else if (layoutParams.rightMargin > (-this.mVh)) {
+                } else if (layoutParams.rightMargin > (-this.mVg)) {
                     onClose();
                     return true;
                 }
@@ -384,30 +384,30 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
             case 2:
                 float x2 = motionEvent.getX(i);
                 float y2 = motionEvent.getY(i);
-                float f3 = this.mmK - x2;
-                float f4 = this.mVi - y2;
-                this.mmK = x2;
-                this.mVi = y2;
-                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.mVe.getLayoutParams();
+                float f3 = this.mmJ - x2;
+                float f4 = this.mVh - y2;
+                this.mmJ = x2;
+                this.mVh = y2;
+                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.mVd.getLayoutParams();
                 if (f3 > 0.0f) {
                     int i2 = (int) (layoutParams2.rightMargin + f3);
                     if (i2 <= 0) {
                         layoutParams2.rightMargin = i2;
-                        this.mVe.setLayoutParams(layoutParams2);
-                        this.mVs.setAlpha(1.0f - Math.abs((i2 * 1.0f) / this.mVh));
+                        this.mVd.setLayoutParams(layoutParams2);
+                        this.mVr.setAlpha(1.0f - Math.abs((i2 * 1.0f) / this.mVg));
                     }
                     return true;
                 } else if (f3 <= 0.0f) {
                     int i3 = (int) (layoutParams2.rightMargin + f3);
-                    if (i3 >= (-this.mVh)) {
+                    if (i3 >= (-this.mVg)) {
                         layoutParams2.rightMargin = i3;
-                        this.mVe.setLayoutParams(layoutParams2);
-                        this.mVs.setAlpha(1.0f - Math.abs((i3 * 1.0f) / this.mVh));
+                        this.mVd.setLayoutParams(layoutParams2);
+                        this.mVr.setAlpha(1.0f - Math.abs((i3 * 1.0f) / this.mVg));
                         return true;
-                    } else if (i3 < (-this.mVh)) {
-                        layoutParams2.rightMargin = -this.mVh;
-                        this.mVe.setLayoutParams(layoutParams2);
-                        this.mVs.setAlpha(1.0f - Math.abs((i3 * 1.0f) / this.mVh));
+                    } else if (i3 < (-this.mVg)) {
+                        layoutParams2.rightMargin = -this.mVg;
+                        this.mVd.setLayoutParams(layoutParams2);
+                        this.mVr.setAlpha(1.0f - Math.abs((i3 * 1.0f) / this.mVg));
                         return false;
                     }
                 }
@@ -426,25 +426,25 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
         return this.hto.Sa();
     }
 
-    private void dGu() {
+    private void dGv() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "left_slide"));
     }
 
     public void xs(boolean z) {
         if ((this.dzn == null || !this.dzn.isRunning()) && UtilHelper.getRealScreenOrientation(this.mContext) != 2) {
             xt(true);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mVe.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mVd.getLayoutParams();
             if (layoutParams.rightMargin < 0) {
                 int i = layoutParams.rightMargin;
-                af(i, 0, (int) (100.0f * ((Math.abs(0 - i) * 1.0f) / this.mVh)));
+                af(i, 0, (int) (100.0f * ((Math.abs(0 - i) * 1.0f) / this.mVg)));
             }
-            if (this.mVk != null) {
-                this.mVk.cK(true);
+            if (this.mVj != null) {
+                this.mVj.cK(true);
             }
-            if (!this.mVp) {
-                this.mVp = true;
+            if (!this.mVo) {
+                this.mVo = true;
             }
-            this.mVf.completePullRefresh();
+            this.mVe.completePullRefresh();
             if (z) {
                 JA(0);
             }
@@ -460,33 +460,33 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
         }
         hideNoDataView();
         long j = 0;
-        if (this.mVq != null && this.mVq.mLiveInfo != null) {
-            j = this.mVq.mLiveInfo.live_id;
+        if (this.mVp != null && this.mVp.mLiveInfo != null) {
+            j = this.mVp.mLiveInfo.live_id;
         }
-        this.mVn.g(j, i, this.mVm);
+        this.mVm.g(j, i, this.mVl);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r(List<IAdapterData> list, int i) {
-        if (this.mVn.hasMore) {
-            bYQ();
+        if (this.mVm.hasMore) {
+            bYR();
         } else if (i == 1) {
-            bYQ();
+            bYR();
         }
         if (ListUtils.isEmpty(list)) {
             b(CommonEmptyView.ImgType.NO_DATA);
             return;
         }
         hideNoDataView();
-        this.mVf.setData(list);
-        if (this.mVj != null) {
-            for (AbsDelegateAdapter absDelegateAdapter : this.mVj) {
+        this.mVe.setData(list);
+        if (this.mVi != null) {
+            for (AbsDelegateAdapter absDelegateAdapter : this.mVi) {
                 if (absDelegateAdapter instanceof com.baidu.tieba.recommendlist.adapter.c) {
-                    ((com.baidu.tieba.recommendlist.adapter.c) absDelegateAdapter).setAlaLiveShowData(this.mVq);
+                    ((com.baidu.tieba.recommendlist.adapter.c) absDelegateAdapter).setAlaLiveShowData(this.mVp);
                 } else if (absDelegateAdapter instanceof com.baidu.tieba.recommendlist.adapter.d) {
-                    ((com.baidu.tieba.recommendlist.adapter.d) absDelegateAdapter).setAlaLiveShowData(this.mVq);
+                    ((com.baidu.tieba.recommendlist.adapter.d) absDelegateAdapter).setAlaLiveShowData(this.mVp);
                 } else if (absDelegateAdapter instanceof com.baidu.tieba.recommendlist.adapter.b) {
-                    ((com.baidu.tieba.recommendlist.adapter.b) absDelegateAdapter).setAlaLiveShowData(this.mVq);
+                    ((com.baidu.tieba.recommendlist.adapter.b) absDelegateAdapter).setAlaLiveShowData(this.mVp);
                 }
             }
         }
@@ -498,18 +498,18 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
             }
             this.fqH = 0;
         }
-        this.mVf.completePullRefresh();
+        this.mVe.completePullRefresh();
         s(list, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(CommonEmptyView.ImgType imgType) {
         int i;
-        if (this.mVn != null && !this.mVn.isDataEmpty()) {
+        if (this.mVm != null && !this.mVm.isDataEmpty()) {
             if (imgType == CommonEmptyView.ImgType.NO_NET || imgType == CommonEmptyView.ImgType.SERVER_ERROR) {
                 BdUtilHelper.showToast(this.mContext, a.h.recommend_live_net_weak);
             }
-            this.mVf.completePullRefresh();
+            this.mVe.completePullRefresh();
             return;
         }
         if (this.bNm == null) {
@@ -520,15 +520,15 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
             layoutParams.height = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds180);
             imageView.setLayoutParams(layoutParams);
             ((TextView) this.bNm.findViewById(a.f.sdk_cev_title)).setTextSize(0, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_fontsize24));
-            this.mVo = (TextView) this.bNm.findViewById(a.f.sdk_cev_refresh_btn);
-            this.mVo.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_fontsize22));
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mVo.getLayoutParams();
+            this.mVn = (TextView) this.bNm.findViewById(a.f.sdk_cev_refresh_btn);
+            this.mVn.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_fontsize22));
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mVn.getLayoutParams();
             layoutParams2.width = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds152);
             layoutParams2.height = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds54);
             layoutParams2.topMargin = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds30);
-            this.mVo.setLayoutParams(layoutParams2);
-            if (this.mVr != null) {
-                this.bNm.addToParent(this.mVr);
+            this.mVn.setLayoutParams(layoutParams2);
+            if (this.mVq != null) {
+                this.bNm.addToParent(this.mVq);
             }
         }
         this.bNm.reset();
@@ -548,16 +548,16 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.hideNoDataView();
-                a.this.mVf.startPullRefresh();
+                a.this.mVe.startPullRefresh();
             }
         });
         this.bNm.setup(imgType, CommonEmptyView.StyleType.DARK);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isYinbo()) {
-            this.mVo.setBackgroundResource(a.e.ala_recommend_live_empty_refresh_btn_selector);
+            this.mVn.setBackgroundResource(a.e.ala_recommend_live_empty_refresh_btn_selector);
         }
         this.bNm.setVisibility(0);
-        this.mVf.completePullRefresh();
-        this.mVf.setData(new ArrayList());
+        this.mVe.completePullRefresh();
+        this.mVe.setData(new ArrayList());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -572,47 +572,47 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
         if (this.dzn != null && this.dzn.isRunning()) {
             this.dzn.cancel();
         }
-        if (this.mVk != null) {
-            this.mVk.cK(false);
+        if (this.mVj != null) {
+            this.mVj.cK(false);
         }
         xt(false);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mVe.getLayoutParams();
-        layoutParams.rightMargin = -this.mVh;
-        this.mVe.setLayoutParams(layoutParams);
-        this.mVe.setCurrentItem(1, false);
-        this.mVs.setAlpha(0.0f);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mVd.getLayoutParams();
+        layoutParams.rightMargin = -this.mVg;
+        this.mVd.setLayoutParams(layoutParams);
+        this.mVd.setCurrentItem(1, false);
+        this.mVr.setAlpha(0.0f);
     }
 
     @Override // com.baidu.live.aa.a
     public boolean isOpen() {
-        return ((FrameLayout.LayoutParams) this.mVe.getLayoutParams()).rightMargin > (-this.mVh);
+        return ((FrameLayout.LayoutParams) this.mVd.getLayoutParams()).rightMargin > (-this.mVg);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dGv() {
-        float abs = 1.0f - Math.abs((((FrameLayout.LayoutParams) this.mVe.getLayoutParams()).rightMargin * 1.0f) / this.mVh);
+    public void dGw() {
+        float abs = 1.0f - Math.abs((((FrameLayout.LayoutParams) this.mVd.getLayoutParams()).rightMargin * 1.0f) / this.mVg);
         if (abs < 0.0f) {
             abs = 0.0f;
         } else if (abs > 1.0f) {
             abs = 1.0f;
         }
-        this.mVs.setAlpha(abs);
+        this.mVr.setAlpha(abs);
     }
 
     @Override // com.baidu.live.aa.a
     public void onClose() {
         if (this.dzn == null || !this.dzn.isRunning()) {
             xt(false);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mVe.getLayoutParams();
-            if (layoutParams.rightMargin > (-this.mVh)) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mVd.getLayoutParams();
+            if (layoutParams.rightMargin > (-this.mVg)) {
                 int i = layoutParams.rightMargin;
-                int i2 = -this.mVh;
-                af(i, i2, (int) (100.0f * ((Math.abs(i2 - i) * 1.0f) / this.mVh)));
+                int i2 = -this.mVg;
+                af(i, i2, (int) (100.0f * ((Math.abs(i2 - i) * 1.0f) / this.mVg)));
             }
-            if (this.mVk != null) {
-                this.mVk.cK(false);
+            if (this.mVj != null) {
+                this.mVj.cK(false);
             }
-            this.mVf.completePullRefresh();
+            this.mVe.completePullRefresh();
         }
     }
 
@@ -623,10 +623,10 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float animatedFraction = valueAnimator.getAnimatedFraction();
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) a.this.mVe.getLayoutParams();
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) a.this.mVd.getLayoutParams();
                 layoutParams.rightMargin = ((int) (animatedFraction * i4)) + i;
-                a.this.mVs.setAlpha(1.0f - Math.abs((layoutParams.rightMargin * 1.0f) / a.this.mVh));
-                a.this.mVe.setLayoutParams(layoutParams);
+                a.this.mVr.setAlpha(1.0f - Math.abs((layoutParams.rightMargin * 1.0f) / a.this.mVg));
+                a.this.mVd.setLayoutParams(layoutParams);
             }
         });
         this.dzn.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.recommendlist.a.8
@@ -636,9 +636,9 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                a.this.mVe.setCurrentItem(1, false);
+                a.this.mVd.setCurrentItem(1, false);
                 if (i2 == 0) {
-                    a.this.mVs.setAlpha(1.0f);
+                    a.this.mVr.setAlpha(1.0f);
                 }
             }
 
@@ -655,7 +655,7 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.mVg) {
+        if (view == this.mVf) {
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "recommend_icon"));
             xs(true);
         }
@@ -674,17 +674,17 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
         return false;
     }
 
-    public void bYQ() {
+    public void bYR() {
         if (this.hbr != null) {
             this.hbr.endLoadData();
-            this.mVf.setNextPage(null);
+            this.mVe.setNextPage(null);
         }
     }
 
-    public void bUE() {
+    public void bUF() {
         if (this.hbr != null) {
             if (this.hbr.getView().getParent() == null) {
-                this.mVf.setNextPage(this.hbr);
+                this.mVe.setNextPage(this.hbr);
             }
             this.hbr.showLoadView();
         }
@@ -731,15 +731,15 @@ public class a implements View.OnClickListener, com.baidu.live.aa.a, b, d {
                 z2 = z;
             }
             if (z3) {
-                Sh("followtab_show");
+                Sg("followtab_show");
             }
             if (z2) {
-                Sh("hottab_show");
+                Sg("hottab_show");
             }
         }
     }
 
-    private void Sh(String str) {
+    private void Sg(String str) {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Page.LIVE_RECOMMEND, str));
     }
 }

@@ -227,7 +227,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                     String genCacheKey = com.baidu.adp.lib.e.d.mx().genCacheKey(TbImageView.this.mUrl, TbImageView.this.mType);
                     if (genCacheKey != null && genCacheKey.equals(str)) {
                         TbImageView.this.destroyDrawingCache();
-                        bJR();
+                        bJS();
                         com.baidu.adp.lib.OrmObject.a.a.invokeMethodNoParam(TbImageView.mDestroyLayerMethod, TbImageView.this, TbImageView.class);
                         com.baidu.adp.lib.OrmObject.a.a.invokeMethodParam(TbImageView.mDestroyLayerWithParamMethod, TbImageView.this, TbImageView.class, false);
                         com.baidu.adp.lib.OrmObject.a.a.invokeMethodNoParam(TbImageView.mClearDisplayListMethod, TbImageView.this, TbImageView.class);
@@ -237,7 +237,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                 }
             }
 
-            private void bJR() {
+            private void bJS() {
                 if (TbImageView.mDestroyLayerMethod == null) {
                     Method unused = TbImageView.mDestroyLayerMethod = com.baidu.adp.lib.OrmObject.a.a.findMethod(TbImageView.class, "destroyLayer", new Object[0]);
                 }
@@ -374,7 +374,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                     String genCacheKey = com.baidu.adp.lib.e.d.mx().genCacheKey(TbImageView.this.mUrl, TbImageView.this.mType);
                     if (genCacheKey != null && genCacheKey.equals(str)) {
                         TbImageView.this.destroyDrawingCache();
-                        bJR();
+                        bJS();
                         com.baidu.adp.lib.OrmObject.a.a.invokeMethodNoParam(TbImageView.mDestroyLayerMethod, TbImageView.this, TbImageView.class);
                         com.baidu.adp.lib.OrmObject.a.a.invokeMethodParam(TbImageView.mDestroyLayerWithParamMethod, TbImageView.this, TbImageView.class, false);
                         com.baidu.adp.lib.OrmObject.a.a.invokeMethodNoParam(TbImageView.mClearDisplayListMethod, TbImageView.this, TbImageView.class);
@@ -384,7 +384,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                 }
             }
 
-            private void bJR() {
+            private void bJS() {
                 if (TbImageView.mDestroyLayerMethod == null) {
                     Method unused = TbImageView.mDestroyLayerMethod = com.baidu.adp.lib.OrmObject.a.a.findMethod(TbImageView.class, "destroyLayer", new Object[0]);
                 }
@@ -514,8 +514,8 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                 aVar = null;
             } else {
                 String str = (String) tag;
-                com.baidu.adp.widget.ImageView.a Ef = com.baidu.tbadk.imageManager.c.bGp().Ef(str);
-                aVar = Ef == null ? com.baidu.tbadk.imageManager.c.bGp().Ee(str) : Ef;
+                com.baidu.adp.widget.ImageView.a Ee = com.baidu.tbadk.imageManager.c.bGq().Ee(str);
+                aVar = Ee == null ? com.baidu.tbadk.imageManager.c.bGq().Ed(str) : Ee;
             }
         } else {
             aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.e.d.mx().loadResourceFromMemery(this.mUrl, this.mType, new Object[0]);
@@ -626,7 +626,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         }
         boolean z3 = str.equals(this.mUrl) && i == this.mType && bdUniqueId == this.mPageId;
         if (!z3) {
-            bJM();
+            bJN();
             this.mNeedRecomputeMatrix = true;
             this.mIsGif = false;
             requestLayout();
@@ -859,7 +859,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         this.fRG = f;
     }
 
-    public boolean bJK() {
+    public boolean bJL() {
         return this.mShowLoading;
     }
 
@@ -1044,7 +1044,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         this.fRN |= i;
     }
 
-    public void bJL() {
+    public void bJM() {
         this.fRN = 0;
     }
 
@@ -1117,10 +1117,10 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         }
     }
 
-    public void bJM() {
+    public void bJN() {
         if (!TextUtils.isEmpty(this.mUrl)) {
             com.baidu.adp.lib.e.d.mx().a(this.mUrl, this.mType, this.fba);
-            if (TextUtils.isEmpty(this.mUrl) || bJK()) {
+            if (TextUtils.isEmpty(this.mUrl) || bJL()) {
                 stopLoading();
             }
         }

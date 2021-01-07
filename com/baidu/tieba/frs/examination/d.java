@@ -120,7 +120,7 @@ public class d extends a {
     }
 
     @Override // com.baidu.tieba.frs.examination.a
-    protected void cJp() {
+    protected void cJq() {
         this.jhI.setOnClickListener(this);
         this.jsu.setOnClickListener(this);
         this.jsY.setOnClickListener(this);
@@ -142,7 +142,7 @@ public class d extends a {
                 } else {
                     d.this.jtd.setVisibility(4);
                 }
-                d.this.cJt();
+                d.this.cJu();
             }
         });
         this.jsV.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.frs.examination.d.4
@@ -163,7 +163,7 @@ public class d extends a {
                 } else {
                     d.this.jte.setVisibility(4);
                 }
-                d.this.cJt();
+                d.this.cJu();
             }
         });
         this.jsU.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.frs.examination.d.5
@@ -193,7 +193,7 @@ public class d extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cJt() {
+    public void cJu() {
         if (!TextUtils.isEmpty(this.jtb) && this.jtb.length() >= 20 && !TextUtils.isEmpty(this.jtc) && this.jtc.length() >= 20 && !this.iJr.getString(R.string.select_subject).equals(this.jsQ.getText()) && this.jtb.length() <= 500 && this.jtc.length() <= 500) {
             this.jsu.setAlpha(1.0f);
         } else {
@@ -211,10 +211,10 @@ public class d extends a {
         ao.setViewTextColor(this.jsP, R.color.CAM_X0105);
         if (this.iJr.getString(R.string.select_subject).equals(this.jsQ.getText())) {
             ao.setViewTextColor(this.jsQ, R.color.CAM_X0109);
-            SvgManager.bwq().a(this.jsW, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bwr().a(this.jsW, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         } else {
             ao.setViewTextColor(this.jsQ, R.color.CAM_X0105);
-            SvgManager.bwq().a(this.jsW, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bwr().a(this.jsW, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
         ao.setViewTextColor(this.jsR, R.color.CAM_X0105);
         ao.setViewTextColor(this.jsS, R.color.CAM_X0105);
@@ -234,7 +234,7 @@ public class d extends a {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.jhI) {
-            cJq();
+            cJr();
         } else if (view == this.jsY) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SearchMajorActivityConfig(this.iJr, RequestResponseCode.REQUEST_REAL_AUTHEN)));
         } else if (view == this.jsu) {
@@ -249,12 +249,12 @@ public class d extends a {
             } else if (this.jtc.length() > 500) {
                 l.showToast(this.iJr, R.string.subject_comment_lenght_error_tip);
             } else {
-                this.jsw.a("学校评价：" + ((Object) this.jtb) + "\n专业评价：" + ((Object) this.jtc), cJu(), this.jst);
+                this.jsw.a("学校评价：" + ((Object) this.jtb) + "\n专业评价：" + ((Object) this.jtc), cJv(), this.jst);
             }
         }
     }
 
-    private String cJu() {
+    private String cJv() {
         ArrayList arrayList = new ArrayList();
         int starCount = this.jta.getStarCount();
         int starCount2 = this.jsZ.getStarCount();
@@ -275,8 +275,8 @@ public class d extends a {
             if (!TextUtils.isEmpty(stringExtra)) {
                 this.jsQ.setText(stringExtra);
                 ao.setViewTextColor(this.jsQ, R.color.CAM_X0105);
-                SvgManager.bwq().a(this.jsW, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                cJt();
+                SvgManager.bwr().a(this.jsW, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                cJu();
             }
         }
     }
@@ -293,7 +293,7 @@ public class d extends a {
     }
 
     @Override // com.baidu.tieba.frs.examination.a
-    public void bFN() {
+    public void bFO() {
         if (this.jst != null) {
             WriteData writeData = new WriteData();
             int starCount = this.jta.getStarCount();
@@ -307,7 +307,7 @@ public class d extends a {
     }
 
     @Override // com.baidu.tieba.frs.examination.a
-    public void cJr() {
+    public void cJs() {
         if (this.jst != null) {
             y.f(String.valueOf(this.jst.forumId), new y.a() { // from class: com.baidu.tieba.frs.examination.d.7
                 @Override // com.baidu.tieba.tbadkCore.y.a

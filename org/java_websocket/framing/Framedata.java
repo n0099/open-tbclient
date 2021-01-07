@@ -14,15 +14,15 @@ public interface Framedata {
         CLOSING
     }
 
-    boolean aqe();
+    boolean aqf();
 
-    ByteBuffer eNf();
+    ByteBuffer eNJ();
 
-    boolean eNg();
+    boolean eNK();
 
-    boolean eNh();
+    boolean eNL();
 
-    boolean eNi();
+    boolean eNM();
 
-    Opcode eNj();
+    Opcode eNN();
 }

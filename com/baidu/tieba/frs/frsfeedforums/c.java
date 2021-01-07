@@ -34,7 +34,7 @@ public class c extends k<l, FrsFeedItemViewHolder> {
     public View a(int i, View view, ViewGroup viewGroup, l lVar, FrsFeedItemViewHolder frsFeedItemViewHolder) {
         super.a(i, view, viewGroup, (ViewGroup) lVar, (l) frsFeedItemViewHolder);
         if (lVar != null) {
-            this.jwl.f(lVar.getForumId(), lVar.dOk());
+            this.jwl.f(lVar.getForumId(), lVar.dOl());
         }
         return view;
     }

@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 public class a {
     private AlaLiveRoomWatermarkView hSy;
 
-    public void coB() {
+    public void coC() {
         if (this.hSy != null && this.hSy.getParent() != null) {
             ((ViewGroup) this.hSy.getParent()).removeView(this.hSy);
         }

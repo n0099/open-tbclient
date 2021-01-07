@@ -4,56 +4,62 @@ import com.facebook.common.memory.PooledByteBuffer;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class l implements PooledByteBuffer {
     private final int mSize;
     @GuardedBy("this")
-    com.facebook.common.references.a<NativeMemoryChunk> pDu;
+    com.facebook.common.references.a<NativeMemoryChunk> pFb;
 
     public l(com.facebook.common.references.a<NativeMemoryChunk> aVar, int i) {
         com.facebook.common.internal.g.checkNotNull(aVar);
         com.facebook.common.internal.g.checkArgument(i >= 0 && i <= aVar.get().getSize());
-        this.pDu = aVar.clone();
+        this.pFb = aVar.clone();
         this.mSize = i;
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized int size() {
-        euj();
+        euq();
         return this.mSize;
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
-    public synchronized byte Qb(int i) {
-        byte Qb;
+    public synchronized byte Qg(int i) {
+        byte Qg;
         synchronized (this) {
-            euj();
+            euq();
             com.facebook.common.internal.g.checkArgument(i >= 0);
             com.facebook.common.internal.g.checkArgument(i < this.mSize);
-            Qb = this.pDu.get().Qb(i);
+            Qg = this.pFb.get().Qg(i);
         }
-        return Qb;
+        return Qg;
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized int c(int i, byte[] bArr, int i2, int i3) {
-        euj();
+        euq();
         com.facebook.common.internal.g.checkArgument(i + i3 <= this.mSize);
-        return this.pDu.get().c(i, bArr, i2, i3);
+        return this.pFb.get().c(i, bArr, i2, i3);
+    }
+
+    @Override // com.facebook.common.memory.PooledByteBuffer
+    public synchronized long euh() {
+        euq();
+        return this.pFb.get().euh();
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized boolean isClosed() {
-        return !com.facebook.common.references.a.a(this.pDu);
+        return !com.facebook.common.references.a.a(this.pFb);
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
-        com.facebook.common.references.a.c(this.pDu);
-        this.pDu = null;
+        com.facebook.common.references.a.c(this.pFb);
+        this.pFb = null;
     }
 
-    synchronized void euj() {
+    synchronized void euq() {
         if (isClosed()) {
             throw new PooledByteBuffer.ClosedException();
         }

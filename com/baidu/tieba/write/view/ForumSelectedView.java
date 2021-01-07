@@ -71,7 +71,7 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
             ao.setViewTextColor(this.jnJ, R.color.CAM_X0105);
             ao.setViewTextColor(this.mTipView, R.color.CAM_X0109);
             c.bv(this.mTipView).pK(R.string.J_X06).setBackGroundColor(R.color.CAM_X0206);
-            SvgManager.bwq().a(this.fjN, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bwr().a(this.fjN, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
             ao.setBackgroundColor(this.mLineView, R.color.CAM_X0210);
         }
     }

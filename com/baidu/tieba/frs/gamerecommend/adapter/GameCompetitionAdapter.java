@@ -26,7 +26,7 @@ public class GameCompetitionAdapter extends k<com.baidu.tieba.e.c, CardFrsGameCo
         this.jqL = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<CardFrsGameCompetitionItemView>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.GameCompetitionAdapter.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cKF */
+            /* renamed from: cKG */
             public CardFrsGameCompetitionItemView makeObject() {
                 CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView = new CardFrsGameCompetitionItemView(GameCompetitionAdapter.this.mContext);
                 cardFrsGameCompetitionItemView.setForumId(GameCompetitionAdapter.this.mForumId);
@@ -70,12 +70,12 @@ public class GameCompetitionAdapter extends k<com.baidu.tieba.e.c, CardFrsGameCo
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.c cVar, CardFrsGameCompetitionHolder cardFrsGameCompetitionHolder) {
-        if (cVar != null && cVar.cwv() != null) {
+        if (cVar != null && cVar.cww() != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            cardFrsGameCompetitionHolder.jyk.setText(cVar.cwv().title);
+            cardFrsGameCompetitionHolder.jyk.setText(cVar.cww().title);
             cardFrsGameCompetitionHolder.jyk.setTextColor(ao.getColor(skinType, R.color.CAM_X0105));
             cardFrsGameCompetitionHolder.jym.setPageContext(this.mPageContext);
-            cardFrsGameCompetitionHolder.jym.setData(cVar.cwv().sub_nodes);
+            cardFrsGameCompetitionHolder.jym.setData(cVar.cww().sub_nodes);
             cardFrsGameCompetitionHolder.jyl.setMaxOverScrollDistance(cardFrsGameCompetitionHolder.jym.getChildItemWidth());
             cardFrsGameCompetitionHolder.jyj.setBackgroundColor(ao.getColor(skinType, R.color.CAM_X0201));
             ao.setBackgroundResource(cardFrsGameCompetitionHolder.jyn, R.color.CAM_X0205);

@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class TrickPlayBox extends AbstractFullBox {
     public static final String TYPE = "trik";
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_2 = null;
     private List<Entry> entries;
 
     static {
@@ -44,7 +44,7 @@ public class TrickPlayBox extends AbstractFullBox {
         return this.entries;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Entry {
         private int value;
 

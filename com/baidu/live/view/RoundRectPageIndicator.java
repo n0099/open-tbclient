@@ -124,7 +124,7 @@ public class RoundRectPageIndicator extends View implements ViewPager.OnPageChan
 
     private void init(Context context, AttributeSet attributeSet) {
         sa();
-        ZN();
+        ZO();
         c(context, attributeSet);
     }
 
@@ -135,7 +135,7 @@ public class RoundRectPageIndicator extends View implements ViewPager.OnPageChan
         this.bUX.setStyle(Paint.Style.FILL);
     }
 
-    private void ZN() {
+    private void ZO() {
         this.bUY = new RectF();
         this.bUZ = new RectF();
     }

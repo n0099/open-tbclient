@@ -84,14 +84,14 @@ public class FrsTopItemInfoView extends LinearLayout {
             public void onClick(View view) {
                 if (FrsTopItemInfoView.this.mContext instanceof FrsActivity) {
                     final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a((FrsActivity) FrsTopItemInfoView.this.mContext);
-                    aVar.Bp(FrsTopItemInfoView.this.mContext.getString(R.string.comment_tab_dialog_info));
+                    aVar.Bo(FrsTopItemInfoView.this.mContext.getString(R.string.comment_tab_dialog_info));
                     aVar.a(R.string.comment_tab_dialog_botton_text, new a.b() { // from class: com.baidu.tieba.frs.view.FrsTopItemInfoView.2.1
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                             aVar.dismiss();
                         }
                     });
-                    aVar.b(((FrsActivity) FrsTopItemInfoView.this.mContext).getPageContext()).btX();
+                    aVar.b(((FrsActivity) FrsTopItemInfoView.this.mContext).getPageContext()).btY();
                 }
             }
         };
@@ -194,10 +194,10 @@ public class FrsTopItemInfoView extends LinearLayout {
         com.baidu.tbadk.core.elementsMaven.c.bv(this.jPh).pC(R.color.CAM_X0109).pE(R.string.F_X01);
         com.baidu.tbadk.core.elementsMaven.c.bv(this.jPk).pE(R.string.F_X01).pC(R.color.CAM_X0105);
         this.jPg.onChangeSkinType();
-        this.fiS.byy();
-        SvgManager.bwq().a(this.jPl, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
+        this.fiS.byz();
+        SvgManager.bwr().a(this.jPl, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
         ao.setBackgroundColor(this.mBottomLine, R.color.CAM_X0210);
-        SvgManager.bwq().a(this.jPd, R.drawable.ic_icon_pure_use_unknown_n_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.bwr().a(this.jPd, R.drawable.ic_icon_pure_use_unknown_n_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     public void setForumWriteData(ForumWriteData forumWriteData) {

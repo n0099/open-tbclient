@@ -27,13 +27,13 @@ public final class GlideException extends Exception {
     public static final class a implements Appendable {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Appendable f10445a;
+        private final Appendable f10446a;
 
         /* renamed from: b  reason: collision with root package name */
-        private boolean f10446b = true;
+        private boolean f10447b = true;
 
         a(Appendable appendable) {
-            this.f10445a = appendable;
+            this.f10446a = appendable;
         }
 
         @NonNull
@@ -43,12 +43,12 @@ public final class GlideException extends Exception {
 
         @Override // java.lang.Appendable
         public Appendable append(char c) {
-            if (this.f10446b) {
-                this.f10446b = false;
-                this.f10445a.append("  ");
+            if (this.f10447b) {
+                this.f10447b = false;
+                this.f10446a.append("  ");
             }
-            this.f10446b = c == '\n';
-            this.f10445a.append(c);
+            this.f10447b = c == '\n';
+            this.f10446a.append(c);
             return this;
         }
 
@@ -62,15 +62,15 @@ public final class GlideException extends Exception {
         public Appendable append(@Nullable CharSequence charSequence, int i, int i2) {
             boolean z = false;
             CharSequence a2 = a(charSequence);
-            if (this.f10446b) {
-                this.f10446b = false;
-                this.f10445a.append("  ");
+            if (this.f10447b) {
+                this.f10447b = false;
+                this.f10446a.append("  ");
             }
             if (a2.length() > 0 && a2.charAt(i2 - 1) == '\n') {
                 z = true;
             }
-            this.f10446b = z;
-            this.f10445a.append(a2, i, i2);
+            this.f10447b = z;
+            this.f10446a.append(a2, i, i2);
             return this;
         }
     }

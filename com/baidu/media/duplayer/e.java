@@ -19,7 +19,7 @@ public class e {
     private static e cjb;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f3244b = null;
+    private static String f3245b = null;
     private static String c = null;
     private static final Set<String> d = new LinkedHashSet();
 
@@ -27,11 +27,11 @@ public class e {
     }
 
     private String a(Context context, d dVar) {
-        if (dVar.adz() == d.a.LIB_TYPE_JAR) {
+        if (dVar.adA() == d.a.LIB_TYPE_JAR) {
             return (dVar.b().equals(a(dVar.a())) && com.baidu.media.ext.a.c(context.getClassLoader())) ? "apk_internal_jar" : c + File.separator + dVar.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.b() + ".jar";
-        } else if (dVar.adz() == d.a.LIB_TYPE_SO) {
+        } else if (dVar.adA() == d.a.LIB_TYPE_SO) {
             String findLibrary = dVar.b().equals(a(dVar.a())) ? ((BaseDexClassLoader) context.getClassLoader()).findLibrary(dVar.a()) : null;
-            return TextUtils.isEmpty(findLibrary) ? c + File.separator + f3244b + File.separator + dVar.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.b() + File.separator + "lib" + dVar.a() + PluginInstallerService.APK_LIB_SUFFIX : findLibrary;
+            return TextUtils.isEmpty(findLibrary) ? c + File.separator + f3245b + File.separator + dVar.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.b() + File.separator + "lib" + dVar.a() + PluginInstallerService.APK_LIB_SUFFIX : findLibrary;
         } else {
             return null;
         }
@@ -52,11 +52,11 @@ public class e {
         }
     }
 
-    public static synchronized e adA() {
+    public static synchronized e adB() {
         e eVar;
         synchronized (e.class) {
             if (cjb == null) {
-                f3244b = Utils.f();
+                f3245b = Utils.f();
                 cjb = new e();
             }
             eVar = cjb;
@@ -69,7 +69,7 @@ public class e {
         for (d dVar : LibsInfoDef.getAllGroupMap().values()) {
             String a2 = a(context, dVar);
             dVar.a(a2);
-            if (dVar.adz() == d.a.LIB_TYPE_SO) {
+            if (dVar.adA() == d.a.LIB_TYPE_SO) {
                 File parentFile = new File(a2).getParentFile();
                 if (!parentFile.exists() || parentFile.isFile()) {
                     parentFile.mkdirs();
@@ -137,7 +137,7 @@ public class e {
     }
 
     public String c() {
-        return f3244b;
+        return f3245b;
     }
 
     public String c(int i) {
@@ -145,7 +145,7 @@ public class e {
         if (ha == null) {
             return null;
         }
-        return f3244b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ha.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ha.b() + ".zip";
+        return f3245b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ha.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ha.b() + ".zip";
     }
 
     public void d() {
@@ -161,7 +161,7 @@ public class e {
                         for (File file : new File(e.c).listFiles()) {
                             if (file.isFile()) {
                                 e.this.a(file);
-                            } else if (file.getName().equals(e.f3244b)) {
+                            } else if (file.getName().equals(e.f3245b)) {
                                 e.this.b(file);
                             } else {
                                 Utils.a(file);

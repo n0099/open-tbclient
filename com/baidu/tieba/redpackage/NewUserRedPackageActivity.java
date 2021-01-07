@@ -33,11 +33,11 @@ public class NewUserRedPackageActivity extends BaseActivity {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getId() != NewUserRedPackageActivity.this.ghE.getId()) {
-                if (view.getId() == NewUserRedPackageActivity.this.mWu.getId()) {
+                if (view.getId() == NewUserRedPackageActivity.this.mWt.getId()) {
                     TiebaStatic.log(new aq("c13684").an("obj_type", 2));
                     if (TbadkCoreApplication.isLogin()) {
-                        if (NewUserRedPackageActivity.this.mWv != null) {
-                            be.bwu().b(NewUserRedPackageActivity.this.getPageContext(), new String[]{NewUserRedPackageActivity.this.mWv.clickUrl});
+                        if (NewUserRedPackageActivity.this.mWu != null) {
+                            be.bwv().b(NewUserRedPackageActivity.this.getPageContext(), new String[]{NewUserRedPackageActivity.this.mWu.clickUrl});
                             NewUserRedPackageActivity.this.finish();
                             return;
                         }
@@ -52,12 +52,12 @@ public class NewUserRedPackageActivity extends BaseActivity {
             NewUserRedPackageActivity.this.finish();
         }
     };
-    private RoundRelativeLayout mWq;
-    private ImageView mWr;
+    private RoundRelativeLayout mWp;
+    private ImageView mWq;
+    private TextView mWr;
     private TextView mWs;
     private TextView mWt;
-    private TextView mWu;
-    private NewUserRedPackageData mWv;
+    private NewUserRedPackageData mWu;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -65,31 +65,31 @@ public class NewUserRedPackageActivity extends BaseActivity {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(R.layout.activity_new_user_red_package);
-        this.mWq = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
-        this.mWq.setAllCornerRound(l.getDimens(this, R.dimen.tbds32));
-        this.mWr = (ImageView) findViewById(R.id.top_pic);
+        this.mWp = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
+        this.mWp.setAllCornerRound(l.getDimens(this, R.dimen.tbds32));
+        this.mWq = (ImageView) findViewById(R.id.top_pic);
         this.ghE = (ImageView) findViewById(R.id.img_close);
         this.ghE.setOnClickListener(this.mOnClickListener);
-        this.mWs = (TextView) findViewById(R.id.money_count);
-        this.mWt = (TextView) findViewById(R.id.money_info);
-        this.mWu = (TextView) findViewById(R.id.btn_receive);
-        this.mWu.setOnClickListener(this.mOnClickListener);
-        cKl();
+        this.mWr = (TextView) findViewById(R.id.money_count);
+        this.mWs = (TextView) findViewById(R.id.money_info);
+        this.mWt = (TextView) findViewById(R.id.btn_receive);
+        this.mWt.setOnClickListener(this.mOnClickListener);
+        cKm();
         TiebaStatic.log(new aq("c13684").an("obj_type", 1));
         this.eHt = new s();
     }
 
-    private void cKl() {
+    private void cKm() {
         if (getIntent() != null) {
-            this.mWv = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");
-            if (this.mWv != null) {
-                a aVar = (a) d.mx().loadResourceFromMemery(this.mWv.topPicUrl, 10, new Object[0]);
+            this.mWu = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");
+            if (this.mWu != null) {
+                a aVar = (a) d.mx().loadResourceFromMemery(this.mWu.topPicUrl, 10, new Object[0]);
                 if (aVar != null) {
-                    this.mWr.setImageBitmap(aVar.getRawBitmap());
+                    this.mWq.setImageBitmap(aVar.getRawBitmap());
                 }
-                this.mWs.setText(String.format(getString(R.string.new_user_red_package_money_count), this.mWv.money));
-                this.mWt.setText(getString(R.string.new_user_red_package_money_info));
-                this.mWu.setText(getString(R.string.new_user_red_package_receive));
+                this.mWr.setText(String.format(getString(R.string.new_user_red_package_money_count), this.mWu.money));
+                this.mWs.setText(getString(R.string.new_user_red_package_money_info));
+                this.mWt.setText(getString(R.string.new_user_red_package_receive));
             }
         }
     }
@@ -98,10 +98,10 @@ public class NewUserRedPackageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ao.setBackgroundColor(this.mWq, R.color.CAM_X0201);
+        ao.setBackgroundColor(this.mWp, R.color.CAM_X0201);
+        ao.setViewTextColor(this.mWr, R.color.CAM_X0105);
         ao.setViewTextColor(this.mWs, R.color.CAM_X0105);
-        ao.setViewTextColor(this.mWt, R.color.CAM_X0105);
-        ao.setViewTextColor(this.mWu, R.color.CAM_X0302);
+        ao.setViewTextColor(this.mWt, R.color.CAM_X0302);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -118,9 +118,9 @@ public class NewUserRedPackageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (i == 25046 && this.mWv != null) {
-            this.eHt.blT();
-            be.bwu().b(getPageContext(), new String[]{this.mWv.clickUrl});
+        if (i == 25046 && this.mWu != null) {
+            this.eHt.blU();
+            be.bwv().b(getPageContext(), new String[]{this.mWu.clickUrl});
             finish();
         }
     }

@@ -41,7 +41,7 @@ public class TabItemView extends TextView {
         if (this.jGY != null) {
             setText(this.jGY.name);
         }
-        bxO();
+        bxP();
     }
 
     public void setState(int i) {
@@ -90,7 +90,7 @@ public class TabItemView extends TextView {
         return this.mState;
     }
 
-    public void bxO() {
+    public void bxP() {
         setState(this.mState);
     }
 

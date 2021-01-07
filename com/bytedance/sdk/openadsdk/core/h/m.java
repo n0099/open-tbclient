@@ -3,10 +3,10 @@ package com.bytedance.sdk.openadsdk.core.h;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6898a;
+    public String f6899a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6899b;
+    public String f6900b;
     public String c;
     public String d;
     public String e;
@@ -19,12 +19,12 @@ public class m {
     }
 
     public m a(String str) {
-        this.f6898a = str;
+        this.f6899a = str;
         return this;
     }
 
     public m b(String str) {
-        this.f6899b = str;
+        this.f6900b = str;
         return this;
     }
 

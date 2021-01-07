@@ -95,7 +95,7 @@ public class PersonalChatActivityStatic {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003004, TbConfig.SERVER_ADDRESS + Config.FREIND_LIST_ADDRESS);
         tbHttpMessageTask.setResponsedClass(ResponseFriendListMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        cyz();
+        cyA();
         MessageManager.getInstance().registerListener(kKu);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PERSONAL_CHAT, new CustomMessageTask.CustomRunnable<PersonalChatActivityConfig>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -107,9 +107,9 @@ public class PersonalChatActivityStatic {
                     ac.b(new ab<Void>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.ab
-                        /* renamed from: bPm */
+                        /* renamed from: bPn */
                         public Void doInBackground() {
-                            return m.cXF().l(linkedList);
+                            return m.cXG().l(linkedList);
                         }
                     }, new l<Void>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2.2
                         /* JADX DEBUG: Method merged with bridge method */
@@ -128,7 +128,7 @@ public class PersonalChatActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        be.bwu().a(new be.a() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.3
+        be.bwv().a(new be.a() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.3
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -187,9 +187,9 @@ public class PersonalChatActivityStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                     if (TbadkCoreApplication.isLogin()) {
-                        i.dbj().start();
+                        i.dbk().start();
                     } else {
-                        i.dbj().destroy();
+                        i.dbk().destroy();
                     }
                 }
             }
@@ -199,15 +199,15 @@ public class PersonalChatActivityStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin()) {
-                    i.dbj().restart();
+                    i.dbk().restart();
                 } else {
-                    i.dbj().destroy();
+                    i.dbk().destroy();
                 }
             }
         });
     }
 
-    public static e daf() {
+    public static e dag() {
         return kKt;
     }
 
@@ -215,8 +215,8 @@ public class PersonalChatActivityStatic {
         kKt = eVar;
     }
 
-    private static void cyz() {
-        be.bwu().a(new be.a() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.8
+    private static void cyA() {
+        be.bwv().a(new be.a() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.8
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null) {

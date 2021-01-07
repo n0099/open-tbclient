@@ -10,7 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class FieldSerializer implements Comparable<FieldSerializer> {
     protected boolean disableCircularReferenceDetect;
     private final String double_quoted_fieldPrefix;
@@ -240,7 +240,7 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class RuntimeSerializerInfo {
         final ObjectSerializer fieldSerializer;
         final Class<?> runtimeFieldClass;

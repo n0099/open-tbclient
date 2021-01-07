@@ -53,27 +53,27 @@ public class a {
         C0511a c0511a = new C0511a();
         c cVar = new c();
         b bVar = new b();
-        String aMm = e.aMm();
-        this.appId = TextUtils.isEmpty(aMm) ? "" : aMm;
+        String aMn = e.aMn();
+        this.appId = TextUtils.isEmpty(aMn) ? "" : aMn;
         this.dXH = c0511a;
         this.dXI = cVar;
         this.dXJ = bVar;
         this.data = jSONObject;
-        String aRO = ak.aRO();
-        c0511a.dXK = "0".equals(aRO) ? "" : aRO;
+        String aRP = ak.aRP();
+        c0511a.dXK = "0".equals(aRP) ? "" : aRP;
         String androidId = getAndroidId();
         c0511a.dXL = "0".equals(androidId) ? "" : androidId;
         c0511a.dXM = 2;
         c0511a.aSn = com.baidu.swan.bdprivate.extensions.g.c.a.er(context) ? 3 : 2;
-        String apb = com.baidu.swan.apps.i.c.apb();
-        c0511a.dXN = "NUL".equals(apb) ? "" : apb;
+        String apc = com.baidu.swan.apps.i.c.apc();
+        c0511a.dXN = "NUL".equals(apc) ? "" : apc;
         String deviceModel = com.baidu.swan.apps.i.c.getDeviceModel();
         c0511a.deviceModel = "NUL".equals(deviceModel) ? "" : deviceModel;
         c0511a.dXO = ah.getDisplayHeight(context);
         c0511a.screenWidth = ah.getDisplayWidth(context);
         String wifiInfo = getWifiInfo();
         c0511a.mac = (TextUtils.isEmpty(wifiInfo) || Config.DEF_MAC_ID.equals(wifiInfo)) ? "" : "";
-        bVar.network = com.baidu.swan.bdprivate.extensions.g.c.a.aTy();
+        bVar.network = com.baidu.swan.bdprivate.extensions.g.c.a.aTz();
         bVar.dXP = com.baidu.swan.bdprivate.extensions.g.c.a.es(context);
     }
 

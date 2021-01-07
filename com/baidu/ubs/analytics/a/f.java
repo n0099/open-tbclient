@@ -23,20 +23,20 @@ final class f {
         }
     }
 
-    public static synchronized f ejz() {
+    public static synchronized f ejA() {
         f fVar;
         synchronized (f.class) {
             if (oOe == null) {
-                b(com.baidu.ubs.analytics.d.ejy().getContext());
+                b(com.baidu.ubs.analytics.d.ejz().getContext());
             }
             fVar = oOe;
         }
         return fVar;
     }
 
-    public final synchronized SQLiteDatabase awv() {
+    public final synchronized SQLiteDatabase aww() {
         if (this.oOg.incrementAndGet() == 1) {
-            com.baidu.ubs.analytics.d.b.XN("***************新建立了 一个数据库的实例****************");
+            com.baidu.ubs.analytics.d.b.XM("***************新建立了 一个数据库的实例****************");
             this.oOh = oOf.getWritableDatabase();
         }
         return this.oOh;

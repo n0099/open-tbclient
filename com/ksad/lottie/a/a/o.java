@@ -10,13 +10,13 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
 /* loaded from: classes5.dex */
-public class o implements d, i, j, l, a.InterfaceC1037a {
+public class o implements d, i, j, l, a.InterfaceC1078a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Matrix f8249a = new Matrix();
+    private final Matrix f8250a = new Matrix();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Path f8250b = new Path();
+    private final Path f8251b = new Path();
     private final com.ksad.lottie.f c;
     private final com.ksad.lottie.model.layer.a d;
     private final String e;
@@ -40,7 +40,7 @@ public class o implements d, i, j, l, a.InterfaceC1037a {
         this.h.a(this);
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1037a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1078a
     public void a() {
         this.c.invalidateSelf();
     }
@@ -52,9 +52,9 @@ public class o implements d, i, j, l, a.InterfaceC1037a {
         float floatValue3 = this.h.b().e().floatValue() / 100.0f;
         float floatValue4 = this.h.c().e().floatValue() / 100.0f;
         for (int i2 = ((int) floatValue) - 1; i2 >= 0; i2--) {
-            this.f8249a.set(matrix);
-            this.f8249a.preConcat(this.h.b(i2 + floatValue2));
-            this.i.a(canvas, this.f8249a, (int) (i * com.ksad.lottie.d.e.a(floatValue3, floatValue4, i2 / floatValue)));
+            this.f8250a.set(matrix);
+            this.f8250a.preConcat(this.h.b(i2 + floatValue2));
+            this.i.a(canvas, this.f8250a, (int) (i * com.ksad.lottie.d.e.a(floatValue3, floatValue4, i2 / floatValue)));
         }
     }
 
@@ -87,13 +87,13 @@ public class o implements d, i, j, l, a.InterfaceC1037a {
     @Override // com.ksad.lottie.a.a.l
     public Path d() {
         Path d = this.i.d();
-        this.f8250b.reset();
+        this.f8251b.reset();
         float floatValue = this.f.e().floatValue();
         float floatValue2 = this.g.e().floatValue();
         for (int i = ((int) floatValue) - 1; i >= 0; i--) {
-            this.f8249a.set(this.h.b(i + floatValue2));
-            this.f8250b.addPath(d, this.f8249a);
+            this.f8250a.set(this.h.b(i + floatValue2));
+            this.f8251b.addPath(d, this.f8250a);
         }
-        return this.f8250b;
+        return this.f8251b;
     }
 }

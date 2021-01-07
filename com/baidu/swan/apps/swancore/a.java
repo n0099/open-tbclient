@@ -30,7 +30,7 @@ public class a {
         private static final a dOV = new a();
     }
 
-    public static a aPI() {
+    public static a aPJ() {
         return C0489a.dOV;
     }
 
@@ -64,7 +64,7 @@ public class a {
                     hashSet.add(bVar.toJson());
                 }
             }
-            h.aPH().putStringSet(lc(i), hashSet);
+            h.aPI().putStringSet(lc(i), hashSet);
         }
     }
 
@@ -87,7 +87,7 @@ public class a {
 
     public String la(int i) {
         StringBuilder sb = new StringBuilder();
-        String string = h.aPH().getString(kZ(i), "");
+        String string = h.aPI().getString(kZ(i), "");
         if (!TextUtils.isEmpty(string)) {
             sb.append("md5: ").append(string).append("\n").append("\n");
         }
@@ -110,11 +110,11 @@ public class a {
         if (!z) {
             sb.append(new b(System.currentTimeMillis(), com.baidu.swan.apps.swancore.c.a.lm(i)).toString());
         } else {
-            SwanCoreVersion aDi = f.aDG().aDi();
+            SwanCoreVersion aDj = f.aDH().aDj();
             b bVar2 = lb.get(size - 1);
-            if (bVar2 != null && aDi != null && aDi.swanCoreVersion > bVar2.swanCoreVersion) {
+            if (bVar2 != null && aDj != null && aDj.swanCoreVersion > bVar2.swanCoreVersion) {
                 sb.append("\n");
-                sb.append(new b(System.currentTimeMillis(), aDi.swanCoreVersion).toString());
+                sb.append(new b(System.currentTimeMillis(), aDj.swanCoreVersion).toString());
             }
         }
         return sb.toString();
@@ -122,7 +122,7 @@ public class a {
 
     private List<b> lb(int i) {
         ArrayList arrayList = new ArrayList();
-        Set<String> stringSet = h.aPH().getStringSet(lc(i), null);
+        Set<String> stringSet = h.aPI().getStringSet(lc(i), null);
         if (stringSet == null || stringSet.size() == 0) {
             return arrayList;
         }

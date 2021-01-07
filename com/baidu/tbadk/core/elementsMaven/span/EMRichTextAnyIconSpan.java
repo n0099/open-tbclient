@@ -49,7 +49,7 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
         if (this.eYR == IconType.WEBP) {
             drawable = WebPManager.a(this.eYQ, ao.getColor(this.eYS), WebPManager.ResourceStateType.NORMAL_PRESS);
         } else if (this.eYR == IconType.SVG) {
-            drawable = SvgManager.bwq().a(this.eYQ, this.eYS, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            drawable = SvgManager.bwr().a(this.eYQ, this.eYS, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         } else {
             drawable = ao.getDrawable(this.eYQ);
         }

@@ -20,18 +20,18 @@ import java.util.List;
 public class f extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final String[] f13692a = {"key"};
+    protected static final String[] f13693a = {"key"};
 
     /* renamed from: b  reason: collision with root package name */
-    protected static f f13693b;
+    protected static f f13694b;
 
     public static synchronized f a() {
         f fVar;
         synchronized (f.class) {
-            if (f13693b == null) {
-                f13693b = new f(com.tencent.open.utils.e.a());
+            if (f13694b == null) {
+                f13694b = new f(com.tencent.open.utils.e.a());
             }
-            fVar = f13693b;
+            fVar = f13694b;
         }
         return fVar;
     }

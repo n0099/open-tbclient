@@ -11,17 +11,17 @@ import com.kwad.sdk.api.core.ResContext;
 public class n extends ContextWrapper implements ResContext {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f8537a;
+    private final Context f8538a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Resources.Theme f8538b;
+    private Resources.Theme f8539b;
     private int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(Context context) {
         super(context);
         this.c = -1;
-        this.f8537a = context;
+        this.f8538a = context;
         this.c = ((Integer) Reflect.a(context).d("getThemeResId").a()).intValue();
     }
 
@@ -43,7 +43,7 @@ public class n extends ContextWrapper implements ResContext {
 
     @Override // com.kwad.sdk.api.core.ResContext
     public Context getDelegatedContext() {
-        return this.f8537a;
+        return this.f8538a;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -66,24 +66,24 @@ public class n extends ContextWrapper implements ResContext {
         Resources.Theme theme = super.getTheme();
         Resources externalResource = Loader.get().getExternalResource();
         if (externalResource != null) {
-            if (this.f8538b == null) {
-                this.f8538b = externalResource.newTheme();
+            if (this.f8539b == null) {
+                this.f8539b = externalResource.newTheme();
                 if (this.c > 0) {
-                    this.f8538b.applyStyle(this.c, true);
+                    this.f8539b.applyStyle(this.c, true);
                 }
             }
-            return this.f8538b;
+            return this.f8539b;
         }
         return theme;
     }
 
     @Override // android.content.Context
     public void registerComponentCallbacks(ComponentCallbacks componentCallbacks) {
-        this.f8537a.registerComponentCallbacks(componentCallbacks);
+        this.f8538a.registerComponentCallbacks(componentCallbacks);
     }
 
     @Override // android.content.Context
     public void unregisterComponentCallbacks(ComponentCallbacks componentCallbacks) {
-        this.f8537a.unregisterComponentCallbacks(componentCallbacks);
+        this.f8538a.unregisterComponentCallbacks(componentCallbacks);
     }
 }

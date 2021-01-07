@@ -18,24 +18,24 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
     private p gey;
     private com.baidu.adp.widget.ListView.a khi;
     private com.baidu.adp.widget.ListView.a khj;
-    private com.baidu.tieba.InjectPlugin.a.c mMH;
+    private com.baidu.tieba.InjectPlugin.a.c mMG;
+    private com.baidu.adp.widget.ListView.a mMK;
     private com.baidu.adp.widget.ListView.a mML;
     private com.baidu.adp.widget.ListView.a mMM;
-    private com.baidu.adp.widget.ListView.a mMN;
     private List<Object> mOriginDatas;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.InjectPlugin.a.a
     /* renamed from: b */
     public void init(com.baidu.tieba.InjectPlugin.a.c cVar) {
-        this.mMH = cVar;
-        if (this.mMH != null && (this.mMH.bMR() instanceof p)) {
-            this.gey = (p) this.mMH.bMR();
+        this.mMG = cVar;
+        if (this.mMG != null && (this.mMG.bMS() instanceof p)) {
+            this.gey = (p) this.mMG.bMS();
             this.khi = new com.baidu.tieba.recapp.adapter.c(this.gey, AdvertAppInfo.eNz);
             this.khj = new com.baidu.tieba.recapp.adapter.d(this.gey, AdvertAppInfo.eNI);
-            this.mML = new com.baidu.tieba.recapp.adapter.d(this.gey, AdvertAppInfo.eNM);
-            this.mMM = new com.baidu.tieba.recapp.adapter.d(this.gey, AdvertAppInfo.eNN);
-            this.mMN = new com.baidu.tieba.recapp.adapter.d(this.gey, AdvertAppInfo.eNO);
+            this.mMK = new com.baidu.tieba.recapp.adapter.d(this.gey, AdvertAppInfo.eNM);
+            this.mML = new com.baidu.tieba.recapp.adapter.d(this.gey, AdvertAppInfo.eNN);
+            this.mMM = new com.baidu.tieba.recapp.adapter.d(this.gey, AdvertAppInfo.eNO);
         }
     }
 
@@ -49,7 +49,7 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
     }
 
     @Override // com.baidu.tieba.InjectPlugin.FrsFeedAd.d
-    public List<Integer> bMQ() {
+    public List<Integer> bMR() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(Integer.valueOf(AdvertAppInfo.eNI.getId()));
         arrayList.add(Integer.valueOf(AdvertAppInfo.eNz.getId()));
@@ -92,10 +92,10 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
                 for (int i5 = 0; i5 < eN2; i5++) {
                     AdvertAppInfo advertAppInfo = (AdvertAppInfo) com.baidu.tieba.lego.card.c.a.l(arrayList, i5);
                     advertAppInfo.page = "FRS";
-                    int bpe = advertAppInfo.bpe();
-                    if (bpe != 0) {
-                        com.baidu.tieba.recapp.report.d.a(advertAppInfo, i, bpe);
-                        if (bpe != 28 && bpe != 31) {
+                    int bpf = advertAppInfo.bpf();
+                    if (bpf != 0) {
+                        com.baidu.tieba.recapp.report.d.a(advertAppInfo, i, bpf);
+                        if (bpf != 28 && bpf != 31) {
                             advertAppInfo.eOc.eOq = -1001;
                         }
                     }
@@ -114,8 +114,8 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
                             cVar.aC(advertAppInfo);
                             cVar.um(advertAppInfo.getType().getId());
                             cVar.setThreadType(3);
-                            if (advertAppInfo.bpf()) {
-                                if (s.isInstalledPackage(TbadkCoreApplication.getInst(), advertAppInfo.eNW) && com.baidu.tieba.a.bME().bMG()) {
+                            if (advertAppInfo.bpg()) {
+                                if (s.isInstalledPackage(TbadkCoreApplication.getInst(), advertAppInfo.eNW) && com.baidu.tieba.a.bMF().bMH()) {
                                     com.baidu.tieba.recapp.report.d.a(advertAppInfo, i, 3);
                                 } else if (!TextUtils.isEmpty(advertAppInfo.eNW) && !TextUtils.isEmpty(advertAppInfo.eNU)) {
                                     hashSet.add(Integer.valueOf(i6));
@@ -125,7 +125,7 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
                                         com.baidu.tieba.lego.card.c.a.a(list, cVar);
                                     }
                                 }
-                            } else if (advertAppInfo.bpg()) {
+                            } else if (advertAppInfo.bph()) {
                                 hashSet.add(Integer.valueOf(i6));
                                 if (i6 < eN) {
                                     com.baidu.tieba.lego.card.c.a.a(list, cVar, i6);
@@ -180,10 +180,10 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
                 for (int i9 = 0; i9 < eN2; i9++) {
                     AdvertAppInfo advertAppInfo = (AdvertAppInfo) com.baidu.tieba.lego.card.c.a.l(arrayList, i9);
                     advertAppInfo.page = "SMART_FRS";
-                    int bpe = advertAppInfo.bpe();
-                    if (bpe != 0) {
-                        com.baidu.tieba.recapp.report.d.a(advertAppInfo, i, bpe);
-                        if (bpe != 28 && bpe != 31) {
+                    int bpf = advertAppInfo.bpf();
+                    if (bpf != 0) {
+                        com.baidu.tieba.recapp.report.d.a(advertAppInfo, i, bpf);
+                        if (bpf != 28 && bpf != 31) {
                             advertAppInfo.eOc.eOq = -1001;
                         }
                     }
@@ -199,7 +199,7 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
                                         int eN3 = com.baidu.tieba.lego.card.c.a.eN(list2);
                                         int i12 = (i6 - ((i8 - i10) + 1)) - 1;
                                         for (int i13 = 0; i13 < eN3 && i13 < i12; i13++) {
-                                            if (((com.baidu.tieba.InjectPlugin.FrsFeedAd.c) com.baidu.tieba.lego.card.c.a.l(list2, i13)).bMN() instanceof AdvertAppInfo) {
+                                            if (((com.baidu.tieba.InjectPlugin.FrsFeedAd.c) com.baidu.tieba.lego.card.c.a.l(list2, i13)).bMO() instanceof AdvertAppInfo) {
                                                 z2 = false;
                                                 break;
                                             }
@@ -233,15 +233,15 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
                             cVar.aC(advertAppInfo);
                             cVar.um(advertAppInfo.getType().getId());
                             cVar.setThreadType(3);
-                            if (advertAppInfo.bpf()) {
-                                if (s.isInstalledPackage(TbadkCoreApplication.getInst(), advertAppInfo.eNW) && com.baidu.tieba.a.bME().bMG()) {
+                            if (advertAppInfo.bpg()) {
+                                if (s.isInstalledPackage(TbadkCoreApplication.getInst(), advertAppInfo.eNW) && com.baidu.tieba.a.bMF().bMH()) {
                                     com.baidu.tieba.recapp.report.d.a(advertAppInfo, i, 3);
                                 } else if (!TextUtils.isEmpty(advertAppInfo.eNW) && !TextUtils.isEmpty(advertAppInfo.eNU)) {
-                                    boolean DD = com.baidu.tbadk.download.b.bEB().DD(advertAppInfo.eNW);
-                                    boolean DE = com.baidu.tbadk.download.b.bEB().DE(advertAppInfo.eNW);
-                                    if (DD) {
+                                    boolean DC = com.baidu.tbadk.download.b.bEC().DC(advertAppInfo.eNW);
+                                    boolean DD = com.baidu.tbadk.download.b.bEC().DD(advertAppInfo.eNW);
+                                    if (DC) {
                                         advertAppInfo.eNS = 1;
-                                    } else if (DE) {
+                                    } else if (DD) {
                                         advertAppInfo.eNS = 2;
                                     } else {
                                         advertAppInfo.eNS = 0;
@@ -253,7 +253,7 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
                                         com.baidu.tieba.lego.card.c.a.a(list, cVar);
                                     }
                                 }
-                            } else if (advertAppInfo.bpg()) {
+                            } else if (advertAppInfo.bph()) {
                                 hashSet.add(Integer.valueOf(i11));
                                 if (i11 < eN) {
                                     com.baidu.tieba.lego.card.c.a.a(list, cVar, i11);
@@ -279,11 +279,11 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
             } else if (type == AdvertAppInfo.eNz) {
                 aVar = this.khi;
             } else if (type == AdvertAppInfo.eNM) {
-                aVar = this.mML;
+                aVar = this.mMK;
             } else if (type == AdvertAppInfo.eNN) {
-                aVar = this.mMM;
+                aVar = this.mML;
             } else {
-                aVar = type == AdvertAppInfo.eNO ? this.mMN : null;
+                aVar = type == AdvertAppInfo.eNO ? this.mMM : null;
             }
             if (aVar != null) {
                 return aVar.getView(i, view, viewGroup, advertAppInfo);
@@ -303,11 +303,11 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
             } else if (type == AdvertAppInfo.eNz) {
                 aVar = this.khi;
             } else if (type == AdvertAppInfo.eNM) {
-                aVar = this.mML;
+                aVar = this.mMK;
             } else if (type == AdvertAppInfo.eNN) {
-                aVar = this.mMM;
+                aVar = this.mML;
             } else {
-                aVar = type == AdvertAppInfo.eNO ? this.mMN : null;
+                aVar = type == AdvertAppInfo.eNO ? this.mMM : null;
             }
             if (aVar != null) {
                 return aVar.a(viewGroup, obj);
@@ -327,13 +327,13 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
             } else if (type == AdvertAppInfo.eNz) {
                 aVar = this.khi;
             } else if (type == AdvertAppInfo.eNM) {
-                aVar = this.mML;
+                aVar = this.mMK;
             } else if (type == AdvertAppInfo.eNN) {
-                aVar = this.mMM;
+                aVar = this.mML;
             } else if (type != AdvertAppInfo.eNO) {
                 aVar = null;
             } else {
-                aVar = this.mMN;
+                aVar = this.mMM;
             }
             if (aVar != null) {
                 aVar.a(i, viewGroup, viewHolder, obj);
@@ -350,19 +350,19 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
     @Override // com.baidu.tieba.InjectPlugin.FrsFeedAd.d
     public void a(List<com.baidu.tieba.InjectPlugin.FrsFeedAd.c> list, String str, String str2, String str3, String str4, boolean z, int i) {
         if (!com.baidu.tieba.lego.card.c.a.isEmpty(list)) {
-            Set<com.baidu.adp.widget.ListView.n> RT = com.baidu.tieba.recapp.report.a.RT("FRS");
-            HashSet hashSet = RT == null ? new HashSet() : RT;
+            Set<com.baidu.adp.widget.ListView.n> RS = com.baidu.tieba.recapp.report.a.RS("FRS");
+            HashSet hashSet = RS == null ? new HashSet() : RS;
             HashSet hashSet2 = new HashSet();
             for (com.baidu.tieba.InjectPlugin.FrsFeedAd.c cVar : list) {
                 if (cVar != null) {
-                    Object bMN = cVar.bMN();
+                    Object bMO = cVar.bMO();
                     for (com.baidu.adp.widget.ListView.n nVar : hashSet) {
-                        if (bMN != null && cVar.getThreadType() == 3 && (bMN instanceof AdvertAppInfo) && nVar != null && (nVar instanceof AdvertAppInfo) && bMN.hashCode() == nVar.hashCode()) {
-                            ((AdvertAppInfo) bMN).advertAppContext = ((AdvertAppInfo) nVar).advertAppContext;
+                        if (bMO != null && cVar.getThreadType() == 3 && (bMO instanceof AdvertAppInfo) && nVar != null && (nVar instanceof AdvertAppInfo) && bMO.hashCode() == nVar.hashCode()) {
+                            ((AdvertAppInfo) bMO).advertAppContext = ((AdvertAppInfo) nVar).advertAppContext;
                         }
                     }
-                    if (bMN != null && cVar.getThreadType() == 3 && (bMN instanceof AdvertAppInfo) && ((AdvertAppInfo) bMN).advertAppContext == null) {
-                        AdvertAppInfo advertAppInfo = (AdvertAppInfo) bMN;
+                    if (bMO != null && cVar.getThreadType() == 3 && (bMO instanceof AdvertAppInfo) && ((AdvertAppInfo) bMO).advertAppContext == null) {
+                        AdvertAppInfo advertAppInfo = (AdvertAppInfo) bMO;
                         advertAppInfo.advertAppContext = new com.baidu.tbadk.core.data.c();
                         advertAppInfo.advertAppContext.page = "FRS";
                         advertAppInfo.advertAppContext.eNu = String.valueOf(z);

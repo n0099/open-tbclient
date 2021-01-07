@@ -50,13 +50,13 @@ public class b {
         this.cPS = 1000;
     }
 
-    public static b apS() {
+    public static b apT() {
         return c.cQr;
     }
 
-    public Map<String, Object> apT() {
+    public Map<String, Object> apU() {
         this.cQm++;
-        apU();
+        apV();
         return this.cQk;
     }
 
@@ -64,11 +64,11 @@ public class b {
         int i = this.cQm - 1;
         this.cQm = i;
         if (i <= 0) {
-            apV();
+            apW();
         }
     }
 
-    private void apU() {
+    private void apV() {
         if (this.cQl) {
             if (DEBUG) {
                 Log.d("PropertyMonitor", "System monitor already started");
@@ -81,7 +81,7 @@ public class b {
         Choreographer.getInstance().postFrameCallback(this.cQi);
         this.cQj = new a();
         this.cQh = new e();
-        com.baidu.swan.apps.al.e.aQJ().a(this.cQh, com.baidu.swan.apps.al.e.dQI, com.baidu.swan.apps.al.e.dQG, com.baidu.swan.apps.al.e.dQH, com.baidu.swan.apps.al.e.dQN, com.baidu.swan.apps.al.e.dQJ, com.baidu.swan.apps.al.e.dQK, com.baidu.swan.apps.al.e.dQL, com.baidu.swan.apps.al.e.dQM, com.baidu.swan.apps.al.e.dQO, com.baidu.swan.apps.al.e.dQP);
+        com.baidu.swan.apps.al.e.aQK().a(this.cQh, com.baidu.swan.apps.al.e.dQI, com.baidu.swan.apps.al.e.dQG, com.baidu.swan.apps.al.e.dQH, com.baidu.swan.apps.al.e.dQN, com.baidu.swan.apps.al.e.dQJ, com.baidu.swan.apps.al.e.dQK, com.baidu.swan.apps.al.e.dQL, com.baidu.swan.apps.al.e.dQM, com.baidu.swan.apps.al.e.dQO, com.baidu.swan.apps.al.e.dQP);
         this.cQg = new d();
         this.cQg.sendEmptyMessage(0);
         if (DEBUG) {
@@ -89,7 +89,7 @@ public class b {
         }
     }
 
-    private void apV() {
+    private void apW() {
         if (!this.cQl) {
             if (DEBUG) {
                 Log.d("PropertyMonitor", "System monitor not started yet");
@@ -103,7 +103,7 @@ public class b {
             this.cQg = null;
         }
         if (this.cQh != null) {
-            com.baidu.swan.apps.al.e.aQJ().b(this.cQh, new com.baidu.swan.apps.al.c[0]);
+            com.baidu.swan.apps.al.e.aQK().b(this.cQh, new com.baidu.swan.apps.al.c[0]);
             this.cQh = null;
         }
         this.cQi = null;
@@ -122,8 +122,8 @@ public class b {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (b.this.cQk != null) {
-                b.this.apW();
-                b.this.cQk.put("mem", Long.valueOf(((ActivityManager) com.baidu.swan.apps.t.a.aAr().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getProcessMemoryInfo(new int[]{Process.myPid()})[0].getTotalPss() / 1000));
+                b.this.apX();
+                b.this.cQk.put("mem", Long.valueOf(((ActivityManager) com.baidu.swan.apps.t.a.aAs().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getProcessMemoryInfo(new int[]{Process.myPid()})[0].getTotalPss() / 1000));
                 if (b.this.cQg != null) {
                     b.this.cQg.sendEmptyMessageDelayed(0, b.this.cPS);
                 }
@@ -132,7 +132,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void apW() {
+    public void apX() {
         if (!this.cQj.cQn) {
             p.a(this.cQj, "swanAppCpuMonitor");
         }
@@ -289,7 +289,7 @@ public class b {
         public void L(Set<com.baidu.swan.apps.al.c<?>> set) {
             if (set != null && set.size() > 0) {
                 for (com.baidu.swan.apps.al.c<?> cVar : set) {
-                    b.this.cQk.put(cVar.id, cVar.aQI());
+                    b.this.cQk.put(cVar.id, cVar.aQJ());
                 }
             }
         }

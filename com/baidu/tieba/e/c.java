@@ -16,7 +16,7 @@ public class c implements n {
         return iCR;
     }
 
-    public FeatureCardCompetition cwv() {
+    public FeatureCardCompetition cww() {
         return this.iCS;
     }
 

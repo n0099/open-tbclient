@@ -14,7 +14,7 @@ public class a {
     private a() {
     }
 
-    public static a azc() {
+    public static a azd() {
         if (dfr == null) {
             synchronized (a.class) {
                 if (dfr == null) {
@@ -42,14 +42,14 @@ public class a {
         return this.mContent;
     }
 
-    public boolean azd() {
+    public boolean aze() {
         return !TextUtils.isEmpty(this.mContent);
     }
 
     public void a(Activity activity, final com.baidu.swan.apps.core.f.b<Boolean> bVar) {
         if (activity != null && bVar != null) {
             g.a aVar = new g.a(activity);
-            aVar.iu(a.h.aiapps_confirm_close_title).sp(azc().getContent()).a(new com.baidu.swan.apps.view.c.a()).gV(true);
+            aVar.iu(a.h.aiapps_confirm_close_title).sp(azd().getContent()).a(new com.baidu.swan.apps.view.c.a()).gV(true);
             aVar.ky(a.c.aiapps_modal_confirm_color);
             aVar.c(a.h.aiapps_dialog_nagtive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.p.a.1
                 @Override // android.content.DialogInterface.OnClickListener
@@ -71,7 +71,7 @@ public class a {
                     h.tD("show");
                 }
             });
-            aVar.aLx();
+            aVar.aLy();
         }
     }
 }

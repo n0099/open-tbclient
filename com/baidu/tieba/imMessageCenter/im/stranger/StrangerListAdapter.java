@@ -15,7 +15,7 @@ public class StrangerListAdapter extends c {
     @Override // com.baidu.tieba.im.chat.a.c
     protected BasicNameValuePair a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         int i2 = 0;
-        if (!d.bBF().bBN()) {
+        if (!d.bBG().bBO()) {
             str = "";
             i = 0;
         }

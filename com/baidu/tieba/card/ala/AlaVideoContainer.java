@@ -108,7 +108,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.fWA = new TbCyberVideoView.a() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.5
             @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.a
             public void onSurfaceDestroyed() {
-                AlaVideoContainer.this.bUy();
+                AlaVideoContainer.this.bUz();
             }
         };
         this.eDg = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.6
@@ -121,7 +121,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.fWy = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.7
             @Override // java.lang.Runnable
             public void run() {
-                AlaVideoContainer.this.bUy();
+                AlaVideoContainer.this.bUz();
             }
         };
         this.iyI = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.8
@@ -190,7 +190,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.fWA = new TbCyberVideoView.a() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.5
             @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.a
             public void onSurfaceDestroyed() {
-                AlaVideoContainer.this.bUy();
+                AlaVideoContainer.this.bUz();
             }
         };
         this.eDg = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.6
@@ -203,7 +203,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.fWy = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.7
             @Override // java.lang.Runnable
             public void run() {
-                AlaVideoContainer.this.bUy();
+                AlaVideoContainer.this.bUz();
             }
         };
         this.iyI = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.8
@@ -272,7 +272,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.fWA = new TbCyberVideoView.a() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.5
             @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.a
             public void onSurfaceDestroyed() {
-                AlaVideoContainer.this.bUy();
+                AlaVideoContainer.this.bUz();
             }
         };
         this.eDg = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.6
@@ -285,7 +285,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.fWy = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.7
             @Override // java.lang.Runnable
             public void run() {
-                AlaVideoContainer.this.bUy();
+                AlaVideoContainer.this.bUz();
             }
         };
         this.iyI = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.8
@@ -401,7 +401,7 @@ public class AlaVideoContainer extends LinearLayout {
         return this.gBU;
     }
 
-    public void bUy() {
+    public void bUz() {
         this.iyw.setVisibility(0);
         this.iyx.setVisibility(0);
         this.iyy.setVisibility(8);
@@ -433,7 +433,7 @@ public class AlaVideoContainer extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        cvl();
+        cvm();
     }
 
     public void startPlayAnimation() {
@@ -442,7 +442,7 @@ public class AlaVideoContainer extends LinearLayout {
         }
     }
 
-    public void cvl() {
+    public void cvm() {
         if (this.iyx != null) {
             this.iyx.cancelAnimation();
         }

@@ -73,7 +73,7 @@ public final class bn implements bi {
         intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
         intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
         bi.a aVar = new bi.a();
-        aVar.f6100b = (String) new bp(context, intent, new bp.b<br, String>() { // from class: com.bytedance.embedapplog.bn.2
+        aVar.f6101b = (String) new bp(context, intent, new bp.b<br, String>() { // from class: com.bytedance.embedapplog.bn.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.embedapplog.bp.b
             /* renamed from: a */

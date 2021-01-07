@@ -25,7 +25,7 @@ import org.apache.http.client.methods.HttpHead;
 public class a {
     private static final boolean DEBUG = b.DEBUG;
     private static volatile a cYH = null;
-    public static final boolean cYM = com.baidu.swan.apps.t.a.aAu().getSwitch("swan_hot_start_prelink_switch", false);
+    public static final boolean cYM = com.baidu.swan.apps.t.a.aAv().getSwitch("swan_hot_start_prelink_switch", false);
     @Nullable
     private volatile String cYI = null;
     @Nullable
@@ -33,7 +33,7 @@ public class a {
     private volatile boolean cYK = false;
     private Map<String, String> cYL = new LinkedHashMap();
 
-    public static a auP() {
+    public static a auQ() {
         if (cYH == null) {
             synchronized (a.class) {
                 if (cYH == null) {
@@ -99,11 +99,11 @@ public class a {
         }
         HttpUrl parse = HttpUrl.parse(arrayList.get(0));
         this.cYI = parse == null ? null : parse.host();
-        boolean akt = com.baidu.swan.apps.t.a.aAu().akt();
+        boolean aku = com.baidu.swan.apps.t.a.aAv().aku();
         if (DEBUG) {
-            Log.d("SwanPrelink", "prelink: isPrelinkEnable " + akt);
+            Log.d("SwanPrelink", "prelink: isPrelinkEnable " + aku);
         }
-        if (!akt) {
+        if (!aku) {
             if (DEBUG) {
                 Log.d("SwanPrelink", "prelink: miss prelink");
             }
@@ -161,12 +161,12 @@ public class a {
         com.baidu.swan.a.b.a aVar = new com.baidu.swan.a.b.a();
         aVar.method = HttpHead.METHOD_NAME;
         HttpRequestBuilder d = com.baidu.swan.a.c.b.d(aVar);
-        d.setHeader("Referer", c.anA());
+        d.setHeader("Referer", c.anB());
         aVar.url = str;
         aVar.ewn = true;
         aVar.ewo = false;
         aVar.ewp = true;
-        com.baidu.swan.a.c.a.bfE().a(d, aVar);
+        com.baidu.swan.a.c.a.bfF().a(d, aVar);
         HttpRequest build = d.enableStat(true).build();
         trace("校验通过", "开始向 url=" + str + " 发送预连接 HEAD 请求");
         build.executeStat(new StatResponseCallback() { // from class: com.baidu.swan.apps.core.i.a.2
@@ -210,7 +210,7 @@ public class a {
     }
 
     public void a(@NonNull String str, @NonNull HttpUrl httpUrl) {
-        if (auS() && this.cYJ == null) {
+        if (auT() && this.cYJ == null) {
             if (!TextUtils.equals(httpUrl.host(), this.cYI)) {
                 if (DEBUG) {
                     Log.d("SwanPrelink", "onBusinessRequest: miss: tag: " + str + " url: " + httpUrl.toString() + " firstPrelinkUrlHost: " + this.cYI);
@@ -227,7 +227,7 @@ public class a {
     }
 
     public void a(@NonNull String str, @NonNull HttpUrl httpUrl, NetworkStatRecord networkStatRecord) {
-        if (auS() && !this.cYK && this.cYJ != null) {
+        if (auT() && !this.cYK && this.cYJ != null) {
             if (!TextUtils.equals(this.cYJ, str)) {
                 if (DEBUG) {
                     Log.d("SwanPrelink", "tryRecordNetworkStat: miss : tag: " + str + " firstBusinessRequestTag:" + this.cYJ + " url: " + httpUrl + " firstPrelinkUrlHost: " + this.cYI);
@@ -269,7 +269,7 @@ public class a {
         }
     }
 
-    public void auQ() {
+    public void auR() {
         if (DEBUG) {
             this.cYJ = null;
             this.cYK = false;
@@ -280,12 +280,12 @@ public class a {
     public synchronized void trace(@NonNull String str, @NonNull String str2) {
         if (!this.cYL.containsKey(str)) {
             this.cYL.put(str, str2);
-            e.dQP.ab(auR());
+            e.dQP.ab(auS());
         }
     }
 
     @NonNull
-    private synchronized String auR() {
+    private synchronized String auS() {
         StringBuilder sb;
         sb = new StringBuilder();
         sb.append("========== prelink start ==========").append("\r\n");
@@ -298,7 +298,7 @@ public class a {
         return sb.toString();
     }
 
-    private boolean auS() {
+    private boolean auT() {
         return this.cYI != null;
     }
 }

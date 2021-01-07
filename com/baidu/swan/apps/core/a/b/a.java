@@ -17,7 +17,7 @@ public final class a {
     private HashMap<String, Long> cTb = new HashMap<>();
     private boolean cTc = false;
 
-    public static a ari() {
+    public static a arj() {
         if (cSW == null) {
             synchronized (a.class) {
                 if (cSW == null) {
@@ -52,7 +52,7 @@ public final class a {
         return true;
     }
 
-    public boolean arj() {
+    public boolean ark() {
         return this.cSY;
     }
 }

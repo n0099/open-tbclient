@@ -25,12 +25,12 @@ public class h extends com.baidu.swan.apps.api.a.d {
         if (DEBUG) {
             Log.d("Api-ToastApi", "handle: " + str);
         }
-        if (ank()) {
+        if (anl()) {
             com.baidu.swan.apps.console.c.e("Api-ToastApi", "Api-ToastApi does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.c.b(1001, "Api-ToastApi does not supported when app is invisible.");
         }
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        if (aMl == null) {
+        com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
+        if (aMm == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "SwanApp is null");
         }
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> bo = com.baidu.swan.apps.api.d.b.bo("Api-ToastApi", str);
@@ -52,7 +52,7 @@ public class h extends com.baidu.swan.apps.api.a.d {
         }
         final boolean optBoolean = jSONObject.optBoolean("mask");
         String optString3 = jSONObject.optString("image", "-1");
-        final Drawable a2 = a(getContext(), optString3, aMl);
+        final Drawable a2 = a(getContext(), optString3, aMm);
         if (DEBUG) {
             Log.e("Api-ToastApi", "imagepath = " + optString3);
         }
@@ -122,17 +122,17 @@ public class h extends com.baidu.swan.apps.api.a.d {
                 });
                 break;
             default:
-                anw();
+                anx();
                 return new com.baidu.swan.apps.api.c.b(302, "the toast type is unknown");
         }
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    public com.baidu.swan.apps.api.c.b anv() {
+    public com.baidu.swan.apps.api.c.b anw() {
         if (DEBUG) {
             Log.d("Api-ToastApi", "handle");
         }
-        if (com.baidu.swan.apps.runtime.e.aMl() == null) {
+        if (com.baidu.swan.apps.runtime.e.aMm() == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "SwanApp is null");
         }
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.h.5
@@ -148,30 +148,30 @@ public class h extends com.baidu.swan.apps.api.a.d {
     public void b(Context context, @NonNull String str, int i, @NonNull String str2, final String str3) {
         com.baidu.swan.apps.res.widget.b.d.m32do(context).h(str).i(str2).kM(i).b(new d.a() { // from class: com.baidu.swan.apps.api.module.e.h.6
             @Override // com.baidu.swan.apps.res.widget.b.d.a
-            public void ajM() {
+            public void ajN() {
                 if (!TextUtils.isEmpty(str3)) {
                     h.this.a(str3, new com.baidu.swan.apps.api.c.b(0));
                 }
             }
-        }).aLX();
+        }).aLY();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, str).kM(i).he(z).kI(2).aLS();
+        com.baidu.swan.apps.res.widget.b.d.a(context, str).kM(i).he(z).kI(2).aLT();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, @NonNull String str, int i, Drawable drawable, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, N(str, 14)).i(drawable).kM(i).he(z).aLV();
+        com.baidu.swan.apps.res.widget.b.d.a(context, N(str, 14)).i(drawable).kM(i).he(z).aLW();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(Context context, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, N(str, 14)).kM(i).he(z).aLW();
+        com.baidu.swan.apps.res.widget.b.d.a(context, N(str, 14)).kM(i).he(z).aLX();
     }
 
-    private void anw() {
+    private void anx() {
         if (DEBUG) {
             Log.w("Api-ToastApi", "the toast type is unknown");
         }

@@ -22,7 +22,7 @@ public class n {
         return this.mIcon;
     }
 
-    public String bzO() {
+    public String bzP() {
         return this.fsZ;
     }
 

@@ -61,7 +61,7 @@ public abstract class SDKManager {
 
     @Keep
     public static void setDebug(boolean z) {
-        f.f13118b = z;
+        f.f13119b = z;
     }
 
     public static void setDebugHead(boolean z) {

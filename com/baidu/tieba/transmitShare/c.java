@@ -30,65 +30,65 @@ import com.baidu.tbadk.coreExtra.data.ae;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class c implements View.OnClickListener, a {
-    private static final int nEa = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds130);
-    private static final int nEb = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds48);
-    private static final int nEc = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
-    private static final int nEd = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-    private static final int nEe = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-    private static final int nEf = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.T_X08);
-    private static final int nEg = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.T_X06);
-    private static final int nEh = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+    private static final int nDZ = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds130);
+    private static final int nEa = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds48);
+    private static final int nEb = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
+    private static final int nEc = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+    private static final int nEd = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+    private static final int nEe = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.T_X08);
+    private static final int nEf = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.T_X06);
+    private static final int nEg = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
     private float eXX = 0.33f;
     private CustomMessageListener eYa = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tieba.transmitShare.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                c.this.dKZ();
-                c.this.g(c.this.nDZ);
+                c.this.dLa();
+                c.this.g(c.this.nDY);
             }
         }
     };
     private EMTextView jtR;
-    private View lSu;
+    private View lSt;
     private Context mContext;
     private AlertDialog mDialog;
     private DialogInterface.OnDismissListener mOnDismissListener;
     private LinearLayout mRootView;
-    private b nDX;
-    private boolean nDY;
-    private ShareDialogConfig nDZ;
-    private EMTextView ngg;
+    private b nDW;
+    private boolean nDX;
+    private ShareDialogConfig nDY;
+    private EMTextView ngf;
 
     public c(Context context) {
         this.mContext = context;
         this.mRootView = new LinearLayout(context);
         this.mRootView.setOrientation(1);
         this.jtR = new EMTextView(context);
-        this.jtR.setTextSize(0, nEf);
-        this.jtR.setPadding(nEb, nEc, nEb, nEd);
+        this.jtR.setTextSize(0, nEe);
+        this.jtR.setPadding(nEa, nEb, nEa, nEc);
         this.jtR.setGravity(1);
         this.jtR.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         this.mRootView.addView(this.jtR);
-        this.nDX = new b(context);
+        this.nDW = new b(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.leftMargin = ShareGridLayout.nDR;
-        layoutParams.rightMargin = ShareGridLayout.nDR;
-        this.mRootView.addView(this.nDX.dSW(), layoutParams);
-        this.ngg = new EMTextView(context);
-        this.ngg.setGravity(1);
-        this.ngg.setTextSize(0, nEg);
-        this.ngg.setText(R.string.cancel);
+        layoutParams.leftMargin = ShareGridLayout.nDQ;
+        layoutParams.rightMargin = ShareGridLayout.nDQ;
+        this.mRootView.addView(this.nDW.dSX(), layoutParams);
+        this.ngf = new EMTextView(context);
+        this.ngf.setGravity(1);
+        this.ngf.setTextSize(0, nEf);
+        this.ngf.setText(R.string.cancel);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams2.topMargin = nEh;
-        this.ngg.setLayoutParams(layoutParams2);
-        this.ngg.setPadding(0, nEe, 0, nEe);
-        this.ngg.setOnClickListener(this);
-        this.mRootView.addView(this.ngg);
-        this.lSu = new View(context);
-        this.lSu.setLayoutParams(new LinearLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.bottom_enter_anim_place_holder_height)));
-        this.mRootView.addView(this.lSu);
-        this.nDX.a(this);
+        layoutParams2.topMargin = nEg;
+        this.ngf.setLayoutParams(layoutParams2);
+        this.ngf.setPadding(0, nEd, 0, nEd);
+        this.ngf.setOnClickListener(this);
+        this.mRootView.addView(this.ngf);
+        this.lSt = new View(context);
+        this.lSt.setLayoutParams(new LinearLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.bottom_enter_anim_place_holder_height)));
+        this.mRootView.addView(this.lSt);
+        this.nDW.a(this);
     }
 
     public void g(ShareDialogConfig shareDialogConfig) {
@@ -105,8 +105,8 @@ public class c implements View.OnClickListener, a {
                 this.jtR.setText(R.string.transmit_share_not_add_experience);
             }
         }
-        this.nDX.a(shareDialogConfig, this.nDY);
-        this.nDZ = shareDialogConfig;
+        this.nDW.a(shareDialogConfig, this.nDX);
+        this.nDY = shareDialogConfig;
     }
 
     public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
@@ -114,11 +114,11 @@ public class c implements View.OnClickListener, a {
     }
 
     public void yD(boolean z) {
-        this.nDY = z;
+        this.nDX = z;
     }
 
     public void show() {
-        dKZ();
+        dLa();
         this.mDialog = new AlertDialog.Builder(this.mContext, R.style.DialogTheme).create();
         this.mDialog.setCanceledOnTouchOutside(true);
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.transmitShare.c.2
@@ -128,8 +128,8 @@ public class c implements View.OnClickListener, a {
                     c.this.mOnDismissListener.onDismiss(dialogInterface);
                 }
                 MessageManager.getInstance().unRegisterTask(CmdConfigCustom.CMD_TRANSMIT_SHARE_DIALOG_DISMISS);
-                if (c.this.nDX != null) {
-                    c.this.nDX.release();
+                if (c.this.nDW != null) {
+                    c.this.nDW.release();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(false));
             }
@@ -149,20 +149,20 @@ public class c implements View.OnClickListener, a {
             window.setLayout(-1, -2);
             window.setContentView(this.mRootView);
             window.setDimAmount(this.eXX);
-            caf();
+            cag();
             j.K(this.mContext).registerListener(this.eYa);
             MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(true));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dKZ() {
+    public void dLa() {
         com.baidu.tbadk.core.elementsMaven.c.bv(this.mRootView).pK(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
         ao.setViewTextColor(this.jtR, R.color.CAM_X0109);
-        ao.n(this.ngg, R.color.CAM_X0107);
+        ao.n(this.ngf, R.color.CAM_X0107);
     }
 
-    private void caf() {
+    private void cag() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_TRANSMIT_SHARE_DIALOG_DISMISS, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.transmitShare.c.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
@@ -187,7 +187,7 @@ public class c implements View.OnClickListener, a {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ngg) {
+        if (view == this.ngf) {
             f("share_cancel", new Object[0]);
             dismiss();
         }
@@ -204,7 +204,7 @@ public class c implements View.OnClickListener, a {
 
     public void b(ShareDialogConfig.From from) {
         ae sharePanelConfData = TbSingleton.getInstance().getSharePanelConfData();
-        if (sharePanelConfData != null && sharePanelConfData.a(from) && sharePanelConfData.bAa() && !at.isEmpty(sharePanelConfData.getText())) {
+        if (sharePanelConfData != null && sharePanelConfData.a(from) && sharePanelConfData.bAb() && !at.isEmpty(sharePanelConfData.getText())) {
             this.jtR.setText(sharePanelConfData.getText());
         }
     }

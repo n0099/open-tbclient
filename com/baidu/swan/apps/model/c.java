@@ -21,11 +21,11 @@ public final class c {
         return this.mParams;
     }
 
-    public String aDn() {
+    public String aDo() {
         return this.mBaseUrl;
     }
 
-    public void asQ() {
+    public void asR() {
         this.dqu = false;
     }
 
@@ -89,7 +89,7 @@ public final class c {
             return this;
         }
 
-        public c aFT() {
+        public c aFU() {
             return this.cUd;
         }
     }

@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class c {
     private int fsv;
 
-    public boolean bzv() {
+    public boolean bzw() {
         return this.fsv == 1;
     }
 

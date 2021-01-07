@@ -22,7 +22,7 @@ public class d {
     };
     private PullLeftRefreshLayout.a ana = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.enterForum.c.d.2
         @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
-        public void bKt() {
+        public void bKu() {
             com.baidu.tieba.enterForum.b.d(d.this.mPageContext, null);
         }
     };
@@ -58,7 +58,7 @@ public class d {
         this.iQA.setOnItemCoverListener(this.aks);
     }
 
-    public RecommendForumLayout cAy() {
+    public RecommendForumLayout cAz() {
         return this.iQA;
     }
 

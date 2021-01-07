@@ -26,7 +26,7 @@ public class d extends BaseAdapter {
         this.aKA = list;
     }
 
-    public List<e.a> edn() {
+    public List<e.a> edo() {
         return this.aKA;
     }
 
@@ -74,20 +74,20 @@ public class d extends BaseAdapter {
         }
         e.a aVar3 = (e.a) getItem(i);
         aVar.htT.setDrawBorder(true);
-        switch (aVar3.otv) {
+        switch (aVar3.otu) {
             case 1:
-                aVar.otl.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_fangzhu);
+                aVar.otk.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_fangzhu);
                 break;
             case 2:
-                aVar.otl.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_manage);
+                aVar.otk.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_manage);
                 break;
             case 3:
-                aVar.otl.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_zhuchi);
+                aVar.otk.setBackgroundResource(a.e.yuyin_round_header_day_list_bg_zhuchi);
                 break;
         }
-        aVar.otl.setText(aVar3.edo());
-        if (!TextUtils.isEmpty(aVar3.otw)) {
-            aVar.htT.startLoad(aVar3.otw, 12, false, false);
+        aVar.otk.setText(aVar3.edp());
+        if (!TextUtils.isEmpty(aVar3.otv)) {
+            aVar.htT.startLoad(aVar3.otv, 12, false, false);
         } else {
             aVar.htT.setDefaultResource(a.e.yuyin_sdk_icon_default_zhuchi);
         }
@@ -97,13 +97,13 @@ public class d extends BaseAdapter {
     /* loaded from: classes11.dex */
     public static class a {
         public HeadImageView htT;
-        public TextView otl;
+        public TextView otk;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
             this.htT = (HeadImageView) view.findViewById(a.f.ala_live_room_audience_header_img);
-            this.otl = (TextView) view.findViewById(a.f.ala_live_room_audience_charm_count);
+            this.otk = (TextView) view.findViewById(a.f.ala_live_room_audience_charm_count);
         }
     }
 }

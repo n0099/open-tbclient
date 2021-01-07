@@ -24,20 +24,20 @@ public abstract class h<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
     protected abstract HttpRequest a(h hVar);
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected void aOd() {
+    protected void aOe() {
         ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.a.h.1
             @Override // java.lang.Runnable
             public void run() {
                 if (com.baidu.swan.apps.setting.oauth.b.DEBUG) {
                     Log.d("OAuthRequest", "OAuthRequest.onExec in thread pool");
                 }
-                h.this.aOy();
+                h.this.aOz();
             }
         }, "OAuthRequest-onExec", 2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aOy() {
+    public void aOz() {
         HttpRequest a2 = a(this);
         if (a2 != null) {
             a2.executeAsync(new ResponseCallback() { // from class: com.baidu.swan.apps.setting.oauth.a.h.2
@@ -77,12 +77,12 @@ public abstract class h<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
     }
 
     @NonNull
-    public com.baidu.swan.apps.runtime.e aOz() {
-        com.baidu.swan.apps.runtime.e aMk = com.baidu.swan.apps.runtime.e.aMk();
-        if (aMk == null) {
+    public com.baidu.swan.apps.runtime.e aOA() {
+        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
+        if (aMl == null) {
             throw new IllegalStateException("null SwanApp");
         }
-        return aMk;
+        return aMl;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -91,15 +91,15 @@ public abstract class h<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
         return this;
     }
 
-    public Map<String, String> aOA() {
+    public Map<String, String> aOB() {
         return this.dtD;
     }
 
-    public void aOB() {
+    public void aOC() {
         this.dMP = true;
     }
 
-    public void aOC() {
+    public void aOD() {
         this.dMQ = true;
     }
 
@@ -119,20 +119,20 @@ public abstract class h<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
         if ((this.dMP && optInt == 402) || (this.dMQ && optInt == 401)) {
             this.dMP = false;
             this.dMQ = false;
-            if (com.baidu.swan.apps.d.a.f.cGI.amZ()) {
-                com.baidu.swan.apps.d.a.f.cGI.amY();
+            if (com.baidu.swan.apps.d.a.f.cGI.ana()) {
+                com.baidu.swan.apps.d.a.f.cGI.amZ();
             }
             to(str);
         } else if (kT(optInt)) {
-            if (com.baidu.swan.apps.d.a.f.cGI.amZ()) {
-                com.baidu.swan.apps.d.a.f.cGI.amY();
+            if (com.baidu.swan.apps.d.a.f.cGI.ana()) {
+                com.baidu.swan.apps.d.a.f.cGI.amZ();
                 to(str);
             } else if (DEBUG) {
                 throw new RuntimeException("is not AllianceLogin, error number");
             }
         } else {
             aa(bY(this.dMO));
-            aOu();
+            aOv();
             finish();
         }
     }
@@ -142,12 +142,12 @@ public abstract class h<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
     }
 
     private void to(final String str) {
-        aOz().aMx().a(com.baidu.swan.apps.v.f.aDG().aDq(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.oauth.a.h.3
+        aOA().aMy().a(com.baidu.swan.apps.v.f.aDH().aDr(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.oauth.a.h.3
             @Override // com.baidu.swan.apps.a.a
             public void onResult(int i) {
                 if (i == 0) {
                     h.this.rh();
-                    h.this.aOb();
+                    h.this.aOc();
                     return;
                 }
                 h.this.tn(str);
@@ -156,10 +156,10 @@ public abstract class h<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aOu() {
+    public void aOv() {
     }
 
     public String toString() {
-        return String.format("%s \n  status(%s) errorcode(%s)  \n  strResponse :: %s \n  joResponse ::  %s \n  Result :: %s \n  Exception :: %s", super.toString(), aOc(), Integer.valueOf(this.dLA.getErrorCode()), this.dMN, this.dMO, this.dLA.mData, this.dLA.aOt());
+        return String.format("%s \n  status(%s) errorcode(%s)  \n  strResponse :: %s \n  joResponse ::  %s \n  Result :: %s \n  Exception :: %s", super.toString(), aOd(), Integer.valueOf(this.dLA.getErrorCode()), this.dMN, this.dMO, this.dLA.mData, this.dLA.aOu());
     }
 }

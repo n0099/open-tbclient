@@ -1,7 +1,7 @@
 package com.baidu.smallgame.sdk.b;
 
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class b {
     long cCU;
     V8ExceptionInfo mV8ExceptionInfo;
@@ -13,7 +13,7 @@ public class b {
         this.type = i;
     }
 
-    public V8ExceptionInfo aiY() {
+    public V8ExceptionInfo aiZ() {
         return this.mV8ExceptionInfo;
     }
 

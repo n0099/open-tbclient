@@ -109,7 +109,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
 
     public void setData(bz bzVar) {
         this.akX = bzVar;
-        if (bzVar == null || bzVar.bth() == null) {
+        if (bzVar == null || bzVar.bti() == null) {
             tJ();
         } else if (bzVar.eWi) {
             this.akQ.setVisibility(8);
@@ -117,29 +117,29 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             this.akR.setVisibility(0);
             this.akS.setVisibility(0);
             this.akT.setVisibility(0);
-            this.akT.setText(bzVar.bqO());
+            this.akT.setText(bzVar.bqP());
             int i = bzVar.eWw >= 1000 ? bzVar.eWw : 1000;
             this.akS.setVisibility(0);
             this.akS.setText(this.akS.getContext().getResources().getString(R.string.thread_rank_tag, at.dX(i)));
             int i2 = bzVar.position + 1;
             this.akR.setText(i2 >= 10 ? String.valueOf(i2) : "0" + i2);
             tK();
-            bv bth = bzVar.bth();
+            bv bti = bzVar.bti();
             this.akN.setPlaceHolder(1);
             this.akN.setVisibility(0);
-            this.akN.startLoad(bth.getAvatar(), 10, false);
+            this.akN.startLoad(bti.getAvatar(), 10, false);
             this.akO.setVisibility(0);
-            this.akU = bth.forumName;
+            this.akU = bti.forumName;
             this.akO.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.akU));
             b.g(this.akO);
         } else {
-            if (bzVar.btl()) {
+            if (bzVar.btm()) {
                 this.akQ.setVisibility(8);
                 this.akP.setVisibility(8);
                 this.akR.setVisibility(8);
                 this.akS.setVisibility(8);
                 this.akT.setVisibility(0);
-                this.akT.setText(bzVar.bqO());
+                this.akT.setText(bzVar.bqP());
             } else {
                 this.akT.setVisibility(8);
                 this.akR.setVisibility(8);
@@ -147,14 +147,14 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                 this.akQ.setVisibility(0);
                 this.akP.setVisibility(0);
             }
-            setData(bzVar.bth().forumName, bzVar.bth().getAvatar(), bzVar.bth().postNum, bzVar.bth().memberNum);
-            if (bzVar.boW()) {
-                if (bzVar.brq() != null && !StringUtils.isNull(bzVar.brq().getName_show())) {
-                    this.akP.setText(bzVar.brq().getName_show());
+            setData(bzVar.bti().forumName, bzVar.bti().getAvatar(), bzVar.bti().postNum, bzVar.bti().memberNum);
+            if (bzVar.boX()) {
+                if (bzVar.brr() != null && !StringUtils.isNull(bzVar.brr().getName_show())) {
+                    this.akP.setText(bzVar.brr().getName_show());
                 } else {
                     this.akP.setText(R.string.user_name_default_txt);
                 }
-                this.akQ.setText(bzVar.bqO());
+                this.akQ.setText(bzVar.bqP());
             }
         }
     }

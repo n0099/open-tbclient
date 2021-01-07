@@ -1,30 +1,30 @@
 package com.qq.e.comm.plugin.aa.a;
 
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f11952a;
+    private final String f11953a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final File f11953b;
+    private final File f11954b;
     private final String c;
     private final boolean d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f11954a;
+        private String f11955a;
 
         /* renamed from: b  reason: collision with root package name */
-        private File f11955b;
+        private File f11956b;
         private String c;
         private boolean d = true;
 
         public a a(File file) {
-            this.f11955b = file;
+            this.f11956b = file;
             return this;
         }
 
@@ -39,24 +39,24 @@ public class b {
         }
 
         public b a() {
-            return new b(this.f11955b, this.c, this.f11954a, this.d);
+            return new b(this.f11956b, this.c, this.f11955a, this.d);
         }
 
         public a b(String str) {
-            this.f11954a = str;
+            this.f11955a = str;
             return this;
         }
     }
 
     private b(File file, String str, String str2, boolean z) {
-        this.f11953b = file;
+        this.f11954b = file;
         this.c = str;
-        this.f11952a = str2;
+        this.f11953a = str2;
         this.d = z;
     }
 
     public File a() {
-        return this.f11953b;
+        return this.f11954b;
     }
 
     public String b() {
@@ -64,7 +64,7 @@ public class b {
     }
 
     public String c() {
-        return this.f11952a;
+        return this.f11953a;
     }
 
     public boolean d() {

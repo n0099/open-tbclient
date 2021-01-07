@@ -10,9 +10,9 @@ public interface a {
 
     void D(int i, String str);
 
-    void XS();
-
     void XT();
+
+    void XU();
 
     void a(long j, View view, View view2);
 

@@ -10,9 +10,9 @@ public class a extends a.C0371a {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.a.d.a.C0371a, com.baidu.searchbox.http.request.HttpRequestBuilder
-    /* renamed from: bfB */
+    /* renamed from: bfC */
     public com.baidu.swan.a.d.a build() {
-        com.baidu.swan.a.b.bfA().a(this.httpUrl.toString(), this);
+        com.baidu.swan.a.b.bfB().a(this.httpUrl.toString(), this);
         return super.build();
     }
 }

@@ -7,27 +7,27 @@ import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.kwad.sdk.core.response.model.SdkConfigData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f4686a = {"m", "km", "米", "公里"};
+    public static final String[] f4687a = {"m", "km", "米", "公里"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f4687b = {"m", "h", "分钟", "小时"};
+    public static final String[] f4688b = {"m", "h", "分钟", "小时"};
     public static final String[] c = {"m", "h", "d", "分钟", "小时", "天"};
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f4688a = 1;
+        public static int f4689a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f4689b = 2;
+        public static int f4690b = 2;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public enum b {
         EN(0),
         ZH(1);
@@ -56,13 +56,13 @@ public class g {
             if (stringBuffer != null) {
                 int i3 = i / 1000;
                 if (i3 >= 100) {
-                    stringBuffer.append(String.format("%d%s", Integer.valueOf(i3), f4686a[i2 + 1]));
+                    stringBuffer.append(String.format("%d%s", Integer.valueOf(i3), f4687a[i2 + 1]));
                 } else {
-                    stringBuffer.append(String.format(str, Double.valueOf(i / 1000.0d), f4686a[i2 + 1]));
+                    stringBuffer.append(String.format(str, Double.valueOf(i / 1000.0d), f4687a[i2 + 1]));
                 }
             }
         } else if (stringBuffer != null) {
-            stringBuffer.append(String.format("%d%s", Integer.valueOf(i), f4686a[0 + i2]));
+            stringBuffer.append(String.format("%d%s", Integer.valueOf(i), f4687a[0 + i2]));
         }
     }
 
@@ -75,14 +75,14 @@ public class g {
             if (i % SdkConfigData.DEFAULT_REQUEST_INTERVAL < 0 || i % SdkConfigData.DEFAULT_REQUEST_INTERVAL >= 360) {
             }
             if (stringBuffer != null) {
-                stringBuffer.append(String.format("%.0f%s", Double.valueOf(i / 3600.0d), f4687b[a2 + 1]));
+                stringBuffer.append(String.format("%.0f%s", Double.valueOf(i / 3600.0d), f4688b[a2 + 1]));
             }
         } else if (i < 60) {
             if (stringBuffer != null) {
                 stringBuffer.append("少于1分钟");
             }
         } else if (stringBuffer != null) {
-            stringBuffer.append(String.format("%d%s", Integer.valueOf(i / 60), f4687b[a2 + 0]));
+            stringBuffer.append(String.format("%d%s", Integer.valueOf(i / 60), f4688b[a2 + 0]));
         }
     }
 
@@ -247,11 +247,11 @@ public class g {
             return 0;
         }
         if (!z) {
-            return a(d) == a.f4689b ? 1 : 0;
+            return a(d) == a.f4690b ? 1 : 0;
         } else if (d()) {
             return 3;
         } else {
-            return a(d) == a.f4688a ? 2 : 0;
+            return a(d) == a.f4689a ? 2 : 0;
         }
     }
 }

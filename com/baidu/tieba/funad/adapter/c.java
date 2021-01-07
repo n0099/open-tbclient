@@ -21,7 +21,7 @@ import com.baidu.tieba.recapp.o;
 import com.baidu.tieba.tbadkCore.data.n;
 import com.fun.ad.sdk.FunNativeAd;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class c extends com.baidu.adp.widget.ListView.a<bz, FunAdCardHolder> implements k, o {
     private BaseFragmentActivity iJr;
 
@@ -49,13 +49,13 @@ public class c extends com.baidu.adp.widget.ListView.a<bz, FunAdCardHolder> impl
         if (nVar == null) {
             return ((FunAdCardHolder) this.Wu).getView();
         }
-        if (!nVar.dOP()) {
+        if (!nVar.dOQ()) {
             nVar.ya(true);
-            List<bz> LN = com.baidu.tieba.h.a.cPm().LN("6051001001-2043781376");
-            if (LN != null && LN.size() > 0) {
-                nVar.aR(LN.get(0).eWF.dON());
+            List<bz> LM = com.baidu.tieba.h.a.cPn().LM("6051001001-2043781376");
+            if (LM != null && LM.size() > 0) {
+                nVar.aR(LM.get(0).eWF.dOO());
                 bzVar.oV(com.baidu.tieba.horizonalList.a.a.cK(20, 100));
-                com.baidu.tieba.h.a.cPm().A("6051001001-2043781376", LN.get(0).eWF.dON());
+                com.baidu.tieba.h.a.cPn().A("6051001001-2043781376", LM.get(0).eWF.dOO());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921527));
             } else {
                 nVar.aR(null);
@@ -80,12 +80,12 @@ public class c extends com.baidu.adp.widget.ListView.a<bz, FunAdCardHolder> impl
     @Override // com.baidu.tieba.recapp.k
     public void onDestroy() {
         if (this.Wu != 0) {
-            com.baidu.tieba.h.a.cPm().a(((FunAdCardHolder) this.Wu).jQX);
+            com.baidu.tieba.h.a.cPn().a(((FunAdCardHolder) this.Wu).jQX);
         }
     }
 
     private void a(final FunAdCardHolder funAdCardHolder, final bz bzVar) {
-        if (bzVar != null && bzVar.eWF != null && bzVar.eWF.dON() != null) {
+        if (bzVar != null && bzVar.eWF != null && bzVar.eWF.dOO() != null) {
             funAdCardHolder.jQJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.funad.adapter.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -95,15 +95,15 @@ public class c extends com.baidu.adp.widget.ListView.a<bz, FunAdCardHolder> impl
                 }
             });
             funAdCardHolder.jQQ.setAgreeAlone(true);
-            funAdCardHolder.jQQ.setData(bzVar.btk());
+            funAdCardHolder.jQQ.setData(bzVar.btl());
+            funAdCardHolder.cPv();
             funAdCardHolder.cPu();
-            funAdCardHolder.cPt();
-            com.baidu.tieba.h.a.cPm().a(funAdCardHolder.a(bzVar.eWF), new a.e() { // from class: com.baidu.tieba.funad.adapter.c.2
+            com.baidu.tieba.h.a.cPn().a(funAdCardHolder.a(bzVar.eWF), new a.e() { // from class: com.baidu.tieba.funad.adapter.c.2
                 @Override // com.baidu.tieba.h.a.e
                 public void onAdClicked(String str) {
                     TiebaStatic.log(new aq("c14053").an("obj_source", 6).dX("obj_type", PageStayDurationConstants.PageName.FRS).an("obj_locate", 0));
-                    Object dON = bzVar.eWF.dON();
-                    if (!(dON instanceof FunNativeAd) || ((FunNativeAd) dON).isDownloadAd()) {
+                    Object dOO = bzVar.eWF.dOO();
+                    if (!(dOO instanceof FunNativeAd) || ((FunNativeAd) dOO).isDownloadAd()) {
                     }
                 }
 

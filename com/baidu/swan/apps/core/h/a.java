@@ -15,7 +15,7 @@ public final class a {
         }
         Bundle bundle2 = new Bundle();
         bundle2.putBundle("swan_app_on_launch_event", bundle);
-        com.baidu.swan.apps.process.messaging.a.aIX().a(new com.baidu.swan.apps.process.messaging.c(122, bundle2).a(cVar.dwt).gG(true));
+        com.baidu.swan.apps.process.messaging.a.aIY().a(new com.baidu.swan.apps.process.messaging.c(122, bundle2).a(cVar.dwt).gG(true));
         if (DEBUG) {
             Log.d("AppLaunchMessenger", "sendAppLaunchEvent event end.");
         }
@@ -26,30 +26,30 @@ public final class a {
     public static class C0428a {
         private static int cYE = -1;
 
-        public static String auL() {
+        public static String auM() {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_sub_pkg_launch_switch", "debug_ab");
         }
 
-        public static boolean auM() {
+        public static boolean auN() {
             if (a.DEBUG) {
-                Log.d("AppLaunchMessenger", "isOnAppLaunchEnable getAppLaunchDebugSwitch : " + auL());
-                String auL = auL();
+                Log.d("AppLaunchMessenger", "isOnAppLaunchEnable getAppLaunchDebugSwitch : " + auM());
+                String auM = auM();
                 char c = 65535;
-                switch (auL.hashCode()) {
+                switch (auM.hashCode()) {
                     case 251117829:
-                        if (auL.equals("debug_on_app_launch")) {
+                        if (auM.equals("debug_on_app_launch")) {
                             c = 0;
                             break;
                         }
                         break;
                     case 547804557:
-                        if (auL.equals("debug_ab")) {
+                        if (auM.equals("debug_ab")) {
                             c = 2;
                             break;
                         }
                         break;
                     case 569516856:
-                        if (auL.equals("debug_on_activity_create")) {
+                        if (auM.equals("debug_on_activity_create")) {
                             c = 1;
                             break;
                         }
@@ -63,7 +63,7 @@ public final class a {
                 }
             }
             if (cYE < 0) {
-                cYE = com.baidu.swan.apps.t.a.aAu().getSwitch("swan_sub_pkg_launch_switch", 0);
+                cYE = com.baidu.swan.apps.t.a.aAv().getSwitch("swan_sub_pkg_launch_switch", 0);
             }
             if (a.DEBUG) {
                 Log.d("AppLaunchMessenger", "isOnAppLaunchEnable sLaunchABSwitcher : " + cYE);

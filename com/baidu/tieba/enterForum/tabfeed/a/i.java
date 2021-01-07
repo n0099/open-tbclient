@@ -32,10 +32,10 @@ public class i extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
             @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
                 super.a(view, (View) kVar);
-                if (kVar != null && kVar.boO() != null) {
+                if (kVar != null && kVar.boP() != null) {
                     ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                     if (i.this.Wu != null) {
-                        ay.a((com.baidu.tbadk.core.data.a) kVar.boO(), view.getContext(), 0, false);
+                        ay.a((com.baidu.tbadk.core.data.a) kVar.boP(), view.getContext(), 0, false);
                         threadCardViewHolder.ty().b(new a.C0090a(1));
                     }
                 }

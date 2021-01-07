@@ -15,7 +15,7 @@ public class GuideImInputView extends FrameLayout {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void Iy(String str);
+        void Ix(String str);
     }
 
     public GuideImInputView(Context context) {
@@ -44,7 +44,7 @@ public class GuideImInputView extends FrameLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (GuideImInputView.this.hFp != null) {
-                    GuideImInputView.this.hFp.Iy(GuideImInputView.this.hFo.getText().toString());
+                    GuideImInputView.this.hFp.Ix(GuideImInputView.this.hFo.getText().toString());
                 }
             }
         });

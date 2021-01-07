@@ -1,5 +1,5 @@
 package com.baidu.helios.common.b.a;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class a {
     private static final char[] axH = "0123456789ABCDEF".toCharArray();
     private static final char[] axI = "0123456789abcdef".toCharArray();

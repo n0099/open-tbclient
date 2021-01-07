@@ -6,7 +6,7 @@ import io.reactivex.internal.observers.BasicIntQueueDisposable;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class UnicastSubject<T> extends b<T> {
     final AtomicReference<u<? super T>> actual;
     final boolean delayError;
@@ -14,13 +14,13 @@ public final class UnicastSubject<T> extends b<T> {
     volatile boolean done;
     Throwable error;
     final AtomicBoolean once;
-    final BasicIntQueueDisposable<T> qlA;
-    final AtomicReference<Runnable> qld;
-    boolean qlf;
+    final AtomicReference<Runnable> qmL;
+    boolean qmN;
+    final BasicIntQueueDisposable<T> qni;
     final io.reactivex.internal.queue.a<T> queue;
 
-    public static <T> UnicastSubject<T> eLL() {
-        return new UnicastSubject<>(eLa(), true);
+    public static <T> UnicastSubject<T> eMp() {
+        return new UnicastSubject<>(eLE(), true);
     }
 
     public static <T> UnicastSubject<T> d(int i, Runnable runnable) {
@@ -29,26 +29,26 @@ public final class UnicastSubject<T> extends b<T> {
 
     UnicastSubject(int i, boolean z) {
         this.queue = new io.reactivex.internal.queue.a<>(io.reactivex.internal.functions.a.cd(i, "capacityHint"));
-        this.qld = new AtomicReference<>();
+        this.qmL = new AtomicReference<>();
         this.delayError = z;
         this.actual = new AtomicReference<>();
         this.once = new AtomicBoolean();
-        this.qlA = new UnicastQueueDisposable();
+        this.qni = new UnicastQueueDisposable();
     }
 
     UnicastSubject(int i, Runnable runnable, boolean z) {
         this.queue = new io.reactivex.internal.queue.a<>(io.reactivex.internal.functions.a.cd(i, "capacityHint"));
-        this.qld = new AtomicReference<>(io.reactivex.internal.functions.a.m(runnable, "onTerminate"));
+        this.qmL = new AtomicReference<>(io.reactivex.internal.functions.a.m(runnable, "onTerminate"));
         this.delayError = z;
         this.actual = new AtomicReference<>();
         this.once = new AtomicBoolean();
-        this.qlA = new UnicastQueueDisposable();
+        this.qni = new UnicastQueueDisposable();
     }
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
         if (!this.once.get() && this.once.compareAndSet(false, true)) {
-            uVar.onSubscribe(this.qlA);
+            uVar.onSubscribe(this.qni);
             this.actual.lazySet(uVar);
             if (this.disposed) {
                 this.actual.lazySet(null);
@@ -62,8 +62,8 @@ public final class UnicastSubject<T> extends b<T> {
     }
 
     void doTerminate() {
-        Runnable runnable = this.qld.get();
-        if (runnable != null && this.qld.compareAndSet(runnable, null)) {
+        Runnable runnable = this.qmL.get();
+        if (runnable != null && this.qmL.compareAndSet(runnable, null)) {
             runnable.run();
         }
     }
@@ -130,7 +130,7 @@ public final class UnicastSubject<T> extends b<T> {
             if (!z4) {
                 uVar.onNext(obj);
             } else {
-                i = this.qlA.addAndGet(-i);
+                i = this.qni.addAndGet(-i);
                 if (i == 0) {
                     return;
                 }
@@ -152,7 +152,7 @@ public final class UnicastSubject<T> extends b<T> {
                     e(uVar);
                     return;
                 }
-                i = this.qlA.addAndGet(-i);
+                i = this.qni.addAndGet(-i);
                 if (i == 0) {
                     return;
                 }
@@ -186,18 +186,18 @@ public final class UnicastSubject<T> extends b<T> {
     }
 
     void drain() {
-        if (this.qlA.getAndIncrement() == 0) {
+        if (this.qni.getAndIncrement() == 0) {
             u<? super T> uVar = this.actual.get();
             int i = 1;
             while (uVar == null) {
-                i = this.qlA.addAndGet(-i);
+                i = this.qni.addAndGet(-i);
                 if (i != 0) {
                     uVar = this.actual.get();
                 } else {
                     return;
                 }
             }
-            if (this.qlf) {
+            if (this.qmN) {
                 d(uVar);
             } else {
                 c(uVar);
@@ -205,7 +205,7 @@ public final class UnicastSubject<T> extends b<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     final class UnicastQueueDisposable extends BasicIntQueueDisposable<T> {
         private static final long serialVersionUID = 7926949470189395511L;
 
@@ -215,7 +215,7 @@ public final class UnicastSubject<T> extends b<T> {
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
             if ((i & 2) != 0) {
-                UnicastSubject.this.qlf = true;
+                UnicastSubject.this.qmN = true;
                 return 2;
             }
             return 0;
@@ -242,7 +242,7 @@ public final class UnicastSubject<T> extends b<T> {
                 UnicastSubject.this.disposed = true;
                 UnicastSubject.this.doTerminate();
                 UnicastSubject.this.actual.lazySet(null);
-                if (UnicastSubject.this.qlA.getAndIncrement() == 0) {
+                if (UnicastSubject.this.qni.getAndIncrement() == 0) {
                     UnicastSubject.this.actual.lazySet(null);
                     UnicastSubject.this.queue.clear();
                 }

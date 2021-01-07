@@ -5,9 +5,9 @@ import android.content.Context;
 public interface a {
     void B(Context context, int i);
 
-    Class<?> bvg();
+    Class<?> bvh();
 
-    String bvh();
+    String bvi();
 
     void c(Context context, int i, boolean z);
 

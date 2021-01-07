@@ -23,9 +23,9 @@ public class e extends b {
     @Override // com.baidu.swan.apps.scheme.actions.b.b
     protected void b(com.baidu.swan.apps.runtime.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         JSONArray jSONArray = new JSONArray();
-        List<SwanFavorItemData> ayk = SwanFavorDataManager.ayj().ayk();
-        if (ayk.size() > 0) {
-            for (SwanFavorItemData swanFavorItemData : ayk) {
+        List<SwanFavorItemData> ayl = SwanFavorDataManager.ayk().ayl();
+        if (ayl.size() > 0) {
+            for (SwanFavorItemData swanFavorItemData : ayl) {
                 jSONArray.put(b(swanFavorItemData));
             }
         }

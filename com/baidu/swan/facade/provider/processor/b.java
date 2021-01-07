@@ -23,25 +23,25 @@ public class b extends com.baidu.swan.facade.provider.processor.a {
     @Override // com.baidu.swan.facade.provider.processor.a
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        List<C0515b> aTS = aTS();
-        if (aTS.isEmpty()) {
+        List<C0515b> aTT = aTT();
+        if (aTT.isEmpty()) {
             return null;
         }
-        HashMap<String, PMSAppInfo> aTV = com.baidu.swan.facade.provider.a.a.aTV();
-        if (aTV.isEmpty()) {
+        HashMap<String, PMSAppInfo> aTW = com.baidu.swan.facade.provider.a.a.aTW();
+        if (aTW.isEmpty()) {
             return null;
         }
-        Collections.sort(aTS, new a());
-        MatrixCursor matrixCursor = new MatrixCursor(dbq, aTS.size());
+        Collections.sort(aTT, new a());
+        MatrixCursor matrixCursor = new MatrixCursor(dbq, aTT.size());
         int i = 0;
-        Iterator<C0515b> it = aTS.iterator();
+        Iterator<C0515b> it = aTT.iterator();
         while (true) {
             int i2 = i;
             if (!it.hasNext()) {
                 return matrixCursor;
             }
             C0515b next = it.next();
-            PMSAppInfo pMSAppInfo = aTV.get(next.appId);
+            PMSAppInfo pMSAppInfo = aTW.get(next.appId);
             if (pMSAppInfo != null) {
                 a(matrixCursor, i2, next, pMSAppInfo);
                 i = i2 + 1;
@@ -57,7 +57,7 @@ public class b extends com.baidu.swan.facade.provider.processor.a {
         }
     }
 
-    private List<C0515b> aTS() {
+    private List<C0515b> aTT() {
         Cursor a2 = SwanAppDbControl.cR(AppRuntime.getAppContext()).a(null, null, null, null);
         ArrayList arrayList = new ArrayList();
         if (a2 != null && a2.moveToFirst()) {

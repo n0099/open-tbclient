@@ -11,7 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.baidu.spswitch.b.a;
 import com.baidu.spswitch.b.d;
 import com.baidu.spswitch.emotion.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CircleIndicator extends View {
     private int Iq;
     private ViewPager Zk;
@@ -55,7 +55,7 @@ public class CircleIndicator extends View {
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i2) {
-                c.bV(CircleIndicator.this.getContext().getApplicationContext()).aje();
+                c.bV(CircleIndicator.this.getContext().getApplicationContext()).ajf();
             }
         };
         init();
@@ -64,7 +64,7 @@ public class CircleIndicator extends View {
     private void init() {
         this.mTabPaint = new Paint();
         this.mTabPaint.setAntiAlias(true);
-        if (a.aji().isNightMode()) {
+        if (a.ajj().isNightMode()) {
             this.cDM = -13421773;
             this.cDN = -11184811;
             return;
@@ -112,7 +112,7 @@ public class CircleIndicator extends View {
     public void setViewPager(ViewPager viewPager) {
         this.Zk = viewPager;
         if (this.Zk != null && this.Zk.getAdapter() != null) {
-            ajg();
+            ajh();
             this.Zk.removeOnPageChangeListener(this.cDO);
             this.Zk.addOnPageChangeListener(this.cDO);
             this.cDH = this.Zk.getCurrentItem();
@@ -120,7 +120,7 @@ public class CircleIndicator extends View {
         }
     }
 
-    private void ajg() {
+    private void ajh() {
         this.Iq = this.Zk.getAdapter().getCount();
         if (this.Iq > 0) {
             this.cDI = (int) d.g(getContext(), 10.0f);

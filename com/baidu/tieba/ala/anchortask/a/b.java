@@ -21,7 +21,7 @@ public class b implements com.baidu.live.b.b {
 
     public b(Activity activity) {
         this.mContext = activity;
-        aaf();
+        aag();
     }
 
     @Override // com.baidu.live.b.b
@@ -31,11 +31,11 @@ public class b implements com.baidu.live.b.b {
         this.gMY.getWebView().setBackgroundColor(ih(str));
         g gVar = new g();
         gVar.w(this.mContext).a(this.gMY).a(this.gMY.getWebView().getSchemeCallback());
-        com.baidu.live.view.web.a[] aae = gVar.aae();
-        for (com.baidu.live.view.web.a aVar : aae) {
+        com.baidu.live.view.web.a[] aaf = gVar.aaf();
+        for (com.baidu.live.view.web.a aVar : aaf) {
             this.gMY.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.gMY.GB(str + "?anchor_id=" + ExtraParamsManager.getEncryptionUserId(String.valueOf(j2)) + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
+        this.gMY.GA(str + "?anchor_id=" + ExtraParamsManager.getEncryptionUserId(String.valueOf(j2)) + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
     }
 
     @Override // com.baidu.live.b.b
@@ -54,7 +54,7 @@ public class b implements com.baidu.live.b.b {
 
     public void dismiss() {
         if (this.gMY != null) {
-            this.gMY.aag();
+            this.gMY.aah();
         }
     }
 
@@ -68,7 +68,7 @@ public class b implements com.baidu.live.b.b {
         MessageManager.getInstance().unRegisterListener(this.bXd);
     }
 
-    private void aaf() {
+    private void aag() {
         this.bXd = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener

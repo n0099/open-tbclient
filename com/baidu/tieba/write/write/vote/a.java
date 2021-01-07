@@ -30,9 +30,9 @@ public class a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(a.this.mPageContext.getPageActivity());
-                aVar.Bo(a.this.mPageContext.getString(R.string.vote_delete_dialog_title));
+                aVar.Bn(a.this.mPageContext.getString(R.string.vote_delete_dialog_title));
                 aVar.setTitleShowCenter(true);
-                aVar.Bp(a.this.mPageContext.getString(R.string.vote_delete_dialog_message));
+                aVar.Bo(a.this.mPageContext.getString(R.string.vote_delete_dialog_message));
                 aVar.setMessageShowCenter(true);
                 aVar.a(R.string.delete, new a.b() { // from class: com.baidu.tieba.write.write.vote.a.1.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -48,7 +48,7 @@ public class a {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(a.this.mPageContext).btX();
+                aVar.b(a.this.mPageContext).btY();
             }
         });
         this.akk.setVoteViewDeleteVisibility(0);

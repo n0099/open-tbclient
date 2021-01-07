@@ -8,7 +8,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PointPageIndicator extends View {
     protected Drawable evU;
     protected Drawable evV;

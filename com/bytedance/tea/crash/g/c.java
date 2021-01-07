@@ -8,7 +8,7 @@ import java.util.Locale;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f7963a = false;
+    private static boolean f7964a = false;
 
     public static boolean a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -98,18 +98,18 @@ public class c {
     }
 
     public static boolean c() {
-        if (!f7963a) {
+        if (!f7964a) {
             try {
                 if (Class.forName("miui.os.Build") != null) {
-                    com.bytedance.tea.crash.upload.b.f7972a = true;
-                    f7963a = true;
-                    return com.bytedance.tea.crash.upload.b.f7972a;
+                    com.bytedance.tea.crash.upload.b.f7973a = true;
+                    f7964a = true;
+                    return com.bytedance.tea.crash.upload.b.f7973a;
                 }
             } catch (Exception e) {
             }
-            f7963a = true;
+            f7964a = true;
         }
-        return com.bytedance.tea.crash.upload.b.f7972a;
+        return com.bytedance.tea.crash.upload.b.f7973a;
     }
 
     public static boolean d() {

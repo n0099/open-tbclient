@@ -8,7 +8,7 @@ class d implements a {
 
     @Override // com.baidu.swan.apps.v.a.a
     public void onPause() {
-        aDY();
+        aDZ();
         if (this.dka != null) {
             this.dka.onPause();
         }
@@ -16,16 +16,16 @@ class d implements a {
 
     @Override // com.baidu.swan.apps.v.a.a
     public void onResume() {
-        aDY();
+        aDZ();
         if (this.dka != null) {
             this.dka.onResume();
         }
     }
 
-    private void aDY() {
-        com.baidu.swan.apps.core.g.a avR;
-        if ((this.dka == null || this.dka.isDestroyed()) && (avR = com.baidu.swan.apps.core.turbo.d.avA().avR()) != null && (avR.anh() instanceof com.baidu.swan.games.f.a)) {
-            this.dka = (com.baidu.swan.games.f.a) avR.anh();
+    private void aDZ() {
+        com.baidu.swan.apps.core.g.a avS;
+        if ((this.dka == null || this.dka.isDestroyed()) && (avS = com.baidu.swan.apps.core.turbo.d.avB().avS()) != null && (avS.ani() instanceof com.baidu.swan.games.f.a)) {
+            this.dka = (com.baidu.swan.games.f.a) avS.ani();
         }
     }
 }

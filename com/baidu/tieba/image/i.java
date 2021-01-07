@@ -25,7 +25,7 @@ public class i {
         this.kSh = i;
     }
 
-    public int dcf() {
+    public int dcg() {
         return this.kSh;
     }
 
@@ -33,7 +33,7 @@ public class i {
         this.kSi = i;
     }
 
-    public int dcg() {
+    public int dch() {
         return this.kSi;
     }
 
@@ -66,11 +66,11 @@ public class i {
             }
         }
         if (this.kSd.size() >= 100) {
-            dch();
+            dci();
         }
     }
 
-    public void dch() {
+    public void dci() {
         if (this.kSd != null) {
             synchronized (this.kSd) {
                 if (this.kSd.size() > 0) {

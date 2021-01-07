@@ -7,14 +7,14 @@ import android.graphics.RectF;
 import android.text.TextUtils;
 import android.view.View;
 import com.qq.e.comm.plugin.util.w;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f12131a;
+    private Paint f12132a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Paint f12132b;
+    private Paint f12133b;
     private RectF c;
     private float d;
     private int e;
@@ -27,7 +27,7 @@ public class b extends View {
     private a l;
     private Runnable m;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void i();
     }
@@ -50,11 +50,11 @@ public class b extends View {
     }
 
     private void b() {
-        this.f12131a = new Paint();
-        this.f12131a.setAntiAlias(true);
-        this.f12132b = new Paint();
-        this.f12132b.setColor(-1);
-        this.f12132b.setTextAlign(Paint.Align.CENTER);
+        this.f12132a = new Paint();
+        this.f12132a.setAntiAlias(true);
+        this.f12133b = new Paint();
+        this.f12133b.setColor(-1);
+        this.f12133b.setTextAlign(Paint.Align.CENTER);
         this.c = new RectF();
     }
 
@@ -91,8 +91,8 @@ public class b extends View {
     }
 
     public void b(float f) {
-        this.f12132b.setTextSize(f);
-        Paint.FontMetricsInt fontMetricsInt = this.f12132b.getFontMetricsInt();
+        this.f12133b.setTextSize(f);
+        Paint.FontMetricsInt fontMetricsInt = this.f12133b.getFontMetricsInt();
         this.h = (fontMetricsInt.bottom + fontMetricsInt.top) / 2;
     }
 
@@ -113,21 +113,21 @@ public class b extends View {
         if (this.i == null || this.j <= 0 || (f = this.i.f()) > this.j) {
             return;
         }
-        this.f12131a.setStyle(Paint.Style.FILL);
-        this.f12131a.setColor(this.g);
-        canvas.drawCircle(measuredWidth / 2, measuredHeight / 2, (measuredWidth / 2) - this.d, this.f12131a);
-        this.f12131a.setStyle(Paint.Style.STROKE);
-        this.f12131a.setStrokeWidth(this.d);
-        this.f12131a.setColor(this.e);
-        canvas.drawCircle(measuredWidth / 2, measuredHeight / 2, (measuredWidth / 2) - this.d, this.f12131a);
+        this.f12132a.setStyle(Paint.Style.FILL);
+        this.f12132a.setColor(this.g);
+        canvas.drawCircle(measuredWidth / 2, measuredHeight / 2, (measuredWidth / 2) - this.d, this.f12132a);
+        this.f12132a.setStyle(Paint.Style.STROKE);
+        this.f12132a.setStrokeWidth(this.d);
+        this.f12132a.setColor(this.e);
+        canvas.drawCircle(measuredWidth / 2, measuredHeight / 2, (measuredWidth / 2) - this.d, this.f12132a);
         this.c.left = this.d;
         this.c.top = this.d;
         this.c.right = measuredWidth - this.d;
         this.c.bottom = measuredWidth - this.d;
-        this.f12131a.setStyle(Paint.Style.STROKE);
-        this.f12131a.setStrokeWidth(this.d);
-        this.f12131a.setColor(this.f);
-        canvas.drawArc(this.c, -90.0f, (f / this.j) * 360.0f, false, this.f12131a);
+        this.f12132a.setStyle(Paint.Style.STROKE);
+        this.f12132a.setStrokeWidth(this.d);
+        this.f12132a.setColor(this.f);
+        canvas.drawArc(this.c, -90.0f, (f / this.j) * 360.0f, false, this.f12132a);
         long j = (this.j - f) / 1000;
         String valueOf = String.valueOf(1);
         if (j > 0) {
@@ -136,6 +136,6 @@ public class b extends View {
         if (TextUtils.isEmpty(valueOf)) {
             return;
         }
-        canvas.drawText(valueOf, measuredWidth / 2, (measuredHeight / 2) - this.h, this.f12132b);
+        canvas.drawText(valueOf, measuredWidth / 2, (measuredHeight / 2) - this.h, this.f12133b);
     }
 }

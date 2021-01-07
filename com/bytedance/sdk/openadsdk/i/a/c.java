@@ -90,13 +90,13 @@ public class c extends Request<byte[]> {
 
     private p<byte[]> b(l lVar) {
         Bitmap bitmap;
-        final byte[] bArr = lVar.f6340b;
+        final byte[] bArr = lVar.f6341b;
         String a2 = com.bytedance.sdk.openadsdk.i.a.a.a().a(getUrl(), this.f, this.g, this.h);
         if (bArr.length >= 3 && bArr[0] == 71 && bArr[1] == 73 && bArr[2] == 70) {
             try {
                 com.bytedance.sdk.openadsdk.i.a.a.a().a(a2, bArr);
                 if (this.d != null) {
-                    this.f6309b.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.i.a.c.1
+                    this.f6310b.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.i.a.c.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (c.this.d != null) {
@@ -136,7 +136,7 @@ public class c extends Request<byte[]> {
         final byte[] b2 = f.b(bitmap);
         com.bytedance.sdk.openadsdk.i.a.a.a().a(a2, b2);
         if (this.d != null) {
-            this.f6309b.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.i.a.c.2
+            this.f6310b.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.i.a.c.2
                 @Override // java.lang.Runnable
                 public void run() {
                     if (c.this.d != null) {

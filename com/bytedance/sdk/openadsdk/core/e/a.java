@@ -33,7 +33,7 @@ import java.util.Map;
 public class a implements TTNativeAd {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6830a;
+    private int f6831a;
     protected final o g;
     protected final l h;
     protected final Context i;
@@ -341,9 +341,9 @@ public class a implements TTNativeAd {
         if (this.h == null || this.h.H() == 5) {
             return false;
         }
-        if (this.f6830a == 0) {
-            this.f6830a = aj.d(this.h.W());
+        if (this.f6831a == 0) {
+            this.f6831a = aj.d(this.h.W());
         }
-        return p.h().d(this.f6830a) == 1;
+        return p.h().d(this.f6831a) == 1;
     }
 }

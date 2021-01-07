@@ -359,7 +359,7 @@ public class PbPageRequestMessage extends NetMessage {
             builder.obj_param1 = this.objParam1;
             builder.obj_source = this.obj_source;
             builder.from_smart_frs = this.fromSmartFrs;
-            builder.app_pos = com.baidu.tieba.recapp.c.a.dFN().dFR();
+            builder.app_pos = com.baidu.tieba.recapp.c.a.dFO().dFS();
             builder.forum_id = this.forumId;
             builder.need_repost_recommend_forum = this.needRepostRecommendForum;
             AdParam.Builder builder2 = new AdParam.Builder();
@@ -372,10 +372,10 @@ public class PbPageRequestMessage extends NetMessage {
             builder.ori_ugc_type = Integer.valueOf(this.oriUgcType);
             builder.ori_ugc_vid = this.oriUgcVid;
             builder.after_ad_thread_count = Integer.valueOf(this.mAfterAdThreadCount);
-            builder.ad_context_list = com.baidu.tieba.recapp.report.b.dFU().RU("PB");
+            builder.ad_context_list = com.baidu.tieba.recapp.report.b.dFV().RT("PB");
             builder.up_schema = this.mSchemeUrl;
             builder.from_push = Integer.valueOf(this.from_push);
-            builder.ad_ext_params = AdExtParam.a.bIs().tc(this.updateType).bIt();
+            builder.ad_ext_params = AdExtParam.a.bIt().tc(this.updateType).bIu();
             builder.source_type = Integer.valueOf(this.sourceType);
             com.baidu.tbadk.util.t.a(builder, true, false, true);
             PbPageReqIdl.Builder builder3 = new PbPageReqIdl.Builder();

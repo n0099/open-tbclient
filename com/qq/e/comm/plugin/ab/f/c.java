@@ -20,33 +20,33 @@ import com.qq.e.comm.plugin.util.ah;
 import com.qq.e.comm.util.GDTLogger;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c extends WebView implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final e f12086a;
+    private final e f12087a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f12087b;
+    private boolean f12088b;
 
     public c(final Context context, WebViewClient webViewClient, b bVar, JSONObject jSONObject) {
         super(a(context));
-        this.f12086a = new e(this, jSONObject);
+        this.f12087a = new e(this, jSONObject);
         WebSettings settings = getSettings();
         settings.setUserAgentString(settings.getUserAgentString() + " GDTMobSDK/" + SDKStatus.getSDKVersion() + "." + GDTADManager.getInstance().getPM().getPluginVersion());
         settings.setJavaScriptEnabled(true);
         if (webViewClient != null) {
             if (webViewClient instanceof com.qq.e.comm.plugin.ab.d.d) {
-                ((com.qq.e.comm.plugin.ab.d.d) webViewClient).a(this.f12086a);
+                ((com.qq.e.comm.plugin.ab.d.d) webViewClient).a(this.f12087a);
             }
             setWebViewClient(webViewClient);
         }
         if (bVar != null) {
-            bVar.a(this.f12086a);
+            bVar.a(this.f12087a);
             setWebChromeClient(bVar);
         } else {
             b bVar2 = new b();
-            bVar2.a(this.f12086a);
+            bVar2.a(this.f12087a);
             setWebChromeClient(bVar2);
         }
         if (Build.VERSION.SDK_INT >= 11) {
@@ -116,12 +116,12 @@ public class c extends WebView implements a {
 
     @Override // com.qq.e.comm.plugin.ab.f.a
     public e d() {
-        return this.f12086a;
+        return this.f12087a;
     }
 
     @Override // android.webkit.WebView
     public void destroy() {
-        if (this.f12087b) {
+        if (this.f12088b) {
             return;
         }
         loadUrl("about:blank");
@@ -131,18 +131,18 @@ public class c extends WebView implements a {
         }
         removeAllViews();
         super.destroy();
-        this.f12087b = true;
+        this.f12088b = true;
     }
 
     @Override // android.webkit.WebView, android.view.View
     protected void onVisibilityChanged(View view, int i) {
         super.onVisibilityChanged(view, i);
         if (i == 0) {
-            this.f12086a.a(new com.qq.e.comm.plugin.ab.b.b("onPageShown", null));
+            this.f12087a.a(new com.qq.e.comm.plugin.ab.b.b("onPageShown", null));
             GDTLogger.d("onPageShown");
             return;
         }
-        this.f12086a.a(new com.qq.e.comm.plugin.ab.b.b("onPageHidden", null));
+        this.f12087a.a(new com.qq.e.comm.plugin.ab.b.b("onPageHidden", null));
         GDTLogger.d("onPageHidden");
     }
 }

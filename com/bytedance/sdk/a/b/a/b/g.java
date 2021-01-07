@@ -39,7 +39,7 @@ public final class g {
         this.piU = aVar;
         this.pja = hVar;
         this.pjb = tVar;
-        this.pjc = new f(aVar, eqF(), hVar, tVar);
+        this.pjc = new f(aVar, eqG(), hVar, tVar);
         this.h = obj;
     }
 
@@ -60,7 +60,7 @@ public final class g {
         while (true) {
             f = f(i, i2, i3, z);
             synchronized (this.piL) {
-                if (f.f6162b != 0) {
+                if (f.f6163b != 0) {
                     if (f.a(z2)) {
                         break;
                     }
@@ -75,7 +75,7 @@ public final class g {
 
     private c f(int i, int i2, int i3, boolean z) throws IOException {
         c cVar;
-        Socket eqD;
+        Socket eqE;
         c cVar2;
         boolean z2 = false;
         c cVar3 = null;
@@ -91,7 +91,7 @@ public final class g {
                 throw new IOException(ResponseException.CANCELED);
             }
             cVar = this.pjd;
-            eqD = eqD();
+            eqE = eqE();
             if (this.pjd != null) {
                 cVar3 = this.pjd;
                 cVar = null;
@@ -109,7 +109,7 @@ public final class g {
                 }
             }
         }
-        com.bytedance.sdk.a.b.a.c.a(eqD);
+        com.bytedance.sdk.a.b.a.c.a(eqE);
         if (cVar != null) {
             this.pjb.b(this.pja, cVar);
         }
@@ -122,7 +122,7 @@ public final class g {
         boolean z3 = false;
         if (dVar == null && (this.piY == null || !this.piY.a())) {
             z3 = true;
-            this.piY = this.pjc.eqA();
+            this.piY = this.pjc.eqB();
         }
         synchronized (this.piL) {
             if (this.n) {
@@ -145,10 +145,10 @@ public final class g {
             }
             cVar2 = cVar3;
             if (!z2) {
-                com.bytedance.sdk.a.b.d eqC = dVar == null ? this.piY.eqC() : dVar;
-                this.piZ = eqC;
+                com.bytedance.sdk.a.b.d eqD = dVar == null ? this.piY.eqD() : dVar;
+                this.piZ = eqD;
                 this.j = 0;
-                cVar2 = new c(this.piL, eqC);
+                cVar2 = new c(this.piL, eqD);
                 a(cVar2, false);
             }
         }
@@ -157,7 +157,7 @@ public final class g {
             return cVar2;
         }
         cVar2.a(i, i2, i3, z, this.pja, this.pjb);
-        eqF().b(cVar2.eqx());
+        eqG().b(cVar2.eqy());
         Socket socket = null;
         synchronized (this.piL) {
             this.l = true;
@@ -172,10 +172,10 @@ public final class g {
         return cVar2;
     }
 
-    private Socket eqD() {
+    private Socket eqE() {
         if (d || Thread.holdsLock(this.piL)) {
             c cVar = this.pjd;
-            if (cVar == null || !cVar.f6161a) {
+            if (cVar == null || !cVar.f6162a) {
                 return null;
             }
             return n(false, false, true);
@@ -192,7 +192,7 @@ public final class g {
             if (cVar != null) {
                 if (cVar == this.pje) {
                     if (!z) {
-                        this.pjd.f6162b++;
+                        this.pjd.f6163b++;
                     }
                     cVar2 = this.pjd;
                     n = n(z, false, true);
@@ -215,7 +215,7 @@ public final class g {
         }
     }
 
-    public com.bytedance.sdk.a.b.a.c.c eqE() {
+    public com.bytedance.sdk.a.b.a.c.c eqF() {
         com.bytedance.sdk.a.b.a.c.c cVar;
         synchronized (this.piL) {
             cVar = this.pje;
@@ -223,11 +223,11 @@ public final class g {
         return cVar;
     }
 
-    private d eqF() {
+    private d eqG() {
         return com.bytedance.sdk.a.b.a.a.pir.a(this.piL);
     }
 
-    public synchronized c eqG() {
+    public synchronized c eqH() {
         return this.pjd;
     }
 
@@ -274,15 +274,15 @@ public final class g {
             }
             if (this.pjd != null) {
                 if (z) {
-                    this.pjd.f6161a = true;
+                    this.pjd.f6162a = true;
                 }
                 if (this.pje == null) {
-                    if (this.m || this.pjd.f6161a) {
+                    if (this.m || this.pjd.f6162a) {
                         a(this.pjd);
                         if (this.pjd.d.isEmpty()) {
                             this.pjd.e = System.nanoTime();
                             if (com.bytedance.sdk.a.b.a.a.pir.b(this.piL, this.pjd)) {
-                                socket = this.pjd.eqy();
+                                socket = this.pjd.eqz();
                                 this.pjd = null;
                                 return socket;
                             }
@@ -308,17 +308,17 @@ public final class g {
         synchronized (this.piL) {
             if (iOException instanceof o) {
                 o oVar = (o) iOException;
-                if (oVar.f6225a == com.bytedance.sdk.a.b.a.e.b.REFUSED_STREAM) {
+                if (oVar.f6226a == com.bytedance.sdk.a.b.a.e.b.REFUSED_STREAM) {
                     this.j++;
                 }
-                if (oVar.f6225a != com.bytedance.sdk.a.b.a.e.b.REFUSED_STREAM || this.j > 1) {
+                if (oVar.f6226a != com.bytedance.sdk.a.b.a.e.b.REFUSED_STREAM || this.j > 1) {
                     this.piZ = null;
                     z = true;
                 }
                 z2 = z;
             } else if (this.pjd == null || (this.pjd.d() && !(iOException instanceof com.bytedance.sdk.a.b.a.e.a))) {
                 z2 = false;
-            } else if (this.pjd.f6162b == 0) {
+            } else if (this.pjd.f6163b == 0) {
                 if (this.piZ != null && iOException != null) {
                     this.pjc.a(this.piZ, iOException);
                 }
@@ -377,19 +377,19 @@ public final class g {
     }
 
     public String toString() {
-        c eqG = eqG();
-        return eqG != null ? eqG.toString() : this.piU.toString();
+        c eqH = eqH();
+        return eqH != null ? eqH.toString() : this.piU.toString();
     }
 
     /* loaded from: classes4.dex */
     public static final class a extends WeakReference<g> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Object f6168a;
+        public final Object f6169a;
 
         a(g gVar, Object obj) {
             super(gVar);
-            this.f6168a = obj;
+            this.f6169a = obj;
         }
     }
 }

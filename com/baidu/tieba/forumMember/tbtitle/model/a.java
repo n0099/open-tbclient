@@ -36,19 +36,19 @@ public class a<T> {
             }
         }
     };
-    private InterfaceC0730a jcv;
+    private InterfaceC0737a jcv;
     private BaseActivity<T> mActivity;
 
     /* renamed from: com.baidu.tieba.forumMember.tbtitle.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0730a {
+    public interface InterfaceC0737a {
         void a(DataRes dataRes, boolean z, int i, String str);
     }
 
-    public a(InterfaceC0730a interfaceC0730a, BaseActivity<T> baseActivity) {
-        this.jcv = interfaceC0730a;
+    public a(InterfaceC0737a interfaceC0737a, BaseActivity<T> baseActivity) {
+        this.jcv = interfaceC0737a;
         this.mActivity = baseActivity;
-        cDx();
+        cDy();
     }
 
     public void zL(int i) {
@@ -63,7 +63,7 @@ public class a<T> {
         this.mActivity.sendMessage(getLevelInfoReadCacheRequestMessage);
     }
 
-    private void cDx() {
+    private void cDy() {
         this.mActivity.registerListener(this.jaI);
         this.mActivity.registerListener(this.jaH);
     }

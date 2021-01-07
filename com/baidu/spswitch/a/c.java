@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.spswitch.b.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     private int cDT = -1;
     private final View cDU;
@@ -86,12 +86,12 @@ public class c {
                 if (DEBUG) {
                     Log.d(TAG, "offset > 0, offset : " + i3 + ", panel->handleHide...");
                 }
-                ar.aja();
+                ar.ajb();
             } else {
                 if (DEBUG) {
                     Log.d(TAG, "offset < 0, offset : " + i3 + ", panel->handleShow...");
                 }
-                ar.aiZ();
+                ar.aja();
             }
         }
     }

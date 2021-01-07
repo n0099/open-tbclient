@@ -14,11 +14,11 @@ import org.json.JSONArray;
 public final class eh implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackReportActivity f5840a;
+    final /* synthetic */ FeedbackReportActivity f5841a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public eh(FeedbackReportActivity feedbackReportActivity) {
-        this.f5840a = feedbackReportActivity;
+        this.f5841a = feedbackReportActivity;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:8:0x0070 */
@@ -38,41 +38,41 @@ public final class eh implements Runnable {
         EditText editText3;
         EditText editText4;
         Handler handler2;
-        list = this.f5840a.x;
+        list = this.f5841a.x;
         if (list.size() <= 1) {
-            FeedbackReportActivity feedbackReportActivity = this.f5840a;
-            Context applicationContext = this.f5840a.getApplicationContext();
+            FeedbackReportActivity feedbackReportActivity = this.f5841a;
+            Context applicationContext = this.f5841a.getApplicationContext();
             String str3 = UfoSDK.clientid;
-            str2 = this.f5840a.z;
+            str2 = this.f5841a.z;
             StringBuilder append = new StringBuilder().append(com.baidu.ufosdk.b.l);
-            editText3 = this.f5840a.t;
+            editText3 = this.f5841a.t;
             String sb = append.append(editText3.getText().toString()).append(com.baidu.ufosdk.b.m).toString();
-            editText4 = this.f5840a.u;
+            editText4 = this.f5841a.u;
             String obj = editText4.getText().toString();
-            handler2 = this.f5840a.K;
+            handler2 = this.f5841a.K;
             feedbackReportActivity.a(applicationContext, str3, str2, sb, obj, null, handler2);
             return;
         }
         JSONArray jSONArray = new JSONArray();
         for (int i = 0; i < list2.size() - 1; i++) {
-            list3 = this.f5840a.x;
+            list3 = this.f5841a.x;
             jSONArray.put(Base64.encodeToString((byte[]) list3.get(i), 0));
         }
         if (jSONArray.toString().length() >= 2097152) {
-            Toast.makeText(this.f5840a, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 0).show();
+            Toast.makeText(this.f5841a, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 0).show();
             return;
         }
-        FeedbackReportActivity feedbackReportActivity2 = this.f5840a;
-        Context applicationContext2 = this.f5840a.getApplicationContext();
+        FeedbackReportActivity feedbackReportActivity2 = this.f5841a;
+        Context applicationContext2 = this.f5841a.getApplicationContext();
         String str4 = UfoSDK.clientid;
-        str = this.f5840a.z;
+        str = this.f5841a.z;
         StringBuilder append2 = new StringBuilder().append(com.baidu.ufosdk.b.l);
-        editText = this.f5840a.t;
+        editText = this.f5841a.t;
         String sb2 = append2.append(editText.getText().toString()).append(com.baidu.ufosdk.b.m).toString();
-        editText2 = this.f5840a.u;
+        editText2 = this.f5841a.u;
         String obj2 = editText2.getText().toString();
         String jSONArray2 = jSONArray.toString();
-        handler = this.f5840a.K;
+        handler = this.f5841a.K;
         feedbackReportActivity2.a(applicationContext2, str4, str, sb2, obj2, jSONArray2, handler);
     }
 }

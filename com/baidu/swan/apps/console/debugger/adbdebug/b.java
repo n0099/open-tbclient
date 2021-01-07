@@ -6,13 +6,13 @@ import com.baidu.swan.apps.ao.u;
 public class b implements com.baidu.swan.apps.console.debugger.a {
     private static String cPq = "";
 
-    public static String apu() {
+    public static String apv() {
         return cPq;
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
-    public String apm() {
-        return a.apt().getPath();
+    public String apn() {
+        return a.apu().getPath();
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
@@ -25,7 +25,7 @@ public class b implements com.baidu.swan.apps.console.debugger.a {
     @Override // com.baidu.swan.apps.console.debugger.a
     public void o(Bundle bundle) {
         bundle.putString("adb_debug_path", cPq);
-        bundle.putString("slavePreload", com.baidu.swan.apps.console.debugger.b.apo());
-        bundle.putString("masterPreload", com.baidu.swan.apps.console.debugger.b.apn());
+        bundle.putString("slavePreload", com.baidu.swan.apps.console.debugger.b.app());
+        bundle.putString("masterPreload", com.baidu.swan.apps.console.debugger.b.apo());
     }
 }

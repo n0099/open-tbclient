@@ -15,15 +15,15 @@ public class h {
         this.ggM = i3;
     }
 
-    public int bNQ() {
+    public int bNR() {
         return this.ggM;
     }
 
-    public int bNR() {
+    public int bNS() {
         return this.ggL;
     }
 
-    public int bNS() {
+    public int bNT() {
         return this.ggK;
     }
 
@@ -40,7 +40,7 @@ public class h {
         return this.forumName;
     }
 
-    public String bNT() {
+    public String bNU() {
         return this.ggN;
     }
 
@@ -48,7 +48,7 @@ public class h {
         this.ggN = str;
     }
 
-    public int bNU() {
+    public int bNV() {
         return this.userLevel;
     }
 

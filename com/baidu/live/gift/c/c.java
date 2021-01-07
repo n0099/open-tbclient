@@ -347,7 +347,7 @@ public class c extends BdBaseModel {
                     iVar.addParam("gift_mul", bVar.bdZ.aXM.Hs());
                     iVar.addParam("attach_new", bVar.bdZ.aXM.Hr());
                 }
-                iVar.addParam("scene_from", q.XF());
+                iVar.addParam("scene_from", q.XG());
                 MessageManager.getInstance().sendMessage(iVar);
                 j = j2;
             } else if (bVar.GZ()) {
@@ -411,7 +411,7 @@ public class c extends BdBaseModel {
                 pVar.addParam("is_combo", bVar.aZB);
                 pVar.addParam("live_id", bVar.liveId);
                 pVar.addParam("tbs", bVar.beu);
-                pVar.addParam("scene_from", q.XF());
+                pVar.addParam("scene_from", q.XG());
                 MessageManager.getInstance().sendMessage(pVar);
                 j = j4;
             } else {
@@ -440,7 +440,7 @@ public class c extends BdBaseModel {
                 iVar2.addParam("ala_live_id", bVar.liveId);
                 iVar2.addParam("is_combo", bVar.aZB);
                 iVar2.addParam("tbs", bVar.beu);
-                iVar2.addParam("scene_from", q.XF());
+                iVar2.addParam("scene_from", q.XG());
                 MessageManager.getInstance().sendMessage(iVar2);
                 j = j5;
             }

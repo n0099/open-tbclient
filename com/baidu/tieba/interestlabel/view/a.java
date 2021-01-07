@@ -52,11 +52,11 @@ public class a implements View.OnClickListener {
         }
     }
 
-    public ViewGroup dcF() {
+    public ViewGroup dcG() {
         return this.ioq;
     }
 
-    public int dcG() {
+    public int dcH() {
         return this.kUH;
     }
 

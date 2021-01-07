@@ -7,24 +7,24 @@ import com.baidu.sofire.o.b;
 public class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f5570a;
+    private static a f5571a;
 
     /* renamed from: b  reason: collision with root package name */
-    private b f5571b = null;
+    private b f5572b = null;
     private boolean c = false;
 
     private a() {
     }
 
     public static a a() {
-        if (f5570a == null) {
+        if (f5571a == null) {
             synchronized (a.class) {
-                if (f5570a == null) {
-                    f5570a = new a();
+                if (f5571a == null) {
+                    f5571a = new a();
                 }
             }
         }
-        return f5570a;
+        return f5571a;
     }
 
     @Override // com.baidu.sofire.j.b
@@ -36,23 +36,23 @@ public class a implements b {
             this.c = true;
             switch (b.a.a(Build.MANUFACTURER)) {
                 case VIVO:
-                    this.f5571b = new com.baidu.sofire.m.c();
+                    this.f5572b = new com.baidu.sofire.m.c();
                     break;
                 case OPPO:
-                    this.f5571b = new com.baidu.sofire.l.c();
+                    this.f5572b = new com.baidu.sofire.l.c();
                     break;
                 case XIAOMI:
-                    this.f5571b = new com.baidu.sofire.n.b();
+                    this.f5572b = new com.baidu.sofire.n.b();
                     break;
                 case HUA_WEI:
-                    this.f5571b = new com.baidu.sofire.k.b();
+                    this.f5572b = new com.baidu.sofire.k.b();
                     break;
                 case UNSUPPORT:
-                    this.f5571b = null;
+                    this.f5572b = null;
                     break;
             }
-            if (this.f5571b != null) {
-                this.f5571b.a(context, cVar);
+            if (this.f5572b != null) {
+                this.f5572b.a(context, cVar);
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -61,11 +61,11 @@ public class a implements b {
 
     @Override // com.baidu.sofire.j.b
     public final String b() {
-        if (this.f5571b == null) {
+        if (this.f5572b == null) {
             return null;
         }
         try {
-            return this.f5571b.b();
+            return this.f5572b.b();
         } catch (Throwable th) {
             th.printStackTrace();
             return null;

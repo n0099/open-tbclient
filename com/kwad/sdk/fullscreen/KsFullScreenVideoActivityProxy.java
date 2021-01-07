@@ -194,7 +194,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
     protected com.kwad.sdk.reward.a onCreateCallerContext() {
         com.kwad.sdk.reward.a aVar = new com.kwad.sdk.reward.a();
         aVar.g = this.mContext;
-        aVar.f10824b = this.mAdOpenInteractionListener;
+        aVar.f10825b = this.mAdOpenInteractionListener;
         aVar.e = this.mScreenOrientation;
         aVar.c = this.mVideoPlayConfig;
         aVar.d = this.mReportExtData;
@@ -202,7 +202,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
         aVar.f = this.mAdTemplate;
         com.kwad.sdk.reward.c.a aVar2 = new com.kwad.sdk.reward.c.a(this.mAdTemplate, this.mDetailVideoView, this.mVideoPlayConfig);
         aVar.i = aVar2;
-        aVar.f10823a.add(aVar2);
+        aVar.f10824a.add(aVar2);
         if (com.kwad.sdk.core.response.b.a.y(this.mAdInfo)) {
             aVar.j = new com.kwad.sdk.core.download.b.b(this.mAdTemplate, this.mReportExtData);
         }

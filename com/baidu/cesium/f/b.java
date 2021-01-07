@@ -1,21 +1,21 @@
 package com.baidu.cesium.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1699a;
+    private long f1700a;
 
     public b() {
         this(0L);
     }
 
     public b(long j) {
-        this.f1699a = j;
+        this.f1700a = j;
     }
 
     public boolean a(long j, long j2) {
-        long j3 = this.f1699a;
-        this.f1699a = (this.f1699a & ((-1) ^ j2)) | (j & j2);
-        return (j3 ^ this.f1699a) != 0;
+        long j3 = this.f1700a;
+        this.f1700a = (this.f1700a & ((-1) ^ j2)) | (j & j2);
+        return (j3 ^ this.f1700a) != 0;
     }
 }

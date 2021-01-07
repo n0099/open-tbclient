@@ -24,15 +24,15 @@ public class ConcernPageRequestMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.page_tag = this.pageTag;
-            if (d.cQQ()) {
-                if (!d.cQU()) {
-                    builder.page_tag = d.cQS();
+            if (d.cQR()) {
+                if (!d.cQV()) {
+                    builder.page_tag = d.cQT();
                 } else {
-                    builder.page_tag = d.cQR();
+                    builder.page_tag = d.cQS();
                 }
             }
-            builder.last_req_unix = Long.valueOf(b.bvq().getLong(b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), 0L));
-            builder.follow_type = Integer.valueOf(com.baidu.tbadk.a.d.bmN() ? b.bvq().getInt("key_home_concern_all_status", 0) : 1);
+            builder.last_req_unix = Long.valueOf(b.bvr().getLong(b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), 0L));
+            builder.follow_type = Integer.valueOf(com.baidu.tbadk.a.d.bmO() ? b.bvr().getInt("key_home_concern_all_status", 0) : 1);
             if (z) {
                 t.b(builder, true);
             }
@@ -47,8 +47,8 @@ public class ConcernPageRequestMessage extends NetMessage {
     }
 
     private String buildAdParam() {
-        int RW = TextUtils.isEmpty(this.pageTag) ? 0 : com.baidu.tieba.recapp.report.b.dFU().RW("CONCERN");
-        return AdExtParam.a.bIs().td(RW).EB(TbadkCoreApplication.getInst().getCuidGalaxy2()).EC(com.baidu.tieba.recapp.report.b.dFU().RU("CONCERN")).bIt();
+        int RV = TextUtils.isEmpty(this.pageTag) ? 0 : com.baidu.tieba.recapp.report.b.dFV().RV("CONCERN");
+        return AdExtParam.a.bIt().td(RV).EA(TbadkCoreApplication.getInst().getCuidGalaxy2()).EB(com.baidu.tieba.recapp.report.b.dFV().RT("CONCERN")).bIu();
     }
 
     public String getPageTag() {

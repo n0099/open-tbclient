@@ -7,24 +7,24 @@ import java.util.Iterator;
 public class db extends cv {
 
     /* renamed from: a  reason: collision with root package name */
-    cv f14229a;
+    cv f14230a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ cz f277a;
+    final /* synthetic */ cz f278a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ cv f14230b;
+    final /* synthetic */ cv f14231b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public db(cz czVar, String str, cv cvVar) {
         super(str);
-        this.f277a = czVar;
-        this.f14230b = cvVar;
-        this.f14229a = this.f14230b;
-        this.f263b = this.f263b;
-        if (this.f14230b != null) {
-            this.f = this.f14230b.f;
+        this.f278a = czVar;
+        this.f14231b = cvVar;
+        this.f14230a = this.f14231b;
+        this.f264b = this.f264b;
+        if (this.f14231b != null) {
+            this.f = this.f14231b.f;
         }
     }
 
@@ -32,11 +32,11 @@ public class db extends cv {
     public synchronized ArrayList<String> a(boolean z) {
         ArrayList<String> arrayList;
         arrayList = new ArrayList<>();
-        if (this.f14229a != null) {
-            arrayList.addAll(this.f14229a.a(true));
+        if (this.f14230a != null) {
+            arrayList.addAll(this.f14230a.a(true));
         }
-        synchronized (cz.f14227b) {
-            cv cvVar = cz.f14227b.get(this.f263b);
+        synchronized (cz.f14228b) {
+            cv cvVar = cz.f14228b.get(this.f264b);
             if (cvVar != null) {
                 Iterator<String> it = cvVar.a(true).iterator();
                 while (it.hasNext()) {
@@ -45,8 +45,8 @@ public class db extends cv {
                         arrayList.add(next);
                     }
                 }
-                arrayList.remove(this.f263b);
-                arrayList.add(this.f263b);
+                arrayList.remove(this.f264b);
+                arrayList.add(this.f264b);
             }
         }
         return arrayList;
@@ -54,8 +54,8 @@ public class db extends cv {
 
     @Override // com.xiaomi.push.cv
     public synchronized void a(String str, cu cuVar) {
-        if (this.f14229a != null) {
-            this.f14229a.a(str, cuVar);
+        if (this.f14230a != null) {
+            this.f14230a.a(str, cuVar);
         }
     }
 

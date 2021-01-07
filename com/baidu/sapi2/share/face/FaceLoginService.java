@@ -23,13 +23,13 @@ import org.json.JSONObject;
 public class FaceLoginService {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f5352b = "FaceLoginService";
+    private static final String f5353b = "FaceLoginService";
     private static final String c = "face_login_model_v2";
     private static final String d = "livingunames";
     private static final int e = 10;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f5353a = SapiAccountManager.getInstance().getConfignation().context;
+    private Context f5354a = SapiAccountManager.getInstance().getConfignation().context;
 
     private String a(Map<String, Long> map) {
         JSONObject jSONObject = new JSONObject();
@@ -111,7 +111,7 @@ public class FaceLoginService {
             shareStorage.setSd(SecurityUtil.md5(c.getBytes(), false), str);
             return;
         }
-        Log.i(f5352b, "setV2ShareFaceUids false");
+        Log.i(f5353b, "setV2ShareFaceUids false");
     }
 
     private Map<String, Long> a(List<a> list) {
@@ -121,8 +121,8 @@ public class FaceLoginService {
         }
         Collections.sort(list);
         for (a aVar : list) {
-            if (!linkedHashMap.containsKey(aVar.f5354a)) {
-                linkedHashMap.put(aVar.f5354a, Long.valueOf(aVar.f5355b));
+            if (!linkedHashMap.containsKey(aVar.f5355a)) {
+                linkedHashMap.put(aVar.f5355a, Long.valueOf(aVar.f5356b));
             }
         }
         if (linkedHashMap.size() > 10) {
@@ -139,7 +139,7 @@ public class FaceLoginService {
     private List<a> a() {
         ArrayList arrayList = new ArrayList();
         if (SapiContext.getInstance().shareLivingunameEnable()) {
-            List<Intent> c2 = e.c(this.f5353a);
+            List<Intent> c2 = e.c(this.f5354a);
             if (c2.isEmpty()) {
                 return arrayList;
             }

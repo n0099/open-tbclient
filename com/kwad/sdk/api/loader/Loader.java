@@ -15,10 +15,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class Loader {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f8478a;
+    static final /* synthetic */ boolean f8479a;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile Context f8479b;
+    private volatile Context f8480b;
     private IKsAdSDK c;
     private j d;
     private AtomicBoolean e;
@@ -27,11 +27,11 @@ public class Loader {
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final Loader f8480a = new Loader();
+        private static final Loader f8481a = new Loader();
     }
 
     static {
-        f8478a = !Loader.class.desiredAssertionStatus();
+        f8479a = !Loader.class.desiredAssertionStatus();
     }
 
     private Loader() {
@@ -48,7 +48,7 @@ public class Loader {
         synchronized (Loader.class) {
             try {
                 KsAdSdkDynamicApi ksAdSdkDynamicApi = (KsAdSdkDynamicApi) IKsAdSDK.class.getAnnotation(KsAdSdkDynamicApi.class);
-                if (!f8478a && ksAdSdkDynamicApi == null) {
+                if (!f8479a && ksAdSdkDynamicApi == null) {
                     throw new AssertionError();
                 }
                 Object invoke = Class.forName(ksAdSdkDynamicApi.value(), true, classLoader).getDeclaredMethod("get", new Class[0]).invoke(null, new Object[0]);
@@ -76,9 +76,9 @@ public class Loader {
         if (TextUtils.isEmpty(b2) || !f.a(b2, a2)) {
             b2 = a2;
         } else {
-            f.a(context, f.f8499b, b2);
+            f.a(context, f.f8500b, b2);
             a(context, a2);
-            f.a(context, f.f8498a, "");
+            f.a(context, f.f8499a, "");
         }
         return !TextUtils.isEmpty(b2);
     }
@@ -86,33 +86,33 @@ public class Loader {
     private void d(Context context) {
         String a2 = f.a(context);
         if (TextUtils.isEmpty(a2) || !a2.equals("3.3.9")) {
-            String a3 = f.a(context, f.f8499b);
-            f.a(context, f.f8499b, "");
-            f.a(context, f.f8498a, "");
+            String a3 = f.a(context, f.f8500b);
+            f.a(context, f.f8500b, "");
+            f.a(context, f.f8499a, "");
             g.b(g.c(context, a3));
             f.b(context, "3.3.9");
         }
     }
 
     public static Loader get() {
-        return a.f8480a;
+        return a.f8481a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(Context context) {
-        return f.a(context, f.f8499b);
+        return f.a(context, f.f8500b);
     }
 
     String b(Context context) {
-        return f.a(context, f.f8498a);
+        return f.a(context, f.f8499a);
     }
 
     public void checkUpdate() {
-        r.a(this.f8479b);
+        r.a(this.f8480b);
     }
 
     public Context getContext() {
-        return this.f8479b;
+        return this.f8480b;
     }
 
     @MainThread
@@ -139,14 +139,14 @@ public class Loader {
             return c;
         }
         if (this.c == null) {
-            this.c = a(this.f8479b != null ? this.f8479b.getClassLoader() : getClass().getClassLoader());
+            this.c = a(this.f8480b != null ? this.f8480b.getClassLoader() : getClass().getClassLoader());
         }
         this.c.setIsExternal(false);
         return this.c;
     }
 
     public ClassLoader getRealClassLoader() {
-        return this.d != null ? this.d.b() : this.f8479b.getClassLoader();
+        return this.d != null ? this.d.b() : this.f8480b.getClassLoader();
     }
 
     @MainThread
@@ -155,13 +155,13 @@ public class Loader {
             return;
         }
         this.e.set(true);
-        this.f8479b = context.getApplicationContext();
-        d(this.f8479b);
+        this.f8480b = context.getApplicationContext();
+        d(this.f8480b);
         if (c(context)) {
-            this.d = j.a(this.f8479b, a(context));
+            this.d = j.a(this.f8480b, a(context));
         }
         if (this.d == null) {
-            this.c = a(this.f8479b.getClassLoader());
+            this.c = a(this.f8480b.getClassLoader());
         }
     }
 

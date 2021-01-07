@@ -47,7 +47,7 @@ public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
             gVar.locate = i + 1;
         }
         gVar2.a(gVar);
-        com.baidu.tieba.ala.alasquare.b.a.bVl().e(gVar.aA(bUk(), false));
+        com.baidu.tieba.ala.alasquare.b.a.bVm().e(gVar.aA(bUl(), false));
         a(gVar);
         if (i == this.gAa) {
             gVar2.getView().setAnimation(AnimationUtils.loadAnimation(this.mContext, R.anim.list_anim));
@@ -55,7 +55,7 @@ public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
         return gVar2.getView();
     }
 
-    private String bUk() {
+    private String bUl() {
         if (this.mTabIndex == 2) {
             return "c12127";
         }
@@ -76,7 +76,7 @@ public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
     }
 
     private void a(com.baidu.tieba.ala.alasquare.a.g gVar) {
-        if (gVar != null && gVar.gAx != null && TextUtils.equals("c12479", bUk())) {
+        if (gVar != null && gVar.gAx != null && TextUtils.equals("c12479", bUl())) {
             aq aqVar = new aq("c12461");
             if (StringUtils.isNull(gVar.gAx.mRecomSource)) {
                 aqVar.dX("obj_source", "0");
@@ -89,7 +89,7 @@ public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
                 aqVar.dX("obj_locate", "1");
             }
             aqVar.dX("obj_type", "1");
-            com.baidu.tieba.ala.alasquare.b.a.bVl().e(aqVar);
+            com.baidu.tieba.ala.alasquare.b.a.bVm().e(aqVar);
         }
     }
 }

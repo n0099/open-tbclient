@@ -13,18 +13,18 @@ import javax.net.ssl.SSLException;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1966a = g.class.getSimpleName();
+    private static final String f1967a = g.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final HashSet<Class<?>> f1967b = new HashSet<>();
+    private static final HashSet<Class<?>> f1968b = new HashSet<>();
     private static final HashSet<Class<?>> c = new HashSet<>();
     private final int d;
     private final int e;
 
     static {
-        f1967b.add(UnknownHostException.class);
-        f1967b.add(SocketException.class);
-        f1967b.add(ProtocolException.class);
+        f1968b.add(UnknownHostException.class);
+        f1968b.add(SocketException.class);
+        f1968b.add(ProtocolException.class);
         c.add(SSLException.class);
         c.add(SocketTimeoutException.class);
     }
@@ -37,13 +37,13 @@ public class g {
     public boolean a(Exception exc, int i) {
         boolean z = false;
         if (i <= this.d) {
-            if (a(f1967b, exc)) {
+            if (a(f1968b, exc)) {
                 z = true;
             } else if (!a(c, exc)) {
                 z = true;
             }
         }
-        LogUtil.d(f1966a, f1966a + " retryRequest is called ,retry flag is " + z);
+        LogUtil.d(f1967a, f1967a + " retryRequest is called ,retry flag is " + z);
         if (z) {
             SystemClock.sleep(this.e);
         } else {

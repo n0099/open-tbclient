@@ -8,11 +8,11 @@ import java.lang.reflect.Field;
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f14691a = "wifi";
-    private /* synthetic */ f qeS;
+    private final String f14692a = "wifi";
+    private /* synthetic */ f qgA;
 
     public i(f fVar) {
-        this.qeS = fVar;
+        this.qgA = fVar;
     }
 
     public final String a() {
@@ -24,12 +24,12 @@ public final class i {
         }
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
-        a2 = this.qeS.a("wifi");
+        a2 = this.qgA.a("wifi");
         if (TextUtils.isEmpty(a2)) {
             return "";
         }
         obtain.writeInterfaceToken(a2);
-        a3 = this.qeS.a("wifi", "TRANSACTION_getConnectionInfo", obtain, obtain2);
+        a3 = this.qgA.a("wifi", "TRANSACTION_getConnectionInfo", obtain, obtain2);
         if (a3 != null) {
             try {
                 obtain2.readException();

@@ -69,7 +69,7 @@ public class c extends BdBaseModel {
                     GetYuyinSuperCustomerInfoHttpResponseMessage getYuyinSuperCustomerInfoHttpResponseMessage = (GetYuyinSuperCustomerInfoHttpResponseMessage) httpResponsedMessage;
                     if (getYuyinSuperCustomerInfoHttpResponseMessage.QU() != null) {
                         c.this.bwr = getYuyinSuperCustomerInfoHttpResponseMessage.QU();
-                        b.edp().bwr = c.this.bwr;
+                        b.edq().bwr = c.this.bwr;
                         c.this.Be();
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913189, "refreshInfo"));
                     }
@@ -401,7 +401,7 @@ public class c extends BdBaseModel {
         this.handler.removeCallbacksAndMessages(null);
         If();
         this.bwr = null;
-        b.edp().bwr = null;
+        b.edq().bwr = null;
         if (this.hDT != null) {
             this.hDT.cancel();
             this.hDT = null;

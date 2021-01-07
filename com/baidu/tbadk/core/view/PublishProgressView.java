@@ -77,10 +77,10 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
     public void onClick(View view) {
         if (view.getId() == R.id.progress_close_btn) {
             if (this.fkZ != null) {
-                this.fkZ.bqs();
+                this.fkZ.bqt();
                 updateUI();
             }
-            com.baidu.tieba.tbadkCore.writeModel.d.dQM();
+            com.baidu.tieba.tbadkCore.writeModel.d.dQN();
         }
     }
 }

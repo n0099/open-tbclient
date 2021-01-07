@@ -16,7 +16,7 @@ public class a {
 
     private static void A(List<ThreadPersonalized> list, List<n> list2) {
         com.baidu.tieba.card.data.b bVar;
-        bz boO;
+        bz boP;
         ThreadPersonalized threadPersonalized;
         if (list != null && list2 != null) {
             HashMap hashMap = new HashMap();
@@ -28,15 +28,15 @@ public class a {
             int count = x.getCount(list2);
             for (int i = 0; i < count; i++) {
                 n nVar = (n) x.getItem(list2, i);
-                if ((nVar instanceof com.baidu.tieba.card.data.b) && (boO = (bVar = (com.baidu.tieba.card.data.b) nVar).boO()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(boO.getTid())) != null) {
+                if ((nVar instanceof com.baidu.tieba.card.data.b) && (boP = (bVar = (com.baidu.tieba.card.data.b) nVar).boP()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(boP.getTid())) != null) {
                     bVar.setSource(threadPersonalized.source);
                     bVar.setWeight(threadPersonalized.weight);
-                    bVar.Jq(threadPersonalized.abtest_tag);
-                    boO.mRecomAbTag = threadPersonalized.abtest_tag;
-                    boO.mRecomSource = threadPersonalized.source;
-                    boO.mRecomWeight = threadPersonalized.weight;
-                    if (boO.brH() != null) {
-                        bVar.p(boO.brH().is_vertical);
+                    bVar.Jp(threadPersonalized.abtest_tag);
+                    boP.mRecomAbTag = threadPersonalized.abtest_tag;
+                    boP.mRecomSource = threadPersonalized.source;
+                    boP.mRecomWeight = threadPersonalized.weight;
+                    if (boP.brI() != null) {
+                        bVar.p(boP.brI().is_vertical);
                     }
                     List<DislikeReason> list3 = threadPersonalized.dislike_resource;
                     if (list3 != null) {

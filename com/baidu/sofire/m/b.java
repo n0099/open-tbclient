@@ -8,14 +8,14 @@ import android.util.Log;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f5586a;
+    private Context f5587a;
 
     public b(Context context) {
-        this.f5586a = context;
+        this.f5587a = context;
     }
 
     public final String a() {
-        Cursor query = this.f5586a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
+        Cursor query = this.f5587a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
         if (query != null) {
             r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
             query.close();

@@ -11,14 +11,14 @@ import java.util.concurrent.Executors;
 public class i implements com.bytedance.sdk.adnet.e.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Executor f6332a;
+    private final Executor f6333a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Executor f6333b = Executors.newCachedThreadPool();
-    private com.bytedance.sdk.adnet.c.c pps = com.bytedance.sdk.adnet.c.f.esk();
+    private final Executor f6334b = Executors.newCachedThreadPool();
+    private com.bytedance.sdk.adnet.c.c pps = com.bytedance.sdk.adnet.c.f.esl();
 
     public i(final Handler handler) {
-        this.f6332a = new Executor() { // from class: com.bytedance.sdk.adnet.core.i.1
+        this.f6333a = new Executor() { // from class: com.bytedance.sdk.adnet.core.i.1
             @Override // java.util.concurrent.Executor
             public void execute(Runnable runnable) {
                 handler.post(runnable);
@@ -27,7 +27,7 @@ public class i implements com.bytedance.sdk.adnet.e.d {
     }
 
     private Executor e(Request<?> request) {
-        return (request == null || request.isResponseOnMain()) ? this.f6332a : this.f6333b;
+        return (request == null || request.isResponseOnMain()) ? this.f6333a : this.f6334b;
     }
 
     @Override // com.bytedance.sdk.adnet.e.d
@@ -62,13 +62,13 @@ public class i implements com.bytedance.sdk.adnet.e.d {
     public static class a implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        private final p f6335b;
+        private final p f6336b;
         private final Runnable c;
         private final Request ppa;
 
         public a(Request request, p pVar, Runnable runnable) {
             this.ppa = request;
-            this.f6335b = pVar;
+            this.f6336b = pVar;
             this.c = runnable;
         }
 
@@ -78,21 +78,21 @@ public class i implements com.bytedance.sdk.adnet.e.d {
                 this.ppa.a("canceled-at-delivery");
                 return;
             }
-            this.f6335b.g = this.ppa.getExtra();
-            this.f6335b.ir(SystemClock.elapsedRealtime() - this.ppa.getStartTime());
-            this.f6335b.is(this.ppa.getNetDuration());
-            if (this.f6335b.a()) {
+            this.f6336b.g = this.ppa.getExtra();
+            this.f6336b.ir(SystemClock.elapsedRealtime() - this.ppa.getStartTime());
+            this.f6336b.is(this.ppa.getNetDuration());
+            if (this.f6336b.a()) {
                 try {
-                    this.ppa.a(this.f6335b);
+                    this.ppa.a(this.f6336b);
                 } catch (Throwable th) {
                 }
             } else {
                 try {
-                    this.ppa.deliverError(this.f6335b);
+                    this.ppa.deliverError(this.f6336b);
                 } catch (Throwable th2) {
                 }
             }
-            if (this.f6335b.d) {
+            if (this.f6336b.d) {
                 this.ppa.addMarker("intermediate-response");
             } else {
                 this.ppa.a(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);

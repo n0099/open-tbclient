@@ -9,7 +9,7 @@ import com.baidu.webkit.internal.GlobalConstants;
 public class h implements IXAdConstants {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String[] f3535a = {"com.android.chrome", "com.UCMobile", "com.uc.browser", "com.uc.browser.hd", "com.tencent.mtt", "com.tencent.padbrowser", "com.baidu.browser.apps", "com.android.browser", "com.oupeng.mini.android", "com.oupeng.mobile", "com.oupeng.browser", "com.opera.mini.android", "com.opera.browser", "com.opera.browser.beta", "com.mediawoz.xbrowser", "com.mx.browser", "com.mx.browser.tablet", "org.mozilla.firefox", "com.tiantianmini.android.browser", "com.ijinshan.browser_fast", "sogou.mobile.explorer", "com.dolphin.browser.cn", "com.qihoo.browser", GlobalConstants.SEARCHBOX_PACKAGE_NAME};
+    private static String[] f3536a = {"com.android.chrome", "com.UCMobile", "com.uc.browser", "com.uc.browser.hd", "com.tencent.mtt", "com.tencent.padbrowser", "com.baidu.browser.apps", "com.android.browser", "com.oupeng.mini.android", "com.oupeng.mobile", "com.oupeng.browser", "com.opera.mini.android", "com.opera.browser", "com.opera.browser.beta", "com.mediawoz.xbrowser", "com.mx.browser", "com.mx.browser.tablet", "org.mozilla.firefox", "com.tiantianmini.android.browser", "com.ijinshan.browser_fast", "sogou.mobile.explorer", "com.dolphin.browser.cn", "com.qihoo.browser", GlobalConstants.SEARCHBOX_PACKAGE_NAME};
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
     public String getInfoKeyErrorCode() {
@@ -203,12 +203,12 @@ public class h implements IXAdConstants {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
     public String[] getSupportedBrowsers() {
-        return f3535a;
+        return f3536a;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
     public void setSupportedBrowsers(String[] strArr) {
-        f3535a = strArr;
+        f3536a = strArr;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdConstants

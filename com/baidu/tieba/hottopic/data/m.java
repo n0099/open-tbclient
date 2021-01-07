@@ -21,7 +21,7 @@ public class m implements com.baidu.adp.widget.ListView.n {
         return krz;
     }
 
-    public boolean cVl() {
+    public boolean cVm() {
         return this.krA;
     }
 }

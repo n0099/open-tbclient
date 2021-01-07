@@ -71,8 +71,8 @@ public class b implements View.OnClickListener {
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             com.baidu.live.tieba.yuyinala.c.a item = ((com.baidu.live.tieba.yuyinala.a.a) adapterView.getAdapter()).getItem(i);
             if (item != null) {
-                if (item.Xn() != 0) {
-                    if (b.this.bOG.Xl() == i) {
+                if (item.Xo() != 0) {
+                    if (b.this.bOG.Xm() == i) {
                         b.this.bOG.gA(-1);
                         b.this.bOG.notifyDataSetChanged();
                         b.this.bOC.setEnabled(false);
@@ -103,10 +103,10 @@ public class b implements View.OnClickListener {
         this.bOG.setData(list);
     }
 
-    public com.baidu.live.tieba.yuyinala.c.a Xt() {
-        if (this.bOG == null || this.bOG.Xl() < 0) {
+    public com.baidu.live.tieba.yuyinala.c.a Xu() {
+        if (this.bOG == null || this.bOG.Xm() < 0) {
             return null;
         }
-        return this.bOG.getItem(this.bOG.Xl());
+        return this.bOG.getItem(this.bOG.Xm());
     }
 }

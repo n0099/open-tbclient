@@ -28,7 +28,7 @@ public class g implements com.baidu.swan.apps.adlanding.download.a.a {
         this.ebZ = str;
         wq("1");
         if (this.mContext != null) {
-            com.baidu.swan.apps.res.widget.b.d.u(this.mContext, c.g.gdt_ad_start_download).aLU();
+            com.baidu.swan.apps.res.widget.b.d.u(this.mContext, c.g.gdt_ad_start_download).aLV();
         }
     }
 
@@ -49,7 +49,7 @@ public class g implements com.baidu.swan.apps.adlanding.download.a.a {
         if (this.cGe != swanAdDownloadState) {
             if (swanAdDownloadState == SwanAdDownloadState.DOWNLOADED) {
                 wq("2");
-                aTY();
+                aTZ();
             }
             this.cGe = swanAdDownloadState;
         }
@@ -64,16 +64,16 @@ public class g implements com.baidu.swan.apps.adlanding.download.a.a {
     }
 
     @Override // com.baidu.swan.apps.adlanding.download.a.a
-    public void amN() {
-        aTY();
+    public void amO() {
+        aTZ();
     }
 
     @Override // com.baidu.swan.apps.adlanding.download.a.a
-    public String amO() {
+    public String amP() {
         return null;
     }
 
-    private void aTY() {
+    private void aTZ() {
         if (this.edb == null) {
             this.edb = new a();
             IntentFilter intentFilter = new IntentFilter();

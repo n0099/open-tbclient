@@ -2,10 +2,10 @@ package io.reactivex.internal.queue;
 
 import io.reactivex.internal.a.e;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class MpscLinkedQueue<T> implements e<T> {
-    private final AtomicReference<LinkedQueueNode<T>> qiY = new AtomicReference<>();
-    private final AtomicReference<LinkedQueueNode<T>> qiZ = new AtomicReference<>();
+    private final AtomicReference<LinkedQueueNode<T>> qkG = new AtomicReference<>();
+    private final AtomicReference<LinkedQueueNode<T>> qkH = new AtomicReference<>();
 
     public MpscLinkedQueue() {
         LinkedQueueNode<T> linkedQueueNode = new LinkedQueueNode<>();
@@ -26,15 +26,15 @@ public final class MpscLinkedQueue<T> implements e<T> {
     @Override // io.reactivex.internal.a.e, io.reactivex.internal.a.f
     public T poll() {
         LinkedQueueNode<T> lvNext;
-        LinkedQueueNode<T> eLp = eLp();
-        LinkedQueueNode<T> lvNext2 = eLp.lvNext();
+        LinkedQueueNode<T> eLT = eLT();
+        LinkedQueueNode<T> lvNext2 = eLT.lvNext();
         if (lvNext2 != null) {
             T andNullValue = lvNext2.getAndNullValue();
             b(lvNext2);
             return andNullValue;
-        } else if (eLp != eLn()) {
+        } else if (eLT != eLR()) {
             do {
-                lvNext = eLp.lvNext();
+                lvNext = eLT.lvNext();
             } while (lvNext == null);
             T andNullValue2 = lvNext.getAndNullValue();
             b(lvNext);
@@ -50,33 +50,33 @@ public final class MpscLinkedQueue<T> implements e<T> {
         }
     }
 
-    LinkedQueueNode<T> eLn() {
-        return this.qiY.get();
+    LinkedQueueNode<T> eLR() {
+        return this.qkG.get();
     }
 
     LinkedQueueNode<T> a(LinkedQueueNode<T> linkedQueueNode) {
-        return this.qiY.getAndSet(linkedQueueNode);
+        return this.qkG.getAndSet(linkedQueueNode);
     }
 
-    LinkedQueueNode<T> eLo() {
-        return this.qiZ.get();
+    LinkedQueueNode<T> eLS() {
+        return this.qkH.get();
     }
 
-    LinkedQueueNode<T> eLp() {
-        return this.qiZ.get();
+    LinkedQueueNode<T> eLT() {
+        return this.qkH.get();
     }
 
     void b(LinkedQueueNode<T> linkedQueueNode) {
-        this.qiZ.lazySet(linkedQueueNode);
+        this.qkH.lazySet(linkedQueueNode);
     }
 
     @Override // io.reactivex.internal.a.f
     public boolean isEmpty() {
-        return eLo() == eLn();
+        return eLS() == eLR();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class LinkedQueueNode<E> extends AtomicReference<LinkedQueueNode<E>> {
         private static final long serialVersionUID = 2404266111789071508L;
         private E value;

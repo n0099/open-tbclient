@@ -156,9 +156,9 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.res.widget.a.b bVar) {
-        b.a aLJ = bVar.aLJ();
-        if (aLJ != null) {
-            aLJ.b(bVar);
+        b.a aLK = bVar.aLK();
+        if (aLK != null) {
+            aLK.b(bVar);
         }
     }
 
@@ -185,7 +185,7 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        com.baidu.swan.apps.t.a.aAN().a(this.dyl, new com.baidu.swan.apps.ai.a() { // from class: com.baidu.swan.apps.res.ui.CommonOverflowMenuView.2
+        com.baidu.swan.apps.t.a.aAO().a(this.dyl, new com.baidu.swan.apps.ai.a() { // from class: com.baidu.swan.apps.res.ui.CommonOverflowMenuView.2
         });
         updateUI();
     }
@@ -207,6 +207,6 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.swan.apps.t.a.aAN().O(this.dyl);
+        com.baidu.swan.apps.t.a.aAO().O(this.dyl);
     }
 }

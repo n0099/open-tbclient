@@ -18,11 +18,11 @@ public class c {
     private List<AlaLiveInfoData> hZM = new ArrayList();
     private List<p> hZN = new ArrayList();
 
-    public a cpH() {
+    public a cpI() {
         return this.hZO;
     }
 
-    public AlaUserInfoData cpI() {
+    public AlaUserInfoData cpJ() {
         return this.user_info;
     }
 

@@ -5,17 +5,17 @@ import com.baidu.android.imsdk.internal.IMConnection;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.plugin.j.d;
 import com.qq.e.comm.plugin.util.ab;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f12451a;
+    private int f12452a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f12452b;
+    private int f12453b;
 
     public b(int i) {
-        this.f12452b = i;
+        this.f12453b = i;
     }
 
     private boolean a(Context context) {
@@ -29,13 +29,13 @@ public class b implements c {
 
     @Override // com.qq.e.comm.plugin.j.a.c
     public boolean a(int i) {
-        int i2 = this.f12451a + 1;
-        this.f12451a = i2;
+        int i2 = this.f12452a + 1;
+        this.f12452a = i2;
         return i2 < 30 && d.a(i) && !d.c(i) && !d.d(i);
     }
 
     @Override // com.qq.e.comm.plugin.j.a.c
     public boolean b() {
-        return a(GDTADManager.getInstance().getAppContext()) && this.f12452b < GDTADManager.getInstance().getDeviceStatus().getNetworkType().getConnValue();
+        return a(GDTADManager.getInstance().getAppContext()) && this.f12453b < GDTADManager.getInstance().getDeviceStatus().getNetworkType().getConnValue();
     }
 }

@@ -97,7 +97,7 @@ public class b {
         this.fzK = aVar;
     }
 
-    public void bCX() {
+    public void bCY() {
         se(0);
     }
 
@@ -114,15 +114,15 @@ public class b {
             this.fzD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.bDb();
-                    b.this.bCZ();
+                    b.this.bDc();
+                    b.this.bDa();
                 }
             });
             this.bYS = (TextView) this.fzu.findViewById(R.id.confirm);
             this.bYS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.b.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.bCY();
+                    b.this.bCZ();
                 }
             });
             this.fzG = (ProgressBar) this.fzu.findViewById(R.id.confirm_progress);
@@ -169,12 +169,12 @@ public class b {
             this.fzB.setOnCheckedChangeListener(this.fzz);
             this.fzC.setOnCheckedChangeListener(this.fzz);
             this.fzH = (TextView) this.fzu.findViewById(R.id.phone_info);
-            bDa();
+            bDb();
             this.fzv = new Dialog(this.mContext, R.style.input_username_dialog);
             this.fzv.setCanceledOnTouchOutside(false);
             this.fzv.setCancelable(false);
             this.fzv.setCanceledOnTouchOutside(false);
-            bCO();
+            bCP();
         }
         if (i == 1) {
             this.fzH.setText(R.string.tip_init_user_name);
@@ -183,8 +183,8 @@ public class b {
         }
         if (!this.fzv.isShowing()) {
             this.fzw.setText((CharSequence) null);
-            bDa();
-            Dl(null);
+            bDb();
+            Dk(null);
             if (!this.mContext.isFinishing()) {
                 this.fzv.setContentView(this.fzu);
                 g.showDialog(this.fzv, this.mContext);
@@ -222,12 +222,12 @@ public class b {
         }
     }
 
-    public void bCY() {
+    public void bCZ() {
         String obj = this.fzw.getText().toString();
         if (obj == null || obj.length() <= 0) {
-            Dl(this.mContext.getString(R.string.error_tip_name_cannot_empty));
+            Dk(this.mContext.getString(R.string.error_tip_name_cannot_empty));
         } else if (UtilHelper.getFixedTextSize(obj) > 14) {
-            Dl(this.mContext.getString(R.string.input_alias_limit_length_tip));
+            Dk(this.mContext.getString(R.string.input_alias_limit_length_tip));
         } else {
             if (this.fzE != null) {
                 this.fzE.cancel();
@@ -235,8 +235,8 @@ public class b {
             if (!this.fzR && this.fzI != null) {
                 this.fzG.setVisibility(0);
                 this.bYS.setEnabled(false);
-                Dl(null);
-                bDa();
+                Dk(null);
+                bDb();
                 SapiAccountManager.getInstance().getAccountService().fillUsername(new FillUsernameCallback() { // from class: com.baidu.tbadk.coreExtra.view.b.4
                     @Override // com.baidu.sapi2.callback.FillUsernameCallback
                     public void onUserHaveUsername(FillUsernameResult fillUsernameResult) {
@@ -252,10 +252,10 @@ public class b {
                     @Override // com.baidu.sapi2.callback.SapiCallback
                     /* renamed from: b */
                     public void onSuccess(FillUsernameResult fillUsernameResult) {
-                        b.this.bDb();
+                        b.this.bDc();
                         l.showToast(b.this.mContext, R.string.reset_success);
                         SapiAccount session = SapiAccountManager.getInstance().getSession();
-                        com.baidu.tbadk.core.a.a.bov().a(session.username, session.bduss, "", null, b.this.fzS);
+                        com.baidu.tbadk.core.a.a.bow().a(session.username, session.bduss, "", null, b.this.fzS);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -263,7 +263,7 @@ public class b {
                     /* renamed from: c */
                     public void onFailure(FillUsernameResult fillUsernameResult) {
                         if (!StringUtils.isNull(fillUsernameResult.getResultMsg())) {
-                            b.this.Dl(fillUsernameResult.getResultMsg());
+                            b.this.Dk(fillUsernameResult.getResultMsg());
                         }
                     }
 
@@ -284,7 +284,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bCZ() {
+    public void bDa() {
         if (this.fzK != null) {
             this.fzK.g(null);
         }
@@ -292,10 +292,10 @@ public class b {
 
     public void K(ArrayList<String> arrayList) {
         if (arrayList == null || arrayList.size() <= 0) {
-            Dl(this.mContext.getString(R.string.suggest_no_name));
+            Dk(this.mContext.getString(R.string.suggest_no_name));
             return;
         }
-        Dl(this.mContext.getString(R.string.suggest_some_names));
+        Dk(this.mContext.getString(R.string.suggest_some_names));
         int size = arrayList.size();
         this.fzx.clearCheck();
         this.fzy.clearCheck();
@@ -327,10 +327,10 @@ public class b {
             this.fzE.cancel();
             this.fzE = null;
         }
-        bDb();
+        bDc();
     }
 
-    public void bDa() {
+    public void bDb() {
         this.fzx.setVisibility(8);
         this.fzx.clearCheck();
         this.fzy.setVisibility(8);
@@ -343,14 +343,14 @@ public class b {
         this.fzC.setChecked(false);
     }
 
-    public void bDb() {
+    public void bDc() {
         if (this.fzv != null && this.fzv.isShowing()) {
             g.dismissDialog(this.fzv, this.mContext);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Dl(String str) {
+    public void Dk(String str) {
         if (str == null) {
             this.fzF.setVisibility(4);
             this.fzF.setText((CharSequence) null);
@@ -360,7 +360,7 @@ public class b {
         this.fzF.setText(str);
     }
 
-    private void bCO() {
+    private void bCP() {
         ao.setBackgroundResource(this.fzu, R.drawable.dialog_background);
         ao.setViewTextColor(this.fzH, R.color.CAM_X0105);
         ao.setViewTextColor(this.fzN, R.color.CAM_X0106);
@@ -421,24 +421,24 @@ public class b {
             super.onPostExecute(oVar);
             this.fzT.fzE = null;
             if (!this.mNetwork.isNetSuccess()) {
-                this.fzT.Dl(this.mNetwork.getErrorString());
+                this.fzT.Dk(this.mNetwork.getErrorString());
             } else if (this.mNetwork.getServerErrorCode() == 0) {
-                this.fzT.Dl(this.fzT.mContext.getString(R.string.name_not_use));
+                this.fzT.Dk(this.fzT.mContext.getString(R.string.name_not_use));
             } else if (this.mNetwork.getServerErrorCode() == 36) {
-                this.fzT.Dl(this.mNetwork.getErrorString());
+                this.fzT.Dk(this.mNetwork.getErrorString());
                 if (oVar != null) {
-                    this.fzT.K(oVar.bzR());
+                    this.fzT.K(oVar.bzS());
                 }
             } else {
-                this.fzT.Dl(this.mNetwork.getErrorString());
+                this.fzT.Dk(this.mNetwork.getErrorString());
             }
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            this.fzT.Dl(null);
-            this.fzT.bDa();
+            this.fzT.Dk(null);
+            this.fzT.bDb();
             super.onPreExecute();
         }
     }

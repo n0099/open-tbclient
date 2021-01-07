@@ -29,19 +29,19 @@ public class e {
             p.postOnSerial(new Runnable() { // from class: com.baidu.swan.games.screenrecord.a.e.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    ArrayList<long[]> bbK = e.this.bbK();
+                    ArrayList<long[]> bbL = e.this.bbL();
                     d dVar = new d();
                     dVar.videoPath = e.this.mVideoPath;
-                    dVar.enj = bbK;
+                    dVar.enj = bbL;
                     dVar.clipPath = e.this.mSavePath;
-                    com.baidu.swan.games.m.a.baV().a(dVar, cVar);
+                    com.baidu.swan.games.m.a.baW().a(dVar, cVar);
                 }
             }, "clipVideo");
         }
     }
 
     private ArrayList<a> v(ArrayList<b> arrayList) {
-        a bbJ;
+        a bbK;
         ArrayList<a> arrayList2 = new ArrayList<>();
         if (arrayList == null || arrayList.size() == 0) {
             return arrayList2;
@@ -49,14 +49,14 @@ public class e {
         Iterator<b> it = arrayList.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next != null && (bbJ = next.bbJ()) != null) {
-                arrayList2.add(bbJ);
+            if (next != null && (bbK = next.bbK()) != null) {
+                arrayList2.add(bbK);
             }
         }
         return arrayList2;
     }
 
-    public ArrayList<long[]> bbK() {
+    public ArrayList<long[]> bbL() {
         ArrayList<long[]> arrayList = new ArrayList<>();
         if (this.enl == 0) {
             return arrayList;

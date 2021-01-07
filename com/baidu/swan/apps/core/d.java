@@ -16,9 +16,9 @@ public class d {
             str2 = "";
         }
         eVar.mValue = str2;
-        eVar.t("appid", com.baidu.swan.apps.runtime.d.aMg().getAppId());
+        eVar.t("appid", com.baidu.swan.apps.runtime.d.aMh().getAppId());
         eVar.t(DpStatConstants.KEY_NETWORK_STATUS, str3);
-        eVar.t("isShow", c.aqF() ? "1" : "0");
+        eVar.t("isShow", c.aqG() ? "1" : "0");
         h.a("1619", eVar);
     }
 

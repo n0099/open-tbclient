@@ -14,12 +14,12 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
-    protected boolean ati() {
+    protected boolean atj() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.core.container.c
-    public boolean aqV() {
+    public boolean aqW() {
         if (this.cZr != null) {
             this.cZr.goBack();
             return false;

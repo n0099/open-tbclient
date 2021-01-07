@@ -43,7 +43,7 @@ public class b {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.cia();
+            b.this.cib();
             String str = null;
             String str2 = "";
             if (b.this.hDz != null && b.this.hqh != null) {
@@ -67,11 +67,11 @@ public class b {
                     this.hDD = new com.baidu.tieba.ala.liveroom.j.a(b.this.getPageContext().getPageActivity());
                     this.hDD.a(new a.InterfaceC0683a() { // from class: com.baidu.tieba.ala.liveroom.j.b.2.1
                         @Override // com.baidu.tieba.ala.liveroom.j.a.InterfaceC0683a
-                        public void chX() {
+                        public void chY() {
                         }
 
                         @Override // com.baidu.tieba.ala.liveroom.j.a.InterfaceC0683a
-                        public void chY() {
+                        public void chZ() {
                             if (b.this.hDz != null && b.this.hqh != null) {
                                 b.this.hDz.c(b.this.hqh);
                             }
@@ -79,19 +79,19 @@ public class b {
                     });
                 }
                 if (b.this.hDy != null && b.this.hDy.aKL != null) {
-                    this.hDD.Is(b.this.hDy.aKL);
+                    this.hDD.Ir(b.this.hDy.aKL);
                 }
                 if (b.this.hDy != null && b.this.hDy.portrait != null) {
-                    this.hDD.Ir(b.this.hDy.getPortrait());
+                    this.hDD.Iq(b.this.hDy.getPortrait());
                 }
                 String str3 = "";
                 if (b.this.hDy != null) {
                     str3 = b.this.hDy.getSubappType();
                 }
-                this.hDD.It(str);
+                this.hDD.Is(str);
                 this.hDD.setRoomId(b.this.roomId);
-                this.hDD.Iu(str2);
-                this.hDD.Iv(str3);
+                this.hDD.It(str2);
+                this.hDD.Iu(str3);
                 this.hDD.show();
                 o.dp(true);
                 if (b.this.hDy != null) {
@@ -119,7 +119,7 @@ public class b {
         public void a(com.baidu.tieba.ala.liveroom.data.c cVar) {
             b.this.hDy = cVar;
             if (b.this.hDz != null) {
-                b.this.hDz.Iv(cVar.subappType);
+                b.this.hDz.Iu(cVar.subappType);
             }
             if (cVar.needToast == 1) {
                 b.this.hqh = new ApkData();
@@ -142,9 +142,9 @@ public class b {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void cdE();
-
         void cdF();
+
+        void cdG();
     }
 
     public b(TbPageContext tbPageContext, String str, f fVar, a aVar) {
@@ -167,7 +167,7 @@ public class b {
         if (this.hDw == null) {
             this.hDw = new c(getPageContext(), this.onClickListener);
         }
-        cia();
+        cib();
         this.bRX = viewGroup;
         return true;
     }
@@ -183,12 +183,12 @@ public class b {
         if (UtilHelper.getRealScreenOrientation(this.mTbPageContext.getPageActivity()) != 2) {
             if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isPopupWindowUnabled()) && aw(viewGroup)) {
                 if (this.hDz == null || !this.hDz.isDownloading()) {
-                    if (!chZ()) {
+                    if (!cia()) {
                         BdLog.e("apk download data invalid");
                         return;
                     }
                     if (this.hDA != null) {
-                        this.hDA.cdE();
+                        this.hDA.cdF();
                     }
                     this.bRX.addView(this.hDw.getView(), layoutParams);
                     o.bu(this.roomId);
@@ -198,7 +198,7 @@ public class b {
                     this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.j.b.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (b.this.cia()) {
+                            if (b.this.cib()) {
                                 o.dp(false);
                             }
                         }
@@ -208,19 +208,19 @@ public class b {
         }
     }
 
-    private boolean chZ() {
+    private boolean cia() {
         return (this.hqh == null || TextUtils.isEmpty(this.hqh.apkPackageName) || TextUtils.isEmpty(this.hqh.apkUrl) || TextUtils.isEmpty(this.hqh.apkDeeplinkScheme) || TextUtils.isEmpty(this.hqh.apkClipBoardScheme)) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cia() {
+    public boolean cib() {
         if (this.bRX == null || this.bRX.indexOfChild(this.hDw.getView()) < 0) {
             return false;
         }
         this.bRX.removeView(this.hDw.getView());
         g.wV(2913168);
         if (this.hDA != null) {
-            this.hDA.cdF();
+            this.hDA.cdG();
         }
         return true;
     }
@@ -264,7 +264,7 @@ public class b {
     public void DC() {
         cancel();
         this.handler.removeCallbacksAndMessages(null);
-        if (cia()) {
+        if (cib()) {
             o.dp(false);
         }
     }
@@ -280,18 +280,18 @@ public class b {
 
     public void b(com.baidu.tieba.ala.liveroom.data.a aVar) {
         x HR = aVar.hBP.HR();
-        AlaLiveInfoData cmx = aVar.hBP.cmx();
-        if (o.bv(cmx.room_id) && HR != null && HR.aLh != null && HR.aLh.needToast == 1) {
-            c(HR.aLh.watchDurationMust, cmx.live_id + "", cmx.user_id + "", aVar.enterTime);
+        AlaLiveInfoData cmy = aVar.hBP.cmy();
+        if (o.bv(cmy.room_id) && HR != null && HR.aLh != null && HR.aLh.needToast == 1) {
+            c(HR.aLh.watchDurationMust, cmy.live_id + "", cmy.user_id + "", aVar.enterTime);
         }
     }
 
     public void c(com.baidu.tieba.ala.liveroom.data.a aVar) {
         x HR = aVar.hBP.HR();
         if (HR != null && aVar != null && this.handler != null && HR.aLh != null && HR.aLh.needToast == 1 && System.currentTimeMillis() - (aVar.enterTime * 1000) > HR.aLh.watchDurationMust) {
-            AlaLiveInfoData cmx = aVar.hBP.cmx();
+            AlaLiveInfoData cmy = aVar.hBP.cmy();
             if (o.bv(this.roomId)) {
-                b(cmx.live_id + "", cmx.user_id + "", aVar.enterTime, 5000L);
+                b(cmy.live_id + "", cmy.user_id + "", aVar.enterTime, 5000L);
             }
         }
     }

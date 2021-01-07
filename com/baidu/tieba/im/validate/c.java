@@ -79,11 +79,11 @@ public class c extends d<ValidateActivity> {
         this.kJi.setDividerHeight(this.kJb.getResources().getDimensionPixelSize(R.dimen.ds2));
     }
 
-    public ImageView cZS() {
+    public ImageView cZT() {
         return this.kJh;
     }
 
-    public a cZT() {
+    public a cZU() {
         return this.kJj;
     }
 }

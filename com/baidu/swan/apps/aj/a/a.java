@@ -42,7 +42,7 @@ public class a {
         try {
             kW(9);
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("_app_id", e.aMm() == null ? "" : e.aMm());
+            jSONObject.put("_app_id", e.aMn() == null ? "" : e.aMn());
             jSONObject.put("_date", j.a(new Date(currentTimeMillis), "yyyy-MM-dd HH:mm:ss"));
             jSONArray.put(jSONObject);
             File cO = cO(currentTimeMillis);
@@ -60,7 +60,7 @@ public class a {
         }
     }
 
-    public File[] aOQ() {
+    public File[] aOR() {
         if (TextUtils.isEmpty(this.dNp)) {
             return null;
         }
@@ -76,10 +76,10 @@ public class a {
     }
 
     private void kW(int i) {
-        File[] aOQ = aOQ();
-        if (aOQ != null && aOQ.length != 0) {
+        File[] aOR = aOR();
+        if (aOR != null && aOR.length != 0) {
             long currentTimeMillis = System.currentTimeMillis();
-            Arrays.sort(aOQ, new Comparator<File>() { // from class: com.baidu.swan.apps.aj.a.a.1
+            Arrays.sort(aOR, new Comparator<File>() { // from class: com.baidu.swan.apps.aj.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
                 /* renamed from: c */
@@ -92,12 +92,12 @@ public class a {
                     return lastModified - lastModified2 > 0 ? 1 : -1;
                 }
             });
-            ArrayList<File> arrayList = new ArrayList(aOQ.length);
-            int length = aOQ.length;
+            ArrayList<File> arrayList = new ArrayList(aOR.length);
+            int length = aOR.length;
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                File file = aOQ[i2];
+                File file = aOR[i2];
                 if (i3 < i) {
                     if (file.lastModified() - currentTimeMillis > 172800000) {
                         arrayList.add(file);
@@ -118,6 +118,6 @@ public class a {
         if (TextUtils.isEmpty(this.dNp)) {
             return null;
         }
-        return new File(this.dNp + File.separator + (e.aMm() == null ? "" : e.aMm()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + j + "_swan_stability_traces.log");
+        return new File(this.dNp + File.separator + (e.aMn() == null ? "" : e.aMn()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + j + "_swan_stability_traces.log");
     }
 }

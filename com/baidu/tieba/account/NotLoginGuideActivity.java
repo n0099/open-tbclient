@@ -86,9 +86,9 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
             com.baidu.tbadk.core.d.a.a("account", -1L, 0, "login_silent_fail", i, str2, new Object[0]);
             NotLoginGuideActivity.this.closeLoadingDialog();
             if (NotLoginGuideActivity.this.giN == 1) {
-                NotLoginGuideActivity.this.bOx();
-            } else if (NotLoginGuideActivity.this.giN == 2) {
                 NotLoginGuideActivity.this.bOy();
+            } else if (NotLoginGuideActivity.this.giN == 2) {
+                NotLoginGuideActivity.this.bOz();
             }
         }
     };
@@ -135,7 +135,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         this.giK.setOnClickListener(this);
     }
 
-    private void bOv() {
+    private void bOw() {
         com.baidu.tbadk.core.d.a.a("account", -1L, 0, "login_silent_startapp", 0, "", new Object[0]);
         if (TbadkCoreApplication.getInst().getIsFirstUse()) {
             if (MessageManager.getInstance().findTask(CmdConfigCustom.START_GUILD) != null) {
@@ -146,8 +146,8 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         } else if (!this.giM && !TbadkCoreApplication.getInst().getIsFirstUse() && MessageManager.getInstance().findTask(CmdConfigCustom.START_GUILD) != null) {
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_GUILD, new GuildActivityConfig(getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE, true)));
         } else {
-            if (com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean(SharedPrefConfig.ACCOUNT_FIRST_LOGIN + TbadkCoreApplication.getCurrentAccount(), true)) {
-                com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(SharedPrefConfig.ACCOUNT_FIRST_LOGIN + TbadkCoreApplication.getCurrentAccount(), false);
+            if (com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean(SharedPrefConfig.ACCOUNT_FIRST_LOGIN + TbadkCoreApplication.getCurrentAccount(), true)) {
+                com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(SharedPrefConfig.ACCOUNT_FIRST_LOGIN + TbadkCoreApplication.getCurrentAccount(), false);
             }
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(1)));
         }
@@ -159,11 +159,11 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         super.onClick(view);
         if (view == this.giI) {
             this.giN = 2;
-            bOy();
+            bOz();
         } else if (view == this.giJ) {
             this.giN = 1;
-            if (!bOw()) {
-                bOx();
+            if (!bOx()) {
+                bOy();
             }
         } else if (view == this.giK) {
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
@@ -220,18 +220,18 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1 && i == 11003) {
-            bOv();
+            bOw();
         }
     }
 
-    public boolean bOw() {
+    public boolean bOx() {
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
             com.baidu.tbadk.core.d.a.a("account", -1L, 0, "login_silent_start", 0, "", new Object[0]);
             if (this.gis != null) {
                 this.gis.cancel();
             }
-            this.gis = com.baidu.tbadk.core.a.a.bov().a(session.username, session.bduss, "", null, this.giO);
+            this.gis = com.baidu.tbadk.core.a.a.bow().a(session.username, session.bduss, "", null, this.giO);
             return true;
         }
         return false;
@@ -248,9 +248,9 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
                 }
             });
         }
-        this.fso.bDb();
+        this.fso.bDc();
         this.fso.setAccountData(accountData);
-        this.fso.bCX();
+        this.fso.bCY();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -264,11 +264,11 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         com.baidu.tbadk.core.d.a.a("account", -1L, 0, "not_login_guide_activity", 0, "", new Object[0]);
         TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
         com.baidu.tbadk.browser.a.initCookie(TbadkCoreApplication.getInst());
-        bOv();
+        bOw();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bOx() {
+    public void bOy() {
         if (!this.giL) {
             this.giL = true;
             TiebaStatic.log("sapi_go_to_login_click");
@@ -278,7 +278,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bOy() {
-        bOx();
+    public void bOz() {
+        bOy();
     }
 }

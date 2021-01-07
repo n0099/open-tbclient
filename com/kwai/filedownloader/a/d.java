@@ -16,7 +16,7 @@ public class d {
             if (a2 == null) {
                 throw new IllegalAccessException(f.a("receive %d (redirect) but the location is null with response [%s]", Integer.valueOf(e), bVar.c()));
             }
-            if (com.kwai.filedownloader.f.d.f11227a) {
+            if (com.kwai.filedownloader.f.d.f11228a) {
                 com.kwai.filedownloader.f.d.c(d.class, "redirect to %s with %d, %s", a2, Integer.valueOf(e), arrayList);
             }
             bVar.f();

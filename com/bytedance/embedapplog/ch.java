@@ -12,10 +12,10 @@ import org.json.JSONObject;
 public abstract class ch {
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f6122a;
+    boolean f6123a;
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f6123b;
+    boolean f6124b;
     boolean c;
     boolean d;
 
@@ -24,14 +24,14 @@ public abstract class ch {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ch(boolean z, boolean z2) {
-        this.f6123b = z;
+        this.f6124b = z;
         this.c = z2;
         this.d = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ch(boolean z, boolean z2, boolean z3) {
-        this.f6123b = z;
+        this.f6124b = z;
         this.c = z2;
         this.d = z3;
     }
@@ -128,7 +128,7 @@ public abstract class ch {
                 fileLock = lock;
                 try {
                     if (Build.VERSION.SDK_INT >= 23) {
-                        if (bx.epx().f6115a.checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") != 0) {
+                        if (bx.epy().f6116a.checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") != 0) {
                             throw new SecurityException(e);
                         }
                         au.a(e);

@@ -4,22 +4,22 @@ public interface e {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void clf();
-
         void clg();
+
+        void clh();
     }
 
     /* loaded from: classes11.dex */
     public interface b {
-        void clh();
-
         void cli();
 
         void clj();
 
-        boolean clk();
+        void clk();
 
-        void cll();
+        boolean cll();
+
+        void clm();
 
         void d(com.baidu.tieba.ala.category.b.a aVar);
 

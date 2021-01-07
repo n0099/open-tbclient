@@ -7,25 +7,25 @@ import com.baidu.ufosdk.f.c;
 public final class b extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f5635a;
+    private Context f5636a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f5636b = false;
+    private boolean f5637b = false;
     private boolean c = false;
     private boolean d = false;
     private final long e = 300;
     private String f = "";
 
     public b(Context context) {
-        this.f5635a = context;
+        this.f5636a = context;
     }
 
     public final void a() {
-        this.f5636b = true;
+        this.f5637b = true;
     }
 
     public final void b() {
-        this.f5636b = false;
+        this.f5637b = false;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -34,7 +34,7 @@ public final class b extends Thread {
         if (this.f.length() == 0) {
             return;
         }
-        while (!this.f5636b) {
+        while (!this.f5637b) {
             c.b("@@@@@@@@@@@@@@@@@@@@@");
             try {
                 Thread.sleep(300L);
@@ -42,7 +42,7 @@ public final class b extends Thread {
                 c.a("Interrupted!", e);
             }
             if (!this.c) {
-                com.baidu.ufosdk.e.a.c(this.f5635a);
+                com.baidu.ufosdk.e.a.c(this.f5636a);
             }
             try {
                 if (!this.d) {

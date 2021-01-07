@@ -7,23 +7,23 @@ import java.net.ProtocolException;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public final w f6183a;
+    public final w f6184a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f6184b;
+    public final int f6185b;
     public final String c;
 
     public k(w wVar, int i, String str) {
-        this.f6183a = wVar;
-        this.f6184b = i;
+        this.f6184a = wVar;
+        this.f6185b = i;
         this.c = str;
     }
 
     public static k g(com.bytedance.sdk.a.b.b bVar) {
-        return new k(bVar.erd(), bVar.c(), bVar.d());
+        return new k(bVar.ere(), bVar.c(), bVar.d());
     }
 
-    public static k YI(String str) throws IOException {
+    public static k YH(String str) throws IOException {
         w wVar;
         String str2;
         int i = 9;
@@ -65,8 +65,8 @@ public final class k {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f6183a == w.HTTP_1_0 ? "HTTP/1.0" : "HTTP/1.1");
-        sb.append(' ').append(this.f6184b);
+        sb.append(this.f6184a == w.HTTP_1_0 ? "HTTP/1.0" : "HTTP/1.1");
+        sb.append(' ').append(this.f6185b);
         if (this.c != null) {
             sb.append(' ').append(this.c);
         }

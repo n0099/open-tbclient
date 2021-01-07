@@ -2,11 +2,11 @@ package com.baidu.platform.comapi.walknavi.fsm;
 
 import android.util.Log;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class FSMTable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final byte[] f4488a = new byte[0];
+    private static final byte[] f4489a = new byte[0];
     public static HashMap<String, HashMap<String, String>> dictFSM;
     public static HashMap<String, String> dictStateBrowseMap;
     public static HashMap<String, String> dictStateCar3D;
@@ -62,7 +62,7 @@ public class FSMTable {
     }
 
     public static String queryDestState(String str, String str2) {
-        synchronized (f4488a) {
+        synchronized (f4489a) {
             new HashMap();
             HashMap<String, String> hashMap = dictFSM.get(str);
             if (hashMap == null) {

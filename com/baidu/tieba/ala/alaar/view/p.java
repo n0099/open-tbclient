@@ -52,7 +52,7 @@ public class p extends j implements View.OnClickListener {
     public void b(l lVar) {
         View c = lVar.c(null, this.gzH);
         this.gzH.addView(c);
-        this.gzI.addView(lVar.bTW());
+        this.gzI.addView(lVar.bTX());
         c.setOnClickListener(this);
         c.setTag(lVar);
     }

@@ -18,7 +18,7 @@ import com.baidu.tieba.tbadkCore.z;
 /* loaded from: classes10.dex */
 public class a implements IShareChannel, e {
     @Override // com.baidu.tieba.sdk.b.e
-    public boolean dfr() {
+    public boolean dfs() {
         return true;
     }
 

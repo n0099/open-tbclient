@@ -21,7 +21,7 @@ public class AlaSnatchRedPacketResponseMessage extends JsonHttpResponsedMessage 
         }
     }
 
-    public l coJ() {
+    public l coK() {
         return this.hTG;
     }
 }

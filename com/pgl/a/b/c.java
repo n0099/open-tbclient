@@ -7,35 +7,35 @@ import java.util.Map;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<Class<?>, Class<?>> f11683a = new HashMap();
+    private static final Map<Class<?>, Class<?>> f11684a = new HashMap();
 
     /* loaded from: classes4.dex */
     public static class a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Class<? extends T> f11684a;
+        public final Class<? extends T> f11685a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f11685b;
+        public final T f11686b;
     }
 
     static {
-        f11683a.put(Boolean.class, Boolean.TYPE);
-        f11683a.put(Byte.class, Byte.TYPE);
-        f11683a.put(Character.class, Character.TYPE);
-        f11683a.put(Short.class, Short.TYPE);
-        f11683a.put(Integer.class, Integer.TYPE);
-        f11683a.put(Float.class, Float.TYPE);
-        f11683a.put(Long.class, Long.TYPE);
-        f11683a.put(Double.class, Double.TYPE);
-        f11683a.put(Boolean.TYPE, Boolean.TYPE);
-        f11683a.put(Byte.TYPE, Byte.TYPE);
-        f11683a.put(Character.TYPE, Character.TYPE);
-        f11683a.put(Short.TYPE, Short.TYPE);
-        f11683a.put(Integer.TYPE, Integer.TYPE);
-        f11683a.put(Float.TYPE, Float.TYPE);
-        f11683a.put(Long.TYPE, Long.TYPE);
-        f11683a.put(Double.TYPE, Double.TYPE);
+        f11684a.put(Boolean.class, Boolean.TYPE);
+        f11684a.put(Byte.class, Byte.TYPE);
+        f11684a.put(Character.class, Character.TYPE);
+        f11684a.put(Short.class, Short.TYPE);
+        f11684a.put(Integer.class, Integer.TYPE);
+        f11684a.put(Float.class, Float.TYPE);
+        f11684a.put(Long.class, Long.TYPE);
+        f11684a.put(Double.class, Double.TYPE);
+        f11684a.put(Boolean.TYPE, Boolean.TYPE);
+        f11684a.put(Byte.TYPE, Byte.TYPE);
+        f11684a.put(Character.TYPE, Character.TYPE);
+        f11684a.put(Short.TYPE, Short.TYPE);
+        f11684a.put(Integer.TYPE, Integer.TYPE);
+        f11684a.put(Float.TYPE, Float.TYPE);
+        f11684a.put(Long.TYPE, Long.TYPE);
+        f11684a.put(Double.TYPE, Double.TYPE);
     }
 
     private static Method a(Class<?> cls, String str, Class... clsArr) {
@@ -78,7 +78,7 @@ public class c {
             return false;
         } else {
             for (int i = 0; i < clsArr.length; i++) {
-                if (!clsArr[i].isAssignableFrom(clsArr2[i]) && (!f11683a.containsKey(clsArr[i]) || !f11683a.get(clsArr[i]).equals(f11683a.get(clsArr2[i])))) {
+                if (!clsArr[i].isAssignableFrom(clsArr2[i]) && (!f11684a.containsKey(clsArr[i]) || !f11684a.get(clsArr[i]).equals(f11684a.get(clsArr2[i])))) {
                     return false;
                 }
             }
@@ -101,7 +101,7 @@ public class c {
             if (obj == null || !(obj instanceof a)) {
                 clsArr[i2] = obj == null ? null : obj.getClass();
             } else {
-                clsArr[i2] = ((a) obj).f11684a;
+                clsArr[i2] = ((a) obj).f11685a;
             }
             i = i2 + 1;
         }
@@ -122,7 +122,7 @@ public class c {
             if (obj == null || !(obj instanceof a)) {
                 objArr2[i2] = obj;
             } else {
-                objArr2[i2] = ((a) obj).f11685b;
+                objArr2[i2] = ((a) obj).f11686b;
             }
             i = i2 + 1;
         }

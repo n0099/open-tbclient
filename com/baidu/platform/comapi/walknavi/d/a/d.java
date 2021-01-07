@@ -7,28 +7,28 @@ import com.baidu.ar.npc.ArBridge;
 import com.baidu.ar.npc.BaiduArView;
 import com.baidu.fsg.face.liveness.activity.LivenessRecogActivity;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class d implements ArBridge.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f4429a;
+    private Context f4430a;
 
     /* renamed from: b  reason: collision with root package name */
-    private BaiduArView f4430b;
+    private BaiduArView f4431b;
     private com.baidu.platform.comapi.walknavi.d.a.b.a c;
     private boolean d = false;
     private boolean e = false;
 
     public d(Context context, com.baidu.platform.comapi.walknavi.d.a.b.a aVar) {
-        this.f4429a = context.getApplicationContext();
+        this.f4430a = context.getApplicationContext();
         this.c = aVar;
     }
 
     public BaiduArView a() {
-        if (this.f4430b == null) {
-            this.f4430b = new BaiduArView(this.f4429a);
+        if (this.f4431b == null) {
+            this.f4431b = new BaiduArView(this.f4430a);
         }
-        return this.f4430b;
+        return this.f4431b;
     }
 
     public void a(String str, int i, int i2) {
@@ -44,7 +44,7 @@ public class d implements ArBridge.d {
         com.baidu.platform.comapi.walknavi.d.a.a.a aVar = new com.baidu.platform.comapi.walknavi.d.a.a.a();
         aVar.a(a(str));
         aVar.a(4);
-        com.baidu.platform.comapi.walknavi.d.a.e.a.a().a(this.f4429a, aVar);
+        com.baidu.platform.comapi.walknavi.d.a.e.a.a().a(this.f4430a, aVar);
         com.baidu.platform.comapi.walknavi.d.a.e.a.a().a("start_ar");
     }
 
@@ -81,8 +81,8 @@ public class d implements ArBridge.d {
     public void b() {
         com.baidu.platform.comapi.walknavi.d.a.g.a.a("resume");
         this.d = false;
-        if (this.f4430b != null) {
-            this.f4430b.onResume();
+        if (this.f4431b != null) {
+            this.f4431b.onResume();
         }
     }
 
@@ -95,8 +95,8 @@ public class d implements ArBridge.d {
     public void d() {
         com.baidu.platform.comapi.walknavi.d.a.g.a.a("pause");
         this.d = true;
-        if (this.f4430b != null) {
-            this.f4430b.onPause();
+        if (this.f4431b != null) {
+            this.f4431b.onPause();
         }
     }
 
@@ -109,8 +109,8 @@ public class d implements ArBridge.d {
     public void f() {
         com.baidu.platform.comapi.walknavi.d.a.g.a.a("destroy");
         this.d = true;
-        if (this.f4430b != null) {
-            this.f4430b.onPause();
+        if (this.f4431b != null) {
+            this.f4431b.onPause();
         }
         ArBridge.getInstance().removeMessageHandeler(this);
         ArBridge.getInstance().destroyCase();

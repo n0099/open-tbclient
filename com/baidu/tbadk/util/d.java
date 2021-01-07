@@ -94,7 +94,7 @@ public class d {
         MessageManager.getInstance().registerListener(this.skinTypeChangeListener);
     }
 
-    public static final d bIE() {
+    public static final d bIF() {
         return a.fOX;
     }
 
@@ -161,7 +161,7 @@ public class d {
                 public void onClick(View view) {
                     d.this.fz(view.getContext());
                     d.this.lw(false);
-                    d.this.bIF();
+                    d.this.bIG();
                 }
             };
             viewGroup.setClickable(true);
@@ -226,9 +226,9 @@ public class d {
         if (viewGroup != null && context != null) {
             ao.setViewTextColor((TextView) viewGroup.findViewById(R.id.tv_back_shoubai_text), R.color.CAM_X0101);
             int dimens = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds424);
-            com.baidu.tbadk.core.util.f.a.bwU().qq(0).qz(1).af(dimens).ah(dimens).qr(R.color.topic_disagree_des_color).bz(viewGroup);
-            SvgManager.bwq().a((ImageView) viewGroup.findViewById(R.id.shoubai_back_icon), R.drawable.ic_icon_pure_list_arrow16_left_n_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.bwq().a((ImageView) viewGroup.findViewById(R.id.shoubai_logo_icon), R.drawable.ic_icon_mask_home_backbtn_logo_n_svg, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            com.baidu.tbadk.core.util.f.a.bwV().qq(0).qz(1).af(dimens).ah(dimens).qr(R.color.topic_disagree_des_color).bz(viewGroup);
+            SvgManager.bwr().a((ImageView) viewGroup.findViewById(R.id.shoubai_back_icon), R.drawable.ic_icon_pure_list_arrow16_left_n_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bwr().a((ImageView) viewGroup.findViewById(R.id.shoubai_logo_icon), R.drawable.ic_icon_mask_home_backbtn_logo_n_svg, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
@@ -280,7 +280,7 @@ public class d {
         }
     }
 
-    public void bIF() {
+    public void bIG() {
         BackBaiduBoxViewEvent backBaiduBoxViewEvent = new BackBaiduBoxViewEvent();
         backBaiduBoxViewEvent.isShow = duv;
         com.baidu.tbadk.mutiprocess.g.publishEvent(backBaiduBoxViewEvent);
@@ -293,15 +293,15 @@ public class d {
                 if (context.getPackageManager().resolveActivity(intent, 65536) != null) {
                     context.startActivity(intent);
                 } else {
-                    bIG();
+                    bIH();
                 }
             } catch (Exception e) {
-                bIG();
+                bIH();
             }
         }
     }
 
-    private void bIG() {
+    private void bIH() {
         com.baidu.adp.lib.util.l.showToast(TbadkCoreApplication.getInst(), R.string.not_install_baidu_box_app_tip);
     }
 

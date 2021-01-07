@@ -62,9 +62,16 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
             }
             activeWebBannerItemView.setCallback(new a() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPagerAdapter.1
                 @Override // com.baidu.tieba.ala.liveroom.activeview.a
-                public void ccA() {
+                public void ccB() {
                     if (AlaActiveBannerViewPagerAdapter.this.hpB != null) {
                         AlaActiveBannerViewPagerAdapter.this.hpB.c(viewGroup, pVar, i);
+                    }
+                }
+
+                @Override // com.baidu.tieba.ala.liveroom.activeview.a
+                public void HV(String str) {
+                    if (AlaActiveBannerViewPagerAdapter.this.hpB != null) {
+                        AlaActiveBannerViewPagerAdapter.this.hpB.HV(str);
                     }
                 }
 
@@ -79,13 +86,6 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
                 public void HX(String str) {
                     if (AlaActiveBannerViewPagerAdapter.this.hpB != null) {
                         AlaActiveBannerViewPagerAdapter.this.hpB.HX(str);
-                    }
-                }
-
-                @Override // com.baidu.tieba.ala.liveroom.activeview.a
-                public void HY(String str) {
-                    if (AlaActiveBannerViewPagerAdapter.this.hpB != null) {
-                        AlaActiveBannerViewPagerAdapter.this.hpB.HY(str);
                     }
                 }
 
@@ -224,7 +224,7 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
         }
     }
 
-    public boolean HZ(String str) {
+    public boolean HY(String str) {
         if (this.hpG == null || this.hpG.isEmpty()) {
             return false;
         }
@@ -236,7 +236,7 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
                 boolean z2 = z;
                 while (i2 < viewGroup.getChildCount()) {
                     View childAt = viewGroup.getChildAt(i2);
-                    if ((childAt instanceof ActiveWebBannerItemView) && ((ActiveWebBannerItemView) childAt).cbD()) {
+                    if ((childAt instanceof ActiveWebBannerItemView) && ((ActiveWebBannerItemView) childAt).cbE()) {
                         z2 = true;
                         if (!TextUtils.isEmpty(str)) {
                             if (Build.VERSION.SDK_INT >= 19) {

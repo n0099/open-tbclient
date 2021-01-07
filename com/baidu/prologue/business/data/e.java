@@ -10,7 +10,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
     protected static final boolean DEBUG = com.baidu.prologue.a.a.a.ctc;
     public String aJH;
@@ -38,7 +38,7 @@ public class e {
     public String url;
     public int width;
 
-    public boolean agU() {
+    public boolean agV() {
         return TextUtils.equals(this.ctH, "splash_image");
     }
 
@@ -50,7 +50,7 @@ public class e {
         a.a(eVar, eVar2);
     }
 
-    public String agV() {
+    public String agW() {
         JSONObject jSONObject = new JSONObject();
         a.c(jSONObject, this);
         return jSONObject.toString();
@@ -144,11 +144,11 @@ public class e {
         if (z) {
             return true;
         }
-        new com.baidu.prologue.business.data.b(eVar).be(eVar.agU() ? "BC0263" : "BC0265", str);
+        new com.baidu.prologue.business.data.b(eVar).be(eVar.agV() ? "BC0263" : "BC0265", str);
         return false;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         static void a(e eVar, e eVar2) {
             eVar.advisible = eVar2.advisible;
@@ -224,7 +224,7 @@ public class e {
                                 eVar.ctJ = optJSONObject5.optInt("logo_type");
                                 eVar.ctK = optJSONObject5.optInt("display");
                                 JSONArray optJSONArray5 = optJSONObject5.optJSONArray("image_list");
-                                if (eVar.agU() && optJSONArray5 != null && optJSONArray5.length() > 0) {
+                                if (eVar.agV() && optJSONArray5 != null && optJSONArray5.length() > 0) {
                                     b.d(optJSONArray5.optJSONObject(0), eVar);
                                 } else {
                                     c.d(optJSONObject5, eVar);
@@ -279,7 +279,7 @@ public class e {
                 eVar.ctI = jSONObject.optString("flag_name");
                 eVar.ctJ = jSONObject.optInt("logo_type");
                 eVar.ctK = jSONObject.optInt("display");
-                if (eVar.agU()) {
+                if (eVar.agV()) {
                     b.d(jSONObject, eVar);
                 } else {
                     c.d(jSONObject, eVar);
@@ -347,7 +347,7 @@ public class e {
                         jSONObject.put("click_urls", new JSONArray((Collection) Arrays.asList(eVar.ctM)));
                     }
                 }
-                if (eVar.agU()) {
+                if (eVar.agV()) {
                     b.c(jSONObject, eVar);
                 } else {
                     c.c(jSONObject, eVar);
@@ -358,7 +358,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         static void d(JSONObject jSONObject, e eVar) {
             if (jSONObject != null) {
@@ -388,7 +388,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class c {
         static void d(JSONObject jSONObject, e eVar) {
             if (jSONObject != null) {

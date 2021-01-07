@@ -79,7 +79,7 @@ public class e extends b<com.baidu.tieba.e.b> {
             ao.setBackgroundResource(this.itU, R.color.CAM_X0204);
             ao.setViewTextColor(this.itW, R.color.CAM_X0101, 1);
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.TL(this.iua.boO().getId())) {
+            if (readThreadHistory != null && readThreadHistory.TK(this.iua.boP().getId())) {
                 ao.setViewTextColor(this.itX, R.color.CAM_X0108);
             } else {
                 ao.setViewTextColor(this.itX, R.color.CAM_X0105);
@@ -98,53 +98,53 @@ public class e extends b<com.baidu.tieba.e.b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.e.b bVar) {
-        if (bVar != null && bVar.boO() != null) {
+        if (bVar != null && bVar.boP() != null) {
             this.iua = bVar;
             String str = null;
-            if (bVar.boO().bpV()) {
+            if (bVar.boP().bpW()) {
                 this.itN.setVisibility(0);
                 this.itW.setVisibility(0);
-                if (bVar.boO().brH() != null) {
-                    this.itW.setText(at.stringForVideoTime(bVar.boO().brH().video_duration.intValue() * 1000));
-                    str = bVar.boO().brH().thumbnail_url;
+                if (bVar.boP().brI() != null) {
+                    this.itW.setText(at.stringForVideoTime(bVar.boP().brI().video_duration.intValue() * 1000));
+                    str = bVar.boP().brI().thumbnail_url;
                 }
             } else {
                 this.itN.setVisibility(8);
                 this.itW.setVisibility(8);
-                if (bVar.boO().brz() != null && bVar.boO().brz().size() >= 1) {
-                    str = bVar.boO().brz().get(0).origin_pic;
+                if (bVar.boP().brA() != null && bVar.boP().brA().size() >= 1) {
+                    str = bVar.boP().brA().get(0).origin_pic;
                 }
             }
             this.hnd.startLoad(str, 10, false);
-            this.itX.setText(bVar.boO().getTitle());
+            this.itX.setText(bVar.boP().getTitle());
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.TL(bVar.boO().getId())) {
+            if (readThreadHistory != null && readThreadHistory.TK(bVar.boP().getId())) {
                 ao.setViewTextColor(this.itX, R.color.CAM_X0108);
             } else {
                 ao.setViewTextColor(this.itX, R.color.CAM_X0105);
             }
-            this.itQ.setData(bVar.boO(), false);
-            this.itZ.setText(at.getFormatTimeShort(bVar.boO().bqZ()));
-            if ("news".equals(bVar.boO().brf())) {
+            this.itQ.setData(bVar.boP(), false);
+            this.itZ.setText(at.getFormatTimeShort(bVar.boP().bra()));
+            if ("news".equals(bVar.boP().brg())) {
                 this.itQ.setVisibility(8);
-                this.itY.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.person_view_num, at.numberUniformFormat(bVar.boO().bri())));
+                this.itY.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.person_view_num, at.numberUniformFormat(bVar.boP().brj())));
                 return;
             }
             this.itQ.setVisibility(0);
-            i(bVar.boO());
+            i(bVar.boP());
         }
     }
 
     private void i(bz bzVar) {
         if (this.itY != null && bzVar != null) {
             this.itY.setVisibility(0);
-            if (!StringUtils.isNull(bzVar.brq().getName_show())) {
-                this.itY.setText(CA(bzVar.brq().getName_show()));
+            if (!StringUtils.isNull(bzVar.brr().getName_show())) {
+                this.itY.setText(Cz(bzVar.brr().getName_show()));
             }
         }
     }
 
-    protected String CA(String str) {
+    protected String Cz(String str) {
         return at.cutChineseAndEnglishWithSuffix(str, 14, StringHelper.STRING_MORE);
     }
 
@@ -154,8 +154,8 @@ public class e extends b<com.baidu.tieba.e.b> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (cuC() != null) {
-            cuC().a(getView(), this.iua);
+        if (cuD() != null) {
+            cuD().a(getView(), this.iua);
         }
     }
 }

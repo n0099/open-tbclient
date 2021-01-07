@@ -21,8 +21,8 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.dEV().dEQ() != null) {
-                r.dEV().dEQ().dEJ();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.dEW().dER() != null) {
+                r.dEW().dER().dEK();
             }
         }
     };
@@ -31,7 +31,7 @@ public class c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016521) {
-                c.this.bMJ();
+                c.this.bMK();
             }
         }
     };
@@ -43,7 +43,7 @@ public class c {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof BaseActivity) {
                     if (!data.getClass().getSimpleName().equals("LoginActivity")) {
-                        if (c.this.bMK()) {
+                        if (c.this.bML()) {
                             BaseActivity baseActivity = (BaseActivity) data;
                             Intent intent = new Intent(baseActivity.getActivity(), LogoActivity.class);
                             intent.putExtra("splash", true);
@@ -55,7 +55,7 @@ public class c {
                         TbadkCoreApplication.getInst().setCanShowHotSplash(1);
                     }
                 } else if (data instanceof BaseFragmentActivity) {
-                    if (c.this.bMK()) {
+                    if (c.this.bML()) {
                         BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) data;
                         Intent intent2 = new Intent(baseFragmentActivity.getActivity(), LogoActivity.class);
                         intent2.putExtra("splash", true);
@@ -88,7 +88,7 @@ public class c {
     private boolean geq = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c bMI() {
+    public static c bMJ() {
         if (ger == null) {
             synchronized (c.class) {
                 if (ger == null) {
@@ -104,20 +104,20 @@ public class c {
         MessageManager.getInstance().registerListener(this.geu);
         MessageManager.getInstance().registerListener(this.ges);
         MessageManager.getInstance().registerListener(this.gev);
-        if (r.dEV().dEQ() != null) {
-            r.dEV().dEQ().dEI();
+        if (r.dEW().dER() != null) {
+            r.dEW().dER().dEJ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bMJ() {
+    public void bMK() {
         this.geq = true;
         this.gen = System.currentTimeMillis() / 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bMK() {
-        bML();
+    public boolean bML() {
+        bMM();
         this.geq = false;
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         if (this.gep) {
@@ -126,15 +126,15 @@ public class c {
         } else if (currentTimeMillis - this.gen <= 2 || currentTimeMillis - this.gen <= this.aMk) {
             return false;
         } else {
-            n dEQ = r.dEV().dEQ();
-            return (dEQ != null ? dEQ.dEK() : 3) < 3;
+            n dER = r.dEW().dER();
+            return (dER != null ? dER.dEL() : 3) < 3;
         }
     }
 
-    private void bML() {
+    private void bMM() {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
         if (adAdSense != null) {
-            this.aMk = adAdSense.bzD();
+            this.aMk = adAdSense.bzE();
             if (this.aMk <= 0) {
                 this.aMk = 86400;
                 return;

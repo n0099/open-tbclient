@@ -19,31 +19,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
-    private static a oDI;
+    private static a oDH;
     private cd aSS;
     private HttpMessageListener ifT;
+    private List<av> oDI;
     private List<av> oDJ;
-    private List<av> oDK;
-    private boolean oDL = false;
+    private boolean oDK = false;
 
     private a() {
     }
 
-    public static a efS() {
-        if (oDI == null) {
+    public static a efT() {
+        if (oDH == null) {
             synchronized (a.class) {
-                if (oDI == null) {
-                    oDI = new a();
+                if (oDH == null) {
+                    oDH = new a();
                 }
             }
         }
-        return oDI;
+        return oDH;
     }
 
-    public void bgN() {
+    public void bgO() {
         final an anVar = com.baidu.live.af.a.SE().bwi;
         if (anVar == null || anVar.aPq == null || anVar.aPq.aSS == null) {
-            bZS();
+            bZT();
         } else {
             new BdAsyncTask<cd, Void, Boolean>() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -53,8 +53,8 @@ public class a {
                 public Boolean doInBackground(cd... cdVarArr) {
                     boolean z = false;
                     if (cdVarArr != null && cdVarArr.length != 0) {
-                        if (!a.this.oDL) {
-                            a.this.oDL = true;
+                        if (!a.this.oDK) {
+                            a.this.oDK = true;
                             cd cdVar = cdVarArr[0];
                             cd gr = cd.gr(d.Ba().getString("audio_live_dating_anim", ""));
                             if (gr != null) {
@@ -103,7 +103,7 @@ public class a {
                     if (bool != null && bool.booleanValue()) {
                         d.Ba().putString("audio_live_dating_anim", cd.a(a.this.aSS));
                     }
-                    a.this.efT();
+                    a.this.efU();
                     a.this.zY(false);
                 }
             }.execute(anVar.aPq.aSS);
@@ -117,27 +117,27 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void efT() {
+    public void efU() {
         if (this.aSS != null) {
-            if (this.oDJ == null) {
-                this.oDJ = new ArrayList();
+            if (this.oDI == null) {
+                this.oDI = new ArrayList();
             } else {
-                this.oDJ.clear();
+                this.oDI.clear();
             }
-            ListUtils.add(this.oDJ, this.aSS.Fn());
-            ListUtils.add(this.oDJ, this.aSS.Fk());
-            ListUtils.add(this.oDJ, this.aSS.Fl());
-            ListUtils.add(this.oDJ, this.aSS.Fm());
-            ListUtils.add(this.oDJ, this.aSS.Fo());
-            ListUtils.add(this.oDJ, this.aSS.Fp());
-            ListUtils.add(this.oDJ, this.aSS.Fq());
+            ListUtils.add(this.oDI, this.aSS.Fn());
+            ListUtils.add(this.oDI, this.aSS.Fk());
+            ListUtils.add(this.oDI, this.aSS.Fl());
+            ListUtils.add(this.oDI, this.aSS.Fm());
+            ListUtils.add(this.oDI, this.aSS.Fo());
+            ListUtils.add(this.oDI, this.aSS.Fp());
+            ListUtils.add(this.oDI, this.aSS.Fq());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void zY(final boolean z) {
-        if (!ListUtils.isEmpty(z ? this.oDK : this.oDJ)) {
-            final av gr = gr(z ? this.oDK : this.oDJ);
+        if (!ListUtils.isEmpty(z ? this.oDJ : this.oDI)) {
+            final av gr = gr(z ? this.oDJ : this.oDI);
             if (gr == null) {
                 zY(z);
             } else {
@@ -145,26 +145,26 @@ public class a {
                     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.b.a
                     public void zZ(boolean z2) {
                         if (!z && !z2) {
-                            if (a.this.oDK == null) {
-                                a.this.oDK = new ArrayList();
+                            if (a.this.oDJ == null) {
+                                a.this.oDJ = new ArrayList();
                             }
-                            a.this.oDK.add(gr);
+                            a.this.oDJ.add(gr);
                         }
-                        a.this.zY(z || ListUtils.isEmpty(a.this.oDJ));
+                        a.this.zY(z || ListUtils.isEmpty(a.this.oDI));
                     }
                 });
             }
         }
     }
 
-    private void bZS() {
+    private void bZT() {
         if (this.ifT == null) {
             this.ifT = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021011 && (httpResponsedMessage instanceof AlaSyncHttpResponseMessage)) {
-                        a.this.bgN();
+                        a.this.bgO();
                     }
                 }
             };

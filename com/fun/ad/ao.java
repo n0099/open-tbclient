@@ -21,8 +21,8 @@ import java.util.List;
 /* loaded from: classes15.dex */
 public class ao extends ac {
     public String g;
-    public AdRipper.RippedKSAd pHX;
-    public KsNativeAd pIb;
+    public AdRipper.RippedKSAd pJF;
+    public KsNativeAd pJJ;
 
     /* loaded from: classes15.dex */
     public class b implements KsNativeAd.AdInteractionListener {
@@ -33,9 +33,9 @@ public class ao extends ac {
         public void onAdClicked(View view, KsNativeAd ksNativeAd) {
             m.a("KSNativeAd open app download onAdClicked");
             ao aoVar = ao.this;
-            w wVar = aoVar.pHV;
+            w wVar = aoVar.pJD;
             if (wVar != null) {
-                ((ag) wVar).a(aoVar.f8042a.f8059a);
+                ((ag) wVar).a(aoVar.f8043a.f8060a);
             }
         }
 
@@ -43,9 +43,9 @@ public class ao extends ac {
         public void onAdShow(KsNativeAd ksNativeAd) {
             m.a("KSNativeAd open app download onAdShow");
             ao aoVar = ao.this;
-            w wVar = aoVar.pHV;
+            w wVar = aoVar.pJD;
             if (wVar != null) {
-                ((ag) wVar).c(aoVar.f8042a.f8059a);
+                ((ag) wVar).c(aoVar.f8043a.f8060a);
             }
         }
     }
@@ -57,24 +57,24 @@ public class ao extends ac {
     @Override // com.fun.ad.ac
     public void a() {
         super.a();
-        this.pIb = null;
-        this.pHX = null;
+        this.pJJ = null;
+        this.pJF = null;
     }
 
     @Override // com.fun.ad.ac
-    public FunRippedAd eBl() {
-        KsNativeAd ksNativeAd = this.pIb;
+    public FunRippedAd eBP() {
+        KsNativeAd ksNativeAd = this.pJJ;
         if (ksNativeAd == null) {
             return null;
         }
-        if (this.pHX == null) {
-            this.pHX = AdRipper.getRippedKSAd((Object) ksNativeAd, false);
+        if (this.pJF == null) {
+            this.pJF = AdRipper.getRippedKSAd((Object) ksNativeAd, false);
         }
         FunRippedAd funRippedAd = new FunRippedAd();
-        AdRipper.RippedKSAd rippedKSAd = this.pHX;
+        AdRipper.RippedKSAd rippedKSAd = this.pJF;
         funRippedAd.description = rippedKSAd.adDescription;
         funRippedAd.isDeepLinkAd = !TextUtils.isEmpty(rippedKSAd.deeplinkUrl);
-        AdRipper.RippedKSAd rippedKSAd2 = this.pHX;
+        AdRipper.RippedKSAd rippedKSAd2 = this.pJF;
         funRippedAd.uniqueId = rippedKSAd2.adDescription;
         funRippedAd.appName = rippedKSAd2.appName;
         funRippedAd.appPackageName = rippedKSAd2.appPackageName;
@@ -87,12 +87,12 @@ public class ao extends ac {
     public void a(Context context, FunAdSlot funAdSlot, z zVar) {
         super.a(context.getApplicationContext(), funAdSlot, zVar);
         this.g = funAdSlot.getSid();
-        if (!this.f8043b) {
-            this.f8043b = true;
-            KsAdSDK.getLoadManager().loadNativeAd(new KsScene.Builder(Long.parseLong(this.f8042a.f8059a)).adNum(1).build(), new a());
-            z zVar2 = this.pHU;
+        if (!this.f8044b) {
+            this.f8044b = true;
+            KsAdSDK.getLoadManager().loadNativeAd(new KsScene.Builder(Long.parseLong(this.f8043a.f8060a)).adNum(1).build(), new a());
+            z zVar2 = this.pJC;
             if (zVar2 != null) {
-                ((ad) zVar2).a(this.f8042a.f8059a);
+                ((ad) zVar2).a(this.f8043a.f8060a);
             }
         }
     }
@@ -101,22 +101,22 @@ public class ao extends ac {
     public void a(Activity activity, FunAdView funAdView, w wVar) {
         int i;
         super.a(activity, funAdView, wVar);
-        if (this.pIb == null) {
-            w wVar2 = this.pHV;
+        if (this.pJJ == null) {
+            w wVar2 = this.pJD;
             if (wVar2 != null) {
-                ((ag) wVar2).a(this.f8042a.f8059a, 0, "Custom error message: mKsNativeAd is null show");
+                ((ag) wVar2).a(this.f8043a.f8060a, 0, "Custom error message: mKsNativeAd is null show");
                 return;
             }
             return;
         }
         b bVar = new b();
-        m.a("KSNativeAd show materialType: " + this.pIb.getMaterialType());
-        switch (this.pIb.getMaterialType()) {
+        m.a("KSNativeAd show materialType: " + this.pJJ.getMaterialType());
+        switch (this.pJJ.getMaterialType()) {
             case 0:
                 i = 0;
                 break;
             case 1:
-                int interactionType = this.pIb.getInteractionType();
+                int interactionType = this.pJJ.getInteractionType();
                 if (interactionType == 1) {
                     i = R.layout.ks_ad_native_video_app_download_view;
                     break;
@@ -128,7 +128,7 @@ public class ao extends ac {
                     break;
                 }
             case 2:
-                int interactionType2 = this.pIb.getInteractionType();
+                int interactionType2 = this.pJJ.getInteractionType();
                 if (interactionType2 == 1) {
                     i = R.layout.ks_ad_native_single_img_app_download_view;
                     break;
@@ -140,7 +140,7 @@ public class ao extends ac {
                     break;
                 }
             case 3:
-                int interactionType3 = this.pIb.getInteractionType();
+                int interactionType3 = this.pJJ.getInteractionType();
                 if (interactionType3 == 1) {
                     i = R.layout.ks_ad_native_group_img_app_download_view;
                     break;
@@ -159,7 +159,7 @@ public class ao extends ac {
             funAdView.removeAllViews();
             funAdView.addView(o1Var);
             m.a("KSNativeAdLoader show KSNativeAdView: " + o1Var);
-            o1Var.a(activity, this.g, this.f8042a.f8059a, this.pIb, bVar);
+            o1Var.a(activity, this.g, this.f8043a.f8060a, this.pJJ, bVar);
         }
     }
 
@@ -172,26 +172,26 @@ public class ao extends ac {
         public void onError(int i, String str) {
             m.a("KSNativeAd onError code: " + i + ", message: " + str);
             ao aoVar = ao.this;
-            aoVar.f8043b = false;
-            z zVar = aoVar.pHU;
+            aoVar.f8044b = false;
+            z zVar = aoVar.pJC;
             if (zVar != null) {
-                ((ad) zVar).a(aoVar.f8042a.f8059a, i, str);
+                ((ad) zVar).a(aoVar.f8043a.f8060a, i, str);
             }
         }
 
         @Override // com.kwad.sdk.api.KsLoadManager.NativeAdListener
         public void onNativeAdLoad(@Nullable List<KsNativeAd> list) {
             m.a("KSNativeAd onNativeAdLoad");
-            ao.this.f8043b = false;
+            ao.this.f8044b = false;
             if (list != null && !list.isEmpty()) {
-                ao.this.pIb = list.get(0);
-                m.a("KSNativeAd onNativeAdLoad materialType: " + ao.this.pIb.getMaterialType());
+                ao.this.pJJ = list.get(0);
+                m.a("KSNativeAd onNativeAdLoad materialType: " + ao.this.pJJ.getMaterialType());
                 ao aoVar = ao.this;
-                z zVar = aoVar.pHU;
+                z zVar = aoVar.pJC;
                 if (zVar != null) {
-                    ((ad) zVar).b(aoVar.f8042a.f8059a);
+                    ((ad) zVar).b(aoVar.f8043a.f8060a);
                 }
-                AdRipper.ripKS(ao.this.pIb);
+                AdRipper.ripKS(ao.this.pJJ);
                 return;
             }
             m.a("KSNativeAd onNativeAdLoad error: adList is null or empty");

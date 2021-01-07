@@ -38,7 +38,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
 
         void atB();
 
-        void atz();
+        void atC();
     }
 
     public GameCloseGuidePopView(Context context) {
@@ -58,7 +58,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (GameCloseGuidePopView.this.eqo != null) {
-                    GameCloseGuidePopView.this.eqo.atA();
+                    GameCloseGuidePopView.this.eqo.atB();
                 }
             }
         });
@@ -70,7 +70,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
                         SchemeRouter.invokeSchemeForInner(GameCloseGuidePopView.this.mContext, Uri.parse(GameCloseGuidePopView.this.eqp.getScheme()));
                         GameCloseGuidePopView.this.eqq.c(3, "popview", GameCloseGuidePopView.this.eqp.getAppKey(), "");
                     }
-                    GameCloseGuidePopView.this.eqo.atB();
+                    GameCloseGuidePopView.this.eqo.atC();
                 }
             }
         });
@@ -78,7 +78,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (GameCloseGuidePopView.this.eqo != null) {
-                    GameCloseGuidePopView.this.eqo.atz();
+                    GameCloseGuidePopView.this.eqo.atA();
                 }
             }
         });

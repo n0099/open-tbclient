@@ -34,7 +34,7 @@ public class a {
     public int type;
     public String version;
 
-    public String aww() {
+    public String awx() {
         return "SwanAppDbInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', errorCode=" + this.errorCode + ", errorDetail='" + this.errorDetail + "', errorMsg='" + this.errorMsg + "', resumeDate='" + this.resumeDate + "', maxSwanVersion='" + this.dbb + "', minSwanVersion='" + this.dbc + "', name='" + this.name + "', version='" + this.version + "', type=" + this.type + ", isHaveZip=" + this.dbd + ", targetSwanVersion='" + this.dbf + "', mAppZipSize=" + this.dbg + ", mPendingApsErrcode=" + this.dbh + ", category=" + this.category + ", versionCode='" + this.dbi + "', maxAge=" + this.maxAge + ", createTime=" + this.createTime + ", forceFetchMetaInfoFlag=" + this.dbj + ", payProtected=" + this.payProtected + '}';
     }
 }

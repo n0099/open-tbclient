@@ -78,7 +78,7 @@ public class b {
         this.hkq.a(bVar);
     }
 
-    public void bnO() {
+    public void bnP() {
         a aVar;
         if (this.hNn != null && this.hNn.get() != null && (aVar = this.hNn.get()) != null && aVar.isShowing()) {
             aVar.resize();

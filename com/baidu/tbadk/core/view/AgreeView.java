@@ -311,11 +311,11 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         this.fgI = new com.baidu.tieba.tbadkCore.data.e();
         this.fgI.uniqueId = getPageId();
         this.fgY = new com.baidu.tbadk.core.message.a();
-        bxh();
+        bxi();
         setAgreeAnimationResource();
     }
 
-    private void bxh() {
+    private void bxi() {
         LinearLayout linearLayout = new LinearLayout(getContext());
         this.fgU = linearLayout;
         linearLayout.setOrientation(0);
@@ -366,7 +366,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         setAgreeAlone(this.fgV);
     }
 
-    public void bxi() {
+    public void bxj() {
         int dimens = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds112);
         int dimens2 = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds19);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimens, dimens);
@@ -410,7 +410,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         this.fgG.setVisibility(8);
     }
 
-    public void bxj() {
+    public void bxk() {
         int dimens = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds120);
         removeAllViews();
         bA(this.fgD);
@@ -586,7 +586,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         setTextNormalColor(this.fgG);
     }
 
-    public void bxk() {
+    public void bxl() {
         bB(this.fgD);
     }
 
@@ -622,7 +622,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                                     this.fgH.hasAgree = true;
                                     this.fgH.agreeNum++;
                                     jV(true);
-                                    com.baidu.tieba.o.a.dEA().F(getTbPageContext());
+                                    com.baidu.tieba.o.a.dEB().F(getTbPageContext());
                                     if (this.fgM != null) {
                                         this.fgM.eOC = 0;
                                         i2 = 0;
@@ -638,7 +638,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                                 this.fgH.hasAgree = true;
                                 this.fgH.agreeNum++;
                                 jV(true);
-                                com.baidu.tieba.o.a.dEA().F(getTbPageContext());
+                                com.baidu.tieba.o.a.dEB().F(getTbPageContext());
                                 if (this.fgM != null) {
                                     this.fgM.eOC = 0;
                                 }
@@ -691,14 +691,14 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                         if (this.akV != null) {
                             this.akV.onClick(view);
                         }
-                        bxl();
+                        bxm();
                     }
                 }
             }
         }
     }
 
-    public void bxl() {
+    public void bxm() {
         if (this.fgM != null && this.fgH != null) {
             int i = 0;
             if (this.fgH.baijiahaoData != null) {
@@ -708,16 +708,16 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                 if (StringUtils.isNull(this.fgR)) {
                     aq dX = new aq("c12003").an("obj_locate", this.fgM.eOz).an("obj_param1", this.fgM.eOA).an("obj_source", this.fgM.eOB).an("obj_id", this.fgM.eOC).an("obj_name", i).dX("post_id", this.fgH.postId);
                     if (this.eMv != null) {
-                        dX.dX("tid", this.eMv.getId()).dX(IntentConfig.NID, this.eMv.bpO()).w("fid", this.eMv.getFid()).an(IntentConfig.CARD_TYPE, this.cardType).dX("ab_tag", this.eMv.mRecomAbTag).dX(IntentConfig.RECOM_SOURCE, this.eMv.mRecomSource).dX("weight", this.eMv.mRecomWeight).dX("extra", this.eMv.mRecomExtra);
+                        dX.dX("tid", this.eMv.getId()).dX(IntentConfig.NID, this.eMv.bpP()).w("fid", this.eMv.getFid()).an(IntentConfig.CARD_TYPE, this.cardType).dX("ab_tag", this.eMv.mRecomAbTag).dX(IntentConfig.RECOM_SOURCE, this.eMv.mRecomSource).dX("weight", this.eMv.mRecomWeight).dX("extra", this.eMv.mRecomExtra);
                         if (this.eMv.getBaijiahaoData() != null) {
                             dX.dX("obj_param4", this.eMv.getBaijiahaoData().oriUgcNid);
-                            if (this.eMv.bpY() || this.eMv.btp()) {
+                            if (this.eMv.bpZ() || this.eMv.btq()) {
                                 dX.dX("obj_param6", this.eMv.getBaijiahaoData().oriUgcVid);
                             }
                         }
-                        if (this.eMv.btn()) {
+                        if (this.eMv.bto()) {
                             dX.an("obj_param5", 2);
-                        } else if (this.eMv.bpX() || this.eMv.bpY()) {
+                        } else if (this.eMv.bpY() || this.eMv.bpZ()) {
                             dX.an("obj_param5", 3);
                         } else if (this.eMv.threadType == 0 || this.eMv.threadType == 40) {
                             dX.an("obj_param5", 1);
@@ -764,8 +764,8 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                     if (bV != null) {
                         dX.dX("obj_cur_page", bV.getCurrentPageKey());
                     }
-                    if (com.baidu.tbadk.pageExtra.d.bHm() != null) {
-                        dX.dX("obj_pre_page", com.baidu.tbadk.pageExtra.d.bHm());
+                    if (com.baidu.tbadk.pageExtra.d.bHn() != null) {
+                        dX.dX("obj_pre_page", com.baidu.tbadk.pageExtra.d.bHn());
                     }
                     TiebaStatic.log(dX);
                     return;
@@ -774,16 +774,16 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
             } else if (this.fgM.type == 2) {
                 aq dX2 = new aq("c13271").an("obj_type", this.fgM.eOE).an("obj_locate", this.fgM.eOF).an(TiebaInitialize.Params.OBJ_PARAM2, this.fgN).an("obj_id", this.fgM.eOG).an("obj_name", i).dX("post_id", this.fgH.postId).dX(IntentConfig.NID, this.fgH.nid);
                 if (this.eMv != null) {
-                    dX2.dX("tid", this.eMv.getId()).dX(IntentConfig.NID, this.eMv.bpO()).w("fid", this.eMv.getFid()).an(IntentConfig.CARD_TYPE, this.cardType).dX("ab_tag", this.eMv.mRecomAbTag).dX(IntentConfig.RECOM_SOURCE, this.eMv.mRecomSource).dX("weight", this.eMv.mRecomWeight).dX("extra", this.eMv.mRecomExtra);
+                    dX2.dX("tid", this.eMv.getId()).dX(IntentConfig.NID, this.eMv.bpP()).w("fid", this.eMv.getFid()).an(IntentConfig.CARD_TYPE, this.cardType).dX("ab_tag", this.eMv.mRecomAbTag).dX(IntentConfig.RECOM_SOURCE, this.eMv.mRecomSource).dX("weight", this.eMv.mRecomWeight).dX("extra", this.eMv.mRecomExtra);
                     if (this.eMv.getBaijiahaoData() != null) {
                         dX2.dX("obj_param4", this.eMv.getBaijiahaoData().oriUgcNid);
-                        if (this.eMv.bpY() || this.eMv.btp()) {
+                        if (this.eMv.bpZ() || this.eMv.btq()) {
                             dX2.dX("obj_param6", this.eMv.getBaijiahaoData().oriUgcVid);
                         }
                     }
-                    if (this.eMv.btn()) {
+                    if (this.eMv.bto()) {
                         dX2.an("obj_param5", 2);
-                    } else if (this.eMv.bpX() || this.eMv.bpY()) {
+                    } else if (this.eMv.bpY() || this.eMv.bpZ()) {
                         dX2.an("obj_param5", 3);
                     } else if (this.eMv.threadType == 0 || this.eMv.threadType == 40) {
                         dX2.an("obj_param5", 1);
@@ -918,7 +918,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         this.fgV = z;
     }
 
-    public boolean bxm() {
+    public boolean bxn() {
         return this.fgV;
     }
 

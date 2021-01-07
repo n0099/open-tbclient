@@ -25,26 +25,26 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class SelectMusicModel extends BdBaseModel {
     private TbPageContext mPageContext;
-    private com.baidu.tieba.video.editvideo.b nHM;
-    private final HttpMessageListener nHN;
+    private com.baidu.tieba.video.editvideo.b nHL;
+    private final HttpMessageListener nHM;
 
     public SelectMusicModel(TbPageContext tbPageContext, com.baidu.tieba.video.editvideo.b bVar) {
         super(tbPageContext);
-        this.nHN = new HttpMessageListener(1003366) { // from class: com.baidu.tieba.video.editvideo.model.SelectMusicModel.2
+        this.nHM = new HttpMessageListener(1003366) { // from class: com.baidu.tieba.video.editvideo.model.SelectMusicModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003366 && (httpResponsedMessage instanceof VideoSugMusicResponseMessage) && ((VideoSugMusicResponseMessage) httpResponsedMessage).musicDatas != null) {
-                    SelectMusicModel.this.nHM.setMusicData(((VideoSugMusicResponseMessage) httpResponsedMessage).musicDatas);
+                    SelectMusicModel.this.nHL.setMusicData(((VideoSugMusicResponseMessage) httpResponsedMessage).musicDatas);
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.nHM = bVar;
-        dUz();
-        this.nHN.setTag(getUniqueId());
-        this.nHN.setSelfListener(true);
-        registerListener(this.nHN);
+        this.nHL = bVar;
+        dUA();
+        this.nHM.setTag(getUniqueId());
+        this.nHM.setSelfListener(true);
+        registerListener(this.nHM);
     }
 
     public void k(final String str, final String str2, final String str3, final boolean z) {
@@ -53,12 +53,12 @@ public class SelectMusicModel extends BdBaseModel {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                /* renamed from: q */
+                /* renamed from: p */
                 public i doInBackground(Void... voidArr) {
                     if (TextUtils.isEmpty(str2) && !z) {
-                        return h.dVe().gD(str, str3);
+                        return h.dVf().gD(str, str3);
                     }
-                    return h.dVe().l(str, str2, str3, z);
+                    return h.dVf().l(str, str2, str3, z);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -68,16 +68,16 @@ public class SelectMusicModel extends BdBaseModel {
                 public void onPostExecute(i iVar) {
                     super.onPostExecute(iVar);
                     if (iVar == null || iVar.result != 0) {
-                        SelectMusicModel.this.nHM.u(null, iVar.result, iVar.msg);
+                        SelectMusicModel.this.nHL.u(null, iVar.result, iVar.msg);
                     } else {
-                        SelectMusicModel.this.nHM.u(str3, -4399, "");
+                        SelectMusicModel.this.nHL.u(str3, -4399, "");
                     }
                 }
             }.execute(new Void[0]);
         }
     }
 
-    public void dUy() {
+    public void dUz() {
         if (!j.isNetWorkAvailable()) {
             this.mPageContext.showToast(R.string.no_network);
         } else {
@@ -85,7 +85,7 @@ public class SelectMusicModel extends BdBaseModel {
         }
     }
 
-    private void dUz() {
+    private void dUA() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003366, TbConfig.SERVER_ADDRESS + Config.VIDEO_SUG_MUSIC_LIST);
         tbHttpMessageTask.setResponsedClass(VideoSugMusicResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

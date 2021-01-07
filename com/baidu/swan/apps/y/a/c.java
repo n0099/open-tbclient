@@ -35,15 +35,15 @@ public class c {
         return this.drg;
     }
 
-    public String aGv() {
+    public String aGw() {
         return this.drh;
     }
 
-    public long aGw() {
+    public long aGx() {
         return this.dri;
     }
 
-    public boolean aGx() {
+    public boolean aGy() {
         return this.dqu;
     }
 }

@@ -32,7 +32,7 @@ import io.flutter.plugin.platform.PlatformPlugin;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class BoostFlutterActivity extends Activity implements LifecycleOwner, FlutterActivityAndFragmentDelegate.Host {
     protected static final String DEFAULT_BACKGROUND_MODE = BackgroundMode.opaque.name();
     protected static final String EXTRA_ANIMATED = "animated";
@@ -51,7 +51,7 @@ public class BoostFlutterActivity extends Activity implements LifecycleOwner, Fl
     @NonNull
     private LifecycleRegistry lifecycle = new LifecycleRegistry(this);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public enum BackgroundMode {
         opaque,
         transparent
@@ -65,7 +65,7 @@ public class BoostFlutterActivity extends Activity implements LifecycleOwner, Fl
         return new NewEngineIntentBuilder(BoostFlutterActivity.class);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class NewEngineIntentBuilder {
         private final Class<? extends BoostFlutterActivity> activityClass;
         private String backgroundMode = BoostFlutterActivity.DEFAULT_BACKGROUND_MODE;
@@ -83,7 +83,7 @@ public class BoostFlutterActivity extends Activity implements LifecycleOwner, Fl
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class SerializableMap implements Serializable {
         private Map<String, Object> map;
 

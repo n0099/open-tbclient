@@ -74,21 +74,21 @@ public class b {
         }
     }
 
-    public void cQB() {
+    public void cQC() {
+        boF();
         boE();
-        boD();
     }
 
-    public void cIi() {
+    public void cIj() {
         this.lastId = 0L;
-        boD();
+        boE();
     }
 
-    public void bUp() {
-        boD();
+    public void bUq() {
+        boE();
     }
 
-    private void boE() {
+    private void boF() {
         new BdAsyncTask<Void, Void, ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a>>() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -97,7 +97,7 @@ public class b {
             public ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> doInBackground(Void... voidArr) {
                 byte[] bArr;
                 ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList = new ArrayList<>();
-                l<byte[]> dL = com.baidu.tbadk.core.c.a.btS().dL("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName());
+                l<byte[]> dL = com.baidu.tbadk.core.c.a.btT().dL("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName());
                 if (dL != null && (bArr = dL.get("agree_me_cache_key")) != null) {
                     try {
                         AgreeMeResIdl agreeMeResIdl = (AgreeMeResIdl) new Wire(new Class[0]).parseFrom(bArr, AgreeMeResIdl.class);
@@ -131,7 +131,7 @@ public class b {
         }.execute(new Void[0]);
     }
 
-    private void boD() {
+    private void boE() {
         AgreeMeRequestMessage agreeMeRequestMessage = new AgreeMeRequestMessage();
         agreeMeRequestMessage.id = this.lastId;
         agreeMeRequestMessage.setTag(this.uniqueId);

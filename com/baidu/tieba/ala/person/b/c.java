@@ -25,10 +25,10 @@ public class c {
 
     private void initView() {
         this.aHr = new AlaLiveRoomPanelTabHost(this.mPageContext.getPageActivity());
-        bXc();
+        bXd();
     }
 
-    private void bXc() {
+    private void bXd() {
         this.aHo.add(new d(this.mPageContext, 0, this.mUserId, this.gQC));
         this.aHo.add(new d(this.mPageContext, 1, this.mUserId, this.gQC));
         this.aHr.setData(this.aHo);

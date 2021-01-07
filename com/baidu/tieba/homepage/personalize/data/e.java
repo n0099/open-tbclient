@@ -10,7 +10,7 @@ public class e {
     public String khP;
     public int mThreadCount;
 
-    public boolean cTt() {
+    public boolean cTu() {
         return this.khM > 0;
     }
 

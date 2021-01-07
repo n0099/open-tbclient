@@ -32,9 +32,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 /* loaded from: classes8.dex */
 public abstract class a implements com.baidu.tieba.sharesdk.b.a {
-    public static String neZ = n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME;
-    public static String nfa = "temp_video_thumb.png";
-    public static String nfb = "_temp_share_pic.png";
+    public static String neY = n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME;
+    public static String neZ = "temp_video_thumb.png";
+    public static String nfa = "_temp_share_pic.png";
     Context context;
     String extLiveInfo;
     BdUniqueId pageId;
@@ -64,16 +64,16 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         return bdUniqueId;
     }
 
-    protected void SD(String str) {
+    protected void SC(String str) {
         bT(str, R.drawable.icon_toast_game_error);
     }
 
-    protected void SE(String str) {
+    protected void SD(String str) {
         bT(str, R.drawable.icon_toast_game_ok);
     }
 
     protected void bT(String str, int i) {
-        BdToast.b(getAppContext(), str, i, false).bud();
+        BdToast.b(getAppContext(), str, i, false).bue();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -87,17 +87,17 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_success, new Object[0]);
             }
-            SE(str);
+            SD(str);
         } else if (i == 3) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_cancel, new Object[0]);
             }
-            SD(str);
+            SC(str);
         } else if (i == 2) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_failed, new Object[0]);
             }
-            SD(str);
+            SC(str);
         }
         if (!TextUtils.isEmpty(this.tid)) {
             dq(i, i2);
@@ -125,7 +125,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap dKN() {
+    public Bitmap dKO() {
         return BitmapHelper.getCashBitmap(R.drawable.tb_launcher_icon);
     }
 
@@ -135,7 +135,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap SF(String str) {
+    public Bitmap SE(String str) {
         return BitmapHelper.loadBitmap(str);
     }
 
@@ -160,7 +160,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean Dg(String str) {
+    public boolean Df(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -211,7 +211,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         this.tid = str;
     }
 
-    public void SB(String str) {
+    public void SA(String str) {
         this.extLiveInfo = str;
     }
 
@@ -227,7 +227,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         Paint paint = new Paint();
         paint.setShader(linearGradient);
         canvas.drawRect(0.0f, 0.0f, h.getWidth(), h.getHeight(), paint);
-        Drawable a2 = SvgManager.bwq().a(R.drawable.ic_icon_share_play_20, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null, false);
+        Drawable a2 = SvgManager.bwr().a(R.drawable.ic_icon_share_play_20, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null, false);
         if (a2 != null) {
             int min = (int) (Math.min(h.getWidth(), h.getHeight()) * 0.3f);
             int width = (h.getWidth() - min) / 2;
@@ -236,7 +236,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
             a2.draw(canvas);
         }
         if (z) {
-            String saveFileAsPNG = n.saveFileAsPNG(neZ, nfa, createBitmap, 100);
+            String saveFileAsPNG = n.saveFileAsPNG(neY, neZ, createBitmap, 100);
             if (!StringUtils.isNull(saveFileAsPNG)) {
                 shareEntity.setImageUri(Uri.parse(saveFileAsPNG));
             }

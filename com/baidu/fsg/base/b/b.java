@@ -6,18 +6,18 @@ import java.util.concurrent.atomic.AtomicInteger;
 class b implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1934a;
+    final /* synthetic */ a f1935a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final AtomicInteger f1935b = new AtomicInteger(1);
+    private final AtomicInteger f1936b = new AtomicInteger(1);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f1934a = aVar;
+        this.f1935a = aVar;
     }
 
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
-        return new Thread(runnable, "WalletTask #" + this.f1935b.getAndIncrement());
+        return new Thread(runnable, "WalletTask #" + this.f1936b.getAndIncrement());
     }
 }

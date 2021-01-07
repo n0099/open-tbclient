@@ -63,7 +63,7 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
         ao.setImageResource(this.jZq, R.drawable.new_pic_emotion_09);
         ao.setViewTextColor(this.jZr, R.color.CAM_X0107);
         if (this.jZs != null) {
-            this.jZs.bxO();
+            this.jZs.bxP();
         }
     }
 }

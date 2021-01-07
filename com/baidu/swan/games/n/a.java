@@ -26,7 +26,7 @@ public class a {
         }
 
         @Override // com.baidu.swan.games.n.a.InterfaceC0539a
-        public void bbb() {
+        public void bbc() {
             a.this.hideKeyboard();
         }
 
@@ -57,7 +57,7 @@ public class a {
     /* renamed from: com.baidu.swan.games.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
     public interface InterfaceC0539a {
-        void bbb();
+        void bbc();
 
         void mJ(int i);
 
@@ -81,7 +81,7 @@ public class a {
         if (this.ekO == null) {
             this.ekO = new com.baidu.swan.games.binding.model.c();
         }
-        if (this.efi == null || this.ekN == null || this.ekN.bds()) {
+        if (this.efi == null || this.ekN == null || this.ekN.bdt()) {
             this.ekS.errMsg = "showKeyboard:fail";
             com.baidu.swan.games.utils.b.a(this.ekO, false, this.ekS);
             return;
@@ -92,7 +92,7 @@ public class a {
                 ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.n.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (!com.baidu.swan.games.view.b.b.bdt().f(a.this.ekN)) {
+                        if (!com.baidu.swan.games.view.b.b.bdu().f(a.this.ekN)) {
                             a.this.ekS.errMsg = "showKeyboard:fail";
                             com.baidu.swan.games.utils.b.a(a.this.ekO, false, a.this.ekS);
                             return;
@@ -116,7 +116,7 @@ public class a {
         if (this.ekP == null) {
             this.ekP = new com.baidu.swan.games.binding.model.c();
         }
-        if (this.efi == null || this.ekN == null || !this.ekN.bds()) {
+        if (this.efi == null || this.ekN == null || !this.ekN.bdt()) {
             this.ekT.errMsg = "hideKeyboard:fail";
             com.baidu.swan.games.utils.b.a(this.ekP, false, this.ekT);
             return;
@@ -124,7 +124,7 @@ public class a {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.n.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if (com.baidu.swan.games.view.b.b.bdt().g(a.this.ekN)) {
+                if (com.baidu.swan.games.view.b.b.bdu().g(a.this.ekN)) {
                     a.this.ekT.errMsg = "hideKeyboard:ok";
                     com.baidu.swan.games.utils.b.a(a.this.ekP, true, a.this.ekT);
                     return;
@@ -139,7 +139,7 @@ public class a {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.n.a.4
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.games.view.b.b.bdt().g(a.this.ekN);
+                com.baidu.swan.games.view.b.b.bdu().g(a.this.ekN);
             }
         });
     }

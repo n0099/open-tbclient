@@ -6,19 +6,19 @@ import com.xiaomi.push.ai;
 public class bh extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f14180a;
+    private Context f14181a;
 
     public bh(Context context) {
-        this.f14180a = context;
+        this.f14181a = context;
     }
 
     private boolean a() {
-        return com.xiaomi.clientreport.manager.a.a(this.f14180a).m77a().isPerfUploadSwitchOpen();
+        return com.xiaomi.clientreport.manager.a.a(this.f14181a).m88a().isPerfUploadSwitchOpen();
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo185a() {
+    public int mo196a() {
         return 100887;
     }
 
@@ -26,8 +26,8 @@ public class bh extends ai.a {
     public void run() {
         try {
             if (a()) {
-                com.xiaomi.clientreport.manager.a.a(this.f14180a).c();
-                com.xiaomi.channel.commonutils.logger.b.c(this.f14180a.getPackageName() + "perf  begin upload");
+                com.xiaomi.clientreport.manager.a.a(this.f14181a).c();
+                com.xiaomi.channel.commonutils.logger.b.c(this.f14181a.getPackageName() + "perf  begin upload");
             }
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);

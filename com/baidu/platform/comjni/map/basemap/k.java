@@ -3,21 +3,21 @@ package com.baidu.platform.comjni.map.basemap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class k implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ long f4742a;
+    final /* synthetic */ long f4743a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ long f4743b;
+    final /* synthetic */ long f4744b;
     final /* synthetic */ NABaseMap c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(NABaseMap nABaseMap, long j, long j2) {
         this.c = nABaseMap;
-        this.f4742a = j;
-        this.f4743b = j2;
+        this.f4743a = j;
+        this.f4744b = j2;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, INVOKE, INVOKE, INVOKE] complete} */
@@ -35,13 +35,13 @@ public class k implements Runnable {
             readWriteLock3 = this.c.c;
             z = readWriteLock3.readLock().tryLock(2000L, TimeUnit.MILLISECONDS);
             if (z) {
-                a2 = this.c.a(this.f4742a);
+                a2 = this.c.a(this.f4743a);
                 if (!a2) {
-                    a3 = this.c.a(this.f4743b);
+                    a3 = this.c.a(this.f4744b);
                     if (!a3) {
                         NABaseMap nABaseMap = this.c;
-                        j = this.c.f4723b;
-                        nABaseMap.nativeSwitchLayer(j, this.f4742a, this.f4743b);
+                        j = this.c.f4724b;
+                        nABaseMap.nativeSwitchLayer(j, this.f4743a, this.f4744b);
                     }
                 }
             }

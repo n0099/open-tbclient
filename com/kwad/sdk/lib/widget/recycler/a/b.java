@@ -12,11 +12,11 @@ public final class b<T> {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    private final Executor f10736a;
+    private final Executor f10737a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    private final Executor f10737b;
+    private final Executor f10738b;
     @NonNull
     private final e<T> c;
     @Nullable
@@ -26,30 +26,30 @@ public final class b<T> {
     public static final class a<T> {
         private static final Object e = new Object();
         private static Executor f = null;
-        private static final Executor g = new ExecutorC1111a();
+        private static final Executor g = new ExecutorC1152a();
 
         /* renamed from: a  reason: collision with root package name */
-        private Executor f10738a;
+        private Executor f10739a;
 
         /* renamed from: b  reason: collision with root package name */
-        private Executor f10739b;
+        private Executor f10740b;
         private Runnable c;
         private final e<T> d;
 
         /* renamed from: com.kwad.sdk.lib.widget.recycler.a.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        private static class ExecutorC1111a implements Executor {
+        private static class ExecutorC1152a implements Executor {
 
             /* renamed from: a  reason: collision with root package name */
-            final Handler f10740a;
+            final Handler f10741a;
 
-            private ExecutorC1111a() {
-                this.f10740a = new Handler(Looper.getMainLooper());
+            private ExecutorC1152a() {
+                this.f10741a = new Handler(Looper.getMainLooper());
             }
 
             @Override // java.util.concurrent.Executor
             public void execute(@NonNull Runnable runnable) {
-                this.f10740a.post(runnable);
+                this.f10741a.post(runnable);
             }
         }
 
@@ -59,30 +59,30 @@ public final class b<T> {
 
         @NonNull
         public a<T> a(Executor executor) {
-            this.f10739b = executor;
+            this.f10740b = executor;
             return this;
         }
 
         @NonNull
         public b<T> a() {
-            if (this.f10738a == null) {
-                this.f10738a = g;
+            if (this.f10739a == null) {
+                this.f10739a = g;
             }
-            if (this.f10739b == null) {
+            if (this.f10740b == null) {
                 synchronized (e) {
                     if (f == null) {
                         f = Executors.newFixedThreadPool(2);
                     }
                 }
-                this.f10739b = f;
+                this.f10740b = f;
             }
-            return new b<>(this.f10738a, this.f10739b, this.d, this.c);
+            return new b<>(this.f10739a, this.f10740b, this.d, this.c);
         }
     }
 
     private b(@NonNull Executor executor, @NonNull Executor executor2, @NonNull e<T> eVar, @Nullable Runnable runnable) {
-        this.f10736a = executor;
-        this.f10737b = executor2;
+        this.f10737a = executor;
+        this.f10738b = executor2;
         this.c = eVar;
         this.d = runnable;
     }
@@ -90,12 +90,12 @@ public final class b<T> {
     @NonNull
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public Executor a() {
-        return this.f10736a;
+        return this.f10737a;
     }
 
     @NonNull
     public Executor b() {
-        return this.f10737b;
+        return this.f10738b;
     }
 
     @NonNull

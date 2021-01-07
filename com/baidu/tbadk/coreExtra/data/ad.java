@@ -29,7 +29,7 @@ public class ad extends com.baidu.tbadk.core.data.n {
         return this.mEndTime;
     }
 
-    public String bzZ() {
+    public String bAa() {
         return this.ftK;
     }
 }

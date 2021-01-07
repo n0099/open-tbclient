@@ -41,14 +41,14 @@ public class j {
             this.bdx = false;
             onDismiss();
             if (z) {
-                bTV();
+                bTW();
             } else {
                 mo(isShowing());
             }
         }
     }
 
-    private void bTV() {
+    private void bTW() {
         this.gyW = z(0.0f, 1.0f);
     }
 

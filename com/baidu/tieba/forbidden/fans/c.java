@@ -50,7 +50,7 @@ public class c {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void cDh() {
+    public void cDi() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS);
         httpMessage.setTag(this.ahE);
         MessageManager.getInstance().sendMessage(httpMessage);

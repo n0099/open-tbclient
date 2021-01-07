@@ -1,7 +1,7 @@
 package com.baidu.prologue.service.network;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class c extends b {
     private static e cvl;
     private final e cvm;

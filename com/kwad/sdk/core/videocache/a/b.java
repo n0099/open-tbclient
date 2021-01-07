@@ -8,10 +8,10 @@ import java.io.RandomAccessFile;
 public class b implements com.kwad.sdk.core.videocache.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public File f9772a;
+    public File f9773a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final a f9773b;
+    private final a f9774b;
     private RandomAccessFile c;
 
     public b(File file, a aVar) {
@@ -19,11 +19,11 @@ public class b implements com.kwad.sdk.core.videocache.a {
             if (aVar == null) {
                 throw new NullPointerException();
             }
-            this.f9773b = aVar;
+            this.f9774b = aVar;
             d.a(file.getParentFile());
             boolean exists = file.exists();
-            this.f9772a = exists ? file : new File(file.getParentFile(), file.getName() + ".download");
-            this.c = new RandomAccessFile(this.f9772a, exists ? "r" : "rw");
+            this.f9773a = exists ? file : new File(file.getParentFile(), file.getName() + ".download");
+            this.c = new RandomAccessFile(this.f9773a, exists ? "r" : "rw");
         } catch (IOException e) {
             throw new ProxyCacheException("Error using file " + file + " as disc cache", e);
         }
@@ -47,7 +47,7 @@ public class b implements com.kwad.sdk.core.videocache.a {
     public synchronized long a() {
         try {
         } catch (IOException e) {
-            throw new ProxyCacheException("Error reading length of file " + this.f9772a, e);
+            throw new ProxyCacheException("Error reading length of file " + this.f9773a, e);
         }
         return (int) this.c.length();
     }
@@ -56,7 +56,7 @@ public class b implements com.kwad.sdk.core.videocache.a {
     public synchronized void a(byte[] bArr, int i) {
         try {
             if (d()) {
-                throw new ProxyCacheException("Error append cache: cache file " + this.f9772a + " is completed!");
+                throw new ProxyCacheException("Error append cache: cache file " + this.f9773a + " is completed!");
             }
             this.c.seek(a());
             this.c.write(bArr, 0, i);
@@ -69,9 +69,9 @@ public class b implements com.kwad.sdk.core.videocache.a {
     public synchronized void b() {
         try {
             this.c.close();
-            this.f9773b.a(this.f9772a);
+            this.f9774b.a(this.f9773a);
         } catch (IOException e) {
-            throw new ProxyCacheException("Error closing file " + this.f9772a, e);
+            throw new ProxyCacheException("Error closing file " + this.f9773a, e);
         }
     }
 
@@ -79,22 +79,22 @@ public class b implements com.kwad.sdk.core.videocache.a {
     public synchronized void c() {
         if (!d()) {
             b();
-            File file = new File(this.f9772a.getParentFile(), this.f9772a.getName().substring(0, this.f9772a.getName().length() - ".download".length()));
-            if (!this.f9772a.renameTo(file)) {
-                throw new ProxyCacheException("Error renaming file " + this.f9772a + " to " + file + " for completion!");
+            File file = new File(this.f9773a.getParentFile(), this.f9773a.getName().substring(0, this.f9773a.getName().length() - ".download".length()));
+            if (!this.f9773a.renameTo(file)) {
+                throw new ProxyCacheException("Error renaming file " + this.f9773a + " to " + file + " for completion!");
             }
-            this.f9772a = file;
+            this.f9773a = file;
             try {
-                this.c = new RandomAccessFile(this.f9772a, "r");
-                this.f9773b.a(this.f9772a);
+                this.c = new RandomAccessFile(this.f9773a, "r");
+                this.f9774b.a(this.f9773a);
             } catch (IOException e) {
-                throw new ProxyCacheException("Error opening " + this.f9772a + " as disc cache", e);
+                throw new ProxyCacheException("Error opening " + this.f9773a + " as disc cache", e);
             }
         }
     }
 
     @Override // com.kwad.sdk.core.videocache.a
     public synchronized boolean d() {
-        return !a(this.f9772a);
+        return !a(this.f9773a);
     }
 }

@@ -41,7 +41,7 @@ public class b {
             aVar.m(String.valueOf(aVar2.b("systemEndTime", 0L) - aVar2.b("systemStartTime", 0L)));
             aVar.c(aVar2.b("imsiState"));
             aVar.A(k.b("AID", ""));
-            aVar.XJ(j.esU().f());
+            aVar.XI(j.esV().f());
             c.a("SendLog", "traceId" + aVar2.b("traceId"));
         }
     }
@@ -105,20 +105,20 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(JSONObject jSONObject) {
         if (q.m() == 0 || q.l() == 0 || System.currentTimeMillis() > k.a("logCloseTime", 0L) + q.m()) {
-            com.cmic.sso.sdk.c.c.a.esP().a(jSONObject, this.pqE, new d() { // from class: com.cmic.sso.sdk.d.b.2
+            com.cmic.sso.sdk.c.c.a.esQ().a(jSONObject, this.pqE, new d() { // from class: com.cmic.sso.sdk.d.b.2
                 @Override // com.cmic.sso.sdk.c.c.d
                 public void i(String str, String str2, JSONObject jSONObject2) {
                     if (!str.equals("103000")) {
                         if (q.m() != 0 && q.l() != 0) {
                             int a2 = k.a("logFailTimes", 0) + 1;
-                            k.a esV = k.esV();
+                            k.a esW = k.esW();
                             if (a2 >= q.l()) {
-                                esV.a("logFailTimes", 0);
-                                esV.a("logCloseTime", System.currentTimeMillis());
+                                esW.a("logFailTimes", 0);
+                                esW.a("logCloseTime", System.currentTimeMillis());
                             } else {
-                                esV.a("logFailTimes", a2);
+                                esW.a("logFailTimes", a2);
                             }
-                            esV.b();
+                            esW.b();
                         }
                         c.a("SendLog", "request failed , url : " + q.g() + ">>>>>errorMsg : " + jSONObject2.toString());
                         return;

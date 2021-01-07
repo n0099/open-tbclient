@@ -1,26 +1,26 @@
 package com.baidu.platform.comapi.wnplatform.model;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f4662a = new LatLng(0.0d, 0.0d);
+    LatLng f4663a = new LatLng(0.0d, 0.0d);
 
     /* renamed from: b  reason: collision with root package name */
-    String f4663b = "";
+    String f4664b = "";
     String c = "";
 
     public void a(LatLng latLng) {
-        this.f4662a = latLng;
+        this.f4663a = latLng;
     }
 
     public String a() {
-        return this.f4663b;
+        return this.f4664b;
     }
 
     public void a(String str) {
-        this.f4663b = str;
+        this.f4664b = str;
     }
 
     public String b() {

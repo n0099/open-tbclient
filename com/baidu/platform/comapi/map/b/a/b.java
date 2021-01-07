@@ -4,21 +4,21 @@ import android.util.Pair;
 import android.view.MotionEvent;
 import com.baidu.platform.comapi.map.b.a;
 import com.baidu.platform.comapi.map.b.f;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public a.C0290a f4312a;
+    public a.C0290a f4313a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.C0290a f4313b;
+    public a.C0290a f4314b;
     public a.C0290a c;
     public MotionEvent d;
     private a f;
     public f e = new f();
     private boolean g = false;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         boolean a(b bVar);
 
@@ -33,8 +33,8 @@ public class b {
 
     private void a() {
         this.e.a();
-        this.f4312a = null;
-        this.f4313b = null;
+        this.f4313a = null;
+        this.f4314b = null;
         this.c = null;
         this.g = true;
         this.f.a(this);
@@ -50,7 +50,7 @@ public class b {
         this.e.a(motionEvent);
         Pair<a.d, a.d> c = this.e.c();
         if (motionEvent.getPointerCount() == 2) {
-            if (Math.abs(((a.d) c.first).f4318a) > 0.0d || Math.abs(((a.d) c.first).f4319b) > 0.0d || Math.abs(((a.d) c.second).f4318a) > 0.0d || Math.abs(((a.d) c.second).f4319b) > 0.0d) {
+            if (Math.abs(((a.d) c.first).f4319a) > 0.0d || Math.abs(((a.d) c.first).f4320b) > 0.0d || Math.abs(((a.d) c.second).f4319a) > 0.0d || Math.abs(((a.d) c.second).f4320b) > 0.0d) {
                 c(motionEvent);
                 this.f.b(this);
             }
@@ -59,10 +59,10 @@ public class b {
 
     private void c(MotionEvent motionEvent) {
         a.C0290a a2 = a.C0290a.a(motionEvent);
-        this.f4313b = this.c != null ? this.c : a2;
+        this.f4314b = this.c != null ? this.c : a2;
         this.c = a2;
-        if (this.f4312a == null) {
-            this.f4312a = a2;
+        if (this.f4313a == null) {
+            this.f4313a = a2;
         }
     }
 

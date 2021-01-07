@@ -3,10 +3,10 @@ package com.bytedance.embedapplog;
 public class at {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f6082a;
+    private static boolean f6083a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static long f6083b = 0;
+    private static long f6084b = 0;
     private static long c = 0;
 
     public static long a() {
@@ -14,17 +14,17 @@ public class at {
     }
 
     public static void b() {
-        f6083b++;
-        au.a("addFailedCount " + f6083b, null);
+        f6084b++;
+        au.a("addFailedCount " + f6084b, null);
     }
 
     public static boolean c() {
-        au.a("canSave " + f6082a, null);
-        return f6082a;
+        au.a("canSave " + f6083a, null);
+        return f6083a;
     }
 
     public static boolean d() {
-        boolean z = f6083b < 3 && a() != c && f6082a;
+        boolean z = f6084b < 3 && a() != c && f6083a;
         au.a("canSend " + z, null);
         return z;
     }
@@ -35,6 +35,6 @@ public class at {
     }
 
     public static void a(boolean z) {
-        f6082a = z;
+        f6083a = z;
     }
 }

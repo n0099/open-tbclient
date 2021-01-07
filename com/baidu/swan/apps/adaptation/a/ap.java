@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.adaptation.a;
 /* loaded from: classes9.dex */
 public interface ap {
-    void alu();
-
     void alv();
 
-    long alw();
+    void alw();
 
-    boolean alx();
+    long alx();
 
-    String[] aly();
+    boolean aly();
+
+    String[] alz();
 
     void bR(long j);
 

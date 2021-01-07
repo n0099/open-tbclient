@@ -40,18 +40,18 @@ public class a {
     }
 
     private void initView() {
-        bIk();
-        dgB();
+        bIl();
         dgC();
+        dgD();
     }
 
-    private void bIk() {
+    private void bIl() {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(this.lgQ.getResources().getString(R.string.search_major));
     }
 
-    private void dgB() {
+    private void dgC() {
         this.lgR = (RelativeLayout) this.mRootView.findViewById(R.id.search_container);
         this.lgR.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.majorsearch.a.1
             @Override // android.view.View.OnTouchListener
@@ -82,7 +82,7 @@ public class a {
         this.ioT.requestFocus();
     }
 
-    private void dgC() {
+    private void dgD() {
         this.lgW = (LinearLayout) this.mRootView.findViewById(R.id.layout_container);
         this.lgT = (RecyclerView) this.mRootView.findViewById(R.id.rv_major_list);
         this.lgU = new LinearLayoutManager(this.lgQ);
@@ -119,7 +119,7 @@ public class a {
         this.lgT.addOnScrollListener(onScrollListener);
     }
 
-    public LinearLayout dgD() {
+    public LinearLayout dgE() {
         return this.lgW;
     }
 
@@ -134,15 +134,15 @@ public class a {
         this.mNavigationBar.onChangeSkinType(this.lgQ.getPageContext(), i);
         this.ioT.setHintTextColor(ao.getColor(R.color.CAM_X0109));
         this.ioT.setTextColor(ao.getColor(R.color.CAM_X0105));
-        SvgManager.bwq().a(this.gZe, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+        SvgManager.bwr().a(this.gZe, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
         ao.setBackgroundResource(this.lgR, R.drawable.search_major_bg);
-        SvgManager.bwq().a(this.lgS, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bwr().a(this.lgS, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void q(List<String> list, String str) {
         this.lgT.setVisibility(0);
         if (this.lgV != null) {
-            this.lgV.Oj(str);
+            this.lgV.Oi(str);
             this.lgV.setData(list);
             this.lgT.setAdapter(this.lgV);
         }
@@ -151,7 +151,7 @@ public class a {
     public void c(ErrorData errorData) {
         this.lgT.setVisibility(8);
         if (this.lgV != null) {
-            this.lgV.dgF();
+            this.lgV.dgG();
         }
     }
 }

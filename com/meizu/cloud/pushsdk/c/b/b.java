@@ -6,21 +6,21 @@ import java.util.LinkedList;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final ArrayList<com.meizu.cloud.pushsdk.c.a.a> f11559a;
+    private final ArrayList<com.meizu.cloud.pushsdk.c.a.a> f11560a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final LinkedList<Long> f11560b;
+    private final LinkedList<Long> f11561b;
 
     public b(ArrayList<com.meizu.cloud.pushsdk.c.a.a> arrayList, LinkedList<Long> linkedList) {
-        this.f11559a = arrayList;
-        this.f11560b = linkedList;
+        this.f11560a = arrayList;
+        this.f11561b = linkedList;
     }
 
     public ArrayList<com.meizu.cloud.pushsdk.c.a.a> a() {
-        return this.f11559a;
+        return this.f11560a;
     }
 
     public LinkedList<Long> b() {
-        return this.f11560b;
+        return this.f11561b;
     }
 }

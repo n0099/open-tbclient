@@ -16,23 +16,23 @@ public class p extends BaseData {
     private long gsJ;
     private ArrayList<h> gto;
 
-    public long bXI() {
+    public long bXJ() {
         return this.gUU;
     }
 
-    public long bXJ() {
+    public long bXK() {
         return this.gUV;
     }
 
-    public long bXK() {
+    public long bXL() {
         return this.gUT;
     }
 
-    public String Xy() {
+    public String Xz() {
         return this.gUS;
     }
 
-    public long bXL() {
+    public long bXM() {
         return this.gUW;
     }
 
@@ -40,7 +40,7 @@ public class p extends BaseData {
         return this.gto;
     }
 
-    public r bXM() {
+    public r bXN() {
         return this.gUX;
     }
 

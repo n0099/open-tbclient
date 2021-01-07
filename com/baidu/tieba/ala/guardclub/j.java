@@ -257,11 +257,11 @@ public class j extends BaseAdapter {
             } else if (fVar.isFollowed) {
                 com.baidu.live.data.f fVar2 = new com.baidu.live.data.f(fVar.portrait, fVar.userId, "1", false, this.aYC);
                 fVar2.setFrom("source_guardian_club_member_list");
-                com.baidu.live.view.a.Zx().a(fVar.userId, fVar2);
+                com.baidu.live.view.a.Zy().a(fVar.userId, fVar2);
             } else {
                 com.baidu.live.data.f fVar3 = new com.baidu.live.data.f(fVar.portrait, fVar.userId, "1", true, this.aYC);
                 fVar3.setFrom("source_guardian_club_member_list");
-                com.baidu.live.view.a.Zx().a(fVar.userId, fVar3);
+                com.baidu.live.view.a.Zy().a(fVar.userId, fVar3);
             }
         }
     }
@@ -309,7 +309,7 @@ public class j extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bYO() {
+    public void bYP() {
         MessageManager.getInstance().unRegisterListener(this.gPg);
     }
 

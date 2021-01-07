@@ -9,7 +9,7 @@ public final class c {
     public static final com.bytedance.sdk.a.a.f pjK = com.bytedance.sdk.a.a.f.a(":");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final com.bytedance.sdk.a.a.f f6189b = com.bytedance.sdk.a.a.f.a(Header.RESPONSE_STATUS_UTF8);
+    public static final com.bytedance.sdk.a.a.f f6190b = com.bytedance.sdk.a.a.f.a(Header.RESPONSE_STATUS_UTF8);
     public static final com.bytedance.sdk.a.a.f pjL = com.bytedance.sdk.a.a.f.a(Header.TARGET_METHOD_UTF8);
     public static final com.bytedance.sdk.a.a.f pjM = com.bytedance.sdk.a.a.f.a(Header.TARGET_PATH_UTF8);
     public static final com.bytedance.sdk.a.a.f pjN = com.bytedance.sdk.a.a.f.a(Header.TARGET_SCHEME_UTF8);

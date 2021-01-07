@@ -109,7 +109,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     @Override // android.view.ViewGroup
     public final boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         boolean z = false;
-        if (aKP()) {
+        if (aKQ()) {
             if (isPullLoadEnabled() || isPullRefreshEnabled()) {
                 int action = motionEvent.getAction();
                 if (action == 3 || action == 1) {
@@ -123,14 +123,14 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
                             break;
                         case 2:
                             float y = motionEvent.getY() - this.mLastMotionY;
-                            if (Math.abs(y) > this.mTouchSlop || isPullRefreshing() || isPullLoading() || aKR()) {
+                            if (Math.abs(y) > this.mTouchSlop || isPullRefreshing() || isPullLoading() || aKS()) {
                                 this.mLastMotionY = motionEvent.getY();
                                 if (isPullRefreshEnabled() && isReadyForPullDown()) {
                                     if (Math.abs(getScrollYValue()) > 0 || y > 0.5f) {
                                         z = true;
                                     }
                                     this.dBI = z;
-                                    if (this.dBI && aKO()) {
+                                    if (this.dBI && aKP()) {
                                         this.dBL.onTouchEvent(motionEvent);
                                         break;
                                     }
@@ -172,7 +172,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
                             if (this.dBJ == ILoadingLayout.State.RELEASE_TO_REFRESH) {
                                 startRefreshing();
                             } else if (this.dBY && this.dBJ == ILoadingLayout.State.RELEASE_TO_LONG_REFRESH) {
-                                aKS();
+                                aKT();
                                 if (this.dCa) {
                                     return true;
                                 }
@@ -286,12 +286,12 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         }
     }
 
-    protected boolean aKO() {
+    protected boolean aKP() {
         return true;
     }
 
     protected LoadingLayout f(Context context, AttributeSet attributeSet) {
-        aKQ();
+        aKR();
         LoadingLayout loadingLayout = null;
         switch (this.dBU) {
             case STANDARD_HEADER:
@@ -377,7 +377,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
                 this.dBA.onPull(Math.abs(getScrollYValue()) / this.dBC);
             }
             int abs = Math.abs(getScrollYValue());
-            if (isPullRefreshEnabled() && !isPullRefreshing() && !aKR()) {
+            if (isPullRefreshEnabled() && !isPullRefreshing() && !aKS()) {
                 if (this.dBY && abs > this.dBC * this.dBZ * 2.0f) {
                     this.dBJ = ILoadingLayout.State.RELEASE_TO_LONG_REFRESH;
                 } else if (abs > this.dBC * this.dBZ) {
@@ -420,10 +420,10 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     protected void resetHeaderLayout() {
         int abs = Math.abs(getScrollYValue());
         boolean isPullRefreshing = isPullRefreshing();
-        boolean aKR = aKR();
-        if ((isPullRefreshing || aKR) && abs <= this.dBC) {
+        boolean aKS = aKS();
+        if ((isPullRefreshing || aKS) && abs <= this.dBC) {
             km(0);
-        } else if (isPullRefreshing || aKR) {
+        } else if (isPullRefreshing || aKS) {
             km(-this.dBC);
         } else {
             km(0);
@@ -446,7 +446,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         return this.dBJ == ILoadingLayout.State.REFRESHING;
     }
 
-    protected boolean aKR() {
+    protected boolean aKS() {
         return this.dBJ == ILoadingLayout.State.LONG_REFRESHING;
     }
 
@@ -459,7 +459,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     }
 
     private void gK(boolean z) {
-        if (!isPullRefreshing() && !aKR()) {
+        if (!isPullRefreshing() && !aKS()) {
             this.dBJ = ILoadingLayout.State.REFRESHING;
             a(ILoadingLayout.State.REFRESHING, true);
             if (this.dBA != null) {
@@ -476,12 +476,12 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         }
     }
 
-    protected void aKS() {
+    protected void aKT() {
         gL(true);
     }
 
     private void gL(boolean z) {
-        if (!isPullRefreshing() && !aKR()) {
+        if (!isPullRefreshing() && !aKS()) {
             this.dBJ = ILoadingLayout.State.LONG_REFRESHING;
             a(this.dBJ, true);
             if (this.dBA != null) {
@@ -560,7 +560,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         this.dBH = z;
     }
 
-    private boolean aKP() {
+    private boolean aKQ() {
         return this.dBH;
     }
 
@@ -612,7 +612,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         }
     }
 
-    protected void aKQ() {
+    protected void aKR() {
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent

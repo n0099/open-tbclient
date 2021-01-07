@@ -67,10 +67,10 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             p pVar;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof p) && !j.this.kQm.isFinishing() && (pVar = (p) customResponsedMessage.getData()) != null) {
-                pVar.nsE = null;
-                if (!TextUtils.isEmpty(pVar.nsG) && !TextUtils.isEmpty(pVar.nsD) && pVar.nsD.equals(j.this.kSk)) {
-                    j.this.kRj.setCurrentImageQRInfo(pVar.nsG);
-                    j.this.NR(pVar.nsG);
+                pVar.nsD = null;
+                if (!TextUtils.isEmpty(pVar.nsF) && !TextUtils.isEmpty(pVar.nsC) && pVar.nsC.equals(j.this.kSk)) {
+                    j.this.kRj.setCurrentImageQRInfo(pVar.nsF);
+                    j.this.NQ(pVar.nsF);
                 }
             }
         }
@@ -78,15 +78,15 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
     private k.b kSt = new k.b() { // from class: com.baidu.tieba.image.j.3
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            j.this.kRj.sj(j.this.kQm.cWh());
-            j.this.cuV();
+            j.this.kRj.sj(j.this.kQm.cWi());
+            j.this.cuW();
         }
     };
     private k.b kSu = new k.b() { // from class: com.baidu.tieba.image.j.4
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
             f.aX(j.this.kQm.getPageContext().getPageActivity(), j.this.kRj.getCurrentImageUrl());
-            j.this.cuV();
+            j.this.cuW();
             j.this.EZ(1);
         }
     };
@@ -101,7 +101,7 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
                 intent.putExtra(com.baidu.tbadk.imageManager.d.IMAGE_URL, currentImageUrl);
                 TbadkCoreApplication.getInst().sendBroadcast(intent);
             }
-            j.this.cuV();
+            j.this.cuW();
             j.this.EZ(2);
         }
     };
@@ -116,7 +116,7 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
             j.this.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
             if (!j.this.mPermissionJudgement.startRequestPermission(pageActivity)) {
                 j.this.saveImage();
-                j.this.cuV();
+                j.this.cuW();
                 j.this.EZ(3);
             }
         }
@@ -124,10 +124,10 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
     private k.b kSw = new k.b() { // from class: com.baidu.tieba.image.j.7
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            j.this.dci();
-            j.this.cuV();
-            j.this.EZ(4);
             j.this.dcj();
+            j.this.cuW();
+            j.this.EZ(4);
+            j.this.dck();
         }
     };
     private k.b kSx = new AnonymousClass8();
@@ -189,13 +189,13 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
         if (this.iwF == null) {
             this.iwF = new ArrayList();
         }
-        cyb();
+        cyc();
         this.iwA = new com.baidu.tbadk.core.dialog.i(this.kQm.getPageContext(), this.iwB);
     }
 
-    public void cyb() {
+    public void cyc() {
         this.iwF.clear();
-        String si = this.kRj.si(this.kQm.cWh());
+        String si = this.kRj.si(this.kQm.cWi());
         if (si != null) {
             this.kSm = new com.baidu.tbadk.core.dialog.g(si, this.iwB);
             this.kSm.a(this.kSt);
@@ -204,7 +204,7 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
         this.iGV = new com.baidu.tbadk.core.dialog.g(getString(R.string.save_to_local), this.iwB);
         this.iGV.a(this.iGW);
         this.iwF.add(this.iGV);
-        if (this.kQm != null && !this.kQm.dcd()) {
+        if (this.kQm != null && !this.kQm.dce()) {
             this.kSo = new com.baidu.tbadk.core.dialog.g(getString(R.string.save_to_emotion), this.iwB);
             this.kSo.a(this.kSv);
             this.iwF.add(this.kSo);
@@ -224,7 +224,7 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
         this.iwB.a(new k.a() { // from class: com.baidu.tieba.image.j.2
             @Override // com.baidu.tbadk.core.dialog.k.a
             public void onClick() {
-                j.this.cuV();
+                j.this.cuW();
             }
         });
         this.iwB.bB(this.iwF);
@@ -235,7 +235,7 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
         return this.kQm.getString(i);
     }
 
-    public void cuV() {
+    public void cuW() {
         if (this.iwA != null && this.iwA.isShowing()) {
             this.iwA.dismiss();
         }
@@ -266,17 +266,17 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
                 }
                 j.this.kSl = new com.baidu.tieba.ueg.c(currentImageQRInfo, new c.a() { // from class: com.baidu.tieba.image.j.8.1
                     @Override // com.baidu.tieba.ueg.c.a
-                    public void dcl() {
+                    public void dcm() {
                         j.this.openUrl(currentImageQRInfo);
                     }
 
                     @Override // com.baidu.tieba.ueg.c.a
-                    public void dcm() {
+                    public void dcn() {
                         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(j.this.kQm.getPageContext().getPageActivity());
                         aVar.setTitleShowCenter(true);
-                        aVar.Bo(j.this.getString(R.string.qr_url_jump_external_title));
+                        aVar.Bn(j.this.getString(R.string.qr_url_jump_external_title));
                         aVar.setMessageShowCenter(true);
-                        aVar.Bp(j.this.getString(R.string.qr_url_jump_external_message));
+                        aVar.Bo(j.this.getString(R.string.qr_url_jump_external_message));
                         aVar.a(j.this.getString(R.string.confirm), new a.b() { // from class: com.baidu.tieba.image.j.8.1.1
                             @Override // com.baidu.tbadk.core.dialog.a.b
                             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -292,15 +292,15 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
                         });
                         aVar.jH(false);
                         aVar.jI(false);
-                        aVar.b(j.this.kQm.getPageContext()).btX();
+                        aVar.b(j.this.kQm.getPageContext()).btY();
                     }
 
                     @Override // com.baidu.tieba.ueg.c.a
-                    public void dcn() {
+                    public void dco() {
                         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(j.this.kQm.getPageContext().getPageActivity());
-                        aVar.Bo(null);
+                        aVar.Bn(null);
                         aVar.setMessageShowCenter(true);
-                        aVar.Bp(j.this.getString(R.string.qr_url_risk_forbid));
+                        aVar.Bo(j.this.getString(R.string.qr_url_risk_forbid));
                         aVar.a(j.this.getString(R.string.qr_url_risk_forbid_button), new a.b() { // from class: com.baidu.tieba.image.j.8.1.3
                             @Override // com.baidu.tbadk.core.dialog.a.b
                             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -309,7 +309,7 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
                         });
                         aVar.jH(false);
                         aVar.jI(false);
-                        aVar.b(j.this.kQm.getPageContext()).btX();
+                        aVar.b(j.this.kQm.getPageContext()).btY();
                     }
 
                     @Override // com.baidu.tieba.ueg.c.a
@@ -319,7 +319,7 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
                 });
                 j.this.kSl.setPriority(3);
                 j.this.kSl.execute(new String[0]);
-                j.this.cuV();
+                j.this.cuW();
                 j.this.EZ(5);
             }
         }
@@ -342,7 +342,7 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
         }
     }
 
-    public void dci() {
+    public void dcj() {
         UrlDragImageView currentUrlDragImageView;
         boolean z = true;
         if (this.kRj != null && (currentUrlDragImageView = this.kRj.getCurrentUrlDragImageView()) != null) {
@@ -379,10 +379,10 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
             shareItem.isFromImageViewer = true;
             shareItem.fxo = 14;
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.kQm, shareItem, false);
-            if (com.baidu.tbadk.a.d.bmZ()) {
+            if (com.baidu.tbadk.a.d.bna()) {
                 shareDialogConfig.isImageViewerDialog = true;
-                shareDialogConfig.originImgText = this.kRj.si(this.kQm.cWh());
-                shareDialogConfig.showAddEmotion = (this.kQm == null || this.kQm.dcd()) ? false : true;
+                shareDialogConfig.originImgText = this.kRj.si(this.kQm.cWi());
+                shareDialogConfig.showAddEmotion = (this.kQm == null || this.kQm.dce()) ? false : true;
                 String currentImageQRInfo = this.kRj.getCurrentImageQRInfo();
                 if (TextUtils.isEmpty(currentImageQRInfo) || currentImageQRInfo.equals("qr_none")) {
                     z = false;
@@ -400,7 +400,7 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.c
-    public void bCW() {
+    public void bCX() {
         String currentImageUrl = this.kRj.getCurrentImageUrl();
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EMOTION_USER_COLLECT, currentImageUrl));
@@ -413,7 +413,7 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.b
-    public void bCV() {
+    public void bCW() {
         Activity pageActivity = this.kQm.getPageContext().getPageActivity();
         if (this.mPermissionJudgement == null) {
             this.mPermissionJudgement = new PermissionJudgePolicy();
@@ -442,9 +442,9 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
         public String doInBackground(String... strArr) {
             ImageUrlData imageUrlData;
             String nameMd5FromUrl;
-            Map<String, ImageUrlData> dbU = j.this.kQm.dbU();
-            if (this.mUrl != null && dbU != null) {
-                Iterator<Map.Entry<String, ImageUrlData>> it = dbU.entrySet().iterator();
+            Map<String, ImageUrlData> dbV = j.this.kQm.dbV();
+            if (this.mUrl != null && dbV != null) {
+                Iterator<Map.Entry<String, ImageUrlData>> it = dbV.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         imageUrlData = null;
@@ -457,7 +457,7 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
                     }
                 }
                 if (imageUrlData != null) {
-                    String str = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + as.bwo().BZ(nameMd5FromUrl) + "/" + av.getNameMd5FromUrl(imageUrlData.originalUrl);
+                    String str = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + as.bwp().BY(nameMd5FromUrl) + "/" + av.getNameMd5FromUrl(imageUrlData.originalUrl);
                     int[] imageFileWH = n.getImageFileWH(str);
                     if (imageFileWH != null && imageFileWH.length == 2 && imageFileWH[0] > 0 && n.copyImageFile(str, this.mUrl, j.this.kQm.getPageContext().getPageActivity()) == 0) {
                         return j.this.kQm.getPageContext().getString(R.string.save_image_to_album);
@@ -480,7 +480,7 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (!com.baidu.tbadk.a.d.bna() || j.this.getString(R.string.save_fail).equals(str)) {
+            if (!com.baidu.tbadk.a.d.bnb() || j.this.getString(R.string.save_fail).equals(str)) {
                 j.this.kQm.showToast(str);
             } else if (j.this.kSr != null) {
                 j.this.kSr.a(j.this.kRj, j.this.kRj.getBottomHeight(), j.this.onWeChatEmotionShareListener);
@@ -501,10 +501,10 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dcj() {
+    public void dck() {
     }
 
-    public void NR(String str) {
+    public void NQ(String str) {
         int i;
         boolean z = false;
         if (this.iwA != null && !this.kQm.isFinishing() && this.iwA.isShowing() && !TextUtils.isEmpty(str) && !"qr_none".equals(str)) {
@@ -539,20 +539,20 @@ public class j implements ImageViewerBottomLayout.b, ImageViewerBottomLayout.c {
             if ((imageUrlData == null || TextUtils.isEmpty(imageUrlData.qrInfo)) && (imageBitmap = dragImageView.getImageBitmap()) != null && !imageBitmap.isRecycled()) {
                 p pVar = new p();
                 pVar.type = 0;
-                pVar.nsE = imageBitmap;
+                pVar.nsD = imageBitmap;
                 String currentImageUrl = this.kRj.getCurrentImageUrl();
                 if (!TextUtils.isEmpty(currentImageUrl)) {
-                    pVar.nsD = String.valueOf(System.currentTimeMillis()) + av.getNameMd5FromUrl(currentImageUrl);
+                    pVar.nsC = String.valueOf(System.currentTimeMillis()) + av.getNameMd5FromUrl(currentImageUrl);
                 } else {
-                    pVar.nsD = String.valueOf(BdUniqueId.gen().getId());
+                    pVar.nsC = String.valueOf(BdUniqueId.gen().getId());
                 }
-                this.kSk = pVar.nsD;
+                this.kSk = pVar.nsC;
                 this.kQm.sendMessage(new CustomMessage(2921403, pVar));
             }
         }
     }
 
-    public void dck() {
+    public void dcl() {
         this.kSk = null;
     }
 

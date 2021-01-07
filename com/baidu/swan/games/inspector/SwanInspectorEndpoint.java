@@ -57,16 +57,16 @@ public class SwanInspectorEndpoint {
             this.ekF = str;
         }
 
-        public boolean baS() {
-            return "Debugger.enable".equals(cA(baU()));
+        public boolean baT() {
+            return "Debugger.enable".equals(cA(baV()));
         }
 
-        public boolean baT() {
-            String cA = cA(baU());
+        public boolean baU() {
+            String cA = cA(baV());
             return cA != null && cA.indexOf("Debugger.") == 0;
         }
 
-        private JSONObject baU() {
+        private JSONObject baV() {
             if (this.ekG == null) {
                 this.ekG = xG(this.ekF);
             }
@@ -175,7 +175,7 @@ public class SwanInspectorEndpoint {
                     return;
                 }
                 a aVar = new a(str);
-                if (!SwanInspectorEndpoint.this.ekt || !aVar.baT()) {
+                if (!SwanInspectorEndpoint.this.ekt || !aVar.baU()) {
                     SwanInspectorEndpoint.this.cQK.offer(str);
                     SwanInspectorEndpoint.this.ejQ.postOnJSThread(new Runnable() { // from class: com.baidu.swan.games.inspector.SwanInspectorEndpoint.c.1
                         @Override // java.lang.Runnable
@@ -188,7 +188,7 @@ public class SwanInspectorEndpoint {
                             }
                         }
                     });
-                    if (SwanInspectorEndpoint.this.ekw != null && aVar.baS()) {
+                    if (SwanInspectorEndpoint.this.ekw != null && aVar.baT()) {
                         final Runnable runnable = SwanInspectorEndpoint.this.ekw;
                         SwanInspectorEndpoint.this.ekw = null;
                         SwanInspectorEndpoint.this.ejQ.postOnJSThread(new Runnable() { // from class: com.baidu.swan.games.inspector.SwanInspectorEndpoint.c.2
@@ -224,7 +224,7 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public static SwanInspectorEndpoint baR() {
+    public static SwanInspectorEndpoint baS() {
         return eko;
     }
 
@@ -236,7 +236,7 @@ public class SwanInspectorEndpoint {
         a(c0535a);
         try {
             u(aVar2);
-            if (aVar.baM()) {
+            if (aVar.baN()) {
                 this.ekw = runnable;
                 b(aVar);
             } else {
@@ -257,9 +257,9 @@ public class SwanInspectorEndpoint {
 
     private void b(com.baidu.swan.games.inspector.a aVar) {
         this.ekx = ConnectionState.CONNECTING;
-        this.ekq = aVar.baN();
-        this.ekt = aVar.baO();
-        this.eks = aVar.baM();
+        this.ekq = aVar.baO();
+        this.ekt = aVar.baP();
+        this.eks = aVar.baN();
         this.ekr = "ws://" + this.ekq + "/inspect/inspectorTarget/" + this.ekp;
         if (DEBUG) {
             Log.i("SwanInspector", "Starting inspector to " + this.ekr);
@@ -292,9 +292,9 @@ public class SwanInspectorEndpoint {
         long currentTimeMillis = System.currentTimeMillis();
         a.C0535a c0535a = this.eku;
         if (c0535a == null) {
-            c0535a = a.C0535a.baP();
+            c0535a = a.C0535a.baQ();
         }
-        sb.append(c0535a.baQ()).append("\n");
+        sb.append(c0535a.baR()).append("\n");
         if (!c0535a.isEnabled()) {
             return sb.toString();
         }

@@ -8,7 +8,7 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 public class h implements aj<com.ksad.lottie.model.b> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f8271a = new h();
+    public static final h f8272a = new h();
 
     private h() {
     }

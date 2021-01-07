@@ -12,11 +12,11 @@ import com.baidu.tieba.ala.quitroomrecommend.data.AlaQuitRoomRecommendResponseMe
 /* loaded from: classes11.dex */
 public class AlaQuitRoomRecommendInitialize {
     static {
+        cry();
         crx();
-        crw();
     }
 
-    private static void crw() {
+    private static void crx() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913264, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.quitroomrecommend.AlaQuitRoomRecommendInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<b> run(CustomMessage<TbPageContext> customMessage) {
@@ -27,7 +27,7 @@ public class AlaQuitRoomRecommendInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void crx() {
+    private static void cry() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021226, TbConfig.SERVER_ADDRESS + "ala/live/quitLiveRec");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);

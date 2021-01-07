@@ -17,14 +17,14 @@ public class a {
     private int mTouchSlop;
     private VelocityTracker mVelocityTracker;
     private View mView;
-    private InterfaceC0904a oqZ;
+    private InterfaceC0942a oqY;
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.livepager.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0904a {
-        void bMq();
-
+    public interface InterfaceC0942a {
         void bMr();
+
+        void bMs();
 
         void y(float f, float f2);
     }
@@ -65,18 +65,18 @@ public class a {
                     this.gdv = false;
                 }
                 if (this.gdw) {
-                    if (this.oqZ != null) {
-                        this.oqZ.y(motionEvent.getRawX(), motionEvent.getRawY());
+                    if (this.oqY != null) {
+                        this.oqY.y(motionEvent.getRawX(), motionEvent.getRawY());
                     }
-                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.cGB - motionEvent.getY()) && this.oqZ != null) {
-                    this.oqZ.bMr();
+                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.cGB - motionEvent.getY()) && this.oqY != null) {
+                    this.oqY.bMs();
                 }
                 if (!this.gdw && this.gdv && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.cGB - motionEvent.getY()) < 30.0f) {
                     this.mView.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.livepager.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!a.this.gdw && a.this.gdv && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.cGB - motionEvent.getY()) < 30.0f && a.this.oqZ != null) {
-                                a.this.oqZ.bMq();
+                            if (!a.this.gdw && a.this.gdv && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.cGB - motionEvent.getY()) < 30.0f && a.this.oqY != null) {
+                                a.this.oqY.bMr();
                             }
                         }
                     }, 300L);
@@ -91,8 +91,8 @@ public class a {
         return true;
     }
 
-    public void setEventListener(InterfaceC0904a interfaceC0904a) {
-        this.oqZ = interfaceC0904a;
+    public void setEventListener(InterfaceC0942a interfaceC0942a) {
+        this.oqY = interfaceC0942a;
     }
 
     private void releaseVelocityTracker() {

@@ -5,18 +5,18 @@ import android.text.TextUtils;
 public class an {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f14538a = 0;
+    private static long f14539a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private static String f927a = "";
+    private static String f928a = "";
 
     public static String a() {
-        if (TextUtils.isEmpty(f927a)) {
-            f927a = com.xiaomi.push.bf.a(4);
+        if (TextUtils.isEmpty(f928a)) {
+            f928a = com.xiaomi.push.bf.a(4);
         }
-        StringBuilder append = new StringBuilder().append(f927a);
-        long j = f14538a;
-        f14538a = 1 + j;
+        StringBuilder append = new StringBuilder().append(f928a);
+        long j = f14539a;
+        f14539a = 1 + j;
         return append.append(j).toString();
     }
 }

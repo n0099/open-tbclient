@@ -7,7 +7,7 @@ public class l implements k {
     }
 
     @Override // com.baidu.tieba.l.k
-    public g diP() {
-        return com.baidu.tieba.post.j.dCP();
+    public g diQ() {
+        return com.baidu.tieba.post.j.dCQ();
     }
 }

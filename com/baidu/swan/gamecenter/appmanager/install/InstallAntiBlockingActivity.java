@@ -24,7 +24,7 @@ public class InstallAntiBlockingActivity extends Activity {
         int releaseFixedOrientation = ak.releaseFixedOrientation(this);
         super.onCreate(bundle);
         ak.fixedOrientation(this, releaseFixedOrientation);
-        a.aXf();
+        a.aXg();
         setContentView(a.e.aiapps_install_guide_layout);
         Intent intent = getIntent();
         if (intent != null) {
@@ -41,7 +41,7 @@ public class InstallAntiBlockingActivity extends Activity {
             findViewById(a.d.install_guide_image_mask).setVisibility(0);
             imageView.setImageResource(a.c.aiapps_install_guide_request);
             findViewById(a.d.install_guide_bg_mask).setBackgroundResource(a.C0524a.aiapps_install_guide_mask);
-            a.aXa();
+            a.aXb();
         } else {
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(a.b.aiapps_install_guide_image_height));
             layoutParams2.gravity = 80;
@@ -57,7 +57,7 @@ public class InstallAntiBlockingActivity extends Activity {
                 imageView.setImageResource(a.c.aiapps_install_guide_default);
             }
             findViewById(a.d.install_guide_bg_mask).setBackgroundResource(a.C0524a.aiapps_anti_block_mask);
-            a.aXc();
+            a.aXd();
         }
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity.1
             @Override // android.view.View.OnClickListener

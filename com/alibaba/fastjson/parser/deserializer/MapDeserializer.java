@@ -25,7 +25,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class MapDeserializer implements ObjectDeserializer {
     public static MapDeserializer instance = new MapDeserializer();
 

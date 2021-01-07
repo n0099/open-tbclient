@@ -9,16 +9,16 @@ import java.util.HashMap;
 public class b extends com.baidu.mobads.vo.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3472a;
+    private int f3473a;
     private int j;
     private int k;
 
     public b(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType) {
         super(context, activity, slotType);
-        this.f3472a = 1;
+        this.f3473a = 1;
         this.j = 1;
         this.k = 1;
-        this.f3562b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
+        this.f3563b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
         a("androidfeed");
     }
 
@@ -28,12 +28,12 @@ public class b extends com.baidu.mobads.vo.d {
         hashMap.put(IXAdRequestInfo.FET, "ANTI,MSSP,NMON,HTML,CLICK2VIDEO,PAUSE,VIDEO");
         hashMap.put("pos", "" + this.j);
         hashMap.put("seq", "" + this.k);
-        hashMap.put("viewid", "" + this.f3472a);
+        hashMap.put("viewid", "" + this.f3473a);
         return hashMap;
     }
 
     public void a(int i) {
-        this.f3472a = i;
+        this.f3473a = i;
     }
 
     public void b(int i) {

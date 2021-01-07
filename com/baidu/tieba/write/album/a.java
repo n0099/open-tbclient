@@ -11,30 +11,30 @@ public class a extends com.baidu.adp.base.d<BaseFragmentActivity> {
     private String bMz;
     private Fragment[] biq;
     private TbPageContext iUb;
-    private e nYl;
-    private String[] nYm;
-    private ImageListFragment nYn;
-    private AlbumImageBrowseFragment nYo;
+    private e nYk;
+    private String[] nYl;
+    private ImageListFragment nYm;
+    private AlbumImageBrowseFragment nYn;
 
     public a(TbPageContext tbPageContext, e eVar) {
         super(tbPageContext);
         this.bMz = "tag_image";
         this.bMA = "tag_b_image";
         this.iUb = tbPageContext;
-        this.nYl = eVar;
+        this.nYk = eVar;
     }
 
-    public void WF() {
+    public void WG() {
         this.biq = new Fragment[2];
-        this.nYm = new String[2];
-        this.nYn = new ImageListFragment();
-        this.nYn.a(this.nYl);
-        this.biq[0] = this.nYn;
-        this.nYm[0] = this.bMz;
-        this.nYo = new AlbumImageBrowseFragment();
-        this.nYo.a(this.nYl);
-        this.biq[1] = this.nYo;
-        this.nYm[1] = this.bMA;
+        this.nYl = new String[2];
+        this.nYm = new ImageListFragment();
+        this.nYm.a(this.nYk);
+        this.biq[0] = this.nYm;
+        this.nYl[0] = this.bMz;
+        this.nYn = new AlbumImageBrowseFragment();
+        this.nYn.a(this.nYk);
+        this.biq[1] = this.nYn;
+        this.nYl[1] = this.bMA;
     }
 
     public Fragment Mu(int i) {
@@ -48,11 +48,11 @@ public class a extends com.baidu.adp.base.d<BaseFragmentActivity> {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.nYm[i];
+        return this.nYl[i];
     }
 
     public void b(NavigationBar navigationBar) {
-        this.nYn.b(navigationBar);
+        this.nYm.b(navigationBar);
     }
 
     public void onChangeSkinType(int i) {
@@ -70,99 +70,99 @@ public class a extends com.baidu.adp.base.d<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView dYn() {
-        if (this.nYn == null) {
+    public TbCameraView dYo() {
+        if (this.nYm == null) {
             return null;
         }
-        return this.nYn.dYn();
+        return this.nYm.dYo();
     }
 
     public void stopCamera() {
-        TbCameraView dYn = dYn();
-        if (dYn != null) {
-            dYn.stopCamera();
-            dYn.setVisibility(4);
+        TbCameraView dYo = dYo();
+        if (dYo != null) {
+            dYo.stopCamera();
+            dYo.setVisibility(4);
         }
     }
 
     public void openCamera() {
-        TbCameraView dYn = dYn();
-        if (dYn != null) {
-            dYn.setVisibility(0);
-            dYn.zk(false);
+        TbCameraView dYo = dYo();
+        if (dYo != null) {
+            dYo.setVisibility(0);
+            dYo.zk(false);
         }
-        if (this.nYn != null && this.nYn.dYy() != null) {
-            this.nYn.dYy().Xc();
-        }
-    }
-
-    public void dYo() {
-        if (this.nYn != null) {
-            this.nYn.Xa();
+        if (this.nYm != null && this.nYm.dYz() != null) {
+            this.nYm.dYz().Xd();
         }
     }
 
-    public View WG() {
-        if (this.nYn == null) {
-            return null;
+    public void dYp() {
+        if (this.nYm != null) {
+            this.nYm.Xb();
         }
-        return this.nYn.WX();
     }
 
     public View WH() {
-        if (this.nYn == null) {
+        if (this.nYm == null) {
             return null;
         }
-        return this.nYn.Xb();
+        return this.nYm.WY();
     }
 
     public View WI() {
-        if (this.nYo == null) {
+        if (this.nYm == null) {
             return null;
         }
-        return this.nYo.WX();
+        return this.nYm.Xc();
     }
 
     public View WJ() {
-        if (this.nYo == null) {
+        if (this.nYn == null) {
             return null;
         }
-        return this.nYo.WY();
+        return this.nYn.WY();
     }
 
     public View WK() {
-        if (this.nYo == null) {
+        if (this.nYn == null) {
             return null;
         }
-        return this.nYo.WK();
+        return this.nYn.WZ();
     }
 
     public View WL() {
         if (this.nYn == null) {
             return null;
         }
-        return this.nYn.WK();
+        return this.nYn.WL();
+    }
+
+    public View WM() {
+        if (this.nYm == null) {
+            return null;
+        }
+        return this.nYm.WL();
     }
 
     public void onDestroy() {
     }
 
-    public ImageListFragment dYp() {
-        return this.nYn;
+    public ImageListFragment dYq() {
+        return this.nYm;
     }
 
     public void dj(boolean z) {
-        if (this.nYo != null) {
-            this.nYo.dj(z);
-        }
         if (this.nYn != null) {
             this.nYn.dj(z);
+        }
+        if (this.nYm != null) {
+            this.nYm.dj(z);
         }
     }
 
     public void a(j jVar) {
-        if (this.nYn != null) {
-            this.nYn.a(jVar);
+        if (this.nYm != null) {
+            this.nYm.a(jVar);
         }
     }
 }

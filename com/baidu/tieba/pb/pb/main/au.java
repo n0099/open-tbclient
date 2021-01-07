@@ -8,43 +8,43 @@ import com.baidu.tbadk.core.util.be;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class au {
-    private static au lWO = null;
+    private static au lWN = null;
 
-    public static au dtm() {
-        if (lWO == null) {
+    public static au dtn() {
+        if (lWN == null) {
             synchronized (au.class) {
-                if (lWO == null) {
-                    lWO = new au();
+                if (lWN == null) {
+                    lWN = new au();
                 }
             }
         }
-        return lWO;
+        return lWN;
     }
 
     public void f(TbPageContext tbPageContext, String str) {
         if (tbPageContext != null && !TextUtils.isEmpty(str)) {
             if (str.contains("is_native_app=1")) {
             }
-            if (Qd(str)) {
+            if (Qc(str)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-            } else if (Qe(str)) {
-                be.bwu().a((TbPageContext<?>) tbPageContext, new String[]{str}, true);
+            } else if (Qd(str)) {
+                be.bwv().a((TbPageContext<?>) tbPageContext, new String[]{str}, true);
             } else {
-                be.bwu().b(tbPageContext, new String[]{str});
+                be.bwv().b(tbPageContext, new String[]{str});
             }
         }
     }
 
-    public static boolean Qc(String str) {
+    public static boolean Qb(String str) {
         return str != null && str.contains("bookcover:");
     }
 
-    private boolean Qd(String str) {
+    private boolean Qc(String str) {
         Map<String, String> paramPair;
         if (!TextUtils.isEmpty(str) && (paramPair = be.getParamPair(be.getParamStr(str))) != null) {
             String str2 = paramPair.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                return Qd(com.baidu.adp.lib.util.k.getUrlDecode(str2));
+                return Qc(com.baidu.adp.lib.util.k.getUrlDecode(str2));
             }
             String str3 = paramPair.get("tbgametype");
             return !TextUtils.isEmpty(str3) && str3.equals("1");
@@ -52,7 +52,7 @@ public class au {
         return false;
     }
 
-    private boolean Qe(String str) {
+    private boolean Qd(String str) {
         return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
     }
 }

@@ -69,7 +69,7 @@ public class c extends BdBaseModel {
                     GetSuperCustomerInfoHttpResponseMessage getSuperCustomerInfoHttpResponseMessage = (GetSuperCustomerInfoHttpResponseMessage) httpResponsedMessage;
                     if (getSuperCustomerInfoHttpResponseMessage.QU() != null) {
                         c.this.bwr = getSuperCustomerInfoHttpResponseMessage.QU();
-                        b.cnp().bwr = c.this.bwr;
+                        b.cnq().bwr = c.this.bwr;
                         c.this.Be();
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913189, "refreshInfo"));
                     }
@@ -408,7 +408,7 @@ public class c extends BdBaseModel {
         this.handler.removeCallbacksAndMessages(null);
         If();
         this.bwr = null;
-        b.cnp().bwr = null;
+        b.cnq().bwr = null;
         if (this.hDT != null) {
             this.hDT.cancel();
             this.hDT = null;

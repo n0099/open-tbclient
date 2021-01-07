@@ -18,11 +18,11 @@ public class j {
             throw new NullPointerException("FrsActivity is NullPointerException");
         }
         this.jDI = frsFragment;
-        this.jfB = this.jDI.cEW();
-        this.jfi = this.jDI.cEZ();
-        this.jER = this.jDI.cEX();
-        this.jfA = this.jDI.cEU();
-        this.jES = this.jDI.cEY();
-        this.jET = this.jDI.cEV();
+        this.jfB = this.jDI.cEX();
+        this.jfi = this.jDI.cFa();
+        this.jER = this.jDI.cEY();
+        this.jfA = this.jDI.cEV();
+        this.jES = this.jDI.cEZ();
+        this.jET = this.jDI.cEW();
     }
 }

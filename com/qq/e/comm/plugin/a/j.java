@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.plugin.util.ar;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class j {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static Intent a(Context context) {

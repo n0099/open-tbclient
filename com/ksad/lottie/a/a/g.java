@@ -18,14 +18,14 @@ import com.ksad.lottie.model.content.GradientType;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class g implements d, j, a.InterfaceC1037a {
+public class g implements d, j, a.InterfaceC1078a {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8238a;
+    private final String f8239a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.ksad.lottie.model.layer.a f8239b;
+    private final com.ksad.lottie.model.layer.a f8240b;
     private final LongSparseArray<LinearGradient> c = new LongSparseArray<>();
     private final LongSparseArray<RadialGradient> d = new LongSparseArray<>();
     private final Matrix e = new Matrix();
@@ -44,8 +44,8 @@ public class g implements d, j, a.InterfaceC1037a {
     private final int q;
 
     public g(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, com.ksad.lottie.model.content.d dVar) {
-        this.f8239b = aVar;
-        this.f8238a = dVar.a();
+        this.f8240b = aVar;
+        this.f8239a = dVar.a();
         this.p = fVar;
         this.j = dVar.b();
         this.f.setFillType(dVar.c());
@@ -107,7 +107,7 @@ public class g implements d, j, a.InterfaceC1037a {
         return round3 != 0 ? i * 31 * round3 : i;
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1037a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1078a
     public void a() {
         this.p.invalidateSelf();
     }

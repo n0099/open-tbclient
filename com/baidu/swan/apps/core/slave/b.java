@@ -52,10 +52,10 @@ public final class b {
 
     private static Context cO(Context context) {
         if (context == null) {
-            return com.baidu.swan.apps.t.a.aAr();
+            return com.baidu.swan.apps.t.a.aAs();
         }
         if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
-            return com.baidu.swan.apps.t.a.aAr();
+            return com.baidu.swan.apps.t.a.aAs();
         }
         return context;
     }
@@ -85,7 +85,7 @@ public final class b {
                     if (b.DEBUG) {
                         Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next start.");
                     }
-                    b.cN(f.aDG().aDq());
+                    b.cN(f.aDH().aDr());
                     if (b.DEBUG) {
                         Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next end.");
                     }
@@ -114,11 +114,11 @@ public final class b {
         final a aVar = new a();
         aVar.cZC = System.currentTimeMillis();
         aVar.isReady = false;
-        aVar.cZA = d.avA().a(context, new g() { // from class: com.baidu.swan.apps.core.slave.b.2
+        aVar.cZA = d.avB().a(context, new g() { // from class: com.baidu.swan.apps.core.slave.b.2
             @Override // com.baidu.swan.apps.core.g
             public void ig(String str) {
                 if (b.DEBUG) {
-                    Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + a.this.cZA.amt() + " url: " + str);
+                    Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + a.this.cZA.amu() + " url: " + str);
                 }
                 a.this.cZD = System.currentTimeMillis();
                 a.this.isReady = true;

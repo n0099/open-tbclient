@@ -94,7 +94,7 @@ public class c {
         }
         if (this.htx instanceof b) {
             b bVar = (b) this.htx;
-            bVar.cdG();
+            bVar.cdH();
             bVar.nH(this.hsz);
             bVar.a(this.hso);
             bVar.a(this.hsr);
@@ -178,7 +178,7 @@ public class c {
         }
     }
 
-    public void ceK() {
+    public void ceL() {
         if (this.hru != null) {
             this.hru.hBT = true;
         }
@@ -212,7 +212,7 @@ public class c {
         }
     }
 
-    public void ceL() {
+    public void ceM() {
         if (this.htw != 4) {
             try {
                 if (this.hru != null) {
@@ -229,14 +229,14 @@ public class c {
         }
     }
 
-    public boolean ceM() {
+    public boolean ceN() {
         if (this.htx == null || !(this.htx instanceof b)) {
             return false;
         }
-        return ((b) this.htx).cdz();
+        return ((b) this.htx).cdA();
     }
 
-    public boolean ceN() {
+    public boolean ceO() {
         if (this.htx != null && (this.htx instanceof b) && ((b) this.htx).hsJ) {
             return false;
         }
@@ -281,13 +281,13 @@ public class c {
         }
     }
 
-    public void ceO() {
+    public void ceP() {
         if (this.htx != null) {
             this.htx.onStop();
         }
     }
 
-    public void ceP() {
+    public void ceQ() {
         if (this.htx != null) {
             this.htx.onStart();
         }
@@ -311,7 +311,7 @@ public class c {
         }
     }
 
-    public com.baidu.tieba.ala.liveroom.data.a ceF() {
+    public com.baidu.tieba.ala.liveroom.data.a ceG() {
         return this.hru;
     }
 
@@ -319,7 +319,7 @@ public class c {
         this.otherParams = str;
     }
 
-    public com.baidu.live.liveroom.f.a ceQ() {
+    public com.baidu.live.liveroom.f.a ceR() {
         return this.htx;
     }
 

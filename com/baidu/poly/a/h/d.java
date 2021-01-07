@@ -14,7 +14,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static String coE;
     public static String coF;
@@ -24,7 +24,7 @@ public class d {
     private static Object coJ = new Object();
     public static String pd;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static class a implements Runnable {
         a() {
         }
@@ -36,7 +36,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b extends com.baidu.poly.a.a.a {
         final /* synthetic */ com.baidu.poly.a.a.c cnu;
         final /* synthetic */ com.baidu.poly.a.a.b cnv;
@@ -57,7 +57,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c extends com.baidu.poly.a.a.a {
         final /* synthetic */ JSONArray coC;
         final /* synthetic */ JSONObject coD;
@@ -85,13 +85,13 @@ public class d {
         coH = null;
     }
 
-    private static void afC() {
-        JSONArray afq = afq();
-        if (afq != null && afq.length() != 0) {
+    private static void afD() {
+        JSONArray afr = afr();
+        if (afr != null && afr.length() != 0) {
             try {
                 JSONArray jSONArray = new JSONArray();
-                for (int i = 0; i < afq.length(); i++) {
-                    JSONObject jSONObject = afq.getJSONObject(i);
+                for (int i = 0; i < afr.length(); i++) {
+                    JSONObject jSONObject = afr.getJSONObject(i);
                     com.baidu.poly.a.a.c cVar = new com.baidu.poly.a.a.c();
                     cVar.b(e.av(jSONObject.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER)));
                     com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
@@ -104,7 +104,7 @@ public class d {
         }
     }
 
-    private static com.baidu.poly.a.a.c afD() {
+    private static com.baidu.poly.a.a.c afE() {
         com.baidu.poly.a.a.c cVar = new com.baidu.poly.a.a.c();
         if (!TextUtils.isEmpty(coE)) {
             cVar.g(SM.COOKIE, "BDUSS=" + coE);
@@ -112,7 +112,7 @@ public class d {
         return cVar;
     }
 
-    private static com.baidu.poly.a.a.b afE() {
+    private static com.baidu.poly.a.a.b afF() {
         com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
         bVar.g("dm", "cashier");
         bVar.g("os", HttpConstants.OS_TYPE_VALUE);
@@ -132,9 +132,9 @@ public class d {
         return bVar;
     }
 
-    private static JSONArray afq() {
+    private static JSONArray afr() {
         JSONArray jSONArray;
-        File file = new File(g.afL().getFilesDir(), "poly_cashier_statistics.json");
+        File file = new File(g.afM().getFilesDir(), "poly_cashier_statistics.json");
         if (file.exists()) {
             try {
                 jSONArray = new JSONArray(com.baidu.poly.util.c.b(file));
@@ -162,25 +162,25 @@ public class d {
         synchronized (d.class) {
             List<com.baidu.poly.a.h.b> list = coI;
             if (list != null && !list.isEmpty()) {
-                com.baidu.poly.a.a.b afE = afE();
+                com.baidu.poly.a.a.b afF = afF();
                 synchronized (coJ) {
                     JSONArray jSONArray = new JSONArray();
                     for (com.baidu.poly.a.h.b bVar : coI) {
-                        JSONObject afB = bVar.afB();
-                        if (afB != null) {
-                            jSONArray.put(afB);
+                        JSONObject afC = bVar.afC();
+                        if (afC != null) {
+                            jSONArray.put(afC);
                         }
                     }
-                    afE.g("data", jSONArray.toString());
-                    afE.g("s", HttpSigner.a(afE, "key", com.baidu.poly.a.b.a.q()));
+                    afF.g("data", jSONArray.toString());
+                    afF.g("s", HttpSigner.a(afF, "key", com.baidu.poly.a.b.a.q()));
                     clear();
                 }
-                com.baidu.poly.a.a.c afD = afD();
+                com.baidu.poly.a.a.c afE = afE();
                 if (f.J()) {
-                    afC();
-                    new com.baidu.poly.a.h.c().a(afD, afE, new b(afD, afE));
+                    afD();
+                    new com.baidu.poly.a.h.c().a(afE, afF, new b(afE, afF));
                 } else {
-                    b(afD.getMap(), afE.getMap());
+                    b(afE.getMap(), afF.getMap());
                 }
             }
         }
@@ -192,7 +192,7 @@ public class d {
 
     private static void p(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() != 0) {
-            com.baidu.poly.util.c.a(jSONArray.toString(), new File(g.afL().getFilesDir(), "poly_cashier_statistics.json"));
+            com.baidu.poly.util.c.a(jSONArray.toString(), new File(g.afM().getFilesDir(), "poly_cashier_statistics.json"));
         }
     }
 
@@ -225,21 +225,21 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Map map, Map map2) {
         try {
-            JSONArray afq = afq();
-            if (afq != null) {
-                if (afq.length() >= 20) {
-                    afq.remove(0);
+            JSONArray afr = afr();
+            if (afr != null) {
+                if (afr.length() >= 20) {
+                    afr.remove(0);
                 }
             } else {
-                afq = new JSONArray();
+                afr = new JSONArray();
             }
             JSONObject jSONObject = new JSONObject();
             JSONObject n = e.n(map);
             JSONObject n2 = e.n(map2);
             jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, n);
             jSONObject.put("body", n2);
-            afq.put(jSONObject);
-            p(afq);
+            afr.put(jSONObject);
+            p(afr);
         } catch (Exception e) {
         }
     }

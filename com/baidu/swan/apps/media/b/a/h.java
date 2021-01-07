@@ -22,7 +22,7 @@ public class h extends g {
     private void b(com.baidu.swan.apps.media.b.a aVar, com.baidu.swan.apps.media.b.c cVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         com.baidu.swan.apps.component.b.a d = com.baidu.swan.apps.component.container.a.d(cVar);
         if (d != null) {
-            d.aoy();
+            d.aoz();
         } else {
             com.baidu.swan.apps.component.e.a.br("VideoPlayerAction", "remove with a null component");
         }

@@ -6,14 +6,14 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class a extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f12651a;
+    private Paint f12652a;
 
     /* renamed from: b  reason: collision with root package name */
-    private float f12652b;
+    private float f12653b;
     private RectF c;
     private float d;
     private Path e;
@@ -22,13 +22,13 @@ class a extends View {
         super(context);
         setLayerType(1, null);
         this.c = new RectF();
-        this.f12651a = new Paint();
-        this.f12651a.setAntiAlias(true);
+        this.f12652a = new Paint();
+        this.f12652a.setAntiAlias(true);
         this.e = new Path();
     }
 
     private float a() {
-        return (float) (((2.0f * this.d) * Math.sqrt(Math.pow(b() / 2, 2.0d) + Math.pow(c() - this.f12652b, 2.0d))) / b());
+        return (float) (((2.0f * this.d) * Math.sqrt(Math.pow(b() / 2, 2.0d) + Math.pow(c() - this.f12653b, 2.0d))) / b());
     }
 
     private int b() {
@@ -40,29 +40,29 @@ class a extends View {
     }
 
     public void a(float f) {
-        this.f12652b = (float) (f / Math.sqrt(2.0d));
+        this.f12653b = (float) (f / Math.sqrt(2.0d));
         this.d = f;
-        this.f12651a.setStrokeWidth(f);
+        this.f12652a.setStrokeWidth(f);
     }
 
     public void a(int i) {
-        this.f12651a.setColor(i);
+        this.f12652a.setColor(i);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         this.e.moveTo(getPaddingLeft(), getHeight() / 2);
-        this.e.lineTo((c() - this.f12652b) + getPaddingLeft(), getPaddingTop());
-        this.e.lineTo(c() + getPaddingLeft(), this.f12652b + getPaddingTop());
+        this.e.lineTo((c() - this.f12653b) + getPaddingLeft(), getPaddingTop());
+        this.e.lineTo(c() + getPaddingLeft(), this.f12653b + getPaddingTop());
         this.e.lineTo(a() + getPaddingLeft(), getHeight() / 2);
-        this.e.lineTo(c() + getPaddingLeft(), (b() - this.f12652b) + getPaddingTop());
-        this.e.lineTo((c() - this.f12652b) + getPaddingLeft(), b() + getPaddingTop());
+        this.e.lineTo(c() + getPaddingLeft(), (b() - this.f12653b) + getPaddingTop());
+        this.e.lineTo((c() - this.f12653b) + getPaddingLeft(), b() + getPaddingTop());
         this.e.close();
-        canvas.drawPath(this.e, this.f12651a);
-        this.c.set((c() - (this.f12652b * 2.0f)) + getPaddingLeft(), getPaddingTop(), c() + getPaddingLeft(), (this.f12652b * 2.0f) + getPaddingTop());
-        canvas.drawArc(this.c, 0.0f, -90.0f, true, this.f12651a);
-        this.c.set((c() - (this.f12652b * 2.0f)) + getPaddingLeft(), (b() - (this.f12652b * 2.0f)) + getPaddingTop(), c() + getPaddingLeft(), b() + getPaddingTop());
-        canvas.drawArc(this.c, 0.0f, 90.0f, true, this.f12651a);
+        canvas.drawPath(this.e, this.f12652a);
+        this.c.set((c() - (this.f12653b * 2.0f)) + getPaddingLeft(), getPaddingTop(), c() + getPaddingLeft(), (this.f12653b * 2.0f) + getPaddingTop());
+        canvas.drawArc(this.c, 0.0f, -90.0f, true, this.f12652a);
+        this.c.set((c() - (this.f12653b * 2.0f)) + getPaddingLeft(), (b() - (this.f12653b * 2.0f)) + getPaddingTop(), c() + getPaddingLeft(), b() + getPaddingTop());
+        canvas.drawArc(this.c, 0.0f, 90.0f, true, this.f12652a);
     }
 }

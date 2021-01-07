@@ -9,10 +9,10 @@ import java.util.Arrays;
 public class c implements Closeable, Flushable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f7285a = new String[128];
+    private static final String[] f7286a = new String[128];
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String[] f7286b;
+    private static final String[] f7287b;
     private final Writer c;
     private int[] d = new int[32];
     private int e = 0;
@@ -25,21 +25,21 @@ public class c implements Closeable, Flushable {
 
     static {
         for (int i = 0; i <= 31; i++) {
-            f7285a[i] = String.format("\\u%04x", Integer.valueOf(i));
+            f7286a[i] = String.format("\\u%04x", Integer.valueOf(i));
         }
-        f7285a[34] = "\\\"";
-        f7285a[92] = "\\\\";
-        f7285a[9] = "\\t";
-        f7285a[8] = "\\b";
-        f7285a[10] = "\\n";
-        f7285a[13] = "\\r";
-        f7285a[12] = "\\f";
-        f7286b = (String[]) f7285a.clone();
-        f7286b[60] = "\\u003c";
-        f7286b[62] = "\\u003e";
-        f7286b[38] = "\\u0026";
-        f7286b[61] = "\\u003d";
-        f7286b[39] = "\\u0027";
+        f7286a[34] = "\\\"";
+        f7286a[92] = "\\\\";
+        f7286a[9] = "\\t";
+        f7286a[8] = "\\b";
+        f7286a[10] = "\\n";
+        f7286a[13] = "\\r";
+        f7286a[12] = "\\f";
+        f7287b = (String[]) f7286a.clone();
+        f7287b[60] = "\\u003c";
+        f7287b[62] = "\\u003e";
+        f7287b[38] = "\\u0026";
+        f7287b[61] = "\\u003d";
+        f7287b[39] = "\\u0027";
     }
 
     public c(Writer writer) {
@@ -256,7 +256,7 @@ public class c implements Closeable, Flushable {
     private void d(String str) throws IOException {
         int i;
         String str2;
-        String[] strArr = this.i ? f7286b : f7285a;
+        String[] strArr = this.i ? f7287b : f7286a;
         this.c.write(34);
         int length = str.length();
         int i2 = 0;

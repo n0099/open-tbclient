@@ -64,9 +64,9 @@ public class a {
 
     private static String d(String str, long j, String str2) {
         String str3 = "";
-        e aMk = e.aMk();
-        if (aMk != null) {
-            str3 = com.baidu.swan.apps.f.a.mv(aMk.getAppKey());
+        e aMl = e.aMl();
+        if (aMl != null) {
+            str3 = com.baidu.swan.apps.f.a.mv(aMl.getAppKey());
         }
         String[] strArr = {str3, str, String.valueOf(j), str2};
         Arrays.sort(strArr);

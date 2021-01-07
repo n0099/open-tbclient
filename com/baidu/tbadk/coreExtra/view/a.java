@@ -36,18 +36,18 @@ public class a {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
         relativeLayout.addView(this.fzh, layoutParams);
+        bCU();
         bCT();
-        bCS();
     }
 
-    private void bCS() {
+    private void bCT() {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.fzl);
         this.fzf = new ImageViewerBottomLayout(this.mContext);
         this.fzh.addView(this.fzf, layoutParams);
         this.fzf.setExpandButtonListener(this.fzj);
     }
 
-    private void bCT() {
+    private void bCU() {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         this.fzg = new FloorImageTextViewNew(this.mContext);
         this.fzh.addView(this.fzg, layoutParams);
@@ -88,7 +88,7 @@ public class a {
         return bN(this.fzh);
     }
 
-    public boolean bCU() {
+    public boolean bCV() {
         return this.fzi;
     }
 

@@ -29,7 +29,7 @@ public class a {
         this.cHI = str;
     }
 
-    public long atQ() {
+    public long atR() {
         return this.mEnd - this.mStart;
     }
 

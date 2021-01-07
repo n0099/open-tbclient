@@ -14,10 +14,10 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f4076a = "a";
+    public static final String f4077a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f4077b = "living_recog";
+    public static final String f4078b = "living_recog";
     public static final int c = 1;
     public static final int d = 0;
     public static final int e = -1;
@@ -88,7 +88,7 @@ public class a {
 
     public void a(Context context) {
         HashMap hashMap = new HashMap();
-        Log.w(f4076a, "onStat");
+        Log.w(f4077a, "onStat");
         if (this.t != -1) {
             hashMap.put("camera_with_per", this.t + "");
         }
@@ -167,7 +167,7 @@ public class a {
         if (this.da != 0 && this.ea != 0) {
             hashMap.put("time_mouth_pass", (this.ea - this.da) + "");
         } else if (this.ba != 0 && this.ca != 0) {
-            Log.w(f4076a, "timePointLivingEyePass:" + this.ca + ",timePointStartFindFace" + this.ba);
+            Log.w(f4077a, "timePointLivingEyePass:" + this.ca + ",timePointStartFindFace" + this.ba);
             hashMap.put("time_eyes_pass", (this.ca - this.ba) + "");
         }
         if (this.X != 0 && this.Y != 0) {
@@ -197,7 +197,7 @@ public class a {
         if (!TextUtils.isEmpty(this.s)) {
             hashMap.put("pre_size", this.s);
         }
-        Log.w(f4076a, "onStat|map|" + new JSONObject(hashMap));
-        StatService.onEvent(context, f4077b, hashMap);
+        Log.w(f4077a, "onStat|map|" + new JSONObject(hashMap));
+        StatService.onEvent(context, f4078b, hashMap);
     }
 }

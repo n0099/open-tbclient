@@ -33,7 +33,7 @@ public class BlueCheckRadioButton extends RelativeLayout {
         LayoutInflater.from(this.mContext).inflate(R.layout.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
         this.fhj = (TextView) findViewById(R.id.custom_check_radio_button_tv);
         this.fhk = (RadioButton) findViewById(R.id.custom_check_radio_button_rb);
-        bxn();
+        bxo();
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.BlueCheckRadioButton.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -45,7 +45,7 @@ public class BlueCheckRadioButton extends RelativeLayout {
         });
     }
 
-    public void bxn() {
+    public void bxo() {
         if (this.fhj != null) {
             ao.setViewTextColor(this.fhj, "CAM_X0302");
         }

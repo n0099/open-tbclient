@@ -4,7 +4,7 @@ package com.baidu.swan.apps.d.a;
 public final class g {
     private static Boolean cGJ;
 
-    public static final Boolean anb() {
+    public static final Boolean anc() {
         return cGJ;
     }
 

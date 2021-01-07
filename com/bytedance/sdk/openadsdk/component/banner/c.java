@@ -10,23 +10,23 @@ import com.bytedance.sdk.openadsdk.core.d.l;
 class c extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f6569a;
+    private ImageView f6570a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Context f6570b;
+    private final Context f6571b;
     private l c;
 
     public c(@NonNull Context context) {
         super(context);
-        this.f6570b = context;
+        this.f6571b = context;
         c();
     }
 
     private void c() {
-        this.f6569a = new ImageView(this.f6570b);
-        this.f6569a.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        this.f6569a.setScaleType(ImageView.ScaleType.FIT_XY);
-        addView(this.f6569a);
+        this.f6570a = new ImageView(this.f6571b);
+        this.f6570a.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        this.f6570a.setScaleType(ImageView.ScaleType.FIT_XY);
+        addView(this.f6570a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -41,12 +41,12 @@ class c extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Bitmap bitmap) {
-        this.f6569a.setImageBitmap(bitmap);
+        this.f6570a.setImageBitmap(bitmap);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b() {
-        this.f6569a.setImageBitmap(null);
+        this.f6570a.setImageBitmap(null);
         setOnClickListener(null);
         this.c = null;
     }

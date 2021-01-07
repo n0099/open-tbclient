@@ -14,15 +14,15 @@ public class b extends BaseCardInfo {
         return gAw;
     }
 
-    public bz boO() {
+    public bz boP() {
         return this.gAx;
     }
 
     public aq aA(String str, boolean z) {
-        bz boO = boO();
-        if (boO == null || boO.eVx == null) {
+        bz boP = boP();
+        if (boP == null || boP.eVx == null) {
             return null;
         }
-        return new aq(str).w("obj_locate", boO.eVx.eOH);
+        return new aq(str).w("obj_locate", boP.eVx.eOH);
     }
 }

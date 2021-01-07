@@ -22,7 +22,7 @@ public class PersonIntroductionActivity extends BaseActivity {
     };
     private NavigationBar mNavigationBar;
     private View mRootView;
-    private TextView mxx;
+    private TextView mxw;
 
     public static void bd(Context context, String str) {
         if (!at.isEmpty(str) && context != null) {
@@ -44,8 +44,8 @@ public class PersonIntroductionActivity extends BaseActivity {
         this.hSM = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.view_topbar_icon, (View.OnClickListener) null);
         this.hSM.setOnClickListener(this.mClickListener);
         ao.setImageResource(this.hSM, R.drawable.selector_topbar_return_black);
-        this.mxx = (TextView) findViewById(R.id.person_intro);
-        this.mxx.setText(getIntent().getStringExtra("person_introduction"));
+        this.mxw = (TextView) findViewById(R.id.person_intro);
+        this.mxw.setText(getIntent().getStringExtra("person_introduction"));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -53,7 +53,7 @@ public class PersonIntroductionActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ao.setViewTextColor(this.mxx, R.color.CAM_X0105, 1, i);
+        ao.setViewTextColor(this.mxw, R.color.CAM_X0105, 1, i);
         ao.setBackgroundResource(this.mRootView, R.color.CAM_X0201, i);
     }
 }

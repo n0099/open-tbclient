@@ -51,7 +51,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
     private long Z;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3551a;
+    private String f3552a;
     private IXAdInstanceInfo.CreativeType aa;
     private String ab;
     private int ac;
@@ -75,7 +75,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
     private String au;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f3552b;
+    private String f3553b;
     private String c;
     private String d;
     private String e;
@@ -220,22 +220,22 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public String getFwt() {
-        return this.f3551a;
+        return this.f3552a;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public void setFwt(String str) {
-        this.f3551a = str;
+        this.f3552a = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public String getAdId() {
-        return this.f3552b;
+        return this.f3553b;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public void setAdId(String str) {
-        this.f3552b = str;
+        this.f3553b = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -650,7 +650,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @SuppressLint({"DefaultLocale"})
     public XAdInstanceInfo(JSONObject jSONObject) {
-        this.f3552b = "-1";
+        this.f3553b = "-1";
         this.q = "";
         this.r = "";
         this.s = 0;
@@ -678,7 +678,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
             this.Z = System.currentTimeMillis();
             this.N = jSONObject.optInt("act");
             this.z = jSONObject.optString("html", null);
-            this.f3552b = jSONObject.optString("id", "-1");
+            this.f3553b = jSONObject.optString("id", "-1");
             this.c = jSONObject.optString("src", "");
             this.d = jSONObject.optString("tit", "");
             this.e = jSONObject.optString("desc", "");
@@ -980,7 +980,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f3552b);
+        parcel.writeString(this.f3553b);
         parcel.writeString(this.c);
         parcel.writeString(this.T);
         parcel.writeString(this.W);
@@ -991,7 +991,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
         parcel.writeString(this.e);
         parcel.writeString(this.d);
         parcel.writeString(this.k);
-        parcel.writeString(this.f3551a);
+        parcel.writeString(this.f3552a);
         parcel.writeString(this.z);
         parcel.writeString(this.j);
         parcel.writeString(this.i);
@@ -1019,7 +1019,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
     }
 
     private XAdInstanceInfo(Parcel parcel) {
-        this.f3552b = "-1";
+        this.f3553b = "-1";
         this.q = "";
         this.r = "";
         this.s = 0;
@@ -1042,7 +1042,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
         this.ap = false;
         this.at = false;
         this.au = null;
-        this.f3552b = parcel.readString();
+        this.f3553b = parcel.readString();
         this.c = parcel.readString();
         this.T = parcel.readString();
         this.W = parcel.readString();
@@ -1053,7 +1053,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
         this.e = parcel.readString();
         this.d = parcel.readString();
         this.k = parcel.readString();
-        this.f3551a = parcel.readString();
+        this.f3552a = parcel.readString();
         this.z = parcel.readString();
         this.j = parcel.readString();
         this.i = parcel.readString();

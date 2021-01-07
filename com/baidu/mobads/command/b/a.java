@@ -16,6 +16,6 @@ public class a extends b {
     }
 
     public void a() {
-        XAdSDKFoundationFacade.getInstance().getCommonUtils().browserOutside(this.f3351a, this.f);
+        XAdSDKFoundationFacade.getInstance().getCommonUtils().browserOutside(this.f3352a, this.f);
     }
 }

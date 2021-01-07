@@ -41,9 +41,9 @@ public class aj extends c implements p<bz> {
     }
 
     public void b(bz bzVar) {
-        MetaData brq;
-        if (bzVar != null && this.aiU != null && (brq = bzVar.brq()) != null) {
-            final ThemeCardInUserData themeCard = brq.getThemeCard();
+        MetaData brr;
+        if (bzVar != null && this.aiU != null && (brr = bzVar.brr()) != null) {
+            final ThemeCardInUserData themeCard = brr.getThemeCard();
             if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid()) || bzVar.eVZ) {
                 this.aiU.setVisibility(8);
                 return;

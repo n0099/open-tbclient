@@ -12,7 +12,7 @@ public class g implements com.baidu.swan.c.b {
     private final com.baidu.swan.c.b dOT;
 
     public g(String str, boolean z) {
-        this.dOT = com.baidu.swan.apps.t.a.aBq().f(com.baidu.swan.apps.t.a.aAr(), str, z);
+        this.dOT = com.baidu.swan.apps.t.a.aBr().f(com.baidu.swan.apps.t.a.aAs(), str, z);
     }
 
     public g(String str) {
@@ -31,13 +31,13 @@ public class g implements com.baidu.swan.c.b {
     }
 
     @Override // com.baidu.swan.c.b
-    public boolean aPF() {
-        return this.dOT.aPF();
+    public boolean aPG() {
+        return this.dOT.aPG();
     }
 
     @Override // com.baidu.swan.c.b
-    public Set<String> aPG() {
-        return this.dOT.aPG();
+    public Set<String> aPH() {
+        return this.dOT.aPH();
     }
 
     @Override // com.baidu.swan.c.b, android.content.SharedPreferences

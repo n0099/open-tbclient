@@ -8,11 +8,11 @@ import com.qq.e.comm.plugin.util.ak;
 import com.qq.e.comm.plugin.util.p;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class h extends com.qq.e.comm.plugin.m.e {
     private a e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     interface a extends i.a {
         void a();
     }
@@ -66,8 +66,8 @@ class h extends com.qq.e.comm.plugin.m.e {
 
     @Override // com.qq.e.comm.plugin.m.e
     protected JSONObject d() throws JSONException {
-        JSONObject a2 = n.a(this.f12497a, this.f12498b);
-        a2.put("tpl_info", this.f12498b.m_());
+        JSONObject a2 = n.a(this.f12498a, this.f12499b);
+        a2.put("tpl_info", this.f12499b.m_());
         return a2;
     }
 
@@ -75,23 +75,23 @@ class h extends com.qq.e.comm.plugin.m.e {
     @Override // com.qq.e.comm.plugin.m.e
     public JSONObject e() throws JSONException {
         JSONObject e = super.e();
-        String B = this.f12498b.B();
+        String B = this.f12499b.B();
         e.put("rewardVideoCardShowTime", n.a() * 1000);
         e.put("rewardVideoCloseShowTime", n.a(B) * 1000);
         e.put("rewardVideoEffectiveTime", n.b(B) * 1000);
         e.put("showRewardVideoTips", n.c(B));
-        e.put("fullScreenClickable", n.a(this.f12498b));
+        e.put("fullScreenClickable", n.a(this.f12499b));
         return e;
     }
 
     @Override // com.qq.e.comm.plugin.m.e
     protected JSONObject f() throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        boolean h = this.f12498b.h();
-        int a2 = p.a(this.f12497a);
-        int b2 = p.b(this.f12497a);
-        int a3 = b.a().a(this.f12497a, ak.b(this.f12497a, Math.max(a2, b2)));
-        int b3 = ak.b(this.f12497a, Math.min(a2, b2));
+        boolean h = this.f12499b.h();
+        int a2 = p.a(this.f12498a);
+        int b2 = p.b(this.f12498a);
+        int a3 = b.a().a(this.f12498a, ak.b(this.f12498a, Math.max(a2, b2)));
+        int b3 = ak.b(this.f12498a, Math.min(a2, b2));
         if (h) {
             jSONObject.put("width", a3);
             jSONObject.put("height", b3);

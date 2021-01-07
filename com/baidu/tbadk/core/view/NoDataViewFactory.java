@@ -53,7 +53,7 @@ public class NoDataViewFactory {
                 return this;
             }
 
-            public b bxy() {
+            public b bxz() {
                 return new b(this);
             }
         }
@@ -61,14 +61,14 @@ public class NoDataViewFactory {
         public static b a(a aVar) {
             a aVar2 = new a();
             aVar2.b(aVar);
-            return aVar2.bxy();
+            return aVar2.bxz();
         }
 
         public static b a(a aVar, int i) {
             a aVar2 = new a();
             aVar2.b(aVar);
             aVar2.qV(i);
-            return aVar2.bxy();
+            return aVar2.bxz();
         }
     }
 
@@ -132,7 +132,7 @@ public class NoDataViewFactory {
                 return this;
             }
 
-            public c bxz() {
+            public c bxA() {
                 return new c(this);
             }
         }
@@ -141,7 +141,7 @@ public class NoDataViewFactory {
             a aVar = new a();
             aVar.b(imgType);
             aVar.qW(i);
-            return aVar.bxz();
+            return aVar.bxA();
         }
 
         public static c a(ImgType imgType, int i, int i2, int i3, int i4) {
@@ -151,13 +151,13 @@ public class NoDataViewFactory {
             aVar.qW(i2);
             aVar.qY(i3);
             aVar.qZ(i4);
-            return aVar.bxz();
+            return aVar.bxA();
         }
 
         public static c a(ImgType imgType) {
             a aVar = new a();
             aVar.b(imgType);
-            return aVar.bxz();
+            return aVar.bxA();
         }
     }
 
@@ -185,12 +185,12 @@ public class NoDataViewFactory {
             private int fkw = -1;
             private int fkv = 0;
 
-            public a Cx(String str) {
+            public a Cw(String str) {
                 this.mTitle = str;
                 return this;
             }
 
-            public a Cy(String str) {
+            public a Cx(String str) {
                 this.mSubTitle = str;
                 return this;
             }
@@ -200,37 +200,37 @@ public class NoDataViewFactory {
                 return this;
             }
 
-            public d bxA() {
+            public d bxB() {
                 return new d(this);
             }
         }
 
         public static d aX(int i, int i2) {
             a aVar = new a();
-            aVar.Cy(TbadkCoreApplication.getInst().getResources().getString(i));
+            aVar.Cx(TbadkCoreApplication.getInst().getResources().getString(i));
             aVar.rb(i2);
-            return aVar.bxA();
+            return aVar.bxB();
         }
 
         public static d ra(int i) {
-            return Cw(TbadkCoreApplication.getInst().getResources().getString(i));
+            return Cv(TbadkCoreApplication.getInst().getResources().getString(i));
         }
 
         public static d aY(int i, int i2) {
             return dY(TbadkCoreApplication.getInst().getResources().getString(i), TbadkCoreApplication.getInst().getResources().getString(i2));
         }
 
-        public static d Cw(String str) {
+        public static d Cv(String str) {
             a aVar = new a();
-            aVar.Cy(str);
-            return aVar.bxA();
+            aVar.Cx(str);
+            return aVar.bxB();
         }
 
         public static d dY(String str, String str2) {
             a aVar = new a();
-            aVar.Cy(str);
-            aVar.Cx(str2);
-            return aVar.bxA();
+            aVar.Cx(str);
+            aVar.Cw(str2);
+            return aVar.bxB();
         }
     }
 

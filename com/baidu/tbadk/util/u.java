@@ -15,7 +15,7 @@ public class u {
     private static final byte[] mlock = new byte[1];
     private static u fPw = null;
 
-    public static u bIY() {
+    public static u bIZ() {
         if (fPw == null) {
             synchronized (mlock) {
                 if (fPw == null) {
@@ -33,7 +33,7 @@ public class u {
     public void registerNetworkChangedListener() {
         try {
             if (this.PQ == null) {
-                this.PQ = bIZ();
+                this.PQ = bJa();
                 MessageManager.getInstance().registerListener(this.PQ);
             }
         } catch (Exception e) {
@@ -42,7 +42,7 @@ public class u {
         }
     }
 
-    private CustomMessageListener bIZ() {
+    private CustomMessageListener bJa() {
         return new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.util.u.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -60,10 +60,10 @@ public class u {
             boolean isNetWorkAvailable = com.baidu.adp.lib.util.j.isNetWorkAvailable();
             if (isNetWorkAvailable) {
                 if (com.baidu.adp.lib.util.j.isWifiNet()) {
-                    au.bwr().setNetworkIsWifi(true);
-                    com.baidu.tieba.recapp.c.a.dFN().dFP();
+                    au.bws().setNetworkIsWifi(true);
+                    com.baidu.tieba.recapp.c.a.dFO().dFQ();
                 } else if (com.baidu.adp.lib.util.j.isMobileNet()) {
-                    au.bwr().setNetworkIsWifi(false);
+                    au.bws().setNetworkIsWifi(false);
                 }
             }
             NoNetworkView.setIsHasNetwork(isNetWorkAvailable);

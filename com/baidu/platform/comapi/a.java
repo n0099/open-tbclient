@@ -4,23 +4,23 @@ import android.content.Context;
 import com.baidu.platform.comjni.engine.MessageProxy;
 import com.baidu.platform.comjni.engine.NAEngine;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    static boolean f4181a = false;
+    static boolean f4182a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private NAEngine f4182b;
+    private NAEngine f4183b;
 
     public boolean a() {
-        f4181a = false;
+        f4182a = false;
         return true;
     }
 
     public boolean a(Context context) {
-        f4181a = false;
-        this.f4182b = new NAEngine();
+        f4182a = false;
+        this.f4183b = new NAEngine();
         boolean a2 = NAEngine.a(context, (String) null);
         if (a2) {
             return a2;
@@ -30,7 +30,7 @@ public class a {
     }
 
     public void b() {
-        if (f4181a) {
+        if (f4182a) {
             a();
         }
         MessageProxy.destroy();

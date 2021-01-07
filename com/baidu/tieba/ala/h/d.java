@@ -83,7 +83,7 @@ public class d {
                 public void onPostExecute(List<bw> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        c.crF().cQ(list);
+                        c.crG().cQ(list);
                     }
                 }
             }.execute(new Void[0]);

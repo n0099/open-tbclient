@@ -46,7 +46,7 @@ public class a {
         return aVar;
     }
 
-    public JSONObject aFf() {
+    public JSONObject aFg() {
         if (this.dor > 600000 || this.dor < 0) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
         }

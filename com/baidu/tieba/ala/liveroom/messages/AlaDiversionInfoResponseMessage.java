@@ -20,7 +20,7 @@ public class AlaDiversionInfoResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public com.baidu.tieba.ala.liveroom.data.c clH() {
+    public com.baidu.tieba.ala.liveroom.data.c clI() {
         return this.hDy;
     }
 }

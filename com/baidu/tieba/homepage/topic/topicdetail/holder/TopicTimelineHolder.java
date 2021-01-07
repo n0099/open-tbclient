@@ -11,7 +11,7 @@ public class TopicTimelineHolder<T extends View> extends RecyclerView.ViewHolder
         this.klj = t;
     }
 
-    public T cUa() {
+    public T cUb() {
         return this.klj;
     }
 }

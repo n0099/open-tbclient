@@ -29,7 +29,7 @@ public abstract class d {
 
     public abstract void aV(int i, String str);
 
-    protected abstract int bXd();
+    protected abstract int bXe();
 
     public abstract void confirm();
 
@@ -46,7 +46,7 @@ public abstract class d {
         this.gqb = arrayList;
         this.gSn = i;
         this.gSo = i2;
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(bXd(), (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.mContext).inflate(bXe(), (ViewGroup) null);
         frameLayout.removeAllViews();
         frameLayout.addView(this.mRootView);
         initView();
@@ -105,7 +105,7 @@ public abstract class d {
         });
     }
 
-    public void bRv() {
+    public void bRw() {
         this.gpX.Ox();
         this.gpX.getEditView().setFocusable(true);
         this.gpX.getEditView().setFocusableInTouchMode(true);
@@ -118,7 +118,7 @@ public abstract class d {
         }, 100L);
     }
 
-    public void bRw() {
+    public void bRx() {
         this.gpX.setVisibility(8);
         this.gpX.getEditView().post(new Runnable() { // from class: com.baidu.tieba.ala.c.d.4
             @Override // java.lang.Runnable

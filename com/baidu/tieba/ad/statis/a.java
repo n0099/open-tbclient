@@ -12,7 +12,7 @@ public class a implements com.baidu.tieba.r.a {
         private static a gkf = new a();
     }
 
-    public static a bPc() {
+    public static a bPd() {
         return C0611a.gkf;
     }
 

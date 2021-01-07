@@ -33,11 +33,11 @@ class a {
         this.mRequestTime = System.currentTimeMillis();
     }
 
-    public void ehJ() {
+    public void ehK() {
         this.oKQ = (System.nanoTime() / 1000) - this.mStartTime;
     }
 
-    public void ehK() {
+    public void ehL() {
         this.cIm = (System.nanoTime() / 1000) - this.mStartTime;
     }
 

@@ -36,11 +36,11 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static IWTTSPlayer f3084a;
+    private static IWTTSPlayer f3085a;
     private static com.baidu.platform.comapi.wnplatform.n.c h = new e();
     private FrameLayout c;
     private RelativeLayout d;
@@ -48,17 +48,17 @@ public class a {
     private WalkNaviModeSwitchListener g;
 
     /* renamed from: b  reason: collision with root package name */
-    private MapView f3085b = null;
+    private MapView f3086b = null;
     private View f = null;
 
     public void a(Activity activity, IWEngineInitListener iWEngineInitListener) {
         if (iWEngineInitListener == null) {
             throw new com.baidu.mapapi.walknavi.controllers.a("BDMapSDKException: engine init listener cannot be null");
         }
-        if (this.f3085b == null) {
-            this.f3085b = new MapView(activity);
+        if (this.f3086b == null) {
+            this.f3086b = new MapView(activity);
         }
-        com.baidu.platform.comapi.walknavi.b.a().a(activity, this.f3085b);
+        com.baidu.platform.comapi.walknavi.b.a().a(activity, this.f3086b);
         com.baidu.platform.comapi.walknavi.b.a().a(activity, WNaviBaiduMap.getId(), new b(this, iWEngineInitListener));
     }
 
@@ -84,7 +84,7 @@ public class a {
     }
 
     public void a(IWTTSPlayer iWTTSPlayer) {
-        f3084a = iWTTSPlayer;
+        f3085a = iWTTSPlayer;
     }
 
     public void a(WLocData wLocData) {
@@ -130,7 +130,7 @@ public class a {
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -1);
         this.d = new RelativeLayout(activity);
         this.d.setLayoutParams(layoutParams2);
-        this.c.addView(this.f3085b);
+        this.c.addView(this.f3086b);
         this.c.addView(this.d);
         this.c.addView(this.f);
         return this.c;
@@ -163,7 +163,7 @@ public class a {
             this.e.resumeCamera();
         }
         if (Build.VERSION.SDK_INT >= 26) {
-            this.f3085b.setZOrderMediaOverlay(true);
+            this.f3086b.setZOrderMediaOverlay(true);
         }
         c(activity);
     }
@@ -176,34 +176,34 @@ public class a {
         com.baidu.platform.comapi.walknavi.b.a().J().d();
         com.baidu.platform.comapi.walknavi.b.a().J().a(false);
         com.baidu.platform.comapi.walknavi.b.a().J().f();
-        this.f3085b.getMap().setMapStatus(MapStatusUpdateFactory.zoomTo(1096.0f));
-        this.f3085b.getMap().setPixelFormatTransparent(true);
-        this.f3085b.getMap().hideSDKLayer();
-        this.f3085b.setBackgroundColor(0);
-        this.f3085b.setAlpha(1.0f);
+        this.f3086b.getMap().setMapStatus(MapStatusUpdateFactory.zoomTo(1096.0f));
+        this.f3086b.getMap().setPixelFormatTransparent(true);
+        this.f3086b.getMap().hideSDKLayer();
+        this.f3086b.setBackgroundColor(0);
+        this.f3086b.setAlpha(1.0f);
         this.g.onSuccess();
     }
 
     public void c() {
-        if (this.f3085b != null) {
-            this.f3085b.onPause();
+        if (this.f3086b != null) {
+            this.f3086b.onPause();
         }
     }
 
     public void d() {
-        if (this.f3085b != null) {
-            this.f3085b.onResume();
+        if (this.f3086b != null) {
+            this.f3086b.onResume();
         }
     }
 
     public void e() {
-        if (f3084a != null) {
-            f3084a = null;
+        if (f3085a != null) {
+            f3085a = null;
         }
-        if (this.f3085b != null) {
-            this.f3085b.getMap().clear();
-            this.f3085b.onDestroy();
-            this.f3085b = null;
+        if (this.f3086b != null) {
+            this.f3086b.getMap().clear();
+            this.f3086b.onDestroy();
+            this.f3086b = null;
         }
         if (this.c != null && this.c.getParent() != null) {
             ((ViewGroup) this.c.getParent()).removeAllViews();
@@ -218,15 +218,15 @@ public class a {
         if (this.e != null) {
             this.e.pauseCamera();
         }
-        if (this.f3085b != null) {
-            this.f3085b.getMap().showSDKLayer();
-            this.f3085b.getMap().setPixelFormatTransparent(false);
+        if (this.f3086b != null) {
+            this.f3086b.getMap().showSDKLayer();
+            this.f3086b.getMap().setPixelFormatTransparent(false);
             com.baidu.platform.comapi.walknavi.b.a().J().e();
             com.baidu.platform.comapi.walknavi.b.a().J().a(true);
             com.baidu.platform.comapi.walknavi.b.a().J().g();
-            this.f3085b.getMap().setMapStatus(MapStatusUpdateFactory.zoomTo(19.0f));
-            this.f3085b.getMap().setBaiduHeatMapEnabled(false);
-            this.f3085b.getMap().setTrafficEnabled(false);
+            this.f3086b.getMap().setMapStatus(MapStatusUpdateFactory.zoomTo(19.0f));
+            this.f3086b.getMap().setBaiduHeatMapEnabled(false);
+            this.f3086b.getMap().setTrafficEnabled(false);
         }
     }
 
@@ -385,6 +385,6 @@ public class a {
     }
 
     public MapView i() {
-        return this.f3085b;
+        return this.f3086b;
     }
 }

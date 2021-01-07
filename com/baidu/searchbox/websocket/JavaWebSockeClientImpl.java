@@ -25,7 +25,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
     public void connect(WebSocketRequest webSocketRequest, IWebSocketListener iWebSocketListener) {
         JavaWebSockeClientImpl$connect$1 javaWebSockeClientImpl$connect$1;
         org.java_websocket.drafts.a aVar;
-        ArrayList bR;
+        ArrayList bS;
         org.java_websocket.drafts.a aVar2;
         org.java_websocket.drafts.a aVar3;
         final WebSocketRequest webSocketRequest2;
@@ -36,10 +36,10 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         p.o(webSocketRequest, "request");
         p.o(iWebSocketListener, "listener");
         final URI create = URI.create(webSocketRequest.getUrl());
-        List eLS = n.eLS();
+        List eMw = n.eMw();
         List<String> protocols = webSocketRequest.getProtocols();
         if (protocols == null) {
-            bR = n.bR(new b(""));
+            bS = n.bS(new b(""));
             aVar2 = aVar;
             aVar3 = aVar;
             webSocketRequest2 = webSocketRequest;
@@ -53,7 +53,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             for (String str : list) {
                 arrayList.add(new b(str));
             }
-            bR = arrayList;
+            bS = arrayList;
             aVar2 = aVar;
             aVar3 = aVar;
             webSocketRequest2 = webSocketRequest;
@@ -62,18 +62,18 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             javaWebSockeClientImpl$connect$12 = javaWebSockeClientImpl$connect$1;
             javaWebSockeClientImpl = this;
         }
-        new org.java_websocket.drafts.a(eLS, bR);
+        new org.java_websocket.drafts.a(eMw, bS);
         final org.java_websocket.drafts.a aVar5 = aVar3;
         final Map<String, String> headers = webSocketRequest.getHeaders();
         new a(create, aVar5, headers) { // from class: com.baidu.searchbox.websocket.JavaWebSockeClientImpl$connect$1
             @Override // org.java_websocket.a.a
             public void onOpen(h hVar) {
-                Iterator<String> eNl;
+                Iterator<String> eNP;
                 HashMap hashMap = new HashMap();
-                if (hVar != null && (eNl = hVar.eNl()) != null) {
-                    while (eNl.hasNext()) {
-                        String next = eNl.next();
-                        hashMap.put(next, hVar.acx(next));
+                if (hVar != null && (eNP = hVar.eNP()) != null) {
+                    while (eNP.hasNext()) {
+                        String next = eNP.next();
+                        hashMap.put(next, hVar.acy(next));
                     }
                 }
                 IWebSocketListener.this.onOpen(hashMap);
@@ -115,13 +115,13 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             int intValue = connectionLostTimeout.intValue();
             a aVar6 = this.webSocketClient;
             if (aVar6 == null) {
-                p.acl("webSocketClient");
+                p.acm("webSocketClient");
             }
             aVar6.setConnectionLostTimeout(intValue);
         }
         a aVar7 = this.webSocketClient;
         if (aVar7 == null) {
-            p.acl("webSocketClient");
+            p.acm("webSocketClient");
         }
         aVar7.connect();
     }
@@ -131,7 +131,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         p.o(str, TiebaInitialize.LogFields.REASON);
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            p.acl("webSocketClient");
+            p.acm("webSocketClient");
         }
         aVar.close();
     }
@@ -141,7 +141,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         p.o(str, "message");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            p.acl("webSocketClient");
+            p.acm("webSocketClient");
         }
         aVar.send(str);
     }
@@ -151,7 +151,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         p.o(byteBuffer, "data");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            p.acl("webSocketClient");
+            p.acm("webSocketClient");
         }
         aVar.send(byteBuffer);
     }

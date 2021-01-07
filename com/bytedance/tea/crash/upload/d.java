@@ -8,15 +8,15 @@ import com.bytedance.tea.crash.h;
 public final class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f7977a;
+    private Context f7978a;
 
     private d(Context context) {
-        this.f7977a = context;
+        this.f7978a = context;
     }
 
     public static void a(Context context, int i) {
         try {
-            if (!h.esE().d().equals(context.getPackageName())) {
+            if (!h.esF().d().equals(context.getPackageName())) {
                 return;
             }
         } catch (Exception e) {
@@ -31,12 +31,12 @@ public final class d implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         try {
-            new com.bytedance.tea.crash.e.d(this.f7977a).a(i.b(this.f7977a));
+            new com.bytedance.tea.crash.e.d(this.f7978a).a(i.b(this.f7978a));
         } catch (Throwable th) {
             try {
                 j.b(th);
             } finally {
-                com.bytedance.tea.crash.f.c.a(com.bytedance.tea.crash.e.h.b(), this.f7977a).a();
+                com.bytedance.tea.crash.f.c.a(com.bytedance.tea.crash.e.h.b(), this.f7978a).a();
             }
         }
     }

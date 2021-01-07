@@ -32,17 +32,17 @@ public class d {
     private volatile boolean n;
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile int f7544a = 163840;
+    private volatile int f7545a = 163840;
 
     /* renamed from: b  reason: collision with root package name */
-    private final SparseArray<Map<String, com.bytedance.sdk.openadsdk.j.b>> f7545b = new SparseArray<>(2);
+    private final SparseArray<Map<String, com.bytedance.sdk.openadsdk.j.b>> f7546b = new SparseArray<>(2);
     private final HashSet<a> i = new HashSet<>();
-    private final b.InterfaceC0997b j = new b.InterfaceC0997b() { // from class: com.bytedance.sdk.openadsdk.j.d.1
-        @Override // com.bytedance.sdk.openadsdk.j.b.InterfaceC0997b
+    private final b.InterfaceC1035b j = new b.InterfaceC1035b() { // from class: com.bytedance.sdk.openadsdk.j.d.1
+        @Override // com.bytedance.sdk.openadsdk.j.b.InterfaceC1035b
         public void a(com.bytedance.sdk.openadsdk.j.b bVar) {
             int f = bVar.f();
-            synchronized (d.this.f7545b) {
-                Map map = (Map) d.this.f7545b.get(f);
+            synchronized (d.this.f7546b) {
+                Map map = (Map) d.this.f7546b.get(f);
                 if (map != null) {
                     map.remove(bVar.h);
                 }
@@ -67,7 +67,7 @@ public class d {
 
     public void a(int i) {
         if (i > 0) {
-            this.f7544a = i;
+            this.f7545a = i;
         }
         if (e.c) {
             Log.i("TAG_PROXY_Preloader", "MaxPreloadSize: " + i);
@@ -76,8 +76,8 @@ public class d {
 
     private d() {
         this.c.a((ThreadPoolExecutor) this.d);
-        this.f7545b.put(0, new HashMap());
-        this.f7545b.put(1, new HashMap());
+        this.f7546b.put(0, new HashMap());
+        this.f7546b.put(1, new HashMap());
     }
 
     public synchronized void a(long j, long j2, long j3) {
@@ -125,7 +125,7 @@ public class d {
                 Iterator it = hashSet.iterator();
                 while (it.hasNext()) {
                     a aVar = (a) it.next();
-                    a(aVar.f7552a, aVar.f7553b, aVar.c, aVar.d, aVar.e, aVar.f);
+                    a(aVar.f7553a, aVar.f7554b, aVar.c, aVar.d, aVar.e, aVar.f);
                     if (e.c) {
                         Log.i("TAG_PROXY_Preloader", "setCurrentPlayKey, resume preload: " + aVar.d);
                     }
@@ -136,11 +136,11 @@ public class d {
         }
         int i = e.h;
         if (i == 3 || i == 2) {
-            synchronized (this.f7545b) {
-                int size = this.f7545b.size();
+            synchronized (this.f7546b) {
+                int size = this.f7546b.size();
                 int i2 = 0;
                 while (i2 < size) {
-                    Map<String, com.bytedance.sdk.openadsdk.j.b> map = this.f7545b.get(this.f7545b.keyAt(i2));
+                    Map<String, com.bytedance.sdk.openadsdk.j.b> map = this.f7546b.get(this.f7546b.keyAt(i2));
                     if (map != null) {
                         Collection<com.bytedance.sdk.openadsdk.j.b> values = map.values();
                         if (values != null && !values.isEmpty()) {
@@ -176,8 +176,8 @@ public class d {
                 }
             }
         } else if (i == 1) {
-            synchronized (this.f7545b) {
-                Map<String, com.bytedance.sdk.openadsdk.j.b> map2 = this.f7545b.get(com.bytedance.sdk.openadsdk.j.b.b.a(z));
+            synchronized (this.f7546b) {
+                Map<String, com.bytedance.sdk.openadsdk.j.b> map2 = this.f7546b.get(com.bytedance.sdk.openadsdk.j.b.b.a(z));
                 remove = map2 != null ? map2.remove(str) : null;
             }
             if (remove != null) {
@@ -201,7 +201,7 @@ public class d {
                 Log.e("TAG_PROXY_Preloader", "cache or videoProxyDB null in Preloader!!!");
             }
         } else if (!TextUtils.isEmpty(str) && strArr != null && strArr.length > 0) {
-            int i2 = i <= 0 ? this.f7544a : i;
+            int i2 = i <= 0 ? this.f7545a : i;
             String a2 = z2 ? str : com.bytedance.sdk.openadsdk.j.g.b.a(str);
             File d = aVar.d(a2);
             if (d != null && d.length() >= i2) {
@@ -213,8 +213,8 @@ public class d {
                     Log.w("TAG_PROXY_Preloader", "has running proxy task, skip preload for key: " + str);
                 }
             } else {
-                synchronized (this.f7545b) {
-                    Map<String, com.bytedance.sdk.openadsdk.j.b> map2 = this.f7545b.get(z ? 1 : 0);
+                synchronized (this.f7546b) {
+                    Map<String, com.bytedance.sdk.openadsdk.j.b> map2 = this.f7546b.get(z ? 1 : 0);
                     if (!map2.containsKey(a2)) {
                         a aVar2 = new a(z, z2, i2, str, map, strArr);
                         String str2 = this.m;
@@ -248,7 +248,7 @@ public class d {
                             for (int i4 = 0; i4 < size; i4++) {
                                 i.b bVar = a3.get(i4);
                                 if (bVar != null) {
-                                    arrayList2.add(new i.b(bVar.f7600a, bVar.f7601b));
+                                    arrayList2.add(new i.b(bVar.f7601a, bVar.f7602b));
                                 }
                             }
                             arrayList = arrayList2;
@@ -272,8 +272,8 @@ public class d {
                 @Override // java.lang.Runnable
                 public void run() {
                     com.bytedance.sdk.openadsdk.j.b bVar;
-                    synchronized (d.this.f7545b) {
-                        Map map = (Map) d.this.f7545b.get(com.bytedance.sdk.openadsdk.j.b.b.a(z));
+                    synchronized (d.this.f7546b) {
+                        Map map = (Map) d.this.f7546b.get(com.bytedance.sdk.openadsdk.j.b.b.a(z));
                         if (map != null) {
                             bVar = (com.bytedance.sdk.openadsdk.j.b) map.remove(z2 ? str : com.bytedance.sdk.openadsdk.j.g.b.a(str));
                         } else {
@@ -293,10 +293,10 @@ public class d {
             @Override // java.lang.Runnable
             public void run() {
                 ArrayList<com.bytedance.sdk.openadsdk.j.b> arrayList = new ArrayList();
-                synchronized (d.this.f7545b) {
-                    int size = d.this.f7545b.size();
+                synchronized (d.this.f7546b) {
+                    int size = d.this.f7546b.size();
                     for (int i = 0; i < size; i++) {
-                        Map map = (Map) d.this.f7545b.get(d.this.f7545b.keyAt(i));
+                        Map map = (Map) d.this.f7546b.get(d.this.f7546b.keyAt(i));
                         if (map != null) {
                             arrayList.addAll(map.values());
                             map.clear();
@@ -319,18 +319,18 @@ public class d {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        final boolean f7552a;
+        final boolean f7553a;
 
         /* renamed from: b  reason: collision with root package name */
-        final boolean f7553b;
+        final boolean f7554b;
         final int c;
         final String d;
         final Map<String, String> e;
         final String[] f;
 
         a(boolean z, boolean z2, int i, String str, Map<String, String> map, String[] strArr) {
-            this.f7552a = z;
-            this.f7553b = z2;
+            this.f7553a = z;
+            this.f7554b = z2;
             this.c = i;
             this.d = str;
             this.e = map;
@@ -345,14 +345,14 @@ public class d {
                 return false;
             }
             a aVar = (a) obj;
-            if (this.f7552a == aVar.f7552a && this.f7553b == aVar.f7553b && this.c == aVar.c) {
+            if (this.f7553a == aVar.f7553a && this.f7554b == aVar.f7554b && this.c == aVar.c) {
                 return this.d.equals(aVar.d);
             }
             return false;
         }
 
         public int hashCode() {
-            return ((((((this.f7552a ? 1 : 0) * 31) + (this.f7553b ? 1 : 0)) * 31) + this.c) * 31) + this.d.hashCode();
+            return ((((((this.f7553a ? 1 : 0) * 31) + (this.f7554b ? 1 : 0)) * 31) + this.c) * 31) + this.d.hashCode();
         }
     }
 
@@ -361,29 +361,29 @@ public class d {
     public static final class b<T> extends LinkedBlockingDeque<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        private ThreadPoolExecutor f7554a;
+        private ThreadPoolExecutor f7555a;
 
         private b() {
         }
 
         public void a(ThreadPoolExecutor threadPoolExecutor) {
             synchronized (this) {
-                if (this.f7554a != null) {
+                if (this.f7555a != null) {
                     throw new IllegalStateException("You can only call setExecutor() once!");
                 }
                 if (threadPoolExecutor == null) {
                     throw new NullPointerException("executor argument can't be null!");
                 }
-                this.f7554a = threadPoolExecutor;
+                this.f7555a = threadPoolExecutor;
             }
         }
 
         @Override // java.util.concurrent.LinkedBlockingDeque, java.util.Queue, java.util.concurrent.BlockingDeque, java.util.concurrent.BlockingQueue, java.util.Deque
         public boolean offer(T t) {
             synchronized (this) {
-                int poolSize = this.f7554a.getPoolSize();
-                int activeCount = this.f7554a.getActiveCount();
-                int maximumPoolSize = this.f7554a.getMaximumPoolSize();
+                int poolSize = this.f7555a.getPoolSize();
+                int activeCount = this.f7555a.getActiveCount();
+                int maximumPoolSize = this.f7555a.getMaximumPoolSize();
                 if (activeCount >= poolSize && poolSize < maximumPoolSize) {
                     if (e.c) {
                         Log.i("TAG_PROXY_TT", "create new preloader thread");

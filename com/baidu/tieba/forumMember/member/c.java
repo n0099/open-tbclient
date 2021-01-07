@@ -9,16 +9,16 @@ public class c {
     private com.baidu.adp.lib.cache.l<byte[]> jaF;
 
     public c() {
-        bhY();
+        bhZ();
     }
 
-    public void bhY() {
+    public void bhZ() {
         if (this.jaF == null) {
-            this.jaF = com.baidu.tbadk.core.c.a.btS().Bm("tb.forum_member_info");
+            this.jaF = com.baidu.tbadk.core.c.a.btT().Bl("tb.forum_member_info");
         }
     }
 
-    public byte[] Kv(String str) {
+    public byte[] Ku(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -32,7 +32,7 @@ public class c {
     public void m(String str, byte[] bArr) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!StringUtils.isNull(str)) {
-            bhY();
+            bhZ();
             this.jaF.set(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
         }
     }

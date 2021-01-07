@@ -70,7 +70,7 @@ public class f extends com.baidu.adp.base.d<OfficialBarTipActivity> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!f.this.kzY) {
-                    if (f.this.kzX.cWT()) {
+                    if (f.this.kzX.cWU()) {
                         f.this.kAe.setVisibility(0);
                     }
                     f.this.a(officialBarTipActivity, true);
@@ -109,7 +109,7 @@ public class f extends com.baidu.adp.base.d<OfficialBarTipActivity> {
         this.kAc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.f.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                officialBarTipActivity.cWQ();
+                officialBarTipActivity.cWR();
                 f.this.a(officialBarTipActivity, false);
             }
         });
@@ -131,11 +131,11 @@ public class f extends com.baidu.adp.base.d<OfficialBarTipActivity> {
         });
     }
 
-    public BdListView cWW() {
+    public BdListView cWX() {
         return this.kzV;
     }
 
-    public OfficialBarTipListAdapter cWX() {
+    public OfficialBarTipListAdapter cWY() {
         return this.kzW;
     }
 
@@ -145,7 +145,7 @@ public class f extends com.baidu.adp.base.d<OfficialBarTipActivity> {
             this.kzZ.setVisibility(0);
             this.kzW.sw(true);
             this.kzW.notifyDataSetChanged();
-            if (officialBarTipActivity.cWR()) {
+            if (officialBarTipActivity.cWS()) {
                 sA(true);
             } else {
                 sA(false);
@@ -154,7 +154,7 @@ public class f extends com.baidu.adp.base.d<OfficialBarTipActivity> {
             this.kAe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.f.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    f.this.kzX.cWS();
+                    f.this.kzX.cWT();
                     f.this.a(officialBarTipActivity, false);
                 }
             });

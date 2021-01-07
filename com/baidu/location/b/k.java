@@ -12,7 +12,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class k {
     private static Object c = new Object();
     private static k d = null;
@@ -21,19 +21,19 @@ public class k {
     private boolean g = false;
 
     /* renamed from: a  reason: collision with root package name */
-    a f2626a = null;
+    a f2627a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    a f2627b = null;
+    a f2628b = null;
     private String h = null;
     private int i = -2;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class a extends com.baidu.location.e.f {
 
         /* renamed from: b  reason: collision with root package name */
-        private String f2629b = null;
+        private String f2630b = null;
         private String c = null;
         private boolean d = true;
         private boolean e = false;
@@ -56,7 +56,7 @@ public class k {
                 return;
             }
             k.this.g = true;
-            this.f2629b = str;
+            this.f2630b = str;
             this.c = str2;
             ExecutorService c = z.a().c();
             if (c != null) {
@@ -77,7 +77,7 @@ public class k {
                         if (jSONObject2 != null && jSONObject2.has("imo")) {
                             Long valueOf = Long.valueOf(jSONObject2.getJSONObject("imo").getString("mac"));
                             int i = jSONObject2.getJSONObject("imo").getInt("mv");
-                            if (Jni.encode3(this.f2629b).longValue() == valueOf.longValue()) {
+                            if (Jni.encode3(this.f2630b).longValue() == valueOf.longValue()) {
                                 ContentValues contentValues = new ContentValues();
                                 contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
                                 contentValues.put("hst", Integer.valueOf(i));
@@ -89,7 +89,7 @@ public class k {
                                 } catch (Exception e) {
                                 }
                                 Bundle bundle = new Bundle();
-                                bundle.putByteArray("mac", this.f2629b.getBytes());
+                                bundle.putByteArray("mac", this.f2630b.getBytes());
                                 bundle.putInt("hotspot", i);
                                 k.this.a(bundle);
                             }
@@ -320,11 +320,11 @@ public class k {
                         }
                     }
                     if (z2) {
-                        if (this.f2626a == null) {
-                            this.f2626a = new a();
+                        if (this.f2627a == null) {
+                            this.f2627a = new a();
                         }
-                        if (this.f2626a != null) {
-                            this.f2626a.a(replace, a(true));
+                        if (this.f2627a != null) {
+                            this.f2627a.a(replace, a(true));
                             return;
                         }
                         return;

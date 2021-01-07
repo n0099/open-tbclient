@@ -23,7 +23,7 @@ public class i {
     private a kBt = new a();
     private b kBu = null;
 
-    public static i cXv() {
+    public static i cXw() {
         if (kBs == null) {
             synchronized (i.class) {
                 if (kBs == null) {
@@ -45,8 +45,8 @@ public class i {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    i.cXv().kBt.removeMessages(1);
-                    i.cXv().execute();
+                    i.cXw().kBt.removeMessages(1);
+                    i.cXw().execute();
                     return;
                 default:
                     return;
@@ -102,8 +102,8 @@ public class i {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            LinkedList<ImMessageCenterPojo> cXz = j.cXw().cXz();
-            if (cXz == null || cXz.size() == 0) {
+            LinkedList<ImMessageCenterPojo> cXA = j.cXx().cXA();
+            if (cXA == null || cXA.size() == 0) {
                 return false;
             }
             if (i.kBv < 0) {
@@ -125,25 +125,25 @@ public class i {
                 int unused5 = i.kBw = 1000;
             }
             try {
-                h.cXs().cXt();
-                for (ImMessageCenterPojo imMessageCenterPojo : cXz) {
+                h.cXt().cXu();
+                for (ImMessageCenterPojo imMessageCenterPojo : cXA) {
                     if (isCancelled()) {
-                        h.cXs().cXu();
+                        h.cXt().cXv();
                         return false;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        c.cXl().bh(imMessageCenterPojo.getGid(), i.kBw);
+                        c.cXm().bh(imMessageCenterPojo.getGid(), i.kBw);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        m.cXF().bh(imMessageCenterPojo.getGid(), i.kBw);
+                        m.cXG().bh(imMessageCenterPojo.getGid(), i.kBw);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                        l.cXC().bh(imMessageCenterPojo.getGid(), i.kBw);
+                        l.cXD().bh(imMessageCenterPojo.getGid(), i.kBw);
                     } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                        d.cXm().bh(imMessageCenterPojo.getGid(), i.kBw);
+                        d.cXn().bh(imMessageCenterPojo.getGid(), i.kBw);
                     }
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             } finally {
-                h.cXs().cXu();
+                h.cXt().cXv();
             }
             return true;
         }

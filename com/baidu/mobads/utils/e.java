@@ -53,10 +53,10 @@ import org.json.JSONObject;
 public class e implements IXAdCommonUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3529a;
+    private static String f3530a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f3530b;
+    private static String f3531b;
     private static String c;
     private static String d;
     private final String e = "_cpr";
@@ -252,10 +252,10 @@ public class e implements IXAdCommonUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public String getDebugToken(Context context) {
         try {
-            if (f3530b == null) {
-                f3530b = d(context, IXAdCommonUtils.DEBUG_TOKEN);
+            if (f3531b == null) {
+                f3531b = d(context, IXAdCommonUtils.DEBUG_TOKEN);
             }
-            return f3530b;
+            return f3531b;
         } catch (Exception e) {
             return "";
         }
@@ -264,10 +264,10 @@ public class e implements IXAdCommonUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public String getAppId(Context context) {
         try {
-            if (f3529a == null) {
-                f3529a = d(context, IXAdCommonUtils.APPSID);
+            if (f3530a == null) {
+                f3530a = d(context, IXAdCommonUtils.APPSID);
             }
-            return f3529a;
+            return f3530a;
         } catch (Exception e) {
             return "";
         }
@@ -566,7 +566,7 @@ public class e implements IXAdCommonUtils {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public void setAppId(String str) {
-        f3529a = str;
+        f3530a = str;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:51:0x010a -> B:13:0x004f). Please submit an issue!!! */

@@ -56,7 +56,7 @@ public class c implements View.OnClickListener {
                         if (TextUtils.isEmpty(str2)) {
                             str2 = TbadkCoreApplication.getInst().getString(R.string.operation_failed);
                         }
-                        BdToast.a(TbadkCoreApplication.getInst().getContext(), str2, R.drawable.icon_pure_toast_mistake40_svg, 3000, true).bud();
+                        BdToast.a(TbadkCoreApplication.getInst().getContext(), str2, R.drawable.icon_pure_toast_mistake40_svg, 3000, true).bue();
                         if (c.this.fqQ != null) {
                             if (z) {
                                 c.this.fqQ.c(c.this.fqP.getIsLike(), c.this.fqP.getLikeStatus(), z);
@@ -109,7 +109,7 @@ public class c implements View.OnClickListener {
         a(bVar);
     }
 
-    public void Bb(String str) {
+    public void Ba(String str) {
         this.bvZ = str;
     }
 
@@ -143,7 +143,7 @@ public class c implements View.OnClickListener {
         }
     }
 
-    public com.baidu.tbadk.core.view.userLike.a byR() {
+    public com.baidu.tbadk.core.view.userLike.a byS() {
         return this.fqP;
     }
 

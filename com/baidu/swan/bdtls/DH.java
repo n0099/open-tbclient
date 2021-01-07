@@ -1,5 +1,5 @@
 package com.baidu.swan.bdtls;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class DH {
     private static native int getGroupId();
 
@@ -9,11 +9,11 @@ public class DH {
 
     private static native byte[] getSecretKey(int i, int i2, int i3);
 
-    public static int aTC() {
+    public static int aTD() {
         return getSecret();
     }
 
-    public static int aTD() {
+    public static int aTE() {
         return getGroupId();
     }
 

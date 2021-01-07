@@ -37,11 +37,11 @@ public class TbRichTextVoiceInfo extends OrmObject {
         return this.duration;
     }
 
-    public int bLU() {
+    public int bLV() {
         return this.gaE;
     }
 
-    public Object bLV() {
+    public Object bLW() {
         return this.gaF;
     }
 

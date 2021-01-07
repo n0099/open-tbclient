@@ -134,13 +134,13 @@ public abstract class b implements com.baidu.swan.apps.component.b.a.a {
         return "【" + this.cNN + "#" + (TextUtils.isEmpty(this.cNO) ? "" : this.cNO) + "】";
     }
 
-    public final FrameLayout.LayoutParams aoF() {
+    public final FrameLayout.LayoutParams aoG() {
         int width = this.cNS != null ? this.cNS.getWidth() : -1;
         int height = this.cNS != null ? this.cNS.getHeight() : -1;
         int left = this.cNS != null ? this.cNS.getLeft() : 0;
-        int aFZ = this.cNS != null ? this.cNS.aFZ() : 0;
+        int aGa = this.cNS != null ? this.cNS.aGa() : 0;
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(width, height);
-        layoutParams.setMargins(left, aFZ, 0, 0);
+        layoutParams.setMargins(left, aGa, 0, 0);
         return layoutParams;
     }
 

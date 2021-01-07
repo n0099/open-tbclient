@@ -10,7 +10,7 @@ public class b {
     private static volatile b eyd;
     private a eyf = new a();
 
-    public static b bhj() {
+    public static b bhk() {
         if (eyd == null) {
             synchronized (b.class) {
                 if (eyd == null) {
@@ -42,7 +42,7 @@ public class b {
     }
 
     @NonNull
-    public com.baidu.swan.pms.node.b.a bhk() {
+    public com.baidu.swan.pms.node.b.a bhl() {
         com.baidu.swan.pms.node.b.a aVar;
         try {
             aVar = com.baidu.swan.pms.node.b.a.cV(new JSONObject(this.eyf.getString("data", "")));

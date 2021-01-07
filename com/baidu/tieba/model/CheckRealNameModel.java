@@ -36,11 +36,11 @@ public class CheckRealNameModel extends BdBaseModel {
                 }
             }
         };
-        dis();
+        dit();
         registerListener(this.lqr);
     }
 
-    private void dis() {
+    private void dit() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_CHECK_REAL_NAME, CheckRealNameSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_CHECK_REAL_NAME, 1003325, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
     }
@@ -55,7 +55,7 @@ public class CheckRealNameModel extends BdBaseModel {
         return false;
     }
 
-    public void OO(String str) {
+    public void ON(String str) {
         CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = new CheckRealNameRequestNetMessage();
         checkRealNameRequestNetMessage.setObjSource(str);
         sendMessage(checkRealNameRequestNetMessage);

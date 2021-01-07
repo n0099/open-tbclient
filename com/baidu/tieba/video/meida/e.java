@@ -3,11 +3,11 @@ package com.baidu.tieba.video.meida;
 public class e {
     public final String errorMsg;
     public final long length;
-    public final int nKa;
+    public final int nJZ;
 
     public e(long j, int i, String str) {
         this.length = j;
-        this.nKa = i;
+        this.nJZ = i;
         this.errorMsg = str;
     }
 }

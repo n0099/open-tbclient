@@ -39,7 +39,7 @@ public class b implements com.baidu.tbadk.core.flow.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a
-    public View buH() {
+    public View buI() {
         return null;
     }
 }

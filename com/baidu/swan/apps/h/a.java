@@ -62,8 +62,8 @@ public class a extends aa {
             return;
         }
         boolean z = eVar.forbidden;
-        int aRG = aj.aRG();
-        long aRH = aj.aRH();
+        int aRH = aj.aRH();
+        long aRI = aj.aRI();
         List<String> list = eVar.dLN;
         JSONArray jSONArray = new JSONArray();
         JSONObject jSONObject = new JSONObject();
@@ -71,12 +71,12 @@ public class a extends aa {
             for (String str2 : list) {
                 jSONArray.put(str2);
             }
-            jSONObject.put("launchCount", aRG);
-            jSONObject.put("visitDuration", aRH);
+            jSONObject.put("launchCount", aRH);
+            jSONObject.put("visitDuration", aRI);
             jSONObject.put("forbidden", z);
             jSONObject.put("ext", jSONArray);
             if (DEBUG) {
-                Log.i("GetBehaviorInfoAction", "launchCount:" + aRG + " visitDuration:" + aRH + " forbidden:" + z + " ext:" + jSONArray.toString());
+                Log.i("GetBehaviorInfoAction", "launchCount:" + aRH + " visitDuration:" + aRI + " forbidden:" + z + " ext:" + jSONArray.toString());
             }
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
         } catch (JSONException e) {

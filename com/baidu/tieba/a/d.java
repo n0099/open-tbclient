@@ -15,7 +15,7 @@ public class d {
     private a gij;
     private List<aq> gik;
 
-    public static d bOm() {
+    public static d bOn() {
         if (gii == null) {
             synchronized (c.class) {
                 if (gii == null) {
@@ -31,7 +31,7 @@ public class d {
         this.gie.add(2);
         this.gif = new c();
         this.gij = new a(this.gif, this.gie);
-        setChannel(com.baidu.tbadk.core.sharedPref.b.bvq().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
+        setChannel(com.baidu.tbadk.core.sharedPref.b.bvr().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
     }
 
     public int az(String str, int i) {
@@ -41,9 +41,9 @@ public class d {
         return this.gij.az(str, i);
     }
 
-    public void Fl(String str) {
+    public void Fk(String str) {
         if (this.gij != null) {
-            this.gij.Fk(str);
+            this.gij.Fj(str);
         }
     }
 
@@ -57,7 +57,7 @@ public class d {
     }
 
     public void dR(String str, String str2) {
-        if (!x.isEmpty(this.gik) && this.gif != null && this.gif.bOk()) {
+        if (!x.isEmpty(this.gik) && this.gif != null && this.gif.bOl()) {
             int i = -1;
             for (aq aqVar : this.gik) {
                 if (aqVar != null) {
@@ -75,7 +75,7 @@ public class d {
     }
 
     public void a(String str, String str2, aq aqVar) {
-        if (aqVar != null && this.gif != null && this.gif.bOk()) {
+        if (aqVar != null && this.gif != null && this.gif.bOl()) {
             HashMap hashMap = new HashMap();
             List<Object> params = aqVar.getParams();
             if (params != null) {
@@ -99,14 +99,14 @@ public class d {
     }
 
     public void onPageStart(String str) {
-        if (at.isEmpty(str) || this.gif == null || !this.gif.bOk()) {
-            com.baidu.ubs.analytics.a.XF(str);
+        if (at.isEmpty(str) || this.gif == null || !this.gif.bOl()) {
+            com.baidu.ubs.analytics.a.XE(str);
         }
     }
 
     public void onPageEnd(String str) {
-        if (at.isEmpty(str) || this.gif == null || !this.gif.bOk()) {
-            com.baidu.ubs.analytics.a.XG(str);
+        if (at.isEmpty(str) || this.gif == null || !this.gif.bOl()) {
+            com.baidu.ubs.analytics.a.XF(str);
         }
     }
 

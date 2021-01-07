@@ -256,7 +256,7 @@ public class ak<T extends com.baidu.tbadk.core.data.a> implements q, com.baidu.t
                 h hVar = this.ajd.get(i);
                 hVar.D(t);
                 if (i == 0) {
-                    ay.a(hVar.getView(), ay.y(t.boO()) && ay.z(t.boO()) && ay.A(t.boO()) && t.boO().bsy() < 1 && t.boO().brH() == null, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+                    ay.a(hVar.getView(), ay.y(t.boP()) && ay.z(t.boP()) && ay.A(t.boP()) && t.boP().bsz() < 1 && t.boP().brI() == null, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
                 }
             }
         }

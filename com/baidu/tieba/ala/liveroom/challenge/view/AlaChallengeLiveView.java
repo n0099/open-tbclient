@@ -90,9 +90,9 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
     public interface a {
         void a(bz bzVar);
 
-        void cgR();
-
         void cgS();
+
+        void cgT();
 
         void d(bg bgVar);
 
@@ -309,7 +309,7 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
         }
         if (i == 2) {
             setCloseBtnVisible(true);
-            cgN();
+            cgO();
         } else if (i == 3) {
             boolean z2 = false;
             if (com.baidu.live.af.a.SE().bwi != null && com.baidu.live.af.a.SE().bwi.aOe == 1) {
@@ -321,7 +321,7 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
             setCloseBtnVisible(z2);
             bU(bcVar.challengeResult, bcVar.aQC);
         } else {
-            bWQ();
+            bWR();
             setCloseBtnVisible(false);
             bU(bcVar.challengeResult, bcVar.aQC);
         }
@@ -426,7 +426,7 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
 
     private void a(long j, int i, long j2, long j3) {
         if (j3 >= j2 && a(j, i, j3)) {
-            bWQ();
+            bWR();
             if (this.hzJ != null) {
                 v(this.hzJ.aQA, (j3 - j2) * 1000);
             }
@@ -453,7 +453,7 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
         return (this.hzJ != null && this.hzJ.challengeId == j && this.hzJ.aQA == i && this.hzJ.stageEndTime == j2) ? false : true;
     }
 
-    private void bWQ() {
+    private void bWR() {
         if (this.gPY != null) {
             this.gPY.cancel();
         }
@@ -491,11 +491,11 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
         }
     }
 
-    public void cgM() {
+    public void cgN() {
         setCloseBtnVisible(false);
         this.hzD.setText(this.mContext.getResources().getString(a.h.ala_challenge_btn_close_label));
         this.hzu.Iu();
-        this.hzv.cgX();
+        this.hzv.cgY();
         setLiveContainerVisible(false);
         if (this.hzM != null) {
             this.hzM.clear();
@@ -535,16 +535,16 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
             }
             this.hzs.setImageResource(a.e.icon_live_vs_win);
         } else {
-            cgN();
+            cgO();
         }
     }
 
-    public void cgN() {
+    public void cgO() {
         this.hzb.setVisibility(4);
         this.hzr.setVisibility(4);
     }
 
-    public void cgO() {
+    public void cgP() {
         if (this.hzM != null) {
             this.hzM.clear();
             this.hzM = null;
@@ -570,7 +570,7 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
         return ofFloat;
     }
 
-    public void cgP() {
+    public void cgQ() {
         this.hzz.setText(String.valueOf(this.hzF));
         this.hzA.setText(String.valueOf(this.hzG));
         if (this.hzL != null) {
@@ -588,7 +588,7 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
         this.hzL.start();
     }
 
-    public void cgQ() {
+    public void cgR() {
         this.hzz.setAlpha(0.0f);
         this.hzA.setAlpha(0.0f);
         this.hzz.setText("");
@@ -601,7 +601,7 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
             this.hzF = j;
             this.hzG = j2;
             if (z) {
-                cgQ();
+                cgR();
             } else {
                 this.hzz.setText(String.valueOf(this.hzF));
                 this.hzA.setText(String.valueOf(this.hzG));
@@ -675,18 +675,18 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
     }
 
     public void releaseResource() {
-        bWQ();
+        bWR();
         if (this.hzK != null) {
             this.hzK.cancel();
         }
         if (this.hzL != null) {
             this.hzL.cancel();
         }
-        cgQ();
+        cgR();
         this.hzw.setAlpha(0.0f);
         this.hzD.setText(this.mContext.getResources().getString(a.h.ala_challenge_btn_close_label));
         this.hzu.Iu();
-        this.hzv.cgX();
+        this.hzv.cgY();
         this.hzJ = null;
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
@@ -708,12 +708,12 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
                     }
                     return;
                 }
-                this.hzE.cgR();
+                this.hzE.cgS();
             }
         } else if (view == this.hzj) {
             if (this.hzE != null) {
                 if (this.hzO) {
-                    this.hzE.cgS();
+                    this.hzE.cgT();
                 } else {
                     this.hzE.d((bg) this.hzj.getTag());
                 }
@@ -721,7 +721,7 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
         } else if (view == this.hzm) {
             if (this.hzE != null) {
                 if (this.hzO) {
-                    this.hzE.cgS();
+                    this.hzE.cgT();
                 } else {
                     this.hzE.e((bg) this.hzj.getTag());
                 }
@@ -729,7 +729,7 @@ public class AlaChallengeLiveView extends RelativeLayout implements View.OnClick
         } else if (view == this.hzi) {
             if (this.hzE != null) {
                 if (this.hzO) {
-                    this.hzE.cgS();
+                    this.hzE.cgT();
                 } else {
                     this.hzE.f(this.aQx);
                 }

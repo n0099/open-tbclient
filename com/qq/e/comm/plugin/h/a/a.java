@@ -4,18 +4,18 @@ import android.content.Context;
 import android.os.AsyncTask;
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends b {
 
     /* renamed from: com.qq.e.comm.plugin.h.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private class AsyncTaskC1169a extends AsyncTask<Void, Integer, String> {
+    /* loaded from: classes4.dex */
+    private class AsyncTaskC1210a extends AsyncTask<Void, Integer, String> {
 
         /* renamed from: b  reason: collision with root package name */
-        private Context f12375b;
+        private Context f12376b;
 
-        public AsyncTaskC1169a(Context context) {
-            this.f12375b = context;
+        public AsyncTaskC1210a(Context context) {
+            this.f12376b = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -25,7 +25,7 @@ public class a extends b {
         public String doInBackground(Void... voidArr) {
             try {
                 Class.forName("com.google.android.gms.ads.identifier.AdvertisingIdClient");
-                AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(this.f12375b);
+                AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(this.f12376b);
                 if (advertisingIdInfo.isLimitAdTrackingEnabled()) {
                     return null;
                 }
@@ -42,7 +42,7 @@ public class a extends b {
         /* renamed from: a */
         public void onPostExecute(String str) {
             super.onPostExecute(str);
-            a.this.f12376a = str;
+            a.this.f12377a = str;
         }
     }
 
@@ -53,7 +53,7 @@ public class a extends b {
 
     @Override // com.qq.e.comm.plugin.h.a.b
     protected String c(Context context) {
-        new AsyncTaskC1169a(context).execute(new Void[0]);
+        new AsyncTaskC1210a(context).execute(new Void[0]);
         return null;
     }
 }

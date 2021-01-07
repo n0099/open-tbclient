@@ -11,14 +11,14 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
     private int dYO;
     private int mColor;
     private int mProgress;
-    private int mVc;
+    private int mVb;
 
     public FeedAdProgressText(Context context) {
         super(context);
         this.dYO = 100;
         this.mProgress = 0;
         this.mColor = 0;
-        this.mVc = 0;
+        this.mVb = 0;
         init(context);
     }
 
@@ -27,7 +27,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
         this.dYO = 100;
         this.mProgress = 0;
         this.mColor = 0;
-        this.mVc = 0;
+        this.mVb = 0;
         init(context);
     }
 
@@ -36,7 +36,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
         this.dYO = 100;
         this.mProgress = 0;
         this.mColor = 0;
-        this.mVc = 0;
+        this.mVb = 0;
         init(context);
     }
 
@@ -72,7 +72,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void setButtonTextNightColor(int i) {
-        this.mVc = i;
+        this.mVb = i;
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
@@ -97,7 +97,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
-    public void bxN() {
+    public void bxO() {
         setTextColor(ao.getColor(R.color.CAM_X0109));
     }
 }

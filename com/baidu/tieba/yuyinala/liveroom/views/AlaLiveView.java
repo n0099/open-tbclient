@@ -327,13 +327,13 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         return (int) (MotionEventCompat.getY(motionEvent, pointerIndex) - this.cGB);
     }
 
-    public void coc() {
+    public void cod() {
         if (!this.bwY) {
-            coe();
+            cof();
         }
     }
 
-    public void cod() {
+    public void coe() {
         if (this.mScroller != null) {
             this.mScroller.forceFinished(true);
         }
@@ -364,7 +364,7 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         postInvalidate();
     }
 
-    public void coe() {
+    public void cof() {
         xD(1);
     }
 
@@ -415,7 +415,7 @@ public class AlaLiveView extends RelativeLayout implements com.baidu.live.livero
         }
     }
 
-    public boolean cof() {
+    public boolean cog() {
         return this.bwY;
     }
 

@@ -31,10 +31,10 @@ import org.json.JSONObject;
 public class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ai f7849a = new ai();
+    private static ai f7850a = new ai();
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f7850b = "";
+    private static String f7851b = "";
     private static String c = null;
     private static String d = null;
     private static String e = null;
@@ -324,18 +324,18 @@ public class aj {
     }
 
     public static String a() {
-        if (!TextUtils.isEmpty(f7850b)) {
-            return f7850b;
+        if (!TextUtils.isEmpty(f7851b)) {
+            return f7851b;
         }
         try {
             if (Looper.myLooper() == Looper.getMainLooper()) {
-                f7850b = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
+                f7851b = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
             } else {
                 new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.aj.2
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
-                            String unused = aj.f7850b = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
+                            String unused = aj.f7851b = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
                         } catch (Exception e2) {
                         }
                     }
@@ -343,7 +343,7 @@ public class aj {
             }
         } catch (Exception e2) {
         }
-        return f7850b;
+        return f7851b;
     }
 
     public static String b() {
@@ -795,8 +795,8 @@ public class aj {
     public static String q(String str) {
         String a2;
         String format = String.format("https://%s%s", com.bytedance.sdk.openadsdk.core.p.h().b(), str);
-        if (f7849a.a(com.bytedance.sdk.openadsdk.core.p.a()) && (a2 = f7849a.a("testIp.txt")) != null) {
-            return f7849a.a(format, a2);
+        if (f7850a.a(com.bytedance.sdk.openadsdk.core.p.a()) && (a2 = f7850a.a("testIp.txt")) != null) {
+            return f7850a.a(format, a2);
         }
         return format;
     }

@@ -28,7 +28,7 @@ public class c implements com.baidu.tieba.ala.alaar.sticker.download.a.d {
 
         public a(com.baidu.tieba.ala.alaar.sticker.download.a.c cVar) {
             this.guP = cVar;
-            this.guR = this.guP.bSY();
+            this.guR = this.guP.bSZ();
         }
 
         @Override // java.lang.Runnable

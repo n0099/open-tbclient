@@ -11,17 +11,17 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class av {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile String f12863a = e();
+    private static volatile String f12864a = e();
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile String f12864b = f();
+    private static volatile String f12865b = f();
 
     /* renamed from: com.qq.e.comm.plugin.util.av$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static final class AnonymousClass1 implements com.tencent.turingfd.sdk.ams.au.s {
         AnonymousClass1() {
         }
@@ -34,7 +34,7 @@ public class av {
     }
 
     /* renamed from: com.qq.e.comm.plugin.util.av$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static final class AnonymousClass2 implements Runnable {
         AnonymousClass2() {
         }

@@ -43,7 +43,7 @@ public abstract class AdapterLayout extends ViewGroup {
     }
 
     public void setAdapter(b bVar) {
-        bKk();
+        bKl();
         if (bVar == null) {
             throw new NullPointerException("FlowBaseAdapter is null");
         }
@@ -51,20 +51,20 @@ public abstract class AdapterLayout extends ViewGroup {
         this.mObserver = new DataSetObserver() { // from class: com.baidu.tbadk.widget.extend.AdapterLayout.2
             @Override // android.database.DataSetObserver
             public void onChanged() {
-                AdapterLayout.this.bKm();
+                AdapterLayout.this.bKn();
             }
         };
-        bKl();
         bKm();
+        bKn();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        bKk();
+        bKl();
         super.onDetachedFromWindow();
     }
 
-    private void bKk() {
+    private void bKl() {
         if (this.fUv != null && this.mObserver != null && this.fUw) {
             this.fUw = false;
             this.fUv.unregisterDataSetObserver(this.mObserver);
@@ -74,17 +74,17 @@ public abstract class AdapterLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        bKl();
+        bKm();
     }
 
-    private void bKl() {
+    private void bKm() {
         if (this.fUv != null && this.mObserver != null && !this.fUw) {
             this.fUv.registerDataSetObserver(this.mObserver);
             this.fUw = true;
         }
     }
 
-    protected void bKm() {
+    protected void bKn() {
         if (this.fUv != null) {
             removeAllViews();
             int count = this.fUv.getCount();

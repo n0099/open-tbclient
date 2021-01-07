@@ -6,26 +6,26 @@ import androidx.annotation.RestrictTo;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8350a;
+    private final String f8351a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f8351b;
+    private final String f8352b;
     private final String c;
     private final float d;
 
     public c(String str, String str2, String str3, float f) {
-        this.f8350a = str;
-        this.f8351b = str2;
+        this.f8351a = str;
+        this.f8352b = str2;
         this.c = str3;
         this.d = f;
     }
 
     public String a() {
-        return this.f8350a;
+        return this.f8351a;
     }
 
     public String b() {
-        return this.f8351b;
+        return this.f8352b;
     }
 
     public String c() {

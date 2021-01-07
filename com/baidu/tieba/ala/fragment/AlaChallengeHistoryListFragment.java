@@ -19,7 +19,7 @@ public class AlaChallengeHistoryListFragment extends BaseFragment {
         public void a(int i, String str, Object obj) {
             if (i != 0 && !StringUtils.isNull(str)) {
                 if (AlaChallengeHistoryListFragment.this.gWy != null) {
-                    AlaChallengeHistoryListFragment.this.gWy.HL(AlaChallengeHistoryListFragment.this.getString(a.h.ala_rank_list_net_error));
+                    AlaChallengeHistoryListFragment.this.gWy.HK(AlaChallengeHistoryListFragment.this.getString(a.h.ala_rank_list_net_error));
                 }
             } else if (obj != null && (obj instanceof AlaGetChallengeHistoryListResponseMessage)) {
                 AlaGetChallengeHistoryListResponseMessage alaGetChallengeHistoryListResponseMessage = (AlaGetChallengeHistoryListResponseMessage) obj;
@@ -64,9 +64,9 @@ public class AlaChallengeHistoryListFragment extends BaseFragment {
 
     private void refreshData() {
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            this.gWx.IL(this.portrait);
+            this.gWx.IK(this.portrait);
         } else if (this.gWy != null) {
-            this.gWy.HL(getString(a.h.ala_rank_list_no_net));
+            this.gWy.HK(getString(a.h.ala_rank_list_no_net));
         }
     }
 

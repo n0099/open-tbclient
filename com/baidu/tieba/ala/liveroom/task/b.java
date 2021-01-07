@@ -28,7 +28,7 @@ public class b implements com.baidu.live.ai.c {
     private Handler handler = new Handler();
     private long startTime;
 
-    public static b cnr() {
+    public static b cns() {
         if (hOz == null) {
             synchronized (b.class) {
                 if (hOz == null) {

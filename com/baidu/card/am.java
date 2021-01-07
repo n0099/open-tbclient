@@ -89,7 +89,7 @@ public class am extends a<com.baidu.tbadk.core.data.a> {
     /* renamed from: b */
     public void D(com.baidu.tbadk.core.data.a aVar) {
         this.ajS = aVar;
-        this.ajR.setData(aVar.boO());
+        this.ajR.setData(aVar.boP());
         tC();
     }
 

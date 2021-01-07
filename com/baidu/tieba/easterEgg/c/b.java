@@ -23,7 +23,7 @@ public class b extends k {
     public b(int i) {
         super(i);
         this.eLm = new Gson();
-        cxd();
+        cxe();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,7 +37,7 @@ public class b extends k {
         return socketMessage;
     }
 
-    private void cxd() {
+    private void cxe() {
         int i;
         this.iEt = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();

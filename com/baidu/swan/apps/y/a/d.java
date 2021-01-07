@@ -10,7 +10,7 @@ public class d extends c {
         this.drj = bitmap;
     }
 
-    public Bitmap aGy() {
+    public Bitmap aGz() {
         return this.drj;
     }
 }

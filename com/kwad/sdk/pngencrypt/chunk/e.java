@@ -6,26 +6,26 @@ import java.util.List;
 public class e {
 
     /* renamed from: b  reason: collision with root package name */
-    final com.kwad.sdk.pngencrypt.k f10803b;
+    final com.kwad.sdk.pngencrypt.k f10804b;
 
     /* renamed from: a  reason: collision with root package name */
-    List<PngChunk> f10802a = new ArrayList();
+    List<PngChunk> f10803a = new ArrayList();
     boolean c = false;
 
     public e(com.kwad.sdk.pngencrypt.k kVar) {
-        this.f10803b = kVar;
+        this.f10804b = kVar;
     }
 
     protected static List<PngChunk> a(List<PngChunk> list, final String str, final String str2) {
         return str2 == null ? b.a(list, new c() { // from class: com.kwad.sdk.pngencrypt.chunk.e.1
             @Override // com.kwad.sdk.pngencrypt.chunk.c
             public boolean a(PngChunk pngChunk) {
-                return pngChunk.f10793a.equals(str);
+                return pngChunk.f10794a.equals(str);
             }
         }) : b.a(list, new c() { // from class: com.kwad.sdk.pngencrypt.chunk.e.2
             @Override // com.kwad.sdk.pngencrypt.chunk.c
             public boolean a(PngChunk pngChunk) {
-                if (pngChunk.f10793a.equals(str)) {
+                if (pngChunk.f10794a.equals(str)) {
                     if (!(pngChunk instanceof ae) || ((ae) pngChunk).c().equals(str2)) {
                         return !(pngChunk instanceof x) || ((x) pngChunk).c().equals(str2);
                     }
@@ -37,22 +37,22 @@ public class e {
     }
 
     public List<PngChunk> a() {
-        return this.f10802a;
+        return this.f10803a;
     }
 
     public List<? extends PngChunk> a(String str, String str2) {
-        return a(this.f10802a, str, str2);
+        return a(this.f10803a, str, str2);
     }
 
     public void a(PngChunk pngChunk, int i) {
         pngChunk.a(i);
-        this.f10802a.add(pngChunk);
-        if (pngChunk.f10793a.equals("PLTE")) {
+        this.f10803a.add(pngChunk);
+        if (pngChunk.f10794a.equals("PLTE")) {
             this.c = true;
         }
     }
 
     public String toString() {
-        return "ChunkList: read: " + this.f10802a.size();
+        return "ChunkList: read: " + this.f10803a.size();
     }
 }

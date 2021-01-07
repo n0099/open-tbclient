@@ -3,7 +3,7 @@ package com.baidu.swan.impl.map;
 public class e {
     private static volatile d erd;
 
-    public static synchronized d bea() {
+    public static synchronized d beb() {
         d dVar;
         synchronized (e.class) {
             if (erd == null) {

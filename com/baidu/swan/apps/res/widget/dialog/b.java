@@ -39,12 +39,12 @@ public class b extends g {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         createView();
-        aLr().aK(this.bKC);
+        aLs().aK(this.bKC);
     }
 
     private void createView() {
         this.mContext = getContext();
-        this.bKC = (ViewGroup) LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_hv_dialog, aLr().aLA(), false);
+        this.bKC = (ViewGroup) LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_hv_dialog, aLs().aLB(), false);
         this.dDG = (FrameLayout) this.bKC.findViewById(a.f.hv_content);
         this.dDI = this.bKC.findViewById(a.f.hv_divider);
         this.dDH = (FrameLayout) this.bKC.findViewById(a.f.hv_btn_content);
@@ -52,11 +52,11 @@ public class b extends g {
         if (F != null) {
             this.dDG.addView(F);
         }
-        aLl();
+        aLm();
         aV(this.dDJ);
     }
 
-    private void aLl() {
+    private void aLm() {
         this.dDI.setBackgroundColor(getContext().getResources().getColor(a.c.aiapps_dialog_gray));
     }
 
@@ -183,8 +183,8 @@ public class b extends g {
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        public g atG() {
-            b bVar = (b) super.atG();
+        public g atH() {
+            b bVar = (b) super.atH();
             bVar.aU(this.list);
             return bVar;
         }

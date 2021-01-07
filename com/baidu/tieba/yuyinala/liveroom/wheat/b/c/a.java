@@ -10,40 +10,40 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.wheat.b.a {
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void Wn(String str) {
-        if (o.eff().eev()) {
-            eeE();
-        } else if (o.eff().efj()) {
-            eeE();
-        } else if (o.eff().jm(str)) {
-            e.eeO().h(this.mPageContext);
+    public void Wm(String str) {
+        if (o.efg().eew()) {
+            eeF();
+        } else if (o.efg().efk()) {
+            eeF();
+        } else if (o.efg().jm(str)) {
+            e.eeP().h(this.mPageContext);
         } else {
-            eeD();
+            eeE();
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void Wo(String str) {
-        if (eey()) {
-            eeF();
-        } else if (eez()) {
-            if (o.eff().eev()) {
-                if (o.eff().jm(str)) {
-                    if (o.eff().jo(str)) {
-                        eeE();
+    public void Wn(String str) {
+        if (eez()) {
+            eeG();
+        } else if (eeA()) {
+            if (o.efg().eew()) {
+                if (o.efg().jm(str)) {
+                    if (o.efg().jo(str)) {
+                        eeF();
                         return;
                     } else {
-                        eeG();
+                        eeH();
                         return;
                     }
                 }
-                eeE();
-            } else if (o.eff().jo(str)) {
-                eeE();
-            } else if (o.eff().WA(str)) {
-                eeG();
+                eeF();
+            } else if (o.efg().jo(str)) {
+                eeF();
+            } else if (o.efg().Wz(str)) {
+                eeH();
             } else {
-                eeD();
+                eeE();
             }
         }
     }

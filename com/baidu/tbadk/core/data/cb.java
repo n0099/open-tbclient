@@ -24,19 +24,19 @@ public class cb {
         return this.summary;
     }
 
-    public String btE() {
+    public String btF() {
         return this.eWK;
     }
 
-    public int btF() {
+    public int btG() {
         return this.eWL;
     }
 
-    public String btG() {
+    public String btH() {
         return this.eWM;
     }
 
-    public long btH() {
+    public long btI() {
         return this.eWN;
     }
 
@@ -76,7 +76,7 @@ public class cb {
         }
     }
 
-    public String btI() {
+    public String btJ() {
         return this.eWO;
     }
 

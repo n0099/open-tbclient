@@ -17,7 +17,7 @@ public class an {
     private com.baidu.swan.apps.v.a dRY = new com.baidu.swan.apps.v.a() { // from class: com.baidu.swan.apps.ao.an.1
         @Override // com.baidu.swan.apps.v.a, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(final Activity activity, Bundle bundle) {
-            if (b.aQQ()) {
+            if (b.aQR()) {
                 super.onActivityCreated(activity, bundle);
                 if (activity != null && activity.getIntent() != null) {
                     Runnable runnable = new Runnable() { // from class: com.baidu.swan.apps.ao.an.1.1
@@ -25,9 +25,9 @@ public class an {
                         public void run() {
                             boolean c;
                             Intent intent = activity.getIntent();
-                            com.baidu.swan.apps.adaptation.a.r aAD = com.baidu.swan.apps.t.a.aAD();
+                            com.baidu.swan.apps.adaptation.a.r aAE = com.baidu.swan.apps.t.a.aAE();
                             ComponentName component = intent.getComponent();
-                            if (an.this.dRZ && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && aAD != null && component != null && TextUtils.equals(aAD.ald(), component.getClassName())) {
+                            if (an.this.dRZ && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && aAE != null && component != null && TextUtils.equals(aAE.ale(), component.getClassName())) {
                                 if (an.this.dSa) {
                                     if (an.DEBUG) {
                                         Log.w("SwanHomeScreenLaunch", "SwanApp is Foreground Now");
@@ -35,23 +35,23 @@ public class an {
                                     }
                                     return;
                                 }
-                                b aQP = b.aQP();
-                                if (c.aQV() && b.aQR()) {
-                                    c = aQP.b(activity, an.this.dSb, false);
+                                b aQQ = b.aQQ();
+                                if (c.aQW() && b.aQS()) {
+                                    c = aQQ.b(activity, an.this.dSb, false);
                                 } else {
-                                    c = aQP.c(an.this.dSb, false, false);
+                                    c = aQQ.c(an.this.dSb, false, false);
                                 }
                                 if (an.DEBUG) {
                                     Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + c + ", taskId=" + an.this.dSb);
                                 }
-                                aQP.aQS();
+                                aQQ.aQT();
                             }
                             if (an.DEBUG) {
                                 Log.d("SwanHomeScreenLaunch", "class=" + activity + ", swanAppForeground=" + an.this.dRZ + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
                             }
                         }
                     };
-                    if (c.aQV()) {
+                    if (c.aQW()) {
                         runnable.run();
                     } else {
                         p.b(runnable, "moveTaskToFront");

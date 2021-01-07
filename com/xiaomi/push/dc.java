@@ -6,20 +6,20 @@ import java.util.List;
 public abstract class dc {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f14231a;
+    private int f14232a;
 
     public dc(int i) {
-        this.f14231a = i;
+        this.f14232a = i;
     }
 
     public int a() {
-        return this.f14231a;
+        return this.f14232a;
     }
 
     public abstract String a(Context context, String str, List<ay> list);
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m244a(Context context, String str, List<ay> list) {
+    public boolean m255a(Context context, String str, List<ay> list) {
         return true;
     }
 }

@@ -43,11 +43,11 @@ public class c {
     private String mLiveId;
     private View mRootView;
     private int mUserType;
-    private String ojm;
-    private YuyinCharmRankTotalActivity old;
-    private e ole;
-    private TextView olf;
-    private com.baidu.tieba.yuyinala.charm.charmrank.a olg;
+    private String ojl;
+    private YuyinCharmRankTotalActivity olc;
+    private e old;
+    private TextView ole;
+    private com.baidu.tieba.yuyinala.charm.charmrank.a olf;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -55,15 +55,15 @@ public class c {
     }
 
     public c(YuyinCharmRankTotalActivity yuyinCharmRankTotalActivity, int i, String str, String str2, int i2) {
-        this.old = yuyinCharmRankTotalActivity;
+        this.olc = yuyinCharmRankTotalActivity;
         this.gPr = i;
-        this.ojm = str;
+        this.ojl = str;
         this.mLiveId = str2;
         this.mUserType = i2;
-        this.mRootView = this.old.getLayoutInflater().inflate(a.g.yuyin_charm_rank_total_layout, (ViewGroup) null);
+        this.mRootView = this.olc.getLayoutInflater().inflate(a.g.yuyin_charm_rank_total_layout, (ViewGroup) null);
         this.mListView = (BdListView) this.mRootView.findViewById(a.f.detail_list);
         this.bxT = (CommonEmptyView) this.mRootView.findViewById(a.f.emptyView);
-        this.olf = (TextView) this.mRootView.findViewById(a.f.top_text_right);
+        this.ole = (TextView) this.mRootView.findViewById(a.f.top_text_right);
         this.gQT = this.mRootView.findViewById(a.f.toLogin_layout);
         this.gQU = this.mRootView.findViewById(a.f.toLogin_text);
         this.ceG = (AlaLoadingView) this.mRootView.findViewById(a.f.ala_loading_view);
@@ -73,13 +73,13 @@ public class c {
         } else {
             this.gQT.setVisibility(8);
         }
-        this.ole = new e(yuyinCharmRankTotalActivity.getPageContext(), this.gPr, this.ojm, this.mLiveId);
-        this.mListView.setAdapter((ListAdapter) this.ole);
+        this.old = new e(yuyinCharmRankTotalActivity.getPageContext(), this.gPr, this.ojl, this.mLiveId);
+        this.mListView.setAdapter((ListAdapter) this.old);
         this.mListView.setEmptyView(this.bxT);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.c.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
-                c.this.a(c.this.ole.getItem(i3));
+                c.this.a(c.this.old.getItem(i3));
             }
         });
         this.ggF = (TextView) this.mRootView.findViewById(a.f.top_text);
@@ -90,9 +90,9 @@ public class c {
         }
         if (this.gPr == 0 && TbadkCoreApplication.isLogin()) {
             this.bxO = (LinearLayout) this.mRootView.findViewById(a.f.ala_rank_list_bottom_container);
-            this.olg = new com.baidu.tieba.yuyinala.charm.charmrank.a(this.old, this.ojm);
-            this.bxO.addView(this.olg.getView(), new LinearLayout.LayoutParams(-1, -2));
-            this.olg.a(new a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.c.2
+            this.olf = new com.baidu.tieba.yuyinala.charm.charmrank.a(this.olc, this.ojl);
+            this.bxO.addView(this.olf.getView(), new LinearLayout.LayoutParams(-1, -2));
+            this.olf.a(new a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.c.2
                 @Override // com.baidu.tieba.yuyinala.charm.charmrank.c.a
                 public void ep(View view) {
                     MessageManager.getInstance().dispatchResponsedMessage(new YuyinSupportRoomMessage(new SupportRoom()));
@@ -100,18 +100,18 @@ public class c {
             });
         }
         if (this.gPy == null) {
-            this.gPy = new PbListView(this.old);
-            this.gPy.setTextColor(this.old.getResources().getColor(a.c.sdk_color_858585));
+            this.gPy = new PbListView(this.olc);
+            this.gPy.setTextColor(this.olc.getResources().getColor(a.c.sdk_color_858585));
             this.gPy.setSkinType(0);
             this.gPy.setContainerBackgroundColorResId(a.c.sdk_transparent);
             this.gPy.setmTextSize(14.0f);
             this.gPy.createView();
-            this.gPy.setHeight(BdUtilHelper.dip2px(this.old, 60.0f));
+            this.gPy.setHeight(BdUtilHelper.dip2px(this.olc, 60.0f));
         }
     }
 
     public void gp(List<j.b> list) {
-        this.ole.setData(list);
+        this.old.setData(list);
     }
 
     public void dM(boolean z) {
@@ -119,7 +119,7 @@ public class c {
             this.bxT.reset();
             this.bxT.setTitle("还没有人上榜哦~");
             this.bxT.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
-            this.bxT.setTextColor(this.old.getResources().getColor(a.c.sdk_color_525252));
+            this.bxT.setTextColor(this.olc.getResources().getColor(a.c.sdk_color_525252));
             this.bxT.setVisibility(0);
             return;
         }
@@ -133,8 +133,8 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(j.b bVar) {
         if (bVar != null) {
-            this.old.finish();
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.old.getPageContext().getPageActivity(), ExtraParamsManager.getDecryptUserId(bVar.user_uk), bVar.user_name, bVar.bd_portrait, 0, bVar.level_id, null, null, 0L, 0L, 0L, 0, "", this.mLiveId, false, "", null, bVar.user_name, "")));
+            this.olc.finish();
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.olc.getPageContext().getPageActivity(), ExtraParamsManager.getDecryptUserId(bVar.user_uk), bVar.user_name, bVar.bd_portrait, 0, bVar.level_id, null, null, 0L, 0L, 0L, 0, "", this.mLiveId, false, "", null, bVar.user_name, "")));
         }
     }
 
@@ -147,32 +147,32 @@ public class c {
         this.bxT.setTitle("网络加载失败了哦~");
         this.bxT.setRefreshButton("重新加载", onClickListener);
         this.bxT.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.bxT.setTextColor(this.old.getResources().getColor(a.c.sdk_color_525252));
+        this.bxT.setTextColor(this.olc.getResources().getColor(a.c.sdk_color_525252));
         this.bxT.setVisibility(0);
     }
 
-    public void Zi() {
+    public void Zj() {
         this.bxT.setVisibility(8);
     }
 
-    public void Hm(String str) {
+    public void Hl(String str) {
         this.mListView.setNextPage(this.gPy);
         this.gPy.endLoadDataWithNoMore(str);
     }
 
     public void b(j.a aVar) {
         if (aVar == null) {
-            if (this.olg != null) {
-                this.olg.getView().setVisibility(8);
+            if (this.olf != null) {
+                this.olf.getView().setVisibility(8);
                 return;
             }
             return;
         }
         View view = null;
-        if (this.olg != null) {
-            this.olg.a(aVar);
-            this.olg.getView().setVisibility(0);
-            view = this.olg.getView();
+        if (this.olf != null) {
+            this.olf.a(aVar);
+            this.olf.getView().setVisibility(0);
+            view = this.olf.getView();
         }
         if (TbadkCoreApplication.getInst().isNotMobileBaidu() && view != null) {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.c.3

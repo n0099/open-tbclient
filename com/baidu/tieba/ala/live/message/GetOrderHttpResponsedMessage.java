@@ -20,7 +20,7 @@ public class GetOrderHttpResponsedMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public bu caP() {
+    public bu caQ() {
         return this.hjN;
     }
 }

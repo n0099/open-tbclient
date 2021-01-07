@@ -67,10 +67,10 @@ public class NoDataView extends LinearLayout {
         this.fke = (LinearLayout) this.mRootView.findViewById(R.id.two_button_layout);
         this.fkh = R.color.CAM_X0107;
         this.fki = R.color.CAM_X0109;
-        bxv();
+        bxw();
     }
 
-    private void bxv() {
+    private void bxw() {
         int equipmentHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst());
         if (equipmentHeight > 0) {
             int i = (int) (equipmentHeight * 0.16d);
@@ -95,13 +95,13 @@ public class NoDataView extends LinearLayout {
             ((TbPageContext) fVar).getLayoutMode().onModeChanged(this);
         }
         if (this.fka != null) {
-            this.fka.bxO();
+            this.fka.bxP();
         }
         if (this.fkb != null) {
-            this.fkb.bxO();
+            this.fkb.bxP();
         }
         if (this.fkc != null) {
-            this.fkc.bxO();
+            this.fkc.bxP();
         }
         if (this.fkf == NoDataViewFactory.ImgType.WEBVIEW) {
             this.fjV.setImageBitmap(ao.getBitmap565Quality(R.drawable.new_pic_emotion_08));
@@ -146,7 +146,7 @@ public class NoDataView extends LinearLayout {
             } else {
                 this.fjX.setVisibility(8);
             }
-            bxx();
+            bxy();
         }
     }
 
@@ -230,14 +230,14 @@ public class NoDataView extends LinearLayout {
             this.fkc.setText(aVar2.mText);
             this.fke.setVisibility(0);
         }
-        bxx();
+        bxy();
     }
 
     public void e(com.baidu.adp.base.f<?> fVar) {
         onChangeSkinType(fVar, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void bxw() {
+    public void bxx() {
         this.fjV.setImageDrawable(null);
         this.fjV.startLoad(null, 10, false);
     }
@@ -284,7 +284,7 @@ public class NoDataView extends LinearLayout {
         onChangeSkinType(fVar, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void bxx() {
+    private void bxy() {
         if (this.fka.getVisibility() == 0) {
             ViewGroup.LayoutParams layoutParams = this.fjW.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {

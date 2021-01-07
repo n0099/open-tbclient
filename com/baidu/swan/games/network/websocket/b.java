@@ -8,32 +8,32 @@ import kotlin.jvm.internal.p;
 public final class b {
     public final void a(WebSocketTask webSocketTask) {
         p.o(webSocketTask, "task");
-        k bbo = bbo();
-        if (bbo != null) {
-            bbo.a(webSocketTask);
+        k bbp = bbp();
+        if (bbp != null) {
+            bbp.a(webSocketTask);
         }
     }
 
     public final void qU(String str) {
         p.o(str, "taskId");
-        k bbo = bbo();
-        if (bbo != null) {
-            bbo.qU(str);
+        k bbp = bbp();
+        if (bbp != null) {
+            bbp.qU(str);
         }
     }
 
-    public final boolean aGE() {
-        k bbo = bbo();
-        if (bbo != null) {
-            return bbo.aGE();
+    public final boolean aGF() {
+        k bbp = bbp();
+        if (bbp != null) {
+            return bbp.aGF();
         }
         return false;
     }
 
-    private final k bbo() {
-        com.baidu.swan.apps.runtime.e aMk = com.baidu.swan.apps.runtime.e.aMk();
-        if (aMk != null) {
-            return aMk.aMA();
+    private final k bbp() {
+        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
+        if (aMl != null) {
+            return aMl.aMB();
         }
         return null;
     }

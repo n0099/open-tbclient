@@ -2,7 +2,7 @@ package com.baidu.crashpad;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ZwDebugExtra {
     private static boolean debugModel;
 

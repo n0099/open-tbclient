@@ -23,13 +23,13 @@ public final class a extends TimerTask {
             }
         }
         if (Math.abs(this.dDv) >= 0.0f && Math.abs(this.dDv) <= 20.0f) {
-            this.dDx.aLd();
+            this.dDx.aLe();
             this.dDx.getHandler().sendEmptyMessage(2000);
             return;
         }
         int i = (int) (this.dDv / 100.0f);
         this.dDx.setTotalScrollY(this.dDx.getTotalScrollY() - i);
-        if (!this.dDx.aLf()) {
+        if (!this.dDx.aLg()) {
             float itemHeight = this.dDx.getItemHeight();
             float f = (-this.dDx.getInitPosition()) * itemHeight;
             float itemsCount = ((this.dDx.getItemsCount() - 1) - this.dDx.getInitPosition()) * itemHeight;

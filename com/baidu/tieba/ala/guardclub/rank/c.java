@@ -60,7 +60,7 @@ public class c extends a implements d.b {
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.a
-    protected e bZd() {
+    protected e bZe() {
         this.hcS = new d(getContext());
         this.hcS.a(this);
         this.hcS.a(this.hcT);
@@ -72,7 +72,7 @@ public class c extends a implements d.b {
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.a
-    protected int bZe() {
+    protected int bZf() {
         return a.g.live_guard_club_fragment_rank;
     }
 
@@ -81,16 +81,16 @@ public class c extends a implements d.b {
         this.hcN = (GuardClubRankListView) view.findViewById(a.f.lv);
         this.hcN.setCallback(new GuardClubRankListView.a() { // from class: com.baidu.tieba.ala.guardclub.rank.c.1
             @Override // com.baidu.tieba.ala.guardclub.view.GuardClubRankListView.a
-            public void bZj() {
+            public void bZk() {
                 if (c.this.mVisible && c.this.hcO != null) {
                     c.this.wd(c.this.hcO.getTop());
                 }
             }
 
             @Override // com.baidu.tieba.ala.guardclub.view.GuardClubRankListView.a
-            public void bZk() {
+            public void bZl() {
                 if (c.this.hcS != null) {
-                    c.this.hcS.bZm();
+                    c.this.hcS.bZn();
                 }
             }
         });
@@ -120,9 +120,9 @@ public class c extends a implements d.b {
         this.hcP = (GuardClubRankInfoView) view.findViewById(a.f.guard_club_rank_info);
         this.hcP.setCallback(new GuardClubRankInfoView.a() { // from class: com.baidu.tieba.ala.guardclub.rank.c.3
             @Override // com.baidu.tieba.ala.guardclub.view.GuardClubRankInfoView.a
-            public void bZl() {
+            public void bZm() {
                 if (c.this.hcS != null) {
-                    c.this.hcS.bZg();
+                    c.this.hcS.bZh();
                 }
             }
         });
@@ -134,20 +134,20 @@ public class c extends a implements d.b {
         super.onVisibilityChanged(z);
         if (z) {
             if (this.hcS != null) {
-                this.hcS.bZn();
+                this.hcS.bZo();
             }
             if (this.hcO != null) {
-                this.hcO.bZu();
+                this.hcO.bZv();
                 wd(this.hcO.getTop());
                 return;
             }
             return;
         }
         if (this.hcN != null) {
-            this.hcN.bZv();
+            this.hcN.bZw();
         }
         if (this.hcO != null) {
-            this.hcO.ZF();
+            this.hcO.ZG();
         }
     }
 
@@ -194,7 +194,7 @@ public class c extends a implements d.b {
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.d.b
-    public void bZi() {
+    public void bZj() {
         if (this.hcP != null) {
             this.hcP.setVisibility(8);
         }
@@ -205,7 +205,7 @@ public class c extends a implements d.b {
             commonEmptyView.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.rank.c.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    c.this.hcS.bZm();
+                    c.this.hcS.bZn();
                 }
             });
             if (BdNetTypeUtil.isNetWorkAvailable()) {

@@ -3,14 +3,14 @@ package com.facebook.d;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class d {
-    private static final Class<?> prQ = d.class;
+    private static final Class<?> prR = d.class;
 
     d() {
     }
 
-    public static int Rm(int i) {
+    public static int RC(int i) {
         switch (i) {
             case 0:
             case 1:
@@ -32,20 +32,20 @@ class d {
     public static int h(InputStream inputStream, int i) throws IOException {
         a aVar = new a();
         int a2 = a(inputStream, i, aVar);
-        int i2 = aVar.pGt - 8;
+        int i2 = aVar.pHZ - 8;
         if (a2 == 0 || i2 > a2) {
             return 0;
         }
         inputStream.skip(i2);
-        return b(inputStream, a(inputStream, a2 - i2, aVar.pGr, 274), aVar.pGr);
+        return b(inputStream, a(inputStream, a2 - i2, aVar.pHX, 274), aVar.pHX);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
-        boolean pGr;
-        int pGs;
-        int pGt;
+        boolean pHX;
+        int pHY;
+        int pHZ;
 
         private a() {
         }
@@ -55,17 +55,17 @@ class d {
         if (i <= 8) {
             return 0;
         }
-        aVar.pGs = c.a(inputStream, 4, false);
+        aVar.pHY = c.a(inputStream, 4, false);
         int i2 = i - 4;
-        if (aVar.pGs != 1229531648 && aVar.pGs != 1296891946) {
-            com.facebook.common.c.a.i(prQ, "Invalid TIFF header");
+        if (aVar.pHY != 1229531648 && aVar.pHY != 1296891946) {
+            com.facebook.common.c.a.i(prR, "Invalid TIFF header");
             return 0;
         }
-        aVar.pGr = aVar.pGs == 1229531648;
-        aVar.pGt = c.a(inputStream, 4, aVar.pGr);
+        aVar.pHX = aVar.pHY == 1229531648;
+        aVar.pHZ = c.a(inputStream, 4, aVar.pHX);
         int i3 = i2 - 4;
-        if (aVar.pGt < 8 || aVar.pGt - 8 > i3) {
-            com.facebook.common.c.a.i(prQ, "Invalid offset");
+        if (aVar.pHZ < 8 || aVar.pHZ - 8 > i3) {
+            com.facebook.common.c.a.i(prR, "Invalid offset");
             return 0;
         }
         return i3;

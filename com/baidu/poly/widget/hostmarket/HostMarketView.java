@@ -17,7 +17,7 @@ import com.baidu.poly.widget.SwitchButton;
 import com.baidu.poly.widget.o;
 import com.xiaomi.mipush.sdk.Constants;
 import java.text.DecimalFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HostMarketView extends FrameLayout {
     private TextView cqW;
     private TextView crA;
@@ -28,7 +28,7 @@ public class HostMarketView extends FrameLayout {
     private boolean crF;
     private ImageView crz;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(boolean z, o oVar, com.baidu.poly.a.k.a aVar);
 
@@ -36,7 +36,7 @@ public class HostMarketView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements CompoundButton.OnCheckedChangeListener {
         b() {
         }
@@ -48,7 +48,7 @@ public class HostMarketView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements com.baidu.poly.a.k.a {
         c() {
         }
@@ -82,7 +82,7 @@ public class HostMarketView extends FrameLayout {
             return;
         }
         setVisibility(0);
-        com.baidu.poly.a.d.b.aft().b(this.crz, this.crD.getIcon());
+        com.baidu.poly.a.d.b.afu().b(this.crz, this.crD.getIcon());
         this.cqW.setText(this.crD.getDisplayName());
         this.crA.setText(this.crD.S());
         if (!TextUtils.isEmpty(this.crD.M())) {

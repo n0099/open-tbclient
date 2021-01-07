@@ -92,7 +92,7 @@ public class c implements View.OnClickListener {
             if (personUserData.user_info == null || JavaTypesHelper.toLong(personUserData.user_info.user_id, 0L) == 0 || (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(personUserData.user_info.user_id))) {
                 this.hXU.setVisibility(8);
                 this.hXT.setVisibility(8);
-            } else if (this.hXO.IQ(TbadkCoreApplication.getCurrentAccount())) {
+            } else if (this.hXO.IP(TbadkCoreApplication.getCurrentAccount())) {
                 this.hXT.setVisibility(8);
                 this.hXU.setVisibility(0);
             } else if (personUserData.login_user_info != null && personUserData.login_user_info.is_live_admin == 1 && personUserData.user_info != null && personUserData.user_info.is_live_admin == 0) {
@@ -116,7 +116,7 @@ public class c implements View.OnClickListener {
         this.hXS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.cpv();
+                c.this.cpw();
             }
         });
         this.hXT = (Button) this.mRootView.findViewById(a.f.mystery_person_card_report_btn);
@@ -136,7 +136,7 @@ public class c implements View.OnClickListener {
         this.hXT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.c.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.cpA();
+                c.this.cpB();
             }
         });
         this.hXV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.c.4
@@ -149,8 +149,8 @@ public class c implements View.OnClickListener {
     private void initListener() {
         a(new a.InterfaceC0697a() { // from class: com.baidu.tieba.ala.person.view.c.5
             @Override // com.baidu.tieba.ala.person.a.InterfaceC0697a
-            public void cpn() {
-                c.this.hXO.cpi();
+            public void cpo() {
+                c.this.hXO.cpj();
             }
         });
         this.hXU.setOnClickListener(this);
@@ -161,7 +161,7 @@ public class c implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpA() {
+    public void cpB() {
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(this.hXO.getActivity());
             this.hXO.finish();
@@ -177,9 +177,9 @@ public class c implements View.OnClickListener {
             com.baidu.tieba.ala.person.a aVar = new com.baidu.tieba.ala.person.a(this.hXO.getActivity(), true);
             aVar.a(new a.InterfaceC0697a() { // from class: com.baidu.tieba.ala.person.view.c.6
                 @Override // com.baidu.tieba.ala.person.a.InterfaceC0697a
-                public void cpn() {
+                public void cpo() {
                     if (c.this.hXY != null) {
-                        c.this.hXY.cpn();
+                        c.this.hXY.cpo();
                     }
                 }
             });
@@ -189,7 +189,7 @@ public class c implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpv() {
+    public void cpw() {
         if (this.byl != null) {
             if (!TbadkCoreApplication.isLogin()) {
                 ViewHelper.skipToLoginActivity(this.hXO.getActivity());
@@ -274,7 +274,7 @@ public class c implements View.OnClickListener {
         }
     }
 
-    public Animation bZN() {
+    public Animation bZO() {
         this.mHandler.removeCallbacksAndMessages(null);
         this.mHandler = null;
         if (this.hfp != null) {
@@ -288,7 +288,7 @@ public class c implements View.OnClickListener {
         return loadAnimation;
     }
 
-    public void bnO() {
+    public void bnP() {
         if (this.hYa != null && this.hYa.isShowing()) {
             this.hYa.resize();
         }

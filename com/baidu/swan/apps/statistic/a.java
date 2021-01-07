@@ -9,7 +9,7 @@ public class a {
         this.dNs = flow;
     }
 
-    public Flow aOR() {
+    public Flow aOS() {
         return this.dNs;
     }
 }

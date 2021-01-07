@@ -24,10 +24,10 @@ import javax.net.ssl.X509TrustManager;
 public class z implements Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    static final List<w> f6283a = com.bytedance.sdk.a.b.a.c.P(w.HTTP_2, w.HTTP_1_1);
+    static final List<w> f6284a = com.bytedance.sdk.a.b.a.c.P(w.HTTP_2, w.HTTP_1_1);
 
     /* renamed from: b  reason: collision with root package name */
-    static final List<n> f6284b = com.bytedance.sdk.a.b.a.c.P(n.pnG, n.pnI);
+    static final List<n> f6285b = com.bytedance.sdk.a.b.a.c.P(n.pnG, n.pnI);
     final int A;
     final int B;
     final int C;
@@ -60,7 +60,7 @@ public class z implements Cloneable {
         com.bytedance.sdk.a.b.a.a.pir = new com.bytedance.sdk.a.b.a.a() { // from class: com.bytedance.sdk.a.b.z.1
             @Override // com.bytedance.sdk.a.b.a.a
             public void a(v.a aVar, String str) {
-                aVar.YL(str);
+                aVar.YK(str);
             }
 
             @Override // com.bytedance.sdk.a.b.a.a
@@ -116,7 +116,7 @@ public class z implements Cloneable {
 
     z(a aVar) {
         this.pnO = aVar.poe;
-        this.pnP = aVar.f6285b;
+        this.pnP = aVar.f6286b;
         this.e = aVar.c;
         this.f = aVar.d;
         this.g = com.bytedance.sdk.a.b.a.c.a(aVar.e);
@@ -135,9 +135,9 @@ public class z implements Cloneable {
             this.pnW = aVar.m;
             this.pnX = aVar.pom;
         } else {
-            X509TrustManager erD = erD();
-            this.pnW = c(erD);
-            this.pnX = com.bytedance.sdk.a.b.a.i.c.a(erD);
+            X509TrustManager erE = erE();
+            this.pnW = c(erE);
+            this.pnX = com.bytedance.sdk.a.b.a.i.c.a(erE);
         }
         this.pnY = aVar.pon;
         this.pnZ = aVar.poo.a(this.pnX);
@@ -160,7 +160,7 @@ public class z implements Cloneable {
         }
     }
 
-    private X509TrustManager erD() {
+    private X509TrustManager erE() {
         try {
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             trustManagerFactory.init((KeyStore) null);
@@ -196,52 +196,52 @@ public class z implements Cloneable {
         return this.B;
     }
 
-    public Proxy eqB() {
+    public Proxy eqC() {
         return this.pnP;
     }
 
-    public ProxySelector erE() {
+    public ProxySelector erF() {
         return this.pnR;
     }
 
-    public p erF() {
+    public p erG() {
         return this.pnS;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public com.bytedance.sdk.a.b.a.a.e erG() {
+    public com.bytedance.sdk.a.b.a.a.e erH() {
         return this.pnT != null ? this.pnT.pis : this.pnU;
     }
 
-    public r erH() {
+    public r erI() {
         return this.pod;
     }
 
-    public SocketFactory erI() {
+    public SocketFactory erJ() {
         return this.pnV;
     }
 
-    public SSLSocketFactory erJ() {
+    public SSLSocketFactory erK() {
         return this.pnW;
     }
 
-    public HostnameVerifier erK() {
+    public HostnameVerifier erL() {
         return this.pnY;
     }
 
-    public j erL() {
+    public j erM() {
         return this.pnZ;
     }
 
-    public e erM() {
+    public e erN() {
         return this.pob;
     }
 
-    public e erN() {
+    public e erO() {
         return this.poa;
     }
 
-    public m erO() {
+    public m erP() {
         return this.poc;
     }
 
@@ -257,7 +257,7 @@ public class z implements Cloneable {
         return this.y;
     }
 
-    public q erP() {
+    public q erQ() {
         return this.pnO;
     }
 
@@ -269,7 +269,7 @@ public class z implements Cloneable {
         return this.f;
     }
 
-    public List<x> erQ() {
+    public List<x> erR() {
         return this.g;
     }
 
@@ -277,7 +277,7 @@ public class z implements Cloneable {
         return this.h;
     }
 
-    public t.a erR() {
+    public t.a erS() {
         return this.pnQ;
     }
 
@@ -285,7 +285,7 @@ public class z implements Cloneable {
         return aa.a(this, abVar, false);
     }
 
-    public a erS() {
+    public a erT() {
         return new a(this);
     }
 
@@ -294,7 +294,7 @@ public class z implements Cloneable {
         int A;
 
         /* renamed from: b  reason: collision with root package name */
-        Proxy f6285b;
+        Proxy f6286b;
         List<w> c;
         List<n> d;
         final List<x> e;
@@ -325,8 +325,8 @@ public class z implements Cloneable {
             this.e = new ArrayList();
             this.f = new ArrayList();
             this.poe = new q();
-            this.c = z.f6283a;
-            this.d = z.f6284b;
+            this.c = z.f6284a;
+            this.d = z.f6285b;
             this.pof = t.a(t.pnN);
             this.pog = ProxySelector.getDefault();
             this.poh = p.pju;
@@ -350,7 +350,7 @@ public class z implements Cloneable {
             this.e = new ArrayList();
             this.f = new ArrayList();
             this.poe = zVar.pnO;
-            this.f6285b = zVar.pnP;
+            this.f6286b = zVar.pnP;
             this.c = zVar.e;
             this.d = zVar.f;
             this.e.addAll(zVar.g);
@@ -398,7 +398,7 @@ public class z implements Cloneable {
                 throw new NullPointerException("sslSocketFactory == null");
             }
             this.m = sSLSocketFactory;
-            this.pom = com.bytedance.sdk.a.b.a.g.e.era().b(sSLSocketFactory);
+            this.pom = com.bytedance.sdk.a.b.a.g.e.erb().b(sSLSocketFactory);
             return this;
         }
 
@@ -432,7 +432,7 @@ public class z implements Cloneable {
             return this;
         }
 
-        public z erT() {
+        public z erU() {
             return new z(this);
         }
     }

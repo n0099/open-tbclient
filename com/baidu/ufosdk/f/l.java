@@ -7,10 +7,10 @@ import com.baidu.android.util.devices.RomUtils;
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f5670a = 0;
+    private static int f5671a = 0;
 
     public static int a() {
-        if (f5670a == 0) {
+        if (f5671a == 0) {
             String str = Build.MODEL;
             String str2 = Build.MANUFACTURER;
             String str3 = Build.BRAND;
@@ -24,23 +24,23 @@ public final class l {
                 str3 = str3.toLowerCase();
             }
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-                f5670a = 1;
+                f5671a = 1;
             } else if (str.contains(RomUtils.MANUFACTURER_XIAOMI) || str2.contains(RomUtils.MANUFACTURER_XIAOMI) || str3.contains(RomUtils.MANUFACTURER_XIAOMI)) {
-                f5670a = 2;
+                f5671a = 2;
             } else if (str.contains("samsung") || str2.contains("samsung") || str3.contains("samsung")) {
-                f5670a = 3;
+                f5671a = 3;
             } else if (str.contains(RomUtils.MANUFACTURER_HUAWEI) || str2.contains(RomUtils.MANUFACTURER_HUAWEI) || str3.contains(RomUtils.MANUFACTURER_HUAWEI)) {
-                f5670a = 4;
+                f5671a = 4;
             } else if (str.contains(RomUtils.MANUFACTURER_VIVO) || str2.contains(RomUtils.MANUFACTURER_VIVO) || str3.contains(RomUtils.MANUFACTURER_VIVO)) {
-                f5670a = 5;
+                f5671a = 5;
             } else if (str.contains(RomUtils.MANUFACTURER_OPPO) || str2.contains(RomUtils.MANUFACTURER_OPPO) || str3.contains(RomUtils.MANUFACTURER_OPPO)) {
-                f5670a = 6;
+                f5671a = 6;
             } else if (str.contains(RomUtils.MANUFACTURER_MEIZU) || str2.contains(RomUtils.MANUFACTURER_MEIZU) || str3.contains(RomUtils.MANUFACTURER_MEIZU)) {
-                f5670a = 7;
+                f5671a = 7;
             } else {
-                f5670a = 1;
+                f5671a = 1;
             }
         }
-        return f5670a;
+        return f5671a;
     }
 }

@@ -38,7 +38,7 @@ public class d {
         init(UBC.getContext());
     }
 
-    public static d eiS() {
+    public static d eiT() {
         if (oMO == null) {
             synchronized (d.class) {
                 if (oMO == null) {
@@ -78,7 +78,7 @@ public class d {
     public void n(String str, String str2, String str3, int i) {
         b bVar = new b(str, str2, i);
         if (!TextUtils.isEmpty(str3)) {
-            bVar.Xk(str3);
+            bVar.Xj(str3);
         }
         this.oMP.execute(bVar);
     }
@@ -96,11 +96,11 @@ public class d {
         Flow ce;
         ce = ce(str, i);
         if (ce != null && ce.getValid()) {
-            RunnableC0925d runnableC0925d = new RunnableC0925d(ce, str2);
+            RunnableC0963d runnableC0963d = new RunnableC0963d(ce, str2);
             if (this.oMQ != null && this.oMQ.zt(str)) {
-                runnableC0925d.iL(true);
+                runnableC0963d.iL(true);
             }
-            this.oMP.execute(runnableC0925d);
+            this.oMP.execute(runnableC0963d);
         }
         return ce;
     }
@@ -110,11 +110,11 @@ public class d {
         Flow ce;
         ce = ce(str, i);
         if (ce != null && ce.getValid()) {
-            RunnableC0925d runnableC0925d = new RunnableC0925d(ce, jSONObject);
+            RunnableC0963d runnableC0963d = new RunnableC0963d(ce, jSONObject);
             if (this.oMQ != null && this.oMQ.zt(str)) {
-                runnableC0925d.iL(true);
+                runnableC0963d.iL(true);
             }
-            this.oMP.execute(runnableC0925d);
+            this.oMP.execute(runnableC0963d);
         }
         return ce;
     }
@@ -125,11 +125,11 @@ public class d {
             flow.setValid(false);
         } else if ((i & 16) != 0 && !UBC.getUBCContext().qX(str)) {
             flow.setValid(false);
-        } else if (this.oMQ != null && this.oMQ.Xl(str)) {
+        } else if (this.oMQ != null && this.oMQ.Xk(str)) {
             flow.setValid(false);
         } else if (this.oMQ != null && this.oMQ.zs(str)) {
             flow.setValid(false);
-        } else if (this.oMQ != null && !this.oMQ.Xn(str)) {
+        } else if (this.oMQ != null && !this.oMQ.Xm(str)) {
             flow.setValid(false);
         }
         return flow;
@@ -153,7 +153,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void eiT() {
+    public void eiU() {
         this.oMP.execute(new Runnable() { // from class: com.baidu.ubc.d.1
             @Override // java.lang.Runnable
             public void run() {
@@ -190,8 +190,8 @@ public class d {
             Log.d("UBCDEBUG", jSONObject.toString());
         }
         boolean z2 = true;
-        r eiU = eiU();
-        if (eiU != null && !eiU.dLP()) {
+        r eiV = eiV();
+        if (eiV != null && !eiV.dLQ()) {
             z2 = false;
         }
         if (z2) {
@@ -212,7 +212,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bih() {
+    public void bii() {
         this.oMP.execute(new Runnable() { // from class: com.baidu.ubc.d.3
             @Override // java.lang.Runnable
             public void run() {
@@ -223,7 +223,7 @@ public class d {
                     }
                     return;
                 }
-                d.this.oMR.bih();
+                d.this.oMR.bii();
             }
         });
     }
@@ -251,8 +251,8 @@ public class d {
         this.oMP.schedule(runnable, j, TimeUnit.MILLISECONDS);
     }
 
-    private static final r eiU() {
-        return com.baidu.tieba.q.t.dLQ();
+    private static final r eiV() {
+        return com.baidu.tieba.q.t.dLR();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -264,9 +264,9 @@ public class d {
         @Override // java.lang.Runnable
         public void run() {
             Process.setThreadPriority(10);
-            d.this.oMQ = com.baidu.ubc.g.eiW();
+            d.this.oMQ = com.baidu.ubc.g.eiX();
             d.this.oMR = new com.baidu.ubc.c(d.this.mContext);
-            d.this.oMR.bii();
+            d.this.oMR.bij();
         }
     }
 
@@ -302,7 +302,7 @@ public class d {
             }
         }
 
-        public void Xk(String str) {
+        public void Xj(String str) {
             if (this.oNb != null) {
                 this.oNb.setFileName(str);
             }
@@ -317,10 +317,10 @@ public class d {
                 }
                 return;
             }
-            if (d.this.oMS != null && d.this.oMQ != null && d.this.oMQ.Xs(this.mLogId) == 1) {
-                eiV();
+            if (d.this.oMS != null && d.this.oMQ != null && d.this.oMQ.Xr(this.mLogId) == 1) {
+                eiW();
             }
-            if (this.oNb.biz() == -1) {
+            if (this.oNb.biA() == -1) {
                 if (cf(this.oNb.getId(), this.oNb.getOption())) {
                     if (d.this.oMQ != null && d.this.oMQ.zt(this.oNb.getId())) {
                         iL(true);
@@ -329,7 +329,7 @@ public class d {
                     return;
                 }
             }
-            this.oNb.biD();
+            this.oNb.biE();
             String id = this.oNb.getId();
             if (!TextUtils.isEmpty(id)) {
                 if (d.this.oMQ != null) {
@@ -338,14 +338,14 @@ public class d {
                         this.oNb.setCategory(zq);
                     }
                 }
-                if (d.this.oMS != null && d.this.oMQ != null && d.this.oMQ.Xs(this.mLogId) == 2) {
-                    eiV();
+                if (d.this.oMS != null && d.this.oMQ != null && d.this.oMQ.Xr(this.mLogId) == 2) {
+                    eiW();
                 }
-                if (this.oNb.biz() == -1 && TextUtils.equals(id, "1876")) {
+                if (this.oNb.biA() == -1 && TextUtils.equals(id, "1876")) {
                     d.this.oMR.d(this.oNb);
                 } else if ((this.oNb.getOption() & 8) != 0) {
                     d.this.oMR.c(this.oNb);
-                } else if (this.oNb == null || d.this.oMQ == null || !d.this.oMQ.Xo(id)) {
+                } else if (this.oNb == null || d.this.oMQ == null || !d.this.oMQ.Xn(id)) {
                     d.this.oMR.b(this.oNb);
                 } else {
                     d.this.oMR.f(this.oNb);
@@ -357,8 +357,8 @@ public class d {
             if ((i & 16) == 0 || UBC.getUBCContext().qX(str)) {
                 if (d.this.oMQ == null || d.this.oMQ.aj(str, i)) {
                     if (d.this.oMQ == null || !d.this.oMQ.zs(str)) {
-                        if (d.this.oMQ == null || !d.this.oMQ.Xl(str)) {
-                            return d.this.oMQ == null || !d.this.oMQ.Xr(str);
+                        if (d.this.oMQ == null || !d.this.oMQ.Xk(str)) {
+                            return d.this.oMQ == null || !d.this.oMQ.Xq(str);
                         }
                         return false;
                     }
@@ -369,15 +369,15 @@ public class d {
             return false;
         }
 
-        private void eiV() {
-            JSONObject biB;
+        private void eiW() {
+            JSONObject biC;
             if (this.oNb != null) {
                 String id = this.oNb.getId();
                 if (!TextUtils.isEmpty(id)) {
                     String content = this.oNb.getContent();
-                    if (TextUtils.isEmpty(content) && (biB = this.oNb.biB()) != null) {
+                    if (TextUtils.isEmpty(content) && (biC = this.oNb.biC()) != null) {
                         try {
-                            content = biB.toString();
+                            content = biC.toString();
                         } catch (ConcurrentModificationException e) {
                             d.this.oMS.gV(id, e.toString());
                             return;
@@ -394,17 +394,17 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ubc.d$d  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC0925d implements Runnable {
+    public class RunnableC0963d implements Runnable {
         private p oNc;
 
-        RunnableC0925d(Flow flow, String str) {
+        RunnableC0963d(Flow flow, String str) {
             this.oNc = new p(flow.getId(), flow.getHandle(), str, flow.getOption());
             this.oNc.dw(flow.getStartTime());
             this.oNc.zz("1");
             d.e(d.this);
         }
 
-        RunnableC0925d(Flow flow, JSONObject jSONObject) {
+        RunnableC0963d(Flow flow, JSONObject jSONObject) {
             this.oNc = new p(flow.getId(), flow.getHandle(), jSONObject, flow.getOption());
             this.oNc.dw(flow.getStartTime());
             this.oNc.zz("1");
@@ -426,7 +426,7 @@ public class d {
                 }
                 return;
             }
-            this.oNc.biD();
+            this.oNc.biE();
             if (!TextUtils.isEmpty(d.this.oMQ.zq(this.oNc.getId()))) {
                 this.oNc.setCategory(d.this.oMQ.zq(this.oNc.getId()));
             }

@@ -9,7 +9,7 @@ public final class c<ValueT> {
 
     /* loaded from: classes9.dex */
     public interface a<ValueT> {
-        ValueT aPw() throws IllegalStateException;
+        ValueT aPx() throws IllegalStateException;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.swan.apps.al.e */
@@ -17,11 +17,11 @@ public final class c<ValueT> {
     /* JADX WARN: Multi-variable type inference failed */
     public c(String str) {
         this.id = str;
-        e.aQJ().a(this);
+        e.aQK().a(this);
     }
 
     public String toString() {
-        return String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.id, aQI());
+        return String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.id, aQJ());
     }
 
     public c<ValueT> a(a<ValueT> aVar) {
@@ -37,7 +37,7 @@ public final class c<ValueT> {
     public boolean b(a<ValueT> aVar) {
         if (aVar != null) {
             try {
-                return ab(aVar.aPw());
+                return ab(aVar.aPx());
             } catch (IllegalStateException e) {
                 com.baidu.swan.apps.console.c.w("Tracer", "index update IllegalStateException " + e.getMessage());
                 return false;
@@ -50,11 +50,11 @@ public final class c<ValueT> {
     /* JADX WARN: Multi-variable type inference failed */
     public boolean ab(ValueT valuet) {
         this.mValue = valuet;
-        e.aQJ().b(this);
+        e.aQK().b(this);
         return true;
     }
 
-    public CharSequence aQI() {
+    public CharSequence aQJ() {
         return this.mValue == null ? "" : this.mValue.toString();
     }
 }

@@ -37,7 +37,7 @@ public class g {
         }
     }
 
-    public static void cih() {
+    public static void cii() {
         if (hDS != null) {
             hDS.clear();
         }

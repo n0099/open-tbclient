@@ -16,8 +16,8 @@ import com.baidu.tieba.video.VideoItemData;
 /* loaded from: classes.dex */
 public class c extends d {
     private VideoSerializeVideoThreadInfo jLP;
-    private VideoItemData mEF;
-    private bz mEG;
+    private VideoItemData mEE;
+    private bz mEF;
 
     public c(Context context, View view) {
         super(context, view);
@@ -29,17 +29,17 @@ public class c extends d {
     @Override // com.baidu.tieba.play.operableVideoView.d
     public void init() {
         super.init();
-        this.mFv.setOnTouchListener(null);
-        this.mFv.setOnClickListener(this);
+        this.mFu.setOnTouchListener(null);
+        this.mFu.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
     public void setData(bz bzVar) {
         super.setData(bzVar);
-        this.mEG = bzVar;
+        this.mEF = bzVar;
         if (this.anC) {
-            this.mEF = new VideoItemData();
-            this.mEF.buildWithThreadData(bzVar);
+            this.mEE = new VideoItemData();
+            this.mEE.buildWithThreadData(bzVar);
             return;
         }
         this.jLP = new VideoSerializeVideoThreadInfo();
@@ -51,24 +51,24 @@ public class c extends d {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void dwR() {
+    public void dwS() {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void dwQ() {
-        this.mEZ = 32;
+    public void dwR() {
+        this.mEY = 32;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
             if (view.getId() == R.id.video_mute) {
-                dCr();
+                dCs();
             } else if (!j.isNetWorkAvailable()) {
                 l.showToast(this.mContext, R.string.no_network_guide);
             } else if (this.anC) {
-                if (this.mEF != null) {
-                    ga(this.mEF.forum_id, this.mEF.thread_id);
+                if (this.mEE != null) {
+                    ga(this.mEE.forum_id, this.mEE.thread_id);
                 }
             } else if (this.jLP != null) {
                 ga(this.jLP.forumId, this.jLP.threadId);
@@ -80,13 +80,13 @@ public class c extends d {
         PbActivityConfig pbActivityConfig = new PbActivityConfig(this.mContext);
         pbActivityConfig.createNormalCfg(str2, null, null);
         pbActivityConfig.setForumId(String.valueOf(str));
-        pbActivityConfig.setThreadData(this.mEG);
-        pbActivityConfig.setVideoOriginArea(ay.bw(this.mFv));
+        pbActivityConfig.setThreadData(this.mEF);
+        pbActivityConfig.setVideoOriginArea(ay.bw(this.mFu));
         pbActivityConfig.setNeedPreLoad(true);
-        com.baidu.tieba.frs.l.an(this.mEG);
+        com.baidu.tieba.frs.l.an(this.mEF);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
         if (this.akV != null) {
-            this.akV.onClick(dBx());
+            this.akV.onClick(dBy());
         }
     }
 
@@ -97,18 +97,18 @@ public class c extends d {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void dwO() {
-        if (this.mFg == this.mEY) {
-            dCk();
+    public void dwP() {
+        if (this.mFf == this.mEX) {
+            dCl();
         }
     }
 
-    public void dCk() {
-        HL(this.mEZ);
+    public void dCl() {
+        HL(this.mEY);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public boolean dCj() {
+    public boolean dCk() {
         return false;
     }
 }

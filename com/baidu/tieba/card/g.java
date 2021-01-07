@@ -63,33 +63,33 @@ public class g extends b<com.baidu.tieba.e.e> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.e.e eVar) {
-        if (eVar != null && eVar.cwx() != null) {
-            if (!TextUtils.isEmpty(eVar.cwx().title)) {
-                this.iuF.setText(eVar.cwx().title);
+        if (eVar != null && eVar.cwy() != null) {
+            if (!TextUtils.isEmpty(eVar.cwy().title)) {
+                this.iuF.setText(eVar.cwy().title);
             }
             this.iuG.setVisibility(8);
             this.iuH.setVisibility(8);
             this.iuI.setVisibility(8);
             this.iuJ.setVisibility(8);
-            if (eVar.cwx().sub_nodes.size() >= 1) {
+            if (eVar.cwy().sub_nodes.size() >= 1) {
                 this.iuG.setVisibility(0);
-                this.iuG.setTag(eVar.cwx().sub_nodes.get(0).url);
-                this.iuG.setText(eVar.cwx().sub_nodes.get(0).title);
+                this.iuG.setTag(eVar.cwy().sub_nodes.get(0).url);
+                this.iuG.setText(eVar.cwy().sub_nodes.get(0).title);
             }
-            if (eVar.cwx().sub_nodes.size() >= 2) {
+            if (eVar.cwy().sub_nodes.size() >= 2) {
                 this.iuH.setVisibility(0);
-                this.iuH.setTag(eVar.cwx().sub_nodes.get(1).url);
-                this.iuH.setText(eVar.cwx().sub_nodes.get(1).title);
+                this.iuH.setTag(eVar.cwy().sub_nodes.get(1).url);
+                this.iuH.setText(eVar.cwy().sub_nodes.get(1).title);
             }
-            if (eVar.cwx().sub_nodes.size() >= 3) {
+            if (eVar.cwy().sub_nodes.size() >= 3) {
                 this.iuI.setVisibility(0);
-                this.iuI.setTag(eVar.cwx().sub_nodes.get(2).url);
-                this.iuI.setText(eVar.cwx().sub_nodes.get(2).title);
+                this.iuI.setTag(eVar.cwy().sub_nodes.get(2).url);
+                this.iuI.setText(eVar.cwy().sub_nodes.get(2).title);
             }
-            if (eVar.cwx().sub_nodes.size() >= 4) {
+            if (eVar.cwy().sub_nodes.size() >= 4) {
                 this.iuJ.setVisibility(0);
-                this.iuJ.setTag(eVar.cwx().sub_nodes.get(3).url);
-                this.iuJ.setText(eVar.cwx().sub_nodes.get(3).title);
+                this.iuJ.setTag(eVar.cwy().sub_nodes.get(3).url);
+                this.iuJ.setText(eVar.cwy().sub_nodes.get(3).title);
             }
         }
     }
@@ -98,7 +98,7 @@ public class g extends b<com.baidu.tieba.e.e> {
     public void onClick(View view) {
         if (view == this.iuG || view == this.iuH || view == this.iuI || view == this.iuJ) {
             TiebaStatic.log(new aq("c13047").an("obj_locate", 8).dX("fid", this.mForumId));
-            be.bwu().a((TbPageContext) com.baidu.adp.base.j.K(this.mTbPageContext.getPageActivity()), new String[]{(String) view.getTag()}, true);
+            be.bwv().a((TbPageContext) com.baidu.adp.base.j.K(this.mTbPageContext.getPageActivity()), new String[]{(String) view.getTag()}, true);
         }
     }
 }

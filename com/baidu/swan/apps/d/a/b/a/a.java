@@ -48,11 +48,11 @@ public class a extends aa {
     }
 
     private void aK(JSONObject jSONObject) {
-        d.and().aH(jSONObject);
+        d.ane().aH(jSONObject);
         ak.l(new Runnable() { // from class: com.baidu.swan.apps.d.a.b.a.a.1
             @Override // java.lang.Runnable
             public void run() {
-                c.ath();
+                c.ati();
             }
         });
     }

@@ -113,7 +113,7 @@ public class AutoBannerLayout extends RelativeLayout implements p<l>, q {
     public void dj(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                be.bwu().b((TbPageContext) j.K(getContext()), new String[]{str});
+                be.bwv().b((TbPageContext) j.K(getContext()), new String[]{str});
             }
         } catch (Exception e) {
             e.printStackTrace();

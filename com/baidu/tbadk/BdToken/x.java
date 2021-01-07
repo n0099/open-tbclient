@@ -45,7 +45,7 @@ public class x {
         return this.url;
     }
 
-    public a bmb() {
+    public a bmc() {
         return this.eHO;
     }
 }

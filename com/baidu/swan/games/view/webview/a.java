@@ -49,10 +49,10 @@ public class a extends EventTargetImpl {
                 @Override // java.lang.Runnable
                 public void run() {
                     if (a.this.eqL == null) {
-                        a.this.bdL();
+                        a.this.bdM();
                     }
-                    if (!a.this.eqL.ami()) {
-                        a.this.eqL.amy();
+                    if (!a.this.eqL.amj()) {
+                        a.this.eqL.amz();
                     }
                     a.this.eqL.loadUrl(optString);
                     a.this.u("open", new b.a(optString));
@@ -66,8 +66,8 @@ public class a extends EventTargetImpl {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.webview.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.eqL != null && a.this.eqL.ami()) {
-                    a.this.eqL.amz();
+                if (a.this.eqL != null && a.this.eqL.amj()) {
+                    a.this.eqL.amA();
                     a.this.eqL.destroy();
                     a.this.eqL = null;
                     a.this.u("close", new b.a(a.this.mCurrentUrl));
@@ -124,8 +124,8 @@ public class a extends EventTargetImpl {
             }
             return;
         }
-        e aMl = e.aMl();
-        if (aMl == null) {
+        e aMm = e.aMm();
+        if (aMm == null) {
             if (DEBUG) {
                 Log.d("GameWebViewApi", "onGameLoadingFinish: SwanApp is null.");
                 return;
@@ -136,7 +136,7 @@ public class a extends EventTargetImpl {
         if (DEBUG) {
             Log.d("GameWebViewApi", "onGameLoadingFinish: " + this.eqM);
         }
-        c.a(aMl, this.eqM);
+        c.a(aMm, this.eqM);
         this.eqM = null;
     }
 
@@ -149,9 +149,9 @@ public class a extends EventTargetImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bdL() {
+    public void bdM() {
         if (this.eqL == null) {
-            this.eqL = d.avA().avB().cn(com.baidu.swan.apps.t.a.aAr());
+            this.eqL = d.avB().avC().cn(com.baidu.swan.apps.t.a.aAs());
             this.eqL.setOnCloseListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.webview.a.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -195,14 +195,14 @@ public class a extends EventTargetImpl {
         dispatchEvent(new JSEvent(str, obj));
     }
 
-    public static a bdM() {
-        com.baidu.swan.games.f.a bai = com.baidu.swan.games.j.a.bah().bai();
-        if (bai == null) {
+    public static a bdN() {
+        com.baidu.swan.games.f.a baj = com.baidu.swan.games.j.a.bai().baj();
+        if (baj == null) {
             return null;
         }
-        EventTarget aZG = bai.aZG();
-        if (aZG instanceof com.baidu.swan.games.binding.c) {
-            return ((com.baidu.swan.games.binding.c) aZG).getWebViewManager();
+        EventTarget aZH = baj.aZH();
+        if (aZH instanceof com.baidu.swan.games.binding.c) {
+            return ((com.baidu.swan.games.binding.c) aZH).getWebViewManager();
         }
         return null;
     }

@@ -9,10 +9,10 @@ import org.json.JSONObject;
 public class ExtraInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    String f3635a = "";
+    String f3636a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    String f3636b = "";
+    String f3637b = "";
     String c = "";
     String d = "";
     String e = "";
@@ -46,19 +46,19 @@ public class ExtraInfo {
     }
 
     public String getV1() {
-        return this.f3635a;
+        return this.f3636a;
     }
 
     public void setV1(String str) {
-        this.f3635a = a(str);
+        this.f3636a = a(str);
     }
 
     public String getV2() {
-        return this.f3636b;
+        return this.f3637b;
     }
 
     public void setV2(String str) {
-        this.f3636b = a(str);
+        this.f3637b = a(str);
     }
 
     public String getV3() {
@@ -128,11 +128,11 @@ public class ExtraInfo {
     public JSONObject dumpToJson() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (!TextUtils.isEmpty(this.f3635a)) {
-                jSONObject.put(AbstractBceClient.URL_PREFIX, this.f3635a);
+            if (!TextUtils.isEmpty(this.f3636a)) {
+                jSONObject.put(AbstractBceClient.URL_PREFIX, this.f3636a);
             }
-            if (!TextUtils.isEmpty(this.f3636b)) {
-                jSONObject.put("v2", this.f3636b);
+            if (!TextUtils.isEmpty(this.f3637b)) {
+                jSONObject.put("v2", this.f3637b);
             }
             if (!TextUtils.isEmpty(this.c)) {
                 jSONObject.put("v3", this.c);

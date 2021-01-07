@@ -22,7 +22,7 @@ public final class n implements e {
     }
 
     @Override // com.bytedance.sdk.a.a.e
-    public c epS() {
+    public c epT() {
         return this.phR;
     }
 
@@ -37,10 +37,10 @@ public final class n implements e {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        if (this.phR.f6139b == 0 && this.pia.b(this.phR, 8192L) == -1) {
+        if (this.phR.f6140b == 0 && this.pia.b(this.phR, 8192L) == -1) {
             return -1L;
         }
-        return this.phR.b(cVar, Math.min(j, this.phR.f6139b));
+        return this.phR.b(cVar, Math.min(j, this.phR.f6140b));
     }
 
     @Override // com.bytedance.sdk.a.a.e
@@ -65,7 +65,7 @@ public final class n implements e {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        while (this.phR.f6139b < j) {
+        while (this.phR.f6140b < j) {
             if (this.pia.b(this.phR, 8192L) == -1) {
                 return false;
             }
@@ -74,16 +74,16 @@ public final class n implements e {
     }
 
     @Override // com.bytedance.sdk.a.a.e
-    public byte epV() throws IOException {
+    public byte epW() throws IOException {
         a(1L);
-        return this.phR.epV();
+        return this.phR.epW();
     }
 
     @Override // com.bytedance.sdk.a.a.e
     /* renamed from: if */
-    public f mo47if(long j) throws IOException {
+    public f mo58if(long j) throws IOException {
         a(j);
-        return this.phR.mo47if(j);
+        return this.phR.mo58if(j);
     }
 
     @Override // com.bytedance.sdk.a.a.e
@@ -99,8 +99,8 @@ public final class n implements e {
             this.phR.a(bArr);
         } catch (EOFException e) {
             int i = 0;
-            while (this.phR.f6139b > 0) {
-                int a2 = this.phR.a(bArr, i, (int) this.phR.f6139b);
+            while (this.phR.f6140b > 0) {
+                int a2 = this.phR.a(bArr, i, (int) this.phR.f6140b);
                 if (a2 == -1) {
                     throw new AssertionError();
                 }
@@ -112,7 +112,7 @@ public final class n implements e {
 
     @Override // java.nio.channels.ReadableByteChannel
     public int read(ByteBuffer byteBuffer) throws IOException {
-        if (this.phR.f6139b == 0 && this.pia.b(this.phR, 8192L) == -1) {
+        if (this.phR.f6140b == 0 && this.pia.b(this.phR, 8192L) == -1) {
             return -1;
         }
         return this.phR.read(byteBuffer);
@@ -147,19 +147,19 @@ public final class n implements e {
         }
         c cVar = new c();
         this.phR.a(cVar, 0L, Math.min(32L, this.phR.b()));
-        throw new EOFException("\\n not found: limit=" + Math.min(this.phR.b(), j) + " content=" + cVar.epY().e() + (char) 8230);
-    }
-
-    @Override // com.bytedance.sdk.a.a.e
-    public short epW() throws IOException {
-        a(2L);
-        return this.phR.epW();
+        throw new EOFException("\\n not found: limit=" + Math.min(this.phR.b(), j) + " content=" + cVar.epZ().e() + (char) 8230);
     }
 
     @Override // com.bytedance.sdk.a.a.e
     public short epX() throws IOException {
         a(2L);
         return this.phR.epX();
+    }
+
+    @Override // com.bytedance.sdk.a.a.e
+    public short epY() throws IOException {
+        a(2L);
+        return this.phR.epY();
     }
 
     @Override // com.bytedance.sdk.a.a.e
@@ -195,7 +195,7 @@ public final class n implements e {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
         while (j > 0) {
-            if (this.phR.f6139b == 0 && this.pia.b(this.phR, 8192L) == -1) {
+            if (this.phR.f6140b == 0 && this.pia.b(this.phR, 8192L) == -1) {
                 throw new EOFException();
             }
             long min = Math.min(j, this.phR.b());
@@ -220,7 +220,7 @@ public final class n implements e {
         while (j3 < j2) {
             long a2 = this.phR.a(b2, j3, j2);
             if (a2 == -1) {
-                long j4 = this.phR.f6139b;
+                long j4 = this.phR.f6140b;
                 if (j4 >= j2 || this.pia.b(this.phR, 8192L) == -1) {
                     return -1L;
                 }
@@ -254,17 +254,17 @@ public final class n implements e {
     }
 
     @Override // com.bytedance.sdk.a.a.e
-    public InputStream epU() {
+    public InputStream epV() {
         return new InputStream() { // from class: com.bytedance.sdk.a.a.n.1
             @Override // java.io.InputStream
             public int read() throws IOException {
                 if (n.this.c) {
                     throw new IOException(LogConfig.TYPE_CLOSED);
                 }
-                if (n.this.phR.f6139b == 0 && n.this.pia.b(n.this.phR, 8192L) == -1) {
+                if (n.this.phR.f6140b == 0 && n.this.pia.b(n.this.phR, 8192L) == -1) {
                     return -1;
                 }
-                return n.this.phR.epV() & 255;
+                return n.this.phR.epW() & 255;
             }
 
             @Override // java.io.InputStream
@@ -273,7 +273,7 @@ public final class n implements e {
                     throw new IOException(LogConfig.TYPE_CLOSED);
                 }
                 u.a(bArr.length, i, i2);
-                if (n.this.phR.f6139b == 0 && n.this.pia.b(n.this.phR, 8192L) == -1) {
+                if (n.this.phR.f6140b == 0 && n.this.pia.b(n.this.phR, 8192L) == -1) {
                     return -1;
                 }
                 return n.this.phR.a(bArr, i, i2);
@@ -284,7 +284,7 @@ public final class n implements e {
                 if (n.this.c) {
                     throw new IOException(LogConfig.TYPE_CLOSED);
                 }
-                return (int) Math.min(n.this.phR.f6139b, 2147483647L);
+                return (int) Math.min(n.this.phR.f6140b, 2147483647L);
             }
 
             @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -313,8 +313,8 @@ public final class n implements e {
     }
 
     @Override // com.bytedance.sdk.a.a.s
-    public t epR() {
-        return this.pia.epR();
+    public t epS() {
+        return this.pia.epS();
     }
 
     public String toString() {

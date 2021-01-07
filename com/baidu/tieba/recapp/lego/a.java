@@ -28,7 +28,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 class a extends e {
     @Override // com.baidu.tieba.lego.card.e
-    protected void ddm() {
+    protected void ddn() {
         kXO.put(17, kXO.size() + 1);
         kXO.put(26, kXO.size() + 1);
         kXO.put(27, kXO.size() + 1);

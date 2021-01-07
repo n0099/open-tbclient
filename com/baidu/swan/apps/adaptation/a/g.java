@@ -11,7 +11,7 @@ public interface g<VIEW extends View> {
 
     void a(SwanAdDownloadState swanAdDownloadState);
 
-    void alF();
+    void alG();
 
     VIEW getRealView();
 

@@ -25,13 +25,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public class RelevanceItemListController implements BdListView.e, BdRecyclerView.a, a.InterfaceC0881a {
+public class RelevanceItemListController implements BdListView.e, BdRecyclerView.a, a.InterfaceC0919a {
     private String fiZ;
     private PbListView gCf;
     private BdRecyclerView ioP;
     private final View mRoot;
-    private final RelevanceItemListFragment ohF;
-    private final a ohG;
+    private final RelevanceItemListFragment ohE;
+    private final a ohF;
     private List<ReleavanceItemListData.ItemListBean> mDataList = new ArrayList();
     private boolean hasMore = true;
     private RecyclerView.Adapter mAdapter = new RecyclerView.Adapter<ListViewHolder>() { // from class: com.baidu.tieba.write.write.relevance.list.RelevanceItemListController.1
@@ -57,8 +57,8 @@ public class RelevanceItemListController implements BdListView.e, BdRecyclerView
 
     public RelevanceItemListController(RelevanceItemListFragment relevanceItemListFragment, View view, String str, BdUniqueId bdUniqueId) {
         this.mRoot = view;
-        this.ohF = relevanceItemListFragment;
-        this.ohG = new a(bdUniqueId, str);
+        this.ohE = relevanceItemListFragment;
+        this.ohF = new a(bdUniqueId, str);
         initUI();
     }
 
@@ -76,17 +76,17 @@ public class RelevanceItemListController implements BdListView.e, BdRecyclerView
         this.ioP.setNextPage(this.gCf);
         this.ioP.setOnItemClickListener(this);
         this.ioP.setOnSrollToBottomListener(this);
-        this.ohG.a(this);
+        this.ohF.a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ebl() {
-        this.ohG.ebo();
+    public void ebm() {
+        this.ohF.ebp();
     }
 
-    @Override // com.baidu.tieba.write.write.relevance.list.a.InterfaceC0881a
+    @Override // com.baidu.tieba.write.write.relevance.list.a.InterfaceC0919a
     public void a(RelevanceItemSearchData relevanceItemSearchData) {
-        this.ohF.dlh();
+        this.ohE.dli();
         if (relevanceItemSearchData != null && !x.isEmpty(relevanceItemSearchData.getData().getItem_list())) {
             this.mDataList.addAll(relevanceItemSearchData.getData().getItem_list());
             this.mAdapter.notifyDataSetChanged();
@@ -96,24 +96,24 @@ public class RelevanceItemListController implements BdListView.e, BdRecyclerView
         }
     }
 
-    @Override // com.baidu.tieba.write.write.relevance.list.a.InterfaceC0881a
+    @Override // com.baidu.tieba.write.write.relevance.list.a.InterfaceC0919a
     public void onError(int i, String str) {
         this.mDataList.clear();
         this.mAdapter.notifyDataSetChanged();
         this.ioP.setVisibility(8);
-        this.ohF.onError(str);
+        this.ohE.onError(str);
     }
 
-    @Override // com.baidu.tieba.write.write.relevance.list.a.InterfaceC0881a
-    public void ebm() {
-        this.ohF.cQK();
-    }
-
-    @Override // com.baidu.tieba.write.write.relevance.list.a.InterfaceC0881a
+    @Override // com.baidu.tieba.write.write.relevance.list.a.InterfaceC0919a
     public void ebn() {
+        this.ohE.cQL();
+    }
+
+    @Override // com.baidu.tieba.write.write.relevance.list.a.InterfaceC0919a
+    public void ebo() {
         this.hasMore = false;
         this.ioP.setNextPage(this.gCf);
-        this.gCf.setText(this.ohF.getResources().getString(R.string.list_no_more));
+        this.gCf.setText(this.ohE.getResources().getString(R.string.list_no_more));
         this.gCf.endLoadData();
         this.gCf.showEmptyView(l.getDimens(this.ioP.getContext(), R.dimen.tbds44));
     }
@@ -133,35 +133,35 @@ public class RelevanceItemListController implements BdListView.e, BdRecyclerView
                 e.printStackTrace();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSelectedMessage(itemListBean.getItem_id(), itemListBean.getItem_name(), itemListBean.getIcon_url(), d, d2, i2, itemListBean.getTags()));
-            this.ohF.getActivity().finish();
+            this.ohE.getActivity().finish();
         }
     }
 
     public void onDestroy() {
-        this.ohG.onDestroy();
+        this.ohF.onDestroy();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         if (this.hasMore) {
-            this.ohG.ebo();
-            Zg();
+            this.ohF.ebp();
+            Zh();
         }
     }
 
-    public void Zg() {
+    public void Zh() {
         this.gCf.setTopExtraViewGone();
         this.gCf.startLoadData();
         this.gCf.setText(this.ioP.getContext().getString(R.string.list_loading));
         this.gCf.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
     }
 
-    public void VB(String str) {
+    public void VA(String str) {
         this.mDataList.clear();
         this.hasMore = true;
         this.fiZ = str;
         this.mAdapter.notifyDataSetChanged();
-        this.ohG.VB(str);
+        this.ohF.VA(str);
     }
 
     public BdRecyclerView getListView() {
@@ -170,16 +170,16 @@ public class RelevanceItemListController implements BdListView.e, BdRecyclerView
 
     /* loaded from: classes8.dex */
     public static class ListViewHolder extends RecyclerView.ViewHolder {
-        private final View ohI;
-        ItemCardView ohJ;
+        private final View ohH;
+        ItemCardView ohI;
 
         public ListViewHolder(View view) {
             super(view);
-            this.ohJ = (ItemCardView) view.findViewById(R.id.item_rate_info);
-            this.ohJ.setBackGroundColor(R.color.transparent_1);
-            this.ohJ.setSizeStyle(1);
-            this.ohI = view.findViewById(R.id.bottom_divider);
-            ao.setBackgroundColor(this.ohI, R.color.CAM_X0203);
+            this.ohI = (ItemCardView) view.findViewById(R.id.item_rate_info);
+            this.ohI.setBackGroundColor(R.color.transparent_1);
+            this.ohI.setSizeStyle(1);
+            this.ohH = view.findViewById(R.id.bottom_divider);
+            ao.setBackgroundColor(this.ohH, R.color.CAM_X0203);
         }
 
         public void a(ReleavanceItemListData.ItemListBean itemListBean, String str) {
@@ -195,8 +195,8 @@ public class RelevanceItemListController implements BdListView.e, BdRecyclerView
                     e.printStackTrace();
                 }
                 tbRichTextEvaluateItemInfo.setTags(itemListBean.getTags());
-                this.ohJ.setHighLightText(str + "");
-                this.ohJ.setData(tbRichTextEvaluateItemInfo, 10);
+                this.ohI.setHighLightText(str + "");
+                this.ohI.setData(tbRichTextEvaluateItemInfo, 10);
             }
         }
     }

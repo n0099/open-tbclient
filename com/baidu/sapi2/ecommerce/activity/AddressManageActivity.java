@@ -332,8 +332,8 @@ public class AddressManageActivity extends SlideActiviy {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
-                            jSONObject.put("name", aVar.f4102a);
-                            jSONObject.put("phone", aVar.f4103b);
+                            jSONObject.put("name", aVar.f4103a);
+                            jSONObject.put("phone", aVar.f4104b);
                         } catch (Exception e) {
                             Log.e(e);
                         }

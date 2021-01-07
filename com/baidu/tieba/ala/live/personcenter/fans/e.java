@@ -17,7 +17,7 @@ public class e {
     private int eRr = 0;
     private int eRs = 0;
 
-    public ArrayList<a> bqi() {
+    public ArrayList<a> bqj() {
         return this.bHm;
     }
 
@@ -44,9 +44,9 @@ public class e {
                     }
                     this.hlt.parserJson(jSONObject.optJSONObject("page"));
                     if (this.hlt != null) {
-                        this.pageNum = this.hlt.bqd();
-                        this.eRt = this.hlt.bqb();
-                        this.hasMore = this.hlt.bqf() == 1;
+                        this.pageNum = this.hlt.bqe();
+                        this.eRt = this.hlt.bqc();
+                        this.hasMore = this.hlt.bqg() == 1;
                     }
                     this.eRr = jSONObject.optInt("tafriendnum", 0);
                     this.eRs = jSONObject.optInt("commonfriendnum", 0);

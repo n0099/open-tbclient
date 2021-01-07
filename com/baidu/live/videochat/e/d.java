@@ -53,7 +53,7 @@ public class d extends b {
     public void a(LiveVideoChatSendAcceptResponseMessage liveVideoChatSendAcceptResponseMessage) {
         if (liveVideoChatSendAcceptResponseMessage != null && this.bPx != null) {
             if (liveVideoChatSendAcceptResponseMessage.getError() == 0) {
-                this.bPx.a(liveVideoChatSendAcceptResponseMessage.YQ());
+                this.bPx.a(liveVideoChatSendAcceptResponseMessage.YR());
             } else {
                 this.bPx.I(liveVideoChatSendAcceptResponseMessage.getError(), liveVideoChatSendAcceptResponseMessage.getErrorString());
             }
@@ -64,7 +64,7 @@ public class d extends b {
     public void a(LiveVideoChatSendRefuseResponseMessage liveVideoChatSendRefuseResponseMessage) {
         if (liveVideoChatSendRefuseResponseMessage != null && this.bPx != null) {
             if (liveVideoChatSendRefuseResponseMessage.getError() == 0) {
-                this.bPx.Yk();
+                this.bPx.Yl();
             } else {
                 this.bPx.J(liveVideoChatSendRefuseResponseMessage.getError(), liveVideoChatSendRefuseResponseMessage.getErrorString());
             }
@@ -76,24 +76,24 @@ public class d extends b {
         if (liveVideoChatSendBanUserResponseMessage != null && this.bPx != null && (liveVideoChatSendBanUserResponseMessage.getOrginalMessage() instanceof com.baidu.live.videochat.message.a)) {
             com.baidu.live.videochat.message.a aVar = (com.baidu.live.videochat.message.a) liveVideoChatSendBanUserResponseMessage.getOrginalMessage();
             if (liveVideoChatSendBanUserResponseMessage.getError() == 0) {
-                if (aVar.YP()) {
-                    if (aVar.YO()) {
-                        this.bPx.Ym();
+                if (aVar.YQ()) {
+                    if (aVar.YP()) {
+                        this.bPx.Yn();
                     } else {
-                        this.bPx.Yl();
+                        this.bPx.Ym();
                     }
-                } else if (aVar.YO()) {
-                    this.bPx.Yo();
+                } else if (aVar.YP()) {
+                    this.bPx.Yp();
                 } else {
-                    this.bPx.Yn();
+                    this.bPx.Yo();
                 }
-            } else if (aVar.YP()) {
-                if (aVar.YO()) {
+            } else if (aVar.YQ()) {
+                if (aVar.YP()) {
                     this.bPx.L(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
                 } else {
                     this.bPx.K(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
                 }
-            } else if (aVar.YO()) {
+            } else if (aVar.YP()) {
                 this.bPx.N(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());
             } else {
                 this.bPx.M(liveVideoChatSendBanUserResponseMessage.getError(), liveVideoChatSendBanUserResponseMessage.getErrorString());

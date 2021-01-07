@@ -79,20 +79,20 @@ public class a {
 
     /* loaded from: classes.dex */
     public interface c {
-        void btY();
+        void btZ();
     }
 
-    public a Bo(String str) {
+    public a Bn(String str) {
         this.mTitle = str;
         return this;
     }
 
     public a oZ(int i) {
-        Bo(this.mActivity.getResources().getString(i));
+        Bn(this.mActivity.getResources().getString(i));
         return this;
     }
 
-    public a Bp(String str) {
+    public a Bo(String str) {
         this.mMessage = str;
         return this;
     }
@@ -215,16 +215,16 @@ public class a {
                     linearLayout.addView(this.mContentView);
                 }
             } else {
-                View btT = this.eXe ? btT() : isShowTitleAndMessage();
-                if (btT != null) {
+                View btU = this.eXe ? btU() : isShowTitleAndMessage();
+                if (btU != null) {
                     linearLayout.removeAllViews();
-                    if (btT.getParent() != null) {
-                        if (btT.getParent() instanceof ViewGroup) {
-                            ((ViewGroup) btT.getParent()).removeView(btT);
-                            linearLayout.addView(btT);
+                    if (btU.getParent() != null) {
+                        if (btU.getParent() instanceof ViewGroup) {
+                            ((ViewGroup) btU.getParent()).removeView(btU);
+                            linearLayout.addView(btU);
                         }
                     } else {
-                        linearLayout.addView(btT);
+                        linearLayout.addView(btU);
                     }
                 }
             }
@@ -302,7 +302,7 @@ public class a {
         return null;
     }
 
-    public View btT() {
+    public View btU() {
         View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.dialog_content_with_no_tip_again, (ViewGroup) null);
         this.bjt = (TextView) inflate.findViewById(R.id.title);
         this.bjt.setText(this.mTitle);
@@ -310,14 +310,14 @@ public class a {
         this.eXf.setText(this.mMessage);
         this.eXh = (TextView) inflate.findViewById(R.id.no_tip_again_text);
         this.eXg = (ImageView) inflate.findViewById(R.id.checkbox);
-        btU();
+        btV();
         this.eXg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.eXi = !a.this.eXi;
-                a.this.btU();
+                a.this.btV();
                 if (a.this.eXj != null) {
-                    a.this.eXj.btY();
+                    a.this.eXj.btZ();
                 }
             }
         });
@@ -325,27 +325,27 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btU() {
+    public void btV() {
         Drawable a2;
         if (this.eXg != null) {
             ImageView imageView = this.eXg;
             if (this.eXi) {
-                a2 = SvgManager.bwq().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
+                a2 = SvgManager.bwr().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
             } else {
-                a2 = SvgManager.bwq().a(R.drawable.ic_icon_mask_use_check16_svg, null);
+                a2 = SvgManager.bwr().a(R.drawable.ic_icon_mask_use_check16_svg, null);
             }
             imageView.setImageDrawable(a2);
         }
     }
 
-    public boolean btV() {
+    public boolean btW() {
         return this.eXi;
     }
 
-    private void btW() {
+    private void btX() {
         ao.setViewTextColor(this.bjt, R.color.CAM_X0105);
         ao.setViewTextColor(this.eXf, R.color.CAM_X0107);
-        btU();
+        btV();
         ao.setViewTextColor(this.eXh, R.color.CAM_X0107);
     }
 
@@ -367,7 +367,7 @@ public class a {
         } else {
             ao.setBackgroundResource(this.mRealView, R.drawable.dialog_background, skinType);
         }
-        btW();
+        btX();
     }
 
     private void mouldButtons(boolean z, boolean z2) {
@@ -519,7 +519,7 @@ public class a {
         }
     }
 
-    public a btX() {
+    public a btY() {
         return jJ(true);
     }
 

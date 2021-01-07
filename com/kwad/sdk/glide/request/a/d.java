@@ -14,6 +14,6 @@ public class d extends e<Drawable> {
     @Override // com.kwad.sdk.glide.request.a.e
     /* renamed from: d */
     public void a(@Nullable Drawable drawable) {
-        ((ImageView) this.f10645a).setImageDrawable(drawable);
+        ((ImageView) this.f10646a).setImageDrawable(drawable);
     }
 }

@@ -42,7 +42,7 @@ public class k {
                 if (k.this.jKf != null) {
                     k.this.jKf.B(d);
                 }
-                k.this.jKa.bxJ();
+                k.this.jKa.bxK();
             }
         }
 
@@ -87,13 +87,13 @@ public class k {
         }
 
         @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.d
-        public void bxM() {
+        public void bxN() {
             if (k.this.jKh != null) {
                 final int i = k.this.jKh.height;
                 final int i2 = k.this.jKh.height - k.this.jKi;
                 final int i3 = 0;
                 if (k.this.jKf != null) {
-                    i3 = k.this.jKf.cFR();
+                    i3 = k.this.jKf.cFS();
                 }
                 if (i2 > 0) {
                     k.this.flz = ValueAnimator.ofFloat(0.0f, 1.0f);
@@ -129,7 +129,7 @@ public class k {
                         }
                     });
                     if (k.this.jKe != null) {
-                        k.this.jKe.bxM();
+                        k.this.jKe.bxN();
                     }
                 }
             }
@@ -137,15 +137,15 @@ public class k {
     };
     private PullRefreshFrameLayout.c jKm = new PullRefreshFrameLayout.c() { // from class: com.baidu.tieba.frs.vc.k.2
         @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.c
-        public void bxL() {
-            k.this.cOd();
+        public void bxM() {
+            k.this.cOe();
         }
     };
     private Runnable jKn = new Runnable() { // from class: com.baidu.tieba.frs.vc.k.3
         @Override // java.lang.Runnable
         public void run() {
             if (k.this.jKd) {
-                k.this.cOe();
+                k.this.cOf();
             }
         }
     };
@@ -157,22 +157,22 @@ public class k {
         this.jKa.setFromFrs();
         this.jKa.setOnTouchCallback(this.jKl);
         this.jKa.setOnPullRefreshListener(this.jKm);
-        this.jKa.bxI();
+        this.jKa.bxJ();
         this.jin = (FrsHeaderViewContainer) rootView.findViewById(R.id.header_view_container);
         this.ZS = (AppBarLayout) rootView.findViewById(R.id.frs_app_bar_layout);
         this.jhR = (BdTypeRecyclerView) rootView.findViewById(R.id.frs_lv_thread);
-        cGM();
+        cGN();
     }
 
     public void setInterceptScrollDown(boolean z) {
         this.jKa.setInterceptScrollDown(z);
     }
 
-    public int cOb() {
+    public int cOc() {
         return this.jKj;
     }
 
-    public int cOc() {
+    public int cOd() {
         return this.jKi;
     }
 
@@ -190,17 +190,17 @@ public class k {
                 return;
             }
             this.jhR.getAdapter().notifyDataSetChanged();
-            bUO();
+            bUP();
         }
     }
 
-    public boolean cFF() {
+    public boolean cFG() {
         return this.jKc;
     }
 
     public void onDestroy() {
         if (this.jKd) {
-            cOe();
+            cOf();
         }
         if (this.flz != null) {
             this.flz.cancel();
@@ -243,7 +243,7 @@ public class k {
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
                         if (!k.this.jKd && k.this.jKa != null && !k.this.jKa.isLoading()) {
-                            k.this.cOe();
+                            k.this.cOf();
                         }
                     }
 
@@ -257,19 +257,19 @@ public class k {
                 });
                 this.jKb.start();
                 this.jKa.setRefreshing(true);
-                cOd();
+                cOe();
             }
         }
     }
 
-    public void cGL() {
+    public void cGM() {
         final View headBgContainer;
         if (this.jin != null && (headBgContainer = this.jin.getHeadBgContainer()) != null) {
             if (this.jKf == null) {
                 this.jKf = new o(headBgContainer);
             }
-            if (this.jKf.cFR() > 0) {
-                this.jKf.setHeight(this.jKf.cFR());
+            if (this.jKf.cFS() > 0) {
+                this.jKf.setHeight(this.jKf.cFS());
             }
             headBgContainer.post(new Runnable() { // from class: com.baidu.tieba.frs.vc.k.6
                 @Override // java.lang.Runnable
@@ -277,7 +277,7 @@ public class k {
                     if (k.this.jKf.getOriginHeight() < 0) {
                         k.this.jKf.setOriginHeight(headBgContainer.getMeasuredHeight());
                     }
-                    if (k.this.jKf.cFR() < 0) {
+                    if (k.this.jKf.cFS() < 0) {
                         k.this.jKf.zY(headBgContainer.getMeasuredHeight());
                     }
                 }
@@ -285,7 +285,7 @@ public class k {
         }
     }
 
-    public void cGM() {
+    public void cGN() {
         if (this.jin != null) {
             this.jKg = this.jin.getHeaderEmptyView();
             if (this.jKg != null) {
@@ -300,25 +300,25 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cOd() {
+    public void cOe() {
         com.baidu.adp.lib.f.e.mB().postDelayed(this.jKn, jJZ);
         this.jKd = true;
         if (this.jKe != null) {
-            this.jKe.bxL();
+            this.jKe.bxM();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921462, 0));
         }
     }
 
-    public void cOe() {
+    public void cOf() {
         this.jKd = false;
         if (this.jKa != null) {
-            this.jKa.bxH();
+            this.jKa.bxI();
         }
     }
 
-    public void bUO() {
+    public void bUP() {
         if (this.jKd) {
-            cOe();
+            cOf();
             com.baidu.adp.lib.f.e.mB().removeCallbacks(this.jKn);
         }
     }
@@ -333,7 +333,7 @@ public class k {
         this.jKe = aqVar;
     }
 
-    public aq cOf() {
+    public aq cOg() {
         return this.jKe;
     }
 
@@ -341,7 +341,7 @@ public class k {
         this.jKk = i;
     }
 
-    public PullRefreshFrameLayout cOg() {
+    public PullRefreshFrameLayout cOh() {
         return this.jKa;
     }
 }

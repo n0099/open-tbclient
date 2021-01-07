@@ -17,7 +17,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         this.fmk = new AgreeView.a() { // from class: com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentLayout.1
             @Override // com.baidu.tbadk.core.view.AgreeView.a
             public void f(View view, boolean z) {
-                ThreadCardBottomOpSegmentLayout.this.D(ThreadCardBottomOpSegmentLayout.this.boU(), z);
+                ThreadCardBottomOpSegmentLayout.this.D(ThreadCardBottomOpSegmentLayout.this.boV(), z);
             }
         };
     }
@@ -27,7 +27,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         this.fmk = new AgreeView.a() { // from class: com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentLayout.1
             @Override // com.baidu.tbadk.core.view.AgreeView.a
             public void f(View view, boolean z) {
-                ThreadCardBottomOpSegmentLayout.this.D(ThreadCardBottomOpSegmentLayout.this.boU(), z);
+                ThreadCardBottomOpSegmentLayout.this.D(ThreadCardBottomOpSegmentLayout.this.boV(), z);
             }
         };
     }
@@ -45,12 +45,12 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    protected void alF() {
+    protected void alG() {
         this.fmo.setVisibilityListener(this.fmk);
-        boolean boU = boU();
-        if (kb(boU) || kc(boU)) {
-            this.fmo.jT(boU);
-            kd(boU());
+        boolean boV = boV();
+        if (kb(boV) || kc(boV)) {
+            this.fmo.jT(boV);
+            kd(boV());
         }
     }
 
@@ -69,12 +69,12 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     }
 
     private boolean kc(boolean z) {
-        boolean bxm = this.fmo.bxm();
+        boolean bxn = this.fmo.bxn();
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fmo.getLayoutParams();
         int i = layoutParams.width;
         float f = layoutParams.weight;
         if (z) {
-            if (f != (bxm ? 1.0f : 2.0f) || i != 0) {
+            if (f != (bxn ? 1.0f : 2.0f) || i != 0) {
                 return true;
             }
         } else if (f != 0.0f || i != -2) {
@@ -84,16 +84,16 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    protected void bxZ() {
-        D(boU(), this.fmo.bxm());
+    protected void bya() {
+        D(boV(), this.fmo.bxn());
     }
 
     private void kd(boolean z) {
         if (z) {
-            a(0, -1, 0, 1.0f, true, this.fmo.bxm());
+            a(0, -1, 0, 1.0f, true, this.fmo.bxn());
             return;
         }
-        a(-2, -1, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds78), 0.0f, false, this.fmo.bxm());
+        a(-2, -1, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds78), 0.0f, false, this.fmo.bxn());
     }
 
     private void a(int i, int i2, int i3, float f, boolean z, boolean z2) {
@@ -140,7 +140,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean boU() {
+    public boolean boV() {
         return this.aim != null;
     }
 }

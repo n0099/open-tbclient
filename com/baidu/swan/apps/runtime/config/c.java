@@ -28,11 +28,11 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static c bR(JSONObject jSONObject) {
         if (jSONObject == null) {
-            return aNm();
+            return aNn();
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("window");
         if (optJSONObject == null) {
-            return aNm();
+            return aNn();
         }
         return bS(optJSONObject);
     }
@@ -101,7 +101,7 @@ public class c {
         return cVar2;
     }
 
-    public static c aNm() {
+    public static c aNn() {
         if (DEBUG) {
             Log.e("WindowConfig", "WindowConfig createNullObject() " + Log.getStackTraceString(new Exception()));
         }

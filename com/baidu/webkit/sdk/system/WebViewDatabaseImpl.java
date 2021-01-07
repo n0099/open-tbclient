@@ -2,7 +2,7 @@ package com.baidu.webkit.sdk.system;
 
 import android.content.Context;
 import com.baidu.webkit.sdk.WebViewDatabase;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 final class WebViewDatabaseImpl extends WebViewDatabase {
     private Context mContext;
 

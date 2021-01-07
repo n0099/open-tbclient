@@ -50,7 +50,7 @@ public class f implements View.OnClickListener {
             this.eqn = inflate.findViewById(R.id.background);
             this.eXC = (TextView) inflate.findViewById(R.id.toast_tv);
             this.mRootView = inflate;
-            this.eqn.setBackgroundDrawable(bug());
+            this.eqn.setBackgroundDrawable(buh());
             this.eXC.setMaxLines(1);
             this.eXC.setGravity(17);
             this.eXC.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbfontsize40));
@@ -65,24 +65,24 @@ public class f implements View.OnClickListener {
             this.mLayoutParams.windowAnimations = R.style.ToastAnimation;
             this.mLayoutParams.flags = 262152;
             this.mLayoutParams.gravity = 81;
-            this.mLayoutParams.y = bue();
+            this.mLayoutParams.y = buf();
             this.mLayoutParams.alpha = this.bem;
         }
     }
 
-    private int bue() {
+    private int buf() {
         return this.offsetY + UtilHelper.getNavigationBarHeight(this.mContext);
     }
 
-    private GradientDrawable buf() {
+    private GradientDrawable bug() {
         GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{com.baidu.tieba.lego.card.c.b.sF("#FF722B"), com.baidu.tieba.lego.card.c.b.sF("#FF2b5D")});
         gradientDrawable.setCornerRadius(this.mCornerRadius);
         return gradientDrawable;
     }
 
-    private Drawable bug() {
+    private Drawable buh() {
         if (this.mBackgroundDrawable == null) {
-            this.mBackgroundDrawable = buf();
+            this.mBackgroundDrawable = bug();
         }
         return this.mBackgroundDrawable;
     }
@@ -92,10 +92,10 @@ public class f implements View.OnClickListener {
     }
 
     public static f c(Activity activity, String str) {
-        return new f(activity).Bs(str);
+        return new f(activity).Br(str);
     }
 
-    private f Bs(String str) {
+    private f Br(String str) {
         if (this.mContext != null && !TextUtils.isEmpty(str)) {
             String interceptString = ad.interceptString(str, 34);
             int textWidth = com.baidu.adp.lib.util.l.getTextWidth(this.eXC.getPaint(), interceptString);
@@ -107,7 +107,7 @@ public class f implements View.OnClickListener {
         return this;
     }
 
-    public f buh() {
+    public f bui() {
         com.baidu.adp.lib.f.e.mB().removeCallbacks(this.mHideRunnable);
         if (this.mRootView != null && this.mRootView.getWindowToken() != null) {
             this.mWindowManager.removeView(this.mRootView);

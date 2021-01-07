@@ -56,41 +56,41 @@ public class AlaLiveTagActivity extends BaseActivity<AlaLiveTagActivity> {
         this.gOA = new b(getPageContext(), this.bvS, this.mLiveId);
         this.gOA.a(new b.a() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.1
             @Override // com.baidu.tieba.ala.category.c.b.a
-            public void bWr() {
+            public void bWs() {
                 AlaLiveTagActivity.this.gOB.setTagList(AlaLiveTagActivity.this.gOA.getTagList());
                 AlaLiveTagActivity.this.gOz.setVisibility(0);
-                AlaLiveTagActivity.this.bWq();
+                AlaLiveTagActivity.this.bWr();
             }
 
             @Override // com.baidu.tieba.ala.category.c.b.a
             public void aU(int i, String str) {
-                AlaLiveTagActivity.this.bUL();
+                AlaLiveTagActivity.this.bUM();
             }
 
             @Override // com.baidu.tieba.ala.category.c.b.a
-            public void bWs() {
+            public void bWt() {
                 AlaLiveTagActivity.this.showToast(a.h.ala_live_tag_commit_success);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913203));
                 AlaLiveTagActivity.this.finish();
             }
 
             @Override // com.baidu.tieba.ala.category.c.b.a
-            public void bWt() {
+            public void bWu() {
                 AlaLiveTagActivity.this.showToast(a.h.ala_live_tag_commit_fail);
             }
         });
         this.gOB = new e(getPageContext());
         this.gOB.a(new e.b() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.2
             @Override // com.baidu.tieba.ala.category.a.e.b
-            public void bWu() {
-                AlaLiveTagActivity.this.bWq();
+            public void bWv() {
+                AlaLiveTagActivity.this.bWr();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bWq() {
-        if (ListUtils.isEmpty(this.gOB.bWv())) {
+    public void bWr() {
+        if (ListUtils.isEmpty(this.gOB.bWw())) {
             this.gOz.setAlpha(0.3f);
             this.gOz.setClickable(false);
             return;
@@ -114,11 +114,11 @@ public class AlaLiveTagActivity extends BaseActivity<AlaLiveTagActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadData() {
-        this.gOA.bWJ();
+        this.gOA.bWK();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUL() {
+    public void bUM() {
         this.bxT.reset();
         this.bxT.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.3
             @Override // android.view.View.OnClickListener
@@ -138,12 +138,12 @@ public class AlaLiveTagActivity extends BaseActivity<AlaLiveTagActivity> {
     public void onClick(View view) {
         super.onClick(view);
         if (view.getId() == a.f.tag_commit_tv) {
-            List<String> bWv = this.gOB.bWv();
-            Set<String> bWw = this.gOB.bWw();
-            if (bWv != null && bWw != null && bWv.size() == bWw.size() && bWw.containsAll(bWv)) {
+            List<String> bWw = this.gOB.bWw();
+            Set<String> bWx = this.gOB.bWx();
+            if (bWw != null && bWx != null && bWw.size() == bWx.size() && bWx.containsAll(bWw)) {
                 finish();
             } else {
-                this.gOA.ct(bWv);
+                this.gOA.ct(bWw);
             }
         }
     }

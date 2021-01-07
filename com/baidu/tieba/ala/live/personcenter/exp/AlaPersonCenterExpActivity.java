@@ -103,18 +103,18 @@ public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpA
         }
         this.hkN = (int) getResources().getDimension(a.d.sdk_ds364);
         this.hkO = (int) getResources().getDimension(a.d.sdk_ds168);
-        cba();
+        cbb();
         this.hkJ.y(this.hkK, this.hkL);
     }
 
-    public void cba() {
-        cbb();
+    public void cbb() {
         cbc();
+        cbd();
     }
 
-    private void cbb() {
+    private void cbc() {
         if (this.isHost) {
-            this.hkG.addHeaderView(this.hkJ.cbf());
+            this.hkG.addHeaderView(this.hkJ.cbg());
             this.mNavigationBar.showBottomLine(false);
             setUseStyleImmersiveSticky(true);
             this.hkG.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.live.personcenter.exp.AlaPersonCenterExpActivity.2
@@ -124,8 +124,8 @@ public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpA
 
                 @Override // android.widget.AbsListView.OnScrollListener
                 public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                    AlaPersonCenterExpActivity.this.cbd();
                     AlaPersonCenterExpActivity.this.cbe();
+                    AlaPersonCenterExpActivity.this.cbf();
                 }
             });
             return;
@@ -134,7 +134,7 @@ public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpA
         setUseStyleImmersiveSticky(false);
     }
 
-    private void cbc() {
+    private void cbd() {
         ArrayList<b> arrayList = new ArrayList<>();
         for (int i = 0; i < 40; i++) {
             b bVar = new b();
@@ -147,9 +147,9 @@ public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpA
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbd() {
+    public void cbe() {
         if (Build.VERSION.SDK_INT >= 11 && this.hkJ != null) {
-            int i = this.hkN - (-this.hkJ.cbf().getTop());
+            int i = this.hkN - (-this.hkJ.cbg().getTop());
             if (i < this.hkO) {
                 if (this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                     this.mNavigationBar.getBarBgView().setAlpha(1.0f);
@@ -171,7 +171,7 @@ public class AlaPersonCenterExpActivity extends BaseActivity<AlaPersonCenterExpA
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbe() {
+    public void cbf() {
         float alpha = this.mNavigationBar.getBarBgView().getAlpha();
         if (alpha < 0.5f) {
             alpha = 1.0f - alpha;

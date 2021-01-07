@@ -82,7 +82,7 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.oPK) {
-            ekI();
+            ekJ();
             if (this.bFr != null) {
                 this.bFr.dismiss();
             }
@@ -125,7 +125,7 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
         }
     }
 
-    private void ekI() {
+    private void ekJ() {
         if (this.oQS != this.oQR) {
             if (this.oQR != null) {
                 this.oQR.Ar(false);
@@ -164,7 +164,7 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
         if (this.oPQ) {
             this.oPQ = false;
         } else {
-            ekI();
+            ekJ();
         }
         a(null, null);
     }

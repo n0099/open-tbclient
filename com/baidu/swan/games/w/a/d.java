@@ -23,10 +23,10 @@ public class d {
         if (isSuccess()) {
             return a.yi(str);
         }
-        return a.ah(str, str2, bcd());
+        return a.ah(str, str2, bce());
     }
 
-    public String bcd() {
+    public String bce() {
         return this.error;
     }
 
@@ -34,7 +34,7 @@ public class d {
         return this.data;
     }
 
-    public static Object bce() {
+    public static Object bcf() {
         return new JsObject();
     }
 
@@ -78,7 +78,7 @@ public class d {
         if (dVar.isSuccess()) {
             return dVar.getData();
         }
-        String ah = a.ah(str, str2, dVar.bcd());
+        String ah = a.ah(str, str2, dVar.bce());
         bVar.throwJSException(JSExceptionType.Error, ah);
         return ah;
     }

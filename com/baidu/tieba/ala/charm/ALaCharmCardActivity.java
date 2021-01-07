@@ -227,17 +227,17 @@ public class ALaCharmCardActivity extends BaseActivity<ALaCharmCardActivity> imp
                 r.e(getActivity(), true);
             }
             this.gPe.Hp();
-            Xk();
+            Xl();
         }
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Xk();
+        Xl();
     }
 
-    private void Xk() {
+    private void Xl() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -293,7 +293,7 @@ public class ALaCharmCardActivity extends BaseActivity<ALaCharmCardActivity> imp
         this.bck = null;
     }
 
-    public void bWK() {
+    public void bWL() {
         Intent intent = new Intent();
         intent.putExtra("need_show_gift_panel", true);
         setResult(-1, intent);

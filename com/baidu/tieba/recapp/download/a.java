@@ -22,10 +22,10 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class a {
-    private static a mNy = new a();
+    private static a mNx = new a();
     private static DownloadData fDo = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private C0838a mNz = null;
+    private C0871a mNy = null;
     private int max = 20;
     @SuppressLint({"HandlerLeak"})
     private Handler fDq = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.download.a.1
@@ -46,8 +46,8 @@ public class a {
     private a() {
     }
 
-    public static a dFa() {
-        return mNy;
+    public static a dFb() {
+        return mNx;
     }
 
     public void a(DownloadData downloadData, int i) {
@@ -112,8 +112,8 @@ public class a {
         if (fDo == null && !com.baidu.tieba.lego.card.c.a.isEmpty(mTaskList)) {
             fDo = (DownloadData) com.baidu.tieba.lego.card.c.a.l(mTaskList, 0);
             if (fDo != null) {
-                this.mNz = new C0838a();
-                this.mNz.execute(fDo);
+                this.mNy = new C0871a();
+                this.mNy.execute(fDo);
             }
         }
     }
@@ -125,10 +125,10 @@ public class a {
     public void cancelDownLoadByUrl(String str, boolean z) {
         if (fDo != null && fDo.getUrl().equals(str)) {
             if (z) {
-                this.mNz.cancelImmediately();
+                this.mNy.cancelImmediately();
                 return;
             } else {
-                this.mNz.cancel(true);
+                this.mNy.cancel(true);
                 return;
             }
         }
@@ -170,15 +170,15 @@ public class a {
     @SuppressLint({"DefaultLocale"})
     /* renamed from: com.baidu.tieba.recapp.download.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0838a extends BdAsyncTask<DownloadData, DownloadData, Integer> {
-        private c mNB = new c();
+    public class C0871a extends BdAsyncTask<DownloadData, DownloadData, Integer> {
+        private c mNA = new c();
 
-        C0838a() {
+        C0871a() {
         }
 
         public void cancelImmediately() {
-            if (this.mNB != null) {
-                this.mNB.setCancel();
+            if (this.mNA != null) {
+                this.mNA.setCancel();
             }
             cancel(true);
         }
@@ -187,7 +187,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            this.mNB.setCancel();
+            this.mNA.setCancel();
             a.fDo.setStatus(4);
             a.fDo.setStatusMsg(null);
             if (a.fDo.getCallback() != null) {
@@ -222,8 +222,8 @@ public class a {
                     file.delete();
                 }
                 if (!file.exists()) {
-                    this.mNB.setUrl(downloadDataArr[0].getUrl());
-                    if (!Boolean.valueOf(this.mNB.a(downloadDataArr[0].getId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + downloadDataArr[0].getName() + ".tmp", a.this.fDq, 900002, 1, 3000)).booleanValue()) {
+                    this.mNA.setUrl(downloadDataArr[0].getUrl());
+                    if (!Boolean.valueOf(this.mNA.a(downloadDataArr[0].getId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + downloadDataArr[0].getName() + ".tmp", a.this.fDq, 900002, 1, 3000)).booleanValue()) {
                         return 3;
                     }
                     File GetFile = n.GetFile(downloadDataArr[0].getId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + downloadDataArr[0].getName() + ".tmp");
@@ -321,7 +321,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             String string;
-            super.onPostExecute((C0838a) num);
+            super.onPostExecute((C0871a) num);
             if (num != null) {
                 if (num.intValue() == 0) {
                     a.fDo.setStatus(0);

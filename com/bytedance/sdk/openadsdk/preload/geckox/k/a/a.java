@@ -7,15 +7,15 @@ public class a {
     @c(a = "gecko_accesskey")
 
     /* renamed from: a  reason: collision with root package name */
-    private List<String> f7800a;
+    private List<String> f7801a;
     @c(a = "os")
 
     /* renamed from: b  reason: collision with root package name */
-    private int f7801b = 0;
+    private int f7802b = 0;
     @c(a = "msg_type")
     private int c = 1;
 
     public a(List<String> list) {
-        this.f7800a = list;
+        this.f7801a = list;
     }
 }

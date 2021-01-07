@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.menu.f;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MenuContentAdapter extends RecyclerView.Adapter<a> {
     private List<h> euy = new ArrayList();
     private List<h> euz = new ArrayList();
@@ -96,7 +96,7 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a extends RecyclerView.ViewHolder {
         SwanAppMenuItemView euA;
         SwanAppMenuItemView euB;

@@ -30,7 +30,7 @@ public class f implements c.a {
     private boolean iCv = false;
     private boolean isLoading = false;
 
-    public static f cwe() {
+    public static f cwf() {
         if (iCp == null) {
             synchronized (f.class) {
                 if (iCp == null) {
@@ -46,12 +46,12 @@ public class f implements c.a {
     }
 
     private void init() {
+        cwh();
         cwg();
-        cwf();
         this.isLoading = false;
     }
 
-    private void cwf() {
+    private void cwg() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(CmdConfigCustom.CMD_GET_ENTERFORUM_DATA), c.class);
         if (runTask != null) {
             this.iCr = (c) runTask.getData();
@@ -61,7 +61,7 @@ public class f implements c.a {
         }
     }
 
-    private void cwg() {
+    private void cwh() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER), c.class);
         if (runTask != null) {
             this.iCq = (c) runTask.getData();
@@ -74,10 +74,10 @@ public class f implements c.a {
     public void b(ShareDialogConfig shareDialogConfig) {
         if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !k.isFastDoubleClick()) {
             if (shareDialogConfig.showLocation) {
-                shareDialogConfig.shareItem.location = cwk();
+                shareDialogConfig.shareItem.location = cwl();
             }
-            if (l.isNetOk() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.isLoading && !shareDialogConfig.shareItem.bCH()) {
-                cwh();
+            if (l.isNetOk() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.isLoading && !shareDialogConfig.shareItem.bCI()) {
+                cwi();
             }
             shareDialogConfig.setIsShowTransmitShare(true);
             shareDialogConfig.setTransmitForumList(this.mForumList);
@@ -86,13 +86,13 @@ public class f implements c.a {
         }
     }
 
-    public void cwh() {
+    public void cwi() {
         this.isLoading = true;
         if (this.iCq != null) {
-            this.iCq.cwb();
+            this.iCq.cwc();
         }
         if (this.iCr != null) {
-            this.iCr.cwb();
+            this.iCr.cwc();
         }
     }
 
@@ -110,10 +110,10 @@ public class f implements c.a {
             }
             this.iCt = true;
         }
-        cwi();
+        cwj();
     }
 
-    private void cwi() {
+    private void cwj() {
         if (this.iCq == null || this.iCt) {
             if (this.iCr == null || this.iCv) {
                 this.iCt = false;
@@ -140,12 +140,12 @@ public class f implements c.a {
                 }
                 this.iCs = null;
                 this.iCu = null;
-                cwj();
+                cwk();
             }
         }
     }
 
-    private void cwj() {
+    private void cwk() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED, this.mForumList));
     }
 
@@ -163,7 +163,7 @@ public class f implements c.a {
         return false;
     }
 
-    private Location cwk() {
+    private Location cwl() {
         if (ad.checkLocationForGoogle(TbadkCoreApplication.getInst())) {
             LocationManager locationManager = (LocationManager) TbadkCoreApplication.getInst().getSystemService("location");
             Criteria criteria = new Criteria();

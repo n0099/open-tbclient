@@ -59,22 +59,22 @@ public class b extends Drawable implements Cloneable {
                 b.this.cMP = bVar.cMP;
                 b.this.eYC = bVar.eYC;
             }
-            float[] buw = b.this.buw();
+            float[] bux = b.this.bux();
             if (b.this.eYA == 1) {
-                buw[0] = (b.this.eYK & 1) == 1 ? buw[0] : 0.0f;
-                buw[1] = (b.this.eYK & 16) == 16 ? buw[1] : 0.0f;
-                buw[2] = (b.this.eYK & 256) == 256 ? buw[2] : 0.0f;
-                buw[3] = (b.this.eYK & 4096) == 4096 ? buw[3] : 0.0f;
+                bux[0] = (b.this.eYK & 1) == 1 ? bux[0] : 0.0f;
+                bux[1] = (b.this.eYK & 16) == 16 ? bux[1] : 0.0f;
+                bux[2] = (b.this.eYK & 256) == 256 ? bux[2] : 0.0f;
+                bux[3] = (b.this.eYK & 4096) == 4096 ? bux[3] : 0.0f;
             }
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 final ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                marginLayoutParams.leftMargin -= (int) buw[0];
-                marginLayoutParams.topMargin -= (int) buw[1];
-                marginLayoutParams.rightMargin -= (int) buw[2];
-                marginLayoutParams.bottomMargin -= (int) buw[3];
-                marginLayoutParams.width = (i3 - i) + ((int) buw[0]) + ((int) buw[2]);
-                marginLayoutParams.height = ((int) buw[3]) + (i4 - i2) + ((int) buw[1]);
+                marginLayoutParams.leftMargin -= (int) bux[0];
+                marginLayoutParams.topMargin -= (int) bux[1];
+                marginLayoutParams.rightMargin -= (int) bux[2];
+                marginLayoutParams.bottomMargin -= (int) bux[3];
+                marginLayoutParams.width = (i3 - i) + ((int) bux[0]) + ((int) bux[2]);
+                marginLayoutParams.height = ((int) bux[3]) + (i4 - i2) + ((int) bux[1]);
                 view.post(new Runnable() { // from class: com.baidu.tbadk.core.elementsMaven.b.1.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -102,7 +102,7 @@ public class b extends Drawable implements Cloneable {
         this.mBorderPaint.setAntiAlias(true);
     }
 
-    public static b but() {
+    public static b buu() {
         return new b();
     }
 
@@ -120,7 +120,7 @@ public class b extends Drawable implements Cloneable {
         return this;
     }
 
-    private void buu() {
+    private void buv() {
         System.arraycopy(this.eYB, 0, this.eYC, 0, Math.min(this.eYC.length, 8));
         switch (this.eYz) {
             case 1:
@@ -141,7 +141,7 @@ public class b extends Drawable implements Cloneable {
     public b pv(int i) {
         if (this.eYz != i) {
             this.eYz = i;
-            buu();
+            buv();
         }
         return this;
     }
@@ -149,7 +149,7 @@ public class b extends Drawable implements Cloneable {
     public b x(float[] fArr) {
         if (!Arrays.equals(this.eYB, fArr)) {
             System.arraycopy(fArr, 0, this.eYB, 0, Math.min(fArr.length, 8));
-            buu();
+            buv();
         }
         return this;
     }
@@ -222,7 +222,7 @@ public class b extends Drawable implements Cloneable {
         return this;
     }
 
-    public b Bx(String str) {
+    public b Bw(String str) {
         if (!this.eYG.equals(str)) {
             this.eYG = str;
         }
@@ -238,13 +238,13 @@ public class b extends Drawable implements Cloneable {
                 this.eYC[i] = this.eYC[i] * rect.height();
             }
         }
-        float[] buw = buw();
-        this.mRect = new RectF(rect.left + buw[0], rect.top + buw[1], rect.right - buw[2], rect.bottom - buw[3]);
+        float[] bux = bux();
+        this.mRect = new RectF(rect.left + bux[0], rect.top + bux[1], rect.right - bux[2], rect.bottom - bux[3]);
         this.mPath.reset();
         this.mPath.addRoundRect(this.mRect, this.eYC, Path.Direction.CW);
         this.eYF = (float[]) this.eYE.clone();
         float[] fArr = (float[]) this.eYC.clone();
-        if (this.eYD != null && this.eYD.length > 1 && buv()) {
+        if (this.eYD != null && this.eYD.length > 1 && buw()) {
             d(fArr, this.eYF);
         }
         this.eYH.reset();
@@ -346,7 +346,7 @@ public class b extends Drawable implements Cloneable {
         }
     }
 
-    private boolean buv() {
+    private boolean buw() {
         if (this.eYE == null || this.eYE.length < 1) {
             return false;
         }
@@ -416,7 +416,7 @@ public class b extends Drawable implements Cloneable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public float[] buw() {
+    public float[] bux() {
         float[] fArr = new float[4];
         if (this.eYA == 1) {
             fArr[0] = (this.eYK & 1) == 1 ? this.mShadowRadius - this.cMO : -this.eYC[0];
@@ -431,14 +431,14 @@ public class b extends Drawable implements Cloneable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(@NonNull Canvas canvas) {
-        int[] bux = bux();
-        if (bux != null) {
-            if (bux.length == 1) {
-                this.bjn.setColor(bux[0]);
+        int[] buy = buy();
+        if (buy != null) {
+            if (buy.length == 1) {
+                this.bjn.setColor(buy[0]);
             } else {
                 PointF a2 = a(this.mRect, this.eYG);
                 PointF b2 = b(this.mRect, this.eYG);
-                this.bLY = new LinearGradient(a2.x, a2.y, b2.x, b2.y, bux, this.eYF, Shader.TileMode.CLAMP);
+                this.bLY = new LinearGradient(a2.x, a2.y, b2.x, b2.y, buy, this.eYF, Shader.TileMode.CLAMP);
                 this.bjn.setShader(this.bLY);
             }
         }
@@ -512,7 +512,7 @@ public class b extends Drawable implements Cloneable {
         }
     }
 
-    private int[] bux() {
+    private int[] buy() {
         if (this.eYD == null) {
             return this.eYD;
         }
@@ -532,7 +532,7 @@ public class b extends Drawable implements Cloneable {
             e.printStackTrace();
             bVar = null;
         }
-        return bVar == null ? this : bVar.pt(this.eYA).pu(this.eYK).pv(this.eYz).x((float[]) this.eYB.clone()).pw(this.dzP).px(this.mShadowRadius).py(this.cMO).pz(this.cMP).k((int[]) this.eYD.clone()).y((float[]) this.eYE.clone()).Bx(this.eYG).pA(this.mBorderColor).ac(this.mBorderWidth).ad(this.mAlpha);
+        return bVar == null ? this : bVar.pt(this.eYA).pu(this.eYK).pv(this.eYz).x((float[]) this.eYB.clone()).pw(this.dzP).px(this.mShadowRadius).py(this.cMO).pz(this.cMP).k((int[]) this.eYD.clone()).y((float[]) this.eYE.clone()).Bw(this.eYG).pA(this.mBorderColor).ac(this.mBorderWidth).ad(this.mAlpha);
     }
 
     public boolean equals(Object obj) {
@@ -550,7 +550,7 @@ public class b extends Drawable implements Cloneable {
         return (((((((Objects.hash(Integer.valueOf(this.eYz), Integer.valueOf(this.mShadowRadius), Integer.valueOf(this.dzP), Integer.valueOf(this.eYA), Integer.valueOf(this.cMO), Integer.valueOf(this.cMP), this.eYG, Integer.valueOf(this.eYK), Integer.valueOf(this.mBorderColor), Float.valueOf(this.mBorderWidth), Float.valueOf(this.mAlpha)) * 31) + Arrays.hashCode(this.eYB)) * 31) + Arrays.hashCode(this.eYC)) * 31) + Arrays.hashCode(this.eYD)) * 31) + Arrays.hashCode(this.eYE);
     }
 
-    public GradientDrawable buy() {
+    public GradientDrawable buz() {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadii(this.eYC);
         return gradientDrawable;

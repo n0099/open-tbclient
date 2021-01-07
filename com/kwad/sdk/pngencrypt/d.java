@@ -39,7 +39,7 @@ public abstract class d extends ChunkReader {
         if (i3 > 0) {
             this.e.a(bArr, i2, i3);
             if (this.f) {
-                System.arraycopy(bArr, i2, a().d, this.f10785b, i3);
+                System.arraycopy(bArr, i2, a().d, this.f10786b, i3);
             }
         }
     }

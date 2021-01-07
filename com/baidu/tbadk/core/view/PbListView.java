@@ -161,11 +161,11 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         this.mContainer.setLayoutParams(layoutParams);
     }
 
-    public void bxC() {
+    public void bxD() {
         this.mRoot.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
     }
 
-    public void bxD() {
+    public void bxE() {
         this.fkP = false;
         this.fkN.setVisibility(8);
         hideEmptyView();
@@ -350,7 +350,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         return this.mProgressBar != null && this.mProgressBar.getVisibility() == 0;
     }
 
-    public boolean bxE() {
+    public boolean bxF() {
         return this.fkP;
     }
 

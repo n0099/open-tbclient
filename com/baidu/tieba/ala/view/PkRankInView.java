@@ -117,10 +117,10 @@ public class PkRankInView extends RelativeLayout {
         });
         this.ilb = (TextView) this.mView.findViewById(a.f.end_view);
         this.ilc = (TextView) this.mView.findViewById(a.f.timer);
-        csC();
+        csD();
     }
 
-    private void csC() {
+    private void csD() {
         this.ili = new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.PkRankInView.3
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
@@ -152,7 +152,7 @@ public class PkRankInView extends RelativeLayout {
     }
 
     public void a(PkInfoData pkInfoData, int i) {
-        this.gTH.ctd();
+        this.gTH.cte();
         this.ilb.setVisibility(8);
         if (pkInfoData.pkStatusInfoData.pkStatus == 1) {
             fP(pkInfoData.pkStatusInfoData.stageEndTime - pkInfoData.pkStatusInfoData.nowTime);
@@ -165,7 +165,7 @@ public class PkRankInView extends RelativeLayout {
                     d(pkInfoData);
                     return;
                 case 30:
-                    bYe();
+                    bYf();
                     return;
                 default:
                     return;
@@ -214,9 +214,9 @@ public class PkRankInView extends RelativeLayout {
                 public void onFinish() {
                     PkRankInView.this.ikC.cancelTimer();
                     if (!PkRankInView.this.gTH.isHost) {
-                        PkRankInView.this.bYe();
+                        PkRankInView.this.bYf();
                     }
-                    PkRankInView.this.csD();
+                    PkRankInView.this.csE();
                 }
             });
             this.ikC.startTimer();
@@ -228,14 +228,14 @@ public class PkRankInView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csD() {
-        if (!this.gTH.getGetPkInfoModel().aLf()) {
+    public void csE() {
+        if (!this.gTH.getGetPkInfoModel().aLg()) {
             this.gTH.getGetPkInfoModel().a(this.gTH.aMh.aKu.userId, this.gTH.imo.pkStatusInfoData.pkID, this.gTH.aMh.mLiveInfo.room_id, this.gTH.aMh.mLiveInfo.live_id, this.gTH.isHost ? 1 : 0);
         }
         postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.view.PkRankInView.6
             @Override // java.lang.Runnable
             public void run() {
-                if (!PkRankInView.this.gTH.getGetPkInfoModel().aLf()) {
+                if (!PkRankInView.this.gTH.getGetPkInfoModel().aLg()) {
                     PkRankInView.this.gTH.getGetPkInfoModel().a(PkRankInView.this.gTH.aMh.aKu.userId, PkRankInView.this.gTH.imo.pkStatusInfoData.pkID, PkRankInView.this.gTH.aMh.mLiveInfo.room_id, PkRankInView.this.gTH.aMh.mLiveInfo.live_id, PkRankInView.this.gTH.isHost ? 1 : 0);
                 }
             }
@@ -243,48 +243,48 @@ public class PkRankInView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bYe() {
+    public void bYf() {
         this.ilb.bringToFront();
         this.ilb.setVisibility(0);
         this.ilc.setVisibility(8);
     }
 
-    private void csE() {
+    private void csF() {
         PkRankPropAnim pkRankPropAnim = new PkRankPropAnim(this.context, true, 1);
         pkRankPropAnim.setAnimatorListenerAdapter(this.ili);
         pkRankPropAnim.setParentView(this.ikJ);
         a(pkRankPropAnim);
     }
 
-    private void csF() {
+    private void csG() {
         PkRankPropAnim pkRankPropAnim = new PkRankPropAnim(this.context, false, 1);
         pkRankPropAnim.setAnimatorListenerAdapter(this.ilj);
         pkRankPropAnim.setParentView(this.ikJ);
         b(pkRankPropAnim);
     }
 
-    private void csG() {
+    private void csH() {
         PkRankPropAnim pkRankPropAnim = new PkRankPropAnim(this.context, true, 2);
         pkRankPropAnim.setAnimatorListenerAdapter(this.ili);
         pkRankPropAnim.setParentView(this.ikJ);
         a(pkRankPropAnim);
     }
 
-    private void csH() {
+    private void csI() {
         PkRankPropAnim pkRankPropAnim = new PkRankPropAnim(this.context, false, 2);
         pkRankPropAnim.setAnimatorListenerAdapter(this.ilj);
         pkRankPropAnim.setParentView(this.ikJ);
         b(pkRankPropAnim);
     }
 
-    private void csI() {
+    private void csJ() {
         AlaFirstBloodAnim alaFirstBloodAnim = new AlaFirstBloodAnim(this.context, true);
         alaFirstBloodAnim.setAnimatorListenerAdapter(this.ili);
         alaFirstBloodAnim.setParentView(this.ikJ);
         a(alaFirstBloodAnim);
     }
 
-    private void csJ() {
+    private void csK() {
         AlaFirstBloodAnim alaFirstBloodAnim = new AlaFirstBloodAnim(this.context, false);
         alaFirstBloodAnim.setAnimatorListenerAdapter(this.ilj);
         alaFirstBloodAnim.setParentView(this.ikJ);
@@ -335,11 +335,11 @@ public class PkRankInView extends RelativeLayout {
                     z = true;
                     break;
                 case 11:
-                    csI();
+                    csJ();
                     z = false;
                     break;
                 case 12:
-                    csG();
+                    csH();
                     z = true;
                     break;
                 case 13:
@@ -358,7 +358,7 @@ public class PkRankInView extends RelativeLayout {
                     z = true;
                     break;
                 case 14:
-                    csE();
+                    csF();
                     z = true;
                     break;
                 case 16:
@@ -374,23 +374,23 @@ public class PkRankInView extends RelativeLayout {
                         return;
                     }
                 case 21:
-                    csJ();
+                    csK();
                     z = false;
                     break;
                 case 22:
-                    csH();
+                    csI();
                     z = true;
                     break;
                 case 24:
-                    csF();
+                    csG();
                     z = true;
                     break;
                 case 30:
-                    bYe();
+                    bYf();
                     z = true;
                     break;
             }
-            if (z && !this.gTH.getGetPkInfoModel().aLf()) {
+            if (z && !this.gTH.getGetPkInfoModel().aLg()) {
                 this.gTH.getGetPkInfoModel().a(this.gTH.aMh.aKu.userId, jSONObject.optLong("pk_id"), this.gTH.aMh.mLiveInfo.room_id, this.gTH.aMh.mLiveInfo.live_id, this.gTH.isHost ? 1 : 0);
             }
         }
@@ -402,15 +402,15 @@ public class PkRankInView extends RelativeLayout {
 
     public void onDestroy() {
         if (this.gTH.getGetPkInfoModel() != null) {
-            this.gTH.getGetPkInfoModel().coY();
+            this.gTH.getGetPkInfoModel().coZ();
         }
-        csA();
+        csB();
         if (this.ilk != null) {
             this.ilk.onDestroy();
         }
     }
 
-    public void csA() {
+    public void csB() {
         if (this.ikC != null) {
             this.ikC.cancelTimer();
             this.ikC = null;
@@ -424,24 +424,24 @@ public class PkRankInView extends RelativeLayout {
         return this.ilk;
     }
 
-    public void csK() {
+    public void csL() {
         this.ikR.setAlpha(1.0f);
         this.ikR.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void csL() {
+    public void csM() {
         cI(this.ikR);
         this.ikR.setVisibility(8);
     }
 
-    public void csM() {
+    public void csN() {
         this.ikS.setAlpha(0.8f);
         this.ikS.setVisibility(0);
         this.ikQ.setVisibility(0);
     }
 
-    public void csN() {
+    public void csO() {
         this.ikS.setAlpha(1.0f);
         this.ikS.setVisibility(0);
         this.ikQ.setVisibility(8);
@@ -458,18 +458,18 @@ public class PkRankInView extends RelativeLayout {
         this.ikQ.setVisibility(0);
     }
 
-    public void csO() {
+    public void csP() {
         this.ikY.setAlpha(1.0f);
         this.ikY.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void csP() {
+    public void csQ() {
         cI(this.ikY);
         this.ikY.setVisibility(8);
     }
 
-    public void csQ() {
+    public void csR() {
         this.ikZ.setAlpha(1.0f);
         this.ikZ.setVisibility(0);
         this.ikX.setVisibility(8);
@@ -522,7 +522,7 @@ public class PkRankInView extends RelativeLayout {
         this.ikS.setVisibility(8);
         this.ikR.setVisibility(8);
         this.ikY.setVisibility(8);
-        csA();
+        csB();
         this.ikU.setVisibility(0);
         this.ikW.setVisibility(0);
         this.ikX.setVisibility(0);

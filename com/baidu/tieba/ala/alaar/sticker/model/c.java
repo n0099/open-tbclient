@@ -26,10 +26,10 @@ public class c implements e {
         this.gvz = cVar;
         this.mFolder = file;
         this.cly = new ArrayList();
-        if (!TextUtils.isEmpty(this.gvz.bSq())) {
-            this.cld = new File(file, this.gvz.bSr());
-            this.cle = new File(file, this.gvz.bSr() + ".zip");
-            this.gvz.Gh(this.cld.getAbsolutePath());
+        if (!TextUtils.isEmpty(this.gvz.bSr())) {
+            this.cld = new File(file, this.gvz.bSs());
+            this.cle = new File(file, this.gvz.bSs() + ".zip");
+            this.gvz.Gg(this.cld.getAbsolutePath());
         }
     }
 
@@ -57,15 +57,15 @@ public class c implements e {
         if (aVar != null && !this.cly.contains(aVar)) {
             this.cly.add(aVar);
         }
-        aev();
+        aew();
     }
 
-    private void aev() {
+    private void aew() {
         if (!isLoaded() && !isLoading()) {
             synchronized (this) {
                 if (!isLoaded() && !isLoading()) {
                     this.gvy = new a();
-                    com.baidu.tieba.ala.alaar.sticker.download.b.bSW().a(this.gvz.bSq(), this.mFolder, this.cle.getName(), this.gvy);
+                    com.baidu.tieba.ala.alaar.sticker.download.b.bSX().a(this.gvz.bSr(), this.mFolder, this.cle.getName(), this.gvy);
                 }
             }
         }
@@ -116,7 +116,7 @@ public class c implements e {
         boolean z = false;
         try {
             File file = new File(str);
-            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuMakeupModel", "onCompleted-unzip:" + str + "\nto " + this.cld.getAbsolutePath() + ", sk:" + this.gvz.bSr());
+            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuMakeupModel", "onCompleted-unzip:" + str + "\nto " + this.cld.getAbsolutePath() + ", sk:" + this.gvz.bSs());
             File file2 = new File(this.cld + ".ziping");
             if (file2.exists()) {
                 com.baidu.tieba.ala.alaar.sticker.b.c.deleteFileOrDir(file2);
@@ -148,7 +148,7 @@ public class c implements e {
         @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
         public void onStarted() {
             super.onStarted();
-            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuMakeupModel", "onStarted url:" + c.this.gvz.bSq());
+            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuMakeupModel", "onStarted url:" + c.this.gvz.bSr());
             if (c.this.cly != null && !c.this.cly.isEmpty()) {
                 new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.sticker.model.c.a.1
                     @Override // java.lang.Runnable
@@ -191,7 +191,7 @@ public class c implements e {
         @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
         public void a(DownloadException downloadException) {
             super.a(downloadException);
-            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuMakeupModel", "onFailed " + (downloadException != null ? downloadException.getErrorMessage() : "") + "\n" + c.this.gvz.bSq());
+            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuMakeupModel", "onFailed " + (downloadException != null ? downloadException.getErrorMessage() : "") + "\n" + c.this.gvz.bSr());
             c.this.g(downloadException);
         }
     }

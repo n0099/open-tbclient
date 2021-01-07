@@ -14,14 +14,14 @@ import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.plugin.a.s;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final l f11922a = new l();
+    private static final l f11923a = new l();
 
     /* renamed from: b  reason: collision with root package name */
-    private com.qq.e.comm.plugin.a.d.c f11923b;
+    private com.qq.e.comm.plugin.a.d.c f11924b;
     private boolean c = false;
     private s d;
     private BroadcastReceiver e;
@@ -29,7 +29,7 @@ public final class l {
     private final k g;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ServiceConnection {
         private a() {
         }
@@ -46,20 +46,20 @@ public final class l {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b extends BroadcastReceiver {
 
         /* renamed from: a  reason: collision with root package name */
-        private final com.qq.e.comm.plugin.a.d.c f11925a;
+        private final com.qq.e.comm.plugin.a.d.c f11926a;
 
         b(com.qq.e.comm.plugin.a.d.c cVar) {
-            this.f11925a = cVar;
+            this.f11926a = cVar;
         }
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             try {
-                this.f11925a.a(intent.getStringExtra("package"), intent.getIntExtra("status", 0), intent.getIntExtra("progress", 0), intent.getLongExtra("totalSize", 0L));
+                this.f11926a.a(intent.getStringExtra("package"), intent.getIntExtra("status", 0), intent.getIntExtra("progress", 0), intent.getLongExtra("totalSize", 0L));
             } catch (Throwable th) {
                 GDTLogger.w("StatusBroadCastReceiver#onReceive", th);
             }
@@ -74,7 +74,7 @@ public final class l {
     }
 
     public static l a() {
-        return f11922a;
+        return f11923a;
     }
 
     private c c(String str) {
@@ -102,8 +102,8 @@ public final class l {
         appContext.bindService(c, this.f, 1);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(appContext.getPackageName() + ".gdtdownload");
-        this.f11923b = new com.qq.e.comm.plugin.a.d.c();
-        this.e = new b(this.f11923b);
+        this.f11924b = new com.qq.e.comm.plugin.a.d.c();
+        this.e = new b(this.f11924b);
         appContext.registerReceiver(this.e, intentFilter);
     }
 
@@ -136,7 +136,7 @@ public final class l {
 
     public void a(com.qq.e.comm.plugin.a.d.a aVar) {
         if (this.c) {
-            this.f11923b.a(aVar);
+            this.f11924b.a(aVar);
         } else {
             com.qq.e.comm.plugin.a.d.b.a().a(aVar);
         }
@@ -144,7 +144,7 @@ public final class l {
 
     public void a(String str, com.qq.e.comm.plugin.a.d.a aVar) {
         if (this.c) {
-            this.f11923b.a(str, aVar);
+            this.f11924b.a(str, aVar);
         } else {
             com.qq.e.comm.plugin.a.d.b.a().a(str, aVar);
         }
@@ -244,7 +244,7 @@ public final class l {
 
     public void b(com.qq.e.comm.plugin.a.d.a aVar) {
         if (this.c) {
-            this.f11923b.b(aVar);
+            this.f11924b.b(aVar);
         } else {
             com.qq.e.comm.plugin.a.d.b.a().b(aVar);
         }
@@ -252,7 +252,7 @@ public final class l {
 
     public void b(String str, com.qq.e.comm.plugin.a.d.a aVar) {
         if (this.c) {
-            this.f11923b.b(str, aVar);
+            this.f11924b.b(str, aVar);
         } else {
             com.qq.e.comm.plugin.a.d.b.a().b(str, aVar);
         }

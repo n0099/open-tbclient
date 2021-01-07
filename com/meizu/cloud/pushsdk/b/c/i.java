@@ -9,10 +9,10 @@ import org.apache.http.client.methods.HttpPut;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private final f f11467a;
+    private final f f11468a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f11468b;
+    private final String f11469b;
     private final c c;
     private final j d;
     private final Object e;
@@ -21,10 +21,10 @@ public class i {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private f f11469a;
+        private f f11470a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f11470b = "GET";
+        private String f11471b = "GET";
         private c.a c = new c.a();
         private j d;
         private Object e;
@@ -42,7 +42,7 @@ public class i {
             if (fVar == null) {
                 throw new IllegalArgumentException("url == null");
             }
-            this.f11469a = fVar;
+            this.f11470a = fVar;
             return this;
         }
 
@@ -74,7 +74,7 @@ public class i {
                 if (jVar == null && d.a(str)) {
                     throw new IllegalArgumentException("method " + str + " must have a request body.");
                 }
-                this.f11470b = str;
+                this.f11471b = str;
                 this.d = jVar;
                 return this;
             }
@@ -99,7 +99,7 @@ public class i {
         }
 
         public i c() {
-            if (this.f11469a == null) {
+            if (this.f11470a == null) {
                 throw new IllegalStateException("url == null");
             }
             return new i(this);
@@ -111,15 +111,15 @@ public class i {
     }
 
     private i(a aVar) {
-        this.f11467a = aVar.f11469a;
-        this.f11468b = aVar.f11470b;
+        this.f11468a = aVar.f11470a;
+        this.f11469b = aVar.f11471b;
         this.c = aVar.c.a();
         this.d = aVar.d;
         this.e = aVar.e != null ? aVar.e : this;
     }
 
     public f a() {
-        return this.f11467a;
+        return this.f11468a;
     }
 
     public String a(String str) {
@@ -127,7 +127,7 @@ public class i {
     }
 
     public String b() {
-        return this.f11468b;
+        return this.f11469b;
     }
 
     public int c() {
@@ -158,10 +158,10 @@ public class i {
     }
 
     public boolean f() {
-        return this.f11467a.a();
+        return this.f11468a.a();
     }
 
     public String toString() {
-        return "Request{method=" + this.f11468b + ", url=" + this.f11467a + ", tag=" + (this.e != this ? this.e : null) + '}';
+        return "Request{method=" + this.f11469b + ", url=" + this.f11468a + ", tag=" + (this.e != this ? this.e : null) + '}';
     }
 }

@@ -20,7 +20,7 @@ public class b implements d {
     private long dtR;
     private final Object mLock = new Object();
 
-    private void aHH() {
+    private void aHI() {
         if (this.dtN == null) {
             synchronized (this.mLock) {
                 if (this.dtN == null) {
@@ -29,7 +29,7 @@ public class b implements d {
                     this.dtL = new c() { // from class: com.baidu.swan.apps.performance.a.b.1
                         @Override // com.baidu.swan.apps.performance.a.c
                         public boolean a(a aVar) {
-                            if (aVar == null || aVar.atQ() < 0) {
+                            if (aVar == null || aVar.atR() < 0) {
                                 return false;
                             }
                             if (b.DEBUG || !d.dtT.contains(aVar.getApiName())) {
@@ -70,7 +70,7 @@ public class b implements d {
                         if (this.dtL == null || this.dtL.a(aVar)) {
                             sb2.append("----- start time ").append(this.dtM.format(Long.valueOf(aVar.getStart()))).append("\n");
                             sb2.append("----- end time ").append(this.dtM.format(Long.valueOf(aVar.getEnd()))).append("\n");
-                            sb2.append("----- cost time ").append(aVar.atQ()).append("ms\n");
+                            sb2.append("----- cost time ").append(aVar.atR()).append("ms\n");
                             sb2.append("----------------------------\n");
                             i4++;
                             i2 = i5 + 1;
@@ -104,7 +104,7 @@ public class b implements d {
 
     @Override // com.baidu.swan.apps.performance.a.e
     public void start(long j) {
-        aHH();
+        aHI();
         reset();
         this.dtR = j;
         log("launch start time-" + j);

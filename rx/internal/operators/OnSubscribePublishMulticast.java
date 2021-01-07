@@ -34,7 +34,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         }
         this.prefetch = i;
         this.delayError = z;
-        if (ae.eOw()) {
+        if (ae.ePa()) {
             this.queue = new rx.internal.util.a.q(i);
         } else {
             this.queue = new rx.internal.util.atomic.c(i);
@@ -265,30 +265,30 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes15.dex */
     public static final class a<T> extends rx.j<T> {
-        final OnSubscribePublishMulticast<T> qsd;
+        final OnSubscribePublishMulticast<T> qtL;
 
         public a(OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
-            this.qsd = onSubscribePublishMulticast;
+            this.qtL = onSubscribePublishMulticast;
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            this.qsd.onNext(t);
+            this.qtL.onNext(t);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.qsd.onError(th);
+            this.qtL.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.qsd.onCompleted();
+            this.qtL.onCompleted();
         }
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            this.qsd.setProducer(fVar);
+            this.qtL.setProducer(fVar);
         }
     }
 

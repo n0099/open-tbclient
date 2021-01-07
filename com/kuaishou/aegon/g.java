@@ -3,12 +3,12 @@ package com.kuaishou.aegon;
 final /* synthetic */ class g implements Runnable {
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f8410b;
-    private final f pQD;
+    private final String f8411b;
+    private final f pSl;
 
     private g(f fVar, String str) {
-        this.pQD = fVar;
-        this.f8410b = str;
+        this.pSl = fVar;
+        this.f8411b = str;
     }
 
     public static Runnable b(f fVar, String str) {
@@ -17,6 +17,6 @@ final /* synthetic */ class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.pQD.a(this.f8410b);
+        this.pSl.a(this.f8411b);
     }
 }

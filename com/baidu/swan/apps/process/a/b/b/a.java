@@ -15,7 +15,7 @@ public class a {
     private ConcurrentHashMap<String, Runnable> dvF = new ConcurrentHashMap<>();
     private HandlerC0460a dvG = new HandlerC0460a(Looper.getMainLooper());
 
-    public static a aIQ() {
+    public static a aIR() {
         if (dvD == null) {
             synchronized (a.class) {
                 if (dvD == null) {
@@ -37,25 +37,25 @@ public class a {
             }
             return;
         }
-        String aIP = aVar.aIP();
-        if (this.dvE.containsKey(aIP)) {
+        String aIQ = aVar.aIQ();
+        if (this.dvE.containsKey(aIQ)) {
             if (DEBUG) {
-                Log.e("MDelegate-Observe", "multiple register observer：" + aIP);
+                Log.e("MDelegate-Observe", "multiple register observer：" + aIQ);
                 return;
             }
             return;
         }
         if (DEBUG) {
-            Log.d("MDelegate-Observe", "register observer: " + aIP);
+            Log.d("MDelegate-Observe", "register observer: " + aIQ);
         }
-        this.dvE.put(aIP, aVar);
+        this.dvE.put(aIQ, aVar);
         long timeoutMillis = aVar.getTimeoutMillis();
-        if (timeoutMillis > 0 && aVar.aIR()) {
+        if (timeoutMillis > 0 && aVar.aIS()) {
             if (DEBUG) {
-                Log.d("MDelegate-Observe", "post observer: " + aIP + " " + timeoutMillis + "ms timeout runnable");
+                Log.d("MDelegate-Observe", "post observer: " + aIQ + " " + timeoutMillis + "ms timeout runnable");
             }
-            b bVar = new b(this, aIP);
-            this.dvF.put(aIP, bVar);
+            b bVar = new b(this, aIQ);
+            this.dvF.put(aIQ, bVar);
             this.dvG.postDelayed(bVar, timeoutMillis);
         }
     }
@@ -68,8 +68,8 @@ public class a {
             }
             return;
         }
-        String aIP = aVar.aIP();
-        if (!this.dvE.containsKey(aIP)) {
+        String aIQ = aVar.aIQ();
+        if (!this.dvE.containsKey(aIQ)) {
             if (DEBUG) {
                 Log.e("MDelegate-Observe", "unregister a nonexistent observer");
                 return;
@@ -77,13 +77,13 @@ public class a {
             return;
         }
         if (DEBUG) {
-            Log.d("MDelegate-Observe", "unregister observer: " + aIP);
+            Log.d("MDelegate-Observe", "unregister observer: " + aIQ);
         }
-        this.dvE.remove(aIP);
+        this.dvE.remove(aIQ);
     }
 
     public void a(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {
-        com.baidu.swan.apps.process.a.b.c.a<com.baidu.swan.apps.process.a.b.a.b> aVar = this.dvE.get(bVar.aIP());
+        com.baidu.swan.apps.process.a.b.c.a<com.baidu.swan.apps.process.a.b.a.b> aVar = this.dvE.get(bVar.aIQ());
         if (aVar == null) {
             if (DEBUG) {
                 Log.e("MDelegate-Observe", "notify a null observer");
@@ -91,21 +91,21 @@ public class a {
             }
             return;
         }
-        String aIP = aVar.aIP();
+        String aIQ = aVar.aIQ();
         if (DEBUG) {
-            Log.d("MDelegate-Observe", "notify observer: " + aIP);
+            Log.d("MDelegate-Observe", "notify observer: " + aIQ);
         }
         aVar.onEvent(bVar);
-        if (this.dvF.containsKey(aIP)) {
+        if (this.dvF.containsKey(aIQ)) {
             if (DEBUG) {
-                Log.d("MDelegate-Observe", "remove observer: " + aIP + " timeout runnable");
+                Log.d("MDelegate-Observe", "remove observer: " + aIQ + " timeout runnable");
             }
-            this.dvG.removeCallbacks(this.dvF.get(aIP));
-            this.dvF.remove(aIP);
+            this.dvG.removeCallbacks(this.dvF.get(aIQ));
+            this.dvF.remove(aIQ);
         }
-        if (aVar.aIR()) {
+        if (aVar.aIS()) {
             if (DEBUG) {
-                Log.d("MDelegate-Observe", "auto unregister disposable observer: " + aIP);
+                Log.d("MDelegate-Observe", "auto unregister disposable observer: " + aIQ);
             }
             b(aVar);
         }

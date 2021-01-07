@@ -5,15 +5,15 @@ import android.text.TextUtils;
 class z {
 
     /* renamed from: a  reason: collision with root package name */
-    int f14144a = 0;
+    int f14145a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    String f167a = "";
+    String f168a = "";
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof z)) {
             z zVar = (z) obj;
-            if (!TextUtils.isEmpty(zVar.f167a) && zVar.f167a.equals(this.f167a)) {
+            if (!TextUtils.isEmpty(zVar.f168a) && zVar.f168a.equals(this.f168a)) {
                 return true;
             }
         }

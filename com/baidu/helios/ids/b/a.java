@@ -7,13 +7,13 @@ import com.baidu.helios.common.c.a;
 import com.baidu.helios.ids.a;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class a extends com.baidu.helios.ids.a {
     a.C0141a awu;
     private C0144a ayq;
 
     /* renamed from: com.baidu.helios.ids.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     class C0144a {
         private long c;
         private String f;

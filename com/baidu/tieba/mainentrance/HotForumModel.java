@@ -17,7 +17,7 @@ public class HotForumModel extends BdBaseModel {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void Ok(String str);
+        void Oj(String str);
 
         void a(List<b> list, List<c> list2, HotSearchInfoData hotSearchInfoData, String str);
     }
@@ -26,26 +26,26 @@ public class HotForumModel extends BdBaseModel {
         super(fVar);
         this.eXW = fVar;
         this.lfh = aVar;
-        dfD();
+        dfE();
     }
 
-    public void dfC() {
+    public void dfD() {
         sendMessage(new HotForumNetMessage());
     }
 
-    private void dfD() {
+    private void dfE() {
         registerListener(new com.baidu.adp.framework.listener.a(1001534, CmdConfigSocket.CMD_GET_HOTFORUM) { // from class: com.baidu.tieba.mainentrance.HotForumModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (!(responsedMessage instanceof HotForumSocketResponseMessage) && !(responsedMessage instanceof HotForumHttpResponseMessage)) {
-                    HotForumModel.this.lfh.Ok(HotForumModel.this.eXW.getString(R.string.neterror));
+                    HotForumModel.this.lfh.Oj(HotForumModel.this.eXW.getString(R.string.neterror));
                 } else if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof HotForumNetMessage)) {
-                    HotForumModel.this.lfh.Ok(HotForumModel.this.eXW.getString(R.string.neterror));
+                    HotForumModel.this.lfh.Oj(HotForumModel.this.eXW.getString(R.string.neterror));
                 } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                     if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                        HotForumModel.this.lfh.Ok(responsedMessage.getErrorString());
+                        HotForumModel.this.lfh.Oj(responsedMessage.getErrorString());
                     } else {
-                        HotForumModel.this.lfh.Ok(HotForumModel.this.eXW.getString(R.string.neterror));
+                        HotForumModel.this.lfh.Oj(HotForumModel.this.eXW.getString(R.string.neterror));
                     }
                 } else {
                     if (responsedMessage instanceof HotForumHttpResponseMessage) {

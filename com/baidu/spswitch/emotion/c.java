@@ -9,7 +9,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import com.baidu.spswitch.b.a;
 import com.baidu.spswitch.emotion.view.BDEmotionBagLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     private static c cDs;
     private static Context mAppContext;
@@ -59,7 +59,7 @@ public class c {
                         }
                         String item = aVar.getItem(i2);
                         if (!TextUtils.isEmpty(item)) {
-                            c.this.cDt.getEditableText().insert(c.this.cDt.getSelectionStart(), a.ajb().a(EmotionType.EMOTION_CLASSIC_TYPE, c.mAppContext, item, c.this.cDt));
+                            c.this.cDt.getEditableText().insert(c.this.cDt.getSelectionStart(), a.ajc().a(EmotionType.EMOTION_CLASSIC_TYPE, c.mAppContext, item, c.this.cDt));
                         }
                         if (c.this.cDw != null) {
                             c.this.cDw.a(emotionType, i, b.bS(c.mAppContext).b(emotionType, item), item);
@@ -93,7 +93,7 @@ public class c {
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 1) {
-                    c.this.aje();
+                    c.this.ajf();
                     return false;
                 }
                 return false;
@@ -101,7 +101,7 @@ public class c {
         };
     }
 
-    public void aje() {
+    public void ajf() {
         if (this.cDt != null) {
             this.cDt.removeCallbacks(this.cDv);
         }

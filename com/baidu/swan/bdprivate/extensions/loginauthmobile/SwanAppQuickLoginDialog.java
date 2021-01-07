@@ -42,7 +42,7 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
             @Override // android.app.Dialog
             public void onBackPressed() {
                 SwanAppQuickLoginDialog.this.hM(true);
-                SwanAppQuickLoginDialog.this.aTk();
+                SwanAppQuickLoginDialog.this.aTl();
             }
         };
     }
@@ -57,8 +57,8 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         this.dXm = (Button) this.mRootView.findViewById(b.e.user_quick_login);
         this.dXn = (TextView) this.mRootView.findViewById(b.e.user_login_with_other_phone);
         this.dXi = (TextView) this.mRootView.findViewById(b.e.user_service_agreement);
-        aTm();
         aTn();
+        aTo();
         if (this.dWP != null) {
             this.dXl.setText(this.dWP.encryptPhoneNum);
         }
@@ -80,7 +80,7 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         });
     }
 
-    private void aTn() {
+    private void aTo() {
         String string = getContext().getString(b.g.swanapp_phonenum_checkbox_tip);
         CheckBox checkBox = this.dXe;
         if (!TextUtils.isEmpty(this.dWN)) {
@@ -90,7 +90,7 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
     }
 
     @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog
-    protected void aTj() {
+    protected void aTk() {
     }
 
     @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog
@@ -107,17 +107,17 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
     public void onClick(View view) {
         int id = view.getId();
         if (id == b.e.user_login_with_other_phone) {
-            aTo();
-        } else if (id == b.e.user_quick_login) {
             aTp();
+        } else if (id == b.e.user_quick_login) {
+            aTq();
         } else if (id == b.e.close) {
             hM(true);
-            aTk();
+            aTl();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aTo() {
+    public void aTp() {
         FragmentManager fragmentManager = getFragmentManager();
         if (fragmentManager != null) {
             FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
@@ -139,7 +139,7 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         super.onDismiss(dialogInterface);
     }
 
-    private void aTp() {
+    private void aTq() {
         if (!SwanAppNetworkUtils.isNetworkConnected(this.dWX)) {
             com.baidu.swan.apps.res.widget.b.d.u(this.dWX, b.g.swanapp_login_not_internet).hf(true);
         } else if (this.dWP != null) {
@@ -149,7 +149,7 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
                     String str;
                     SwanAppQuickLoginDialog.this.dWW.me(i);
                     if (i != 0) {
-                        SwanAppQuickLoginDialog.this.aTo();
+                        SwanAppQuickLoginDialog.this.aTp();
                         str = com.baidu.pass.biometrics.face.liveness.c.a.p;
                     } else {
                         str = "succ_agree";
@@ -160,14 +160,14 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         }
     }
 
-    private void aTm() {
+    private void aTn() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("");
         spannableStringBuilder.append((CharSequence) getString(b.g.swanapp_service_agreement_tip));
         if (this.dWP != null) {
             a(spannableStringBuilder, spannableStringBuilder.length(), this.dWP.agreeText, this.dWP.serviceAgreement);
             spannableStringBuilder.append((CharSequence) getString(b.g.swanapp_service_agreement_comma));
         }
-        a(spannableStringBuilder, spannableStringBuilder.length(), getString(b.g.swanapp_service_agreement_swan), com.baidu.swan.apps.t.a.aAD().alO());
+        a(spannableStringBuilder, spannableStringBuilder.length(), getString(b.g.swanapp_service_agreement_swan), com.baidu.swan.apps.t.a.aAE().alP());
         spannableStringBuilder.append((CharSequence) getString(b.g.swanapp_service_agreement_comma));
         a(spannableStringBuilder, spannableStringBuilder.length(), getString(b.g.swanapp_service_agreement_baidu), "https://passport.baidu.com/static/passpc-account/html/protocal.html");
         spannableStringBuilder.append((CharSequence) getString(b.g.swanapp_service_agreement_register_tip));

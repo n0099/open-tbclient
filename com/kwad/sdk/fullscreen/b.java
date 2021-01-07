@@ -16,15 +16,15 @@ public class b implements KsFullScreenVideoAd {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    private AdTemplate f10217a;
+    private AdTemplate f10218a;
 
     /* renamed from: b  reason: collision with root package name */
-    private AdInfo f10218b;
+    private AdInfo f10219b;
     private KsFullScreenVideoAd.FullScreenVideoAdInteractionListener c;
 
     public b(@NonNull AdTemplate adTemplate) {
-        this.f10217a = adTemplate;
-        this.f10218b = c.j(adTemplate);
+        this.f10218a = adTemplate;
+        this.f10219b = c.j(adTemplate);
     }
 
     private void a(Context context, KsVideoPlayConfig ksVideoPlayConfig) {
@@ -39,12 +39,12 @@ public class b implements KsFullScreenVideoAd {
         if (a2 != null) {
             ksVideoPlayConfig.setVideoSoundEnable(((Boolean) a2.getValue()).booleanValue());
         }
-        KsFullScreenVideoActivityProxy.launch(context, this.f10217a, ksVideoPlayConfig, this.c);
+        KsFullScreenVideoActivityProxy.launch(context, this.f10218a, ksVideoPlayConfig, this.c);
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
     public int getECPM() {
-        return com.kwad.sdk.core.response.b.a.A(this.f10218b);
+        return com.kwad.sdk.core.response.b.a.A(this.f10219b);
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
@@ -52,13 +52,13 @@ public class b implements KsFullScreenVideoAd {
         if (com.kwad.sdk.core.config.c.ae() >= 0) {
             return true;
         }
-        return f.b(this.f10217a);
+        return f.b(this.f10218a);
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
     public void setBidEcpm(int i) {
-        this.f10217a.mBidEcpm = i;
-        com.kwad.sdk.core.report.b.m(this.f10217a);
+        this.f10218a.mBidEcpm = i;
+        com.kwad.sdk.core.report.b.m(this.f10218a);
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd

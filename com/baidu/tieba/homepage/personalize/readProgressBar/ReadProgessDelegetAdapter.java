@@ -43,7 +43,7 @@ public class ReadProgessDelegetAdapter extends com.baidu.adp.widget.ListView.a<b
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, b bVar, ViewHolder viewHolder) {
-        s.cva().e(new aq("c11272"));
+        s.cvb().e(new aq("c11272"));
         viewHolder.kiw.a(bVar);
         return viewHolder.getView();
     }

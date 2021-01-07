@@ -12,36 +12,36 @@ import com.fun.ad.sdk.FunRippedAd;
 public abstract class bd {
 
     /* renamed from: a  reason: collision with root package name */
-    public au.a f8063a;
+    public au.a f8064a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f8064b = false;
-    public ba pIn;
-    public ax pIo;
-    public TTAdNative pIp;
+    public boolean f8065b = false;
+    public ba pJV;
+    public ax pJW;
+    public TTAdNative pJX;
 
     public bd(au.a aVar) {
-        this.f8063a = aVar;
+        this.f8064a = aVar;
     }
 
     public void a() {
-        m.a("CSJAdLoader destroy adId: " + this.f8063a.f8059a);
-        this.pIn = null;
-        this.pIo = null;
+        m.a("CSJAdLoader destroy adId: " + this.f8064a.f8060a);
+        this.pJV = null;
+        this.pJW = null;
     }
 
-    public abstract FunRippedAd eBl();
+    public abstract FunRippedAd eBP();
 
     public void a(Context context, FunAdSlot funAdSlot, ba baVar) {
-        m.a("CSJAdLoader load adId: " + this.f8063a.f8059a);
-        if (this.pIp == null) {
-            this.pIp = TTAdSdk.getAdManager().createAdNative(context);
+        m.a("CSJAdLoader load adId: " + this.f8064a.f8060a);
+        if (this.pJX == null) {
+            this.pJX = TTAdSdk.getAdManager().createAdNative(context);
         }
-        this.pIn = baVar;
+        this.pJV = baVar;
     }
 
     public void a(Activity activity, FunAdView funAdView, ax axVar) {
-        m.a("CSJAdLoader show adId: " + this.f8063a.f8059a);
-        this.pIo = axVar;
+        m.a("CSJAdLoader show adId: " + this.f8064a.f8060a);
+        this.pJW = axVar;
     }
 }

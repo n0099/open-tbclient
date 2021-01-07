@@ -67,22 +67,22 @@ public class aq {
         }
     }
 
-    public boolean BX(String str) {
+    public boolean BW(String str) {
         int indexOf;
         return !at.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1;
     }
 
-    public aq bwm() {
+    public aq bwn() {
         aq aqVar = new aq(getKey());
         aqVar.bE(getParams());
         return aqVar;
     }
 
-    public void bwn() {
+    public void bwo() {
         TiebaStatic.log(this);
     }
 
-    public static aq BY(String str) {
+    public static aq BX(String str) {
         return new aq(str);
     }
 

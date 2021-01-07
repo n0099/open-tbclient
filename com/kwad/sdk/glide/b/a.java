@@ -9,7 +9,7 @@ public interface a {
 
     /* renamed from: com.kwad.sdk.glide.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1092a {
+    public interface InterfaceC1133a {
         @NonNull
         Bitmap a(int i, int i2, @NonNull Bitmap.Config config);
 

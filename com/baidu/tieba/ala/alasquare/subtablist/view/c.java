@@ -75,13 +75,13 @@ public class c {
         this.gLg.setVisibility(i);
     }
 
-    public void bVL() {
+    public void bVM() {
         if (this.gCf != null && this.gCf.getView().getParent() != null) {
             this.gAY.removeFooterView(this.gCf.getView());
         }
     }
 
-    public void bUD() {
+    public void bUE() {
         if (this.gCf != null) {
             if (this.gCf.getView().getParent() == null) {
                 this.gAY.setNextPage(this.gCf);
@@ -102,7 +102,7 @@ public class c {
             this.akW = i;
         }
         if (this.gLk != null) {
-            this.gLk.bCO();
+            this.gLk.bCP();
         }
         if (this.gLj != null) {
             this.gLj.onChangeSkinType();
@@ -169,7 +169,7 @@ public class c {
         }
     }
 
-    public void Zi() {
+    public void Zj() {
         if (this.refreshView != null) {
             this.refreshView.dettachView(this.mRootView);
             this.refreshView = null;
@@ -284,7 +284,7 @@ public class c {
             this.gLp = (TextView) this.gLn.findViewById(R.id.live_sort);
             this.gLp.setVisibility(8);
             this.gLp.setOnClickListener(this);
-            bCO();
+            bCP();
         }
 
         public void vu(int i) {
@@ -298,7 +298,7 @@ public class c {
             }
         }
 
-        private boolean bVM() {
+        private boolean bVN() {
             return UtilHelper.isSystemLocationProviderEnabled(c.this.mPageContext.getPageActivity());
         }
 
@@ -352,7 +352,7 @@ public class c {
             return textView;
         }
 
-        private void bVN() {
+        private void bVO() {
             if (this.gLm != null) {
                 int[] iArr = new int[2];
                 this.gLp.getLocationOnScreen(iArr);
@@ -368,7 +368,7 @@ public class c {
             }
         }
 
-        public void bCO() {
+        public void bCP() {
             ao.setViewTextColor(this.gLo, R.color.CAM_X0109);
             ao.setViewTextColor(this.gLp, R.color.CAM_X0109);
             this.gLp.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ao.getDrawable(R.drawable.icon_sub_list_arrow_n), (Drawable) null);
@@ -377,7 +377,7 @@ public class c {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == this.gLp) {
-                bVN();
+                bVO();
             } else if ((view instanceof TextView) && view.getTag() != null && (view.getTag() instanceof String) && !StringUtils.isNull((String) view.getTag())) {
                 if (this.gLm != null) {
                     com.baidu.adp.lib.f.g.dismissPopupWindow(this.gLm, c.this.mPageContext.getPageActivity());
@@ -385,7 +385,7 @@ public class c {
                 if (c.this.gLf != null) {
                     this.gLt = (String) view.getTag();
                     if (this.gLt.contains("距离")) {
-                        if (!bVM()) {
+                        if (!bVN()) {
                             c.this.mPageContext.showToast(R.string.square_sub_list_no_shared_location);
                             return;
                         } else {

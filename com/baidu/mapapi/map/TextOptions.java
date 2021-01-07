@@ -4,7 +4,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import androidx.core.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class TextOptions extends OverlayOptions {
     public static final int ALIGN_BOTTOM = 16;
     public static final int ALIGN_CENTER_HORIZONTAL = 4;
@@ -14,7 +14,7 @@ public final class TextOptions extends OverlayOptions {
     public static final int ALIGN_TOP = 8;
 
     /* renamed from: a  reason: collision with root package name */
-    int f2880a;
+    int f2881a;
     Bundle c;
     private String d;
     private LatLng e;
@@ -27,17 +27,17 @@ public final class TextOptions extends OverlayOptions {
     private int k = 32;
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f2881b = true;
+    boolean f2882b = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Text text = new Text();
-        text.B = this.f2881b;
-        text.A = this.f2880a;
+        text.B = this.f2882b;
+        text.A = this.f2881a;
         text.C = this.c;
-        text.f2878a = this.d;
-        text.f2879b = this.e;
+        text.f2879a = this.d;
+        text.f2880b = this.e;
         text.c = this.f;
         text.d = this.g;
         text.e = this.h;
@@ -115,11 +115,11 @@ public final class TextOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2880a;
+        return this.f2881a;
     }
 
     public boolean isVisible() {
-        return this.f2881b;
+        return this.f2882b;
     }
 
     public TextOptions position(LatLng latLng) {
@@ -149,12 +149,12 @@ public final class TextOptions extends OverlayOptions {
     }
 
     public TextOptions visible(boolean z) {
-        this.f2881b = z;
+        this.f2882b = z;
         return this;
     }
 
     public TextOptions zIndex(int i) {
-        this.f2880a = i;
+        this.f2881a = i;
         return this;
     }
 }

@@ -62,11 +62,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(R.layout.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.nYt = (TbImageView) view.findViewById(R.id.item_head);
+            aVar.nYs = (TbImageView) view.findViewById(R.id.item_head);
             aVar.bMI = (TextView) view.findViewById(R.id.item_name);
             aVar.bMJ = (ImageView) view.findViewById(R.id.item_arrow);
-            aVar.nYt.setGifIconSupport(false);
-            aVar.nYt.setLongIconSupport(false);
+            aVar.nYs.setGifIconSupport(false);
+            aVar.nYs.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -86,11 +86,11 @@ public class b extends BaseAdapter {
             } else {
                 aVar.bMJ.setVisibility(8);
             }
-            MediaFileInfo bnq = item.bnq();
-            if (bnq instanceof VideoFileInfo) {
-                aVar.nYt.startLoad(((VideoFileInfo) bnq).videoPath, 37, false);
-            } else if (bnq instanceof ImageFileInfo) {
-                aVar.nYt.startLoad(((ImageFileInfo) bnq).getFilePath(), 35, false);
+            MediaFileInfo bnr = item.bnr();
+            if (bnr instanceof VideoFileInfo) {
+                aVar.nYs.startLoad(((VideoFileInfo) bnr).videoPath, 37, false);
+            } else if (bnr instanceof ImageFileInfo) {
+                aVar.nYs.startLoad(((ImageFileInfo) bnr).getFilePath(), 35, false);
             }
             ao.setViewTextColor(aVar.bMI, R.color.CAM_X0105);
             ao.setBackgroundResource(view, R.drawable.addresslist_item_bg);
@@ -102,7 +102,7 @@ public class b extends BaseAdapter {
     private class a {
         TextView bMI;
         ImageView bMJ;
-        TbImageView nYt;
+        TbImageView nYs;
 
         private a() {
         }

@@ -39,42 +39,42 @@ public class e extends d {
     }
 
     @Override // com.baidu.swan.game.ad.b.d
-    public String aVP() {
+    public String aVQ() {
         return "https://powerful.xdplt.com/api/v1/front/ltc";
     }
 
     @Override // com.baidu.swan.game.ad.b.d
-    protected HashMap<String, String> aVO() {
+    protected HashMap<String, String> aVP() {
         return null;
     }
 
     @Override // com.baidu.swan.game.ad.b.d
-    protected String aVN() {
+    protected String aVO() {
         return null;
     }
 
-    public JSONObject aVS() {
+    public JSONObject aVT() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("id", String.valueOf(System.currentTimeMillis()));
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("id", this.ebR.getAppSid());
-            jSONObject2.put("name", com.baidu.swan.apps.t.a.aBd().getHostName());
-            jSONObject2.put("bundle", com.baidu.swan.apps.t.a.aAr().getPackageName());
+            jSONObject2.put("name", com.baidu.swan.apps.t.a.aBe().getHostName());
+            jSONObject2.put("bundle", com.baidu.swan.apps.t.a.aAs().getPackageName());
             jSONObject2.put("version", ak.getVersionName());
             jSONObject.put("app", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
             jSONObject3.put(j.c, getUserAgent());
-            jSONObject3.put("imei", ak.aRO());
+            jSONObject3.put("imei", ak.aRP());
             jSONObject3.put("android_id", getAndroidId());
             jSONObject3.put(TableDefine.UserInfoColumns.COLUMN_IP, hT(true));
             jSONObject3.put("type", 1);
             jSONObject3.put("os", 1);
-            jSONObject3.put("os_version", com.baidu.swan.apps.i.c.apc());
-            jSONObject3.put("make", com.baidu.swan.apps.i.c.apb());
+            jSONObject3.put("os_version", com.baidu.swan.apps.i.c.apd());
+            jSONObject3.put("make", com.baidu.swan.apps.i.c.apc());
             jSONObject3.put("model", com.baidu.swan.apps.i.c.getDeviceModel());
             jSONObject3.put(KsMediaMeta.KSM_KEY_LANGUAGE, this.mContext.getResources().getConfiguration().locale.getLanguage());
-            jSONObject3.put("connection_type", aTy());
+            jSONObject3.put("connection_type", aTz());
             jSONObject3.put("carrier", es(this.mContext));
             jSONObject3.put("mac", ak.getWifiInfo(this.mContext));
             jSONObject3.put("screen_width", ah.getDisplayWidth(this.mContext));
@@ -82,12 +82,12 @@ public class e extends d {
             jSONObject3.put("screen_orientation", this.mContext.getResources().getConfiguration().orientation);
             jSONObject.put(Config.DEVICE_PART, jSONObject3);
             JSONObject jSONObject4 = new JSONObject();
-            jSONObject4.put(UbcStatConstant.KEY_CONTENT_EXT_SID, this.ebR.aVK());
+            jSONObject4.put(UbcStatConstant.KEY_CONTENT_EXT_SID, this.ebR.aVL());
             jSONObject4.put("ad_count", this.ebU);
             jSONObject4.put("ad_type", this.mType);
             jSONObject4.put("pos", this.mPos);
-            jSONObject4.put("width", this.ebR.aVI());
-            jSONObject4.put("height", this.ebR.aVJ());
+            jSONObject4.put("width", this.ebR.aVJ());
+            jSONObject4.put("height", this.ebR.aVK());
             jSONObject4.put(ClientCookie.SECURE_ATTR, 1);
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(jSONObject4);
@@ -98,8 +98,8 @@ public class e extends d {
         }
     }
 
-    private int aTy() {
-        switch (SwanAppNetworkUtils.aGC()) {
+    private int aTz() {
+        switch (SwanAppNetworkUtils.aGD()) {
             case WIFI:
                 return 1;
             case _2G:

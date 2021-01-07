@@ -17,14 +17,14 @@ import java.util.HashMap;
 import java.util.Locale;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class AppleDataBox extends AbstractBox {
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_5 = null;
     private static HashMap<String, String> language;
     int dataCountry;
     int dataLanguage;
@@ -81,7 +81,7 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     public void setDataCountry(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Ts(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.TI(i)));
         this.dataCountry = i;
     }
 
@@ -91,7 +91,7 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     public void setDataLanguage(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Ts(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.TI(i)));
         this.dataLanguage = i;
     }
 

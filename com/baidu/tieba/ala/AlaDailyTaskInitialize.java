@@ -8,10 +8,10 @@ import com.baidu.live.adp.framework.task.CustomMessageTask;
 /* loaded from: classes11.dex */
 public class AlaDailyTaskInitialize {
     static {
-        bRo();
+        bRp();
     }
 
-    private static void bRo() {
+    private static void bRp() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913278, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaDailyTaskInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.h.a> run(CustomMessage<Context> customMessage) {

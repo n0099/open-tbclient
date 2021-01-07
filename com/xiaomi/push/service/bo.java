@@ -7,11 +7,11 @@ import com.xiaomi.push.gj;
 public class bo implements gf {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ XMPushService f14579a;
+    final /* synthetic */ XMPushService f14580a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bo(XMPushService xMPushService) {
-        this.f14579a = xMPushService;
+        this.f14580a = xMPushService;
     }
 
     @Override // com.xiaomi.push.gf

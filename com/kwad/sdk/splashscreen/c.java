@@ -11,11 +11,11 @@ import com.kwad.sdk.core.view.AdBaseFrameLayout;
 public class c extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public KsSplashScreenAd.SplashScreenAdInteractionListener f11046a;
+    public KsSplashScreenAd.SplashScreenAdInteractionListener f11047a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public KsVideoPlayConfig f11047b;
+    public KsVideoPlayConfig f11048b;
     @NonNull
     public AdTemplate c;
     @NonNull

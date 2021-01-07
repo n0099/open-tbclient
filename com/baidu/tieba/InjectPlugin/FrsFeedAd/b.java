@@ -17,7 +17,7 @@ public class b implements n, com.baidu.tieba.InjectPlugin.a {
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object bMN() {
+    public Object bMO() {
         return this.geA;
     }
 
@@ -25,7 +25,7 @@ public class b implements n, com.baidu.tieba.InjectPlugin.a {
         this.geA = obj;
     }
 
-    public int bMO() {
+    public int bMP() {
         return this.geB;
     }
 
@@ -41,7 +41,7 @@ public class b implements n, com.baidu.tieba.InjectPlugin.a {
         }
     }
 
-    public static List<BdUniqueId> bMP() {
+    public static List<BdUniqueId> bMQ() {
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < gez.size(); i++) {
             arrayList.add(gez.valueAt(i));

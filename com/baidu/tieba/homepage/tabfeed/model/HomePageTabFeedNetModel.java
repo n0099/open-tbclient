@@ -26,7 +26,7 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.homepage.tabfeed.data.a aVar) {
         if (aVar != null) {
-            this.iNO = aVar.cTM();
+            this.iNO = aVar.cTN();
         }
         if (this.kkl != null) {
             this.kkl.a(this.kkm.a(this.geO, aVar));
@@ -89,7 +89,7 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
         this.tabName = str2;
     }
 
-    public void bUp() {
+    public void bUq() {
         if (!this.isLoading) {
             this.geO = false;
             zl(2);

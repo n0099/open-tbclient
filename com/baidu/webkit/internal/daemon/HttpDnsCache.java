@@ -12,7 +12,7 @@ import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public class HttpDnsCache implements INoProGuard, INetListener {
     private static final String BACKUP_IP = "{\"area\": \"idc.ct\",   \"backup\": {    \"m.baidu.com\": {      \"ip\": [        \"220.181.38.130\",       \"220.181.38.129\"        ]    },    \"mbd.baidu.com\": {      \"ip\": [       \"180.149.145.177\",         \"112.34.111.104\",        \"111.206.37.66\",        \"180.97.104.214\",        \"117.185.17.20\",        \"112.80.248.204\",       \"14.215.177.166\",        \"183.232.231.184\",        \"163.177.151.106\"       ]    }  },   \"msg\": \"ok\",   \"ttl\": 300,  \"version\": \"v.01\"}";
     private static final String LOG_TAG = "HttpDnsCache";

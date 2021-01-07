@@ -13,17 +13,17 @@ import java.util.Observer;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f3536a = 30000000;
+    private static long f3537a = 30000000;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f3537b;
+    private Context f3538b;
 
     public i(Context context) {
-        this.f3537b = context;
+        this.f3538b = context;
     }
 
     public static void a(int i) {
-        f3536a = i * 1000 * 1000;
+        f3537a = i * 1000 * 1000;
     }
 
     public void a(String str) {
@@ -60,7 +60,7 @@ public class i {
             File file = new File(b(context, str));
             if (!file.exists()) {
                 a(handler, false);
-                IOAdDownloader createSimpleFileDownloader = com.baidu.mobads.openad.b.d.a(this.f3537b).createSimpleFileDownloader(new URL(str), str2, str3, false);
+                IOAdDownloader createSimpleFileDownloader = com.baidu.mobads.openad.b.d.a(this.f3538b).createSimpleFileDownloader(new URL(str), str2, str3, false);
                 createSimpleFileDownloader.addObserver(new a(handler, str2));
                 createSimpleFileDownloader.start();
             } else {
@@ -128,12 +128,12 @@ public class i {
     class a implements Observer {
 
         /* renamed from: b  reason: collision with root package name */
-        private final Handler f3539b;
+        private final Handler f3540b;
         private final String c;
         private long d = System.currentTimeMillis();
 
         public a(Handler handler, String str) {
-            this.f3539b = handler;
+            this.f3540b = handler;
             this.c = str;
         }
 
@@ -143,12 +143,12 @@ public class i {
             long currentTimeMillis = System.currentTimeMillis() - this.d;
             if (iOAdDownloader.getState() == IOAdDownloader.DownloadStatus.COMPLETED) {
                 i.this.c(iOAdDownloader.getOutputPath());
-                i.this.a(this.f3539b, iOAdDownloader.getOutputPath(), currentTimeMillis);
+                i.this.a(this.f3540b, iOAdDownloader.getOutputPath(), currentTimeMillis);
                 i.this.a(this.c);
             }
             if (iOAdDownloader.getState() == IOAdDownloader.DownloadStatus.ERROR) {
-                i.this.a(this.f3539b, (Boolean) false, (String) null, currentTimeMillis);
-                i.this.a(this.f3539b, currentTimeMillis);
+                i.this.a(this.f3540b, (Boolean) false, (String) null, currentTimeMillis);
+                i.this.a(this.f3540b, currentTimeMillis);
                 i.this.a(this.c);
             }
         }

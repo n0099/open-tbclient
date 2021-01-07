@@ -22,14 +22,14 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         @Override // com.baidu.tieba.home.BfbInfoModel.a
         public void a(int i, String str, UserBfbInfo userBfbInfo) {
             CreateBarGuideActivity.this.hideLoadingView(CreateBarGuideActivity.this.jVx.getRootView());
-            CreateBarGuideActivity.this.jVx.cQu();
+            CreateBarGuideActivity.this.jVx.cQv();
             if (i == 0) {
                 CreateBarGuideActivity.this.jVx.a(CreateBarGuideActivity.this.forumName, userBfbInfo);
                 return;
             }
             CreateBarGuideActivity.this.showToast(str);
             if (i == 260211) {
-                CreateBarGuideActivity.this.Mh(null);
+                CreateBarGuideActivity.this.Mg(null);
             }
         }
     };
@@ -45,19 +45,19 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         this.jVy = new BfbInfoModel(this);
         this.jVy.a(this.jVz);
         this.jVx = new a(this);
-        this.jVx.cQt();
+        this.jVx.cQu();
         showLoadingView(this.jVx.getRootView());
         this.jVy.LoadData();
         TiebaStatic.log("c11222");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Mh(String str) {
+    public void Mg(String str) {
         if (StringUtils.isNull(str)) {
             str = getResources().getString(R.string.tips_version_low);
         }
         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
-        aVar.Bo(str);
+        aVar.Bn(str);
         aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.home.CreateBarGuideActivity.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -72,7 +72,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
             }
         });
         aVar.b(getPageContext());
-        aVar.btX();
+        aVar.btY();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -80,14 +80,14 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public void onDestroy() {
         super.onDestroy();
         this.jVx = null;
-        this.jVy.cQp();
+        this.jVy.cQq();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void changeSkinType(int i) {
         super.changeSkinType(i);
         if (this.jVx != null) {
-            this.jVx.bCO();
+            this.jVx.bCP();
         }
     }
 }

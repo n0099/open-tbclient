@@ -60,7 +60,7 @@ public class d {
         this.hDH.setWidth(context.getResources().getDimensionPixelSize(a.d.sdk_ds4));
     }
 
-    public PendantChildView cib() {
+    public PendantChildView cic() {
         return this.hDJ;
     }
 

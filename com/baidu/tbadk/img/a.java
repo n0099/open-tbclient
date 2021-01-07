@@ -73,10 +73,10 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: P */
         public ImageUploadResult doInBackground(String... strArr) {
-            return bGq();
+            return bGr();
         }
 
-        private ImageUploadResult bGq() {
+        private ImageUploadResult bGr() {
             a.this.fIC.a(this, (Object) null);
             a.this.fIC.sL(this.fID);
             ImageUploadResult ay = a.this.fIC.ay(a.this.mPath, this.isNeedAddWater);
@@ -166,8 +166,8 @@ public class a<T> {
     }
 
     public void setServerResizeForIMImage() {
-        LocalViewSize.ImageSize bvO = LocalViewSize.bvN().bvO();
-        LocalViewSize.ImageSize bvP = LocalViewSize.bvN().bvP();
-        setServersideResize(bvP.width, bvP.height, bvO.width, bvO.height);
+        LocalViewSize.ImageSize bvP = LocalViewSize.bvO().bvP();
+        LocalViewSize.ImageSize bvQ = LocalViewSize.bvO().bvQ();
+        setServersideResize(bvQ.width, bvQ.height, bvP.width, bvP.height);
     }
 }

@@ -16,12 +16,12 @@ public class v extends a implements com.baidu.tbadk.mvc.b.a {
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bz boO() {
+    public bz boP() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public at boQ() {
+    public at boR() {
         return null;
     }
 }

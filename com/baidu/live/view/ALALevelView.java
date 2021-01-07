@@ -77,11 +77,11 @@ public class ALALevelView extends LinearLayout {
         if (TextUtils.isEmpty(atVar.third_app_id)) {
             setupLevelIcon(atVar.level_id);
             setupOfficialIcon(atVar.is_official == 1);
-            Zt();
             Zu();
+            Zv();
             return;
         }
-        Zw();
+        Zx();
     }
 
     public void setData(j.b bVar) {
@@ -95,10 +95,10 @@ public class ALALevelView extends LinearLayout {
         an(bVar.live_mark_info_new);
         am(bVar.live_mark_info_new);
         removeAllViews();
-        Zv();
+        Zw();
         setupLevelIcon(bVar.level_id);
-        Zt();
         Zu();
+        Zv();
     }
 
     public void am(List<AlaLiveMarkData> list) {
@@ -138,12 +138,12 @@ public class ALALevelView extends LinearLayout {
         if (TextUtils.isEmpty(aVar.appId)) {
             setupLevelIcon(aVar.level_id);
             setupOfficialIcon(aVar.aIW);
-            Zt();
             Zu();
+            Zv();
             K(aVar.tagName, aVar.aIY);
             return;
         }
-        Zw();
+        Zx();
     }
 
     public void setData(AlaLiveUserInfoData alaLiveUserInfoData) {
@@ -159,8 +159,8 @@ public class ALALevelView extends LinearLayout {
             removeAllViews();
             setupLevelIconImage(alaLiveUserInfoData.live_mark_info_new, alaLiveUserInfoData.levelId);
             a(alaLiveUserInfoData.clubMemberLevel, alaLiveUserInfoData.clubGuardName, alaLiveUserInfoData.isGold(), alaLiveUserInfoData.guardGoldenType);
-            Zt();
             Zu();
+            Zv();
         }
     }
 
@@ -176,9 +176,9 @@ public class ALALevelView extends LinearLayout {
         am(alaLiveUserInfoData.live_mark_info_new);
         removeAllViews();
         setupLevelIconImage(alaLiveUserInfoData.live_mark_info_new, alaLiveUserInfoData.levelId);
-        Zv();
+        Zw();
         setupClubIcon(alaLiveUserInfoData.clubMemberLevel);
-        Zt();
+        Zu();
     }
 
     public void setData4Yuyin(cz czVar) {
@@ -193,8 +193,8 @@ public class ALALevelView extends LinearLayout {
         am(czVar.live_mark_info_new);
         removeAllViews();
         setupLevelIconImage(czVar.live_mark_info_new, czVar.level_id);
-        Zv();
-        Zt();
+        Zw();
+        Zu();
     }
 
     public void an(List<AlaLiveMarkData> list) {
@@ -323,7 +323,7 @@ public class ALALevelView extends LinearLayout {
         }
     }
 
-    private void Zt() {
+    private void Zu() {
         if (this.bTq == null || this.bTq.type != 2) {
             a(this.bTj);
         } else if (TextUtils.isEmpty(this.bTq.mark_pic)) {
@@ -343,7 +343,7 @@ public class ALALevelView extends LinearLayout {
         }
     }
 
-    private void Zu() {
+    private void Zv() {
         LinearLayout.LayoutParams layoutParams;
         if (this.bTp == null || this.bTp.type != 106) {
             a(this.bTi);
@@ -376,7 +376,7 @@ public class ALALevelView extends LinearLayout {
         }
     }
 
-    private void Zv() {
+    private void Zw() {
         if (this.bTr == null || this.bTr.type != 105) {
             a(this.bTs);
         } else if (TextUtils.isEmpty(this.bTr.mark_pic)) {
@@ -495,7 +495,7 @@ public class ALALevelView extends LinearLayout {
         return layoutParams;
     }
 
-    public void Zw() {
+    public void Zx() {
         if (this.bTm == null) {
             this.bTm = new ImageView(getContext());
             this.bTm.setImageResource(a.e.sdk_icon_live_im_visitors_14);

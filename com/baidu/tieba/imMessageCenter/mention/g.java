@@ -85,7 +85,7 @@ public class g extends com.baidu.adp.base.d implements NoNetworkView.a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (g.this.kOe != null) {
-                    g.this.kOe.dbb();
+                    g.this.kOe.dbc();
                 }
             }
         });
@@ -104,7 +104,7 @@ public class g extends com.baidu.adp.base.d implements NoNetworkView.a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (g.this.kOe != null) {
-                    g.this.kOe.dbc();
+                    g.this.kOe.dbd();
                 }
             }
         });
@@ -153,7 +153,7 @@ public class g extends com.baidu.adp.base.d implements NoNetworkView.a {
         }
     }
 
-    public TbTabLayout.e dbd() {
+    public TbTabLayout.e dbe() {
         if (this.ghk == null || this.ghk.getTabCount() <= 0) {
             return null;
         }
@@ -191,7 +191,7 @@ public class g extends com.baidu.adp.base.d implements NoNetworkView.a {
                 }
             }
         }
-        SvgManager.bwq().a(this.kOn, R.drawable.ic_icon_pure_chat_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bwr().a(this.kOn, R.drawable.ic_icon_pure_chat_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         if (this.ghk != null) {
             this.ghk.setSelectedTabIndicatorColor(this.mContext.getResources().getColor(R.color.transparent));
             this.ghk.setSelectedTabIndicatorHeight(0);
@@ -208,7 +208,7 @@ public class g extends com.baidu.adp.base.d implements NoNetworkView.a {
         }
     }
 
-    public void ano() {
+    public void anp() {
         if (this.kOe != null && this.iIr != null && this.fri != null && this.kOl != null) {
             FragmentManager supportFragmentManager = this.kOe.getActivity().getSupportFragmentManager();
             if (!supportFragmentManager.isDestroyed()) {
@@ -265,9 +265,9 @@ public class g extends com.baidu.adp.base.d implements NoNetworkView.a {
         }
     }
 
-    public void cRy() {
+    public void cRz() {
         if (this.kOm != null) {
-            this.kOm.WE();
+            this.kOm.WF();
         }
     }
 }

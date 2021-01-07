@@ -12,7 +12,7 @@ public class c {
         this.kyt = new com.baidu.adp.lib.d.b<MultiImageTextTopView>(new com.baidu.adp.lib.d.c<MultiImageTextTopView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cWH */
+            /* renamed from: cWI */
             public MultiImageTextTopView makeObject() {
                 return new MultiImageTextTopView(context);
             }
@@ -50,7 +50,7 @@ public class c {
         this.kyu = new com.baidu.adp.lib.d.b<MultiImageTextBottomView>(new com.baidu.adp.lib.d.c<MultiImageTextBottomView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cWI */
+            /* renamed from: cWJ */
             public MultiImageTextBottomView makeObject() {
                 return new MultiImageTextBottomView(context);
             }
@@ -88,7 +88,7 @@ public class c {
         this.kyv = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<SingleImageTextView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cWJ */
+            /* renamed from: cWK */
             public SingleImageTextView makeObject() {
                 return new SingleImageTextView(context);
             }

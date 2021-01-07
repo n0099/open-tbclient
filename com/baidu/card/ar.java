@@ -61,7 +61,7 @@ public class ar extends h {
             this.mLastScreenWidth = equipmentWidth;
         }
         this.ahi = aVar;
-        if (this.ahi == null || this.ahi.boO() == null || this.ahi.boO().eVB == null || this.ahi.boO().eVB.ePW) {
+        if (this.ahi == null || this.ahi.boP() == null || this.ahi.boP().eVB == null || this.ahi.boP().eVB.ePW) {
             this.akd.setVisibility(8);
             return;
         }
@@ -71,8 +71,8 @@ public class ar extends h {
         ViewGroup.LayoutParams layoutParams2 = this.akd.anA.getLayoutParams();
         int i = layoutParams.width;
         int i2 = layoutParams.height;
-        if (this.ahi.boO().eVB.videoInfo.is_vertical.intValue() == 1) {
-            VideoInfo videoInfo = this.ahi.boO().eVB.videoInfo;
+        if (this.ahi.boP().eVB.videoInfo.is_vertical.intValue() == 1) {
+            VideoInfo videoInfo = this.ahi.boP().eVB.videoInfo;
             if (videoInfo != null) {
                 int i3 = (this.akc / 9) * 16;
                 int i4 = this.minHeight;

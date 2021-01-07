@@ -6,19 +6,19 @@ import android.view.Surface;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class AppBaseMap {
 
     /* renamed from: b  reason: collision with root package name */
-    private NABaseMap f4719b;
+    private NABaseMap f4720b;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f4718a = 0;
+    private long f4719a = 0;
     private final ReadWriteLock c = new ReentrantReadWriteLock(true);
 
     public AppBaseMap() {
-        this.f4719b = null;
-        this.f4719b = new NABaseMap();
+        this.f4720b = null;
+        this.f4720b = new NABaseMap();
     }
 
     public static void renderClearShaderCache(String str) {
@@ -26,59 +26,59 @@ public class AppBaseMap {
     }
 
     public void AddItemData(Bundle bundle) {
-        this.f4719b.addItemData(bundle);
+        this.f4720b.addItemData(bundle);
     }
 
     public long AddLayer(int i, int i2, String str) {
-        return this.f4719b.addLayer(i, i2, str);
+        return this.f4720b.addLayer(i, i2, str);
     }
 
     public void AddPopupData(Bundle bundle) {
-        this.f4719b.addPopupData(bundle);
+        this.f4720b.addPopupData(bundle);
     }
 
     public void AddRtPopData(Bundle bundle) {
-        this.f4719b.addRtPopData(bundle);
+        this.f4720b.addRtPopData(bundle);
     }
 
     public void AddStreetCustomMarker(Bundle bundle, Bitmap bitmap) {
-        if (this.f4718a != 0) {
-            this.f4719b.addStreetCustomMarker(bundle, bitmap);
+        if (this.f4719a != 0) {
+            this.f4720b.addStreetCustomMarker(bundle, bitmap);
         }
     }
 
     public void BeginLocationLayerAnimation() {
-        this.f4719b.beginLocationLayerAnimation();
+        this.f4720b.beginLocationLayerAnimation();
     }
 
     public boolean CleanCache(int i) {
-        return this.f4719b.cleanCache(i);
+        return this.f4720b.cleanCache(i);
     }
 
     public void ClearLayer(long j) {
-        this.f4719b.clearLayer(j);
+        this.f4720b.clearLayer(j);
     }
 
     public void ClearLocationLayerData(Bundle bundle) {
-        this.f4719b.clearLocationLayerData(bundle);
+        this.f4720b.clearLocationLayerData(bundle);
     }
 
     public void ClearMistmapLayer() {
-        this.f4719b.clearMistmapLayer();
+        this.f4720b.clearMistmapLayer();
     }
 
     public void ClearSDKLayer(long j) {
-        this.f4719b.clearSDKLayer(j);
+        this.f4720b.clearSDKLayer(j);
     }
 
     public boolean CloseCache() {
-        return this.f4719b.closeCache();
+        return this.f4720b.closeCache();
     }
 
     public boolean Create() {
         try {
             this.c.writeLock().lock();
-            this.f4718a = this.f4719b.create();
+            this.f4719a = this.f4720b.create();
             return true;
         } finally {
             this.c.writeLock().unlock();
@@ -86,129 +86,129 @@ public class AppBaseMap {
     }
 
     public boolean CreateByDuplicate(long j) {
-        this.f4718a = this.f4719b.createByDuplicate(j);
-        return this.f4718a != 0;
+        this.f4719a = this.f4720b.createByDuplicate(j);
+        return this.f4719a != 0;
     }
 
     public long CreateDuplicate() {
-        return this.f4719b.createDuplicate();
+        return this.f4720b.createDuplicate();
     }
 
     public int Draw() {
-        if (this.f4718a != 0) {
-            return this.f4719b.draw();
+        if (this.f4719a != 0) {
+            return this.f4720b.draw();
         }
         return 0;
     }
 
     public String GeoPtToScrPoint(int i, int i2) {
-        return this.f4719b.geoPtToScrPoint(i, i2);
+        return this.f4720b.geoPtToScrPoint(i, i2);
     }
 
     public float GetAdapterZoomUnitsEx() {
-        return this.f4719b.getAdapterZoomUnitsEx();
+        return this.f4720b.getAdapterZoomUnitsEx();
     }
 
     public int GetCacheSize(int i) {
-        return this.f4719b.getCacheSize(i);
+        return this.f4720b.getCacheSize(i);
     }
 
     public String GetCityInfoByID(int i) {
-        return this.f4719b.getCityInfoByID(i);
+        return this.f4720b.getCityInfoByID(i);
     }
 
     public Bundle GetDrawingMapStatus() {
-        return this.f4719b.getDrawingMapStatus();
+        return this.f4720b.getDrawingMapStatus();
     }
 
     public float GetFZoomToBoundF(Bundle bundle, Bundle bundle2) {
-        return this.f4719b.getFZoomToBoundF(bundle, bundle2);
+        return this.f4720b.getFZoomToBoundF(bundle, bundle2);
     }
 
     public String GetFocusedBaseIndoorMapInfo() {
-        if (this.f4718a != 0) {
-            return this.f4719b.getFocusedBaseIndoorMapInfo();
+        if (this.f4719a != 0) {
+            return this.f4720b.getFocusedBaseIndoorMapInfo();
         }
         return null;
     }
 
     public long GetId() {
-        return this.f4718a;
+        return this.f4719a;
     }
 
     public int GetMapRenderType() {
-        return this.f4719b.getMapRenderType();
+        return this.f4720b.getMapRenderType();
     }
 
     public Bundle GetMapStatus() {
-        return this.f4719b.getMapStatus(true);
+        return this.f4720b.getMapStatus(true);
     }
 
     public Bundle GetMapStatus(boolean z) {
-        return this.f4719b.getMapStatus(z);
+        return this.f4720b.getMapStatus(z);
     }
 
     public String GetNearlyObjID(long j, int i, int i2, int i3) {
-        return this.f4719b.getNearlyObjID(j, i, i2, i3);
+        return this.f4720b.getNearlyObjID(j, i, i2, i3);
     }
 
     public int GetVMPMapCityInfo(Bundle bundle) {
-        return this.f4719b.getVMPMapCityInfo(bundle);
+        return this.f4720b.getVMPMapCityInfo(bundle);
     }
 
     public float GetZoomToBound(Bundle bundle, int i, int i2) {
-        return this.f4719b.getZoomToBound(bundle, i, i2);
+        return this.f4720b.getZoomToBound(bundle, i, i2);
     }
 
     public float GetZoomToBoundF(Bundle bundle) {
-        return this.f4719b.getZoomToBoundF(bundle);
+        return this.f4720b.getZoomToBoundF(bundle);
     }
 
     public boolean Init(String str, String str2, String str3, String str4, String str5, String str6, String str7, int i, int i2, int i3, int i4, int i5, int i6, int i7, boolean z, boolean z2) {
-        return this.f4718a != 0 && this.f4719b.init(str, str2, str3, str4, str5, str6, str7, i, i2, i3, i4, i5, i6, i7, z, z2);
+        return this.f4719a != 0 && this.f4720b.init(str, str2, str3, str4, str5, str6, str7, i, i2, i3, i4, i5, i6, i7, z, z2);
     }
 
     public boolean IsBaseIndoorMapMode() {
-        return this.f4718a != 0 && this.f4719b.isBaseIndoorMapMode();
+        return this.f4719a != 0 && this.f4720b.isBaseIndoorMapMode();
     }
 
     public boolean IsPointInFocusBarBorder(double d, double d2, double d3) {
-        return this.f4718a != 0 && this.f4719b.isPointInFocusBarBorder(d, d2, d3);
+        return this.f4719a != 0 && this.f4720b.isPointInFocusBarBorder(d, d2, d3);
     }
 
     public boolean IsPointInFocusIDRBorder(double d, double d2) {
-        return this.f4718a != 0 && this.f4719b.isPointInFocusIDRBorder(d, d2);
+        return this.f4719a != 0 && this.f4720b.isPointInFocusIDRBorder(d, d2);
     }
 
     public boolean IsStreetArrowShown() {
-        return this.f4719b.isStreetArrowShown();
+        return this.f4720b.isStreetArrowShown();
     }
 
     public boolean IsStreetCustomMarkerShown() {
-        return this.f4719b.isStreetCustomMarkerShown();
+        return this.f4720b.isStreetCustomMarkerShown();
     }
 
     public boolean IsStreetPOIMarkerShown() {
-        return this.f4718a != 0 && this.f4719b.isStreetPOIMarkerShown();
+        return this.f4719a != 0 && this.f4720b.isStreetPOIMarkerShown();
     }
 
     public boolean IsStreetRoadClickable() {
-        return this.f4719b.isStreetRoadClickable();
+        return this.f4720b.isStreetRoadClickable();
     }
 
     public boolean LayersIsShow(long j) {
-        return this.f4719b.layersIsShow(j);
+        return this.f4720b.layersIsShow(j);
     }
 
     public void MoveToScrPoint(int i, int i2) {
-        this.f4719b.moveToScrPoint(i, i2);
+        this.f4720b.moveToScrPoint(i, i2);
     }
 
     public void OnBackground() {
         try {
             this.c.readLock().lock();
-            if (this.f4718a != 0) {
-                this.f4719b.onBackground();
+            if (this.f4719a != 0) {
+                this.f4720b.onBackground();
             }
         } finally {
             this.c.readLock().unlock();
@@ -218,8 +218,8 @@ public class AppBaseMap {
     public void OnForeground() {
         try {
             this.c.readLock().lock();
-            if (this.f4718a != 0) {
-                this.f4719b.onForeground();
+            if (this.f4719a != 0) {
+                this.f4720b.onForeground();
             }
         } finally {
             this.c.readLock().unlock();
@@ -227,14 +227,14 @@ public class AppBaseMap {
     }
 
     public String OnHotcityGet() {
-        return this.f4719b.onHotcityGet();
+        return this.f4720b.onHotcityGet();
     }
 
     public void OnPause() {
         try {
             this.c.readLock().lock();
-            if (this.f4718a != 0) {
-                this.f4719b.onPause();
+            if (this.f4719a != 0) {
+                this.f4720b.onPause();
             }
         } finally {
             this.c.readLock().unlock();
@@ -242,42 +242,42 @@ public class AppBaseMap {
     }
 
     public boolean OnRecordAdd(int i) {
-        return this.f4719b.onRecordAdd(i);
+        return this.f4720b.onRecordAdd(i);
     }
 
     public String OnRecordGetAll() {
-        return this.f4719b.onRecordGetAll();
+        return this.f4720b.onRecordGetAll();
     }
 
     public String OnRecordGetAt(int i) {
-        return this.f4719b.onRecordGetAt(i);
+        return this.f4720b.onRecordGetAt(i);
     }
 
     public boolean OnRecordImport(boolean z, boolean z2) {
-        return this.f4719b.onRecordImport(z, z2);
+        return this.f4720b.onRecordImport(z, z2);
     }
 
     public boolean OnRecordReload(int i, boolean z) {
-        return this.f4719b.onRecordReload(i, z);
+        return this.f4720b.onRecordReload(i, z);
     }
 
     public boolean OnRecordRemove(int i, boolean z) {
-        return this.f4719b.onRecordRemove(i, z);
+        return this.f4720b.onRecordRemove(i, z);
     }
 
     public boolean OnRecordStart(int i, boolean z, int i2) {
-        return this.f4719b.onRecordStart(i, z, i2);
+        return this.f4720b.onRecordStart(i, z, i2);
     }
 
     public boolean OnRecordSuspend(int i, boolean z, int i2) {
-        return this.f4719b.onRecordSuspend(i, z, i2);
+        return this.f4720b.onRecordSuspend(i, z, i2);
     }
 
     public void OnResume() {
         try {
             this.c.readLock().lock();
-            if (this.f4718a != 0) {
-                this.f4719b.onResume();
+            if (this.f4719a != 0) {
+                this.f4720b.onResume();
             }
         } finally {
             this.c.readLock().unlock();
@@ -285,15 +285,15 @@ public class AppBaseMap {
     }
 
     public String OnSchcityGet(String str) {
-        return this.f4719b.onSchcityGet(str);
+        return this.f4720b.onSchcityGet(str);
     }
 
     public boolean OnUsrcityMsgInterval(int i) {
-        return this.f4719b.onUsrcityMsgInterval(i);
+        return this.f4720b.onUsrcityMsgInterval(i);
     }
 
     public int OnWifiRecordAdd(int i) {
-        return this.f4719b.onWifiRecordAdd(i);
+        return this.f4720b.onWifiRecordAdd(i);
     }
 
     public boolean Release() {
@@ -301,12 +301,12 @@ public class AppBaseMap {
         Lock writeLock;
         try {
             this.c.writeLock().lock();
-            if (this.f4718a == 0) {
+            if (this.f4719a == 0) {
                 return false;
             }
-            BaseMapCallback.release(this.f4718a);
-            this.f4719b.dispose();
-            this.f4718a = 0L;
+            BaseMapCallback.release(this.f4719a);
+            this.f4720b.dispose();
+            this.f4719a = 0L;
             return true;
         } finally {
             this.c.writeLock().unlock();
@@ -317,314 +317,314 @@ public class AppBaseMap {
     }
 
     public boolean RemoveItemData(Bundle bundle) {
-        return this.f4719b.removeItemData(bundle);
+        return this.f4720b.removeItemData(bundle);
     }
 
     public void RemoveLayer(long j) {
-        this.f4719b.removeLayer(j);
+        this.f4720b.removeLayer(j);
     }
 
     public void RemoveStreetAllCustomMarker() {
-        this.f4719b.removeStreetAllCustomMarker();
+        this.f4720b.removeStreetAllCustomMarker();
     }
 
     public void RemoveStreetCustomMaker(String str) {
-        this.f4719b.removeStreetCustomMaker(str);
+        this.f4720b.removeStreetCustomMaker(str);
     }
 
     public void ResetImageRes() {
-        if (this.f4718a != 0) {
-            this.f4719b.resetImageRes();
+        if (this.f4719a != 0) {
+            this.f4720b.resetImageRes();
         }
     }
 
     public boolean ResumeCache() {
-        return this.f4719b.resumeCache();
+        return this.f4720b.resumeCache();
     }
 
     public boolean SaveCache() {
         try {
-            return this.f4719b.saveCache();
+            return this.f4720b.saveCache();
         } catch (Throwable th) {
             return false;
         }
     }
 
     public void SaveScreenToLocal(String str, String str2) {
-        this.f4719b.saveScreenToLocal(str, str2);
+        this.f4720b.saveScreenToLocal(str, str2);
     }
 
     public String ScrPtToGeoPoint(int i, int i2) {
-        return this.f4719b.scrPtToGeoPoint(i, i2);
+        return this.f4720b.scrPtToGeoPoint(i, i2);
     }
 
     public void SetAllStreetCustomMarkerVisibility(boolean z) {
-        if (this.f4718a != 0) {
-            this.f4719b.setAllStreetCustomMarkerVisibility(z);
+        if (this.f4719a != 0) {
+            this.f4720b.setAllStreetCustomMarkerVisibility(z);
         }
     }
 
     public boolean SetCallback(a aVar) {
-        return (aVar == null || this.f4718a == 0 || !BaseMapCallback.setMapCallback(this.f4718a, aVar)) ? false : true;
+        return (aVar == null || this.f4719a == 0 || !BaseMapCallback.setMapCallback(this.f4719a, aVar)) ? false : true;
     }
 
     public void SetFocus(long j, long j2, boolean z, Bundle bundle) {
-        this.f4719b.setFocus(j, j2, z, bundle);
+        this.f4720b.setFocus(j, j2, z, bundle);
     }
 
     public boolean SetItsPreTime(int i, int i2, int i3) {
-        return this.f4719b.setItsPreTime(i, i2, i3);
+        return this.f4720b.setItsPreTime(i, i2, i3);
     }
 
     public boolean SetLayerSceneMode(long j, int i) {
-        return this.f4719b.setLayerSceneMode(j, i);
+        return this.f4720b.setLayerSceneMode(j, i);
     }
 
     public void SetLayersClickable(long j, boolean z) {
-        this.f4719b.setLayersClickable(j, z);
+        this.f4720b.setLayersClickable(j, z);
     }
 
     public void SetLocationLayerData(Bundle bundle) {
-        this.f4719b.setLocationLayerData(bundle);
+        this.f4720b.setLocationLayerData(bundle);
     }
 
     public int SetMapControlMode(int i) {
-        return this.f4719b.setMapControlMode(i);
+        return this.f4720b.setMapControlMode(i);
     }
 
     public void SetMapStatus(Bundle bundle) {
-        this.f4719b.setMapStatus(bundle);
+        this.f4720b.setMapStatus(bundle);
     }
 
     public void SetNewMapStatus(Bundle bundle) {
-        this.f4719b.setNewMapStatus(bundle);
+        this.f4720b.setNewMapStatus(bundle);
     }
 
     public boolean SetSDKLayerCallback(com.baidu.mapsdkplatform.comjni.a.a.a aVar) {
-        return (aVar == null || this.f4718a == 0 || !BaseMapCallback.setMapSDKCallback(this.f4718a, aVar)) ? false : true;
+        return (aVar == null || this.f4719a == 0 || !BaseMapCallback.setMapSDKCallback(this.f4719a, aVar)) ? false : true;
     }
 
     public void SetStreetArrowShow(boolean z) {
-        this.f4719b.setStreetArrowShow(z);
+        this.f4720b.setStreetArrowShow(z);
     }
 
     public void SetStreetMarkerClickable(String str, boolean z) {
-        this.f4719b.setStreetMarkerClickable(str, z);
+        this.f4720b.setStreetMarkerClickable(str, z);
     }
 
     public void SetStreetRoadClickable(boolean z) {
-        this.f4719b.setStreetRoadClickable(z);
+        this.f4720b.setStreetRoadClickable(z);
     }
 
     public void SetStyleMode(int i) {
-        this.f4719b.setStyleMode(i);
+        this.f4720b.setStyleMode(i);
     }
 
     public void SetTargetStreetCustomMarkerVisibility(boolean z, String str) {
-        if (this.f4718a != 0) {
-            this.f4719b.setTargetStreetCustomMarkerVisibility(z, str);
+        if (this.f4719a != 0) {
+            this.f4720b.setTargetStreetCustomMarkerVisibility(z, str);
         }
     }
 
     public void ShowBaseIndoorMap(boolean z) {
-        this.f4719b.showBaseIndoorMap(z);
+        this.f4720b.showBaseIndoorMap(z);
     }
 
     public void ShowHotMap(boolean z, int i) {
-        this.f4719b.showHotMap(z, i);
+        this.f4720b.showHotMap(z, i);
     }
 
     public void ShowHotMap(boolean z, int i, String str) {
-        this.f4719b.showHotMap(z, i, str);
+        this.f4720b.showHotMap(z, i, str);
     }
 
     public void ShowLayers(long j, boolean z) {
-        if (this.f4718a != 0) {
-            this.f4719b.showLayers(j, z);
+        if (this.f4719a != 0) {
+            this.f4720b.showLayers(j, z);
         }
     }
 
     public void ShowMistMap(boolean z, String str) {
-        this.f4719b.showMistMap(z, str);
+        this.f4720b.showMistMap(z, str);
     }
 
     public void ShowSatelliteMap(boolean z) {
-        this.f4719b.showSatelliteMap(z);
+        this.f4720b.showSatelliteMap(z);
     }
 
     public void ShowStreetPOIMarker(boolean z) {
-        if (this.f4718a != 0) {
-            this.f4719b.showStreetPOIMarker(z);
+        if (this.f4719a != 0) {
+            this.f4720b.showStreetPOIMarker(z);
         }
     }
 
     public void ShowStreetRoadMap(boolean z) {
-        this.f4719b.showStreetRoadMap(z);
+        this.f4720b.showStreetRoadMap(z);
     }
 
     public void ShowTrafficMap(boolean z) {
-        this.f4719b.showTrafficMap(z);
+        this.f4720b.showTrafficMap(z);
     }
 
     public void StartIndoorAnimation() {
-        this.f4719b.startIndoorAnimation();
+        this.f4720b.startIndoorAnimation();
     }
 
     public boolean SwitchBaseIndoorMapFloor(String str, String str2) {
-        return this.f4719b.switchBaseIndoorMapFloor(str, str2);
+        return this.f4720b.switchBaseIndoorMapFloor(str, str2);
     }
 
     public boolean SwitchLayer(long j, long j2) {
-        return this.f4719b.switchLayer(j, j2);
+        return this.f4720b.switchLayer(j, j2);
     }
 
     public void UpdateLayers(long j) {
-        this.f4719b.updateLayers(j);
+        this.f4720b.updateLayers(j);
     }
 
     public void addOneOverlayItem(Bundle bundle) {
-        this.f4719b.addOneOverlayItem(bundle);
+        this.f4720b.addOneOverlayItem(bundle);
     }
 
     public void addOverlayItems(Bundle[] bundleArr, int i) {
-        this.f4719b.addOverlayItems(bundleArr, i);
+        this.f4720b.addOverlayItems(bundleArr, i);
     }
 
     public boolean addSDKTileData(Bundle bundle) {
-        return this.f4719b.nativeAddTileOverlay(this.f4718a, bundle);
+        return this.f4720b.nativeAddTileOverlay(this.f4719a, bundle);
     }
 
     public boolean cleanSDKTileDataCache(long j) {
-        return this.f4719b.nativeCleanSDKTileDataCache(this.f4718a, j);
+        return this.f4720b.nativeCleanSDKTileDataCache(this.f4719a, j);
     }
 
     public void clearUniversalLayer() {
-        this.f4719b.clearUniversalLayer();
+        this.f4720b.clearUniversalLayer();
     }
 
     public void closeParticleEffect(String str) {
-        this.f4719b.closeParticleEffect(str);
+        this.f4720b.closeParticleEffect(str);
     }
 
     public void enablePOIAnimation(boolean z) {
         try {
             this.c.readLock().lock();
-            this.f4719b.enablePOIAnimation(z);
+            this.f4720b.enablePOIAnimation(z);
         } finally {
             this.c.readLock().unlock();
         }
     }
 
     public void entrySearchTopic(int i) {
-        this.f4719b.entrySearchTopic(i);
+        this.f4720b.entrySearchTopic(i);
     }
 
     public void exitSearchTopic() {
-        this.f4719b.exitSearchTopic();
+        this.f4720b.exitSearchTopic();
     }
 
     public void focusTrafficUGCLabel() {
-        this.f4719b.focusTrafficUGCLabel();
+        this.f4720b.focusTrafficUGCLabel();
     }
 
     public boolean getDEMEnable() {
-        return this.f4719b.getDEMEnable();
+        return this.f4720b.getDEMEnable();
     }
 
     public boolean getDrawHouseHeightEnable() {
-        if (this.f4719b == null) {
+        if (this.f4720b == null) {
             return false;
         }
-        return this.f4719b.getDrawHouseHeightEnable();
+        return this.f4720b.getDrawHouseHeightEnable();
     }
 
     public long getLayerIDByTag(String str) {
-        if (this.f4719b == null) {
+        if (this.f4720b == null) {
             return 0L;
         }
-        return this.f4719b.getLayerIDByTag(str);
+        return this.f4720b.getLayerIDByTag(str);
     }
 
     public boolean getMapBarData(Bundle bundle) {
-        return this.f4719b.getMapBarData(bundle);
+        return this.f4720b.getMapBarData(bundle);
     }
 
     public int getMapScene() {
-        return this.f4719b.getMapScene();
+        return this.f4720b.getMapScene();
     }
 
     public Bundle getMapStatusLimits() {
-        if (this.f4719b == null) {
+        if (this.f4720b == null) {
             return null;
         }
-        return this.f4719b.getMapStatusLimits();
+        return this.f4720b.getMapStatusLimits();
     }
 
     public int getMapTheme() {
-        return this.f4719b.getMapTheme();
+        return this.f4720b.getMapTheme();
     }
 
     public float[] getProjectionMatrix() {
-        if (this.f4719b == null) {
+        if (this.f4720b == null) {
             return null;
         }
         float[] fArr = new float[16];
-        this.f4719b.getProjectMatrix(fArr);
+        this.f4720b.getProjectMatrix(fArr);
         return fArr;
     }
 
     public String getProjectionPt(String str) {
-        return this.f4719b.getProjectionPt(str);
+        return this.f4720b.getProjectionPt(str);
     }
 
     public int getScaleLevel(int i, int i2) {
-        return this.f4719b.getScaleLevel(i, i2);
+        return this.f4720b.getScaleLevel(i, i2);
     }
 
     public float[] getViewMatrix() {
-        if (this.f4719b == null) {
+        if (this.f4720b == null) {
             return null;
         }
         float[] fArr = new float[16];
-        this.f4719b.getViewMatrix(fArr);
+        this.f4720b.getViewMatrix(fArr);
         return fArr;
     }
 
     public boolean importMapTheme(int i) {
-        return this.f4719b.importMapTheme(i);
+        return this.f4720b.importMapTheme(i);
     }
 
     public boolean initCustomStyle(String str, String str2) {
-        if (this.f4719b == null) {
+        if (this.f4720b == null) {
             return false;
         }
-        return this.f4719b.initCustomStyle(str, str2);
+        return this.f4720b.initCustomStyle(str, str2);
     }
 
     public boolean isAnimationRunning() {
-        return this.f4719b.isAnimationRunning();
+        return this.f4720b.isAnimationRunning();
     }
 
     public boolean isNaviMode() {
-        return this.f4719b.isNaviMode();
+        return this.f4720b.isNaviMode();
     }
 
     public boolean performAction(String str) {
-        return this.f4719b.performAction(str);
+        return this.f4720b.performAction(str);
     }
 
     public void recycleMemory(int i) {
-        this.f4719b.recycleMemory(i);
+        this.f4720b.recycleMemory(i);
     }
 
     public void removeOneOverlayItem(Bundle bundle) {
-        this.f4719b.removeOneOverlayItem(bundle);
+        this.f4720b.removeOneOverlayItem(bundle);
     }
 
     public void renderDone() {
         try {
             this.c.readLock().lock();
-            this.f4719b.renderDone();
+            this.f4720b.renderDone();
         } finally {
             this.c.readLock().unlock();
         }
@@ -633,7 +633,7 @@ public class AppBaseMap {
     public void renderInit(int i, int i2, Surface surface, int i3) {
         try {
             this.c.readLock().lock();
-            this.f4719b.renderInit(i, i2, surface, i3);
+            this.f4720b.renderInit(i, i2, surface, i3);
         } finally {
             this.c.readLock().unlock();
         }
@@ -642,7 +642,7 @@ public class AppBaseMap {
     public int renderRender() {
         try {
             this.c.readLock().lock();
-            return this.f4719b.renderRender();
+            return this.f4720b.renderRender();
         } finally {
             this.c.readLock().unlock();
         }
@@ -651,115 +651,115 @@ public class AppBaseMap {
     public void renderResize(int i, int i2) {
         try {
             this.c.readLock().lock();
-            this.f4719b.renderResize(i, i2);
+            this.f4720b.renderResize(i, i2);
         } finally {
             this.c.readLock().unlock();
         }
     }
 
     public void resize(int i, int i2) {
-        if (this.f4718a != 0) {
-            this.f4719b.renderResize(i, i2);
+        if (this.f4719a != 0) {
+            this.f4720b.renderResize(i, i2);
         }
     }
 
     public void setCustomStyleEnable(boolean z) {
-        if (this.f4719b == null) {
+        if (this.f4720b == null) {
             return;
         }
-        this.f4719b.setCustomStyleEnable(z);
+        this.f4720b.setCustomStyleEnable(z);
     }
 
     public void setDEMEnable(boolean z) {
-        this.f4719b.setDEMEnable(z);
+        this.f4720b.setDEMEnable(z);
     }
 
     public void setDrawHouseHeightEnable(boolean z) {
-        if (this.f4719b == null) {
+        if (this.f4720b == null) {
             return;
         }
-        this.f4719b.setDrawHouseHeightEnable(z);
+        this.f4720b.setDrawHouseHeightEnable(z);
     }
 
     public void setMapScene(int i) {
-        this.f4719b.setMapScene(i);
+        this.f4720b.setMapScene(i);
     }
 
     public void setMapStatusLimits(Bundle bundle) {
-        if (this.f4719b == null) {
+        if (this.f4720b == null) {
             return;
         }
-        this.f4719b.setMapStatusLimits(bundle);
+        this.f4720b.setMapStatusLimits(bundle);
     }
 
     public boolean setMapTheme(int i, Bundle bundle) {
-        return this.f4719b.setMapTheme(i, bundle);
+        return this.f4720b.setMapTheme(i, bundle);
     }
 
     public boolean setMapThemeScene(int i, int i2, Bundle bundle) {
-        return this.f4719b.setMapThemeScene(i, i2, bundle);
+        return this.f4720b.setMapThemeScene(i, i2, bundle);
     }
 
     public void setMaxAndMinZoomLevel(Bundle bundle) {
-        if (this.f4719b == null) {
+        if (this.f4720b == null) {
             return;
         }
-        this.f4719b.setMaxAndMinZoomLevel(bundle);
+        this.f4720b.setMaxAndMinZoomLevel(bundle);
     }
 
     public void setRecommendPOIScene(int i) {
-        this.f4719b.setRecommendPOIScene(i);
+        this.f4720b.setRecommendPOIScene(i);
     }
 
     public boolean setTestSwitch(boolean z) {
-        return this.f4719b.setTestSwitch(z);
+        return this.f4720b.setTestSwitch(z);
     }
 
     public void setTrafficUGCData(String str) {
-        this.f4719b.setTrafficUGCData(str);
+        this.f4720b.setTrafficUGCData(str);
     }
 
     public void setUniversalFilter(String str) {
-        this.f4719b.setUniversalFilter(str);
+        this.f4720b.setUniversalFilter(str);
     }
 
     public boolean showParticleEffect(int i) {
-        return this.f4719b.showParticleEffect(i);
+        return this.f4720b.showParticleEffect(i);
     }
 
     public boolean showParticleEffectByName(String str, boolean z) {
-        return this.f4719b.showParticleEffectByName(str, z);
+        return this.f4720b.showParticleEffectByName(str, z);
     }
 
     public boolean showParticleEffectByType(int i) {
-        return this.f4719b.showParticleEffectByType(i);
+        return this.f4720b.showParticleEffectByType(i);
     }
 
     public void showTrafficUGCMap(boolean z) {
-        this.f4719b.showTrafficUGCMap(z);
+        this.f4720b.showTrafficUGCMap(z);
     }
 
     public void showUniversalLayer(Bundle bundle) {
-        this.f4719b.showUniversalLayer(bundle);
+        this.f4720b.showUniversalLayer(bundle);
     }
 
     public void unFocusTrafficUGCLabel() {
-        this.f4719b.unFocusTrafficUGCLabel();
+        this.f4720b.unFocusTrafficUGCLabel();
     }
 
     public void updateDrawFPS() {
-        this.f4719b.updateDrawFPS();
+        this.f4720b.updateDrawFPS();
     }
 
     public void updateOneOverlayItem(Bundle bundle) {
-        this.f4719b.updateOneOverlayItem(bundle);
+        this.f4720b.updateOneOverlayItem(bundle);
     }
 
     public boolean updateSDKTile(Bundle bundle) {
-        return this.f4719b.nativeUpdateSDKTile(this.f4718a, bundle);
+        return this.f4720b.nativeUpdateSDKTile(this.f4719a, bundle);
     }
 
     public String worldPointToScreenPoint(float f, float f2, float f3) {
-        return this.f4719b.worldPointToScreenPoint(f, f2, f3);
+        return this.f4720b.worldPointToScreenPoint(f, f2, f3);
     }
 }

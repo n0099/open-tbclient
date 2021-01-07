@@ -4,18 +4,18 @@ package com.kuaishou.aegon.httpdns;
 public final /* synthetic */ class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8413a;
+    private final String f8414a;
 
     private c(String str) {
-        this.f8413a = str;
+        this.f8414a = str;
     }
 
-    public static Runnable ZX(String str) {
+    public static Runnable ZY(String str) {
         return new c(str);
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        HttpDnsResolver.nativeSetJsonConfig(this.f8413a);
+        HttpDnsResolver.nativeSetJsonConfig(this.f8414a);
     }
 }

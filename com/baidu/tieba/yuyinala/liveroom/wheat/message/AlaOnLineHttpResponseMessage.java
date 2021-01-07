@@ -4,8 +4,8 @@ import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class AlaOnLineHttpResponseMessage extends BaseJsonHttpResponsedMessage {
-    private int oDT;
-    private int oEa;
+    private int oDS;
+    private int oDZ;
 
     public AlaOnLineHttpResponseMessage() {
         super(1031036);
@@ -16,12 +16,12 @@ public class AlaOnLineHttpResponseMessage extends BaseJsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031036 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.oDT = optJSONObject.optInt("online");
-            this.oEa = optJSONObject.optInt(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY);
+            this.oDS = optJSONObject.optInt("online");
+            this.oDZ = optJSONObject.optInt(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY);
         }
     }
 
     public boolean isOnline() {
-        return this.oDT == 1;
+        return this.oDS == 1;
     }
 }

@@ -18,7 +18,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
     public View iVW;
     private View.OnClickListener mClickListener;
     private int mSkinType;
-    public TextView moj;
+    public TextView moi;
 
     public PersonInfoUserPicViewHolder(View view) {
         super(view);
@@ -26,24 +26,24 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
         this.abI = (TbImageView) view.findViewById(R.id.photo_image_view);
         this.abI.setDefaultBgResource(R.color.CAM_X0205);
         this.iVW = view.findViewById(R.id.normal_pic_click_bg);
-        this.moj = (TextView) view.findViewById(R.id.tip_default_view);
+        this.moi = (TextView) view.findViewById(R.id.tip_default_view);
     }
 
     public void h(n nVar) {
         if (nVar instanceof o) {
             this.Xy = nVar;
             o oVar = (o) nVar;
-            if (oVar.bEj()) {
-                String BQ = q.BQ(oVar.getSmallUrl());
-                this.moj.setVisibility(0);
-                if (StringUtils.isNull(BQ)) {
+            if (oVar.bEk()) {
+                String BP = q.BP(oVar.getSmallUrl());
+                this.moi.setVisibility(0);
+                if (StringUtils.isNull(BP)) {
                     this.abI.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
                 } else {
-                    this.abI.startLoad(BQ, 25, false);
+                    this.abI.startLoad(BP, 25, false);
                 }
             } else {
                 this.abI.setDefaultResource(R.drawable.img_default_100);
-                this.moj.setVisibility(8);
+                this.moi.setVisibility(8);
                 this.abI.startLoad(oVar.getSmallUrl(), 10, false);
             }
             getView().setOnClickListener(this.mClickListener);
@@ -53,8 +53,8 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            ao.setViewTextColor(this.moj, R.color.CAM_X0111, 1);
-            ao.setBackgroundColor(this.moj, R.color.black_alpha50);
+            ao.setViewTextColor(this.moi, R.color.CAM_X0111, 1);
+            ao.setBackgroundColor(this.moi, R.color.black_alpha50);
             this.mSkinType = i;
         }
     }

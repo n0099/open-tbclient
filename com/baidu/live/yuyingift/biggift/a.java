@@ -149,7 +149,7 @@ public class a {
         }
     }
 
-    public void aaB() {
+    public void aaC() {
         if (!Ir()) {
             Io();
         }
@@ -193,15 +193,15 @@ public class a {
             Iq();
             return;
         }
-        com.baidu.live.yuyingift.a.c aaC = aaC();
-        if (aaC == null) {
+        com.baidu.live.yuyingift.a.c aaD = aaD();
+        if (aaD == null) {
             Io();
         } else {
-            j(aaC);
+            j(aaD);
         }
     }
 
-    private com.baidu.live.yuyingift.a.c aaC() {
+    private com.baidu.live.yuyingift.a.c aaD() {
         if (this.bai.isEmpty()) {
             return null;
         }
@@ -226,11 +226,11 @@ public class a {
                 Io();
             } else {
                 try {
-                    if ((cVar.bex != null && com.baidu.live.yuyingift.b.b.aaZ().gX(cVar.bex.Gx())) || cVar.beI) {
+                    if ((cVar.bex != null && com.baidu.live.yuyingift.b.b.aba().gX(cVar.bex.Gx())) || cVar.beI) {
                         if (cVar.beI) {
                             hA = com.baidu.live.entereffect.a.FB().gu(cVar.giftId).aVX;
                         } else {
-                            hA = com.baidu.live.yuyingift.b.b.aaZ().hA(cVar.giftId);
+                            hA = com.baidu.live.yuyingift.b.b.aba().hA(cVar.giftId);
                         }
                         if (a(hA, cVar)) {
                             if (cVar.beI) {

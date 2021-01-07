@@ -92,14 +92,14 @@ public class IMChatHeader extends LinearLayout {
     }
 
     public void setRefreshTime() {
-        emU();
+        emV();
     }
 
     public long getRefreshTime() {
         return this.dyG;
     }
 
-    private void emU() {
+    private void emV() {
         String format;
         long currentTimeMillis = System.currentTimeMillis() - this.dyG;
         if (this.dyG == -1) {

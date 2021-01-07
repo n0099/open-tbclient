@@ -23,17 +23,19 @@ public class a extends Dialog implements View.OnClickListener {
     private View hNh;
     private PersonUserData hNi;
     private TbPageContext mPageContext;
-    private b osr;
+    private b osq;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0905a {
+    public interface InterfaceC0943a {
         void onConfirm();
     }
 
     /* loaded from: classes11.dex */
     public interface b {
+        void VS(String str);
+
         void VT(String str);
 
         void VU(String str);
@@ -43,8 +45,6 @@ public class a extends Dialog implements View.OnClickListener {
         void VW(String str);
 
         void VX(String str);
-
-        void VY(String str);
 
         void onCancel();
     }
@@ -76,30 +76,30 @@ public class a extends Dialog implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         dismiss();
-        if (this.osr != null) {
+        if (this.osq != null) {
             if (view == this.hNd) {
                 if (this.hNi != null && this.hNi.user_info != null) {
-                    if (cmV()) {
-                        a(new InterfaceC0905a() { // from class: com.baidu.tieba.yuyinala.liveroom.n.a.1
-                            @Override // com.baidu.tieba.yuyinala.liveroom.n.a.InterfaceC0905a
+                    if (cmW()) {
+                        a(new InterfaceC0943a() { // from class: com.baidu.tieba.yuyinala.liveroom.n.a.1
+                            @Override // com.baidu.tieba.yuyinala.liveroom.n.a.InterfaceC0943a
                             public void onConfirm() {
                                 if (a.this.hNi != null && a.this.hNi.user_info != null) {
                                     if (a.this.hNi.mYuyinBanMangerData != null) {
                                         a.this.hNi.mYuyinBanMangerData.userBanManger = 0;
                                     }
-                                    a.this.osr.VV(a.this.hNi.user_info.user_id);
+                                    a.this.osq.VU(a.this.hNi.user_info.user_id);
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.h.yuyin_ala_person_relieve_forbidden_this_confirm_tip), this.hNi.user_info.getNameShow()));
                     } else {
-                        a(new InterfaceC0905a() { // from class: com.baidu.tieba.yuyinala.liveroom.n.a.2
-                            @Override // com.baidu.tieba.yuyinala.liveroom.n.a.InterfaceC0905a
+                        a(new InterfaceC0943a() { // from class: com.baidu.tieba.yuyinala.liveroom.n.a.2
+                            @Override // com.baidu.tieba.yuyinala.liveroom.n.a.InterfaceC0943a
                             public void onConfirm() {
                                 if (a.this.hNi != null && a.this.hNi.user_info != null) {
                                     if (a.this.hNi.mYuyinBanMangerData != null) {
                                         a.this.hNi.mYuyinBanMangerData.userBanManger = 1;
                                     }
-                                    a.this.osr.VT(a.this.hNi.user_info.user_id);
+                                    a.this.osq.VS(a.this.hNi.user_info.user_id);
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.h.yuyin_ala_person_forbid_this_confirm_tip), this.hNi.user_info.getNameShow()));
@@ -107,27 +107,27 @@ public class a extends Dialog implements View.OnClickListener {
                 }
             } else if (view == this.hNe) {
                 if (this.hNi != null && this.hNi.user_info != null) {
-                    if (cmU()) {
-                        a(new InterfaceC0905a() { // from class: com.baidu.tieba.yuyinala.liveroom.n.a.3
-                            @Override // com.baidu.tieba.yuyinala.liveroom.n.a.InterfaceC0905a
+                    if (cmV()) {
+                        a(new InterfaceC0943a() { // from class: com.baidu.tieba.yuyinala.liveroom.n.a.3
+                            @Override // com.baidu.tieba.yuyinala.liveroom.n.a.InterfaceC0943a
                             public void onConfirm() {
                                 if (a.this.hNi != null && a.this.hNi.user_info != null) {
                                     if (a.this.hNi.mYuyinBanMangerData != null) {
                                         a.this.hNi.mYuyinBanMangerData.userBanManger = 0;
                                     }
-                                    a.this.osr.VW(a.this.hNi.user_info.user_id);
+                                    a.this.osq.VV(a.this.hNi.user_info.user_id);
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.h.yuyin_ala_person_relieve_forbidden_forever_confirm_tip), this.hNi.user_info.getNameShow()));
                     } else {
-                        a(new InterfaceC0905a() { // from class: com.baidu.tieba.yuyinala.liveroom.n.a.4
-                            @Override // com.baidu.tieba.yuyinala.liveroom.n.a.InterfaceC0905a
+                        a(new InterfaceC0943a() { // from class: com.baidu.tieba.yuyinala.liveroom.n.a.4
+                            @Override // com.baidu.tieba.yuyinala.liveroom.n.a.InterfaceC0943a
                             public void onConfirm() {
                                 if (a.this.hNi != null && a.this.hNi.user_info != null) {
                                     if (a.this.hNi.mYuyinBanMangerData != null) {
                                         a.this.hNi.mYuyinBanMangerData.userBanManger = 3;
                                     }
-                                    a.this.osr.VU(a.this.hNi.user_info.user_id);
+                                    a.this.osq.VT(a.this.hNi.user_info.user_id);
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.h.yuyin_ala_person_forbid_forever_confirm_tip), this.hNi.user_info.getNameShow()));
@@ -135,39 +135,39 @@ public class a extends Dialog implements View.OnClickListener {
                 }
             } else if (view == this.hNf) {
                 if (this.hNi != null && this.hNi.mYuyinBanMangerData != null) {
-                    if (cmW()) {
-                        a(new InterfaceC0905a() { // from class: com.baidu.tieba.yuyinala.liveroom.n.a.5
-                            @Override // com.baidu.tieba.yuyinala.liveroom.n.a.InterfaceC0905a
+                    if (cmX()) {
+                        a(new InterfaceC0943a() { // from class: com.baidu.tieba.yuyinala.liveroom.n.a.5
+                            @Override // com.baidu.tieba.yuyinala.liveroom.n.a.InterfaceC0943a
                             public void onConfirm() {
                                 if (a.this.hNi != null && a.this.hNi.user_info != null) {
                                     if (a.this.hNi.mYuyinBanMangerData != null) {
                                         a.this.hNi.mYuyinBanMangerData.userCardIndentity = 2;
                                     }
-                                    a.this.osr.VX(a.this.hNi.user_info.user_id);
+                                    a.this.osq.VW(a.this.hNi.user_info.user_id);
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.h.yuyin_ala_person_appoint_admin_confirm_tip), this.hNi.user_info.getNameShow()));
-                    } else if (cmX()) {
-                        a(new InterfaceC0905a() { // from class: com.baidu.tieba.yuyinala.liveroom.n.a.6
-                            @Override // com.baidu.tieba.yuyinala.liveroom.n.a.InterfaceC0905a
+                    } else if (cmY()) {
+                        a(new InterfaceC0943a() { // from class: com.baidu.tieba.yuyinala.liveroom.n.a.6
+                            @Override // com.baidu.tieba.yuyinala.liveroom.n.a.InterfaceC0943a
                             public void onConfirm() {
                                 if (a.this.hNi != null && a.this.hNi.user_info != null) {
                                     if (a.this.hNi.mYuyinBanMangerData != null) {
                                         a.this.hNi.mYuyinBanMangerData.userCardIndentity = 3;
                                     }
-                                    a.this.osr.VY(a.this.hNi.user_info.user_id);
+                                    a.this.osq.VX(a.this.hNi.user_info.user_id);
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.h.yuyin_ala_person_fire_admin_confirm_tip), this.hNi.user_info.getNameShow()));
                     }
                 }
             } else if (view == this.bYR) {
-                this.osr.onCancel();
+                this.osq.onCancel();
             }
         }
     }
 
-    private void a(final InterfaceC0905a interfaceC0905a, String str) {
+    private void a(final InterfaceC0943a interfaceC0943a, String str) {
         BdAlertDialog bdAlertDialog = new BdAlertDialog(this.mPageContext.getPageActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setTitle((String) null);
@@ -176,8 +176,8 @@ public class a extends Dialog implements View.OnClickListener {
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog2) {
                 bdAlertDialog2.dismiss();
-                if (interfaceC0905a != null) {
-                    interfaceC0905a.onConfirm();
+                if (interfaceC0943a != null) {
+                    interfaceC0943a.onConfirm();
                 }
             }
         });
@@ -201,13 +201,13 @@ public class a extends Dialog implements View.OnClickListener {
         this.hNi = personUserData;
         this.boZ = z;
         this.aGB = str;
-        if (cmZ() || cna()) {
+        if (cna() || cnb()) {
             xx(8);
             xy(8);
-        } else if (cmU()) {
+        } else if (cmV()) {
             xx(8);
             this.hNe.setText(a.h.ala_person_relieve_forbidden_forever);
-        } else if (cmV()) {
+        } else if (cmW()) {
             xx(0);
             this.hNd.setText(a.h.ala_person_relieve_forbidden_this);
             this.hNe.setText(a.h.ala_person_forbid_forever);
@@ -216,12 +216,12 @@ public class a extends Dialog implements View.OnClickListener {
             this.hNd.setText(a.h.ala_person_forbid_this);
             this.hNe.setText(a.h.ala_person_forbid_forever);
         }
-        if (cmT()) {
+        if (cmU()) {
             this.hNf.setVisibility(8);
             this.hNh.setVisibility(8);
-        } else if (cmX()) {
+        } else if (cmY()) {
             this.hNf.setText(a.h.yuyin_ala_person_fire_admin);
-        } else if (cmW()) {
+        } else if (cmX()) {
             this.hNf.setText(a.h.yuyin_ala_person_appoint_admin);
         } else {
             this.hNf.setVisibility(8);
@@ -230,34 +230,34 @@ public class a extends Dialog implements View.OnClickListener {
     }
 
     public void a(b bVar) {
-        this.osr = bVar;
-    }
-
-    private boolean cmT() {
-        return (this.hNi == null || this.hNi.mYuyinBanMangerData == null || this.hNi.mYuyinBanMangerData.userBanManger <= 0) ? false : true;
+        this.osq = bVar;
     }
 
     private boolean cmU() {
-        return (this.hNi == null || this.hNi.mYuyinBanMangerData == null || this.hNi.mYuyinBanMangerData.userBanManger != 3) ? false : true;
+        return (this.hNi == null || this.hNi.mYuyinBanMangerData == null || this.hNi.mYuyinBanMangerData.userBanManger <= 0) ? false : true;
     }
 
     private boolean cmV() {
-        return (this.hNi == null || this.hNi.mYuyinBanMangerData == null || this.hNi.mYuyinBanMangerData.userBanManger != 1) ? false : true;
+        return (this.hNi == null || this.hNi.mYuyinBanMangerData == null || this.hNi.mYuyinBanMangerData.userBanManger != 3) ? false : true;
     }
 
     private boolean cmW() {
-        return this.hNi != null && this.hNi.mYuyinBanMangerData != null && this.hNi.mYuyinBanMangerData.userIndentity == 1 && this.hNi.mYuyinBanMangerData.userCardIndentity == 3;
+        return (this.hNi == null || this.hNi.mYuyinBanMangerData == null || this.hNi.mYuyinBanMangerData.userBanManger != 1) ? false : true;
     }
 
     private boolean cmX() {
+        return this.hNi != null && this.hNi.mYuyinBanMangerData != null && this.hNi.mYuyinBanMangerData.userIndentity == 1 && this.hNi.mYuyinBanMangerData.userCardIndentity == 3;
+    }
+
+    private boolean cmY() {
         return this.hNi != null && this.hNi.mYuyinBanMangerData != null && this.hNi.mYuyinBanMangerData.userIndentity == 1 && this.hNi.mYuyinBanMangerData.userCardIndentity == 2;
     }
 
-    private boolean cmZ() {
+    private boolean cna() {
         return (this.hNi == null || this.hNi.mYuyinBanMangerData == null || this.hNi.mYuyinBanMangerData.userCardIndentity != 1) ? false : true;
     }
 
-    private boolean cna() {
+    private boolean cnb() {
         return (this.hNi == null || this.hNi.mYuyinBanMangerData == null || this.hNi.mYuyinBanMangerData.userCardIndentity != 2) ? false : true;
     }
 

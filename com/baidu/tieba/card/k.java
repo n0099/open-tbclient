@@ -63,16 +63,16 @@ public class k extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
         this.alk = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (k.this.cuC() != null) {
-                    k.this.cuC().a(view, k.this.ahi);
+                if (k.this.cuD() != null) {
+                    k.this.cuD().a(view, k.this.ahi);
                 }
             }
         };
         this.fmS = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (k.this.cuC() != null) {
-                    k.this.cuC().a(view, k.this.ahi);
+                if (k.this.cuD() != null) {
+                    k.this.cuD().a(view, k.this.ahi);
                 }
             }
         };
@@ -171,7 +171,7 @@ public class k extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
     }
 
     private void refreshView() {
-        if (this.ahi == 0 || ((com.baidu.tieba.card.data.j) this.ahi).boO() == null) {
+        if (this.ahi == 0 || ((com.baidu.tieba.card.data.j) this.ahi).boP() == null) {
             this.ivt.setVisibility(8);
             return;
         }
@@ -184,7 +184,7 @@ public class k extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
             this.hoz.setLayoutParams(layoutParams);
             this.mLastScreenWidth = equipmentWidth;
         }
-        if (((com.baidu.tieba.card.data.j) this.ahi).boO().brJ() != null && ((com.baidu.tieba.card.data.j) this.ahi).boO().brJ().isChushou) {
+        if (((com.baidu.tieba.card.data.j) this.ahi).boP().brK() != null && ((com.baidu.tieba.card.data.j) this.ahi).boP().brK().isChushou) {
             this.hnz.setShowFlag(10);
             this.hnz.hideShareContainer();
         } else {
@@ -192,32 +192,32 @@ public class k extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
             this.hnz.resetShareContainer();
         }
         this.aho.setVisibility(0);
-        this.aho.setData(((com.baidu.tieba.card.data.j) this.ahi).boO());
+        this.aho.setData(((com.baidu.tieba.card.data.j) this.ahi).boP());
         this.aho.setUserAfterClickListener(this.alk);
-        ((com.baidu.tieba.card.data.j) this.ahi).boO().bsq();
-        this.mTextTitle.setText(new SpannableStringBuilder(((com.baidu.tieba.card.data.j) this.ahi).boO().brZ()));
-        if (((com.baidu.tieba.card.data.j) this.ahi).eMv.brJ().audience_count > 0) {
+        ((com.baidu.tieba.card.data.j) this.ahi).boP().bsr();
+        this.mTextTitle.setText(new SpannableStringBuilder(((com.baidu.tieba.card.data.j) this.ahi).boP().bsa()));
+        if (((com.baidu.tieba.card.data.j) this.ahi).eMv.brK().audience_count > 0) {
             this.hoD.setVisibility(0);
             this.fWu.setVisibility(0);
-            this.fWu.setText(String.format(this.eXu.getResources().getString(R.string.ala_audience_count_prefix), at.numFormatOverWan(((com.baidu.tieba.card.data.j) this.ahi).eMv.brJ().audience_count)));
+            this.fWu.setText(String.format(this.eXu.getResources().getString(R.string.ala_audience_count_prefix), at.numFormatOverWan(((com.baidu.tieba.card.data.j) this.ahi).eMv.brK().audience_count)));
         } else {
             this.hoD.setVisibility(8);
             this.fWu.setVisibility(8);
         }
         this.hoB.setVisibility(8);
-        if (((com.baidu.tieba.card.data.j) this.ahi).eMv.brJ().openRecomReason == 1) {
-            String str = ((com.baidu.tieba.card.data.j) this.ahi).eMv.brJ().recomReason;
+        if (((com.baidu.tieba.card.data.j) this.ahi).eMv.brK().openRecomReason == 1) {
+            String str = ((com.baidu.tieba.card.data.j) this.ahi).eMv.brK().recomReason;
             if (!StringUtils.isNull(str)) {
                 this.hoB.setVisibility(0);
                 this.hoB.setText(str);
             } else {
                 String latitude = ((com.baidu.tieba.card.data.j) this.ahi).eMv.getLatitude();
-                String brF = ((com.baidu.tieba.card.data.j) this.ahi).eMv.brF();
-                if (UtilHelper.isDecimal(latitude) && UtilHelper.isDecimal(brF) && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
-                    AppPosInfo dFS = com.baidu.tieba.recapp.c.a.dFN().dFS();
-                    String str2 = dFS.latitude;
-                    String str3 = dFS.longitude;
-                    if (UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3) && com.baidu.adp.lib.util.l.GetDistance(Double.parseDouble(str2), Double.parseDouble(str3), Double.parseDouble(latitude), Double.parseDouble(brF)) <= 50.0d) {
+                String brG = ((com.baidu.tieba.card.data.j) this.ahi).eMv.brG();
+                if (UtilHelper.isDecimal(latitude) && UtilHelper.isDecimal(brG) && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
+                    AppPosInfo dFT = com.baidu.tieba.recapp.c.a.dFO().dFT();
+                    String str2 = dFT.latitude;
+                    String str3 = dFT.longitude;
+                    if (UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3) && com.baidu.adp.lib.util.l.GetDistance(Double.parseDouble(str2), Double.parseDouble(str3), Double.parseDouble(latitude), Double.parseDouble(brG)) <= 50.0d) {
                         this.hoB.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_recom_reason));
                         this.hoB.setVisibility(0);
                     }
@@ -226,33 +226,33 @@ public class k extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
         }
         ba(this.ivt);
         onChangeSkinType(this.eXu, TbadkCoreApplication.getInst().getSkinType());
-        if (m.Jp(((com.baidu.tieba.card.data.j) this.ahi).eMv.getId())) {
+        if (m.Jo(((com.baidu.tieba.card.data.j) this.ahi).eMv.getId())) {
             ao.setViewTextColor(this.mTextTitle, R.color.CAM_X0109, 1);
         } else {
             ao.setViewTextColor(this.mTextTitle, R.color.CAM_X0105, 1);
         }
-        cbL();
+        cbM();
         this.hoA.playAnimation();
     }
 
-    public void cbL() {
-        if (com.baidu.tbadk.core.k.bou().isShowImages() && this.ahi != 0 && ((com.baidu.tieba.card.data.j) this.ahi).boO() != null && ((com.baidu.tieba.card.data.j) this.ahi).boO().brJ() != null) {
+    public void cbM() {
+        if (com.baidu.tbadk.core.k.bov().isShowImages() && this.ahi != 0 && ((com.baidu.tieba.card.data.j) this.ahi).boP() != null && ((com.baidu.tieba.card.data.j) this.ahi).boP().brK() != null) {
             this.fWo.setPlaceHolder(3);
-            this.fWo.startLoad(((com.baidu.tieba.card.data.j) this.ahi).boO().brJ().cover, 10, false);
+            this.fWo.startLoad(((com.baidu.tieba.card.data.j) this.ahi).boP().brK().cover, 10, false);
             this.hoz.setVisibility(0);
             return;
         }
         this.hoz.setVisibility(8);
     }
 
-    public View cuF() {
+    public View cuG() {
         if (this.aho != null) {
             return this.aho.getAvatar();
         }
         return null;
     }
 
-    public View cuG() {
+    public View cuH() {
         if (this.fnX) {
             if (this.aho != null) {
                 return this.aho.getUserName();
@@ -265,8 +265,8 @@ public class k extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.gpU || view == this.hnz.getCommentContainer() || view == this.its.getCommentContainer()) {
-            if (((com.baidu.tieba.card.data.j) this.ahi).boO().brJ() != null && ((com.baidu.tieba.card.data.j) this.ahi).boO().brJ().isChushou) {
-                eI(((com.baidu.tieba.card.data.j) this.ahi).boO().brJ().thirdRoomId, ((com.baidu.tieba.card.data.j) this.ahi).boO().brJ().thirdLiveType);
+            if (((com.baidu.tieba.card.data.j) this.ahi).boP().brK() != null && ((com.baidu.tieba.card.data.j) this.ahi).boP().brK().isChushou) {
+                eI(((com.baidu.tieba.card.data.j) this.ahi).boP().brK().thirdRoomId, ((com.baidu.tieba.card.data.j) this.ahi).boP().brK().thirdLiveType);
             } else {
                 cL(view);
             }
@@ -274,18 +274,18 @@ public class k extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
     }
 
     private void eI(String str, String str2) {
-        be.bwu().b(this.mTbPageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + "&livetype=" + str2});
+        be.bwv().b(this.mTbPageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + "&livetype=" + str2});
     }
 
     private void cL(View view) {
-        if (cuC() != null) {
-            cuC().a(view, this.ahi);
+        if (cuD() != null) {
+            cuD().a(view, this.ahi);
         }
-        if (this.ahi != 0 && ((com.baidu.tieba.card.data.j) this.ahi).boO() != null && ((com.baidu.tieba.card.data.j) this.ahi).boO().brJ() != null) {
-            m.Jo(((com.baidu.tieba.card.data.j) this.ahi).eMv.getId());
+        if (this.ahi != 0 && ((com.baidu.tieba.card.data.j) this.ahi).boP() != null && ((com.baidu.tieba.card.data.j) this.ahi).boP().brK() != null) {
+            m.Jn(((com.baidu.tieba.card.data.j) this.ahi).eMv.getId());
             m.a(this.mTextTitle, ((com.baidu.tieba.card.data.j) this.ahi).eMv.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(((com.baidu.tieba.card.data.j) this.ahi).boO().brJ());
+            alaLiveInfoCoreData.fillWithInfoData(((com.baidu.tieba.card.data.j) this.ahi).boP().brK());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(this.eXu.getPageActivity(), alaLiveInfoCoreData, "home_rec_play", "", false, "")));
         }
     }

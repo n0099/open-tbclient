@@ -10,16 +10,16 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final byte[] f1605a = new byte[0];
+    private static final byte[] f1606a = new byte[0];
     private f afj;
     private d afl;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f1606b;
+    private int f1607b;
     private byte[] f;
     private int g;
     private int h;
@@ -45,7 +45,7 @@ public final class c {
         if (!(dVar instanceof d)) {
             throw new InvalidKeyException("only support helios key");
         }
-        this.f1606b = z ? 1 : 4;
+        this.f1607b = z ? 1 : 4;
         this.afl = dVar;
         int a2 = b.a(this.afl.sp());
         this.h = a2;
@@ -60,13 +60,13 @@ public final class c {
             if (algorithmParameterSpec != null) {
                 throw new InvalidAlgorithmParameterException("Parameters not supported");
             }
-            this.afj = f.a(this.f1606b <= 2 ? 2 : 1, a2, secureRandom);
+            this.afj = f.a(this.f1607b <= 2 ? 2 : 1, a2, secureRandom);
             if (z) {
                 this.f = new byte[this.afj.a()];
             } else {
                 this.f = new byte[a2];
             }
-        } else if (this.f1606b == 3 || this.f1606b == 4) {
+        } else if (this.f1607b == 3 || this.f1607b == 4) {
             throw new InvalidKeyException("OAEP cannot be used to sign or verify signatures");
         } else {
             if (algorithmParameterSpec == null) {
@@ -91,7 +91,7 @@ public final class c {
             throw new IllegalBlockSizeException("Data must not be longer than " + this.f.length + " bytes");
         }
         try {
-            switch (this.f1606b) {
+            switch (this.f1607b) {
                 case 1:
                     a2 = b.a(this.afj.k(this.f, 0, this.g), this.afl);
                     break;

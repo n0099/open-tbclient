@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 public class p extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoList, PersonCommentHolder> {
     private TbPageContext<PersonPolymericActivity> eXu;
     private boolean isHost;
-    private String mvl;
+    private String mvk;
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tbadk.TbPageContext<?> */
     /* JADX WARN: Multi-variable type inference failed */
@@ -41,10 +41,10 @@ public class p extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoL
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, PersonPostModel.PostInfoList postInfoList, PersonCommentHolder personCommentHolder) {
         if (postInfoList != null && personCommentHolder != null) {
-            if (this.mvl == null) {
-                this.mvl = postInfoList.user_portrait;
+            if (this.mvk == null) {
+                this.mvk = postInfoList.user_portrait;
             }
-            personCommentHolder.a(postInfoList, false, this.mvl);
+            personCommentHolder.a(postInfoList, false, this.mvk);
             ArrayList<String[]> arrayList = new ArrayList<>();
             int length = postInfoList.content.length;
             for (int i2 = 0; i2 < length; i2++) {
@@ -60,22 +60,22 @@ public class p extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoL
                     arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(postInfoList.thread_id), String.valueOf(postInfoList.content[i2].post_id), String.valueOf(postInfoList.content[i2].post_type), at.getFormatTime(postInfoList.content[i2].create_time * 1000), String.valueOf(postInfoList.thread_type)});
                 }
             }
-            personCommentHolder.myv.setContent(arrayList);
+            personCommentHolder.myu.setContent(arrayList);
             if (Pattern.compile("^回复：").matcher(postInfoList.title).find()) {
-                personCommentHolder.myw.setText(postInfoList.title.replaceFirst("回复：", "原贴："));
+                personCommentHolder.myv.setText(postInfoList.title.replaceFirst("回复：", "原贴："));
             } else {
-                personCommentHolder.myw.setText(postInfoList.title);
+                personCommentHolder.myv.setText(postInfoList.title);
             }
-            personCommentHolder.myw.setTag(new String[]{String.valueOf(postInfoList.thread_id), null, null, String.valueOf(postInfoList.thread_type)});
+            personCommentHolder.myv.setTag(new String[]{String.valueOf(postInfoList.thread_id), null, null, String.valueOf(postInfoList.thread_type)});
             if (postInfoList.thread_type == 33) {
-                personCommentHolder.myw.setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
+                personCommentHolder.myv.setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                personCommentHolder.myw.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+                personCommentHolder.myv.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             }
-            ao.setBackgroundResource(personCommentHolder.myw, R.drawable.person_post_line);
-            ao.setViewTextColor(personCommentHolder.myw, R.color.common_color_10039, 1);
+            ao.setBackgroundResource(personCommentHolder.myv, R.drawable.person_post_line);
+            ao.setViewTextColor(personCommentHolder.myv, R.color.common_color_10039, 1);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds20);
-            personCommentHolder.myw.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+            personCommentHolder.myv.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
             personCommentHolder.changeSkin(TbadkCoreApplication.getInst().getSkinType());
         }
         return view;

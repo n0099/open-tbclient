@@ -1,28 +1,26 @@
 package com.baidu.tieba.lego.card.view;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.lego.card.a;
-import com.baidu.tieba.lego.card.c;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
 public interface e<T extends ICardInfo> {
     void aN(Object obj);
 
-    void aWD();
+    void aWE();
 
-    void cUp();
-
-    void ddM();
+    void cUq();
 
     void ddN();
 
+    void ddO();
+
     void l(BdUniqueId bdUniqueId);
 
-    void setAfterClickSchemeListener(a aVar);
+    void setAfterClickSchemeListener(com.baidu.tieba.lego.card.a aVar);
 
     void setBusinessType(int i);
 
-    void setDownloadAppCallback(c cVar);
+    void setDownloadAppCallback(com.baidu.tieba.lego.card.c cVar);
 
     void setFromCDN(boolean z);
 

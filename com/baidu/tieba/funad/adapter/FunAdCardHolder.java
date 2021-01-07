@@ -17,7 +17,7 @@ import com.baidu.tieba.h.a;
 import com.baidu.tieba.tbadkCore.data.n;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class FunAdCardHolder extends TypeAdapter.ViewHolder {
     public Context context;
     public ImageView jQJ;
@@ -34,7 +34,7 @@ public class FunAdCardHolder extends TypeAdapter.ViewHolder {
     public TextView jQU;
     public ViewGroup jQV;
     public ViewGroup jQW;
-    public a.C0749a jQX;
+    public a.C0758a jQX;
     public ViewGroup jQp;
     public List<View> jQq;
     public List<View> jQr;
@@ -79,20 +79,20 @@ public class FunAdCardHolder extends TypeAdapter.ViewHolder {
         this.jQq.add(this.jQW);
         this.jQr = new ArrayList(1);
         this.jQr.add(this.jQx);
-        cPu();
+        cPv();
     }
 
-    public void cPt() {
+    public void cPu() {
         if (this.jQw != null) {
             this.jQw.removeAllViews();
         }
     }
 
-    public a.C0749a a(n nVar) {
+    public a.C0758a a(n nVar) {
         if (nVar == null) {
             return null;
         }
-        this.jQX = new a.C0749a();
+        this.jQX = new a.C0758a();
         this.jQX.eWF = nVar;
         this.jQX.jQp = this.jQp;
         this.jQX.jQq = this.jQq;
@@ -106,7 +106,7 @@ public class FunAdCardHolder extends TypeAdapter.ViewHolder {
         return this.jQX;
     }
 
-    public void cPu() {
+    public void cPv() {
         a(0, -1, 0, 1.0f, true, true);
     }
 

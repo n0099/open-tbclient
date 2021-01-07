@@ -43,7 +43,7 @@ public class az {
         this.total = i;
     }
 
-    public ArrayList<a> bqh() {
+    public ArrayList<a> bqi() {
         return this.eRe;
     }
 

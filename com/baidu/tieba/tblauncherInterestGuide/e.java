@@ -22,9 +22,9 @@ public class e extends Dialog implements com.baidu.tieba.tblauncherInterestGuide
     private LinearLayout mContent;
     private Context mContext;
     private TextView mTitle;
-    private View nzk;
-    private View.OnClickListener nzl;
-    private LinearLayout nzm;
+    private View nzj;
+    private View.OnClickListener nzk;
+    private LinearLayout nzl;
 
     public e(Context context, int i) {
         super(context, i);
@@ -36,18 +36,18 @@ public class e extends Dialog implements com.baidu.tieba.tblauncherInterestGuide
         this.epV = View.inflate(this.mContext, R.layout.new_user_box, null);
         setContentView(this.epV);
         setCanceledOnTouchOutside(true);
-        this.nzm = (LinearLayout) this.epV.findViewById(R.id.box_close_layout);
+        this.nzl = (LinearLayout) this.epV.findViewById(R.id.box_close_layout);
         this.mTitle = (TextView) this.epV.findViewById(R.id.prompt_title);
         this.dxT = (TextView) this.epV.findViewById(R.id.prompt_sub_title);
-        this.nzk = this.epV.findViewById(R.id.view_layout);
+        this.nzj = this.epV.findViewById(R.id.view_layout);
         this.mContent = (LinearLayout) this.epV.findViewById(R.id.layout_content);
-        this.nzk.setBackgroundDrawable(this.mContext.getResources().getDrawable(R.drawable.bg_startpage2_card_blue_up));
+        this.nzj.setBackgroundDrawable(this.mContext.getResources().getDrawable(R.drawable.bg_startpage2_card_blue_up));
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.nzl = onClickListener;
-        this.nzm.setOnClickListener(onClickListener);
+        this.nzk = onClickListener;
+        this.nzl.setOnClickListener(onClickListener);
     }
 
     @Override // android.app.Dialog, com.baidu.tieba.tblauncherInterestGuide.a
@@ -64,7 +64,7 @@ public class e extends Dialog implements com.baidu.tieba.tblauncherInterestGuide
         ArrayList<InterestFrsData.Card> card_list = tag.getCard_list();
         int i = 0;
         while (i < card_list.size()) {
-            View view = new a(card_list.get(i), this.nzl).getView();
+            View view = new a(card_list.get(i), this.nzk).getView();
             this.mContent.addView(view);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
             int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds40);
@@ -118,7 +118,7 @@ public class e extends Dialog implements com.baidu.tieba.tblauncherInterestGuide
         private ImageView mImgView;
         TextView mName;
         View mView;
-        private LinearLayout nzo;
+        private LinearLayout nzn;
 
         public a(InterestFrsData.Card card, View.OnClickListener onClickListener) {
             this.mView = LayoutInflater.from(e.this.mContext).inflate(R.layout.new_user_text_item, (ViewGroup) null);
@@ -139,7 +139,7 @@ public class e extends Dialog implements com.baidu.tieba.tblauncherInterestGuide
             this.mName = (TextView) this.mView.findViewById(R.id.tv_fname);
             this.akw = (TextView) this.mView.findViewById(R.id.tv_cdesc);
             this.mImgView = (ImageView) this.mView.findViewById(R.id.iv_like);
-            this.nzo = (LinearLayout) this.mView.findViewById(R.id.ll_like);
+            this.nzn = (LinearLayout) this.mView.findViewById(R.id.ll_like);
         }
 
         public void setIsLike(boolean z) {
@@ -153,8 +153,8 @@ public class e extends Dialog implements com.baidu.tieba.tblauncherInterestGuide
         private void a(InterestFrsData.Card card, View.OnClickListener onClickListener) {
             Drawable drawable;
             initUI();
-            this.nzo.setOnClickListener(onClickListener);
-            this.nzo.setTag(card);
+            this.nzn.setOnClickListener(onClickListener);
+            this.nzn.setTag(card);
             this.mName.setText(card.getFname());
             if (card.getOrder() == 1) {
                 drawable = e.this.mContext.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_rise);
